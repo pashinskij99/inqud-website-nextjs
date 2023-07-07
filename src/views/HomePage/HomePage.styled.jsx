@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
-import { Box } from '@mui/material'
 
-export const StyledHomeWrapper = styled(Box)`
+export const StyledHomeWrapper = styled.main`
   height: 100%;
   .pickSection {
     position: absolute;
