@@ -1,0 +1,31 @@
+{
+  "name": "inqud-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.6",
+    "clsx": "^1.2.1",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "13.4.7",
+    "next": "13.4.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "swiper": "^10.0.3"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.0.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "sass": "^1.63.6"
+  }
+}
