@@ -41,6 +41,7 @@ export const StyledBlogsSection = styled.section`
     }
   }
   .blogsGridItem {
+    display: block;
   }
   .blogsGridItemImageWrapper {
     position: relative;
