@@ -18,7 +18,6 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
         font-weight: 700;
       @media (max-width: 992px) {
         right: -0.5rem;
-
       }
     }
 
@@ -73,7 +72,7 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
       color: #fff;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 0rem;
       background-color: white;
       margin-top: 69px;
 

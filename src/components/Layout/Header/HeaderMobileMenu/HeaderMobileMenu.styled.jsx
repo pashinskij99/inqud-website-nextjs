@@ -12,13 +12,12 @@ export const StyledHeaderMobileMenu = styled.div`
   padding-top: 6rem;
   padding-bottom: 1.6rem;
   z-index: 100;
-  /* overflow-y: scroll; */
   display: none;
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1400px) {
     display: block;
   }
-  @media (max-width: 1200px) {
+  @media (max-width: 1400px) {
     height: calc(100vh - 8.6rem);
     top: 8.6rem;
   }
@@ -46,6 +45,9 @@ export const StyledHeaderMobileMenu = styled.div`
     flex-direction: column;
     gap: 2.4rem;
     width: 100%;
+    overflow: auto;
+    padding-bottom: 2.4rem;
+    /* height: 700px; */
   }
   .headerMobileMenuNavTitle {
     font-weight: 700;
@@ -55,7 +57,7 @@ export const StyledHeaderMobileMenu = styled.div`
     padding-top: 1.6rem;
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 1rem;
   }
 
   .headerMobileMenuAccordionBodyText {
@@ -145,11 +147,11 @@ export const StyledHeaderMobileMenuAccordionSummary = styled((props) => (
 export const StyledHeaderMobileMenuAccordionDetails = styled(AccordionDetails)(
   () => ({
     padding: 0,
-    overflowY: 'scroll',
-    '&::-webkit-scrollbar': {
-      // display: 'none',
-    },
+    // overflowY: 'scroll',
+    // '&::-webkit-scrollbar': {
+    //   // display: 'none',
+    // },
 
-    height: '200px',
+    // height: '200px',
   })
 )

@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 
 export const StyledOurLandscapeSection = styled.section`
   padding: 24.2rem 0;
+  overflow: hidden;
   @media (max-width: 1200px) {
     padding: 12rem 0;
   }
@@ -34,7 +35,9 @@ export const StyledOurLandscapeSection = styled.section`
         padding: 0.7rem 1.6rem 0.7rem 1.7rem;
         background: transparent;
 
-        color: #517185;
+        p {
+          color: rgba(81, 113, 133, 1);
+        }
 
         &.active {
           background: var(--confident-light-grey, #f4f5fa);
@@ -117,7 +120,7 @@ export const StyledOurLandscapeSection = styled.section`
     }
 
     .ourLandscapeSwiper {
-      overflow-y: visible;
+      overflow: visible;
       display: none;
       .ourLandscapeAccordion {
         .ourLandscapeAccordionTitle {

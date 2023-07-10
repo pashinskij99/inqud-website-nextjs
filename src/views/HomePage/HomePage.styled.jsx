@@ -23,9 +23,15 @@ export const StyledHomeWrapper = styled.main`
   }
 
   .pickSection2 {
+    .pickPickButtonTablet {
+      display: none;
+    }
     @media (max-width: 992px) {
       .pickPickButton {
         display: none;
+      }
+      .pickPickButtonTablet {
+        display: block;
       }
     }
     @media (max-width: 576px) {

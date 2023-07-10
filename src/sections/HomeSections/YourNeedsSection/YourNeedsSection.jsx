@@ -75,6 +75,7 @@ export default function YourNeedsSection() {
           slidesPerView={1.5}
           centeredSlides
           spaceBetween={40}
+          initialSlide="1"
           scrollbar={{
             dragSize: 200 / 3,
             // dragClass: 'listRequirementsSwiperDrag',
@@ -84,12 +85,13 @@ export default function YourNeedsSection() {
           breakpoints={{
             0: {
               slidesPerView: 1,
+              spaceBetween: 8
             },
             576: {
               slidesPerView: 1.5,
             },
             1000: {
-              slidesPerView: 2,
+              slidesPerView: 2.5,
             },
           }}
           modules={[Scrollbar]}

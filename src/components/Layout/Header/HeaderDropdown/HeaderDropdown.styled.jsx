@@ -56,7 +56,7 @@ export const StyledHeaderDropdownWrapper = styled(Box)`
   .dropdown-menu {
     margin-top: 40px;
     left: 50%;
-    max-width: 417px;
+    max-width: auto;
     padding: 2.4rem 3.2rem;
     border-radius: 16px;
     background: #fff;
@@ -73,7 +73,7 @@ export const StyledHeaderDropdownWrapper = styled(Box)`
     ul {
       display: flex;
       flex-direction: column;
-      gap: 1.6rem;
+      gap: 0rem;
       align-items: flex-start;
 
       color: var(--directness-black, #2d3439);
@@ -82,12 +82,25 @@ export const StyledHeaderDropdownWrapper = styled(Box)`
       line-height: normal;
       li {
         white-space: nowrap;
+        width: 100%;
+        padding: .5rem .8rem;
+        border-radius: 0.8rem;
+        &:not(:first-child) {
+          &:hover {
+            background-color: rgba(244, 245, 250, 1);
+          }
+        }
 
         &:first-child {
           color: var(--independent-grey, #517185);
           font-size: 14px;
           font-weight: 700;
           line-height: 18px;
+          a {
+            pointer-events: none;
+            touch-action: none;
+            cursor: text;
+          }
         }
 
         a {

@@ -78,9 +78,12 @@ export default function BlogsSection() {
           breakpoints={{
             0: {
               slidesPerView: 1,
+              spaceBetween: 8,
+              initialSlide: 1
             },
             576: {
               slidesPerView: 1.5,
+              initialSlide: 0
             },
           }}
           scrollbar={{

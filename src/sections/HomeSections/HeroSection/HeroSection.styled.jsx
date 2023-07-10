@@ -77,6 +77,9 @@ export const StyledHeroSectionWrapper = styled.section`
           display: flex;
           align-items: center;
           gap: 1.067rem;
+          p {
+            color: #517185;
+          }
         }
       }
       .buttonsWrapper {

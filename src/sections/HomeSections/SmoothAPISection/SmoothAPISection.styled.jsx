@@ -52,7 +52,7 @@ export const StyledSmoothAPISection = styled.section`
           margin-bottom: 4rem;
         }
         @media (max-width: 576px) {
-          margin-bottom: 1.1rem;
+          margin-bottom: 3.2rem;
         }
       }
       .smoothAPIImageTablet {
@@ -66,7 +66,7 @@ export const StyledSmoothAPISection = styled.section`
         }
         @media (max-width: 576px) {
           max-width: 100%;
-          margin-bottom: 0.8rem;
+          margin-bottom: 3.2rem;
         }
       }
       .smoothAPIDescription {

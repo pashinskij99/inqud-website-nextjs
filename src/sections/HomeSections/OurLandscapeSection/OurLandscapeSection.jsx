@@ -117,6 +117,7 @@ export default function OurLandscapeSection() {
           slidesPerView={1.1}
           centeredSlides
           spaceBetween={10}
+          initialSlide="1"
           scrollbar={{
             dragSize: 200 / 3,
             // dragClass: 'listRequirementsSwiperDrag',

@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 export const StyledFooter = styled.footer`
   .footerSubscribeSectionMobile {
     display: none;
-    @media (max-width: 1200px) {
+    @media (max-width: 1400px) {
       display: block;
       padding: 4rem 0;
       background-color: #242a2f;
@@ -66,7 +66,7 @@ export const StyledFooter = styled.footer`
     .container {
       display: flex;
       justify-content: space-between;
-      @media (max-width: 1200px) {
+      @media (max-width: 1400px) {
         justify-content: start;
         gap: 5.2rem;
       }
@@ -83,7 +83,7 @@ export const StyledFooter = styled.footer`
       }
       .footerLogoSection {
         max-width: 32rem;
-        @media (max-width: 1200px) {
+        @media (max-width: 1400px) {
           margin-right: auto;
         }
         @media (max-width: 767px) {
@@ -162,7 +162,7 @@ export const StyledFooter = styled.footer`
       .footerSubscribeSection {
         margin-top: 2rem;
         max-width: 44rem;
-        @media (max-width: 1200px) {
+        @media (max-width: 1400px) {
           display: none;
         }
         .footerSubscribeSectionTitle {

@@ -4,6 +4,7 @@ export const YourNeedsSectionWrapper = styled.section`
   text-align: center;
   padding-top: 11.6rem;
   padding-bottom: 22.9rem;
+  overflow: hidden;
   @media (max-width: 992px) {
     padding-top: 11.9rem;
     padding-bottom: 11rem;
@@ -75,7 +76,7 @@ export const YourNeedsSectionWrapper = styled.section`
   }
 
   .listRequirementsSwiper {
-    overflow-y: visible;
+    overflow: visible;
     display: none;
     .listRequirementsSwiperScollbar {
       bottom: -4.6rem;

@@ -63,11 +63,14 @@ export default function HeaderMobileMenu({ active }) {
     >
       <div className='container'>
         <div className='headerMobileMenuNav'>
-          <AccordionComponent
-            title='Products'
-            handleChange={handleChange}
-            expanded={expanded}
-          />
+          <div>
+            <AccordionComponent
+              title='Products'
+              handleChange={handleChange}
+              expanded={expanded}
+            />
+          </div>
+
 
           {navList.map(({ id, name }) => (
             <StyledTypographyUrbanistH5
