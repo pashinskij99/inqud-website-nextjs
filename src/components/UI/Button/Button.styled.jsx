@@ -139,7 +139,7 @@ export const StyledButtonGetStartedLight = styled(StyledButtonGetStarted)`
 `
 
 export const StyledButtonGhostCrypto = styled(StyledButtonGhost)`
-  outline: 1px solid var(--exciting-lime, #bfffc8);
+  border: 1px solid var(--exciting-lime, #bfffc8);
   .text {
     color: #bfffc8;
     transition: all 0.3s ease-in-out;
