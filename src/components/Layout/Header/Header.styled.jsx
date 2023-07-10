@@ -10,6 +10,7 @@ export const StyledHeaderWrapper = styled(Box)`
   position: sticky;
   top: 0;
   z-index: 100;
+  transform: translate3d(0,0,0);
   @media (max-width: 992px) {
     padding: 1.8rem 4rem;
   }
