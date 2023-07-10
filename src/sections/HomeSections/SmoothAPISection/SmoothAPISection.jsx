@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -88,9 +89,12 @@ export default function SmoothAPISection() {
           </ul>
 
           <div className='smoothAPIButtonWrapper'>
-            <ButtonGetStarted className='smoothAPIButtonGetStarted'>
-              Get started
-            </ButtonGetStarted>
+            <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
+              <ButtonGetStarted className='smoothAPIButtonGetStarted'>
+                Get started
+              </ButtonGetStarted>
+            </Link>
+
             <StyledButtonGhost className='smoothAPIButtonGhost'>
               Learn more
             </StyledButtonGhost>

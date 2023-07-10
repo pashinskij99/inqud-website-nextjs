@@ -84,7 +84,7 @@ export const StyledHeaderWrapper = styled(Box)`
     ul {
       display: flex;
       align-items: center;
-      gap: 4rem;
+      gap: 2rem;
       color: var(--directness-black, #2d3439);
 
       font-size: 18px;
@@ -94,6 +94,9 @@ export const StyledHeaderWrapper = styled(Box)`
       li {
         z-index: 1;
         transition: 0.3s ease-in-out;
+        a {
+          padding: 1rem;
+        }
         &:hover {
           color: #077453;
         }

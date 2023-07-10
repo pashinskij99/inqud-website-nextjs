@@ -12,6 +12,7 @@ export const StyledHeaderDropdownWrapper = styled(Box)`
     gap: 0.8rem;
     align-items: center;
     transition: all 0.3s ease-in-out;
+    padding: 1rem;
     svg {
       transition: all 0.3s ease-in-out;
     }
@@ -54,7 +55,7 @@ export const StyledHeaderDropdownWrapper = styled(Box)`
   }
 
   .dropdown-menu {
-    margin-top: 40px;
+    margin-top: 50px;
     left: 50%;
     max-width: auto;
     padding: 2.4rem 3.2rem;
@@ -68,6 +69,19 @@ export const StyledHeaderDropdownWrapper = styled(Box)`
     }
     &.hide {
       animation: hideMenu 0.3s ease-in-out forwards;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      background-color: red;
+      width: 24px;
+      height: 24px;
+      transform: translateX(-50%) rotate(-45deg);
+      border-radius: 4px;
+      background: #FFF;
     }
 
     ul {

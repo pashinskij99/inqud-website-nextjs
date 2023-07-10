@@ -57,6 +57,8 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
       display: none;
     }
 
+
+
     &.show {
       display: block;
       z-index: 11111;
@@ -74,7 +76,22 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
       flex-direction: column;
       gap: 0rem;
       background-color: white;
-      margin-top: 69px;
+      margin-top: 85px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        background-color: red;
+        width: 24px;
+        height: 24px;
+        transform: translateX(-50%) rotate(-45deg);
+        border-radius: 4px;
+        background: #FFF;
+        z-index: -1;
+      }
 
       &.show {
         animation: showMenu 0.3s ease-in-out forwards;

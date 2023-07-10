@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
+import Link from 'next/link'
 import {
   StyledTypographyUrbanistCTA,
   StyledTypographyUrbanistSmallSpaces,
@@ -105,13 +106,18 @@ export default function Header() {
         </button>
 
         <div className='sign'>
-          <StyledButtonGhost className={signButton[0].className}>
-            {signButton[0].name}
-          </StyledButtonGhost>
+          <Link target='_blank' href='https://cabinet.inqud.com/#/login'>
+            <StyledButtonGhost className={signButton[0].className}>
+              {signButton[0].name}
+            </StyledButtonGhost>
+          </Link>
 
-          <StyledButtonSecondary className={signButton[1].className}>
-            {signButton[1].name}
-          </StyledButtonSecondary>
+          <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
+            <StyledButtonSecondary className={signButton[1].className}>
+              {signButton[1].name}
+            </StyledButtonSecondary>
+          </Link>
+
         </div>
       </div>
 

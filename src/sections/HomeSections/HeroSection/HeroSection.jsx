@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { StyledHeroSectionWrapper } from './HeroSection.styled'
 import Visa from '@/assets/icons/visa.svg'
@@ -61,9 +62,12 @@ export default function HeroSection() {
           </ul>
 
           <div className='buttonsWrapper'>
-            <ButtonGetStarted className='getStarted'>
-              Get started
-            </ButtonGetStarted>
+            <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
+              <ButtonGetStarted className='getStarted'>
+                Get started
+              </ButtonGetStarted>
+            </Link>
+
             <StyledButtonGhost className='ghostButton'>
               Contact sales
             </StyledButtonGhost>
