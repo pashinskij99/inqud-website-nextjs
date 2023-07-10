@@ -29,15 +29,18 @@ export const StyledReasonsToTeamUp = styled.section`
     justify-content: space-between;
     justify-self: center;
     row-gap: 3.7rem;
-    @media (max-width: 992px) {
+    @media (max-width: 1200px) {
       grid-template-columns: repeat(2, 320px);
       justify-items: center;
       row-gap: 4.8rem;
+      justify-content: center;
+      column-gap: 4.8rem;
     }
 
     @media (max-width: 767px) {
       grid-template-columns: repeat(1, 1fr);
       justify-content: center;
+      column-gap: 0rem;
     }
 
     @media (max-width: 576px) {
