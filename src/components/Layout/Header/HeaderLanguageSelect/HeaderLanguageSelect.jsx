@@ -33,7 +33,7 @@ export default function HeaderLanguageSelect({ className }) {
     <StyledHeaderLanguageSelectWrapper
       onMouseEnter={handleClick}
       onMouseLeave={handleClose}
-      onTouchStart={handleClick}
+      onClick={handleClick}
       className={className}
     >
       <button
