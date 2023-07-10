@@ -42,9 +42,21 @@ export default function Header() {
   }
 
   useEffect(() => {
-    document.body.style.overflowY = active ? 'hidden' : 'auto'
-    document.body.style.touchAction = active ? 'none' : 'auto'
+    if (active) {
+      document.body.classList.add('no-scroll')
+    } else {
+      document.body.classList.remove('no-scroll')
+    }
+
+    return () => {
+      document.body.classList.remove('no-scroll')
+    }
   }, [active])
+
+  // useEffect(() => {
+  //   document.body.style.overflowY = active ? 'hidden' : 'auto'
+  //   document.body.style.touchAction = active ? 'none' : 'auto'
+  // }, [active])
 
   return (
     <StyledHeaderWrapper active={active}>
