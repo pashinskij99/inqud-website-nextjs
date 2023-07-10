@@ -16,7 +16,7 @@ export const StyledCryptoWidget2Section = styled.section`
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-items: self-end;
-    gap: 6rem;
+    gap: 4rem;
     @media (max-width: 1200px) {
       grid-template-columns: 1fr;
       justify-items: auto;
@@ -34,11 +34,23 @@ export const StyledCryptoWidget2Section = styled.section`
         @media (max-width: 1200px) {
           margin: 0 auto 2.4rem;
         }
+        @media (max-width: 992px) {
+          padding: 0.5rem 1.6rem;
+        }
+        @media (max-width: 576px) {
+          margin: 0 auto 1.8rem;
+        }
       }
       .crypto2Title {
         margin-bottom: 2.4rem;
         @media (max-width: 1200px) {
           text-align: center;
+        }
+        @media (max-width: 992px) {
+          margin-bottom: 4rem;
+        }
+        @media (max-width: 576px) {
+          margin-bottom: 2.2rem;
         }
       }
       .crypto2WidgetTablet {
@@ -47,25 +59,42 @@ export const StyledCryptoWidget2Section = styled.section`
         @media (max-width: 1200px) {
           display: block;
           max-width: 40rem;
-          max-height: 35rem;
+          max-height: 40rem;
           object-fit: contain;
-          margin: 0 auto 4rem;
+          margin: 0 auto 2.5rem;
         }
 
         @media (max-width: 576px) {
-          max-width: 100%;
+          /* max-width: 100%; */
+          width: 233.001px;
+          height: 233px;
         }
       }
       .crypto2Description {
         margin-bottom: 5.6rem;
+        &.crypto2Description-desktop {
+
+        }
+        &.crypto2Description-mobile {
+          display: none;
+        }
         @media (max-width: 576px) {
           margin-bottom: 4rem;
+          font-size: 24px;
+          line-height: 34px;
+          &.crypto2Description-desktop {
+            display: none;
+          }
+          &.crypto2Description-mobile {
+            display: block;
+          }
         }
       }
       .crypto2Grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 4rem;
+        column-gap: 4.5rem;
+        row-gap: 3.8rem;
         margin-bottom: 5.6rem;
         @media (max-width: 576px) {
           grid-template-columns: repeat(1, 1fr);
@@ -108,33 +137,28 @@ export const StyledCryptoWidget2Section = styled.section`
         align-items: center;
         border-radius: 30px;
         background: var(--independent-grey, #517185);
-        padding: 3.2rem;
+        padding: 2.5rem 3.2rem;
         width: 100%;
         @media (max-width: 767px) {
           display: grid;
           grid-template-columns: 1fr;
           text-align: center;
           justify-items: center;
+          padding: 3.4rem 2.4rem 3.1rem;
         }
         .crypto2FooterTitle {
           color: var(--exciting-lime, #bfffc8);
           font-weight: 700;
-          order: 2;
-
-          br {
-            display: none;
-          }
+          line-height: 3rem;
+          margin-right: auto;
 
           @media (max-width: 1200px) {
-            margin-right: auto;
-
-            br {
-              display: inline-block;
-            }
+            order: 1;
           }
           @media (max-width: 767px) {
-            margin: 2.3rem auto 2.4rem;
+            margin: 1.6rem auto 1.7rem;
             font-size: 2.4rem;
+            order: 2;
             br {
               display: none;
             }
@@ -144,6 +168,7 @@ export const StyledCryptoWidget2Section = styled.section`
           display: flex;
           align-items: center;
           order: 1;
+
         }
         .crypto2FooterButtonCrypto {
           white-space: nowrap;

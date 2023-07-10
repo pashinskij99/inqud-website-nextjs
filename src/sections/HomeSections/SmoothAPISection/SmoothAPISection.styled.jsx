@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 export const StyledSmoothAPISection = styled.section`
   padding-top: 24rem;
-  padding-bottom: 41.4rem;
+  padding-bottom: 41rem;
   @media (max-width: 1200px) {
     padding: 12rem 0;
   }
@@ -12,7 +12,7 @@ export const StyledSmoothAPISection = styled.section`
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8.9rem;
+    gap: 4.5rem;
     align-items: center;
     @media (max-width: 1200px) {
       gap: 0;
@@ -32,10 +32,17 @@ export const StyledSmoothAPISection = styled.section`
         line-height: 1;
         padding: 0.7rem 1.6rem;
         width: fit-content;
-        margin-bottom: 2.4rem;
+        margin-bottom: 2.1rem;
         @media (max-width: 1200px) {
           margin-right: auto;
           margin-left: auto;
+        }
+        @media (max-width: 992px) {
+          padding: 0.5rem 1.6rem;
+          margin-bottom: 2.3rem;
+        }
+        @media (max-width: 576px) {
+          margin-bottom: 1.8rem;
         }
       }
       .smoothAPITitle {
@@ -43,6 +50,9 @@ export const StyledSmoothAPISection = styled.section`
         @media (max-width: 1200px) {
           text-align: center;
           margin-bottom: 4rem;
+        }
+        @media (max-width: 576px) {
+          margin-bottom: 1.1rem;
         }
       }
       .smoothAPIImageTablet {
@@ -56,6 +66,7 @@ export const StyledSmoothAPISection = styled.section`
         }
         @media (max-width: 576px) {
           max-width: 100%;
+          margin-bottom: 0.8rem;
         }
       }
       .smoothAPIDescription {
@@ -70,12 +81,15 @@ export const StyledSmoothAPISection = styled.section`
           display: block;
           margin-bottom: 4rem;
           text-align: center;
+          font-size: 2.4rem;
+          line-height: 3.4rem;
         }
       }
       .smoothAPIGrid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        column-gap: 4rem;
+        row-gap: 3.5rem;
         margin-bottom: 5.6rem;
         @media (max-width: 576px) {
           grid-template-columns: 1fr;

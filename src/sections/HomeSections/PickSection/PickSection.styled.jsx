@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const StyledPickSectionSection = styled.section`
-  border-radius: 30px;
+  border-radius: 3rem;
   background: var(--ambitious-green, #077453);
   padding-left: 6.4rem;
 
@@ -30,8 +30,20 @@ export const StyledPickSectionSection = styled.section`
       margin-bottom: 2.4rem;
       font-weight: 400;
     }
+    @media (max-width: 992px) {
+      line-height: 7.45rem;
+      .pickTitle10Minutes {
+        margin-bottom: 1.15rem;
+      }
+
+    }
     @media (max-width: 576px) {
       font-weight: 700;
+      line-height: 5rem;
+      margin-bottom: 3rem;
+      .pickTitle10Minutes {
+        margin-bottom: .6rem;
+      }
     }
   }
 
@@ -50,29 +62,42 @@ export const StyledPickSectionSection = styled.section`
   }
   .pickList {
     flex-shrink: 0;
+    margin-left: 2rem;
 
     @media (max-width: 1200px) {
       margin-bottom: 4rem;
+      margin-left: 0rem;
+    }
+    @media (max-width: 576px) {
+      margin-bottom: 3.8rem;
     }
 
     .pickListTitle {
       color: white;
       font-weight: 700;
-      margin-bottom: 2.2rem;
+      margin-bottom: 2.4rem;
       @media (max-width: 1200px) {
         margin-bottom: 2.4rem;
       }
+
       @media (max-width: 576px) {
         font-size: 2.4rem;
         font-weight: 700;
+        margin-bottom: 2.8rem;
       }
     }
     ul {
       display: flex;
       flex-direction: column;
-      gap: 1.6rem;
+      row-gap: 1.6rem;
       @media (max-width: 1200px) {
         text-align: start;
+      }
+      @media (max-width: 992px) {
+        row-gap: 0.6rem;
+      }
+      @media (max-width: 576px) {
+        row-gap: 1.1rem;
       }
       li {
         display: flex;
@@ -86,6 +111,18 @@ export const StyledPickSectionSection = styled.section`
           flex-shrink: 0;
         }
       }
+    }
+  }
+
+  .pickList10Minutes {
+    @media (max-width: 992px) {
+      ul {
+        gap: 2.1rem;
+        @media (max-width: 576px) {
+          row-gap: 2rem;
+        }
+      }
+
     }
   }
 
@@ -123,9 +160,11 @@ export const StyledPickSectionSection = styled.section`
       }
     }
     .pickPickButton {
-      @media (max-width: 576px) {
-        width: 100%;
-      }
+      /* @media (max-width: 992px) {
+        display: none;
+      } */
+      width: 100%;
     }
+
   }
 `

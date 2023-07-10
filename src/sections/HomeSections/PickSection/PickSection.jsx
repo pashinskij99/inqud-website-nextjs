@@ -75,21 +75,21 @@ export default function PickSection({ variant, className }) {
     <StyledPickSectionSection className={clsx(className, 'container')}>
       <StyledTypographyUrbanistH2 className='pickTitle'>
         {variant === 'dontLose' ? (
-          <>
+          <div className='pickTitleDontLose'>
             Don&apos;t lose
             <br />
             crypto-paying
             <br />
             customers!
-          </>
+          </div>
         ) : (
-          <>
+          <div className='pickTitle10Minutes'>
             10 minutes
             <br />
             of free expert
             <br />
             consultation
-          </>
+          </div>
         )}
       </StyledTypographyUrbanistH2>
 
@@ -118,6 +118,12 @@ export default function PickSection({ variant, className }) {
         <StyledButtonSecondaryLight className='pickPickButton'>
           Book a consultation
         </StyledButtonSecondaryLight>
+          {
+            variant !== 'dontLose' && <StyledButtonSecondaryLight className='pickPickButtonTablet'>
+            Book a demo
+          </StyledButtonSecondaryLight>
+          }
+
       </div>
     </StyledPickSectionSection>
   )
@@ -145,7 +151,7 @@ export function PickListDontLose({ list }) {
 
 export function PickList10Minutes({ list }) {
   return (
-    <div className='pickList'>
+    <div className='pickList pickList10Minutes'>
       <ul>
         {list.map(({ id, text, icon }) => (
           <li key={id}>

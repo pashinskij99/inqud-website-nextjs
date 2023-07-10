@@ -10,6 +10,7 @@ import { ButtonGetStartedLight } from '@/components/UI/Button/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import Widget from '@/assets/images/crypto-widget/widget.svg'
 import WidgetMobile from '@/assets/images/crypto-widget/widget-mobile.svg'
+import WidgetMobileSmaller from '@/assets/images/crypto-widget/widget-mob.svg'
 import Check from '@/assets/icons/check-green-background.svg'
 import Loading from '@/assets/icons/loading.svg'
 
@@ -24,18 +25,18 @@ const gridContent = [
     id: 1,
     title: 'Fee flexibility',
     description:
-      'Decide who covers the transaction fee - either the business itself or the customer.',
+      <>Decide who covers the transaction <br /> fee - either the business itself or the customer.</>,
   },
   {
     id: 2,
     title: 'Auto-conversion',
     description:
-      'Mitigate market volatility risks with our automatic conversion system.',
+      <>Mitigate market volatility risks with <br /> our automatic conversion system.</>,
   },
   {
     id: 3,
     title: 'Widget customization',
-    description: 'Our SDK lets you shape your widget to align with your brand.',
+    description:<>Our SDK lets you shape your widget <br /> to align with your brand.</>,
   },
 ]
 
@@ -44,8 +45,11 @@ export default function CryptoWidgetSection() {
     <StyledCryptoWidgetSection>
       <div className='container'>
         <div className='leftSide'>
-          <StyledTypographyIBMH5 className='cryptoSubTitle'>
+          <StyledTypographyIBMH5 className='cryptoSubTitle cryptoSubTitle-desktop'>
             {' // '} Tailored for developers
+          </StyledTypographyIBMH5>
+          <StyledTypographyIBMH5 className='cryptoSubTitle cryptoSubTitle-mobile'>
+            {' // '} Tailored for devs
           </StyledTypographyIBMH5>
           <StyledTypographyUrbanistH1 className='cryptoTitle'>
             Crypto widget
@@ -53,12 +57,13 @@ export default function CryptoWidgetSection() {
 
           <div className='cryptoWidgetMobileWrapper'>
             <WidgetMobile className='cryptoWidgetMobile' />
+            <WidgetMobileSmaller className='cryptoWidgetMobileSmaller' />
           </div>
 
           <StyledTypographyUrbanistH5 className='cryptoDescription'>
-            Get on board with the future of payments — our embeddable crypto
-            widget for your website makes it simple to accept cryptocurrency
-            payments including Bitcoin, Ethereum and other crypto.
+            Get on board with the future of payments — our <br /> embeddable crypto
+            widget for your website makes it <br /> simple to accept cryptocurrency
+            payments including <br /> Bitcoin, Ethereum and other crypto.
           </StyledTypographyUrbanistH5>
 
           <StyledTypographyUrbanistH5 className='cryptoDescriptionMobile'>

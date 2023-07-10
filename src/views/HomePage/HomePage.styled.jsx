@@ -12,5 +12,29 @@ export const StyledHomeWrapper = styled.main`
       position: relative;
       transform: translateY(0%);
     }
+    .pickPickButtonTablet {
+      @media (max-width: 992px) {
+        display: block;
+      }
+      @media (max-width: 576px) {
+        width: 100%;
+      }
+    }
+  }
+
+  .pickSection2 {
+    @media (max-width: 992px) {
+      .pickPickButton {
+        display: none;
+      }
+    }
+    @media (max-width: 576px) {
+      .pickPickButton {
+        display: block;
+      }
+      .pickPickButtonTablet {
+        display: none;
+      }
+    }
   }
 `

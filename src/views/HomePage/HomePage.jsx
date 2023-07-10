@@ -23,7 +23,7 @@ export default function HomePage() {
       <PickSection className='pickSection' variant='dontLose' />
       <CryptoWidget2Section />
       <ReasonsToTeamUp />
-      <PickSection />
+      <PickSection className='pickSection2' />
       <OurLandscapeSection />
       <BlogsSection />
       <QuestionsSection />

@@ -45,7 +45,7 @@ export default function HeroSection() {
             Bespoke diversity payments
           </StyledTypographyUrbanistDisplay>
           <StyledTypographyUrbanistH5 className='paragraph'>
-            Inqud is the trusted partner and provider of tailored crypto & fiat
+            Inqud is the trusted partner and provider of tailored <br /> crypto & fiat
             payment solutions.
           </StyledTypographyUrbanistH5>
 
@@ -65,7 +65,7 @@ export default function HeroSection() {
               Get started
             </ButtonGetStarted>
             <StyledButtonGhost className='ghostButton'>
-              Get started
+              Contact sales
             </StyledButtonGhost>
           </div>
 

@@ -93,8 +93,9 @@ export default function OurLandscapeSection() {
           ))}
         </div>
         <StyledTypographyUrbanistH5 className='ourLandscapeDescription'>
-          Always on the hustle, we&apos;re leveling up <br /> and broadening our
-          reach, nonstop.
+          Always on the hustle, we&apos;re leveling up
+          <br className='br-desktop' /> and broadening{' '}
+          <br className='br-tablet' /> our reach, nonstop.
         </StyledTypographyUrbanistH5>
 
         <div className='ourLandscapeRisk'>

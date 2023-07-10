@@ -10,6 +10,9 @@ export const StyledHeaderWrapper = styled(Box)`
   position: sticky;
   top: 0;
   z-index: 100;
+  @media (max-width: 992px) {
+    padding: 1.8rem 4rem;
+  }
   @media (max-width: 767px) {
     padding: 0.8rem 16px;
     height: 5rem;
@@ -18,6 +21,9 @@ export const StyledHeaderWrapper = styled(Box)`
     display: flex;
     align-items: center;
     gap: 4.7rem;
+    @media (max-width: 992px) {
+      gap: 2.7rem;
+    }
     @media (max-width: 767px) {
       gap: 1.6rem;
 
@@ -38,9 +44,11 @@ export const StyledHeaderWrapper = styled(Box)`
       }
       display: flex;
       align-items: center;
-      gap: 1.6rem;
+      gap: 0.2rem;
+      button {
+        padding: 0 1.4rem;
+      }
       .secondaryButton {
-        padding: 0 14px;
         height: 4rem;
         border-radius: 7.2rem;
         outline: 1px solid transparent;
@@ -107,7 +115,7 @@ export const StyledHeaderWrapper = styled(Box)`
     display: flex;
     align-items: center;
     gap: 9.6rem;
-    @media (max-width: 767px) {
+    @media (max-width: 992px) {
       gap: 7.5rem;
     }
 

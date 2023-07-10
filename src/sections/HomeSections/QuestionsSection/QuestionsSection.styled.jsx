@@ -5,7 +5,11 @@ export const StyledQuestionsSection = styled.section`
   padding: 24rem 0;
 
   @media (max-width: 992px) {
-    padding: 12rem 0;
+    padding: 11.7rem 0;
+  }
+
+  @media (max-width: 576px) {
+    padding: 11.7rem 0 9.8rem;
   }
 
   .questionsTitle {
@@ -32,6 +36,9 @@ export const StyledQuestionsSection = styled.section`
     flex-direction: column;
     gap: 0.8rem;
     margin-bottom: 0.8rem;
+    @media (max-width: 576px) {
+      gap: 1.4rem;
+    }
   }
 
   @media (max-width: 576px) {
@@ -67,9 +74,10 @@ export const StyledQuestionsSection = styled.section`
     }
 
     @media (max-width: 576px) {
-      padding: 1.6rem 1.6rem;
+      padding: 1.6rem;
     }
     .questionsButtonHelp {
+      padding-right: 0;
       height: fit-content;
       @media (max-width: 992px) {
         flex: 1;
@@ -154,6 +162,7 @@ export const StyledQuestionsSectionAccordionSummary = styled((props) => (
   },
   '& .questionsAccordionTitle': {
     fontWeight: `${props.expanded ? '700' : '400'}`,
+
   },
   transition: 'padding 0.3s ease',
 }))

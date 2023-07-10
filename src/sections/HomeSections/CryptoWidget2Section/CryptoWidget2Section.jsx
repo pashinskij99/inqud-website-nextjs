@@ -58,11 +58,15 @@ export default function CryptoWidget2Section() {
             alt='widget'
           />
 
-          <StyledTypographyUrbanistH5 className='crypto2Description'>
+          <StyledTypographyUrbanistH5 className='crypto2Description crypto2Description-desktop'>
             Widget that seamlessly accepts local fiat payments for your products
             & services: Effortlessly elevate payments - our widget securely
             transitions between fiat and crypto, enhancing your financial
             flexibility.
+          </StyledTypographyUrbanistH5>
+
+          <StyledTypographyUrbanistH5 className='crypto2Description crypto2Description-mobile'>
+            Widget that seamlessly accepts local fiat payments for your products & services.
           </StyledTypographyUrbanistH5>
 
           <ul className='crypto2Grid'>

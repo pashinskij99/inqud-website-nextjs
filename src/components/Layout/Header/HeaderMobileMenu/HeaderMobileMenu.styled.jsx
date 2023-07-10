@@ -18,7 +18,10 @@ export const StyledHeaderMobileMenu = styled.div`
   @media (max-width: 1200px) {
     display: block;
   }
-
+  @media (max-width: 1200px) {
+    height: calc(100vh - 8.6rem);
+    top: 8.6rem;
+  }
   @media (max-width: 767px) {
     height: calc(100vh - 5rem);
     top: 5rem;

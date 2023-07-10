@@ -14,7 +14,7 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
       align-items: center;
       right: -1.2rem;
       gap: 0.8rem;
-      @media (max-width: 576px) {
+      @media (max-width: 992px) {
         right: -0.5rem;
         font-size: 1.8rem;
         font-weight: 700;

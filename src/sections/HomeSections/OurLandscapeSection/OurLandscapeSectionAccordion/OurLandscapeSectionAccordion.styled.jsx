@@ -20,7 +20,7 @@ export const StyledOurLandscapeSectionAccordion = styled((props) => (
 export const StyledOurLandscapeSectionAccordionSummary = styled((props) => (
   <AccordionSummary {...props} />
 ))(() => ({
-  padding: '1.8rem 3.2rem',
+  padding: '1.85rem 3.2rem 1.9rem',
   lineHeight: 1,
   height: 'fit-content',
   '& .css-1betqn-MuiAccordionSummary-content': {

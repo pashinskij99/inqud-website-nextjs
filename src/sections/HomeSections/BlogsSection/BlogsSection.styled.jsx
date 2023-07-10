@@ -2,11 +2,18 @@ import styled from '@emotion/styled'
 
 export const StyledBlogsSection = styled.section`
   /* padding-top: 24rem; */
+  @media (max-width: 992px) {
+    padding-bottom: 6.2rem;
+    overflow: hidden;
+  }
   .blogsHeader {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 5.6rem;
+    @media (max-width: 992px) {
+      align-items: center;
+    }
     @media (max-width: 576px) {
       justify-content: center;
       margin-bottom: 4rem;
@@ -15,6 +22,10 @@ export const StyledBlogsSection = styled.section`
     .blogsHeaderTitle {
     }
     .blogsHeaderButton {
+      @media (max-width: 992px) {
+        height: 4.8rem;
+        margin-top: 1.5rem;
+      }
       @media (max-width: 576px) {
         display: none;
       }
@@ -40,6 +51,8 @@ export const StyledBlogsSection = styled.section`
     }
 
     @media (max-width: 576px) {
+      max-width: 343px;
+      height: 193px;
       margin-bottom: 2.4rem;
     }
   }
@@ -52,7 +65,7 @@ export const StyledBlogsSection = styled.section`
       line-height: 1;
       padding: 0.7rem 1.6rem;
       width: fit-content;
-      margin-bottom: 1.6rem;
+      margin-bottom: 1.2rem;
       @media (max-width: 576px) {
         margin: 0 auto 1.2rem;
       }
@@ -62,6 +75,7 @@ export const StyledBlogsSection = styled.section`
       font-weight: 700;
       @media (max-width: 576px) {
         margin-bottom: 1.2rem;
+        text-align: center;
       }
     }
     .blogsGridItemBodyFooter {
@@ -74,6 +88,9 @@ export const StyledBlogsSection = styled.section`
       .blogsGridItemBodyFooterDateTime {
         color: var(--independent-grey, #517185);
       }
+      @media (max-width: 576px) {
+        justify-content: center;
+      }
     }
   }
 
@@ -83,19 +100,23 @@ export const StyledBlogsSection = styled.section`
 
     @media (max-width: 992px) {
       display: block;
+      overflow: visible;
     }
 
     @media (max-width: 576px) {
       margin-bottom: 8.2rem;
     }
     .listRequirementsSwiperScollbar {
-      bottom: -4rem;
+      bottom: -5.8rem;
       width: 20rem;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(81, 113, 133, 0.2);
       opacity: 1 !important;
-
+      height: .2rem;
+      @media (max-width: 576px) {
+        bottom: -4rem;
+      }
       .swiper-scrollbar-drag {
         background: rgba(7, 116, 83, 1) !important;
       }

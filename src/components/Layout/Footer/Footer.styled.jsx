@@ -21,6 +21,10 @@ export const StyledFooter = styled.footer`
       @media (max-width: 767px) {
         margin-bottom: 1.8rem;
       }
+      @media (max-width: 576px) {
+        font-size: 24px;
+        line-height: 34px;
+      }
     }
 
     .footerSubscribeSectionInputWrapper {
@@ -54,10 +58,10 @@ export const StyledFooter = styled.footer`
     }
   }
   .top {
-    padding: 12rem 0;
+    padding: 12rem 0 12.9rem;
     background: var(--directness-black, #2d3439);
     @media (max-width: 767px) {
-      padding: 8rem 0;
+      padding: 8rem 0 8.6rem;
     }
     .container {
       display: flex;
@@ -65,6 +69,9 @@ export const StyledFooter = styled.footer`
       @media (max-width: 1200px) {
         justify-content: start;
         gap: 5.2rem;
+      }
+      @media (max-width: 992px) {
+        gap: 0;
       }
       @media (max-width: 767px) {
         flex-direction: column;
@@ -84,7 +91,7 @@ export const StyledFooter = styled.footer`
           margin: 0 auto;
         }
         svg {
-          margin-bottom: 3.6rem;
+          margin-bottom: 3.4rem;
           @media (max-width: 767px) {
             margin-bottom: 3.2rem;
           }
@@ -99,9 +106,26 @@ export const StyledFooter = styled.footer`
           }
         }
       }
+      .footerLegalSection {
+        margin-left: 0rem;
+        @media (max-width: 992px) {
+          margin-left: 3.5rem;
+        }
+        @media (max-width: 576px) {
+          margin-left: 0rem;
+        }
+      }
+
+      .footerResourcesSection {
+        margin-left: 5.5rem;
+        @media (max-width: 576px) {
+          margin-left: 0rem;
+        }
+      }
 
       .footerLegalSection,
       .footerResourcesSection {
+        margin-top: 1.7rem;
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
@@ -109,13 +133,19 @@ export const StyledFooter = styled.footer`
         .footerResourcesSectionTitle {
           font-weight: 700;
           color: var(--exciting-lime, #bfffc8);
-          margin-bottom: 1.4rem;
+          margin-bottom: 2rem;
+          @media (max-width: 576px) {
+            font-size: 24px;
+          }
         }
         .footerLegalSectionList,
         .footerResourcesSectionList {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 1.4rem;
+          @media (max-width: 576px) {
+            gap: 1.8rem;
+          }
         }
         .footerLegalSectionListItem,
         .footerResourcesSectionListItem {
@@ -123,11 +153,14 @@ export const StyledFooter = styled.footer`
         .footerLegalSectionListItemText,
         .footerResourcesSectionListItemText {
           font-weight: 500;
+          line-height: 1;
+
           color: #ffffff;
         }
       }
 
       .footerSubscribeSection {
+        margin-top: 2rem;
         max-width: 44rem;
         @media (max-width: 1200px) {
           display: none;
@@ -135,7 +168,7 @@ export const StyledFooter = styled.footer`
         .footerSubscribeSectionTitle {
           font-weight: 700;
           color: var(--exciting-lime, #bfffc8);
-          margin-bottom: 2rem;
+          margin-bottom: 1.8rem;
         }
         .footerSubscribeSectionInputWrapper {
           display: flex;
