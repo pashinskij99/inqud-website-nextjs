@@ -9,8 +9,7 @@ export const StyledCartRequirement = styled.div`
   .cartImageContainer {
     position: relative;
     width: 100%;
-    height: 30rem;
-
+    height: 25rem;
   }
 
   .cartImage {
