@@ -13,6 +13,7 @@ export const StyledHeaderMobileMenu = styled.div`
   padding-bottom: 1.6rem;
   z-index: 100;
   display: none;
+  margin-bottom: env(safe-area-inset-bottom);
 
   @media (max-width: 1400px) {
     display: block;
