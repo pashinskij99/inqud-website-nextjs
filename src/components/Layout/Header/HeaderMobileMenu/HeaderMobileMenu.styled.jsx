@@ -2,8 +2,8 @@ import styled from '@emotion/styled'
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 
 export const StyledHeaderMobileMenu = styled.div`
-  height: 100dvh;
-  top: 0;
+  /* height: 100dvh; */
+  /* top: 0; */
   left: 0;
   position: fixed;
   width: 100%;
@@ -18,14 +18,14 @@ export const StyledHeaderMobileMenu = styled.div`
   @media (max-width: 1400px) {
     display: block;
   }
-  /* @media (max-width: 1400px) {
-    height: calc(100vh - 8.6rem);
+  @media (max-width: 1400px) {
+    height: calc(100dvh - 8.6rem);
     top: 8.6rem;
   }
   @media (max-width: 767px) {
-    height: calc(100vh - 5rem);
+    height: calc(100dvh - 5rem);
     top: 5rem;
-  } */
+  }
 
   &.show {
     animation: show 0.3s ease-in-out forwards;
