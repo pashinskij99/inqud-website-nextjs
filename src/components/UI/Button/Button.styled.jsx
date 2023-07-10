@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 export const StyledButtonGhost = styled.button`
   height: 4.8rem;
   border-radius: 10rem;
-  outline: 1px solid var(--ambitious-green-20, rgba(7, 116, 83, 0.2));
+  border: 1px solid var(--ambitious-green-20, rgba(7, 116, 83, 0.2));
 
   color: var(--ambitious-green, #077453);
   text-align: center;
@@ -15,7 +15,7 @@ export const StyledButtonGhost = styled.button`
 
   &:hover {
     background-color: #ccffd3;
-    outline-color: #ccffd3;
+    border-color: #ccffd3;
   }
 `
 
