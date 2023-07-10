@@ -135,10 +135,10 @@ export const StyledHeaderMobileMenuAccordionSummary = styled((props) => (
   justifyContent: 'center',
   height: 'fit-content',
   '& .headerMobileMenuAccordionTitle': {
-    margin: 0,
+    margin: '0 auto',
     fontWeight: 700,
   },
-  '& .css-1betqn-MuiAccordionSummary-content': {
+  '& .css-1betqn-MuiAccordionSummary-content, & .MuiAccordionSummary-content.css-1n11r91': {
     margin: '0',
     textAlign: 'center',
     justifyContent: 'center',

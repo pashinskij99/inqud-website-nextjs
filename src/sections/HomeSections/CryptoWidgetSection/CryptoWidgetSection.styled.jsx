@@ -239,7 +239,7 @@ export const StyledCryptoWidgetSection = styled.section`
         }
       }
       .cryptoButtonGhost {
-        outline: 1px solid var(--exciting-lime-20, rgba(191, 255, 200, 0.2));
+        border: 1px solid var(--exciting-lime-20, rgba(191, 255, 200, 0.2));
         color: #bfffc8;
 
         &:hover {
