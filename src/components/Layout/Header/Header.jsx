@@ -43,7 +43,7 @@ export default function Header() {
 
   useEffect(() => {
     document.body.style.overflowY = active ? 'hidden' : 'auto'
-    document.body.style.touchAction = active ? 'none' : 'all'
+    document.body.style.touchAction = active ? 'none' : 'auto'
   }, [active])
 
   return (
