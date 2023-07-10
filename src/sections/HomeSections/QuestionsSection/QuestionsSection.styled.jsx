@@ -162,7 +162,9 @@ export const StyledQuestionsSectionAccordionSummary = styled((props) => (
   },
   '& .questionsAccordionTitle': {
     fontWeight: `${props.expanded ? '700' : '400'}`,
-
+  },
+  '@media (max-width: 576px)': {
+    padding: '1.6rem 1.6rem 1rem 1.6rem',
   },
   transition: 'padding 0.3s ease',
 }))
