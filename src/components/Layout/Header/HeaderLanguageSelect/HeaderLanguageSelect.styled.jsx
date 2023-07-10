@@ -12,12 +12,13 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
       transform: translateY(-50%) translateX(100%);
       display: flex;
       align-items: center;
-      right: -1.2rem;
+      right: -0.7rem;
       gap: 0.8rem;
+      font-size: 1.8rem;
+        font-weight: 700;
       @media (max-width: 992px) {
         right: -0.5rem;
-        font-size: 1.8rem;
-        font-weight: 700;
+
       }
     }
 
