@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 
 export const StyledHeaderMobileMenu = styled.div`
-  height: 100%;
+  height: 100vh;
   top: 0;
   left: 0;
   position: fixed;
