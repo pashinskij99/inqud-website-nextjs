@@ -46,8 +46,8 @@ export default function HeroSection() {
             Bespoke diversity payments
           </StyledTypographyUrbanistDisplay>
           <StyledTypographyUrbanistH5 className='paragraph'>
-            Inqud is the trusted partner and provider of tailored <br /> crypto & fiat
-            payment solutions.
+            Inqud is the trusted partner and provider of tailored <br /> crypto
+            & fiat payment solutions.
           </StyledTypographyUrbanistH5>
 
           <ul className='features'>

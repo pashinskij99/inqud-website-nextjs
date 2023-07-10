@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import clsx from 'clsx'
+import Link from 'next/link'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH5,
@@ -83,7 +84,9 @@ export default function HeaderMobileMenu({ active }) {
         </div>
 
         <div className='headerMobileMenuButtons'>
-          <ButtonGetStarted>Get started</ButtonGetStarted>
+          <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
+            <ButtonGetStarted>Get started</ButtonGetStarted>
+          </Link>
           <StyledButtonGhost>Log in</StyledButtonGhost>
         </div>
       </div>

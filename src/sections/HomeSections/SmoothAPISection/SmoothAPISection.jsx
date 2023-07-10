@@ -56,7 +56,7 @@ export default function SmoothAPISection() {
             Smooth API integration
           </StyledTypographyUrbanistH1>
 
-          <Image src={GraphicTabletImage} className='smoothAPIImageTablet' />
+          <Image src={GraphicTabletImage} alt='Smooth API integration' className='smoothAPIImageTablet' />
 
           <StyledTypographyUrbanistH5 className='smoothAPIDescription'>
             Advanced onramp & offramp payment processing, customization,

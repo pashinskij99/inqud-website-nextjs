@@ -94,6 +94,7 @@ export const StyledHeroSectionWrapper = styled.section`
           .getStarted {
             width: 100%;
             display: flex;
+            padding-left: 0;
             justify-content: center;
             position: relative;
             svg {

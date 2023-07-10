@@ -165,7 +165,7 @@ function Accordion({ icon, items, title, columnColor }) {
           handleChange={handleChange}
           title={accordionTitle}
           columnColor={columnColor}
-          lastChild={items.length - 1 === id}
+          lastchild={items.length - 1 === id}
         />
       ))}
     </div>

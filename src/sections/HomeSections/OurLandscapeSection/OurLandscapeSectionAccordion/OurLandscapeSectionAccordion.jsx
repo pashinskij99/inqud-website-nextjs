@@ -24,7 +24,7 @@ export default function OurLandscapeSectionAccordion({
   handleChange,
   id,
   columnColor,
-  lastChild,
+  lastchild,
 }) {
   return (
     <StyledOurLandscapeSectionAccordion
@@ -32,7 +32,7 @@ export default function OurLandscapeSectionAccordion({
       expanded={expanded === title}
       columnColor={columnColor}
       onChange={handleChange(title)}
-      lastChild={lastChild}
+      lastchild={lastchild}
     >
       <StyledOurLandscapeSectionAccordionSummary>
         <StyledTypographyUrbanistBody>{title}</StyledTypographyUrbanistBody>

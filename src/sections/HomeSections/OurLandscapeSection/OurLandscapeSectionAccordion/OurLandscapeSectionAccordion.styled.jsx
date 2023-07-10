@@ -5,7 +5,7 @@ export const StyledOurLandscapeSectionAccordion = styled((props) => (
   <Accordion disableGutters elevation={0} square {...props} />
 ))((props) => ({
   borderBottom: 'none',
-  background: props.lastChild
+  background: props.lastchild
     ? `rgba(${props.columnColor}, 1) `
     : `rgba(${props.columnColor}, ${props.opacity}) `,
   borderRadius: '20px',
