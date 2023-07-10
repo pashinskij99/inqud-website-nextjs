@@ -157,7 +157,7 @@ export const StyledQuestionsSectionAccordionSummary = styled((props) => (
   paddingBottom: `${props.expanded ? '0' : '2.1rem'}`,
   lineHeight: 1,
   height: 'fit-content',
-  '& .css-1betqn-MuiAccordionSummary-content, & .MuiAccordionSummary-content css-1n11r91': {
+  '& .css-1betqn-MuiAccordionSummary-content, & .MuiAccordionSummary-content.css-1n11r91': {
     margin: 0,
   },
   '& .questionsAccordionTitle': {
