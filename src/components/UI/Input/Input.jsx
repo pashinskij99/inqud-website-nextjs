@@ -32,7 +32,11 @@ export function InputText(props) {
 }
 
 export function InputSearch(props) {
-  const {classNameWrapper, classNameWrapperIcon, classNameIcon} = props
+  const {
+    classNameWrapper,
+    // classNameWrapperIcon,
+    classNameIcon
+  } = props
 
   return (
     <StyledInputSearchWrapper className={classNameWrapper}>
