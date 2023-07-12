@@ -1,19 +1,15 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {Scrollbar} from 'swiper/modules'
 import {
-  StyledTypographyIBMH5,
-  StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH1,
-  StyledTypographyUrbanistH4,
 } from '@/components/UI/Typography/Typography.styled'
 import {StyledBlogsSection} from './BlogsSection.styled'
 import Image1 from '@/assets/images/blogs/image1.png'
 import Image2 from '@/assets/images/blogs/image2.png'
 import Image3 from '@/assets/images/blogs/image3.png'
 import {StyledButtonGhost} from '@/components/UI/Button/Button.styled'
-import Dot from '@/assets/icons/dot.svg'
+import {BlogCart, BlogCart2} from '@/components/BlogCart';
 
 const blogs = [
   {
@@ -59,14 +55,13 @@ export default function BlogsSection() {
 
         <div className="blogsGrid">
           {blogs.map(({id, date, imageSrc, subTitle, time, title}) => (
-            <BlogCart
-              key={id}
-              id={id}
+            <BlogCart2
+              time={time}
+              title={title}
               date={date}
               imageSrc={imageSrc}
               subTitle={subTitle}
-              time={time}
-              title={title}
+              key={id}
             />
           ))}
         </div>
@@ -98,8 +93,6 @@ export default function BlogsSection() {
           {blogs.map(({id, date, imageSrc, subTitle, time, title}) => (
             <SwiperSlide key={id}>
               <BlogCart
-                key={id}
-                id={id}
                 date={date}
                 imageSrc={imageSrc}
                 subTitle={subTitle}
@@ -116,32 +109,5 @@ export default function BlogsSection() {
         </Link>
       </div>
     </StyledBlogsSection>
-  )
-}
-
-function BlogCart({id, date, imageSrc, subTitle, time, title}) {
-  return (
-    <Link href={`/blog/${id}`} className="blogsGridItem">
-      <div className="blogsGridItemImageWrapper">
-        <Image className="blogsGridItemImage" fill src={imageSrc} alt={title}/>
-      </div>
-      <div className="blogsGridItemBody">
-        <StyledTypographyIBMH5 className="blogsGridItemBodySubTitle">
-          {subTitle}
-        </StyledTypographyIBMH5>
-        <StyledTypographyUrbanistH4 className="blogsGridItemBodyTitle">
-          {title}
-        </StyledTypographyUrbanistH4>
-        <div className="blogsGridItemBodyFooter">
-          <StyledTypographyUrbanistBody className="blogsGridItemBodyFooterDate">
-            {date}
-          </StyledTypographyUrbanistBody>
-          <Dot/>
-          <StyledTypographyUrbanistBody className="blogsGridItemBodyFooterDateTime">
-            {time} read
-          </StyledTypographyUrbanistBody>
-        </div>
-      </div>
-    </Link>
   )
 }

@@ -1,26 +1,28 @@
 import styled from '@emotion/styled'
 import {rem} from '@/utils/rem';
+import {responsive} from '@/utils/response';
 
 export const StyledHeroSectionWrapper = styled.section`
   padding-top: ${rem(111)};
   padding-bottom: ${rem(98)};
   overflow: hidden;
-  @media (max-width: 1400px) {
+
+  ${responsive.lg`
     padding-top: ${rem(21)};
     padding-bottom: 0;
-  }
-  @media (max-width: 576px) {
+  `}
+  ${responsive.xs`
     padding-top: ${rem(35)};
-  }
-
+  `}
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: ${rem(44)};
-    @media (max-width: 1400px) {
+    ${responsive.lg`
       display: flex;
       flex-direction: column-reverse;
-    }
+    `};
+
     @media (max-width: 992px) {
       gap: ${rem(40)};
     }
@@ -138,6 +140,7 @@ export const StyledHeroSectionWrapper = styled.section`
 
     .rightSide {
       .graphic {
+        width: 100%;
       }
 
       .graphic-mobile {

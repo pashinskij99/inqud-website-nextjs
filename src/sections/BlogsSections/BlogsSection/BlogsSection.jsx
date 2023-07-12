@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {StyledBlogsSectionWrapper} from '@/sections/BlogsSections/BlogsSection/BlogsSection.styled';
 import BlogCategoryNavigation from '@/sections/BlogsSections/BlogsSection/BlogCategoryNavigation';
-import BlogCart from '@/components/BlogCart/BlogCart';
+import {BlogCart} from '@/components/BlogCart';
 import image1 from '@/assets/images/blog-page/1.png'
 import image2 from '@/assets/images/blog-page/2.png'
 import image3 from '@/assets/images/blog-page/3.png'
@@ -18,7 +18,6 @@ import {ButtonLoadMoreLarge} from '@/components/UI/Button';
 import BlogPagination from '@/sections/BlogsSections/BlogsSection/BlogPagination';
 
 function BlogsSection() {
-
   return (
     <StyledBlogsSectionWrapper>
       {/* eslint-disable-next-line no-use-before-define */}

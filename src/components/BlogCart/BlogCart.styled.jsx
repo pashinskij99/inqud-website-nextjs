@@ -33,8 +33,6 @@ export const StyledBlogCartWrapper = styled.div`
 
     @media (max-width: 992px) {
       max-width: 100%;
-      //height: auto;
-      //object-fit: contain;
       height: ${rem(250)};
       object-fit: cover;
     }
@@ -95,5 +93,11 @@ export const StyledBlogCartWrapper = styled.div`
   .time {
     color: rgba(81, 113, 133, 1);
   }
+
+`
+
+export const StyledBlogCartWrapper2 = styled(StyledBlogCartWrapper)`
+
+  
 
 `

@@ -4,9 +4,10 @@ import {urbanist} from '@/utils/font'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
 
-import '@/styles/index.scss'
+// import '@/styles/index.scss'
 import Header from '@/components/Layout/Header'
 import Footer from '@/components/Layout/Footer';
+import GlobalStyle from '@/styles/globalStyles';
 
 // export const metadata = {
 //   title: 'Create Next App',
@@ -17,6 +18,7 @@ export default function RootLayout({children}) {
   return (
     <html lang="en">
     <body className={urbanist.className}>
+    <GlobalStyle/>
     <Header/>
 
     {children}
