@@ -37,8 +37,10 @@ export const StyledFooter = styled.footer`
         flex-direction: column;
         gap: 0.8rem;
       }
+
       .footerSubscribeSectionInput {
         flex: 1;
+
         .inputTextInput {
           border: 0.1rem solid rgba(255, 255, 255, 0.20000000298023224);
           color: rgba(255, 255, 255, 1);
@@ -48,21 +50,25 @@ export const StyledFooter = styled.footer`
           }
         }
       }
+
       .footerSubscribeSectionButton {
       }
     }
+
     .footerSubscribeSectionDescription {
       color: rgba(255, 255, 255, 0.6000000238418579);
       font-weight: 500;
       max-width: 440px;
     }
   }
+
   .top {
     padding: 12rem 0 12.9rem;
     background: var(--directness-black, #2d3439);
     @media (max-width: 767px) {
       padding: 8rem 0 8.6rem;
     }
+
     .container {
       display: flex;
       justify-content: space-between;
@@ -81,6 +87,7 @@ export const StyledFooter = styled.footer`
         text-align: center;
         gap: 3.2rem;
       }
+
       .footerLogoSection {
         max-width: 32rem;
         @media (max-width: 1400px) {
@@ -90,12 +97,14 @@ export const StyledFooter = styled.footer`
           max-width: 32rem;
           margin: 0 auto;
         }
+
         svg {
           margin-bottom: 3.4rem;
           @media (max-width: 767px) {
             margin-bottom: 3.2rem;
           }
         }
+
         .footerLogoSectionText {
           font-weight: 500;
           color: var(--clarity-white, #fff);
@@ -106,19 +115,20 @@ export const StyledFooter = styled.footer`
           }
         }
       }
+
       .footerLegalSection {
         margin-left: 0rem;
         @media (max-width: 992px) {
           margin-left: 3.5rem;
         }
-        @media (max-width: 576px) {
+        @media (max-width: 767px) {
           margin-left: 0rem;
         }
       }
 
       .footerResourcesSection {
         margin-left: 5.5rem;
-        @media (max-width: 576px) {
+        @media (max-width: 767px) {
           margin-left: 0rem;
         }
       }
@@ -129,6 +139,7 @@ export const StyledFooter = styled.footer`
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
+
         .footerLegalSectionTitle,
         .footerResourcesSectionTitle {
           font-weight: 700;
@@ -138,6 +149,7 @@ export const StyledFooter = styled.footer`
             font-size: 24px;
           }
         }
+
         .footerLegalSectionList,
         .footerResourcesSectionList {
           display: flex;
@@ -147,9 +159,11 @@ export const StyledFooter = styled.footer`
             gap: 1.8rem;
           }
         }
+
         .footerLegalSectionListItem,
         .footerResourcesSectionListItem {
         }
+
         .footerLegalSectionListItemText,
         .footerResourcesSectionListItemText {
           font-weight: 500;
@@ -165,18 +179,22 @@ export const StyledFooter = styled.footer`
         @media (max-width: 1400px) {
           display: none;
         }
+
         .footerSubscribeSectionTitle {
           font-weight: 700;
           color: var(--exciting-lime, #bfffc8);
           margin-bottom: 1.8rem;
         }
+
         .footerSubscribeSectionInputWrapper {
           display: flex;
           justify-content: space-between;
           gap: 1.6rem;
           margin-bottom: 1.6rem;
+
           .footerSubscribeSectionInput {
             flex: 1;
+
             .inputTextInput {
               border: 0.1rem solid rgba(255, 255, 255, 0.20000000298023224);
               color: rgba(255, 255, 255, 1);
@@ -186,9 +204,11 @@ export const StyledFooter = styled.footer`
               }
             }
           }
+
           .footerSubscribeSectionButton {
           }
         }
+
         .footerSubscribeSectionDescription {
           color: rgba(255, 255, 255, 0.6000000238418579);
           font-weight: 500;
@@ -196,12 +216,14 @@ export const StyledFooter = styled.footer`
       }
     }
   }
+
   .bottom {
     background: var(--double-black, #242a2f);
     padding: 3.4rem 0;
     @media (max-width: 767px) {
       padding: 3.2rem 0;
     }
+
     .container {
       display: flex;
       align-items: center;
@@ -210,13 +232,16 @@ export const StyledFooter = styled.footer`
         flex-direction: column;
         gap: 2.4rem;
       }
+
       .footerSocialWrapper {
         display: flex;
         align-items: center;
         gap: 0.8rem;
+
         .footerSocialLink {
         }
       }
+
       .footerSocialAllRights {
         color: rgba(255, 255, 255, 0.6000000238418579);
       }

@@ -18,14 +18,14 @@ const stepsOpacity = [
 ]
 
 export default function OurLandscapeSectionAccordion({
-  title,
-  description,
-  expanded,
-  handleChange,
-  id,
-  columnColor,
-  lastchild,
-}) {
+                                                       title,
+                                                       description,
+                                                       expanded,
+                                                       handleChange,
+                                                       id,
+                                                       columnColor,
+                                                       lastchild,
+                                                     }) {
   return (
     <StyledOurLandscapeSectionAccordion
       opacity={stepsOpacity[id]}

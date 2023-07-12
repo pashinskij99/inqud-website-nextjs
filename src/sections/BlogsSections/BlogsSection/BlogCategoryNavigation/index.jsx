@@ -1,0 +1,3 @@
+import BlogCategoryNavigation from '@/sections/BlogsSections/BlogsSection/BlogCategoryNavigation/BlogCategoryNavigation'
+
+export default BlogCategoryNavigation

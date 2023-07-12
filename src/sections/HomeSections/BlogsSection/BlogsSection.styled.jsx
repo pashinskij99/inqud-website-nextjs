@@ -6,6 +6,7 @@ export const StyledBlogsSection = styled.section`
     padding-bottom: 6.2rem;
     overflow: hidden;
   }
+
   .blogsHeader {
     display: flex;
     justify-content: space-between;
@@ -19,8 +20,10 @@ export const StyledBlogsSection = styled.section`
       margin-bottom: 4rem;
       padding-top: 9.6rem;
     }
+
     .blogsHeaderTitle {
     }
+
     .blogsHeaderButton {
       @media (max-width: 992px) {
         height: 4.8rem;
@@ -40,14 +43,17 @@ export const StyledBlogsSection = styled.section`
       display: none;
     }
   }
+
   .blogsGridItem {
     display: block;
   }
+
   .blogsGridItemImageWrapper {
     position: relative;
     width: 100%;
     height: 25rem;
     margin-bottom: 3.2rem;
+
     .blogsGridItemImage {
     }
 
@@ -71,6 +77,7 @@ export const StyledBlogsSection = styled.section`
         margin: 0 auto 1.2rem;
       }
     }
+
     .blogsGridItemBodyTitle {
       margin-bottom: 1.6rem;
       font-weight: 700;
@@ -79,16 +86,20 @@ export const StyledBlogsSection = styled.section`
         text-align: center;
       }
     }
+
     .blogsGridItemBodyFooter {
       display: flex;
       align-items: center;
       gap: 1.2rem;
+
       .blogsGridItemBodyFooterDate {
         color: var(--independent-grey, #517185);
       }
+
       .blogsGridItemBodyFooterDateTime {
         color: var(--independent-grey, #517185);
       }
+
       @media (max-width: 576px) {
         justify-content: center;
       }
@@ -107,6 +118,7 @@ export const StyledBlogsSection = styled.section`
     @media (max-width: 576px) {
       margin-bottom: 8.2rem;
     }
+
     .listRequirementsSwiperScollbar {
       bottom: -5.8rem;
       width: 20rem;
@@ -118,6 +130,7 @@ export const StyledBlogsSection = styled.section`
       @media (max-width: 576px) {
         bottom: -4rem;
       }
+
       .swiper-scrollbar-drag {
         background: rgba(7, 116, 83, 1) !important;
       }

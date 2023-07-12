@@ -5,7 +5,7 @@ import {
   StyledButtonGetStarted,
   StyledButtonGetStartedLight,
   StyledButtonGhostCrypto,
-  StyledButtonLearnMore,
+  StyledButtonLearnMore, StyledLoadMoreLarge,
 } from './Button.styled'
 import {
   StyledTypographyIBMH5,
@@ -13,47 +13,57 @@ import {
 } from '../Typography/Typography.styled'
 
 export function ButtonGetStarted(props) {
-  const { children } = props
+  const {children} = props
   return (
     <StyledButtonGetStarted {...props}>
-      <StyledTypographyUrbanistCTA className='text'>
+      <StyledTypographyUrbanistCTA className="text">
         {children}
       </StyledTypographyUrbanistCTA>
-      <ArrowGetStarted />
+      <ArrowGetStarted/>
     </StyledButtonGetStarted>
   )
 }
 
 export function ButtonGetStartedLight(props) {
-  const { children } = props
+  const {children} = props
   return (
     <StyledButtonGetStartedLight {...props}>
-      <StyledTypographyUrbanistCTA className='text'>
+      <StyledTypographyUrbanistCTA className="text">
         {children}
       </StyledTypographyUrbanistCTA>
-      <ArrowGetStartedLight />
+      <ArrowGetStartedLight/>
     </StyledButtonGetStartedLight>
   )
 }
 
 export function ButtonLearnMore(props) {
-  const { children } = props
+  const {children} = props
   return (
     <StyledButtonLearnMore {...props}>
-      <StyledTypographyUrbanistCTA className='text'>
+      <StyledTypographyUrbanistCTA className="text">
         {children}
       </StyledTypographyUrbanistCTA>
-      <ArrowLearnMore />
+      <ArrowLearnMore/>
     </StyledButtonLearnMore>
   )
 }
 
 export function ButtonGhostCrypto(props) {
-  const { children } = props
+  const {children} = props
 
   return (
     <StyledButtonGhostCrypto {...props}>
-      <StyledTypographyIBMH5 className='text'>{children}</StyledTypographyIBMH5>
+      <StyledTypographyIBMH5 className="text">{children}</StyledTypographyIBMH5>
     </StyledButtonGhostCrypto>
+  )
+}
+
+export function ButtonLoadMoreLarge(props) {
+  const {children} = props
+
+  return (
+    <StyledLoadMoreLarge {...props}>
+      <StyledTypographyUrbanistCTA>{children}</StyledTypographyUrbanistCTA>
+    </StyledLoadMoreLarge>
   )
 }

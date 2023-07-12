@@ -3,6 +3,7 @@ import {
   ButtonGetStartedLight,
   ButtonGhostCrypto,
   ButtonLearnMore,
+  ButtonLoadMoreLarge
 } from './Button'
 
 export {
@@ -10,4 +11,5 @@ export {
   ButtonGetStartedLight,
   ButtonGhostCrypto,
   ButtonLearnMore,
+  ButtonLoadMoreLarge
 }

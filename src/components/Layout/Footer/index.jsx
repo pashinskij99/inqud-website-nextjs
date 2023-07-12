@@ -1,3 +1,3 @@
-import InputText from '@/components/UI/Input/Input'
+import Footer from '@/components/Layout/Footer/Footer';
 
-export default InputText
+export default Footer

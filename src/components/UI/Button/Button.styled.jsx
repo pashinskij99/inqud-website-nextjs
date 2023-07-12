@@ -58,6 +58,7 @@ export const StyledButtonGetStarted = styled.button`
   display: flex;
   align-items: center;
   gap: 1.6rem;
+
   .text {
     color: var(--clarity-white, #fff);
   }
@@ -82,6 +83,7 @@ export const StyledButtonGetStarted = styled.button`
         transform: translate(30%, -30%);
       }
     }
+
     .text {
       color: #bfffc8;
     }
@@ -100,9 +102,11 @@ export const StyledButtonGetStarted = styled.button`
 
 export const StyledButtonLearnMore = styled(StyledButtonGetStarted)`
   background: transparent;
+
   .text {
     color: #077453;
   }
+
   &:active {
     .text {
       color: #077453;
@@ -118,9 +122,11 @@ export const StyledButtonLearnMore = styled(StyledButtonGetStarted)`
 
 export const StyledButtonGetStartedLight = styled(StyledButtonGetStarted)`
   background-color: #bfffc8;
+
   .text {
     color: #077453;
   }
+
   &:active {
     .text {
       color: #077453;
@@ -140,6 +146,7 @@ export const StyledButtonGetStartedLight = styled(StyledButtonGetStarted)`
 
 export const StyledButtonGhostCrypto = styled(StyledButtonGhost)`
   border: 1px solid var(--exciting-lime, #bfffc8);
+
   .text {
     color: #bfffc8;
     transition: all 0.3s ease-in-out;
@@ -152,14 +159,50 @@ export const StyledButtonGhostCrypto = styled(StyledButtonGhost)`
 
   &:hover {
     background-color: var(--exciting-lime, #bfffc8);
+
     .text {
       color: #077453;
     }
   }
+
   &:active {
     background-color: var(--exciting-lime, #bfffc8);
+
     .text {
       color: #077453;
+    }
+  }
+`
+
+export const StyledLoadMoreLarge = styled.button`
+
+  border-radius: 16px;
+  background: #F6F7F8;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+
+  p {
+    color: rgba(81, 113, 133, 1);
+    transition: 0.3s ease-in-out;
+  }
+
+  &:hover {
+    background-color: rgba(191, 255, 200, 1);
+
+    p {
+      color: rgba(7, 116, 83, 1);
+    }
+  }
+
+  &:active {
+    background-color: rgba(172, 242, 189, 1);
+
+    p {
+      color: rgba(7, 116, 83, 1);
     }
   }
 `
