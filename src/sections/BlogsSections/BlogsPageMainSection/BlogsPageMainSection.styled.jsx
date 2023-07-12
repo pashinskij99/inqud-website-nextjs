@@ -19,6 +19,7 @@ export const StyledBlogsPageMainSection = styled.section`
       font-size: 64px;
       font-weight: 400;
       margin-bottom: 24px;
+      line-height: 74px;
     }
   }
 
@@ -27,6 +28,7 @@ export const StyledBlogsPageMainSection = styled.section`
     margin-bottom: 32px;
     @media (max-width: 576px) {
       margin-bottom: 24px;
+      line-height: 26px;
     }
   }
 
