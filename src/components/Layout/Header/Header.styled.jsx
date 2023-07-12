@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import { Box } from '@mui/material'
+import {rem} from '@/utils/rem';
 
-export const StyledHeaderWrapper = styled(Box)`
+export const StyledHeaderWrapper = styled.header`
   padding: 23px 60px;
   background-color: white;
   display: flex;
@@ -10,30 +10,32 @@ export const StyledHeaderWrapper = styled(Box)`
   position: sticky;
   top: 0;
   z-index: 100;
-  transform: translate3d(0,0,0);
-	/* height: -webkit-fill-available; */
+  transform: translate3d(0, 0, 0);
+  /* height: -webkit-fill-available; */
 
   @media (max-width: 992px) {
-    padding: 1.8rem 4rem;
+    padding: ${rem(18)} ${rem(40)};
   }
   @media (max-width: 767px) {
-    padding: 0.8rem 16px;
-    height: 5rem;
+    padding: ${rem(8)} ${rem(16)};
+    height: ${rem(50)};
   }
+
   .logoSection {
     display: flex;
     align-items: center;
-    gap: 4.7rem;
+    gap: ${rem(47)};
     @media (max-width: 992px) {
-      gap: 2.7rem;
+      gap: ${rem(27)};
     }
     @media (max-width: 767px) {
-      gap: 1.6rem;
+      gap: ${rem(16)};
 
       .logo {
         display: none;
       }
     }
+
     .logo-mobile {
       display: none;
       @media (max-width: 767px) {
@@ -47,14 +49,16 @@ export const StyledHeaderWrapper = styled(Box)`
       }
       display: flex;
       align-items: center;
-      gap: 0.2rem;
+      gap: ${rem(2)};
+
       button {
-        padding: 0 1.4rem;
+        padding: 0 ${rem(14)};
       }
+
       .secondaryButton {
-        height: 4rem;
-        border-radius: 7.2rem;
-        outline: 1px solid transparent;
+        height: ${rem(40)};
+        border-radius: ${rem(72)};
+        outline: ${rem(1)} solid transparent;
         background: var(--clarity-white, #fff);
 
         transition: 0.3s ease-in-out;
@@ -66,7 +70,7 @@ export const StyledHeaderWrapper = styled(Box)`
       }
 
       .activeButton {
-        height: 4rem;
+        height: ${rem(40)};
       }
     }
 
@@ -75,6 +79,7 @@ export const StyledHeaderWrapper = styled(Box)`
       @media (max-width: 767px) {
         display: ${(props) => (props.active ? 'none' : 'block')};
       }
+
       .mobile-tabs-button {
         .mobile-tabs-button-text {
           color: #077453;
@@ -87,19 +92,21 @@ export const StyledHeaderWrapper = styled(Box)`
     ul {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: ${rem(20)};
       color: var(--directness-black, #2d3439);
 
-      font-size: 18px;
+      font-size: ${rem(18)};
       font-weight: 700;
       line-height: normal;
 
       li {
         z-index: 1;
         transition: 0.3s ease-in-out;
+
         a {
-          padding: 1rem;
+          padding: ${rem(10)};
         }
+
         &:hover {
           color: #077453;
         }
@@ -120,15 +127,15 @@ export const StyledHeaderWrapper = styled(Box)`
   .userSection {
     display: flex;
     align-items: center;
-    gap: 9.6rem;
+    gap: ${rem(96)};
     @media (max-width: 992px) {
-      gap: 7.5rem;
+      gap: ${rem(75)};
     }
 
     .hamburger {
       display: none;
-      width: 5rem;
-      height: 5rem;
+      width: ${rem(50)};
+      height: ${rem(50)};
       position: relative;
       -webkit-transform: rotate(0deg);
       -moz-transform: rotate(0deg);
@@ -142,7 +149,7 @@ export const StyledHeaderWrapper = styled(Box)`
       z-index: 11;
       overflow: hidden;
 
-      border-radius: 12.5px;
+      border-radius: ${rem(12.5)};
       background: rgba(129, 158, 176, 0.20000000298023224);
 
       & {
@@ -152,9 +159,9 @@ export const StyledHeaderWrapper = styled(Box)`
         pointer-events: none;
         display: block;
         position: absolute;
-        height: 0.313rem;
-        width: 15px;
-        border-radius: 1.5625rem;
+        height: ${rem(3.13)};
+        width: ${rem(15)};
+        border-radius: ${rem(15.625)};
         background: var(--independent-grey, #517185);
         opacity: 1;
         -webkit-transform: rotate(0deg);
@@ -167,48 +174,48 @@ export const StyledHeaderWrapper = styled(Box)`
         transition: 0.25s ease-in-out;
 
         @media (max-width: 767px) {
-          width: 10px;
+          width: ${rem(10)};
         }
       }
 
       & span:nth-child(even) {
-        left: 25px;
-        border-radius: 0 9px 9px 0;
+        left: ${rem(25)};
+        border-radius: 0 ${rem(9)} ${rem(9)} 0;
         @media (max-width: 767px) {
-          left: 15px;
+          left: ${rem(15)};
         }
       }
 
       & span:nth-child(odd) {
-        left: 10px;
-        border-radius: 9px 0 0 9px;
+        left: ${rem(10)};
+        border-radius: ${rem(9)} 0 0 ${rem(9)};
         @media (max-width: 767px) {
-          left: 7px;
+          left: ${rem(7)};
         }
       }
 
       & span:nth-child(1),
       & span:nth-child(2) {
-        top: 1.563rem;
+        top: ${rem(15.63)};
 
         @media (max-width: 767px) {
-          top: 1rem;
+          top: ${rem(10)} ;
         }
       }
 
       & span:nth-child(3),
       & span:nth-child(4) {
-        top: 2.344rem;
+        top: ${rem(23.44)};
         @media (max-width: 767px) {
-          top: 1.5rem;
+          top: ${rem(15)};
         }
       }
 
       & span:nth-child(5),
       & span:nth-child(6) {
-        top: 3.125rem;
+        top: ${rem(31.25)};
         @media (max-width: 767px) {
-          top: 2rem;
+          top: ${rem(20)};
         }
       }
 
@@ -229,21 +236,21 @@ export const StyledHeaderWrapper = styled(Box)`
       }
 
       &.open span:nth-child(1) {
-        left: 13px;
-        top: 18px;
+        left: ${rem(13)};
+        top: ${rem(18)};
 
         @media (max-width: 767px) {
-          left: 8px;
-          top: 11px;
+          left: ${rem(8)};
+          top: ${rem(11)};
         }
       }
 
       &.open span:nth-child(2) {
-        left: calc(50% - 2px);
-        top: 18px;
+        left: calc(50% - ${rem(2)});
+        top: ${rem(18)};
         @media (max-width: 767px) {
-          left: calc(50% - 1px);
-          top: 11px;
+          left: calc(50% - ${rem(1)});
+          top: ${rem(11)};
         }
       }
 
@@ -258,46 +265,49 @@ export const StyledHeaderWrapper = styled(Box)`
       }
 
       &.open span:nth-child(5) {
-        left: 13px;
-        top: 28px;
+        left: ${rem(13)};
+        top: ${rem(28)};
         @media (max-width: 767px) {
-          left: 8px;
-          top: 18px;
+          left: ${rem(8)};
+          top: ${rem(18)};
         }
       }
 
       &.open span:nth-child(6) {
-        left: calc(50% - 2px);
-        top: 28px;
+        left: calc(50% - ${rem(2)});
+        top: ${rem(28)};
 
         @media (max-width: 767px) {
-          left: calc(50% - 1px);
-          top: 18px;
+          left: calc(50% - ${rem(1)});
+          top: ${rem(28)};
         }
       }
+
       @media (max-width: 1400px) {
         display: block;
       }
 
       @media (max-width: 767px) {
-        width: 3.2rem;
-        height: 3.2rem;
-        border-radius: 0.8rem;
+        width: ${rem(32)};
+        height: ${rem(32)};
+        border-radius: ${rem(8)};
       }
     }
 
     .sign {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: ${rem(16)};
       @media (max-width: 1400px) {
         display: none;
       }
+
       .signIn {
-        height: 4rem;
+        height: ${rem(40)};
       }
+
       .signUp {
-        height: 4rem;
+        height: ${rem(40)};
       }
     }
   }

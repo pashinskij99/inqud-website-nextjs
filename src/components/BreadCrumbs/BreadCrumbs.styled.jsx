@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 import {Breadcrumbs} from '@mui/material';
+import {rem} from '@/utils/rem';
 
 export const StyledBreadcrumbs = styled(Breadcrumbs)`
-  padding: 10px 60px;
+  padding: ${rem(10)} ${rem(60)};
   border-top: 1px solid rgba(0, 0, 0, 0.07);
 
   .breadCrumbLink {
@@ -16,7 +17,7 @@ export const StyledBreadcrumbs = styled(Breadcrumbs)`
   .css-4pdmu4-MuiBreadcrumbs-ol {
 
     li {
-      font-size: 14px;
+      font-size: ${rem(14)};
       color: rgba(45, 52, 57, 1);
 
       &:nth-last-child(2) {

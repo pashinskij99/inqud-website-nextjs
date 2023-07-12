@@ -1,10 +1,12 @@
 import styled from '@emotion/styled'
-import { Box } from '@mui/material'
+import {Box} from '@mui/material'
+import {rem} from '@/utils/rem';
 
 export const StyledHeaderLanguageSelectWrapper = styled(Box)`
   position: relative;
-  width: 4rem;
+  width: ${rem(40)};
   cursor: pointer;
+
   .button-select {
     span {
       position: absolute;
@@ -12,13 +14,13 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
       transform: translateY(-50%) translateX(100%);
       display: flex;
       align-items: center;
-      right: -0.7rem;
-      gap: 0.8rem;
-      font-size: 1.8rem;
+      right: -${rem(7)};
+      gap: ${rem(8)};
+      font-size: ${rem(18)};
       font-weight: 700;
       color: rgba(45, 52, 57, 1);
       @media (max-width: 992px) {
-        right: -0.5rem;
+        right: -${rem(5)};
       }
     }
 
@@ -34,6 +36,7 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
 
         svg {
           transform: rotate(180deg);
+
           path {
             fill: #077453;
           }
@@ -48,16 +51,16 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
     left: 50%;
     transform: translateX(-25%);
     display: none;
+
     .trigger {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100px;
+      height: ${rem(100)};
       z-index: 0;
       display: none;
     }
-
 
 
     &.show {
@@ -70,26 +73,25 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
     }
 
     ul {
-      padding: 1rem 0.8rem 1rem 0.8rem;
-      border-radius: 1.6rem;
+      padding: ${rem(10)} ${rem(8)};
+      border-radius: ${rem(16)};
       color: #fff;
       display: flex;
       flex-direction: column;
-      gap: 0rem;
+      gap: 0;
       background-color: white;
-      margin-top: 85px;
+      margin-top: ${rem(85)};
       position: relative;
 
       &::before {
         content: "";
         position: absolute;
-        top: -10px;
+        top: -${rem(10)};
         left: 50%;
-        background-color: red;
-        width: 24px;
-        height: 24px;
+        width: ${rem(24)};
+        height: ${rem(24)};
         transform: translateX(-50%) rotate(-45deg);
-        border-radius: 4px;
+        border-radius: ${rem(4)};
         background: #FFF;
         z-index: -1;
       }
@@ -97,22 +99,25 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
       &.show {
         animation: showMenu 0.3s ease-in-out forwards;
       }
+
       &.hide {
         animation: hideMenu 0.3s ease-in-out forwards;
       }
 
       li {
-        padding: 0.8rem 2rem 0.8rem 2.8rem;
+        padding: ${rem(8)} ${rem(20)} ${rem(8)} ${rem(28)};
         white-space: nowrap;
+
         button {
           color: var(--directness-black, #2d3439);
-          font-size: 18px;
+          font-size: ${rem(18)};
           font-weight: 400;
           line-height: normal;
           position: relative;
+
           svg {
             position: absolute;
-            left: -2.153rem;
+            left: -${rem(21.53)};
             top: 50%;
             transform: translateY(-50%);
           }
@@ -120,7 +125,8 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
 
         &:hover {
           background-color: #f4f5fa;
-          border-radius: 8px;
+          border-radius: ${rem(8)};
+
           button {
             color: #077453;
           }

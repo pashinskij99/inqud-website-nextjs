@@ -1,34 +1,35 @@
 import styled from '@emotion/styled';
+import {rem} from '@/utils/rem';
 
 export const StyledBlogsPageMainSection = styled.section`
-  padding: 35px 0 56px;
+  padding: ${rem(35)} 0 ${rem(56)};
 
 
   @media (max-width: 992px) {
-    padding: 48px 0 56px;
+    padding: ${rem(48)} 0 ${rem(56)};
   }
 
   @media (max-width: 576px) {
-    padding: 24px 0 40px;
+    padding: ${rem(24)} 0 ${rem(40)};
   }
 
   .blogsPageTitle {
     color: rgba(45, 52, 57, 1);
-    margin-bottom: 16px;
+    margin-bottom: ${rem(16)};
     @media (max-width: 576px) {
-      font-size: 64px;
+      font-size: ${rem(64)};
       font-weight: 400;
-      margin-bottom: 24px;
-      line-height: 74px;
+      margin-bottom: ${rem(24)};
+      line-height: ${rem(74)};
     }
   }
 
   .blogsPageDescription {
     color: rgba(81, 113, 133, 0.800000011920929);
-    margin-bottom: 32px;
+    margin-bottom: ${rem(32)};
     @media (max-width: 576px) {
-      margin-bottom: 24px;
-      line-height: 26px;
+      margin-bottom: ${rem(24)};
+      line-height: ${rem(26)};
     }
   }
 
@@ -36,16 +37,16 @@ export const StyledBlogsPageMainSection = styled.section`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 464px;
-    column-gap: 16px;
+    max-width: ${rem(464)};
+    column-gap: ${rem(16)};
     margin: 0 auto;
 
     @media (max-width: 576px) {
       flex-direction: column;
-      column-gap: 0px;
+      column-gap: 0;
       max-width: 100%;
       width: 100%;
-      row-gap: 8px;
+      row-gap: ${rem(8)};
     }
 
     .inputWrapper {

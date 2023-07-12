@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
-import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
+import {Accordion, AccordionSummary, AccordionDetails} from '@mui/material'
+import {rem} from '@/utils/rem';
 
 export const StyledOurLandscapeSectionAccordion = styled((props) => (
   <Accordion disableGutters elevation={0} square {...props} />
@@ -8,7 +9,7 @@ export const StyledOurLandscapeSectionAccordion = styled((props) => (
   background: props.lastchild
     ? `rgba(${props.columnColor}, 1) `
     : `rgba(${props.columnColor}, ${props.opacity}) `,
-  borderRadius: '20px',
+  borderRadius: rem(20),
   '&:before': {
     display: 'none',
   },
@@ -20,7 +21,7 @@ export const StyledOurLandscapeSectionAccordion = styled((props) => (
 export const StyledOurLandscapeSectionAccordionSummary = styled((props) => (
   <AccordionSummary {...props} />
 ))(() => ({
-  padding: '1.85rem 3.2rem 1.9rem',
+  padding: `${rem(18.5)} ${rem(32)} ${rem(19)}`,
   lineHeight: 1,
   height: 'fit-content',
   '& .css-1betqn-MuiAccordionSummary-content': {
@@ -32,5 +33,5 @@ export const StyledOurLandscapeSectionAccordionDetails = styled(
   AccordionDetails
 )(() => ({
   // background: '#FFA3A3',
-  padding: '0.5rem 3.2rem 1.8rem',
+  padding: `${rem(5)} ${rem(32)} ${rem(18)}`,
 }))

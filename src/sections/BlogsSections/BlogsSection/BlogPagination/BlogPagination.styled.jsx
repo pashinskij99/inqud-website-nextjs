@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
+import {rem} from '@/utils/rem';
 
 export const StyledBlogPagination = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 384px;
+  max-width: ${rem(384)};
   margin: 0 auto;
 
   @media (max-width: 576px) {
@@ -15,9 +16,9 @@ export const StyledBlogPagination = styled.div`
   }
 
   .prev {
-    margin-right: 40px;
+    margin-right: ${rem(40)};
     @media (max-width: 576px) {
-      margin-right: 0px;
+      margin-right: 0;
     }
   }
 
@@ -30,10 +31,10 @@ export const StyledBlogPagination = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 32px;
-    height: 32px;
+    width: ${rem(32)};
+    height: ${rem(32)};
     flex-shrink: 0;
-    border-radius: 4px;
+    border-radius: ${rem(4)};
 
     p {
       line-height: 1;
@@ -63,9 +64,9 @@ export const StyledBlogPagination = styled.div`
   }
 
   .next {
-    margin-left: 40px;
+    margin-left: ${rem(40)};
     @media (max-width: 576px) {
-      margin-left: 0px;
+      margin-left: 0;
     }
 
     circle {

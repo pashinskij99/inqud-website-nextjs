@@ -1,48 +1,49 @@
 import styled from '@emotion/styled'
+import {rem} from '@/utils/rem';
 
 export const StyledFooter = styled.footer`
   .footerSubscribeSectionMobile {
     display: none;
     @media (max-width: 1400px) {
       display: block;
-      padding: 4rem 0;
+      padding: ${rem(40)} 0;
       background-color: #242a2f;
     }
     @media (max-width: 576px) {
       text-align: center;
-      padding: 8rem 0;
+      padding: ${rem(80)} 0;
     }
 
     .footerSubscribeSectionTitle {
       font-weight: 700;
       color: var(--exciting-lime, #bfffc8);
-      margin-bottom: 2rem;
-      max-width: 440px;
+      margin-bottom: ${rem(20)};
+      max-width: ${rem(440)};
       @media (max-width: 767px) {
-        margin-bottom: 1.8rem;
+        margin-bottom: ${rem(18)};
       }
       @media (max-width: 576px) {
-        font-size: 24px;
-        line-height: 34px;
+        font-size: ${rem(24)};
+        line-height: ${rem(34)};
       }
     }
 
     .footerSubscribeSectionInputWrapper {
       display: flex;
       justify-content: space-between;
-      gap: 1.6rem;
-      margin-bottom: 1.6rem;
-      max-width: 440px;
+      gap: ${rem(16)};
+      margin-bottom: ${rem(16)};
+      max-width: ${rem(440)};
       @media (max-width: 576px) {
         flex-direction: column;
-        gap: 0.8rem;
+        gap: ${rem(8)};
       }
 
       .footerSubscribeSectionInput {
         flex: 1;
 
         .inputTextInput {
-          border: 0.1rem solid rgba(255, 255, 255, 0.20000000298023224);
+          border: 1px solid rgba(255, 255, 255, 0.20000000298023224);
           color: rgba(255, 255, 255, 1);
 
           &::placeholder {
@@ -58,15 +59,15 @@ export const StyledFooter = styled.footer`
     .footerSubscribeSectionDescription {
       color: rgba(255, 255, 255, 0.6000000238418579);
       font-weight: 500;
-      max-width: 440px;
+      max-width: ${rem(440)};
     }
   }
 
   .top {
-    padding: 12rem 0 12.9rem;
+    padding: ${rem(120)} 0 ${rem(129)};
     background: var(--directness-black, #2d3439);
     @media (max-width: 767px) {
-      padding: 8rem 0 8.6rem;
+      padding: ${rem(80)} 0 ${rem(86)};
     }
 
     .container {
@@ -74,7 +75,7 @@ export const StyledFooter = styled.footer`
       justify-content: space-between;
       @media (max-width: 1400px) {
         justify-content: start;
-        gap: 5.2rem;
+        gap: ${rem(52)};
       }
       @media (max-width: 992px) {
         gap: 0;
@@ -85,23 +86,23 @@ export const StyledFooter = styled.footer`
         align-items: center;
         width: 100%;
         text-align: center;
-        gap: 3.2rem;
+        gap: ${rem(32)};
       }
 
       .footerLogoSection {
-        max-width: 32rem;
+        max-width: ${rem(320)};
         @media (max-width: 1400px) {
           margin-right: auto;
         }
         @media (max-width: 767px) {
-          max-width: 32rem;
+          max-width: ${rem(320)};
           margin: 0 auto;
         }
 
         svg {
-          margin-bottom: 3.4rem;
+          margin-bottom: ${rem(34)};
           @media (max-width: 767px) {
-            margin-bottom: 3.2rem;
+            margin-bottom: ${rem(32)};
           }
         }
 
@@ -110,32 +111,32 @@ export const StyledFooter = styled.footer`
           color: var(--clarity-white, #fff);
           opacity: 0.6000000238418579;
           @media (max-width: 767px) {
-            font-size: 1.4rem;
-            line-height: 1.8rem;
+            font-size: ${rem(14)};
+            line-height: ${rem(18)};
           }
         }
       }
 
       .footerLegalSection {
-        margin-left: 0rem;
+        margin-left: 0;
         @media (max-width: 992px) {
-          margin-left: 3.5rem;
+          margin-left: ${rem(35)};
         }
         @media (max-width: 767px) {
-          margin-left: 0rem;
+          margin-left: 0;
         }
       }
 
       .footerResourcesSection {
-        margin-left: 5.5rem;
+        margin-left: ${rem(55)};
         @media (max-width: 767px) {
-          margin-left: 0rem;
+          margin-left: 0;
         }
       }
 
       .footerLegalSection,
       .footerResourcesSection {
-        margin-top: 1.7rem;
+        margin-top: ${rem(17)};
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
@@ -144,9 +145,9 @@ export const StyledFooter = styled.footer`
         .footerResourcesSectionTitle {
           font-weight: 700;
           color: var(--exciting-lime, #bfffc8);
-          margin-bottom: 2rem;
+          margin-bottom: ${rem(20)};
           @media (max-width: 576px) {
-            font-size: 24px;
+            font-size: ${rem(24)};
           }
         }
 
@@ -154,9 +155,9 @@ export const StyledFooter = styled.footer`
         .footerResourcesSectionList {
           display: flex;
           flex-direction: column;
-          gap: 1.4rem;
+          gap: ${rem(14)};
           @media (max-width: 576px) {
-            gap: 1.8rem;
+            gap: ${rem(18)};
           }
         }
 
@@ -174,8 +175,8 @@ export const StyledFooter = styled.footer`
       }
 
       .footerSubscribeSection {
-        margin-top: 2rem;
-        max-width: 44rem;
+        margin-top: ${rem(20)};
+        max-width: ${rem(440)};
         @media (max-width: 1400px) {
           display: none;
         }
@@ -183,20 +184,20 @@ export const StyledFooter = styled.footer`
         .footerSubscribeSectionTitle {
           font-weight: 700;
           color: var(--exciting-lime, #bfffc8);
-          margin-bottom: 1.8rem;
+          margin-bottom: ${rem(18)};
         }
 
         .footerSubscribeSectionInputWrapper {
           display: flex;
           justify-content: space-between;
-          gap: 1.6rem;
-          margin-bottom: 1.6rem;
+          gap: ${rem(16)};
+          margin-bottom: ${rem(16)};
 
           .footerSubscribeSectionInput {
             flex: 1;
 
             .inputTextInput {
-              border: 0.1rem solid rgba(255, 255, 255, 0.20000000298023224);
+              border: 1px solid rgba(255, 255, 255, 0.20000000298023224);
               color: rgba(255, 255, 255, 1);
 
               &::placeholder {
@@ -219,9 +220,9 @@ export const StyledFooter = styled.footer`
 
   .bottom {
     background: var(--double-black, #242a2f);
-    padding: 3.4rem 0;
+    padding: ${rem(34)} 0;
     @media (max-width: 767px) {
-      padding: 3.2rem 0;
+      padding: ${rem(32)} 0;
     }
 
     .container {
@@ -230,13 +231,13 @@ export const StyledFooter = styled.footer`
       justify-content: space-between;
       @media (max-width: 767px) {
         flex-direction: column;
-        gap: 2.4rem;
+        gap: ${rem(24)};
       }
 
       .footerSocialWrapper {
         display: flex;
         align-items: center;
-        gap: 0.8rem;
+        gap: ${rem(8)};
 
         .footerSocialLink {
         }

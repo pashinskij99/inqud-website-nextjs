@@ -1,107 +1,117 @@
 import styled from '@emotion/styled'
+import {rem} from '@/utils/rem';
 
 export const StyledHeroSectionWrapper = styled.section`
-  padding-top: 11.1rem;
-  padding-bottom: 9.8rem;
+  padding-top: ${rem(111)};
+  padding-bottom: ${rem(98)};
   overflow: hidden;
   @media (max-width: 1400px) {
-    padding-top: 2.1rem;
+    padding-top: ${rem(21)};
     padding-bottom: 0;
   }
   @media (max-width: 576px) {
-    padding-top: 3.5rem;
+    padding-top: ${rem(35)};
   }
+
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4.4rem;
+    gap: ${rem(44)};
     @media (max-width: 1400px) {
       display: flex;
       flex-direction: column-reverse;
     }
     @media (max-width: 992px) {
-      gap: 4rem;
+      gap: ${rem(40)};
     }
     @media (max-width: 576px) {
       gap: 0;
       text-align: center;
     }
+
+
     .leftSide {
       .subTitle {
         color: #517185;
-        border-radius: 50px;
+        border-radius: ${rem(50)};
         background: var(--independent-grey-dt-20, rgba(129, 158, 176, 0.2));
         width: fit-content;
-        padding: 0.7rem 1.6rem;
+        padding: ${rem(7)} ${rem(16)};
         line-height: 1;
-        margin-bottom: 2.4rem;
+        margin-bottom: ${rem(24)};
         @media (max-width: 992px) {
-          margin-bottom: 2rem;
+          margin-bottom: ${rem(20)};
         }
         @media (max-width: 576px) {
-          font-size: 2.4rem;
-          padding: 0.5rem 1.6rem;
-          margin: 0 auto;
-          margin-bottom: 1.5rem;
+          font-size: ${rem(24)};
+          padding: ${rem(5)} ${rem(16)};
+          margin: 0 auto ${rem(15)};
         }
       }
+
       .title {
-        margin-bottom: 2.4rem;
+        margin-bottom: ${rem(24)};
       }
+
       .paragraph {
         color: #517185;
-        margin-bottom: 4.5rem;
+        margin-bottom: ${rem(45)};
         @media (max-width: 576px) {
-          font-size: 2.4rem;
-          line-height: 34px;
-          margin-bottom: 3rem;
+          font-size: ${rem(24)};
+          line-height: ${rem(34)};
+          margin-bottom: ${rem(30)};
           br {
             display: none;
           }
         }
       }
+
       .features {
         width: fit-content;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        column-gap: 2rem;
-        row-gap: 2.4rem;
-        margin-bottom: 4.5rem;
+        column-gap: ${rem(20)};
+        row-gap: ${rem(24)};
+        margin-bottom: ${rem(45)};
         @media (max-width: 576px) {
           grid-template-columns: 1fr;
-          margin: 0 auto;
-          margin-bottom: 4rem;
-          row-gap: 1.4rem;
+          margin: 0 auto ${rem(40)};
+          row-gap: ${rem(14)};
         }
+
         li {
           display: flex;
           align-items: center;
-          gap: 1.067rem;
+          gap: ${rem(10.67)};
+
           p {
             color: #517185;
           }
         }
       }
+
       .buttonsWrapper {
         display: flex;
         align-items: center;
-        gap: 1.6rem;
-        margin-bottom: 8rem;
+        gap: ${rem(16)};
+        margin-bottom: ${rem(80)};
         @media (max-width: 576px) {
           flex-direction: column;
-          gap: .65rem;
-          margin-bottom: 5.6rem;
+          gap: ${rem(6.5)};
+          margin-bottom: ${rem(56)};
           .getStarted {
             width: 100%;
             display: flex;
             padding-left: 0;
             justify-content: center;
             position: relative;
+
             svg {
               position: absolute;
-              right: 0.4rem;
+              right: ${rem(4)};
             }
           }
+
           .ghostButton {
             width: 100%;
           }
@@ -111,22 +121,25 @@ export const StyledHeroSectionWrapper = styled.section`
       .payment {
         .payment-descr {
           color: #517185;
-          margin-bottom: 2.4rem;
+          margin-bottom: ${rem(24)};
           @media (max-width: 576px) {
             text-align: start;
           }
 
         }
+
         .payment-list {
           display: flex;
           align-items: center;
-          gap: 4rem;
+          gap: ${rem(40)};
         }
       }
     }
+
     .rightSide {
       .graphic {
       }
+
       .graphic-mobile {
         display: none;
       }
@@ -138,6 +151,7 @@ export const StyledHeroSectionWrapper = styled.section`
         .graphic {
           display: none;
         }
+
         .graphic-mobile {
           display: block;
         }

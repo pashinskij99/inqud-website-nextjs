@@ -1,21 +1,22 @@
 import styled from '@emotion/styled';
+import {rem} from '@/utils/rem';
 
 export const StyledBlogsSectionWrapper = styled.section`
-  padding-bottom: 144px;
+  padding-bottom: ${rem(144)};
   @media (max-width: 992px) {
-    padding-bottom: 96px;
+    padding-bottom: ${rem(96)};
   }
 
   .blog-grid {
-    padding: 56px 0 48px;
+    padding: ${rem(56)} 0 ${rem(48)};
     display: grid;
     grid-template-columns: repeat(3, min-content);
     justify-content: space-between;
-    row-gap: 48px;
+    row-gap: ${rem(48)};
 
     @media (max-width: 992px) {
       grid-template-columns: repeat(2, 1fr);
-      column-gap: 24px;
+      column-gap: ${rem(24)};
       justify-content: space-between;
     }
 
@@ -23,8 +24,8 @@ export const StyledBlogsSectionWrapper = styled.section`
       grid-template-columns: repeat(1, 1fr);
       column-gap: 0;
       justify-content: center;
-      padding: 40px 0;
-      row-gap: 40px;
+      padding: ${rem(40)} 0;
+      row-gap: ${rem(40)};
     }
 
     li {
@@ -37,9 +38,9 @@ export const StyledBlogsSectionWrapper = styled.section`
   }
 
   .loadMoreButton {
-    margin-bottom: 56px;
+    margin-bottom: ${rem(56)};
     @media (max-width: 992px) {
-      margin-bottom: 41px;
+      margin-bottom: ${rem(41)};
     }
   }
 `

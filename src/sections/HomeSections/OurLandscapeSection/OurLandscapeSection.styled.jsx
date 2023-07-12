@@ -1,38 +1,41 @@
 import styled from '@emotion/styled'
+import {rem} from '@/utils/rem';
 
 export const StyledOurLandscapeSection = styled.section`
-  padding: 24.2rem 0;
+  padding: ${rem(242)} 0;
   overflow: hidden;
   @media (max-width: 1200px) {
-    padding: 12rem 0;
+    padding: ${rem(120)} 0;
   }
   @media (max-width: 576px) {
     text-align: center;
-    padding: 9.6rem 0;
+    padding: ${rem(96)} 0;
   }
+
   .container {
     .ourLandscapeTitle {
-      margin-bottom: 4rem;
+      margin-bottom: ${rem(40)};
       @media (max-width: 576px) {
-        margin-bottom: 3.2rem;
+        margin-bottom: ${rem(32)};
       }
     }
+
     .ourLandscapeTabs {
-      border-radius: 7.2rem;
-      border: 0.1rem solid
-        var(--independent-grey-dt-20, rgba(129, 158, 176, 0.2));
+      border-radius: ${rem(72)};
+      border: 1px solid var(--independent-grey-dt-20, rgba(129, 158, 176, 0.2));
       background: var(--clarity-white, #fff);
-      padding: 0.1rem;
+      padding: ${rem(1)};
       width: fit-content;
-      margin-bottom: 2.4rem;
+      margin-bottom: ${rem(24)};
       @media (max-width: 576px) {
-        margin: 0 auto 2.4rem;
+        margin: 0 auto ${rem(24)};
         width: 100%;
         display: flex;
       }
+
       .ourLandscapeTabsButton {
-        border-radius: 7.2rem;
-        padding: 0.7rem 1.6rem 0.7rem 1.7rem;
+        border-radius: ${rem(72)};
+        padding: ${rem(7)} ${rem(16)} ${rem(7)} ${rem(17)};
         background: transparent;
 
         p {
@@ -50,69 +53,78 @@ export const StyledOurLandscapeSection = styled.section`
 
         @media (max-width: 576px) {
           flex: 1;
-          padding: 0.6rem 1.6rem 0.7rem 1.6rem;
+          padding: ${rem(6)} ${rem(16)} ${rem(7)} ${rem(16)};
         }
       }
     }
+
     .ourLandscapeDescription {
       color: #517185;
-      margin-bottom: 6.6rem;
-      line-height: 3.2rem;
+      margin-bottom: ${rem(66)};
+      line-height: ${rem(32)};
+
       .br-tablet {
         display: none;
       }
+
       @media (max-width: 992px) {
-        margin-bottom: 6.2rem;
+        margin-bottom: ${rem(62)};
         .br-desktop {
           display: none;
         }
+
         .br-tablet {
           display: block;
         }
       }
       @media (max-width: 576px) {
-        margin-bottom: 3.9rem;
-        font-size: 24px;
+        margin-bottom: ${rem(39)};
+        font-size: ${rem(24)};
         br {
           display: none;
         }
       }
     }
+
     .ourLandscapeRisk {
       display: flex;
       justify-content: space-between;
       @media (max-width: 1400px) {
-        gap: 4rem;
+        gap: ${rem(40)};
       }
       @media (max-width: 1200px) {
-        gap: 2.4rem;
+        gap: ${rem(24)};
       }
 
       @media (max-width: 767px) {
         display: none;
       }
+
       .ourLandscapeAccordion {
-        max-width: 44rem;
+        max-width: ${rem(440)};
+
         .ourLandscapeAccordionTitle {
           display: flex;
           align-items: center;
-          gap: 2.4rem;
-          margin-bottom: 1.6rem;
+          gap: ${rem(24)};
+          margin-bottom: ${rem(16)};
           @media (max-width: 992px) {
-            margin-bottom: 1.4rem;
+            margin-bottom: ${rem(14)};
           }
+
           h5 {
-            font-size: 3.2rem;
-            letter-spacing: .32rem;
+            font-size: ${rem(32)};
+            letter-spacing: ${rem(3.2)};
           }
+
           svg {
             flex-shrink: 0;
           }
 
           @media (max-width: 992px) {
             h5 {
-              font-size: 2.4rem;
-              line-height: 2.3rem;
+              font-size: ${rem(24)};
+              line-height: ${rem(23)};
             }
           }
         }
@@ -122,20 +134,23 @@ export const StyledOurLandscapeSection = styled.section`
     .ourLandscapeSwiper {
       overflow: visible;
       display: none;
+
       .ourLandscapeAccordion {
         .ourLandscapeAccordionTitle {
           display: flex;
           align-items: center;
-          gap: 2.4rem;
-          margin-bottom: 1.6rem;
+          gap: ${rem(24)};
+          margin-bottom: ${rem(16)};
+
           h5 {
-            font-size: 3.2rem;
+            font-size: ${rem(32)};
           }
         }
       }
+
       .listRequirementsSwiperScollbar {
-        bottom: -5.5rem;
-        width: 20rem;
+        bottom: -${rem(55)};
+        width: ${rem(200)};
         left: 50%;
         transform: translateX(-50%);
         background: rgba(81, 113, 133, 0.2);
@@ -146,8 +161,7 @@ export const StyledOurLandscapeSection = styled.section`
         }
 
         @media (max-width: 576px) {
-          bottom: -3.9rem;
-
+          bottom: -${rem(39)};
         }
       }
 
@@ -159,9 +173,10 @@ export const StyledOurLandscapeSection = styled.section`
     .listRequirementsSwiper {
       overflow-y: visible;
       display: none;
+
       .listRequirementsSwiperScollbar {
-        bottom: -3.6rem;
-        width: 20rem;
+        bottom: -${rem(36)};
+        width: ${rem(200)};
         left: 50%;
         transform: translateX(-50%);
         background: rgba(81, 113, 133, 0.2);
@@ -172,11 +187,14 @@ export const StyledOurLandscapeSection = styled.section`
         }
 
       }
+
       .listRequirementsSwiperDrag {
       }
+
       .listRequirementsSwiperItems {
         /* width: 440px !important; */
       }
+
       @media (max-width: 1400px) {
         display: block;
       }

@@ -10,23 +10,9 @@ body {
   position: relative;
 }
 
-html {
-  font-size: 62.5%;
-  // height: -webkit-fill-available;
-
-  // @include respond(screen) {
-  // 	font-size: 55%;
-  // }
-  // @include respond(tab-land) {
-  // 	font-size: 50%;
-  // }
-  // @include respond(tab-port) {
-  // 	font-size: 45%;
-  // }
-  // @include respond(phone) {
-  // 	font-size: 40%;
-  // }
-}
+//html {
+//  font-size: 62.5%;
+//}
 
 a {
   color: inherit;

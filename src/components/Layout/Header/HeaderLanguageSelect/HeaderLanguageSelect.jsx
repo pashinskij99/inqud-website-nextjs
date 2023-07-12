@@ -1,19 +1,19 @@
-import { useState } from 'react'
+import {useState} from 'react'
 import clsx from 'clsx'
-import { StyledHeaderLanguageSelectWrapper } from './HeaderLanguageSelect.styled'
+import {StyledHeaderLanguageSelectWrapper} from './HeaderLanguageSelect.styled'
 import Planet from '@/assets/icons/planet.svg'
 import Check from '@/assets/icons/check.svg'
 import Arrow from '@/assets/icons/arrow-down.svg'
 
 const languages = [
-  { id: 0, name: 'English (US)', value: 'EN' },
-  { id: 1, name: 'Deutsch', value: 'DEU' },
-  { id: 2, name: 'Polski', value: 'PL' },
-  { id: 3, name: 'Español', value: 'ES' },
-  { id: 4, name: 'Français', value: 'FR' },
+  {id: 0, name: 'English (US)', value: 'EN'},
+  {id: 1, name: 'Deutsch', value: 'DEU'},
+  {id: 2, name: 'Polski', value: 'PL'},
+  {id: 3, name: 'Español', value: 'ES'},
+  {id: 4, name: 'Français', value: 'FR'},
 ]
 
-export default function HeaderLanguageSelect({ className }) {
+export default function HeaderLanguageSelect({className}) {
   const [active, setActive] = useState(false)
   const [language, setLanguage] = useState(languages[0].value)
 
@@ -41,9 +41,9 @@ export default function HeaderLanguageSelect({ className }) {
           ['active']: active,
         })}
       >
-        <Planet />
+        <Planet/>
         <span>
-          {language} <Arrow />
+          {language} <Arrow/>
         </span>
       </button>
 
@@ -52,17 +52,17 @@ export default function HeaderLanguageSelect({ className }) {
           ['show']: active,
         })}
       >
-        <div className='trigger' />
+        <div className="trigger"/>
         <ul
           className={clsx({
             ['show']: active,
             ['hide']: !active,
           })}
         >
-          {languages.map(({ id, name, value }) => (
+          {languages.map(({id, name, value}) => (
             <li key={id}>
               <button onClick={() => handleLangClick(value)}>
-                {language === value && <Check />} {name}
+                {language === value && <Check/>} {name}
               </button>
             </li>
           ))}

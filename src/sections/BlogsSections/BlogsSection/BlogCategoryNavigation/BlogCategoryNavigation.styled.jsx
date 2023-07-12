@@ -1,7 +1,20 @@
 import styled from '@emotion/styled';
+import {rem} from '@/utils/rem';
 
 export const StyledBlogCategoryNavigationWrapper = styled.div`
   background-color: rgba(239, 242, 245, 1);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: rgba(239, 242, 245, 1);
+    width: ${(props) => props.width};
+    z-index: 1;
+  }
 
   &::-webkit-scrollbar {
     display: none;
@@ -20,8 +33,8 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 23px 0;
+    gap: ${rem(8)};
+    padding: ${rem(23)} 0;
     overflow-x: auto;
 
     -ms-overflow-style: none; /* Internet Explorer 10+ */
@@ -31,26 +44,35 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
       display: none; /* Safari and Chrome */
     }
 
+    &::after {
+      content: "";
+      display: block;
+      width: ${(props) => props.width};
+      height: 100%;
+      flex: 0 0 auto;
+    }
+
     li {
       position: relative;
 
       button {
-        border-radius: 50px;
+        border-radius: ${rem(50)};
         background: #FFF;
-        height: 34px;
+        height: ${rem(34)};
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 16px;
+        padding: 0 ${rem(16)};
         width: max-content;
 
         h5 {
           color: rgba(81, 113, 133, 1);
           @media (max-width: 576px) {
-            font-size: 24px;
+            font-size: ${rem(24)};
           }
         }
       }
+
 
       &.active {
         position: sticky;
@@ -69,7 +91,7 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
             height: 100%;
             background-color: rgba(239, 242, 245, 1);
             z-index: -1;
-            border-radius: 0 50px 50px 0;
+            border-radius: 0 ${rem(50)} ${rem(50)} 0;
           }
         }
 

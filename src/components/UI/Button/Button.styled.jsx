@@ -1,16 +1,17 @@
 import styled from '@emotion/styled'
+import {rem} from '@/utils/rem';
 
 export const StyledButtonGhost = styled.button`
-  height: 4.8rem;
-  border-radius: 10rem;
+  height: ${rem(48)};
+  border-radius: ${rem(100)};
   border: 1px solid var(--ambitious-green-20, rgba(7, 116, 83, 0.2));
 
   color: var(--ambitious-green, #077453);
   text-align: center;
-  font-size: 1.8rem;
+  font-size: ${rem(18)};
   font-weight: 700;
-  line-height: 2.7rem;
-  padding: 0 2.4rem;
+  line-height: ${rem(27)};
+  padding: 0 ${rem(24)};
   transition: all 0.3s ease-in-out;
 
   &:hover {
@@ -20,16 +21,16 @@ export const StyledButtonGhost = styled.button`
 `
 
 export const StyledButtonSecondary = styled.button`
-  border-radius: 54px;
+  border-radius: ${rem(54)};
   background: var(--ambitious-green, #077453);
-  height: 4.8rem;
+  height: ${rem(48)};
 
   color: var(--clarity-white, #fff);
-  font-size: 1.8rem;
+  font-size: ${rem(18)};
   font-weight: 700;
-  line-height: 2.7rem;
+  line-height: ${rem(27)};
   transition: all 0.3s ease-in-out;
-  padding: 0 2.4rem;
+  padding: 0 ${rem(24)};
 
   &:hover {
     background: #1f8264;
@@ -50,14 +51,14 @@ export const StyledButtonSecondaryLight = styled(StyledButtonSecondary)`
 `
 
 export const StyledButtonGetStarted = styled.button`
-  border-radius: 5.4rem;
+  border-radius: ${rem(54)};
   background: var(--ambitious-green, #077453);
-  padding-right: 0.4rem;
-  padding-left: 1.6rem;
-  height: 4.8rem;
+  padding-right: ${rem(4)};
+  padding-left: ${rem(16)};
+  height: ${rem(48)};
   display: flex;
   align-items: center;
-  gap: 1.6rem;
+  gap: ${rem(16)};
 
   .text {
     color: var(--clarity-white, #fff);
@@ -95,7 +96,7 @@ export const StyledButtonGetStarted = styled.button`
     position: relative;
     svg {
       position: absolute;
-      right: 0.4rem;
+      right: ${rem(4)};
     }
   }
 `
@@ -139,7 +140,7 @@ export const StyledButtonGetStartedLight = styled(StyledButtonGetStarted)`
     position: relative;
     svg {
       position: absolute;
-      right: 0.4rem;
+      right: ${rem(4)};
     }
   }
 `
@@ -176,9 +177,9 @@ export const StyledButtonGhostCrypto = styled(StyledButtonGhost)`
 
 export const StyledLoadMoreLarge = styled.button`
 
-  border-radius: 16px;
+  border-radius: ${rem(16)};
   background: #F6F7F8;
-  height: 80px;
+  height: ${rem(80)};
   width: 100%;
   display: flex;
   justify-content: center;

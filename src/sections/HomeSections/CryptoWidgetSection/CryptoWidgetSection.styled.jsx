@@ -1,25 +1,27 @@
 import styled from '@emotion/styled'
-import { IBM } from '@/utils/font'
+import {IBM} from '@/utils/font'
+import {rem} from '@/utils/rem';
 
 export const StyledCryptoWidgetSection = styled.section`
   background: var(--ambitious-green, #077453);
-  padding-top: 23.7rem;
-  padding-bottom: 23.6rem;
+  padding-top: ${rem(237)};
+  padding-bottom: ${rem(236)};
   overflow-x: hidden;
   @media (max-width: 1200px) {
-    padding: 12rem 0;
+    padding: ${rem(120)} 0;
   }
 
   @media (max-width: 576px) {
-    padding: 9.6rem 0;
+    padding: ${rem(96)} 0;
     overflow: hidden;
   }
+
   .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-items: center;
-    gap: 6rem;
+    gap: ${rem(60)};
     @media (max-width: 1200px) {
       grid-template-columns: 1fr;
       gap: 0;
@@ -27,38 +29,45 @@ export const StyledCryptoWidgetSection = styled.section`
     @media (max-width: 576px) {
       text-align: center;
     }
+
     .cryptoSubTitle {
-      border-radius: 5rem;
+      border-radius: ${rem(50)};
       background: var(--exciting-lime, #bfffc8);
       color: #077453;
-      margin-bottom: 2.3rem;
+      margin-bottom: ${rem(23)};
       line-height: 1;
-      padding: 0.7rem 1.6rem;
+      padding: ${rem(7)} ${rem(16)};
       width: fit-content;
-      &.cryptoSubTitle-desktop {}
+
+      &.cryptoSubTitle-desktop {
+      }
+
       &.cryptoSubTitle-mobile {
         display: none;
       }
+
       @media (max-width: 1200px) {
-        margin: 0 auto 2.4rem;
+        margin: 0 auto ${rem(24)};
       }
       @media (max-width: 992px) {
-        padding: 0.5rem 1.6rem;
+        padding: ${rem(5)} ${rem(16)};
       }
       @media (max-width: 576px) {
-        margin: 0 auto 1.6rem;
+        margin: 0 auto ${rem(16)};
         &.cryptoSubTitle-desktop {
           display: none;
         }
+
         &.cryptoSubTitle-mobile {
           display: block;
           width: 100%;
         }
       }
     }
+
     .cryptoTitle {
       color: #ffffff;
-      margin-bottom: 2.4rem;
+      margin-bottom: ${rem(24)};
       @media (max-width: 1200px) {
         text-align: center;
       }
@@ -69,20 +78,22 @@ export const StyledCryptoWidgetSection = styled.section`
       @media (max-width: 1200px) {
         display: flex;
         justify-content: center;
-        margin-bottom: 2.4rem;
+        margin-bottom: ${rem(24)};
         .cryptoWidgetMobileSmaller {
           display: none;
         }
+
         .cryptoWidgetMobile {
           display: block;
         }
       }
       @media (max-width: 576px) {
-        margin-bottom: 2.447rem;
+        margin-bottom: ${rem(24.47)};
         .cryptoWidgetMobileSmaller {
           display: block;
           width: 100%;
         }
+
         .cryptoWidgetMobile {
           display: none;
         }
@@ -91,7 +102,7 @@ export const StyledCryptoWidgetSection = styled.section`
 
     .cryptoDescription {
       color: #ffffff;
-      margin-bottom: 5.6rem;
+      margin-bottom: ${rem(56)};
       @media (max-width: 992px) {
         br {
           display: none;
@@ -101,41 +112,46 @@ export const StyledCryptoWidgetSection = styled.section`
         display: none;
       }
     }
+
     .cryptoDescriptionMobile {
       display: none;
       @media (max-width: 576px) {
         display: block;
         color: #ffffff;
-        margin-bottom: 4rem;
-        font-size: 2.4rem;
-        line-height: 34px;
+        margin-bottom: ${rem(40)};
+        font-size: ${rem(24)};
+        line-height: ${rem(34)};
       }
     }
+
     .cryptoGrid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      column-gap: 5rem;
-      row-gap: 4rem;
-      margin-bottom: 5.6rem;
+      column-gap: ${rem(50)};
+      row-gap: ${rem(40)};
+      margin-bottom: ${rem(56)};
       @media (max-width: 576px) {
         grid-template-columns: repeat(1, 1fr);
         text-align: start;
         width: fit-content;
-        margin: 0 auto 4.8rem;
-        gap: 1.6rem;
+        margin: 0 auto ${rem(48)};
+        gap: ${rem(16)};
       }
+
       .cryptoGridItem {
         position: relative;
         @media (max-width: 576px) {
           display: flex;
           align-items: center;
-          gap: 1.2rem;
+          gap: ${rem(12)};
         }
+
         &:last-child {
           .cryptoGridItemTitle,
           .cryptoGridItemDescription {
             opacity: 0.6000000238418579;
           }
+
           &::after {
             content: '';
             position: absolute;
@@ -147,35 +163,36 @@ export const StyledCryptoWidgetSection = styled.section`
             margin: auto;
             width: 100%;
             height: 100%;
-            border-radius: 20px;
-            outline: 0.2rem dotted var(--exciting-lime, #bfffc8);
+            border-radius: ${rem(20)};
+            outline: 2px dotted var(--exciting-lime, #bfffc8);
             opacity: 0.4000000059604645;
-            padding: 1.4rem 1.2rem 1.6rem 2rem;
+            padding: ${rem(14)} ${rem(12)} ${rem(16)} ${rem(20)};
             @media (max-width: 576px) {
               display: none;
             }
           }
+
           &::before {
             content: attr(data-slug);
             position: absolute;
-            top: -1.6rem;
+            top: -${rem(16)};
             right: 0;
 
             ${IBM.style}
 
-            font-size: 18px;
+            font-size: ${rem(18)};
             font-weight: 400;
-            line-height: 8.673px;
-            letter-spacing: 1.8px;
+            line-height: ${rem(8.673)};
+            letter-spacing: ${rem(1.8)};
             text-transform: uppercase;
 
             transform: translateY(-50%);
 
             color: var(--ambitious-green, #077453);
-            height: 2.5rem;
-            padding: 0 1rem;
+            height: ${rem(25)};
+            padding: 0 ${rem(10)};
 
-            border-radius: 30px;
+            border-radius: ${rem(30)};
             background: var(--exciting-lime, #bfffc8);
             display: flex;
             align-items: center;
@@ -189,17 +206,20 @@ export const StyledCryptoWidgetSection = styled.section`
         .loading {
           display: none;
         }
+
         .check {
           display: none;
           @media (max-width: 576px) {
             display: block;
           }
         }
+
         &:last-child {
           @media (max-width: 576px) {
             .loading {
               display: block;
             }
+
             .check {
               display: none;
             }
@@ -209,12 +229,13 @@ export const StyledCryptoWidgetSection = styled.section`
         .cryptoGridItemTitle {
           color: #ffffff;
           font-weight: 700;
-          margin-bottom: 1.6rem;
+          margin-bottom: ${rem(16)};
           @media (max-width: 576px) {
             font-weight: 500;
             margin: 0;
           }
         }
+
         .cryptoGridItemDescription {
           font-weight: 500;
           color: #ffffff;
@@ -224,20 +245,23 @@ export const StyledCryptoWidgetSection = styled.section`
         }
       }
     }
+
     .cryptoButtonWrapper {
-      gap: 1.6rem;
+      gap: ${rem(16)};
       display: flex;
       align-items: center;
       @media (max-width: 576px) {
         display: flex;
         flex-direction: column;
-        gap: 0.8rem;
+        gap: ${rem(8)};
       }
+
       .cryptoButtonGetStarted {
         @media (max-width: 576px) {
           width: 100%;
         }
       }
+
       .cryptoButtonGhost {
         border: 1px solid var(--exciting-lime-20, rgba(191, 255, 200, 0.2));
         color: #bfffc8;

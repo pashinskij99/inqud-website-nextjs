@@ -1,9 +1,10 @@
 import styled from '@emotion/styled'
+import {rem} from '@/utils/rem';
 
 export const StyledPickSectionSection = styled.section`
-  border-radius: 3rem;
+  border-radius: ${rem(30)};
   background: var(--ambitious-green, #077453);
-  padding-left: 6.4rem;
+  padding-left: ${rem(64)};
 
   overflow: hidden;
 
@@ -11,38 +12,39 @@ export const StyledPickSectionSection = styled.section`
   display: flex;
   justify-content: space-between;
 
-  height: 34.4rem;
+  height: ${rem(344)};
 
   align-items: center;
 
   @media (max-width: 1200px) {
-    padding: 9.6rem 0 !important;
+    padding: ${rem(96)} 0 !important;
     max-width: 100% !important;
-    border-radius: 0px;
+    border-radius: 0;
     flex-direction: column;
     height: auto;
     text-align: center;
   }
+
   .pickTitle {
     color: white;
     flex-shrink: 0;
     @media (max-width: 1200px) {
-      margin-bottom: 2.4rem;
+      margin-bottom: ${rem(24)};
       font-weight: 400;
     }
     @media (max-width: 992px) {
-      line-height: 7.45rem;
+      line-height: ${rem(74.5)};
       .pickTitle10Minutes {
-        margin-bottom: 1.15rem;
+        margin-bottom: ${rem(11.5)};
       }
 
     }
     @media (max-width: 576px) {
       font-weight: 700;
-      line-height: 5rem;
-      margin-bottom: 3rem;
+      line-height: ${rem(50)};
+      margin-bottom: ${rem(30)};
       .pickTitle10Minutes {
-        margin-bottom: .6rem;
+        margin-bottom: ${rem(6)};
       }
     }
   }
@@ -60,53 +62,58 @@ export const StyledPickSectionSection = styled.section`
       display: none;
     }
   }
+
   .pickList {
     flex-shrink: 0;
-    margin-left: 2rem;
+    margin-left: ${rem(20)};
 
     @media (max-width: 1200px) {
-      margin-bottom: 4rem;
-      margin-left: 0rem;
+      margin-bottom: ${rem(40)};
+      margin-left: 0;
     }
     @media (max-width: 576px) {
-      margin-bottom: 3.8rem;
+      margin-bottom: ${rem(38)};
     }
 
     .pickListTitle {
       color: white;
       font-weight: 700;
-      margin-bottom: 2.4rem;
+      margin-bottom: ${rem(24)};
       @media (max-width: 1200px) {
-        margin-bottom: 2.4rem;
+        margin-bottom: ${rem(24)};
       }
 
       @media (max-width: 576px) {
-        font-size: 2.4rem;
+        font-size: ${rem(24)};
         font-weight: 700;
-        margin-bottom: 2.8rem;
+        margin-bottom: ${rem(28)};
       }
     }
+
     ul {
       display: flex;
       flex-direction: column;
-      row-gap: 1.6rem;
+      row-gap: ${rem(16)};
       @media (max-width: 1200px) {
         text-align: start;
       }
       @media (max-width: 992px) {
-        row-gap: 0.6rem;
+        row-gap: ${rem(6)};
       }
       @media (max-width: 576px) {
-        row-gap: 1.1rem;
+        row-gap: ${rem(11)};
       }
+
       li {
         display: flex;
         align-items: center;
         font-weight: 500;
-        gap: 1.6rem;
+        gap: ${rem(16)};
+
         .pickListItemText {
           color: white;
         }
+
         svg {
           flex-shrink: 0;
         }
@@ -117,9 +124,9 @@ export const StyledPickSectionSection = styled.section`
   .pickList10Minutes {
     @media (max-width: 992px) {
       ul {
-        gap: 2.1rem;
+        gap: ${rem(21)};
         @media (max-width: 576px) {
-          row-gap: 2rem;
+          row-gap: ${rem(20)};
         }
       }
 
@@ -133,7 +140,7 @@ export const StyledPickSectionSection = styled.section`
     justify-content: center;
     height: 100%;
     text-align: center;
-    padding: 0 7.2rem;
+    padding: 0 ${rem(72)};
     background: var(--ambitious-green, #0f674d);
     @media (max-width: 1200px) {
       background: #077453;
@@ -141,11 +148,11 @@ export const StyledPickSectionSection = styled.section`
 
     @media (max-width: 576px) {
       width: 100%;
-      padding: 0 1.6rem;
+      padding: 0 ${rem(16)};
     }
 
     svg {
-      margin-bottom: 1.6rem;
+      margin-bottom: ${rem(16)};
       @media (max-width: 1200px) {
         display: none;
       }
@@ -153,12 +160,13 @@ export const StyledPickSectionSection = styled.section`
 
     .pickPickDescription {
       color: white;
-      margin-bottom: 3.2rem;
+      margin-bottom: ${rem(32)};
       font-weight: 500;
       @media (max-width: 1200px) {
         display: none;
       }
     }
+
     .pickPickButton {
       /* @media (max-width: 992px) {
         display: none;

@@ -26,10 +26,10 @@ function BlogCategoryNavigation({category}) {
   }, [])
 
   return (
-    <StyledBlogCategoryNavigationWrapper>
+    <StyledBlogCategoryNavigationWrapper width={marginLeft}>
       <div ref={containerRef} className="container"/>
 
-      <ul style={{marginLeft}}>
+      <ul style={{paddingLeft: marginLeft}}>
         {category.map(({name}) =>
           <li
             key={name}

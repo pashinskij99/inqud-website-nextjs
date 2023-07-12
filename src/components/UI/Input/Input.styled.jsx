@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import {urbanist} from '@/utils/font'
+import {rem} from '@/utils/rem';
 
 export const StyledInputTextWrapper = styled.div`
   .inputTextLabel {
@@ -19,18 +20,18 @@ export const StyledInputTextWrapper = styled.div`
     position: relative;
 
     .inputTextInput {
-      height: 4.8rem;
+      height: ${rem(48)};
       width: 100%;
-      border-radius: 6.2rem;
-      border: 0.1rem solid rgba(45, 52, 57, 0.20000000298023224);
+      border-radius: ${rem(62)};
+      border: 1px solid rgba(45, 52, 57, 0.20000000298023224);
 
-      padding: 0 3.2rem 0 1.6rem;
+      padding: 0 ${rem(32)} 0 ${rem(16)};
 
       color: #2d3439;
 
-      font-size: 1.8rem;
+      font-size: ${rem(18)};
       font-weight: 400;
-      line-height: 2.6rem;
+      line-height: ${rem(26)};
       ${urbanist.style}
 
       background-color: transparent;
@@ -63,7 +64,7 @@ export const StyledInputTextWrapper = styled.div`
 `
 
 export const StyledInputSearchWrapper = styled.div`
-  height: 48px;
+  height: ${rem(48)};
   position: relative;
 
   button {
@@ -74,22 +75,22 @@ export const StyledInputSearchWrapper = styled.div`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 13px;
+    left: ${rem(13)};
     pointer-events: none;
     touch-action: none;
   }
 
   input {
-    padding: 0 30px 0 45px;
+    padding: 0 ${rem(30)} 0 ${rem(45)};
     height: 100%;
     width: 100%;
-    border-radius: 42px;
+    border-radius: ${rem(42)};
     background-color: rgba(243, 246, 248, 1);
     border: 1px solid rgba(243, 246, 248, 1);
     color: rgba(45, 52, 57, 1);
-    font-size: 18px;
+    font-size: ${rem(18)};
     font-weight: 400;
-    line-height: 26px;
+    line-height: ${rem(26)};
 
     ${urbanist.style}
     &::placeholder {

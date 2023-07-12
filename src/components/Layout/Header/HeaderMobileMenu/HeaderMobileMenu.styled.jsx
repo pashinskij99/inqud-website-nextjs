@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
+import {Accordion, AccordionDetails, AccordionSummary} from '@mui/material'
+import {rem} from '@/utils/rem';
 
 export const StyledHeaderMobileMenu = styled.div`
   /* height: 100dvh; */
@@ -9,8 +10,8 @@ export const StyledHeaderMobileMenu = styled.div`
   width: 100%;
   text-align: center;
   background: var(--clarity-white, #fff);
-  padding-top: 6rem;
-  padding-bottom: 1.6rem;
+  padding-top: ${rem(60)};
+  padding-bottom: ${rem(16)};
   z-index: 100;
   display: none;
   margin-bottom: env(safe-area-inset-bottom);
@@ -19,17 +20,18 @@ export const StyledHeaderMobileMenu = styled.div`
     display: block;
   }
   @media (max-width: 1400px) {
-    height: calc(100dvh - 8.6rem);
-    top: 8.6rem;
+    height: calc(100dvh - ${rem(86)});
+    top: ${rem(86)};
   }
   @media (max-width: 767px) {
-    height: calc(100dvh - 5rem);
-    top: 5rem;
+    height: calc(100dvh - ${rem(50)});
+    top: ${rem(50)};
   }
 
   &.show {
     animation: show 0.3s ease-in-out forwards;
   }
+
   &.hide {
     animation: hide 0.3s ease-in-out forwards;
   }
@@ -41,24 +43,26 @@ export const StyledHeaderMobileMenu = styled.div`
     justify-content: space-between;
     align-items: center;
   }
+
   .headerMobileMenuNav {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: ${rem(24)};
     width: 100%;
     overflow: auto;
-    padding-bottom: 2.4rem;
+    padding-bottom: ${rem(24)};
     /* height: 700px; */
   }
+
   .headerMobileMenuNavTitle {
     font-weight: 700;
   }
 
   .headerMobileMenuAccordionBodyList {
-    padding-top: 1.6rem;
+    padding-top: ${rem(16)};
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: ${rem(10)};
   }
 
   .headerMobileMenuAccordionBodyText {
@@ -66,11 +70,13 @@ export const StyledHeaderMobileMenu = styled.div`
       font-weight: 700;
     }
   }
+
   .headerMobileMenuButtons {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: ${rem(8)};
     width: 100%;
+
     button {
       width: 100%;
       text-align: center;
@@ -106,8 +112,7 @@ export const StyledHeaderMobileMenu = styled.div`
 export const StyledHeaderMobileMenuAccordion = styled((props) => (
   <Accordion disableGutters elevation={0} square {...props} />
 ))(() => ({
-  borderRadius: '1.6rem',
-  // background: '#F4F5FA',
+  borderRadius: rem(16),
   borderBottom: 'none',
   overflow: 'hidden',
   '& .MuiCollapse-root.MuiCollapse-vertical': {
@@ -126,8 +131,6 @@ export const StyledHeaderMobileMenuAccordion = styled((props) => (
 export const StyledHeaderMobileMenuAccordionSummary = styled((props) => (
   <AccordionSummary {...props} />
 ))(() => ({
-  // padding: '2.5rem 3.2rem 2.1rem',
-  // paddingBottom: `${props.expanded ? '0' : '2.1rem'}`,
   lineHeight: 1,
   padding: 0,
   display: 'flex',
@@ -148,11 +151,5 @@ export const StyledHeaderMobileMenuAccordionSummary = styled((props) => (
 export const StyledHeaderMobileMenuAccordionDetails = styled(AccordionDetails)(
   () => ({
     padding: 0,
-    // overflowY: 'scroll',
-    // '&::-webkit-scrollbar': {
-    //   // display: 'none',
-    // },
-
-    // height: '200px',
   })
 )
