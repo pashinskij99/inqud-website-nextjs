@@ -1,24 +1,27 @@
 import styled from '@emotion/styled'
+import {responsive} from '@/utils/response';
 
 export const StyledHomeWrapper = styled.main`
   height: 100%;
+
   .pickSection {
     position: absolute;
     margin: 0 auto;
     left: 0;
     right: 0;
     transform: translateY(-50%);
-    @media (max-width: 1200px) {
+
+    ${responsive.xl`
       position: relative;
       transform: translateY(0%);
-    }
+    `}
     .pickPickButtonTablet {
-      @media (max-width: 992px) {
+      ${responsive.lg`
         display: block;
-      }
-      @media (max-width: 576px) {
+      `}
+      ${responsive.xs`
         width: 100%;
-      }
+      `}
     }
   }
 
@@ -26,21 +29,25 @@ export const StyledHomeWrapper = styled.main`
     .pickPickButtonTablet {
       display: none;
     }
-    @media (max-width: 992px) {
+
+    ${responsive.lg`
       .pickPickButton {
         display: none;
       }
+
       .pickPickButtonTablet {
         display: block;
       }
-    }
-    @media (max-width: 576px) {
+    `}
+
+    ${responsive.xs`
       .pickPickButton {
         display: block;
       }
+
       .pickPickButtonTablet {
         display: none;
       }
-    }
+    `}
   }
 `

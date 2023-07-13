@@ -1,11 +1,19 @@
 import styled from '@emotion/styled'
 import {rem} from '@/utils/rem';
+import {responsive} from '@/utils/response';
 
 export const StyledBlogsSection = styled.section`
   /* padding-top: 24rem; */
-  @media (max-width: 992px) {
+  ${responsive.xl`
     padding-bottom: ${rem(62)};
     overflow: hidden;
+  `};
+
+  .slide {
+    width: fit-content;
+    ${responsive.xs`
+      max-width: 100%;
+    `}
   }
 
   .blogsHeader {
@@ -13,26 +21,26 @@ export const StyledBlogsSection = styled.section`
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: ${rem(56)};
-    @media (max-width: 992px) {
+    ${responsive.xl`
       align-items: center;
-    }
-    @media (max-width: 576px) {
+    `};
+    ${responsive.xs`
       justify-content: center;
       margin-bottom: ${rem(40)};
       padding-top: ${rem(96)};
-    }
+    `};
 
     .blogsHeaderTitle {
     }
 
     .blogsHeaderButton {
-      @media (max-width: 992px) {
+      ${responsive.xl`
         height: ${rem(48)};
         margin-top: ${rem(15)};
-      }
-      @media (max-width: 576px) {
+      `};
+      ${responsive.xs`
         display: none;
-      }
+      `};
     }
   }
 
@@ -40,9 +48,9 @@ export const StyledBlogsSection = styled.section`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: ${rem(40)};
-    @media (max-width: 992px) {
+    ${responsive.xl`
       display: none;
-    }
+    `};
   }
 
   .blogsGridItem {
@@ -58,11 +66,11 @@ export const StyledBlogsSection = styled.section`
     .blogsGridItemImage {
     }
 
-    @media (max-width: 576px) {
+    ${responsive.xs`
       max-width: 100%;
       height: ${rem(193)};
       margin-bottom: ${rem(23)};
-    }
+    `};
   }
 
   .blogsGridItemBody {
@@ -74,18 +82,18 @@ export const StyledBlogsSection = styled.section`
       padding: ${rem(7)} ${rem(16)};
       width: fit-content;
       margin-bottom: ${rem(12)};
-      @media (max-width: 576px) {
+      ${responsive.xs`
         margin: 0 auto ${rem(12)};
-      }
+      `};
     }
 
     .blogsGridItemBodyTitle {
       margin-bottom: ${rem(16)};
       font-weight: 700;
-      @media (max-width: 576px) {
+      ${responsive.xs`
         margin-bottom: ${rem(12)};
         text-align: center;
-      }
+      `};
     }
 
     .blogsGridItemBodyFooter {
@@ -101,24 +109,22 @@ export const StyledBlogsSection = styled.section`
         color: var(--independent-grey, #517185);
       }
 
-      @media (max-width: 576px) {
+      ${responsive.xs`
         justify-content: center;
-      }
+      `};
     }
   }
 
   .blogsSwiper {
     display: none;
     overflow-y: visible;
-
-    @media (max-width: 992px) {
+    ${responsive.xl`
       display: block;
       overflow: visible;
-    }
-
-    @media (max-width: 576px) {
+    `};
+    ${responsive.xs`
       margin-bottom: ${rem(82)};
-    }
+    `};
 
     .listRequirementsSwiperScollbar {
       bottom: -${rem(58)};
@@ -128,9 +134,9 @@ export const StyledBlogsSection = styled.section`
       background: rgba(81, 113, 133, 0.2);
       opacity: 1 !important;
       height: ${rem(2)};
-      @media (max-width: 576px) {
+      ${responsive.xs`
         bottom: -${rem(40)};
-      }
+      `};
 
       .swiper-scrollbar-drag {
         background: rgba(7, 116, 83, 1) !important;
@@ -140,9 +146,9 @@ export const StyledBlogsSection = styled.section`
 
   .blogsHeaderButtonMobile {
     display: none;
-    @media (max-width: 576px) {
+    ${responsive.xs`
       width: 100%;
       display: block;
-    }
+    `};
   }
 `

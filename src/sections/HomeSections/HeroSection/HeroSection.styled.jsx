@@ -7,7 +7,7 @@ export const StyledHeroSectionWrapper = styled.section`
   padding-bottom: ${rem(98)};
   overflow: hidden;
 
-  ${responsive.lg`
+  ${responsive.xl`
     padding-top: ${rem(21)};
     padding-bottom: 0;
   `}
@@ -18,20 +18,16 @@ export const StyledHeroSectionWrapper = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: ${rem(44)};
-    ${responsive.lg`
+    ${responsive.xl`
       display: flex;
       flex-direction: column-reverse;
+      gap: ${rem(40)};
     `};
 
-    @media (max-width: 992px) {
-      gap: ${rem(40)};
-    }
-    @media (max-width: 576px) {
+    ${responsive.xs`
       gap: 0;
       text-align: center;
-    }
-
-
+    `}
     .leftSide {
       .subTitle {
         color: #517185;
@@ -41,14 +37,14 @@ export const StyledHeroSectionWrapper = styled.section`
         padding: ${rem(7)} ${rem(16)};
         line-height: 1;
         margin-bottom: ${rem(24)};
-        @media (max-width: 992px) {
+        ${responsive.xl`
           margin-bottom: ${rem(20)};
-        }
-        @media (max-width: 576px) {
+        `};
+        ${responsive.xs`
           font-size: ${rem(24)};
           padding: ${rem(5)} ${rem(16)};
           margin: 0 auto ${rem(15)};
-        }
+        `};
       }
 
       .title {
@@ -58,14 +54,14 @@ export const StyledHeroSectionWrapper = styled.section`
       .paragraph {
         color: #517185;
         margin-bottom: ${rem(45)};
-        @media (max-width: 576px) {
+        ${responsive.xs`
           font-size: ${rem(24)};
           line-height: ${rem(34)};
           margin-bottom: ${rem(30)};
           br {
             display: none;
           }
-        }
+        `};
       }
 
       .features {
@@ -75,11 +71,11 @@ export const StyledHeroSectionWrapper = styled.section`
         column-gap: ${rem(20)};
         row-gap: ${rem(24)};
         margin-bottom: ${rem(45)};
-        @media (max-width: 576px) {
+        ${responsive.xs`
           grid-template-columns: 1fr;
           margin: 0 auto ${rem(40)};
           row-gap: ${rem(14)};
-        }
+        `};
 
         li {
           display: flex;
@@ -97,7 +93,7 @@ export const StyledHeroSectionWrapper = styled.section`
         align-items: center;
         gap: ${rem(16)};
         margin-bottom: ${rem(80)};
-        @media (max-width: 576px) {
+        ${responsive.xs`
           flex-direction: column;
           gap: ${rem(6.5)};
           margin-bottom: ${rem(56)};
@@ -117,16 +113,16 @@ export const StyledHeroSectionWrapper = styled.section`
           .ghostButton {
             width: 100%;
           }
-        }
+        `};
       }
 
       .payment {
         .payment-descr {
           color: #517185;
           margin-bottom: ${rem(24)};
-          @media (max-width: 576px) {
+          ${responsive.xs`
             text-align: start;
-          }
+          `};
 
         }
 
@@ -147,7 +143,7 @@ export const StyledHeroSectionWrapper = styled.section`
         display: none;
       }
 
-      @media (max-width: 1400px) {
+      ${responsive.xl`
         display: flex;
         justify-content: center;
 
@@ -158,15 +154,16 @@ export const StyledHeroSectionWrapper = styled.section`
         .graphic-mobile {
           display: block;
         }
-      }
-      @media (max-width: 576px) {
+      `};
+
+      ${responsive.xs`
         display: flex;
         justify-content: center;
 
         .graphic-mobile {
           display: none;
         }
-      }
+      `};
     }
   }
 `

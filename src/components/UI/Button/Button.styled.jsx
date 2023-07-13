@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import {rem} from '@/utils/rem';
+import {responsive} from '@/utils/response';
 
 export const StyledButtonGhost = styled.button`
   height: ${rem(48)};
@@ -64,6 +65,11 @@ export const StyledButtonGetStarted = styled.button`
     color: var(--clarity-white, #fff);
   }
 
+  svg {
+    width: ${rem(40)};
+    height: ${rem(40)};
+  }
+
   &,
   svg,
   path,
@@ -90,7 +96,7 @@ export const StyledButtonGetStarted = styled.button`
     }
   }
 
-  @media (max-width: 576px) {
+  ${responsive.xs`
     display: flex;
     justify-content: center;
     position: relative;
@@ -98,7 +104,8 @@ export const StyledButtonGetStarted = styled.button`
       position: absolute;
       right: ${rem(4)};
     }
-  }
+  `}
+
 `
 
 export const StyledButtonLearnMore = styled(StyledButtonGetStarted)`
@@ -114,11 +121,11 @@ export const StyledButtonLearnMore = styled(StyledButtonGetStarted)`
     }
   }
 
-  @media (max-width: 576px) {
-    svg {
-      position: relative;
-    }
-  }
+  //@media (max-width: 576px) {
+  //  svg {
+  //    //position: relative;
+  //  }
+  //}
 `
 
 export const StyledButtonGetStartedLight = styled(StyledButtonGetStarted)`
@@ -134,7 +141,7 @@ export const StyledButtonGetStartedLight = styled(StyledButtonGetStarted)`
     }
   }
 
-  @media (max-width: 576px) {
+  ${responsive.xs`
     display: flex;
     justify-content: center;
     position: relative;
@@ -142,7 +149,8 @@ export const StyledButtonGetStartedLight = styled(StyledButtonGetStarted)`
       position: absolute;
       right: ${rem(4)};
     }
-  }
+  `}
+
 `
 
 export const StyledButtonGhostCrypto = styled(StyledButtonGhost)`

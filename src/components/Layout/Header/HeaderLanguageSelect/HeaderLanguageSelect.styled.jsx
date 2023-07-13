@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import {Box} from '@mui/material'
 import {rem} from '@/utils/rem';
+import {responsive} from '@/utils/response';
 
 export const StyledHeaderLanguageSelectWrapper = styled(Box)`
   position: relative;
@@ -19,9 +20,17 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
       font-size: ${rem(18)};
       font-weight: 700;
       color: rgba(45, 52, 57, 1);
-      @media (max-width: 992px) {
+
+      ${responsive.xl`
         right: -${rem(5)};
-      }
+      `};
+    }
+
+    .planet {
+      ${responsive.xs`
+        width: ${rem(32)};
+        height: ${rem(32)};
+     `}
     }
 
     span,

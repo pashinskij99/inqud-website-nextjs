@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import {urbanist} from '@/utils/font'
 import {rem} from '@/utils/rem';
+import {InputSendRequest} from '@/components/UI/Input/Input';
 
 export const StyledInputTextWrapper = styled.div`
   .inputTextLabel {
@@ -80,7 +81,7 @@ export const StyledInputSearchWrapper = styled.div`
     touch-action: none;
   }
 
-  input {
+  .input {
     padding: 0 ${rem(30)} 0 ${rem(45)};
     height: 100%;
     width: 100%;
@@ -103,6 +104,52 @@ export const StyledInputSearchWrapper = styled.div`
 
     &:focus-visible {
       outline: none;
+    }
+  }
+`
+
+export const StyledInputSendRequestWrapper = styled(StyledInputSearchWrapper)`
+
+  height: auto;
+
+  .label {
+    margin-bottom: ${rem(4)};
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .input {
+    height: ${rem(48)};
+    padding: ${rem(11)} ${rem(16)};
+    line-height: 1;
+    color: rgba(45, 52, 57, 1);
+    font-size: ${rem(18)};
+    font-weight: 400;
+    line-height: ${rem(26)};
+
+    ${urbanist.style}
+    &::placeholder {
+      color: rgba(45, 52, 57, 0.6000000238418579);
+      font-size: ${rem(18)};
+      font-weight: 400;
+      line-height: ${rem(26)};
+      ${urbanist.style}
+    }
+  }
+`
+
+export const StyledTextAreaSendRequest = styled(StyledInputSendRequestWrapper)`
+  .input {
+    //border: none;
+    overflow: hidden;
+    background: rgba(243, 246, 248, 1);
+    width: 100%;
+    border-radius: ${rem(22)};
+    resize: none;
+    height: ${rem(96)};
+
+    &:focus {
+      border-color: rgba(7, 116, 83, 1);
     }
   }
 `

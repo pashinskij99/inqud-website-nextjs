@@ -55,7 +55,7 @@ export default function BlogsSection() {
 
         <div className="blogsGrid">
           {blogs.map(({id, date, imageSrc, subTitle, time, title}) => (
-            <BlogCart2
+            <BlogCart
               time={time}
               title={title}
               date={date}
@@ -70,17 +70,25 @@ export default function BlogsSection() {
 
         <Swiper
           className="blogsSwiper"
-          slidesPerView={1.5}
+          slidesPerView="auto"
           spaceBetween={24}
           breakpoints={{
             0: {
               slidesPerView: 1,
               spaceBetween: 8,
-              initialSlide: 1
+              initialSlide: 1,
+              centeredSlides: true
+            },
+            470: {
+              slidesPerView: 1,
+              spaceBetween: 8,
+              initialSlide: 1,
+              centeredSlides: true,
             },
             576: {
-              slidesPerView: 1.5,
-              initialSlide: 0
+              slidesPerView: 'auto',
+              initialSlide: 0,
+              spaceBetween: 24
             },
           }}
           scrollbar={{
@@ -91,8 +99,8 @@ export default function BlogsSection() {
           modules={[Scrollbar]}
         >
           {blogs.map(({id, date, imageSrc, subTitle, time, title}) => (
-            <SwiperSlide key={id}>
-              <BlogCart
+            <SwiperSlide className="slide" key={id}>
+              <BlogCart2
                 date={date}
                 imageSrc={imageSrc}
                 subTitle={subTitle}

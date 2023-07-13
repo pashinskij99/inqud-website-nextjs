@@ -1,5 +1,6 @@
 'use client'
 
+import StyledComponentsRegistry from '@/app/registry';
 import {urbanist} from '@/utils/font'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
@@ -17,14 +18,17 @@ import GlobalStyle from '@/styles/globalStyles';
 export default function RootLayout({children}) {
   return (
     <html lang="en">
-    <body className={urbanist.className}>
-    <GlobalStyle/>
-    <Header/>
+    <StyledComponentsRegistry>
+      <body className={urbanist.className}>
+      <GlobalStyle/>
+      <Header/>
 
-    {children}
+      {children}
 
-    <Footer/>
-    </body>
+      <Footer/>
+      </body>
+    </StyledComponentsRegistry>
+
     </html>
   )
 }

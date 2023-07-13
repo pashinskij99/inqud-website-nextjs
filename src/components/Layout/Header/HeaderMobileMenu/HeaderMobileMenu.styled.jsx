@@ -1,10 +1,9 @@
 import styled from '@emotion/styled'
 import {Accordion, AccordionDetails, AccordionSummary} from '@mui/material'
 import {rem} from '@/utils/rem';
+import {responsive} from '@/utils/response';
 
 export const StyledHeaderMobileMenu = styled.div`
-  /* height: 100dvh; */
-  /* top: 0; */
   left: 0;
   position: fixed;
   width: 100%;
@@ -16,17 +15,15 @@ export const StyledHeaderMobileMenu = styled.div`
   display: none;
   margin-bottom: env(safe-area-inset-bottom);
 
-  @media (max-width: 1400px) {
+  ${responsive.xl`
     display: block;
-  }
-  @media (max-width: 1400px) {
     height: calc(100dvh - ${rem(86)});
     top: ${rem(86)};
-  }
-  @media (max-width: 767px) {
-    height: calc(100dvh - ${rem(50)});
-    top: ${rem(50)};
-  }
+  `};
+  ${responsive.sm`
+    height: calc(100dvh - ${rem(60)});
+    top: ${rem(60)};
+  `};
 
   &.show {
     animation: show 0.3s ease-in-out forwards;
@@ -51,7 +48,6 @@ export const StyledHeaderMobileMenu = styled.div`
     width: 100%;
     overflow: auto;
     padding-bottom: ${rem(24)};
-    /* height: 700px; */
   }
 
   .headerMobileMenuNavTitle {
@@ -83,6 +79,12 @@ export const StyledHeaderMobileMenu = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+
+      svg {
+        position: absolute;
+        right: ${rem(4)};
+      }
     }
   }
 
@@ -119,7 +121,6 @@ export const StyledHeaderMobileMenuAccordion = styled((props) => (
     overflow: 'visible!important',
     visibility: 'visible!important',
   },
-
   '&:before': {
     display: 'none',
   },

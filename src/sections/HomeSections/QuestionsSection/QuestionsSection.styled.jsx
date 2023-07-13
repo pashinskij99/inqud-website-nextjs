@@ -1,35 +1,35 @@
 import styled from '@emotion/styled'
 import {Accordion, AccordionSummary, AccordionDetails} from '@mui/material'
 import {rem} from '@/utils/rem';
+import {responsive} from '@/utils/response';
 
 export const StyledQuestionsSection = styled.section`
   padding: ${rem(240)} 0;
 
-  @media (max-width: 992px) {
+  ${responsive.xl`
     padding: ${rem(117)} 0;
-  }
-
-  @media (max-width: 576px) {
+  `};
+  ${responsive.xs`
     padding: ${rem(117)} 0 ${rem(98)};
-  }
+  `};
 
   .questionsTitle {
     margin-bottom: ${rem(38)};
-    @media (max-width: 992px) {
+    ${responsive.xl`
       display: none;
-    }
+    `};
   }
 
   .questionsTitleMobile {
     display: none;
-    @media (max-width: 992px) {
+    ${responsive.xl`
       margin-bottom: ${rem(38)};
       display: block;
-    }
-    @media (max-width: 576px) {
+    `};
+    ${responsive.xs`
       text-align: center;
       margin-bottom: ${rem(40)};
-    }
+    `};
   }
 
   .questionsAccordion {
@@ -37,12 +37,12 @@ export const StyledQuestionsSection = styled.section`
     flex-direction: column;
     gap: ${rem(8)};
     margin-bottom: ${rem(8)};
-    @media (max-width: 576px) {
+    ${responsive.xs`
       gap: ${rem(14)};
-    }
+    `};
   }
 
-  @media (max-width: 576px) {
+  ${responsive.xs`
     .css-1n4nhrw-MuiButtonBase-root-MuiAccordionSummary-root {
       padding: ${rem(16)} !important;
     }
@@ -54,7 +54,7 @@ export const StyledQuestionsSection = styled.section`
     .css-d4q0y6-MuiAccordionDetails-root {
       padding: ${rem(16)} !important;
     }
-  }
+  `};
 
   .questionsButton {
     display: flex;
@@ -63,26 +63,25 @@ export const StyledQuestionsSection = styled.section`
     padding: ${rem(24)} ${rem(32)} ${rem(22)};
     border-radius: ${rem(16)};
     background: var(--confident-light-grey, #f4f5fa);
-    @media (max-width: 992px) {
+    ${responsive.xl`
       justify-content: flex-start;
       font-weight: 700;
-    }
-    @media (max-width: 767px) {
+    `};
+    ${responsive.sm`
       position: relative;
       flex-direction: column;
       justify-content: flex-start;
       align-items: start;
       font-weight: 400;
-    }
-
-    @media (max-width: 576px) {
+    `};
+    ${responsive.xs`
       padding: ${rem(16)};
-    }
+    `};
 
     .questionsButtonHelp {
       padding-right: 0;
       height: fit-content;
-      @media (max-width: 992px) {
+      ${responsive.xl`
         flex: 1;
         width: 100%;
         justify-content: space-between;
@@ -100,9 +99,8 @@ export const StyledQuestionsSection = styled.section`
         path {
           fill: white;
         }
-      }
-
-      @media (max-width: 767px) {
+      `};
+      ${responsive.sm`
         position: static;
         padding-left: 0;
 
@@ -112,8 +110,8 @@ export const StyledQuestionsSection = styled.section`
           top: 50%;
           transform: translateY(-50%);
         }
-      }
-      @media (max-width: 576px) {
+      `};
+      ${responsive.xs`
         * {
           font-size: ${rem(18)};
         }
@@ -121,18 +119,18 @@ export const StyledQuestionsSection = styled.section`
         svg {
           right: ${rem(16)};
         }
-      }
+      `};
     }
   }
 
   .questionsAccordionBodyText {
-    @media (max-width: 1200px) {
+    ${responsive.xl`
       max-width: ${rem(450)};
-    }
-    @media (max-width: 992px) {
+    `};
+    ${responsive.xl`
       max-width: 100%;
       transform: translateY(0) !important;
-    }
+    `};
   }
 `
 
@@ -185,7 +183,7 @@ export const StyledQuestionsSectionAccordionDetails = styled(AccordionDetails)(
     '@media (max-width: 576px)': {
       padding: `0 ${rem(16)} ${rem(10)} ${rem(16)}`,
     },
-    '@media (max-width: 992px)': {
+    '@media (max-width: 1024px)': {
       justifyContent: 'start',
     },
     '& .questionsAccordionBodyText': {

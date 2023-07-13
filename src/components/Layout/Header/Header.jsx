@@ -60,83 +60,86 @@ export default function Header() {
 
   return (
     <StyledHeaderWrapper active={active}>
-      <div className="logoSection">
-        <Link href="/">
-          <Logo className="logo"/>
-          <LogoMobile className="logo-mobile"/>
-        </Link>
+      <div className="containerHeader">
+        <div className="logoSection">
+          <Link href="/">
+            <Logo className="logo"/>
+            <LogoMobile className="logo-mobile"/>
+          </Link>
 
-        <div className="tabs">
-          {logoTabs.map(({id, name}) =>
-            id === 0 ? (
-              <StyledButtonGhost key={id} className="activeButton">
-                {name}
-              </StyledButtonGhost>
-            ) : (
-              <button className="secondaryButton" key={id}>
-                <StyledTypographyUrbanistCTA>
+          <div className="tabs">
+            {logoTabs.map(({id, name}) =>
+              id === 0 ? (
+                <StyledButtonGhost key={id} className="activeButton">
                   {name}
-                </StyledTypographyUrbanistCTA>
-              </button>
-            )
-          )}
+                </StyledButtonGhost>
+              ) : (
+                <button className="secondaryButton" key={id}>
+                  <StyledTypographyUrbanistCTA>
+                    {name}
+                  </StyledTypographyUrbanistCTA>
+                </button>
+              )
+            )}
+          </div>
+
+          <div className="mobile-tabs">
+            <button className="mobile-tabs-button">
+              <StyledTypographyUrbanistSmallSpaces className="mobile-tabs-button-text">
+                Switch to personal
+              </StyledTypographyUrbanistSmallSpaces>
+            </button>
+          </div>
         </div>
 
-        <div className="mobile-tabs">
-          <button className="mobile-tabs-button">
-            <StyledTypographyUrbanistSmallSpaces className="mobile-tabs-button-text">
-              Switch to personal
-            </StyledTypographyUrbanistSmallSpaces>
+        <nav className="navSection">
+          <ul>
+            <HeaderDropdown/>
+
+            {navList.map(({id, name}) => (
+              <li key={id}>
+                <a href={`#${name}`}>{name}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="userSection">
+          <HeaderLanguageSelect className="languageMenu"/>
+
+          <button
+            onClick={handleClickHamburger}
+            className={clsx('hamburger', {
+              ['open']: active,
+            })}
+          >
+            <span/>
+            <span/>
+            <span/>
+            <span/>
+            <span/>
+            <span/>
           </button>
+
+          <div className="sign">
+            <Link target="_blank" href="https://cabinet.inqud.com/#/login">
+              <StyledButtonGhost className={signButton[0].className}>
+                {signButton[0].name}
+              </StyledButtonGhost>
+            </Link>
+
+            <Link target="_blank" href="https://cabinet.inqud.com/#/signup">
+              <StyledButtonSecondary className={signButton[1].className}>
+                {signButton[1].name}
+              </StyledButtonSecondary>
+            </Link>
+
+          </div>
         </div>
+
+        <HeaderMobileMenu active={active}/>
       </div>
 
-      <nav className="navSection">
-        <ul>
-          <HeaderDropdown/>
-
-          {navList.map(({id, name}) => (
-            <li key={id}>
-              <a href={`#${name}`}>{name}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      <div className="userSection">
-        <HeaderLanguageSelect className="languageMenu"/>
-
-        <button
-          onClick={handleClickHamburger}
-          className={clsx('hamburger', {
-            ['open']: active,
-          })}
-        >
-          <span/>
-          <span/>
-          <span/>
-          <span/>
-          <span/>
-          <span/>
-        </button>
-
-        <div className="sign">
-          <Link target="_blank" href="https://cabinet.inqud.com/#/login">
-            <StyledButtonGhost className={signButton[0].className}>
-              {signButton[0].name}
-            </StyledButtonGhost>
-          </Link>
-
-          <Link target="_blank" href="https://cabinet.inqud.com/#/signup">
-            <StyledButtonSecondary className={signButton[1].className}>
-              {signButton[1].name}
-            </StyledButtonSecondary>
-          </Link>
-
-        </div>
-      </div>
-
-      <HeaderMobileMenu active={active}/>
     </StyledHeaderWrapper>
   )
 }

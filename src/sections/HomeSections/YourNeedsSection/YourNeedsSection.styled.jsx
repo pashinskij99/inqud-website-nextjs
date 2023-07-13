@@ -1,20 +1,21 @@
 import styled from '@emotion/styled'
 import {rem} from '@/utils/rem';
+import {responsive} from '@/utils/response';
 
 export const YourNeedsSectionWrapper = styled.section`
   text-align: center;
   padding-top: ${rem(116)};
   padding-bottom: ${rem(229)};
   overflow: hidden;
-  @media (max-width: 992px) {
+  ${responsive.xl`
     padding-top: ${rem(119)};
-    padding-bottom: ${rem(110)};
-  }
+    padding-bottom: ${rem(110)};    
+  `};
 
-  @media (max-width: 576px) {
+  ${responsive.xs`
     padding-top: ${rem(95)};
-    padding-bottom: ${rem(55)};
-  }
+    padding-bottom: ${rem(55)};   
+  `};
 
   .title {
     margin-bottom: ${rem(24)};
@@ -30,12 +31,12 @@ export const YourNeedsSectionWrapper = styled.section`
       display: none;
     }
 
-    @media (max-width: 992px) {
+    ${responsive.xl`
       .br-desktop {
         display: none;
       }
-    }
-    @media (max-width: 576px) {
+    `};
+    ${responsive.xs`
       margin-bottom: ${rem(15)};
       .br-mobile {
         display: block;
@@ -47,8 +48,8 @@ export const YourNeedsSectionWrapper = styled.section`
 
       &.title-mobile {
         display: block;
-      }
-    }
+      } 
+    `};
   }
 
   .subTitle {
@@ -63,7 +64,7 @@ export const YourNeedsSectionWrapper = styled.section`
       display: none;
     }
 
-    @media (max-width: 576px) {
+    ${responsive.xs`
       margin-bottom: ${rem(40)};
       &.subTitle-desktop {
         display: none;
@@ -72,18 +73,16 @@ export const YourNeedsSectionWrapper = styled.section`
       &.subTitle-mobile {
         display: block;
       }
-    }
-
+    `};
   }
 
   .listRequirements {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: ${rem(40)};
-
-    @media (max-width: 1400px) {
+    ${responsive.xl`
       display: none;
-    }
+    `};
   }
 
   .listRequirementsSwiper {
@@ -99,9 +98,9 @@ export const YourNeedsSectionWrapper = styled.section`
       opacity: 1 !important;
       height: ${rem(2)};
 
-      @media (max-width: 576px) {
+      ${responsive.xs`
         bottom: -${rem(36)};
-      }
+      `};
 
       .swiper-scrollbar-drag {
         background: rgba(7, 116, 83, 1) !important;
@@ -112,11 +111,12 @@ export const YourNeedsSectionWrapper = styled.section`
     }
 
     .listRequirementsSwiperItems {
+      width: fit-content;
       /* width: 440px !important; */
     }
 
-    @media (max-width: 1400px) {
+    ${responsive.xl`
       display: block;
-    }
+    `};
   }
 `

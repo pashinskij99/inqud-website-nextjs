@@ -41,7 +41,7 @@ export default function HeaderLanguageSelect({className}) {
           ['active']: active,
         })}
       >
-        <Planet/>
+        <Planet className="planet"/>
         <span>
           {language} <Arrow/>
         </span>

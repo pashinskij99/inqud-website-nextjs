@@ -16,7 +16,7 @@ export default function RootLayout({children}) {
   return (
     <div>
       <BreadCrumbs pages={pages}/>
-
+      
       {children}
     </div>
   )

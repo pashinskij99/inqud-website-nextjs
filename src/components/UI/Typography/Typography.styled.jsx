@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import {urbanist, IBM} from '@/utils/font'
 import {rem} from '@/utils/rem';
+import {responsive} from '@/utils/response';
 
 export const StyledTypographyUrbanistDisplay = styled.p`
   color: var(--directness-black, #2d3439);
@@ -11,10 +12,10 @@ export const StyledTypographyUrbanistDisplay = styled.p`
   line-height: ${rem(90)};
   letter-spacing: -${rem(1.6)};
 
-  @media (max-width: 576px) {
+  ${responsive.xs`
     font-size: ${rem(64)};
     line-height: ${rem(74)};
-  }
+  `}
 `
 
 export const StyledTypographyUrbanistH1 = styled.h1`
@@ -25,12 +26,12 @@ export const StyledTypographyUrbanistH1 = styled.h1`
   font-weight: 400;
   line-height: ${rem(74)};
   letter-spacing: -${rem(1.28)};
-
-  @media (max-width: 576px) {
+  ${responsive.xs`
     font-size: ${rem(40)};
     line-height: ${rem(46)};
     font-weight: 700;
-  }
+  `}
+
 `
 
 export const StyledTypographyUrbanistH2 = styled.h2`
@@ -41,12 +42,12 @@ export const StyledTypographyUrbanistH2 = styled.h2`
   font-size: ${rem(56)};
   font-weight: 400;
   line-height: ${rem(66)};
-
-  @media (max-width: 576px) {
+  ${responsive.xs`
     font-size: ${rem(40)};
     font-weight: 700;
     line-height: ${rem(50)};
-  }
+  `}
+
 `
 
 export const StyledTypographyUrbanistH3 = styled.h3`
@@ -56,11 +57,12 @@ export const StyledTypographyUrbanistH3 = styled.h3`
   font-size: ${rem(40)};
   font-weight: 400;
   line-height: ${rem(46)};
-  @media (max-width: 576px) {
+  ${responsive.xs`
     font-size: ${rem(32)};
     line-height: ${rem(42)};
     font-weight: 700;
-  }
+  `}
+
 `
 
 export const StyledTypographyUrbanistH4 = styled.h4`
@@ -70,11 +72,11 @@ export const StyledTypographyUrbanistH4 = styled.h4`
   font-size: ${rem(32)};
   font-weight: 400;
   line-height: ${rem(42)};
-
-  @media (max-width: 576px) {
+  ${responsive.xs`
     font-size: ${rem(24)};
     line-height: ${rem(34)};
-  }
+  `}
+
 `
 
 export const StyledTypographyUrbanistH5 = styled.h5`
@@ -84,11 +86,11 @@ export const StyledTypographyUrbanistH5 = styled.h5`
   font-size: ${rem(24)};
   font-weight: 400;
   line-height: ${rem(34)};
-
-  @media (max-width: 576px) {
+  ${responsive.xs`
     font-size: ${rem(18)};
     line-height: ${rem(22)};
-  }
+  `}
+
 `
 
 export const StyledTypographyUrbanistBody = styled.p`
@@ -102,7 +104,8 @@ export const StyledTypographyUrbanistBody = styled.p`
 
 export const StyledTypographyUrbanistSmallSpaces = styled.p`
   ${urbanist.style}
-  color: var(--directness-black, #2D3439);
+  color: var(--directness-black, rgba(45, 52, 57, 0));
+  pointer-events: none;
 
   font-size: ${rem(14)};
   font-weight: 500;
@@ -136,9 +139,9 @@ export const StyledTypographyIBMH5 = styled.h5`
   line-height: ${rem(30)};
   letter-spacing: ${rem(2.4)};
   text-transform: uppercase;
-
-  @media (max-width: 576px) {
+  ${responsive.xs`
     font-size: ${rem(14)};
     line-height: ${rem(11)};
-  }
+  `}
+
 `

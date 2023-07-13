@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%;
 
     @media (-webkit-device-pixel-ratio: 1.25) {
-      font-size: 85%;
+      font-size: 82.5%;
     }
   }
 
@@ -32,26 +32,30 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
+  .containerHeader {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 ${rem(60)};
+    @media (max-width: 576px) {
+      padding: 0 ${rem(15.58)};
+    }
+  }
+
   .container {
-    max-width: ${rem(1401)};
+    max-width: ${rem(1400)};
     margin: 0 auto;
 
-    @media (max-width: 1400px) {
-      max-width: ${rem(1200)};
+    @media (max-width: 1536px) {
+      max-width: ${rem(1280)};
     }
-    @media (max-width: 1200px) {
-      max-width: ${rem(970)};
+    @media (max-width: 1280px) {
+      max-width: ${rem(1024)};
     }
-    @media (max-width: 992px) {
-      max-width: ${rem(750)};
+    @media (max-width: 1024px) {
+      max-width: 100%;
       padding: 0 ${rem(40)};
     }
-    @media (max-width: 780px) {
-      max-width: none;
-      padding: 0 ${rem(40)};
-    }
-    @media (max-width: 576px) {
-      max-width: none;
+    @media (max-width: 639px) {
       padding: 0 ${rem(16)};
     }
   }

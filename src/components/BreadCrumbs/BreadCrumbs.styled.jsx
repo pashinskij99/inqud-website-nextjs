@@ -2,9 +2,21 @@ import styled from '@emotion/styled';
 import {Breadcrumbs} from '@mui/material';
 import {rem} from '@/utils/rem';
 
+
+export const StyledBreadCrumbsWrapper = styled.div`
+  hr {
+    width: 100%;
+    height: 1px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.07);
+  }
+`
 export const StyledBreadcrumbs = styled(Breadcrumbs)`
-  padding: ${rem(10)} ${rem(60)};
-  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  padding: ${rem(10)} 0;
+
+  .containerHeader {
+
+  }
 
   .breadCrumbLink {
 

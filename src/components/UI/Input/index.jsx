@@ -1,3 +1,3 @@
-import { InputText } from './Input'
+import {InputText, InputSendRequest, TextAreaSendRequest, InputSearch} from './Input'
 
-export { InputText }
+export {InputText, TextAreaSendRequest, InputSearch, InputSendRequest}

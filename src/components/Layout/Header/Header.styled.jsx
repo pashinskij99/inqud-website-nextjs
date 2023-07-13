@@ -1,52 +1,67 @@
 import styled from '@emotion/styled'
 import {rem} from '@/utils/rem';
+import {responsive} from '@/utils/response';
 
 export const StyledHeaderWrapper = styled.header`
-  padding: 23px 60px;
+  padding: 23px 0;
+  max-width: 1920px;
+  margin: 0 auto;
   background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
   transform: translate3d(0, 0, 0);
   /* height: -webkit-fill-available; */
 
-  @media (max-width: 992px) {
-    padding: ${rem(18)} ${rem(40)};
+  .containerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  @media (max-width: 767px) {
-    padding: ${rem(8)} ${rem(16)};
-    height: ${rem(50)};
-  }
+
+  ${responsive.xl`
+    padding: ${rem(18)} 0;
+  `};
+  ${responsive.sm`
+    padding: ${rem(8)} 0;
+    height: ${rem(60)};
+  `};
 
   .logoSection {
     display: flex;
     align-items: center;
     gap: ${rem(47)};
-    @media (max-width: 992px) {
-      gap: ${rem(27)};
+
+    .logo {
+      width: ${rem(155.001)};
+      height: ${rem(50)};
     }
-    @media (max-width: 767px) {
+
+    ${responsive.xl`
+      gap: ${rem(27)};
+    `};
+    ${responsive.sm`
       gap: ${rem(16)};
 
       .logo {
         display: none;
       }
-    }
+    `};
 
     .logo-mobile {
       display: none;
-      @media (max-width: 767px) {
+      width: ${rem(99.555)};
+      height: ${rem(32)};
+      flex-shrink: 0;
+      ${responsive.sm`
         display: block;
-      }
+      `};
     }
 
     .tabs {
-      @media (max-width: 767px) {
+      ${responsive.sm`
         display: none;
-      }
+      `};
       display: flex;
       align-items: center;
       gap: ${rem(2)};
@@ -76,9 +91,9 @@ export const StyledHeaderWrapper = styled.header`
 
     .mobile-tabs {
       display: none;
-      @media (max-width: 767px) {
+      ${responsive.sm`
         display: ${(props) => (props.active ? 'none' : 'block')};
-      }
+      `};
 
       .mobile-tabs-button {
         .mobile-tabs-button-text {
@@ -92,7 +107,7 @@ export const StyledHeaderWrapper = styled.header`
     ul {
       display: flex;
       align-items: center;
-      gap: ${rem(20)};
+      gap: ${rem(40)};
       color: var(--directness-black, #2d3439);
 
       font-size: ${rem(18)};
@@ -113,24 +128,25 @@ export const StyledHeaderWrapper = styled.header`
       }
     }
 
-    @media (max-width: 1400px) {
+    ${responsive.xl`
       display: none;
-    }
+    `};
   }
 
   .languageMenu {
-    @media (max-width: 576px) {
+    ${responsive.xs`
       display: ${(props) => (props.active ? 'block' : 'none')};
-    }
+    `};
   }
 
   .userSection {
     display: flex;
     align-items: center;
     gap: ${rem(96)};
-    @media (max-width: 992px) {
+
+    ${responsive.xl`
       gap: ${rem(75)};
-    }
+    `};
 
     .hamburger {
       display: none;
@@ -173,50 +189,49 @@ export const StyledHeaderWrapper = styled.header`
         -o-transition: 0.25s ease-in-out;
         transition: 0.25s ease-in-out;
 
-        @media (max-width: 767px) {
+        ${responsive.sm`
           width: ${rem(10)};
-        }
+        `};
       }
 
       & span:nth-child(even) {
         left: ${rem(25)};
         border-radius: 0 ${rem(9)} ${rem(9)} 0;
-        @media (max-width: 767px) {
+        ${responsive.sm`
           left: ${rem(15)};
-        }
+        `};
       }
 
       & span:nth-child(odd) {
         left: ${rem(10)};
         border-radius: ${rem(9)} 0 0 ${rem(9)};
-        @media (max-width: 767px) {
+        ${responsive.sm`
           left: ${rem(7)};
-        }
+        `};
       }
 
       & span:nth-child(1),
       & span:nth-child(2) {
         top: ${rem(15.63)};
-
-        @media (max-width: 767px) {
+        ${responsive.sm`
           top: ${rem(10)} ;
-        }
+        `};
       }
 
       & span:nth-child(3),
       & span:nth-child(4) {
         top: ${rem(23.44)};
-        @media (max-width: 767px) {
+        ${responsive.sm`
           top: ${rem(15)};
-        }
+        `};
       }
 
       & span:nth-child(5),
       & span:nth-child(6) {
         top: ${rem(31.25)};
-        @media (max-width: 767px) {
+        ${responsive.sm`
           top: ${rem(20)};
-        }
+        `};
       }
 
       &.open span:nth-child(1),
@@ -238,20 +253,19 @@ export const StyledHeaderWrapper = styled.header`
       &.open span:nth-child(1) {
         left: ${rem(13)};
         top: ${rem(18)};
-
-        @media (max-width: 767px) {
+        ${responsive.sm`
           left: ${rem(8)};
           top: ${rem(11)};
-        }
+        `};
       }
 
       &.open span:nth-child(2) {
         left: calc(50% - ${rem(2)});
         top: ${rem(18)};
-        @media (max-width: 767px) {
+        ${responsive.sm`
           left: calc(50% - ${rem(1)});
           top: ${rem(11)};
-        }
+        `};
       }
 
       &.open span:nth-child(3) {
@@ -267,47 +281,55 @@ export const StyledHeaderWrapper = styled.header`
       &.open span:nth-child(5) {
         left: ${rem(13)};
         top: ${rem(28)};
-        @media (max-width: 767px) {
+        ${responsive.sm`
           left: ${rem(8)};
           top: ${rem(18)};
-        }
+        `};
       }
 
       &.open span:nth-child(6) {
         left: calc(50% - ${rem(2)});
         top: ${rem(28)};
-
-        @media (max-width: 767px) {
+        ${responsive.sm`
           left: calc(50% - ${rem(1)});
-          top: ${rem(28)};
-        }
+          top: ${rem(18)};
+        `};
       }
 
-      @media (max-width: 1400px) {
+      ${responsive.xl`
+        gap: ${rem(17)};
         display: block;
-      }
+      `};
 
-      @media (max-width: 767px) {
+      ${responsive.sm`
         width: ${rem(32)};
         height: ${rem(32)};
         border-radius: ${rem(8)};
-      }
+      `};
     }
 
     .sign {
       display: flex;
       align-items: center;
       gap: ${rem(16)};
-      @media (max-width: 1400px) {
+
+
+      ${responsive.xl`
         display: none;
-      }
+      `};
 
       .signIn {
         height: ${rem(40)};
+        ${responsive.xxl`
+          white-space: nowrap;
+        `};
       }
 
       .signUp {
         height: ${rem(40)};
+        ${responsive.xxl`
+          white-space: nowrap;
+        `};
       }
     }
   }

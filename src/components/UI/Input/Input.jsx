@@ -1,5 +1,11 @@
+import clsx from 'clsx';
 import {StyledTypographyUrbanistSmallSpaces} from '../Typography/Typography.styled'
-import {StyledInputSearchWrapper, StyledInputTextWrapper} from './Input.styled'
+import {
+  StyledInputSearchWrapper,
+  StyledInputSendRequestWrapper,
+  StyledInputTextWrapper,
+  StyledTextAreaSendRequest
+} from './Input.styled'
 import ErrorInput from '@/assets/icons/error-input.svg'
 import Search from '@/assets/icons/search.svg'
 
@@ -35,7 +41,8 @@ export function InputSearch(props) {
   const {
     classNameWrapper,
     // classNameWrapperIcon,
-    classNameIcon
+    classNameIcon,
+    className
   } = props
 
   return (
@@ -43,7 +50,33 @@ export function InputSearch(props) {
       {/* <button className={classNameWrapperIcon}> */}
       <Search className={classNameIcon}/>
       {/* </button> */}
-      <input {...props} />
+      <input className={clsx('input', className)} {...props} />
     </StyledInputSearchWrapper>
+  )
+}
+
+export function InputSendRequest(props) {
+  const {
+    classNameWrapper,
+    label
+  } = props
+  return (
+    <StyledInputSendRequestWrapper className={classNameWrapper}>
+      <StyledTypographyUrbanistSmallSpaces className="label">{label}</StyledTypographyUrbanistSmallSpaces>
+      <input className="input" {...props}/>
+    </StyledInputSendRequestWrapper>
+  )
+}
+
+export function TextAreaSendRequest(props) {
+  const {
+    classNameWrapper,
+    label
+  } = props
+  return (
+    <StyledTextAreaSendRequest className={classNameWrapper}>
+      <StyledTypographyUrbanistSmallSpaces className="label">{label}</StyledTypographyUrbanistSmallSpaces>
+      <textarea className="input" {...props}/>
+    </StyledTextAreaSendRequest>
   )
 }

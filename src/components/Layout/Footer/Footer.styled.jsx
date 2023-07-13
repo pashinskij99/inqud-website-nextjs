@@ -1,31 +1,32 @@
 import styled from '@emotion/styled'
 import {rem} from '@/utils/rem';
+import {responsive} from '@/utils/response';
 
 export const StyledFooter = styled.footer`
   .footerSubscribeSectionMobile {
     display: none;
-    @media (max-width: 1400px) {
+    ${responsive.xl`
       display: block;
       padding: ${rem(40)} 0;
       background-color: #242a2f;
-    }
-    @media (max-width: 576px) {
+    `};
+    ${responsive.xs`
       text-align: center;
       padding: ${rem(80)} 0;
-    }
+    `};
 
     .footerSubscribeSectionTitle {
       font-weight: 700;
       color: var(--exciting-lime, #bfffc8);
       margin-bottom: ${rem(20)};
       max-width: ${rem(440)};
-      @media (max-width: 767px) {
+      ${responsive.sm`
         margin-bottom: ${rem(18)};
-      }
-      @media (max-width: 576px) {
+      `};
+      ${responsive.xs`
         font-size: ${rem(24)};
         line-height: ${rem(34)};
-      }
+      `};
     }
 
     .footerSubscribeSectionInputWrapper {
@@ -34,10 +35,10 @@ export const StyledFooter = styled.footer`
       gap: ${rem(16)};
       margin-bottom: ${rem(16)};
       max-width: ${rem(440)};
-      @media (max-width: 576px) {
+      ${responsive.xs`
         flex-direction: column;
         gap: ${rem(8)};
-      }
+      `};
 
       .footerSubscribeSectionInput {
         flex: 1;
@@ -66,72 +67,72 @@ export const StyledFooter = styled.footer`
   .top {
     padding: ${rem(120)} 0 ${rem(129)};
     background: var(--directness-black, #2d3439);
-    @media (max-width: 767px) {
+    ${responsive.sm`
       padding: ${rem(80)} 0 ${rem(86)};
-    }
+    `};
 
     .container {
       display: flex;
       justify-content: space-between;
-      @media (max-width: 1400px) {
+      ${responsive.xxl`
         justify-content: start;
         gap: ${rem(52)};
-      }
-      @media (max-width: 992px) {
+      `};
+      ${responsive.xl`
         gap: 0;
-      }
-      @media (max-width: 767px) {
+      `};
+      ${responsive.sm`
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
         text-align: center;
         gap: ${rem(32)};
-      }
+      `};
 
       .footerLogoSection {
         max-width: ${rem(320)};
-        @media (max-width: 1400px) {
+        ${responsive.xxl`
           margin-right: auto;
-        }
-        @media (max-width: 767px) {
+        `};
+        ${responsive.sm`
           max-width: ${rem(320)};
           margin: 0 auto;
-        }
+        `};
 
         svg {
           margin-bottom: ${rem(34)};
-          @media (max-width: 767px) {
+          ${responsive.sm`
             margin-bottom: ${rem(32)};
-          }
+          `};
         }
 
         .footerLogoSectionText {
           font-weight: 500;
           color: var(--clarity-white, #fff);
           opacity: 0.6000000238418579;
-          @media (max-width: 767px) {
+          ${responsive.sm`
             font-size: ${rem(14)};
             line-height: ${rem(18)};
-          }
+          `};
         }
       }
 
       .footerLegalSection {
         margin-left: 0;
-        @media (max-width: 992px) {
+        ${responsive.xl`
           margin-left: ${rem(35)};
-        }
-        @media (max-width: 767px) {
+        `};
+        ${responsive.sm`
           margin-left: 0;
-        }
+        `};
       }
 
       .footerResourcesSection {
         margin-left: ${rem(55)};
-        @media (max-width: 767px) {
+        ${responsive.sm`
           margin-left: 0;
-        }
+        `};
       }
 
       .footerLegalSection,
@@ -146,9 +147,9 @@ export const StyledFooter = styled.footer`
           font-weight: 700;
           color: var(--exciting-lime, #bfffc8);
           margin-bottom: ${rem(20)};
-          @media (max-width: 576px) {
+          ${responsive.xs`
             font-size: ${rem(24)};
-          }
+          `};
         }
 
         .footerLegalSectionList,
@@ -156,9 +157,9 @@ export const StyledFooter = styled.footer`
           display: flex;
           flex-direction: column;
           gap: ${rem(14)};
-          @media (max-width: 576px) {
+          ${responsive.xs`
             gap: ${rem(18)};
-          }
+          `};
         }
 
         .footerLegalSectionListItem,
@@ -177,9 +178,9 @@ export const StyledFooter = styled.footer`
       .footerSubscribeSection {
         margin-top: ${rem(20)};
         max-width: ${rem(440)};
-        @media (max-width: 1400px) {
+        ${responsive.xl`
           display: none;
-        }
+        `};
 
         .footerSubscribeSectionTitle {
           font-weight: 700;
@@ -221,18 +222,18 @@ export const StyledFooter = styled.footer`
   .bottom {
     background: var(--double-black, #242a2f);
     padding: ${rem(34)} 0;
-    @media (max-width: 767px) {
+    ${responsive.sm`
       padding: ${rem(32)} 0;
-    }
+    `};
 
     .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      @media (max-width: 767px) {
+      ${responsive.sm`
         flex-direction: column;
         gap: ${rem(24)};
-      }
+      `};
 
       .footerSocialWrapper {
         display: flex;
