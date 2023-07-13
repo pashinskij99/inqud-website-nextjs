@@ -11,7 +11,6 @@ import {
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import {StyledCoverageWrapper, StyledIndustriesWrapper, StyledOurLandscapeSection} from './OurLandscapeSection.styled'
-import OurLandscapeSectionAccordion from './OurLandscapeSectionAccordion'
 import Icon1 from '@/assets/images/our-landscape/1.svg'
 import Icon2 from '@/assets/images/our-landscape/2.svg'
 import Icon3 from '@/assets/images/our-landscape/3.svg'
@@ -253,8 +252,10 @@ const stepsOpacity = [
 
 
 function Accordion({idColumn, icon, items, title, columnColor, defaultExpanded}) {
+  // eslint-disable-next-line no-unused-vars
   const [expanded, setExpanded] = useState(defaultExpanded || '')
 
+  // eslint-disable-next-line no-unused-vars
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false)
   }
@@ -265,7 +266,7 @@ function Accordion({idColumn, icon, items, title, columnColor, defaultExpanded})
         {icon}
         <StyledTypographyIBMH5>{title}</StyledTypographyIBMH5>
       </div>
-
+      {/* eslint-disable-next-line no-unused-vars */}
       {items.map(({id, description, title: accordionTitle}) => (
         <div style={{
           backgroundColor: `rgba(${columnColor}, ${id === items.length - 1 ? stepsOpacity[idColumn][0] : stepsOpacity[idColumn][(stepsOpacity[idColumn].length - 1) - id]})`,

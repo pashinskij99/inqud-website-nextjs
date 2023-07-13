@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import {urbanist} from '@/utils/font'
 import {rem} from '@/utils/rem';
-import {InputSendRequest} from '@/components/UI/Input/Input';
 
 export const StyledInputTextWrapper = styled.div`
   .inputTextLabel {
