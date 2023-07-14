@@ -51,6 +51,10 @@ export const StyledBlogsSection = styled.section`
     ${responsive.xl`
       display: none;
     `};
+    
+    .image {
+
+    }
   }
 
   .blogsGridItem {

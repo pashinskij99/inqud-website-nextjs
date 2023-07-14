@@ -53,11 +53,6 @@ export default function Header() {
     }
   }, [active])
 
-  // useEffect(() => {
-  //   document.body.style.overflowY = active ? 'hidden' : 'auto'
-  //   document.body.style.touchAction = active ? 'none' : 'auto'
-  // }, [active])
-
   return (
     <StyledHeaderWrapper active={active}>
       <div className="containerHeader">

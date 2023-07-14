@@ -91,7 +91,7 @@ export const StyledHeaderDropdownWrapper = styled.div`
     ul {
       display: flex;
       flex-direction: column;
-      gap: 0rem;
+      gap: 0;
       align-items: flex-start;
 
       color: var(--directness-black, #2d3439);

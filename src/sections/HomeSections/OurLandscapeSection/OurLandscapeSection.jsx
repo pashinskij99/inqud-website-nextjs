@@ -200,6 +200,7 @@ function IndustriesTab() {
         centeredSlides
         spaceBetween={10}
         initialSlide="1"
+        height={500}
         scrollbar={{
           dragSize: 200 / 3,
           // dragClass: 'listRequirementsSwiperDrag',

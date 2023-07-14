@@ -167,6 +167,9 @@ export const StyledCoverageWrapper = styled.div`
           .description {
             white-space: nowrap;
             color: rgba(81, 113, 133, 1);
+            ${responsive.xl`
+              white-space: normal;
+            `}
           }
         }
       }
@@ -233,10 +236,16 @@ export const StyledIndustriesWrapper = styled.div`
   .ourLandscapeSwiper {
     overflow: visible;
     display: none;
+    height: auto;
+
+    .swiper-slide {
+      height: auto;
+    }
 
     .ourLandscapeAccordion {
       display: flex;
       flex-direction: column;
+      height: 100%;
 
       .ourLandscapeAccordionTitle {
         display: flex;

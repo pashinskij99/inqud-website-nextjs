@@ -1,21 +1,38 @@
 import Image from 'next/image';
+import {useState} from 'react';
+import clsx from 'clsx';
 import {StyledBlogCartWrapper, StyledBlogCartWrapper2} from '@/components/BlogCart/BlogCart.styled';
 import {
   StyledTypographyIBMH5, StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH4
 } from '@/components/UI/Typography/Typography.styled';
 import Dot from '@/assets/icons/dot.svg'
+import {ButtonLearnMore} from '@/components/UI/Button';
 
 export function BlogCart({imageSrc, date, time, subTitle, title}) {
+  const [hover, setHover] = useState(false)
+  const handleEnter = () => {
+    setHover(true)
+  }
+  const handleLeave = () => {
+    setHover(false)
+  }
+
   return (
-    <StyledBlogCartWrapper>
-      <Image
-        src={imageSrc}
-        className="image"
-        alt={title}
-        width={440}
-        height={250}
-      />
+    <StyledBlogCartWrapper
+      onMouseEnter={handleEnter}
+      onMouseLeave={handleLeave}
+    >
+      <div className="imageWrapper">
+        <Image
+          src={imageSrc}
+          className="image"
+          alt={title}
+          width={440}
+          height={250}
+        />
+      </div>
+
 
       <StyledTypographyIBMH5 className="subTitle">
         {subTitle}
@@ -24,15 +41,22 @@ export function BlogCart({imageSrc, date, time, subTitle, title}) {
         {title}
       </StyledTypographyUrbanistH4>
 
-      <div className="footer">
-        <StyledTypographyUrbanistBody className="date">
-          {date}
-        </StyledTypographyUrbanistBody>
-        <Dot/>
-        <StyledTypographyUrbanistBody className="time">
-          {time}
-        </StyledTypographyUrbanistBody>
-      </div>
+      {
+        hover
+          ? <ButtonLearnMore
+          >Learn more</ButtonLearnMore>
+          : <div
+            className={clsx('footer')}
+          >
+            <StyledTypographyUrbanistBody className="date">
+              {date}
+            </StyledTypographyUrbanistBody>
+            <Dot/>
+            <StyledTypographyUrbanistBody className="time">
+              {time}
+            </StyledTypographyUrbanistBody>
+          </div>
+      }
     </StyledBlogCartWrapper>
   );
 }
