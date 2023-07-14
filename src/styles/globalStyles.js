@@ -20,6 +20,12 @@ const GlobalStyle = createGlobalStyle`
     @media (-webkit-device-pixel-ratio: 1.25) {
       font-size: 82.5%;
     }
+    
+    @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+      font-size: 82.5%;
+    }
+
+
   }
 
   a {
