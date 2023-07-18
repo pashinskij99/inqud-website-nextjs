@@ -1,12 +1,11 @@
 import Link from 'next/link'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { StyledHeroSectionWrapper } from './HeroSection.styled'
-import Visa from '@/assets/icons/visa.svg'
-import Sepa from '@/assets/icons/sepa.svg'
-import MasterCard from '@/assets/icons/master-card.svg'
-import Pix from '@/assets/icons/pix.svg'
-import Upi from '@/assets/icons/upi.svg'
-import Imp5 from '@/assets/icons/imp5.svg'
+import Val1 from '@/assets/images/hero/val1.svg'
+import Val2 from '@/assets/images/hero/val2.svg'
+import Val3 from '@/assets/images/hero/val3.svg'
+import Val4 from '@/assets/images/hero/val4.svg'
+import Val5 from '@/assets/images/hero/val5.svg'
 import HeroGraphic from '@/assets/icons/hero-graphic.svg'
 import HeroGraphicMobile from '@/assets/icons/hero-graphic-mobile.svg'
 import Check from '@/assets/icons/check-green-background.svg'
@@ -26,12 +25,11 @@ const features = [
 ]
 
 const methodsPayment = [
-  { id: 0, icon: <Visa /> },
-  { id: 1, icon: <Sepa /> },
-  { id: 2, icon: <MasterCard /> },
-  { id: 3, icon: <Pix /> },
-  { id: 4, icon: <Upi /> },
-  { id: 5, icon: <Imp5 /> },
+  { id: 0, text: 'BTC', icon: <Val1 /> },
+  { id: 1, text: 'ETH', icon: <Val2 /> },
+  { id: 2, text: 'EUR', icon: <Val3 /> },
+  { id: 3, text: 'USD', icon: <Val4 /> },
+  { id: 4, text: 'USDT', icon: <Val5 /> },
 ]
 
 export default function HeroSection() {
@@ -43,7 +41,7 @@ export default function HeroSection() {
             For business
           </StyledTypographyIBMH5>
           <StyledTypographyUrbanistDisplay className='title'>
-            Bespoke diversity payments
+            Bespoke diversity crypto payments
           </StyledTypographyUrbanistDisplay>
           <StyledTypographyUrbanistH5 className='paragraph'>
             Inqud is the trusted partner and provider of tailored <br /> crypto
@@ -75,12 +73,17 @@ export default function HeroSection() {
 
           <div className='payment'>
             <StyledTypographyUrbanistBody className='payment-descr'>
-              Payment methods we work with
+              Supported currencies
             </StyledTypographyUrbanistBody>
 
             <ul className='payment-list'>
-              {methodsPayment.map(({ icon, id }) => (
-                <li key={id}>{icon}</li>
+              {methodsPayment.map(({ icon, text, id }) => (
+                <li key={id}>
+                  {icon}
+                  <StyledTypographyUrbanistH5>
+                    {text}
+                  </StyledTypographyUrbanistH5>
+                </li>
               ))}
             </ul>
           </div>

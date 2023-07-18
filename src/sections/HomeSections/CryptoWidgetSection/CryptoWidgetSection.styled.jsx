@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import {IBM} from '@/utils/font'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { IBM } from '@/utils/font'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledCryptoWidgetSection = styled.section`
   background: var(--ambitious-green, #077453);
@@ -149,10 +149,71 @@ export const StyledCryptoWidgetSection = styled.section`
           gap: ${rem(12)};
         `};
 
+        .icon-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: ${rem(48)};
+          height: ${rem(48)};
+
+          border-radius: ${rem(16)};
+          background: rgba(191, 255, 200, 0.20000000298023224);
+          margin-bottom: ${rem(8)};
+          ${responsive.xs`
+            display: none;
+          `};
+        }
+
+        .icon1 {
+          width: ${rem(24.0000057220459)};
+          height: ${rem(24.0000057220459)};
+        }
+        .icon2 {
+          width: ${rem(20.25)};
+          height: ${rem(21)};
+        }
+        .icon3 {
+          width: ${rem(24)};
+          height: ${rem(24)};
+        }
+        .icon4 {
+          width: ${rem(24)};
+          height: ${rem(22.23)};
+        }
+
         &:last-child {
           .cryptoGridItemTitle,
-          .cryptoGridItemDescription {
+          .cryptoGridItemDescription,
+          .icon4 {
             opacity: 0.6000000238418579;
+          }
+
+          &::before {
+            content: attr(data-slug);
+            position: absolute;
+            top: 0;
+            right: ${rem(12)};
+
+            ${IBM.style}
+
+            font-size: ${rem(18)};
+            font-weight: 400;
+            line-height: ${rem(8.673)};
+            letter-spacing: ${rem(1.8)};
+            text-transform: uppercase;
+
+            color: var(--ambitious-green, #077453);
+            height: ${rem(25)};
+            padding: 0 ${rem(10)};
+
+            border-radius: ${rem(30)};
+            background: var(--exciting-lime, #bfffc8);
+            display: flex;
+            align-items: center;
+            z-index: 1;
+            ${responsive.xs`
+              display: none;
+            `};
           }
 
           &::after {
@@ -174,36 +235,6 @@ export const StyledCryptoWidgetSection = styled.section`
               display: none;
             `};
           }
-
-          &::before {
-            content: attr(data-slug);
-            position: absolute;
-            top: -${rem(16)};
-            right: 0;
-
-            ${IBM.style}
-
-            font-size: ${rem(18)};
-            font-weight: 400;
-            line-height: ${rem(8.673)};
-            letter-spacing: ${rem(1.8)};
-            text-transform: uppercase;
-
-            transform: translateY(-50%);
-
-            color: var(--ambitious-green, #077453);
-            height: ${rem(25)};
-            padding: 0 ${rem(10)};
-
-            border-radius: ${rem(30)};
-            background: var(--exciting-lime, #bfffc8);
-            display: flex;
-            align-items: center;
-            z-index: 1;
-            ${responsive.xs`
-              display: none;
-            `};
-          }
         }
 
         .loading {
@@ -215,7 +246,6 @@ export const StyledCryptoWidgetSection = styled.section`
           ${responsive.xs`
             display: block;
           `};
-
         }
 
         &:last-child {

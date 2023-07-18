@@ -1,12 +1,17 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledBlogsSection = styled.section`
   /* padding-top: 24rem; */
+  padding-top: ${rem(240)};
   ${responsive.xl`
+    padding-top: ${rem(120)};
     padding-bottom: ${rem(62)};
     overflow: hidden;
+  `};
+  ${responsive.xs`
+    padding-top: ${rem(96)};
   `};
 
   .slide {
@@ -51,9 +56,8 @@ export const StyledBlogsSection = styled.section`
     ${responsive.xl`
       display: none;
     `};
-    
-    .image {
 
+    .image {
     }
   }
 

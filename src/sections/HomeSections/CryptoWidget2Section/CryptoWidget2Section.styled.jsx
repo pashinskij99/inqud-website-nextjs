@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledCryptoWidget2Section = styled.section`
   background: var(--exciting-lime, #bfffc8);
@@ -23,6 +23,11 @@ export const StyledCryptoWidget2Section = styled.section`
     @media (max-width: 1536px) and (min-width: 1280px) {
       grid-template-columns: 1.5fr 1fr;
     }
+
+    ${responsive.xxl`
+      gap: ${rem(60)};
+    `};
+
     ${responsive.xl`
       grid-template-columns: 1fr;
       justify-items: auto;
@@ -77,7 +82,6 @@ export const StyledCryptoWidget2Section = styled.section`
         margin-bottom: ${rem(56)};
 
         &.crypto2Description-desktop {
-
         }
 
         &.crypto2Description-mobile {
@@ -119,10 +123,19 @@ export const StyledCryptoWidget2Section = styled.section`
             gap: ${rem(12)};
           `};
 
-          svg {
+          .check {
             display: none;
             ${responsive.xs`
               display: block;
+            `};
+          }
+
+          .icon {
+            width: ${rem(48)};
+            height: ${rem(48.002)};
+            margin-bottom: ${rem(8)};
+            ${responsive.xs`
+              display: none;
             `};
           }
 

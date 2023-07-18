@@ -1,10 +1,10 @@
-import styled from '@emotion/styled';
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import styled from '@emotion/styled'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledBlogCartWrapper = styled.div`
   max-width: ${rem(440)};
-
+  cursor: pointer;
   &:hover {
     .image {
       transform: scale(1.1);
@@ -18,11 +18,11 @@ export const StyledBlogCartWrapper = styled.div`
     max-width: ${rem(300)};
   `}
   ${responsive.lg`
-    max-width: ${rem(332)};    
+    max-width: ${rem(332)};
   `}
   ${responsive.xs`
     text-align: center;
-    max-width: 100%; 
+    max-width: 100%;
   `}
   .imageWrapper {
     overflow: hidden;
@@ -63,7 +63,7 @@ export const StyledBlogCartWrapper = styled.div`
 
   .subTitle {
     border-radius: ${rem(50)};
-    background: var(--independent-grey-dt-20, rgba(129, 158, 176, 0.20));
+    background: var(--independent-grey-dt-20, rgba(129, 158, 176, 0.2));
     padding: ${rem(4)} ${rem(16)};
 
     color: rgba(81, 113, 133, 1);
@@ -105,7 +105,6 @@ export const StyledBlogCartWrapper = styled.div`
     ${responsive.xs`
       justify-content: center;
     `}
-
   }
 
   .date {
@@ -113,7 +112,6 @@ export const StyledBlogCartWrapper = styled.div`
   }
 
   svg {
-
   }
 
   .time {
@@ -200,5 +198,4 @@ export const StyledBlogCartWrapper2 = styled(StyledBlogCartWrapper)`
       margin-bottom: ${rem(24)};
     `};
   }
-
 `

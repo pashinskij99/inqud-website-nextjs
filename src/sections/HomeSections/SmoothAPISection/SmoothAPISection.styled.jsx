@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledSmoothAPISection = styled.section`
   padding-top: ${rem(240)};
@@ -121,10 +121,19 @@ export const StyledSmoothAPISection = styled.section`
             gap: ${rem(12)};
           `};
 
-          svg {
+          .check {
             display: none;
             ${responsive.xs`
               display: block;
+            `};
+          }
+
+          .icon {
+            width: ${rem(48)};
+            height: ${rem(48.002)};
+            margin-bottom: ${rem(8)};
+            ${responsive.xs`
+              display: none;
             `};
           }
 

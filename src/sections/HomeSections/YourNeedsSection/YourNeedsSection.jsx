@@ -1,27 +1,26 @@
-import {Swiper, SwiperSlide} from 'swiper/react'
-import {Scrollbar} from 'swiper/modules'
-import {useState} from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Scrollbar } from 'swiper/modules'
+import { useState } from 'react'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH4,
 } from '@/components/UI/Typography/Typography.styled'
-import {YourNeedsSectionWrapper} from './YourNeedsSection.styled'
+import { YourNeedsSectionWrapper } from './YourNeedsSection.styled'
 import Image1 from '@/assets/images/your-needs/image1.png'
 import Image2 from '@/assets/images/your-needs/image2.png'
 import Image3 from '@/assets/images/your-needs/image3.png'
-import {CartRequirement} from '@/components/CartRequirement'
-import {ModalSendRequest} from '@/components/Modal';
-
+import { CartRequirement } from '@/components/CartRequirement'
+import { ModalSendRequest } from '@/components/Modal'
 
 export default function YourNeedsSection() {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
 
   const handleOpen = () => {
-    setOpenModalSendRequest(true);
-  };
+    setOpenModalSendRequest(true)
+  }
   const handleClose = () => {
-    setOpenModalSendRequest(false);
-  };
+    setOpenModalSendRequest(false)
+  }
 
   const list = [
     {
@@ -36,7 +35,7 @@ export default function YourNeedsSection() {
       id: 1,
       title: 'Tailored payment options',
       description:
-        'Need a specific payment method or currency for your business? Just ask! We\'ll be in touch to make it happen.',
+        "Need a specific payment method or currency for your business? Just ask! We'll be in touch to make it happen.",
       buttonText: 'Add your request',
       open: openModalSendRequest,
       handleClick: handleOpen,
@@ -52,47 +51,49 @@ export default function YourNeedsSection() {
     },
   ]
 
-
   return (
     <YourNeedsSectionWrapper>
-      <div className="container">
-        <StyledTypographyUrbanistH1 className="title title-desktop">
-          We understand <br className="br-mobile"/> your needs, <br className="br-desktop"/> backed by industry
-          expertise
+      <div className='container'>
+        <StyledTypographyUrbanistH1 className='title title-desktop'>
+          We understand <br className='br-mobile' /> your needs,{' '}
+          <br className='br-desktop' /> backed by industry expertise
         </StyledTypographyUrbanistH1>
-        <StyledTypographyUrbanistH1 className="title title-mobile">
-          We understand <br className="br-mobile"/> your needs
+        <StyledTypographyUrbanistH1 className='title title-mobile'>
+          We understand <br className='br-mobile' /> your needs
         </StyledTypographyUrbanistH1>
 
-        <StyledTypographyUrbanistH4 className="subTitle subTitle-desktop">
+        <StyledTypographyUrbanistH4 className='subTitle subTitle-desktop'>
           Catering to these requirements and beyond.
         </StyledTypographyUrbanistH4>
-        <StyledTypographyUrbanistH4 className="subTitle subTitle-mobile">
+        <StyledTypographyUrbanistH4 className='subTitle subTitle-mobile'>
           backed by industry expertise
         </StyledTypographyUrbanistH4>
 
-        <div className="listRequirements">
-          {list.map(({id, buttonText, description, image, title, handleClick}) => (
-            <CartRequirement
-              key={id}
-              buttonText={buttonText}
-              description={description}
-              href="#"
-              handleClick={handleClick}
-              imageSrc={image}
-              title={title}
-            />
-          ))}
+        <div className='listRequirements'>
+          {list.map(
+            ({ id, buttonText, description, image, title, handleClick }) => (
+              <CartRequirement
+                key={id}
+                buttonText={buttonText}
+                description={description}
+                href='#'
+                handleClick={handleClick}
+                imageSrc={image}
+                title={title}
+              />
+            )
+          )}
         </div>
 
         {/* mobile */}
 
         <Swiper
-          className="listRequirementsSwiper"
-          slidesPerView="auto"
+          className='listRequirementsSwiper'
+          slidesPerView='auto'
           centeredSlides
           spaceBetween={40}
-          initialSlide="1"
+          initialSlide='1'
+          updateOnWindowResize
           scrollbar={{
             dragSize: 200 / 3,
             // dragClass: 'listRequirementsSwiperDrag',
@@ -103,33 +104,34 @@ export default function YourNeedsSection() {
             0: {
               slidesPerView: 1,
               spaceBetween: 8,
-              centeredSlides: true
+              centeredSlides: true,
             },
             576: {
-              // slidesPerView: 1.5,
-            },
-            1000: {
-              // slidesPerView: 2.5,
+              slidesPerView: 'auto',
+              spaceBetween: 40,
+              initialSlide: 1,
             },
           }}
           modules={[Scrollbar]}
         >
-          {list.map(({id, buttonText, description, image, title, handleClick}) => (
-            <SwiperSlide className="listRequirementsSwiperItems" key={id}>
-              <CartRequirement
-                buttonText={buttonText}
-                description={description}
-                href="#"
-                handleClick={handleClick}
-                imageSrc={image}
-                title={title}
-              />
-            </SwiperSlide>
-          ))}
+          {list.map(
+            ({ id, buttonText, description, image, title, handleClick }) => (
+              <SwiperSlide className='listRequirementsSwiperItems' key={id}>
+                <CartRequirement
+                  buttonText={buttonText}
+                  description={description}
+                  href='#'
+                  handleClick={handleClick}
+                  imageSrc={image}
+                  title={title}
+                />
+              </SwiperSlide>
+            )
+          )}
         </Swiper>
       </div>
 
-      <ModalSendRequest handleClose={handleClose} open={openModalSendRequest}/>
+      <ModalSendRequest handleClose={handleClose} open={openModalSendRequest} />
     </YourNeedsSectionWrapper>
   )
 }

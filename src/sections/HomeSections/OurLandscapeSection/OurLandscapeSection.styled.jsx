@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledOurLandscapeSection = styled.section`
   padding: ${rem(242)} 0;
@@ -44,11 +44,11 @@ export const StyledOurLandscapeSection = styled.section`
         }
 
         &.active {
-          background: var(--confident-light-grey, #f4f5fa);
+          background: rgba(7, 116, 83, 1);
 
           .ourLandscapeTabsButtonText {
             font-weight: 700;
-            color: #2d3439;
+            color: rgba(255, 255, 255, 1);
           }
         }
 
@@ -86,13 +86,10 @@ export const StyledOurLandscapeSection = styled.section`
         }
       `};
     }
-
-
   }
 `
 
 export const StyledCoverageWrapper = styled.div`
-
   .coverageWrapper {
     display: flex;
     justify-content: space-between;
@@ -111,12 +108,11 @@ export const StyledCoverageWrapper = styled.div`
       flex-direction: column;
       row-gap: ${rem(16)};
 
-
       li {
         display: flex;
         align-items: center;
         border-radius: 30px;
-        background: var(--confident-light-grey, #F4F5FA);
+        background: var(--confident-light-grey, #f4f5fa);
         padding: ${rem(27)} ${rem(52)} ${rem(22)} ${rem(26.2)};
         ${responsive.xs`
           text-align: start;
@@ -140,7 +136,6 @@ export const StyledCoverageWrapper = styled.div`
         .coverage1 {
           width: ${rem(37.031)};
           height: ${rem(35.872)};
-
         }
 
         .coverage2 {
@@ -182,7 +177,6 @@ export const StyledCoverageWrapper = styled.div`
       `};
     }
   }
-
 `
 
 export const StyledIndustriesWrapper = styled.div`
@@ -284,12 +278,12 @@ export const StyledIndustriesWrapper = styled.div`
   .accordion-prob {
     height: 64px;
     border-radius: 20px;
-    background: #FFA3A3;
+    background: #ffa3a3;
     display: flex;
     align-items: center;
     padding: ${rem(18)} ${rem(32)} ${rem(20)};
     ${responsive.xs`
-      padding: ${rem(18)} ${rem(24)} ${rem(20)};    
+      padding: ${rem(18)} ${rem(24)} ${rem(20)};
     `}
   }
 
@@ -308,7 +302,6 @@ export const StyledIndustriesWrapper = styled.div`
       .swiper-scrollbar-drag {
         background: rgba(7, 116, 83, 1) !important;
       }
-
     }
 
     .listRequirementsSwiperDrag {

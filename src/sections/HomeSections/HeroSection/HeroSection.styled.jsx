@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledHeroSectionWrapper = styled.section`
   padding-top: ${rem(111)};
@@ -69,7 +69,7 @@ export const StyledHeroSectionWrapper = styled.section`
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: ${rem(20)};
-        row-gap: ${rem(24)};
+        row-gap: ${rem(16)};
         margin-bottom: ${rem(45)};
         ${responsive.xs`
           grid-template-columns: 1fr;
@@ -81,6 +81,11 @@ export const StyledHeroSectionWrapper = styled.section`
           display: flex;
           align-items: center;
           gap: ${rem(10.67)};
+
+          svg {
+            width: ${rem(21.333)};
+            height: ${rem(21.333)};
+          }
 
           p {
             color: #517185;
@@ -118,18 +123,34 @@ export const StyledHeroSectionWrapper = styled.section`
 
       .payment {
         .payment-descr {
-          color: #517185;
+          color: rgba(81, 113, 133, 0.800000011920929);
           margin-bottom: ${rem(24)};
           ${responsive.xs`
             text-align: start;
           `};
-
         }
 
         .payment-list {
           display: flex;
           align-items: center;
-          gap: ${rem(40)};
+          gap: ${rem(32)};
+          overflow: auto;
+          -ms-overflow-style: none; /* Internet Explorer 10+ */
+          scrollbar-width: none; /* Firefox */
+
+          &::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+          }
+          li {
+            display: flex;
+            align-items: center;
+            gap: ${rem(10)};
+            svg {
+            }
+            h5 {
+              color: rgba(129, 158, 176, 0.8);
+            }
+          }
         }
       }
     }
@@ -137,6 +158,7 @@ export const StyledHeroSectionWrapper = styled.section`
     .rightSide {
       .graphic {
         width: 100%;
+        height: 100%;
       }
 
       .graphic-mobile {

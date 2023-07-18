@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledHeaderWrapper = styled.header`
   padding: 23px 0;
@@ -32,7 +32,7 @@ export const StyledHeaderWrapper = styled.header`
     gap: ${rem(47)};
 
     ${responsive.xxl`
-      gap: ${rem(17)};
+      gap: ${rem(27)};
     `};
     ${responsive.xl`
       gap: ${rem(27)};
@@ -150,7 +150,7 @@ export const StyledHeaderWrapper = styled.header`
     gap: ${rem(96)};
 
     ${responsive.xxl`
-      gap: ${rem(65)};
+      gap: ${rem(75)};
     `};
 
     ${responsive.xl`

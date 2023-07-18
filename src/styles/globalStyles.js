@@ -1,5 +1,5 @@
-import {createGlobalStyle} from 'styled-components';
-import {rem} from '@/utils/rem';
+import { createGlobalStyle } from 'styled-components'
+import { rem } from '@/utils/rem'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -18,14 +18,12 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%;
 
     @media (-webkit-device-pixel-ratio: 1.25) {
-      font-size: 82.5%;
+      font-size: 86%;
     }
-    
+
     @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
-      font-size: 82.5%;
+      font-size: 86%;
     }
-
-
   }
 
   a {
@@ -42,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
     max-width: 1920px;
     margin: 0 auto;
     padding: 0 ${rem(60)};
-    @media (max-width: 576px) {
+    @media (max-width: 639px) {
       padding: 0 ${rem(15.58)};
     }
   }
@@ -76,6 +74,6 @@ const GlobalStyle = createGlobalStyle`
   .no-scroll {
     overflow: hidden !important;
   }
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

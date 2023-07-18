@@ -1,11 +1,12 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledReasonsToTeamUp = styled.section`
   padding-top: ${rem(240)};
   padding-bottom: ${rem(214)};
   text-align: center;
+  overflow: hidden;
   ${responsive.xl`
     padding: ${rem(120)} 0 ${rem(97)};
   `};

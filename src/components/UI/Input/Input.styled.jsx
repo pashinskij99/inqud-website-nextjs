@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {urbanist} from '@/utils/font'
-import {rem} from '@/utils/rem';
+import { urbanist } from '@/utils/font'
+import { rem } from '@/utils/rem'
 
 export const StyledInputTextWrapper = styled.div`
   .inputTextLabel {
@@ -108,13 +108,14 @@ export const StyledInputSearchWrapper = styled.div`
 `
 
 export const StyledInputSendRequestWrapper = styled(StyledInputSearchWrapper)`
-
   height: auto;
 
   .label {
     margin-bottom: ${rem(4)};
     font-weight: 700;
     line-height: 1;
+    margin-left: 1rem;
+    color: rgba(45, 52, 57, 1) !important;
   }
 
   .input {
