@@ -33,8 +33,7 @@ export const StyledSelect = styled(Select)`
     color: rgba(45, 52, 57, 0.3);
   }
 
-  .css-3qbkez-MuiSelect-icon,
-  .css-10q54uo-MuiSelect-icon {
+  svg {
     right: ${rem(16)};
     width: ${rem(16)};
     height: ${rem(16)};
