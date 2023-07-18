@@ -15,6 +15,7 @@ import {
 import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import Close from '@/assets/icons/close.svg'
+import { SelectPrimary } from '../UI/Select'
 
 const inputs = [
   {
@@ -115,39 +116,16 @@ export function ModalSubmitEmail({ open, handleClose }) {
   )
 }
 
-const feeInputs = [
-  {
-    id: 0,
-    name: 'company',
-    type: 'text',
-    label: 'Company name',
-    placeholder: 'inqud',
-  },
-  {
-    id: 1,
-    name: 'website',
-    type: 'text',
-    label: 'Website',
-    placeholder: 'www.inqud.com',
-  },
-  {
-    id: 2,
-    name: 'industry',
-    type: 'select',
-    label: 'Industry',
-    placeholder: 'Fintech',
-  },
-  {
-    id: 3,
-    name: 'message',
-    type: 'textarea',
-    label: 'Message (optional)',
-    placeholder:
-      'Feel free to provide any additional information or details here.',
-  },
-]
+const industryList = ['Fintech1', 'Fintech2', 'Fintech3']
 
-const getInput = ({ name, type, label, placeholder }) => {
+const getInput = ({
+  name,
+  type,
+  label,
+  placeholder,
+  handleChange,
+  industry,
+}) => {
   switch (type) {
     case 'text':
       return (
@@ -164,6 +142,17 @@ const getInput = ({ name, type, label, placeholder }) => {
           name={name}
           label={label}
           placeholder={placeholder}
+        />
+      )
+    case 'select':
+      return (
+        <SelectPrimary
+          name={name}
+          label={label}
+          placeholder={placeholder}
+          handleChange={handleChange}
+          activeItem={industry}
+          listItems={industryList}
         />
       )
     default:
@@ -212,10 +201,49 @@ const getTabContent = (tab) => {
 
 export function FeeModal({ open, handleClose }) {
   const [activeTab, setActiveTab] = useState(tabs[0])
+  const [industry, setIndustry] = useState('')
+
+  const handleChange = (event) => {
+    setIndustry(event.target.value)
+  }
 
   const handleTab = (nameTab) => {
     setActiveTab(nameTab)
   }
+
+  const feeInputs = [
+    {
+      id: 0,
+      name: 'company',
+      type: 'text',
+      label: 'Company name',
+      placeholder: 'inqud',
+    },
+    {
+      id: 1,
+      name: 'website',
+      type: 'text',
+      label: 'Website',
+      placeholder: 'www.inqud.com',
+    },
+    {
+      id: 2,
+      name: 'industry',
+      type: 'select',
+      label: 'Industry',
+      placeholder: 'Fintech',
+      handleChange,
+      industry,
+    },
+    {
+      id: 3,
+      name: 'message',
+      type: 'textarea',
+      label: 'Message (optional)',
+      placeholder:
+        'Feel free to provide any additional information or details here.',
+    },
+  ]
 
   return (
     <StyledFeeModalWrapper open={open} onClose={handleClose}>
@@ -230,10 +258,8 @@ export function FeeModal({ open, handleClose }) {
         </div>
         <div className='body'>
           <div className='input-wrapper'>
-            {feeInputs.map(({ label, id, name, placeholder, type }) => (
-              <Fragment key={id}>
-                {getInput({ label, name, placeholder, type })}
-              </Fragment>
+            {feeInputs.map(({ ...args }) => (
+              <Fragment key={args.id}>{getInput({ ...args })}</Fragment>
             ))}
           </div>
 

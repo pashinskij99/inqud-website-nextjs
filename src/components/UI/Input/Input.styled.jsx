@@ -114,7 +114,7 @@ export const StyledInputSendRequestWrapper = styled(StyledInputSearchWrapper)`
     margin-bottom: ${rem(4)};
     font-weight: 700;
     line-height: 1;
-    margin-left: 1rem;
+    margin-left: ${rem(16)};
     color: rgba(45, 52, 57, 1) !important;
   }
 
