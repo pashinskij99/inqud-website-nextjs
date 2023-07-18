@@ -38,6 +38,7 @@ export const StyledInputTextWrapper = styled.div`
 
       &::placeholder {
         color: rgba(81, 113, 133, 0.6000000238418579);
+        opacity: 1;
       }
 
       &:focus-visible {
@@ -95,6 +96,7 @@ export const StyledInputSearchWrapper = styled.div`
     ${urbanist.style}
     &::placeholder {
       color: rgba(81, 113, 133, 1);
+      opacity: 1;
     }
 
     &:focus {
@@ -133,6 +135,7 @@ export const StyledInputSendRequestWrapper = styled(StyledInputSearchWrapper)`
       font-size: ${rem(18)};
       font-weight: 400;
       line-height: ${rem(26)};
+      opacity: 1;
       ${urbanist.style}
     }
   }

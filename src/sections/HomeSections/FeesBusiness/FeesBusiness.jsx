@@ -25,7 +25,7 @@ const tableData = {
 }
 
 export default function FeesBusiness() {
-  const [showModal, setShowModal] = useState(true)
+  const [showModal, setShowModal] = useState(false)
 
   const handleShowModal = () => {
     setShowModal(true)
