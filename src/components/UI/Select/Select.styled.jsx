@@ -30,7 +30,7 @@ export const StyledSelect = styled(Select)`
   }
 
   .placeholder {
-    color: rgba(45, 52, 57, 0.6000000238418579) !important;
+    color: rgba(45, 52, 57, 0.3);
   }
 
   .css-3qbkez-MuiSelect-icon,
