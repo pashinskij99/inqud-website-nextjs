@@ -22,7 +22,7 @@ export const StyledSelect = styled(Select)`
     padding: 0 ${rem(32)} 0 ${rem(16)};
   }
 
-  .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  #mui-component-select-industry.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
     border: none;
     border-radius: ${rem(22)};
     background: rgba(243, 246, 248, 1);
