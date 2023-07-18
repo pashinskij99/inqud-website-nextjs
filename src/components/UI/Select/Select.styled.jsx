@@ -18,11 +18,11 @@ export const StyledSelect = styled(Select)`
 
   padding: 0;
 
-  .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  [aria-labelledby='mui-component-select-industry'] {
     padding: 0 ${rem(32)} 0 ${rem(16)};
   }
 
-  #mui-component-select-industry.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  fieldset {
     border: none;
     border-radius: ${rem(22)};
     background: rgba(243, 246, 248, 1);
