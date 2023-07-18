@@ -1,3 +1,7 @@
-import {BlogCart, BlogCart2} from '@/components/BlogCart/BlogCart';
+import {
+  BlogCart,
+  BlogCart2,
+  RelatedBlogCart,
+} from '@/components/BlogCart/BlogCart'
 
-export {BlogCart, BlogCart2}
+export { BlogCart, BlogCart2, RelatedBlogCart }

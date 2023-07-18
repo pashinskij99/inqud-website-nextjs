@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
+import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { StyledTypographyUrbanistH1 } from '@/components/UI/Typography/Typography.styled'
-import { StyledBlogsSection } from './BlogsSection.styled'
 import Image1 from '@/assets/images/blogs/image1.png'
 import Image2 from '@/assets/images/blogs/image2.png'
 import Image3 from '@/assets/images/blogs/image3.png'
-import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { BlogCart, BlogCart2 } from '@/components/BlogCart'
+import { StyledRelatedArticlesSection } from './RelatedArticles.styled'
 
 const blogs = [
   {
@@ -36,13 +36,13 @@ const blogs = [
   },
 ]
 
-export default function BlogsSection() {
+export default function RelatedArticles() {
   return (
-    <StyledBlogsSection>
+    <StyledRelatedArticlesSection>
       <div className='container'>
         <div className='blogsHeader'>
           <StyledTypographyUrbanistH1 className='blogsHeaderTitle'>
-            Insights
+            Related articles
           </StyledTypographyUrbanistH1>
           <Link href='/blog'>
             <StyledButtonGhost className='blogsHeaderButton'>
@@ -88,9 +88,9 @@ export default function BlogsSection() {
             },
             576: {
               slidesPerView: 'auto',
-              initialSlide: 0,
+              initialSlide: 1,
               spaceBetween: 24,
-              centeredSlides: false,
+              centeredSlides: true,
             },
           }}
           scrollbar={{
@@ -120,6 +120,6 @@ export default function BlogsSection() {
           </StyledButtonGhost>
         </Link>
       </div>
-    </StyledBlogsSection>
+    </StyledRelatedArticlesSection>
   )
 }

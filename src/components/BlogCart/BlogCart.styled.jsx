@@ -199,3 +199,63 @@ export const StyledBlogCartWrapper2 = styled(StyledBlogCartWrapper)`
     `};
   }
 `
+
+export const StyledRelatedBlogCartWrapper = styled(StyledBlogCartWrapper)`
+  max-width: ${rem(440)};
+  cursor: pointer;
+  &:hover {
+    .image {
+      transform: scale(1.1);
+    }
+  }
+
+  ${responsive.xxl`
+    max-width: ${rem(380)};
+  `}
+  ${responsive.xl`
+    max-width: ${rem(300)};
+  `}
+  ${responsive.lg`
+    max-width: ${rem(332)};
+  `}
+  ${responsive.xs`
+    text-align: center;
+    max-width: 100%;
+  `}
+  .imageWrapper {
+    overflow: hidden;
+    border-radius: ${rem(30)};
+    margin-bottom: ${rem(30)};
+    height: fit-content;
+    display: flex;
+    ${responsive.xs`
+      margin-bottom: ${rem(24)};
+    `};
+  }
+
+  .image {
+    max-width: ${rem(440)};
+    height: ${rem(250)};
+    transition: transform 0.3s ease-in-out;
+
+    ${responsive.xxl`
+      max-width: ${rem(380)};
+      height: ${rem(260)};
+    `};
+
+    ${responsive.xl`
+      max-width: ${rem(300)};
+      height: ${rem(210)};
+    `};
+    ${responsive.lg`
+      max-width: 100%;
+      height: ${rem(250)};
+      object-fit: cover;
+    `};
+    ${responsive.xs`
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    `};
+  }
+`
