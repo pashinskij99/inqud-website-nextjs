@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import {Box} from '@mui/material'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { Box } from '@mui/material'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledHeaderLanguageSelectWrapper = styled(Box)`
   position: relative;
@@ -56,9 +56,8 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
 
   .select {
     position: absolute;
-    top: 0;
-    left: 50%;
     transform: translateX(-25%);
+    height: 100%;
     display: none;
 
     .trigger {
@@ -66,11 +65,11 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
       top: 0;
       left: 0;
       width: 100%;
-      height: ${rem(100)};
+      height: ${rem(160)};
       z-index: 0;
       display: none;
+      transform: translateY(-25%);
     }
-
 
     &.show {
       display: block;
@@ -89,11 +88,11 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
       flex-direction: column;
       gap: 0;
       background-color: white;
-      margin-top: ${rem(85)};
+      margin-top: ${rem(50)};
       position: relative;
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: -${rem(10)};
         left: 50%;
@@ -101,7 +100,7 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
         height: ${rem(24)};
         transform: translateX(-50%) rotate(-45deg);
         border-radius: ${rem(4)};
-        background: #FFF;
+        background: #fff;
         z-index: -1;
       }
 
