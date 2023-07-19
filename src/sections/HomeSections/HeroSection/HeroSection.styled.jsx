@@ -3,7 +3,7 @@ import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
 export const StyledHeroSectionWrapper = styled.section`
-  padding-top: ${rem(100)};
+  padding-top: ${rem(90)};
   padding-bottom: ${rem(98)};
   overflow: hidden;
 
