@@ -142,7 +142,7 @@ function CenterSide() {
       />
 
       <StyledTypographyUrbanistH4 className='title'>
-        What are Cryptocurrencies?
+        How Do Cryptocurrencies Work?
       </StyledTypographyUrbanistH4>
 
       <StyledTypographyUrbanistBody>
@@ -174,7 +174,7 @@ function CenterSide() {
       </StyledTypographyUrbanistBody>
 
       <StyledTypographyUrbanistH4 className='title'>
-        What are Cryptocurrencies?
+        Conclusion
       </StyledTypographyUrbanistH4>
 
       <StyledTypographyUrbanistBody className='description'>

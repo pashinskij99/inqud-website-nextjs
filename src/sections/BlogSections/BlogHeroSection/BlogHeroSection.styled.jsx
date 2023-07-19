@@ -7,6 +7,7 @@ export const StyledBlogHeroSectionWrapper = styled.section`
   text-align: center;
   padding: ${rem(56)} 0;
   background-color: rgba(191, 255, 200, 1);
+  overflow: hidden;
 
   ${responsive.xl`
     display: flex;
