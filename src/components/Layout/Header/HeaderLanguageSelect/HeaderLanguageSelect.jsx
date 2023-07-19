@@ -14,7 +14,7 @@ const languages = [
 ]
 
 export default function HeaderLanguageSelect({ className }) {
-  const [active, setActive] = useState(true)
+  const [active, setActive] = useState(false)
   const [language, setLanguage] = useState(languages[0].value)
 
   const handleClick = () => {
