@@ -28,12 +28,14 @@ export const StyledOurLandscapeSection = styled.section`
     .MuiTabs-root {
       display: contents;
       .MuiTabs-flexContainer,
+      .MuiTabs-scroller,
       .css-heg063-MuiTabs-flexContainer {
         display: contents;
       }
     }
 
     .ourLandscapeTabs {
+      display: flex;
       border-radius: ${rem(72)};
       border: 1px solid var(--independent-grey-dt-20, rgba(129, 158, 176, 0.2));
       background: var(--clarity-white, #fff);
