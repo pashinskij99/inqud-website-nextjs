@@ -117,11 +117,7 @@ export default function OurLandscapeSection() {
           Our landscape
         </StyledTypographyUrbanistH1>
         <div className='ourLandscapeTabs'>
-          <Tabs
-            value={value}
-            className='ourLandscapeTabs'
-            onChange={handleChange}
-          >
+          <Tabs value={value} onChange={handleChange}>
             {tabs.map(({ id, text }) => (
               // <button
               //   className={clsx('ourLandscapeTabsButton', {
