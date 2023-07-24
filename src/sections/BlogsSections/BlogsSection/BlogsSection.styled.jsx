@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import styled from '@emotion/styled'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledBlogsSectionWrapper = styled.section`
   padding-bottom: ${rem(144)};
@@ -14,6 +14,10 @@ export const StyledBlogsSectionWrapper = styled.section`
     grid-template-columns: repeat(3, min-content);
     justify-content: space-between;
     row-gap: ${rem(48)};
+    ${responsive.xxl`
+      column-gap: ${rem(24)};
+      row-gap: ${rem(40)};
+    `}
 
     ${responsive.lg`
       grid-template-columns: repeat(2, 1fr);
@@ -42,6 +46,5 @@ export const StyledBlogsSectionWrapper = styled.section`
     ${responsive.lg`
       margin-bottom: ${rem(41)};
     `}
-
   }
 `

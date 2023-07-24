@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import BreadCrumbs from '@/components/BreadCrumbs'
 import { getUrlForBreadCrumbs } from '@/utils/getUrlForBreadCrumbs'
 
@@ -25,12 +25,11 @@ export default function RootLayout({ children }) {
   ]
 
   const pathname = usePathname()
-  const searchParams = useSearchParams()
 
   useEffect(() => {
     const path = getUrlForBreadCrumbs(pathname)
     setPages(path.length === 2 ? pagesBlog : pagesBlogs)
-  }, [pathname, searchParams])
+  }, [pathname])
 
   return (
     <div>

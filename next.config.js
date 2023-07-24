@@ -19,7 +19,7 @@ const nextConfig = {
   //         },
   //       ]
   //     : [],
-  webpack(config) {
+  webpack(config, { isServer }) {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
@@ -45,6 +45,12 @@ const nextConfig = {
         },
       ],
     })
+
+    // // eslint-disable-next-line no-param-reassign
+    // config.resolve.fallback = { fs: false }
+
+    // // eslint-disable-next-line global-require
+    // if (isServer) require('./src/server-scripts/sitemap-generator')
 
     return config
   },

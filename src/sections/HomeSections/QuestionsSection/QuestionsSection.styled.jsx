@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import {Accordion, AccordionSummary, AccordionDetails} from '@mui/material'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledQuestionsSection = styled.section`
   padding: ${rem(240)} 0;
@@ -64,13 +64,13 @@ export const StyledQuestionsSection = styled.section`
     border-radius: ${rem(16)};
     background: var(--confident-light-grey, #f4f5fa);
     ${responsive.xl`
-      justify-content: flex-start;
-      font-weight: 700;
+      // justify-content: flex-start;
+      // font-weight: 700;
     `};
     ${responsive.sm`
       position: relative;
       flex-direction: column;
-      justify-content: flex-start;
+      // justify-content: flex-start;
       align-items: start;
       font-weight: 400;
     `};
@@ -79,47 +79,11 @@ export const StyledQuestionsSection = styled.section`
     `};
 
     .questionsButtonHelp {
-      padding-right: 0;
       height: fit-content;
-      ${responsive.xl`
-        flex: 1;
-        width: 100%;
-        justify-content: space-between;
-        padding-left: ${rem(5)};
-        * {
-          font-weight: 400;
-          font-size: ${rem(24)};
-          color: rgba(45, 52, 57, 1);
-        }
-
-        circle {
-          fill: rgba(81, 113, 133, 1);
-        }
-
-        path {
-          fill: white;
-        }
-      `};
-      ${responsive.sm`
-        position: static;
-        padding-left: 0;
-
-        svg {
-          position: absolute;
-          right: ${rem(32)};
-          top: 50%;
-          transform: translateY(-50%);
-        }
-      `};
-      ${responsive.xs`
-        * {
-          font-size: ${rem(18)};
-        }
-
-        svg {
-          right: ${rem(16)};
-        }
-      `};
+      svg {
+        width: ${rem(24)};
+        height: ${rem(24)};
+      }
     }
   }
 
@@ -161,9 +125,10 @@ export const StyledQuestionsSectionAccordionSummary = styled((props) => (
   paddingBottom: `${props.expanded ? '0' : `${rem(21)}`}`,
   lineHeight: 1,
   height: 'fit-content',
-  '& .css-1betqn-MuiAccordionSummary-content, & .MuiAccordionSummary-content.css-1n11r91': {
-    margin: 0,
-  },
+  '& .css-1betqn-MuiAccordionSummary-content, & .MuiAccordionSummary-content.css-1n11r91':
+    {
+      margin: 0,
+    },
   '& .questionsAccordionTitle': {
     fontWeight: `${props.expanded ? '700' : '400'}`,
   },
@@ -191,7 +156,9 @@ export const StyledQuestionsSectionAccordionDetails = styled(AccordionDetails)(
       '@media (max-width: 576px)': {
         maxWidth: '100%',
       },
-      transform: `${props.expanded ? `translateY(-${rem(26)})` : 'translateY(0)'}`,
+      transform: `${
+        props.expanded ? `translateY(-${rem(26)})` : 'translateY(0)'
+      }`,
       transition: '0.3s ease',
     },
   })

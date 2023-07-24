@@ -15,7 +15,9 @@ export const StyledBlogContentSectionWrapper = styled.section`
     justify-content: space-between;
     margin-bottom: ${rem(140)};
     column-gap: ${rem(40)};
-
+    ${responsive.xxl`
+      column-gap: ${rem(24)};
+    `}
     ${responsive.xl`
       flex-direction: column;
       row-gap: ${rem(36)};
@@ -30,11 +32,27 @@ export const StyledBlogContentSectionWrapper = styled.section`
 `
 
 export const StyledLeftSide = styled.div`
+  top: calc(var(--header-height) + ${rem(68)});
+  position: sticky;
+  height: fit-content;
   width: ${rem(305)};
   flex-shrink: 0;
+
+  ${responsive.xxl`
+    width: 100%;
+    max-width: ${rem(286)};
+  `}
+
   ${responsive.xl`
+    position: static;
+    top: calc(var(--header-height) + ${rem(68)});
     order: 2;
     width: 100%;
+    max-width: 100%;
+  `};
+
+  ${responsive.xs`
+    top: calc(var(--header-height) + ${rem(24)});
   `};
 
   h5 {
@@ -207,11 +225,17 @@ export const StyledRightSide = styled.div`
   flex-direction: column;
   row-gap: ${rem(8)};
 
+  ${responsive.xxl`
+    width: 100%;
+    max-width: ${rem(286)};
+  `}
+
   ${responsive.xl`
     order: 3;
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
+    max-width: 100%;
     gap: ${rem(8)};
   `};
 

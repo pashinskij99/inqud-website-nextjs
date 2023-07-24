@@ -6,8 +6,16 @@ import Val2 from '@/assets/images/hero/val2.svg'
 import Val3 from '@/assets/images/hero/val3.svg'
 import Val4 from '@/assets/images/hero/val4.svg'
 import Val5 from '@/assets/images/hero/val5.svg'
-import HeroGraphic from '@/assets/icons/hero-graphic.svg'
-import HeroGraphicMobile from '@/assets/icons/hero-graphic-mobile.svg'
+import Val6 from '@/assets/images/hero/val6.svg'
+import Val7 from '@/assets/images/hero/val7.svg'
+import Val8 from '@/assets/images/hero/val8.svg'
+import Val9 from '@/assets/images/hero/val9.svg'
+// import Val1 from '@/assets/images/hero/val1-1.svg'
+// import Val2 from '@/assets/images/hero/val2-2.svg'
+// import Val3 from '@/assets/images/hero/val3-3.svg'
+// import Val4 from '@/assets/images/hero/val4-4.svg'
+// import Val5 from '@/assets/images/hero/val5-5.svg'
+import HeroGraphic from '@/assets/images/hero/illustration.svg'
 import Check from '@/assets/icons/check-green-background.svg'
 import {
   StyledTypographyIBMH5,
@@ -30,6 +38,10 @@ const methodsPayment = [
   { id: 2, text: 'EUR', icon: <Val3 /> },
   { id: 3, text: 'USD', icon: <Val4 /> },
   { id: 4, text: 'USDT', icon: <Val5 /> },
+  { id: 5, text: 'IDR', icon: <Val6 /> },
+  { id: 6, text: 'KZT', icon: <Val7 /> },
+  { id: 7, text: 'TRX', icon: <Val8 /> },
+  { id: 8, text: 'TRY', icon: <Val9 /> },
 ]
 
 export default function HeroSection() {
@@ -79,7 +91,7 @@ export default function HeroSection() {
             <ul className='payment-list'>
               {methodsPayment.map(({ icon, text, id }) => (
                 <li key={id}>
-                  {icon}
+                  <div className='icon-wrapper'>{icon}</div>
                   <StyledTypographyUrbanistH5>
                     {text}
                   </StyledTypographyUrbanistH5>
@@ -91,7 +103,6 @@ export default function HeroSection() {
 
         <div className='rightSide'>
           <HeroGraphic className='graphic' />
-          <HeroGraphicMobile className='graphic-mobile' />
         </div>
       </div>
     </StyledHeroSectionWrapper>

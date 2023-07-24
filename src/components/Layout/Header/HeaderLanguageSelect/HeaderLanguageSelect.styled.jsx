@@ -59,7 +59,6 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
     transform: translateX(-25%);
     height: 100%;
     display: none;
-
     .trigger {
       position: absolute;
       top: 0;
@@ -82,14 +81,17 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
 
     ul {
       padding: ${rem(10)} ${rem(8)};
-      border-radius: ${rem(16)};
       color: #fff;
       display: flex;
       flex-direction: column;
       gap: 0;
-      background-color: white;
       margin-top: ${rem(50)};
       position: relative;
+      outline: 2px solid rgba(244, 245, 250, 1);
+      border-radius: ${rem(16)};
+      background-color: white;
+
+      z-index: 1;
 
       &::before {
         content: '';
@@ -101,7 +103,21 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
         transform: translateX(-50%) rotate(-45deg);
         border-radius: ${rem(4)};
         background: #fff;
-        z-index: -1;
+        z-index: 0;
+        border-right: 2px solid rgba(244, 245, 250, 1);
+        border-top: 2px solid rgba(244, 245, 250, 1);
+      }
+
+      &::after {
+        content: '';
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: ${rem(16)};
+        background-color: white;
+        z-index: 0;
       }
 
       &.show {
@@ -115,6 +131,7 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
       li {
         padding: ${rem(8)} ${rem(20)} ${rem(8)} ${rem(28)};
         white-space: nowrap;
+        z-index: 1;
 
         button {
           color: var(--directness-black, #2d3439);

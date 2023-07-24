@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
+import { urbanist } from '@/utils/font'
 
 export const StyledOurLandscapeSection = styled.section`
   padding: ${rem(242)} 0;
@@ -16,9 +17,20 @@ export const StyledOurLandscapeSection = styled.section`
   .container {
     .ourLandscapeTitle {
       margin-bottom: ${rem(40)};
+      ${responsive.xxl`
+        margin-bottom: ${rem(30)};
+      `};
       ${responsive.xs`
         margin-bottom: ${rem(32)};
       `};
+    }
+
+    .MuiTabs-root {
+      display: contents;
+      .MuiTabs-flexContainer,
+      .css-heg063-MuiTabs-flexContainer {
+        display: contents;
+      }
     }
 
     .ourLandscapeTabs {
@@ -28,28 +40,39 @@ export const StyledOurLandscapeSection = styled.section`
       padding: ${rem(1)};
       width: fit-content;
       margin-bottom: ${rem(24)};
+      height: ${rem(40)};
       ${responsive.xs`
         margin: 0 auto ${rem(24)};
         width: 100%;
         display: flex;
       `};
 
+      .css-jpln7h-MuiTabs-scroller {
+        display: contents;
+      }
+
+      .MuiTabs-indicator,
+      .css-1aquho2-MuiTabs-indicator {
+        display: none !important;
+      }
+
       .ourLandscapeTabsButton {
         border-radius: ${rem(72)};
-        padding: ${rem(7)} ${rem(16)} ${rem(7)} ${rem(17)};
+        padding: ${rem(7)} ${rem(16)} ${rem(7)} ${rem(17)}!important;
         background: transparent;
-
-        p {
-          color: rgba(81, 113, 133, 1);
-        }
+        color: rgba(81, 113, 133, 1);
+        min-height: auto;
+        height: 100%;
+        ${urbanist.style};
+        font-size: ${rem(18)};
+        font-weight: 400;
+        line-height: 1;
+        text-transform: capitalize;
 
         &.active {
           background: rgba(7, 116, 83, 1);
-
-          .ourLandscapeTabsButtonText {
-            font-weight: 700;
-            color: rgba(255, 255, 255, 1);
-          }
+          font-weight: 700;
+          color: rgba(255, 255, 255, 1);
         }
 
         ${responsive.xs`
@@ -61,7 +84,6 @@ export const StyledOurLandscapeSection = styled.section`
 
     .ourLandscapeDescription {
       color: #517185;
-      margin-bottom: ${rem(66)};
       line-height: ${rem(32)};
 
       .br-tablet {
@@ -69,7 +91,6 @@ export const StyledOurLandscapeSection = styled.section`
       }
 
       ${responsive.xl`
-        margin-bottom: ${rem(62)};
         .br-desktop {
           display: none;
         }
@@ -79,7 +100,6 @@ export const StyledOurLandscapeSection = styled.section`
         }
       `};
       ${responsive.xs`
-        margin-bottom: ${rem(39)};
         font-size: ${rem(24)};
         br {
           display: none;
@@ -90,30 +110,40 @@ export const StyledOurLandscapeSection = styled.section`
 `
 
 export const StyledCoverageWrapper = styled.div`
-  .coverageWrapper {
+  .headerWrapper {
     display: flex;
+    margin-bottom: ${rem(66)};
     justify-content: space-between;
-    gap: ${rem(145)};
-    ${responsive.lg`
-        column-gap: ${rem(0)};
-        row-gap: ${rem(31.97)};
-      `};
-
     ${responsive.xl`
-      flex-direction: column-reverse;
+      flex-direction: column;
+      row-gap: ${rem(40.5)};
     `};
-
+    .ourLandscapeDescription {
+      ${responsive.xxl`
+        .br-desktop {
+          display: none;
+        }
+      `};
+      ${responsive.lg`
+        br {
+          display: none!important;
+        }
+      `};
+    }
     ul {
       display: flex;
-      flex-direction: column;
-      row-gap: ${rem(16)};
-
+      column-gap: ${rem(63)};
+      ${responsive.xxl`
+        column-gap: ${rem(34)};
+      `}
+      ${responsive.lg`
+        row-gap: ${rem(16.5)};
+        flex-wrap: wrap;
+      `};
       li {
         display: flex;
         align-items: center;
         border-radius: 30px;
-        background: var(--confident-light-grey, #f4f5fa);
-        padding: ${rem(27)} ${rem(52)} ${rem(22)} ${rem(26.2)};
         ${responsive.xs`
           text-align: start;
           padding: ${rem(15)} ${rem(26.2)} ${rem(14)} ${rem(26.2)};
@@ -163,15 +193,30 @@ export const StyledCoverageWrapper = styled.div`
             white-space: nowrap;
             color: rgba(81, 113, 133, 1);
             ${responsive.xl`
-              white-space: normal;
+              white-space: nowrap;
             `}
           }
         }
       }
     }
+  }
+  .coverageWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: ${rem(145)};
+    ${responsive.lg`
+        column-gap: ${rem(0)};
+        row-gap: ${rem(31.97)};
+      `};
+
+    ${responsive.xl`
+      flex-direction: column-reverse;
+    `};
 
     .map {
       width: 100%;
+      height: fit-content;
+      max-height: ${rem(452)};
       ${responsive.xs`
         height: fit-content;
       `};
@@ -180,6 +225,16 @@ export const StyledCoverageWrapper = styled.div`
 `
 
 export const StyledIndustriesWrapper = styled.div`
+  .ourLandscapeDescription {
+    margin-bottom: ${rem(66)};
+
+    ${responsive.xl`
+      margin-bottom: ${rem(62)};
+    `};
+    ${responsive.xs`
+      margin-bottom: ${rem(39)};
+    `};
+  }
   .ourLandscapeRisk {
     display: flex;
     justify-content: space-between;

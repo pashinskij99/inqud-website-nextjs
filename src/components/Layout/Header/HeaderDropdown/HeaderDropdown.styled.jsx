@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
+import { rem } from '@/utils/rem'
 
 export const StyledHeaderDropdownWrapper = styled.div`
   position: relative;
@@ -62,11 +62,12 @@ export const StyledHeaderDropdownWrapper = styled.div`
   .dropdown-menu {
     margin-top: ${rem(50)};
     left: 50%;
-    padding: ${rem(24)} ${rem(32)};
+    padding: ${rem(24)} ${rem(24)};
     border-radius: ${rem(16)};
     background: #fff;
     display: flex;
     gap: ${rem(32)};
+    outline: 2px solid rgba(244, 245, 250, 1);
 
     &.show {
       animation: showMenu 0.3s ease-in-out forwards;
@@ -77,7 +78,7 @@ export const StyledHeaderDropdownWrapper = styled.div`
     }
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: -${rem(10)};
       left: 50%;
@@ -85,13 +86,28 @@ export const StyledHeaderDropdownWrapper = styled.div`
       height: ${rem(24)};
       transform: translateX(-50%) rotate(-45deg);
       border-radius: ${rem(4)};
-      background: #FFF;
+      background: #fff;
+
+      border-right: 2px solid rgba(244, 245, 250, 1);
+      border-top: 2px solid rgba(244, 245, 250, 1);
+    }
+
+    &::after {
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: ${rem(16)};
+      background-color: white;
+      z-index: 0;
     }
 
     ul {
       display: flex;
       flex-direction: column;
-      gap: 0;
+      gap: 0 !important;
       align-items: flex-start;
 
       color: var(--directness-black, #2d3439);
@@ -104,6 +120,10 @@ export const StyledHeaderDropdownWrapper = styled.div`
         width: 100%;
         padding: ${rem(5)} ${rem(8)};
         border-radius: ${rem(8)};
+
+        a {
+          font-weight: 400 !important;
+        }
 
         &:not(:first-child) {
           &:hover {

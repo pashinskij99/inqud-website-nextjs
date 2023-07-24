@@ -3,12 +3,10 @@
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
-import {
-  StyledTypographyUrbanistCTA,
-  StyledTypographyUrbanistSmallSpaces,
-} from '@/components/UI/Typography/Typography.styled'
+import { usePathname } from 'next/navigation'
+import { StyledTypographyUrbanistCTA } from '@/components/UI/Typography/Typography.styled'
 import Logo from '../../../assets/icons/logo.svg'
-import LogoMobile from '../../../assets/icons/logo-header-mobile.svg'
+import LogoMobile from '../../../assets/icons/logo-header-mobile-without-text.svg'
 import { StyledHeaderWrapper } from './Header.styled'
 import HeaderDropdown from './HeaderDropdown'
 import HeaderLanguageSelect from './HeaderLanguageSelect'
@@ -24,9 +22,9 @@ const logoTabs = [
 ]
 
 const navList = [
-  { id: 0, name: 'Company' },
-  { id: 1, name: 'Insights' },
-  { id: 2, name: 'Help centre' },
+  { id: 0, name: 'Company', href: '/company' },
+  { id: 1, name: 'Insights', href: '/blog' },
+  { id: 2, name: 'Help centre', href: '/help' },
 ]
 
 const signButton = [
@@ -53,8 +51,10 @@ export default function Header() {
     }
   }, [active])
 
+  const pathname = usePathname()
+
   return (
-    <StyledHeaderWrapper active={active}>
+    <StyledHeaderWrapper active={active} isHome={pathname === '/'}>
       <div className='containerHeader'>
         <div className='logoSection'>
           <Link href='/'>
@@ -77,23 +77,22 @@ export default function Header() {
               )
             )}
           </div>
-
-          <div className='mobile-tabs'>
-            <button className='mobile-tabs-button'>
-              <StyledTypographyUrbanistSmallSpaces className='mobile-tabs-button-text'>
-                Switch to personal
-              </StyledTypographyUrbanistSmallSpaces>
-            </button>
-          </div>
         </div>
 
         <nav className='navSection'>
           <ul>
             <HeaderDropdown />
 
-            {navList.map(({ id, name }) => (
+            {navList.map(({ id, name, href }) => (
               <li key={id}>
-                <a href={`#${name}`}>{name}</a>
+                <Link
+                  className={clsx({
+                    ['active']: pathname.search(href) !== -1,
+                  })}
+                  href={href}
+                >
+                  {name}
+                </Link>
               </li>
             ))}
           </ul>

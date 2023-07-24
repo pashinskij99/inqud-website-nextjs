@@ -25,7 +25,7 @@ export const StyledCryptoWidgetSection = styled.section`
     justify-items: center;
     gap: ${rem(60)};
     @media (max-width: 1536px) and (min-width: 1280px) {
-      grid-template-columns: 1.5fr 1fr;
+      grid-template-columns: 1.2fr 1fr;
     }
     ${responsive.xl`
       grid-template-columns: 1fr;
@@ -106,11 +106,14 @@ export const StyledCryptoWidgetSection = styled.section`
     .cryptoDescription {
       color: #ffffff;
       margin-bottom: ${rem(56)};
-      ${responsive.xl`
+      ${responsive.xxl`
+        font-size: ${rem(18)};
+        line-height: ${rem(26)};
         br {
           display: none;
         }
       `};
+
       ${responsive.xs`
         display: none;
       `};
@@ -133,6 +136,10 @@ export const StyledCryptoWidgetSection = styled.section`
       column-gap: ${rem(50)};
       row-gap: ${rem(40)};
       margin-bottom: ${rem(56)};
+      ${responsive.xxl`
+        column-gap: ${rem(14)};
+      `}
+
       ${responsive.xs`
         grid-template-columns: repeat(1, 1fr);
         text-align: start;
@@ -211,6 +218,9 @@ export const StyledCryptoWidgetSection = styled.section`
             display: flex;
             align-items: center;
             z-index: 1;
+            ${responsive.xxl`
+              margin-top: ${rem(10)};
+            `}
             ${responsive.xs`
               display: none;
             `};
@@ -231,6 +241,9 @@ export const StyledCryptoWidgetSection = styled.section`
             outline: 2px dotted var(--exciting-lime, #bfffc8);
             opacity: 0.4000000059604645;
             padding: ${rem(14)} ${rem(12)} ${rem(16)} ${rem(20)};
+            ${responsive.xxl`
+              padding: ${rem(12)};
+            `}
             ${responsive.xs`
               display: none;
             `};
@@ -264,6 +277,9 @@ export const StyledCryptoWidgetSection = styled.section`
           color: #ffffff;
           font-weight: 700;
           margin-bottom: ${rem(16)};
+          ${responsive.xxl`
+            margin-bottom: ${rem(6)};
+          `}
           ${responsive.xs`
             font-weight: 500;
             margin: 0;
@@ -313,6 +329,7 @@ export const StyledCryptoWidgetSection = styled.section`
 
     .rightSide {
       svg {
+        max-width: ${rem(500)};
         width: 100%;
       }
 

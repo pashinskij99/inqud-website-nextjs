@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledFooter = styled.footer`
   .footerSubscribeSectionMobile {
@@ -21,6 +21,8 @@ export const StyledFooter = styled.footer`
       margin-bottom: ${rem(20)};
       max-width: ${rem(440)};
       ${responsive.sm`
+        max-width: 100%;
+        text-align: center;
         margin-bottom: ${rem(18)};
       `};
       ${responsive.xs`
@@ -35,6 +37,9 @@ export const StyledFooter = styled.footer`
       gap: ${rem(16)};
       margin-bottom: ${rem(16)};
       max-width: ${rem(440)};
+      ${responsive.sm`
+        max-width: 100%;
+      `}
       ${responsive.xs`
         flex-direction: column;
         gap: ${rem(8)};
@@ -61,12 +66,18 @@ export const StyledFooter = styled.footer`
       color: rgba(255, 255, 255, 0.6000000238418579);
       font-weight: 500;
       max-width: ${rem(440)};
+      ${responsive.sm`
+        max-width: 100%;
+      `}
     }
   }
 
   .top {
     padding: ${rem(120)} 0 ${rem(129)};
     background: var(--directness-black, #2d3439);
+    ${responsive.xxl`
+      padding: ${rem(130)} 0 ${rem(129)};
+    `};
     ${responsive.sm`
       padding: ${rem(80)} 0 ${rem(86)};
     `};
@@ -75,10 +86,10 @@ export const StyledFooter = styled.footer`
       display: flex;
       justify-content: space-between;
       ${responsive.xxl`
-        justify-content: start;
         gap: ${rem(52)};
       `};
       ${responsive.xl`
+        justify-content: start;
         gap: 0;
       `};
       ${responsive.sm`
@@ -93,7 +104,7 @@ export const StyledFooter = styled.footer`
       .footerLogoSection {
         max-width: ${rem(320)};
         ${responsive.xxl`
-          margin-right: auto;
+          margin-right: 0;
         `};
         ${responsive.sm`
           max-width: ${rem(320)};
@@ -130,6 +141,12 @@ export const StyledFooter = styled.footer`
 
       .footerResourcesSection {
         margin-left: ${rem(55)};
+        ${responsive.xxl`
+          margin-left: 0;
+        `}
+        ${responsive.xl`
+          margin-left: ${rem(55)};
+        `}
         ${responsive.sm`
           margin-left: 0;
         `};

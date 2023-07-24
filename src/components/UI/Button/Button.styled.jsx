@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledButtonGhost = styled.button`
-  height: ${rem(48)};
+  height: ${rem(56)};
   border-radius: ${rem(100)};
   border: 1px solid var(--ambitious-green-20, rgba(7, 116, 83, 0.2));
 
@@ -24,7 +24,7 @@ export const StyledButtonGhost = styled.button`
 export const StyledButtonSecondary = styled.button`
   border-radius: ${rem(54)};
   background: var(--ambitious-green, #077453);
-  height: ${rem(48)};
+  height: ${rem(56)};
 
   color: var(--clarity-white, #fff);
   font-size: ${rem(18)};
@@ -55,8 +55,8 @@ export const StyledButtonGetStarted = styled.button`
   border-radius: ${rem(54)};
   background: var(--ambitious-green, #077453);
   padding-right: ${rem(4)};
-  padding-left: ${rem(16)};
-  height: ${rem(48)};
+  padding-left: ${rem(24)};
+  height: ${rem(56)};
   display: flex;
   align-items: center;
   gap: ${rem(16)};
@@ -66,8 +66,8 @@ export const StyledButtonGetStarted = styled.button`
   }
 
   svg {
-    width: ${rem(40)};
-    height: ${rem(40)};
+    width: ${rem(48)};
+    height: ${rem(48)};
   }
 
   &,
@@ -105,7 +105,6 @@ export const StyledButtonGetStarted = styled.button`
       right: ${rem(4)};
     }
   `}
-
 `
 
 export const StyledButtonLearnMore = styled(StyledButtonGetStarted)`
@@ -150,7 +149,6 @@ export const StyledButtonGetStartedLight = styled(StyledButtonGetStarted)`
       right: ${rem(4)};
     }
   `}
-
 `
 
 export const StyledButtonGhostCrypto = styled(StyledButtonGhost)`
@@ -184,9 +182,8 @@ export const StyledButtonGhostCrypto = styled(StyledButtonGhost)`
 `
 
 export const StyledLoadMoreLarge = styled.button`
-
   border-radius: ${rem(16)};
-  background: #F6F7F8;
+  background: #f6f7f8;
   height: ${rem(80)};
   width: 100%;
   display: flex;

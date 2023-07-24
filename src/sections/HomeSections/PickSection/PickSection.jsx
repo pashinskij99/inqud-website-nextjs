@@ -116,14 +116,13 @@ export default function PickSection({ variant, className }) {
         </StyledTypographyUrbanistBody>
 
         <StyledButtonSecondaryLight className='pickPickButton'>
-          Book a consultation
+          Book a free consultation
         </StyledButtonSecondaryLight>
-          {
-            variant !== 'dontLose' && <StyledButtonSecondaryLight className='pickPickButtonTablet'>
+        {variant !== 'dontLose' && (
+          <StyledButtonSecondaryLight className='pickPickButtonTablet'>
             Book a demo
           </StyledButtonSecondaryLight>
-          }
-
+        )}
       </div>
     </StyledPickSectionSection>
   )

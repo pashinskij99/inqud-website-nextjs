@@ -47,13 +47,14 @@ export const StyledBlogHeroSectionWrapper = styled.section`
     z-index: 1;
   }
   .title {
+    margin-bottom: ${rem(16)};
+
     ${responsive.md`
       br {
         display: none;
       }
     `};
     ${responsive.xs`
-      margin-bottom: ${rem(16)};
       font-size: ${rem(40)};
       line-height: ${rem(46)};
       font-weight: 400;

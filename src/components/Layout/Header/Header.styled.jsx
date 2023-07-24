@@ -3,7 +3,7 @@ import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
 export const StyledHeaderWrapper = styled.header`
-  padding: 23px 0;
+  height: var(--header-height);
   max-width: 1920px;
   margin: 0 auto;
   background-color: white;
@@ -12,19 +12,15 @@ export const StyledHeaderWrapper = styled.header`
   z-index: 100;
   transform: translate3d(0, 0, 0);
 
+  border-bottom: ${({ isHome }) =>
+    isHome ? 'none' : '1px solid rgba(0, 0, 0, 0.07)'};
+
   .containerHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
   }
-
-  ${responsive.xl`
-    padding: ${rem(18)} 0;
-  `};
-  ${responsive.sm`
-    padding: ${rem(8)} 0;
-    height: ${rem(60)};
-  `};
 
   .logoSection {
     display: flex;
@@ -32,10 +28,12 @@ export const StyledHeaderWrapper = styled.header`
     gap: ${rem(47)};
 
     ${responsive.xxl`
-      gap: ${rem(27)};
+      gap: ${rem(18)};
     `};
     ${responsive.xl`
       gap: ${rem(27)};
+      width: 100%;
+      justify-content: space-between;
     `};
     ${responsive.sm`
       gap: ${rem(16)};
@@ -48,11 +46,15 @@ export const StyledHeaderWrapper = styled.header`
     .logo {
       width: ${rem(155.001)};
       height: ${rem(50)};
+      flex-shrink: 0;
+      ${responsive.sm`
+        display: none;
+      `};
     }
 
     .logo-mobile {
       display: none;
-      width: ${rem(99.555)};
+      width: ${rem(32)};
       height: ${rem(32)};
       flex-shrink: 0;
       ${responsive.sm`
@@ -61,16 +63,15 @@ export const StyledHeaderWrapper = styled.header`
     }
 
     .tabs {
-      ${responsive.sm`
-        display: none;
+      ${responsive.xl`
+        margin: 0 auto;
       `};
+      @media (max-width: 576px) {
+        display: ${(props) => (props.active ? 'none' : 'block')};
+      }
       display: flex;
       align-items: center;
       gap: ${rem(2)};
-
-      button {
-        padding: 0 ${rem(14)};
-      }
 
       .secondaryButton {
         height: ${rem(40)};
@@ -89,42 +90,59 @@ export const StyledHeaderWrapper = styled.header`
       .activeButton {
         height: ${rem(40)};
       }
-    }
 
-    .mobile-tabs {
-      display: none;
-      ${responsive.sm`
-        display: ${(props) => (props.active ? 'none' : 'block')};
-      `};
-
-      .mobile-tabs-button {
-        .mobile-tabs-button-text {
-          color: #077453;
-        }
+      button {
+        padding: 0 ${rem(14)};
+        ${responsive.sm`
+          height: ${rem(32)}!important;
+        `};
       }
     }
   }
 
   .navSection {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    ${responsive.xl`
+      display: none;
+    `};
     ul {
       display: flex;
       align-items: center;
       gap: ${rem(40)};
       color: var(--directness-black, #2d3439);
+      height: 100%;
 
       font-size: ${rem(18)};
       font-weight: 700;
       line-height: normal;
       ${responsive.xxl`
-        column-gap: ${rem(15)};
+        column-gap: ${rem(24)};
       `};
 
       li {
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
         z-index: 1;
         transition: 0.3s ease-in-out;
 
         a {
           padding: ${rem(10)};
+
+          &.active {
+            color: #077453;
+            &::before {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              height: 1px;
+              background-color: #077453;
+            }
+          }
         }
 
         &:hover {
@@ -139,9 +157,9 @@ export const StyledHeaderWrapper = styled.header`
   }
 
   .languageMenu {
-    ${responsive.xs`
-      display: ${(props) => (props.active ? 'block' : 'none')};
-    `};
+    @media (max-width: 639px) {
+      display: ${({ active }) => (active ? 'block' : 'none')};
+    }
   }
 
   .userSection {
@@ -177,9 +195,6 @@ export const StyledHeaderWrapper = styled.header`
       border-radius: ${rem(12.5)};
       background: rgba(129, 158, 176, 0.20000000298023224);
 
-      & {
-      }
-
       & span {
         pointer-events: none;
         display: block;
@@ -200,6 +215,7 @@ export const StyledHeaderWrapper = styled.header`
 
         ${responsive.sm`
           width: ${rem(10)};
+          height: ${rem(2)};
         `};
       }
 
@@ -323,7 +339,7 @@ export const StyledHeaderWrapper = styled.header`
       gap: ${rem(16)};
 
       ${responsive.xxl`
-        gap: ${rem(6)};
+        gap: ${rem(8)};
       `};
       ${responsive.xl`
         display: none;

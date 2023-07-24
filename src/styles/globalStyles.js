@@ -2,6 +2,17 @@ import { createGlobalStyle } from 'styled-components'
 import { rem } from '@/utils/rem'
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --header-height: ${rem(96)};
+
+    @media (max-width: 1280px) {
+      --header-height: ${rem(82)};
+    }
+    @media (max-width: 639px) {
+      --header-height: ${rem(60)};
+    }
+  }
+
   * {
     box-sizing: border-box;
     padding: 0;
@@ -17,13 +28,13 @@ const GlobalStyle = createGlobalStyle`
   html {
     font-size: 100%;
 
-    @media (-webkit-device-pixel-ratio: 1.25) {
+    /* @media (-webkit-device-pixel-ratio: 1.25) {
       font-size: 86%;
-    }
+    } */
 
-    @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+    /* @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
       font-size: 86%;
-    }
+    } */
   }
 
   a {
@@ -50,7 +61,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
 
     @media (max-width: 1536px) {
-      max-width: ${rem(1280)};
+      max-width: ${rem(1216)};
     }
     @media (max-width: 1280px) {
       max-width: ${rem(1024)};

@@ -4,7 +4,6 @@ import StyledComponentsRegistry from '@/app/registry'
 import { urbanist } from '@/utils/font'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
-
 import Header from '@/components/Layout/Header'
 import Footer from '@/components/Layout/Footer'
 import GlobalStyle from '@/styles/globalStyles'

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledCartRequirement = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const StyledCartRequirement = styled.div`
   max-width: ${rem(440)};
 
   ${responsive.xxl`
-    max-width: ${rem(380)};  
+    max-width: ${rem(380)};
   `}
   ${responsive.xl`
     max-width: ${rem(440)};
@@ -25,6 +25,7 @@ export const StyledCartRequirement = styled.div`
   .cartImage {
     max-width: ${rem(440)};
     height: ${rem(300)};
+    width: 100%;
 
     ${responsive.xxl`
       max-width: ${rem(380)};
@@ -33,7 +34,7 @@ export const StyledCartRequirement = styled.div`
 
     ${responsive.xl`
         max-width: ${rem(440)};
-    
+
       height: ${rem(300)};
     `};
     ${responsive.lg`
@@ -64,12 +65,20 @@ export const StyledCartRequirement = styled.div`
       color: #517185;
       margin-bottom: ${rem(20)};
       ${responsive.xs`
-        margin-bottom: ${rem(13)};      
+        margin-bottom: ${rem(13)};
       `}
     }
 
     .cartBtn {
       margin: 0 auto;
+      svg {
+        width: ${rem(24.000164031982422)};
+        height: ${rem(24.000164031982422)};
+        overflow: visible;
+        ${responsive.xs`
+          position: static;
+        `}
+      }
     }
   }
 `

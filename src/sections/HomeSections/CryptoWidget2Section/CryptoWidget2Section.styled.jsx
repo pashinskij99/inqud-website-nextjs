@@ -21,7 +21,7 @@ export const StyledCryptoWidget2Section = styled.section`
     justify-items: self-end;
     gap: ${rem(40)};
     @media (max-width: 1536px) and (min-width: 1280px) {
-      grid-template-columns: 1.5fr 1fr;
+      grid-template-columns: 1.1fr 1fr;
     }
 
     ${responsive.xxl`
@@ -65,6 +65,7 @@ export const StyledCryptoWidget2Section = styled.section`
 
       .crypto2WidgetTablet {
         display: none;
+
         ${responsive.xl`
           display: block;
           max-width: ${rem(400)};
@@ -80,6 +81,12 @@ export const StyledCryptoWidget2Section = styled.section`
 
       .crypto2Description {
         margin-bottom: ${rem(56)};
+        ${responsive.xxl`
+          font-size: ${rem(18)};
+          font-weight: 500;
+          line-height: ${rem(26)};
+          margin-bottom: ${rem(45)};
+        `}
 
         &.crypto2Description-desktop {
         }
@@ -108,6 +115,10 @@ export const StyledCryptoWidget2Section = styled.section`
         column-gap: ${rem(45)};
         row-gap: ${rem(38)};
         margin-bottom: ${rem(56)};
+        ${responsive.xxl`
+          column-gap: ${rem(24)};
+          row-gap: ${rem(24)};
+        `}
         ${responsive.xs`
           grid-template-columns: repeat(1, 1fr);
           gap: ${rem(16)};
@@ -199,6 +210,7 @@ export const StyledCryptoWidget2Section = styled.section`
         .crypto2FooterButtonCrypto {
           white-space: nowrap;
           margin-right: ${rem(4)};
+          height: ${rem(48)};
 
           ${responsive.sm`
             * {
@@ -210,6 +222,7 @@ export const StyledCryptoWidget2Section = styled.section`
         .crypto2FooterButtonCryptoCalendar {
           margin-right: ${rem(16)};
           width: ${rem(48)};
+          height: ${rem(48)};
           padding: 0;
           display: flex;
           align-items: center;

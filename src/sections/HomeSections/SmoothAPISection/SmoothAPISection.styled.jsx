@@ -17,6 +17,10 @@ export const StyledSmoothAPISection = styled.section`
     grid-template-columns: 1fr 1fr;
     gap: ${rem(45)};
     align-items: center;
+    ${responsive.xxl`
+      display: flex;
+      gap: ${rem(82)};
+    `}
     ${responsive.xl`
       gap: 0;
       grid-template-columns: 1fr;
@@ -64,6 +68,16 @@ export const StyledSmoothAPISection = styled.section`
         ${responsive.xs`
           margin-bottom: ${rem(32)};
         `};
+
+        .br-1200 {
+          display: none;
+          ${responsive.xxl`
+            display: block;
+          `};
+          ${responsive.xl`
+            display: none;
+          `};
+        }
       }
 
       .smoothAPIImageTablet {
@@ -83,6 +97,12 @@ export const StyledSmoothAPISection = styled.section`
 
       .smoothAPIDescription {
         margin-bottom: ${rem(56)};
+        ${responsive.xxl`
+          font-size: ${rem(18)};
+          font-weight: 500;
+          line-height: ${rem(26)};
+        `}
+
         ${responsive.xs`
           display: none;
         `};
@@ -103,8 +123,11 @@ export const StyledSmoothAPISection = styled.section`
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: ${rem(40)};
-        row-gap: ${rem(35)};
+        row-gap: ${rem(40)};
         margin-bottom: ${rem(56)};
+        ${responsive.xxl`
+          column-gap: ${rem(24)};
+        `}
         ${responsive.xs`
           grid-template-columns: 1fr;
           gap: ${rem(16)};

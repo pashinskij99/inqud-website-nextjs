@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledPickSectionSection = styled.section`
   border-radius: ${rem(30)};
@@ -136,7 +136,7 @@ export const StyledPickSectionSection = styled.section`
     justify-content: center;
     height: 100%;
     text-align: center;
-    padding: 0 ${rem(72)};
+    padding: 0 ${rem(54)};
     background: var(--ambitious-green, #0f674d);
 
     ${responsive.xl`
@@ -168,7 +168,4 @@ export const StyledPickSectionSection = styled.section`
       width: 100%;
     }
   }
-
-
-
 `

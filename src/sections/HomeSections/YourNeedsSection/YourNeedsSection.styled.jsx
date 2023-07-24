@@ -1,20 +1,23 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const YourNeedsSectionWrapper = styled.section`
   text-align: center;
   padding-top: ${rem(116)};
   padding-bottom: ${rem(229)};
   overflow: hidden;
+  ${responsive.xxl`
+    padding-top: ${rem(137)};
+  `}
   ${responsive.xl`
     padding-top: ${rem(119)};
-    padding-bottom: ${rem(110)};    
+    padding-bottom: ${rem(110)};
   `};
 
   ${responsive.xs`
     padding-top: ${rem(95)};
-    padding-bottom: ${rem(55)};   
+    padding-bottom: ${rem(55)};
   `};
 
   .title {
@@ -48,7 +51,7 @@ export const YourNeedsSectionWrapper = styled.section`
 
       &.title-mobile {
         display: block;
-      } 
+      }
     `};
   }
 
@@ -57,7 +60,6 @@ export const YourNeedsSectionWrapper = styled.section`
     color: rgba(81, 113, 133, 1);
 
     &.subTitle-desktop {
-
     }
 
     &.subTitle-mobile {
@@ -80,9 +82,23 @@ export const YourNeedsSectionWrapper = styled.section`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: ${rem(40)};
+    ${responsive.xxl`
+      gap: ${rem(0)};
+    `};
     ${responsive.xl`
       display: none;
     `};
+
+    /* .cartImage {
+      ${responsive.xxl`
+        height: ${rem(250)};
+      `};
+    } */
+  }
+
+  .slick-slide {
+    width: fit-content !important;
+    margin: 0 10px;
   }
 
   .listRequirementsSwiper {
@@ -118,5 +134,27 @@ export const YourNeedsSectionWrapper = styled.section`
     ${responsive.xl`
       display: block;
     `};
+  }
+`
+
+export const StyledCustomScrollbarWrapper = styled.div`
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: -${rem(46)};
+  width: fit-content;
+  ${responsive.xs`
+    bottom: -${rem(36)};
+  `};
+  .scrollBarLine {
+    height: 2px;
+    background: rgba(81, 113, 133, 0.2);
+  }
+  .scrollBarLineActive {
+    position: absolute;
+    top: 0;
+    background-color: rgba(7, 116, 83, 1);
+    height: 2px;
   }
 `

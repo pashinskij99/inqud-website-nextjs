@@ -88,9 +88,9 @@ export default function RelatedArticles() {
             },
             576: {
               slidesPerView: 'auto',
-              initialSlide: 1,
+              initialSlide: 0,
               spaceBetween: 24,
-              centeredSlides: true,
+              centeredSlides: false,
             },
           }}
           scrollbar={{

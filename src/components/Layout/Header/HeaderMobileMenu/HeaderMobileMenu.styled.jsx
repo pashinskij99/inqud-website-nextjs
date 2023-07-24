@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import {Accordion, AccordionDetails, AccordionSummary} from '@mui/material'
-import {rem} from '@/utils/rem';
-import {responsive} from '@/utils/response';
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledHeaderMobileMenu = styled.div`
   left: 0;
@@ -17,8 +17,8 @@ export const StyledHeaderMobileMenu = styled.div`
 
   ${responsive.xl`
     display: block;
-    height: calc(100dvh - ${rem(86)});
-    top: ${rem(86)};
+    height: calc(100dvh - ${rem(82)});
+    top: ${rem(82)};
   `};
   ${responsive.sm`
     height: calc(100dvh - ${rem(60)});
@@ -142,11 +142,12 @@ export const StyledHeaderMobileMenuAccordionSummary = styled((props) => (
     margin: '0 auto',
     fontWeight: 700,
   },
-  '& .css-1betqn-MuiAccordionSummary-content, & .MuiAccordionSummary-content.css-1n11r91': {
-    margin: '0',
-    textAlign: 'center',
-    justifyContent: 'center',
-  },
+  '& .css-1betqn-MuiAccordionSummary-content, & .MuiAccordionSummary-content.css-1n11r91':
+    {
+      margin: '0',
+      textAlign: 'center',
+      justifyContent: 'center',
+    },
 }))
 
 export const StyledHeaderMobileMenuAccordionDetails = styled(AccordionDetails)(

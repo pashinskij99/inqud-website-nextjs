@@ -1,9 +1,8 @@
-import styled from '@emotion/styled';
-import {rem} from '@/utils/rem';
+import styled from '@emotion/styled'
+import { rem } from '@/utils/rem'
 
 export const StyledBlogsPageMainSection = styled.section`
   padding: ${rem(35)} 0 ${rem(56)};
-
 
   @media (max-width: 992px) {
     padding: ${rem(48)} 0 ${rem(56)};
@@ -65,5 +64,7 @@ export const StyledBlogsPageMainSection = styled.section`
     }
 
     .blogsPageSearchButton {
+      height: ${rem(48)};
     }
+  }
 `

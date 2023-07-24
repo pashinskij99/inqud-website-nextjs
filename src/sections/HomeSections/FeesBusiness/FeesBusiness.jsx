@@ -14,13 +14,16 @@ import BackCart from '@/assets/images/fee/cart-back.svg'
 import { FeeModal } from '@/components/Modal/Modal'
 
 const tableData = {
-  head: ['Company name', 'Crypto processing', 'On-ramp'],
+  head: [
+    'Company name',
+    'Crypto processing',
+    // 'On-ramp'
+  ],
   body: [
-    ['Bitpay', '3,95%', '3,95%'],
-    ['Mercurio', '3,95%', '3,95%'],
-    ['Swapin', '3,95%', '3,95%'],
-    ['Moonpay', '3,95%', '3,95%'],
-    ['Sendwyre', '3,95%', '3,95%'],
+    ['Bitpay', '2% - 1% + 25¢ fixed fee'],
+    ['Switchere', '0,5%'],
+    ['Coingate', '1%'],
+    ['Coinpayments', '1%'],
   ],
 }
 
@@ -99,8 +102,10 @@ export default function FeesBusiness() {
           <div className='cart'>
             <div className='cart-left-side'>
               <StyledTypographyUrbanistH4>
-                Submit your inquiry <br className='br-desktop' /> now for the
-                best offer <br className='br-desktop' /> in 10 minutes
+                Submit your <br className='br-1200' /> inquiry{' '}
+                <br className='br-desktop' /> now for <br className='br-1200' />{' '}
+                the best offer <br className='br-desktop' /> in{' '}
+                <br className='br-1200' /> 10 minutes
               </StyledTypographyUrbanistH4>
             </div>
             <div className='cart-right-side'>
