@@ -22,6 +22,9 @@ export const YourNeedsSectionWrapper = styled.section`
 
   .title {
     margin-bottom: ${rem(24)};
+    .br-tablet {
+      display: none;
+    }
 
     &.title-desktop {
     }
@@ -38,6 +41,9 @@ export const YourNeedsSectionWrapper = styled.section`
       .br-desktop {
         display: none;
       }
+      .br-tablet {
+        display: block;
+      }
     `};
     ${responsive.xs`
       margin-bottom: ${rem(15)};
@@ -46,6 +52,10 @@ export const YourNeedsSectionWrapper = styled.section`
       }
 
       &.title-desktop {
+        display: none;
+      }
+
+      .br-tablet {
         display: none;
       }
 

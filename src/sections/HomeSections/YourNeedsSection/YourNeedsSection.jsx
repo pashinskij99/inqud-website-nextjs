@@ -58,8 +58,9 @@ export default function YourNeedsSection() {
     <YourNeedsSectionWrapper>
       <div className='container'>
         <StyledTypographyUrbanistH1 className='title title-desktop'>
-          We understand <br className='br-mobile' /> your needs,{' '}
-          <br className='br-desktop' /> backed by industry expertise
+          We understand <br className='br-mobile' /> your{' '}
+          <br className='br-tablet' /> needs, <br className='br-desktop' />{' '}
+          backed by <br className='br-tablet' /> industry expertise
         </StyledTypographyUrbanistH1>
         <StyledTypographyUrbanistH1 className='title title-mobile'>
           We understand <br className='br-mobile' /> your needs
