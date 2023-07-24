@@ -1,7 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
 import { useState } from 'react'
-import Slider from 'infinite-react-carousel'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH4,
