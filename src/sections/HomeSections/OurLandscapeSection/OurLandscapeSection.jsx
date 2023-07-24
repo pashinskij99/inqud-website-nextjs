@@ -119,17 +119,6 @@ export default function OurLandscapeSection() {
         <div className='ourLandscapeTabs'>
           <Tabs value={value} onChange={handleChange}>
             {tabs.map(({ id, text }) => (
-              // <button
-              //   className={clsx('ourLandscapeTabsButton', {
-              //     ['active']: active === id,
-              //   })}
-              //   onClick={() => handleClick(id)}
-              //   key={id}
-              // >
-              //   <StyledTypographyUrbanistBody className='ourLandscapeTabsButtonText'>
-              //     {text}
-              //   </StyledTypographyUrbanistBody>
-              // </button>
               <Tab
                 label={text}
                 className={clsx(
@@ -141,14 +130,8 @@ export default function OurLandscapeSection() {
                 onClick={() => handleClick(id)}
                 key={id}
                 {...a11yProps(0)}
-              >
-                {/* <StyledTypographyUrbanistBody className='ourLandscapeTabsButtonText'>
-                {text}
-              </StyledTypographyUrbanistBody> */}
-              </Tab>
+              />
             ))}
-            {/* <Tab label='Item Two' {...a11yProps(1)} /> */}
-            {/* <Tab label='Item Three' {...a11yProps(2)} /> */}
           </Tabs>
         </div>
 

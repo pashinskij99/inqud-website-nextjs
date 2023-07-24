@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
 import { useState } from 'react'
+import Slider from 'infinite-react-carousel'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH4,
@@ -52,24 +53,6 @@ export default function YourNeedsSection() {
       // buttonText: 'Learn more',
       image: Image3.src,
     },
-    {
-      id: 3,
-      title: 'Accept global crypto payments',
-      description:
-        'Simplify your global payment process by accepting crypto currencies from around the world.',
-      // buttonText: 'Learn more',
-      image: Image1.src,
-    },
-    {
-      id: 4,
-      title: 'Tailored payment options',
-      description:
-        "Need a specific payment method or currency for your business? Just ask! We'll be in touch to make it happen.",
-      buttonText: 'Add your request',
-      open: openModalSendRequest,
-      handleClick: handleOpen,
-      image: Image2.src,
-    },
   ]
 
   return (
@@ -92,8 +75,8 @@ export default function YourNeedsSection() {
 
         <div className='listRequirements'>
           {list.map(
-            ({ id, buttonText, description, image, title, handleClick }) =>
-              id <= 2 && (
+            ({ id, buttonText, description, image, title, handleClick }, i) =>
+              i < 3 && (
                 <CartRequirement
                   key={id}
                   buttonText={buttonText}
@@ -109,13 +92,44 @@ export default function YourNeedsSection() {
 
         {/* mobile */}
 
+        {/* <Slider
+          slidesToShow={1.2}
+          centerMode
+          initialSlide={1}
+          arrows={false}
+          adaptiveHeight
+          afterChange={(index) => {
+            console.log(index)
+          }}
+          onSwipe={(direction) => {
+            console.log(direction)
+          }}
+          duration={100}
+          shift={10}
+        >
+          {list.map(
+            ({ id, buttonText, description, image, title, handleClick }) => (
+              // <SwiperSlide className='listRequirementsSwiperItems' key={id}>
+              <CartRequirement
+                key={id}
+                buttonText={buttonText}
+                description={description}
+                href='#'
+                handleClick={handleClick}
+                imageSrc={image}
+                title={title}
+              />
+              // </SwiperSlide>
+            )
+          )}
+        </Slider> */}
+
         <Swiper
           className='listRequirementsSwiper'
           slidesPerView='auto'
           centeredSlides
-          initialSlide={2}
+          initialSlide={1}
           updateOnWindowResize
-          loop
           scrollbar={{
             dragSize: 200 / 3,
             horizontalClass: 'listRequirementsSwiperScollbar',
@@ -126,17 +140,17 @@ export default function YourNeedsSection() {
               slidesPerView: 2,
               spaceBetween: 8,
               centeredSlides: true,
-              initialSlide: '2',
+              initialSlide: '1',
             },
             576: {
               slidesPerView: 'auto',
               spaceBetween: 28,
-              initialSlide: '2',
+              initialSlide: '1',
             },
             1536: {
               slidesPerView: 'auto',
               spaceBetween: 28,
-              initialSlide: '2',
+              initialSlide: '1',
             },
           }}
           modules={[Scrollbar]}
@@ -155,8 +169,6 @@ export default function YourNeedsSection() {
               </SwiperSlide>
             )
           )}
-
-          {/* <CustomScrollBarSwiper count={3} length={200} /> */}
         </Swiper>
       </div>
 
@@ -164,6 +176,7 @@ export default function YourNeedsSection() {
     </YourNeedsSectionWrapper>
   )
 }
+// {/* <CustomScrollBarSwiper count={3} length={200} /> */}
 
 // function CustomScrollBarSwiper({ count, length, activeSlide }) {
 //   const lengthActiveLine = length / count
