@@ -89,11 +89,17 @@ export const YourNeedsSectionWrapper = styled.section`
       display: none;
     `};
 
-    /* .cartImage {
+    .cartBody {
       ${responsive.xxl`
-        height: ${rem(250)};
+        padding: ${rem(40)} ${rem(10)} 0;
       `};
-    } */
+    }
+
+    .cartImage {
+      ${responsive.xxl`
+        height: ${rem(300)};
+      `};
+    }
   }
 
   .slick-slide {

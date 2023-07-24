@@ -5,7 +5,7 @@ import { responsive } from '@/utils/response'
 
 export const StyledCryptoWidgetSection = styled.section`
   background: var(--ambitious-green, #077453);
-  padding-top: ${rem(237)};
+  padding-top: ${rem(245)};
   padding-bottom: ${rem(236)};
   overflow-x: hidden;
 
@@ -25,7 +25,7 @@ export const StyledCryptoWidgetSection = styled.section`
     justify-items: center;
     gap: ${rem(60)};
     @media (max-width: 1536px) and (min-width: 1279px) {
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1.1fr 1fr;
     }
     ${responsive.xl`
       grid-template-columns: 1fr;
@@ -137,7 +137,9 @@ export const StyledCryptoWidgetSection = styled.section`
       row-gap: ${rem(40)};
       margin-bottom: ${rem(56)};
       ${responsive.xxl`
-        column-gap: ${rem(14)};
+        column-gap: ${rem(26)};
+        row-gap: ${rem(44)};
+        margin-bottom: ${rem(46)};
       `}
 
       ${responsive.xs`

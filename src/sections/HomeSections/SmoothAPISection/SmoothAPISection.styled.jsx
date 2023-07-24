@@ -18,8 +18,8 @@ export const StyledSmoothAPISection = styled.section`
     gap: ${rem(45)};
     align-items: center;
     ${responsive.xxl`
-      display: flex;
-      gap: ${rem(82)};
+      grid-template-columns: 1fr 1fr;
+      gap: ${rem(30)};
     `}
     ${responsive.xl`
       gap: 0;
@@ -27,6 +27,10 @@ export const StyledSmoothAPISection = styled.section`
     `};
 
     .leftSide {
+      @media (max-width: 1536px) and (min-width: 1279px) {
+        justify-content: center;
+        display: flex;
+      }
       svg {
         width: ${rem(481)};
         height: ${rem(693)};
@@ -127,6 +131,7 @@ export const StyledSmoothAPISection = styled.section`
         margin-bottom: ${rem(56)};
         ${responsive.xxl`
           column-gap: ${rem(24)};
+          row-gap: ${rem(30)};
         `}
         ${responsive.xs`
           grid-template-columns: 1fr;
@@ -163,6 +168,9 @@ export const StyledSmoothAPISection = styled.section`
           .smoothAPIGridItemTitle {
             margin-bottom: ${rem(16)};
             font-weight: 700;
+            ${responsive.xxl`
+              margin-bottom: ${rem(10)};
+            `}
             ${responsive.xs`
               font-weight: 400;
               margin-bottom: 0;

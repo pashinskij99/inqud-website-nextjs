@@ -33,7 +33,7 @@ export const StyledCartRequirement = styled.div`
     `};
 
     ${responsive.xl`
-        max-width: ${rem(440)};
+      max-width: ${rem(440)};
 
       height: ${rem(300)};
     `};

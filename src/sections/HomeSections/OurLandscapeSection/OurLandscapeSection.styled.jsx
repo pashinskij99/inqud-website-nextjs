@@ -6,6 +6,9 @@ import { urbanist } from '@/utils/font'
 export const StyledOurLandscapeSection = styled.section`
   padding: ${rem(242)} 0;
   overflow: hidden;
+  ${responsive.xxl`
+    padding: ${rem(240)} 0;
+  `};
   ${responsive.xl`
     padding: ${rem(120)} 0;
   `};
@@ -18,7 +21,7 @@ export const StyledOurLandscapeSection = styled.section`
     .ourLandscapeTitle {
       margin-bottom: ${rem(40)};
       ${responsive.xxl`
-        margin-bottom: ${rem(30)};
+        margin-bottom: ${rem(44)};
       `};
       ${responsive.xs`
         margin-bottom: ${rem(32)};
@@ -241,7 +244,7 @@ export const StyledIndustriesWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     ${responsive.xxl`
-        gap: ${rem(40)};
+        gap: ${rem(24)};
       `};
     ${responsive.xl`
         gap: ${rem(24)};
