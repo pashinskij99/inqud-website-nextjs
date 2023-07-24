@@ -20,7 +20,7 @@ export const StyledCryptoWidget2Section = styled.section`
     align-items: center;
     justify-items: self-end;
     gap: ${rem(40)};
-    @media (max-width: 1536px) and (min-width: 1280px) {
+    @media (max-width: 1536px) and (min-width: 1279px) {
       grid-template-columns: 1.1fr 1fr;
     }
 

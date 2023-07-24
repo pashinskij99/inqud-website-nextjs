@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --header-height: ${rem(96)};
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1279px) {
       --header-height: ${rem(82)};
     }
     @media (max-width: 639px) {
@@ -63,7 +63,7 @@ const GlobalStyle = createGlobalStyle`
     @media (max-width: 1536px) {
       max-width: ${rem(1216)};
     }
-    @media (max-width: 1280px) {
+    @media (max-width: 1279px) {
       max-width: ${rem(1024)};
     }
     @media (max-width: 1024px) {

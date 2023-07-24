@@ -24,7 +24,7 @@ export const StyledCryptoWidgetSection = styled.section`
     align-items: center;
     justify-items: center;
     gap: ${rem(60)};
-    @media (max-width: 1536px) and (min-width: 1280px) {
+    @media (max-width: 1536px) and (min-width: 1279px) {
       grid-template-columns: 1.2fr 1fr;
     }
     ${responsive.xl`

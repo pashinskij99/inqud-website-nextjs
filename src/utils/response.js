@@ -22,7 +22,7 @@ export const responsive = {
     }
   `,
   xl: (...args) => css`
-    @media (max-width: 1280px) {
+    @media (max-width: 1279px) {
       ${css(...args)};
     }
   `,
