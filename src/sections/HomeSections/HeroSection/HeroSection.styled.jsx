@@ -323,6 +323,8 @@ export const StyledMobileGridWrapper = styled.div`
   margin: 0 auto ${rem(24)};
   ${responsive.sm`
     display: grid;
-
+  `}
+  ${responsive.xxs`
+    grid-template-columns: 1fr 1fr;
   `}
 `

@@ -1,6 +1,11 @@
 import { css } from '@emotion/react'
 
 export const responsive = {
+  xxs: (...args) => css`
+    @media (max-width: 400px) {
+      ${css(...args)};
+    }
+  `,
   xs: (...args) => css`
     @media (max-width: 576px) {
       ${css(...args)};
