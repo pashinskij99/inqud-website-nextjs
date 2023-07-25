@@ -142,10 +142,12 @@ export const StyledModalSubmitEmailWrapper = styled(Modal)`
 `
 
 export const StyledFeeModalWrapper = styled(Dialog)`
-  .MuiDialogContent-root.css-ypiqx9-MuiDialogContent-root {
+  .MuiDialogContent-root.css-ypiqx9-MuiDialogContent-root,
+  .MuiDialogContent-root.css-1ty026z {
     display: contents;
   }
-  .css-2zwj5t-MuiPaper-root-MuiDialog-paper {
+  .css-2zwj5t-MuiPaper-root-MuiDialog-paper,
+  .css-wpa0th {
     background-color: transparent;
     box-shadow: none;
   }
