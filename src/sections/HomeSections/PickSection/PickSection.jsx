@@ -121,11 +121,11 @@ export default function PickSection({ variant, className }) {
         <StyledButtonSecondaryLight className='pickPickButton mobile'>
           Book a consultation
         </StyledButtonSecondaryLight>
-        {variant !== 'dontLose' && (
-          <StyledButtonSecondaryLight className='pickPickButtonTablet'>
+        {/* {variant !== 'dontLose' && (
+          <StyledButtonSecondaryLight className='pickPickButtonTablet desktop'>
             Book a demo
           </StyledButtonSecondaryLight>
-        )}
+        )} */}
       </div>
     </StyledPickSectionSection>
   )
