@@ -135,7 +135,7 @@ export const StyledHeaderMobileMenuAccordion = styled((props) => (
   '.css-yw020d-MuiAccordionSummary-expandIconWrapper, .MuiAccordionSummary-expandIconWrapper.css-1fx8m19':
     {
       position: 'absolute',
-      right: '10px',
+      right: '22px',
       top: 0,
       bottom: 0,
       margin: 'auto 0',
