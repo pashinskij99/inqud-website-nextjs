@@ -25,6 +25,7 @@ export function BlogCart({ imageSrc, date, time, subTitle, title }) {
 
   return (
     <StyledBlogCartWrapper
+      className='cart'
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
     >
@@ -64,7 +65,7 @@ export function BlogCart({ imageSrc, date, time, subTitle, title }) {
 
 export function BlogCart2({ imageSrc, date, time, subTitle, title }) {
   return (
-    <StyledBlogCartWrapper2>
+    <StyledBlogCartWrapper2 className='cart'>
       <Image
         src={imageSrc}
         className='image'

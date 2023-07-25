@@ -177,7 +177,7 @@ function CoverageTab() {
           <br className='br-desktop' /> pushing boundaries
           <br className='br-tablet' /> and achieving new heights.
         </StyledTypographyUrbanistH5>
-        <ul>
+        <ul className='list desktop'>
           {coverageList.map(({ id, description, icon, name }) => (
             <li key={id}>
               <div className='coverageWrapper'>{icon}</div>
@@ -197,6 +197,22 @@ function CoverageTab() {
       <div className='coverageWrapper'>
         <Map className='map' />
       </div>
+
+      <ul className='list mobile'>
+        {coverageList.map(({ id, description, icon, name }) => (
+          <li key={id}>
+            <div className='coverageWrapper'>{icon}</div>
+            <div className='descriptionWrapper'>
+              <StyledTypographyUrbanistBody className='name'>
+                {name}
+              </StyledTypographyUrbanistBody>
+              <StyledTypographyUrbanistBody className='description'>
+                {description}
+              </StyledTypographyUrbanistBody>
+            </div>
+          </li>
+        ))}
+      </ul>
     </StyledCoverageWrapper>
   )
 }

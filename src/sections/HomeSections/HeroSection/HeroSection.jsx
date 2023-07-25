@@ -1,6 +1,10 @@
 import Link from 'next/link'
+import { Fragment } from 'react'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import { StyledHeroSectionWrapper } from './HeroSection.styled'
+import {
+  StyledHeroSectionWrapper,
+  StyledMobileGridWrapper,
+} from './HeroSection.styled'
 import Val1 from '@/assets/images/hero/val1.svg'
 import Val2 from '@/assets/images/hero/val2.svg'
 import Val3 from '@/assets/images/hero/val3.svg'
@@ -10,6 +14,12 @@ import Val6 from '@/assets/images/hero/val6.svg'
 import Val7 from '@/assets/images/hero/val7.svg'
 import Val8 from '@/assets/images/hero/val8.svg'
 import Val9 from '@/assets/images/hero/val9.svg'
+import Grid1 from '@/assets/images/hero/grid1.svg'
+import Grid2 from '@/assets/images/hero/grid2.svg'
+import Grid3 from '@/assets/images/hero/grid3.svg'
+import Grid4 from '@/assets/images/hero/grid4.svg'
+import Grid5 from '@/assets/images/hero/grid5.svg'
+import Grid6 from '@/assets/images/hero/grid6.svg'
 // import Val1 from '@/assets/images/hero/val1-1.svg'
 // import Val2 from '@/assets/images/hero/val2-2.svg'
 // import Val3 from '@/assets/images/hero/val3-3.svg'
@@ -27,7 +37,14 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 
 const features = [
   { id: 0, text: 'Payments without refunds' },
-  { id: 1, text: '24/7 expert & caring support' },
+  {
+    id: 1,
+    text: (
+      <>
+        24/7 <span>expert &</span> caring support
+      </>
+    ),
+  },
   { id: 2, text: 'Tailored payment options' },
   { id: 3, text: 'No hidden fees' },
 ]
@@ -49,6 +66,7 @@ export default function HeroSection() {
     <StyledHeroSectionWrapper>
       <div className='container'>
         <div className='leftSide'>
+          <MobileGrid />
           <StyledTypographyIBMH5 className='subTitle'>
             For business
           </StyledTypographyIBMH5>
@@ -106,5 +124,24 @@ export default function HeroSection() {
         </div>
       </div>
     </StyledHeroSectionWrapper>
+  )
+}
+
+const gridItems = [
+  { id: 0, icon: <Grid1 /> },
+  { id: 1, icon: <Grid2 /> },
+  { id: 2, icon: <Grid3 /> },
+  { id: 3, icon: <Grid4 /> },
+  { id: 4, icon: <Grid5 /> },
+  { id: 5, icon: <Grid6 /> },
+]
+
+function MobileGrid() {
+  return (
+    <StyledMobileGridWrapper>
+      {gridItems.map(({ id, icon }) => (
+        <Fragment key={id}>{icon}</Fragment>
+      ))}
+    </StyledMobileGridWrapper>
   )
 }

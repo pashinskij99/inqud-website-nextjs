@@ -10,20 +10,21 @@ export const StyledOurLandscapeSection = styled.section`
     padding: ${rem(240)} 0;
   `};
   ${responsive.xl`
-    padding: ${rem(120)} 0;
+    padding: ${rem(98)} 0 ${rem(122)};
   `};
-  ${responsive.xs`
+  ${responsive.sm`
     text-align: center;
-    padding: ${rem(96)} 0;
+    padding: ${rem(96)} 0 ${rem(134)};
+    order: 10;
   `};
 
   .container {
     .ourLandscapeTitle {
       margin-bottom: ${rem(40)};
       ${responsive.xxl`
-        margin-bottom: ${rem(44)};
+        margin-bottom: ${rem(40)};
       `};
-      ${responsive.xs`
+      ${responsive.sm`
         margin-bottom: ${rem(32)};
       `};
     }
@@ -45,8 +46,8 @@ export const StyledOurLandscapeSection = styled.section`
       padding: ${rem(1)};
       width: fit-content;
       margin-bottom: ${rem(24)};
-      height: ${rem(40)};
-      ${responsive.xs`
+      height: ${rem(44)};
+      ${responsive.sm`
         margin: 0 auto ${rem(24)};
         width: 100%;
         display: flex;
@@ -63,7 +64,7 @@ export const StyledOurLandscapeSection = styled.section`
 
       .ourLandscapeTabsButton {
         border-radius: ${rem(72)};
-        padding: ${rem(7)} ${rem(16)} ${rem(7)} ${rem(17)}!important;
+        padding: ${rem(7)} ${rem(14.5)}!important;
         background: transparent;
         color: rgba(81, 113, 133, 1);
         min-height: auto;
@@ -80,7 +81,7 @@ export const StyledOurLandscapeSection = styled.section`
           color: rgba(255, 255, 255, 1);
         }
 
-        ${responsive.xs`
+        ${responsive.sm`
           flex: 1;
           padding: ${rem(6)} ${rem(16)} ${rem(7)} ${rem(16)};
         `};
@@ -104,9 +105,9 @@ export const StyledOurLandscapeSection = styled.section`
           display: block;
         }
       `};
-      ${responsive.xs`
+      ${responsive.sm`
         font-size: ${rem(24)};
-        br {
+        br, .br-tablet {
           display: none;
         }
       `};
@@ -123,6 +124,9 @@ export const StyledCoverageWrapper = styled.div`
       flex-direction: column;
       row-gap: ${rem(40.5)};
     `};
+    ${responsive.sm`
+      margin-bottom: ${rem(32)};
+    `};
     .ourLandscapeDescription {
       ${responsive.xxl`
         .br-desktop {
@@ -134,73 +138,94 @@ export const StyledCoverageWrapper = styled.div`
           display: none!important;
         }
       `};
+      ${responsive.sm`
+        br {
+          display: none!important;
+        }
+      `};
     }
-    ul {
-      display: flex;
-      column-gap: ${rem(63)};
-      ${responsive.xxl`
+  }
+
+  .list {
+    display: flex;
+    column-gap: ${rem(63)};
+
+    &.desktop {
+      ${responsive.sm`
+        display: none;
+      `}
+    }
+    &.mobile {
+      display: none;
+      ${responsive.sm`
+        display: flex;
+      `}
+    }
+    ${responsive.xxl`
         column-gap: ${rem(34)};
       `}
-      ${responsive.lg`
+    ${responsive.lg`
         row-gap: ${rem(16.5)};
         flex-wrap: wrap;
       `};
-      li {
-        display: flex;
-        align-items: center;
+    li {
+      display: flex;
+      align-items: center;
+      border-radius: 30px;
+      ${responsive.sm`
+        width: 100%;
+        text-align: start;
+        padding: ${rem(15)} ${rem(26.2)} ${rem(14)} ${rem(26.2)};
         border-radius: 30px;
-        ${responsive.xs`
-          text-align: start;
-          padding: ${rem(15)} ${rem(26.2)} ${rem(14)} ${rem(26.2)};
-        `};
+        background: var(--confident-light-grey, #F4F5FA);
+      `};
 
-        .coverageWrapper {
-          width: ${rem(37.031)};
-          height: ${rem(35.872)};
-          display: flex;
-          justify-content: start;
-          align-items: center;
-          margin-right: ${rem(22.77)};
-          flex: 0 0 auto;
+      .coverageWrapper {
+        width: ${rem(37.031)};
+        height: ${rem(35.872)};
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin-right: ${rem(22.77)};
+        flex: 0 0 auto;
+      }
+
+      svg {
+        flex: 0 0 auto;
+      }
+
+      .coverage1 {
+        width: ${rem(37.031)};
+        height: ${rem(35.872)};
+      }
+
+      .coverage2 {
+        width: ${rem(38.189)};
+        height: ${rem(33.638)};
+      }
+
+      .coverage3 {
+        width: ${rem(28.878)};
+        height: ${rem(22.418)};
+      }
+
+      .coverage4 {
+        width: ${rem(24.96)};
+        height: ${rem(32.058)};
+      }
+
+      .descriptionWrapper {
+        .name {
+          color: rgba(31, 40, 53, 1);
+          font-weight: 700;
         }
 
-        svg {
-          flex: 0 0 auto;
-        }
-
-        .coverage1 {
-          width: ${rem(37.031)};
-          height: ${rem(35.872)};
-        }
-
-        .coverage2 {
-          width: ${rem(38.189)};
-          height: ${rem(33.638)};
-        }
-
-        .coverage3 {
-          width: ${rem(28.878)};
-          height: ${rem(22.418)};
-        }
-
-        .coverage4 {
-          width: ${rem(24.96)};
-          height: ${rem(32.058)};
-        }
-
-        .descriptionWrapper {
-          .name {
-            color: rgba(31, 40, 53, 1);
-            font-weight: 700;
-          }
-
-          .description {
-            white-space: nowrap;
-            color: rgba(81, 113, 133, 1);
-            ${responsive.xl`
+        .description {
+          white-space: nowrap;
+          color: rgba(81, 113, 133, 1);
+          ${responsive.xl`
               white-space: nowrap;
             `}
-          }
         }
       }
     }
@@ -222,8 +247,9 @@ export const StyledCoverageWrapper = styled.div`
       width: 100%;
       height: fit-content;
       max-height: ${rem(452)};
-      ${responsive.xs`
+      ${responsive.sm`
         height: fit-content;
+        margin-bottom: ${rem(31.97)};
       `};
     }
   }
@@ -236,7 +262,7 @@ export const StyledIndustriesWrapper = styled.div`
     ${responsive.xl`
       margin-bottom: ${rem(62)};
     `};
-    ${responsive.xs`
+    ${responsive.sm`
       margin-bottom: ${rem(39)};
     `};
   }
@@ -320,12 +346,13 @@ export const StyledIndustriesWrapper = styled.div`
       transform: translateX(-50%);
       background: rgba(81, 113, 133, 0.2);
       opacity: 1 !important;
+      height: 2px;
 
       .swiper-scrollbar-drag {
         background: rgba(7, 116, 83, 1) !important;
       }
 
-      ${responsive.xs`
+      ${responsive.sm`
           bottom: -${rem(39)};
         `};
     }
@@ -342,7 +369,7 @@ export const StyledIndustriesWrapper = styled.div`
     display: flex;
     align-items: center;
     padding: ${rem(18)} ${rem(32)} ${rem(20)};
-    ${responsive.xs`
+    ${responsive.sm`
       padding: ${rem(18)} ${rem(24)} ${rem(20)};
     `}
   }

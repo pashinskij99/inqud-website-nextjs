@@ -10,13 +10,15 @@ export const StyledBlogsSection = styled.section`
     padding-bottom: ${rem(62)};
     overflow: hidden;
   `};
-  ${responsive.xs`
-    padding-top: ${rem(96)};
+  ${responsive.sm`
+    order: 12;
+    padding-top: 0;
+    padding-bottom: 0;
   `};
 
   .slide {
     width: fit-content;
-    ${responsive.xs`
+    ${responsive.sm`
       max-width: 100%;
     `}
   }
@@ -29,10 +31,10 @@ export const StyledBlogsSection = styled.section`
     ${responsive.xl`
       align-items: center;
     `};
-    ${responsive.xs`
+    ${responsive.sm`
       justify-content: center;
       margin-bottom: ${rem(40)};
-      padding-top: ${rem(96)};
+      padding-top: 0;
     `};
 
     .blogsHeaderTitle {
@@ -43,7 +45,7 @@ export const StyledBlogsSection = styled.section`
         height: ${rem(48)};
         margin-top: ${rem(15)};
       `};
-      ${responsive.xs`
+      ${responsive.sm`
         display: none;
       `};
     }
@@ -53,9 +55,21 @@ export const StyledBlogsSection = styled.section`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: ${rem(40)};
+    ${responsive.xxl`
+      gap: ${rem(24)};
+    `};
     ${responsive.xl`
       display: none;
     `};
+
+    .cart {
+      max-width: 100%;
+      .imageWrapper,
+      img {
+        max-width: 100%;
+        height: 250px;
+      }
+    }
 
     .image {
     }
@@ -74,7 +88,7 @@ export const StyledBlogsSection = styled.section`
     .blogsGridItemImage {
     }
 
-    ${responsive.xs`
+    ${responsive.sm`
       max-width: 100%;
       height: ${rem(193)};
       margin-bottom: ${rem(23)};
@@ -90,7 +104,7 @@ export const StyledBlogsSection = styled.section`
       padding: ${rem(7)} ${rem(16)};
       width: fit-content;
       margin-bottom: ${rem(12)};
-      ${responsive.xs`
+      ${responsive.sm`
         margin: 0 auto ${rem(12)};
       `};
     }
@@ -98,7 +112,7 @@ export const StyledBlogsSection = styled.section`
     .blogsGridItemBodyTitle {
       margin-bottom: ${rem(16)};
       font-weight: 700;
-      ${responsive.xs`
+      ${responsive.sm`
         margin-bottom: ${rem(12)};
         text-align: center;
       `};
@@ -117,7 +131,7 @@ export const StyledBlogsSection = styled.section`
         color: var(--independent-grey, #517185);
       }
 
-      ${responsive.xs`
+      ${responsive.sm`
         justify-content: center;
       `};
     }
@@ -130,9 +144,17 @@ export const StyledBlogsSection = styled.section`
       display: block;
       overflow: visible;
     `};
-    ${responsive.xs`
+    ${responsive.sm`
       margin-bottom: ${rem(82)};
     `};
+    ${responsive.xs`
+      .cart {
+        max-width: 100%;
+        img {
+          max-width: 100%;
+        }
+      }
+    `}
 
     .listRequirementsSwiperScollbar {
       bottom: -${rem(58)};
@@ -142,7 +164,7 @@ export const StyledBlogsSection = styled.section`
       background: rgba(81, 113, 133, 0.2);
       opacity: 1 !important;
       height: ${rem(2)};
-      ${responsive.xs`
+      ${responsive.sm`
         bottom: -${rem(40)};
       `};
 
@@ -154,7 +176,7 @@ export const StyledBlogsSection = styled.section`
 
   .blogsHeaderButtonMobile {
     display: none;
-    ${responsive.xs`
+    ${responsive.sm`
       width: 100%;
       display: block;
     `};

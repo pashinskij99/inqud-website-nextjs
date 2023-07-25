@@ -75,7 +75,7 @@ export const StyledCartRequirement = styled.div`
         width: ${rem(24.000164031982422)};
         height: ${rem(24.000164031982422)};
         overflow: visible;
-        ${responsive.xs`
+        ${responsive.sm`
           position: static;
         `}
       }

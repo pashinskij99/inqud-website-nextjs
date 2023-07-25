@@ -8,15 +8,16 @@ export const StyledReasonsToTeamUp = styled.section`
   text-align: center;
   overflow: hidden;
   ${responsive.xl`
-    padding: ${rem(120)} 0 ${rem(97)};
+    padding: ${rem(120)} 0 ${rem(94)};
   `};
-  ${responsive.xs`
+  ${responsive.sm`
     padding: ${rem(96)} 0;
+    order: 8;
   `};
 
   .reasonsToTeamUpTitle {
     margin-bottom: ${rem(24)};
-    ${responsive.xs`
+    ${responsive.sm`
       margin-bottom: ${rem(15)};
     `};
   }
@@ -24,7 +25,10 @@ export const StyledReasonsToTeamUp = styled.section`
   .reasonsToTeamUpSubTitle {
     color: #517185;
     margin-bottom: ${rem(64)};
-    ${responsive.xs`
+    ${responsive.xxl`
+      margin-bottom: ${rem(62)};
+    `}
+    ${responsive.sm`
       margin-bottom: ${rem(39)};
     `};
   }
@@ -35,6 +39,9 @@ export const StyledReasonsToTeamUp = styled.section`
     justify-content: space-between;
     justify-self: center;
     row-gap: ${rem(37)};
+    ${responsive.xxl`
+      grid-template-columns: repeat(3, ${rem(320)});
+    `}
     ${responsive.xl`
       grid-template-columns: repeat(2, ${rem(320)});
       justify-items: center;
@@ -49,7 +56,7 @@ export const StyledReasonsToTeamUp = styled.section`
       column-gap: 0;
     `};
 
-    ${responsive.xs`
+    ${responsive.sm`
       justify-items: start;
       justify-content: start;
       text-align: start;
@@ -57,7 +64,7 @@ export const StyledReasonsToTeamUp = styled.section`
     `};
 
     li {
-      ${responsive.xs`
+      ${responsive.sm`
         display: flex;
         align-items: center;
         gap: ${rem(24)};
@@ -65,7 +72,10 @@ export const StyledReasonsToTeamUp = styled.section`
 
       svg {
         margin-bottom: ${rem(23)};
-        ${responsive.xs`
+        ${responsive.xxl`
+          margin-bottom: ${rem(21)};
+        `}
+        ${responsive.sm`
           flex-shrink: 0;
           margin-bottom: 0;
         `};
@@ -74,7 +84,10 @@ export const StyledReasonsToTeamUp = styled.section`
       .reasonsToTeamUpGridItemTitle {
         font-weight: 700;
         margin-bottom: ${rem(14)};
-        ${responsive.xs`
+        ${responsive.xxl`
+          margin-bottom: ${rem(16)};
+        `}
+        ${responsive.sm`
           margin-bottom: 0;
           font-weight: 400;
           br {
@@ -85,7 +98,7 @@ export const StyledReasonsToTeamUp = styled.section`
 
       .reasonsToTeamUpGridItemDescription {
         color: #517185;
-        ${responsive.xs`
+        ${responsive.sm`
           display: none;
         `};
       }

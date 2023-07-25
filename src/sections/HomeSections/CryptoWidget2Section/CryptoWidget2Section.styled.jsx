@@ -6,12 +6,16 @@ export const StyledCryptoWidget2Section = styled.section`
   background: var(--exciting-lime, #bfffc8);
   padding-top: ${rem(410)};
   padding-bottom: ${rem(240)};
+  ${responsive.xxl`
+    padding-top: ${rem(413)};
+  `};
   ${responsive.xl`
     padding: ${rem(120)} 0;
   `};
-  ${responsive.xs`
+  ${responsive.sm`
     padding: ${rem(96)} 0;
     text-align: center;
+    order: 7;
   `};
 
   .container {
@@ -21,7 +25,7 @@ export const StyledCryptoWidget2Section = styled.section`
     justify-items: self-end;
     gap: ${rem(40)};
     @media (max-width: 1536px) and (min-width: 1279px) {
-      grid-template-columns: 1.1fr 1fr;
+      grid-template-columns: 1.07fr 1fr;
     }
 
     ${responsive.xxl`
@@ -43,22 +47,28 @@ export const StyledCryptoWidget2Section = styled.section`
         padding: ${rem(7)} ${rem(16)};
         width: fit-content;
         margin-bottom: ${rem(24)};
+        ${responsive.xxl`
+          margin-bottom: ${rem(20)};
+        `};
         ${responsive.xl`
           margin: 0 auto ${rem(24)};
           padding: ${rem(5)} ${rem(16)};
         `};
-        ${responsive.xs`
+        ${responsive.sm`
           margin: 0 auto ${rem(18)};
         `};
       }
 
       .crypto2Title {
         margin-bottom: ${rem(24)};
+        ${responsive.xxl`
+          margin-bottom: ${rem(26)};
+        `};
         ${responsive.xl`
           text-align: center;
           margin-bottom: ${rem(40)};
         `};
-        ${responsive.xs`
+        ${responsive.sm`
           margin-bottom: ${rem(22)};
         `};
       }
@@ -71,9 +81,13 @@ export const StyledCryptoWidget2Section = styled.section`
           max-width: ${rem(400)};
           max-height: ${rem(400)};
           object-fit: contain;
-          margin: 0 auto ${rem(25)};
+          margin: 0 auto ${rem(39)};
         `};
-        ${responsive.xs`
+        ${responsive.sm`
+          width: ${rem(400)};
+          height: ${rem(400)};
+        `};
+        ${responsive.sm`
           width: ${rem(233.001)};
           height: ${rem(233)};
         `};
@@ -87,7 +101,13 @@ export const StyledCryptoWidget2Section = styled.section`
           line-height: ${rem(26)};
           margin-bottom: ${rem(56)};
         `}
-
+        ${responsive.xl`
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 34px;
+          letter-spacing: 0em;
+          margin-bottom: ${rem(56)};
+        `}
         &.crypto2Description-desktop {
         }
 
@@ -95,7 +115,7 @@ export const StyledCryptoWidget2Section = styled.section`
           display: none;
         }
 
-        ${responsive.xs`
+        ${responsive.sm`
           margin-bottom: ${rem(40)};
           font-size: ${rem(24)};
           line-height: ${rem(34)};
@@ -119,7 +139,11 @@ export const StyledCryptoWidget2Section = styled.section`
           column-gap: ${rem(22)};
           row-gap: ${rem(40)};
         `}
-        ${responsive.xs`
+        ${responsive.xl`
+          grid-template-columns: repeat(2, 0.48fr);
+          column-gap: ${rem(46)};
+        `};
+        ${responsive.sm`
           grid-template-columns: repeat(1, 1fr);
           gap: ${rem(16)};
           text-align: start;
@@ -128,7 +152,7 @@ export const StyledCryptoWidget2Section = styled.section`
         `};
 
         .crypto2GridItem {
-          ${responsive.xs`
+          ${responsive.sm`
             display: flex;
             align-items: center;
             gap: ${rem(12)};
@@ -136,7 +160,7 @@ export const StyledCryptoWidget2Section = styled.section`
 
           .check {
             display: none;
-            ${responsive.xs`
+            ${responsive.sm`
               display: block;
             `};
           }
@@ -146,9 +170,9 @@ export const StyledCryptoWidget2Section = styled.section`
             height: ${rem(48.002)};
             margin-bottom: ${rem(8)};
             ${responsive.xxl`
-              margin-bottom: ${rem(6)};
+              margin-bottom: ${rem(4)};
             `}
-            ${responsive.xs`
+            ${responsive.sm`
               display: none;
             `};
           }
@@ -157,9 +181,9 @@ export const StyledCryptoWidget2Section = styled.section`
             font-weight: 700;
             margin-bottom: ${rem(16)};
             ${responsive.xxl`
-              margin-bottom: ${rem(5)};
+              margin-bottom: ${rem(7)};
             `}
-            ${responsive.xs`
+            ${responsive.sm`
               margin-bottom: 0;
               font-weight: 500;
             `};
@@ -167,7 +191,7 @@ export const StyledCryptoWidget2Section = styled.section`
 
           .crypto2GridItemDescription {
             font-weight: 500;
-            ${responsive.xs`
+            ${responsive.sm`
               display: none;
             `};
           }
@@ -181,6 +205,12 @@ export const StyledCryptoWidget2Section = styled.section`
         background: var(--independent-grey, #517185);
         padding: ${rem(25)} ${rem(32)};
         width: 100%;
+        ${responsive.xxl`
+          padding: ${rem(27)} ${rem(24)};
+        `};
+        ${responsive.xl`
+          padding: ${rem(27)} ${rem(32)};
+        `};
         ${responsive.sm`
           display: grid;
           grid-template-columns: 1fr;
@@ -194,8 +224,16 @@ export const StyledCryptoWidget2Section = styled.section`
           font-weight: 700;
           line-height: ${rem(30)};
           margin-right: auto;
+          ${responsive.xxl`
+            // br {
+            //   display: none;
+            // }
+          `};
           ${responsive.xl`
             order: 1;
+            br {
+              display: block;
+            }
           `};
           ${responsive.sm`
             margin: ${rem(16)} auto ${rem(17)};
@@ -211,12 +249,25 @@ export const StyledCryptoWidget2Section = styled.section`
           display: flex;
           align-items: center;
           order: 1;
+          ${responsive.xxl`
+            margin-left: auto;
+          `};
+          ${responsive.sm`
+            margin-left: 0;
+          `};
         }
 
         .crypto2FooterButtonCrypto {
           white-space: nowrap;
           margin-right: ${rem(4)};
           height: ${rem(48)};
+
+          ${responsive.xxl`
+            padding: 0 16px;
+          `};
+          ${responsive.xl`
+            padding: 0 ${rem(24)};
+          `};
 
           ${responsive.sm`
             * {
@@ -236,6 +287,10 @@ export const StyledCryptoWidget2Section = styled.section`
           border-radius: 100%;
           flex-shrink: 0;
 
+          ${responsive.sm`
+            margin-right: 0;
+          `}
+
           &:hover {
             path,
             rect {
@@ -253,7 +308,7 @@ export const StyledCryptoWidget2Section = styled.section`
         .crypto2FooterApplyButton {
           order: 3;
           white-space: nowrap;
-          ${responsive.xs`
+          ${responsive.sm`
             width: 100%;
           `};
         }
@@ -264,11 +319,14 @@ export const StyledCryptoWidget2Section = styled.section`
       @media (max-width: 1536px) and (min-width: 1279px) {
         display: flex;
         width: 100%;
-        justify-content: center;
+        justify-content: start;
       }
       svg {
         width: ${rem(500)};
         height: ${rem(500)};
+        @media (max-width: 1536px) and (min-width: 1279px) {
+          transform: translate(10px, -3px);
+        }
       }
 
       ${responsive.xl`

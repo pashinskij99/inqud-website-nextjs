@@ -2,8 +2,11 @@
 
 import StyledComponentsRegistry from '@/app/registry'
 import { urbanist } from '@/utils/font'
+// import 'slick-carousel/slick/slick.css'
+// import 'slick-carousel/slick/slick-theme.css'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
+
 import Header from '@/components/Layout/Header'
 import Footer from '@/components/Layout/Footer'
 import GlobalStyle from '@/styles/globalStyles'

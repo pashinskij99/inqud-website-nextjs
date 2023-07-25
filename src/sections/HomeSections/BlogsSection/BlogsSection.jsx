@@ -80,13 +80,7 @@ export default function BlogsSection() {
               initialSlide: 1,
               centeredSlides: true,
             },
-            470: {
-              slidesPerView: 1,
-              spaceBetween: 8,
-              initialSlide: 1,
-              centeredSlides: true,
-            },
-            576: {
+            500: {
               slidesPerView: 'auto',
               initialSlide: 0,
               spaceBetween: 24,

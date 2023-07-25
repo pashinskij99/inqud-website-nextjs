@@ -76,7 +76,7 @@ export const StyledFooter = styled.footer`
     padding: ${rem(120)} 0 ${rem(129)};
     background: var(--directness-black, #2d3439);
     ${responsive.xxl`
-      padding: ${rem(130)} 0 ${rem(129)};
+      padding: ${rem(120)} 0 ${rem(129)};
     `};
     ${responsive.sm`
       padding: ${rem(80)} 0 ${rem(86)};
@@ -86,7 +86,7 @@ export const StyledFooter = styled.footer`
       display: flex;
       justify-content: space-between;
       ${responsive.xxl`
-        gap: ${rem(52)};
+        gap: ${rem(0)};
       `};
       ${responsive.xl`
         justify-content: start;
@@ -131,8 +131,12 @@ export const StyledFooter = styled.footer`
 
       .footerLegalSection {
         margin-left: 0;
+        ${responsive.xxl`
+          margin-right: 79px;
+        `}
         ${responsive.xl`
           margin-left: ${rem(35)};
+          margin-right: 0;
         `};
         ${responsive.sm`
           margin-left: 0;
@@ -142,10 +146,11 @@ export const StyledFooter = styled.footer`
       .footerResourcesSection {
         margin-left: ${rem(55)};
         ${responsive.xxl`
-          margin-left: 0;
+          margin-right: 40px;
         `}
         ${responsive.xl`
           margin-left: ${rem(55)};
+          margin-right: 0px;
         `}
         ${responsive.sm`
           margin-left: 0;
@@ -225,6 +230,7 @@ export const StyledFooter = styled.footer`
           }
 
           .footerSubscribeSectionButton {
+            height: 48px;
           }
         }
 

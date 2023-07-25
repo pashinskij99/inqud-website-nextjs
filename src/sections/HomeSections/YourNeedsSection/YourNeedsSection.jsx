@@ -1,17 +1,24 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
+// import Slider from 'react-slick'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH4,
 } from '@/components/UI/Typography/Typography.styled'
 import {
+  StyledCoinsListWrapper,
   // StyledCustomScrollbarWrapper,
   YourNeedsSectionWrapper,
 } from './YourNeedsSection.styled'
 import Image1 from '@/assets/images/your-needs/image1.png'
 import Image2 from '@/assets/images/your-needs/image2.png'
 import Image3 from '@/assets/images/your-needs/image3.png'
+import Coins1 from '@/assets/images/your-needs/Coins1.svg'
+import Coins2 from '@/assets/images/your-needs/Coins2.svg'
+import Coins3 from '@/assets/images/your-needs/Coins3.svg'
+import Coins4 from '@/assets/images/your-needs/Coins4.svg'
+import Coins5 from '@/assets/images/your-needs/Coins5.svg'
 import { CartRequirement } from '@/components/CartRequirement'
 import { ModalSendRequest } from '@/components/Modal'
 
@@ -54,6 +61,15 @@ export default function YourNeedsSection() {
     },
   ]
 
+  // const slickSettings = {
+  //   dots: false,
+  //   infinite: true,
+  //   centerMode: true,
+  //   slidesToShow: 2,
+  //   centerPadding: '60px',
+  //   // slidesToScroll: 2,
+  // }
+
   return (
     <YourNeedsSectionWrapper>
       <div className='container'>
@@ -66,6 +82,8 @@ export default function YourNeedsSection() {
           We understand <br className='br-mobile' /> your needs
         </StyledTypographyUrbanistH1>
 
+        <CoinsList />
+
         <StyledTypographyUrbanistH4 className='subTitle subTitle-desktop'>
           Catering to these requirements and beyond.
         </StyledTypographyUrbanistH4>
@@ -75,38 +93,23 @@ export default function YourNeedsSection() {
 
         <div className='listRequirements'>
           {list.map(
-            ({ id, buttonText, description, image, title, handleClick }, i) =>
-              i < 3 && (
-                <CartRequirement
-                  key={id}
-                  buttonText={buttonText}
-                  description={description}
-                  href='#'
-                  handleClick={handleClick}
-                  imageSrc={image}
-                  title={title}
-                />
-              )
+            ({ id, buttonText, description, image, title, handleClick }) => (
+              <CartRequirement
+                key={id}
+                buttonText={buttonText}
+                description={description}
+                href='#'
+                handleClick={handleClick}
+                imageSrc={image}
+                title={title}
+              />
+            )
           )}
         </div>
 
         {/* mobile */}
 
-        {/* <Slider
-          slidesToShow={1.2}
-          centerMode
-          initialSlide={1}
-          arrows={false}
-          adaptiveHeight
-          afterChange={(index) => {
-            console.log(index)
-          }}
-          onSwipe={(direction) => {
-            console.log(direction)
-          }}
-          duration={100}
-          shift={10}
-        >
+        {/* <Slider {...slickSettings}>
           {list.map(
             ({ id, buttonText, description, image, title, handleClick }) => (
               // <SwiperSlide className='listRequirementsSwiperItems' key={id}>
@@ -137,18 +140,23 @@ export default function YourNeedsSection() {
           }}
           breakpoints={{
             0: {
-              slidesPerView: 2,
+              slidesPerView: 1,
               spaceBetween: 8,
               centeredSlides: true,
               initialSlide: '1',
             },
-            576: {
+            500: {
               slidesPerView: 'auto',
-              spaceBetween: 28,
+              spaceBetween: 8,
               initialSlide: '1',
+              centeredSlides: false,
+            },
+            767: {
+              centeredSlides: true,
+              spaceBetween: 28,
             },
             1536: {
-              slidesPerView: 'auto',
+              // slidesPerView: 'auto',
               spaceBetween: 28,
               initialSlide: '1',
             },
@@ -191,3 +199,21 @@ export default function YourNeedsSection() {
 //     </StyledCustomScrollbarWrapper>
 //   )
 // }
+
+const coinsList = [
+  { id: 0, icon: <Coins1 /> },
+  { id: 1, icon: <Coins2 /> },
+  { id: 2, icon: <Coins3 /> },
+  { id: 3, icon: <Coins4 /> },
+  { id: 4, icon: <Coins5 /> },
+]
+
+function CoinsList() {
+  return (
+    <StyledCoinsListWrapper>
+      {coinsList.map(({ id, icon }) => (
+        <Fragment key={id}>{icon}</Fragment>
+      ))}
+    </StyledCoinsListWrapper>
+  )
+}

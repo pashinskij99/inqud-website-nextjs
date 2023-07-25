@@ -7,14 +7,16 @@ export const StyledHeroSectionWrapper = styled.section`
   padding-bottom: ${rem(98)};
   overflow: hidden;
   ${responsive.xxl`
-    padding-top: ${rem(64)};
+    padding-top: ${rem(63)};
   `}
   ${responsive.xl`
-    padding-top: ${rem(21)};
+    padding-top: ${rem(23)};
     padding-bottom: 0;
   `}
-  ${responsive.xs`
-    padding-top: ${rem(35)};
+  ${responsive.sm`
+    padding-top: ${rem(32)};
+    text-align: center;
+    order: 1;
   `}
   .container {
     display: grid;
@@ -25,10 +27,8 @@ export const StyledHeroSectionWrapper = styled.section`
       flex-direction: column-reverse;
       gap: ${rem(40)};
     `};
-
-    ${responsive.xs`
+    ${responsive.sm`
       gap: 0;
-      text-align: center;
     `}
     .leftSide {
       .subTitle {
@@ -39,10 +39,14 @@ export const StyledHeroSectionWrapper = styled.section`
         padding: ${rem(7)} ${rem(16)};
         line-height: 1;
         margin-bottom: ${rem(24)};
+        ${responsive.xxl`
+          margin-bottom: ${rem(20)};
+        `};
         ${responsive.xl`
           margin-bottom: ${rem(20)};
         `};
-        ${responsive.xs`
+        ${responsive.sm`
+          display: none;
           font-size: ${rem(24)};
           padding: ${rem(5)} ${rem(16)};
           margin: 0 auto ${rem(15)};
@@ -51,21 +55,30 @@ export const StyledHeroSectionWrapper = styled.section`
 
       .title {
         margin-bottom: ${rem(24)};
+        ${responsive.sm`
+          font-size: ${rem(40)};
+          font-weight: 700;
+          margin-bottom: ${rem(8)};
+          line-height: ${rem(46)};
+        `};
       }
 
       .paragraph {
         color: #517185;
         margin-bottom: ${rem(45)};
         ${responsive.xxl`
-          margin-bottom: ${rem(30)};
+          margin-bottom: ${rem(32)};
         `}
-        ${responsive.xs`
-          font-size: ${rem(24)};
-          line-height: ${rem(34)};
-          margin-bottom: ${rem(30)};
+        ${responsive.xl`
           br {
             display: none;
           }
+        `}
+        ${responsive.sm`
+          font-size: ${rem(18)};
+          line-height: ${rem(26)};
+          margin-bottom: ${rem(32)};
+
         `};
       }
 
@@ -77,11 +90,14 @@ export const StyledHeroSectionWrapper = styled.section`
         row-gap: ${rem(16)};
         margin-bottom: ${rem(45)};
         ${responsive.xxl`
-          column-gap: ${rem(10)};
-          row-gap: ${rem(10)};
+          column-gap: ${rem(2)};
+          row-gap: ${rem(12)};
         `}
-        ${responsive.xs`
-          grid-template-columns: 1fr;
+        ${responsive.xl`
+          margin-bottom: ${rem(38)};
+        `}
+        ${responsive.sm`
+          grid-template-columns: 1fr 1fr;
           margin: 0 auto ${rem(40)};
           row-gap: ${rem(14)};
         `};
@@ -91,12 +107,44 @@ export const StyledHeroSectionWrapper = styled.section`
           align-items: center;
           gap: ${rem(10.67)};
 
+          ${responsive.xxl`
+            gap: ${rem(9)};
+          `}
+
+          span {
+            display: contents;
+            ${responsive.sm`
+              display: none;
+            `};
+          }
+          ${responsive.sm`
+            &:nth-child(1) {
+              order: 1;
+            }
+            &:nth-child(2) {
+              order: 4;
+            }
+            &:nth-child(3) {
+              order: 2;
+            }
+            &:nth-child(4) {
+              order: 3;
+            }
+          `};
+
+          ${responsive.sm`
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          `};
+
           svg {
             width: ${rem(21.333)};
             height: ${rem(21.333)};
           }
 
           p {
+            font-weight: 500;
             color: rgba(45, 52, 57, 1);
           }
         }
@@ -107,10 +155,13 @@ export const StyledHeroSectionWrapper = styled.section`
         align-items: center;
         gap: ${rem(16)};
         margin-bottom: ${rem(80)};
-        ${responsive.xs`
+        ${responsive.xl`
+          margin-bottom: ${rem(65)};
+        `}
+        ${responsive.sm`
           flex-direction: column;
           gap: ${rem(6.5)};
-          margin-bottom: ${rem(56)};
+          margin-bottom: ${rem(39.67)};
           .getStarted {
             width: 100%;
             display: flex;
@@ -134,7 +185,10 @@ export const StyledHeroSectionWrapper = styled.section`
         .payment-descr {
           color: rgba(81, 113, 133, 0.800000011920929);
           margin-bottom: ${rem(24)};
-          ${responsive.xs`
+          ${responsive.xl`
+            margin-bottom: ${rem(13)};
+          `}
+          ${responsive.sm`
             text-align: start;
           `};
         }
@@ -146,6 +200,10 @@ export const StyledHeroSectionWrapper = styled.section`
           overflow: auto;
           -ms-overflow-style: none; /* Internet Explorer 10+ */
           scrollbar-width: none; /* Firefox */
+
+          ${responsive.xxl`
+            gap: ${rem(33)};
+          `}
 
           &::-webkit-scrollbar {
             display: none; /* Safari and Chrome */
@@ -226,7 +284,7 @@ export const StyledHeroSectionWrapper = styled.section`
         }
       `};
 
-      ${responsive.xs`
+      ${responsive.sm`
         display: flex;
         justify-content: center;
 
@@ -245,4 +303,16 @@ export const StyledHeroSectionWrapper = styled.section`
       transform: translateX(-100%);
     }
   }
+`
+
+export const StyledMobileGridWrapper = styled.div`
+  display: none;
+  gap: ${rem(8)};
+  grid-template-columns: 1fr 1fr 1fr;
+  width: fit-content;
+  margin: 0 auto ${rem(24)};
+  ${responsive.sm`
+    display: grid;
+
+  `}
 `

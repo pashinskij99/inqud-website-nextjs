@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     @media (max-width: 1279px) {
       --header-height: ${rem(82)};
     }
-    @media (max-width: 639px) {
+    @media (max-width: 767px) {
       --header-height: ${rem(60)};
     }
   }
@@ -51,7 +51,10 @@ const GlobalStyle = createGlobalStyle`
     max-width: 1920px;
     margin: 0 auto;
     padding: 0 ${rem(60)};
-    @media (max-width: 639px) {
+    @media (max-width: 1280px) {
+      padding: 0 ${rem(40)};
+    }
+    @media (max-width: 767px) {
       padding: 0 ${rem(15.58)};
     }
   }
@@ -70,7 +73,7 @@ const GlobalStyle = createGlobalStyle`
       max-width: 100%;
       padding: 0 ${rem(40)};
     }
-    @media (max-width: 639px) {
+    @media (max-width: 767px) {
       padding: 0 ${rem(16)};
     }
   }

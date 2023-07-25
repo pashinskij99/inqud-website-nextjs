@@ -7,10 +7,11 @@ export const responsive = {
     }
   `,
   sm: (...args) => css`
-    @media (max-width: 639px) {
+    @media (max-width: 767px) {
       ${css(...args)};
     }
   `,
+
   md: (...args) => css`
     @media (max-width: 830px) {
       ${css(...args)};

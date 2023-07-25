@@ -15,7 +15,11 @@ const gridItems = [
   {
     id: 0,
     title: <>Say goodbye to chargebacks</>,
-    description: <>Provide solutions to eliminate fraud <br /> chargebacks.</>,
+    description: (
+      <>
+        Provide solutions to eliminate fraud <br /> chargebacks.
+      </>
+    ),
     icon: <Icon1 />,
   },
   {
@@ -25,8 +29,12 @@ const gridItems = [
         Transparent <br /> & clear pricing
       </>
     ),
-    description:
-      <>We believe in clear-cut pricing with no <br /> surprises. With us, you get precisely what <br /> you expect.</>,
+    description: (
+      <>
+        We believe in clear-cut pricing with no <br /> surprises. With us, you
+        get precisely what <br /> you expect.
+      </>
+    ),
     icon: <Icon2 />,
   },
   {
@@ -36,15 +44,23 @@ const gridItems = [
         Tap into new <br /> markets
       </>
     ),
-    description:
-      <>Seize new market opportunities swiftly <br /> with our customized payment solutions.</>,
+    description: (
+      <>
+        Seize new market opportunities swiftly <br /> with our customized
+        payment solutions.
+      </>
+    ),
     icon: <Icon3 />,
   },
   {
     id: 3,
     title: <>Simplified fund management</>,
-    description:
-      <>Enjoy effortless fund allocation, robust <br /> security, and flexible withdrawal options.</>,
+    description: (
+      <>
+        Enjoy effortless fund allocation, robust <br /> security, and flexible
+        withdrawal options.
+      </>
+    ),
     icon: <Icon4 />,
   },
   {
@@ -54,15 +70,27 @@ const gridItems = [
         Trustworthy <br /> customer care
       </>
     ),
-    description:
-      <>Whether you have questions, need <br /> assistance, or encounter any issues, we <br /> are here to help.</>,
+    description: (
+      <>
+        Whether you have questions, need <br /> assistance, or encounter any
+        issues, we <br /> are here to help.
+      </>
+    ),
     icon: <Icon5 />,
   },
   {
     id: 5,
-    title: <>Uncover hidden <br /> market solutions</>,
-    description:
-      <>Discover unique payment methods and <br /> solutions for non-standard cases.</>,
+    title: (
+      <>
+        Uncover hidden <br /> market solutions
+      </>
+    ),
+    description: (
+      <>
+        Discover unique payment methods and <br /> solutions for non-standard
+        cases.
+      </>
+    ),
     icon: <Icon6 />,
   },
 ]

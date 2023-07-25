@@ -1,10 +1,28 @@
 import styled from '@emotion/styled'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
+import { urbanist } from '@/utils/font'
 
 export const StyledFeesBusinessWrapper = styled.section`
+  ${responsive.sm`
+    order: 3;
+  `}
+  .container {
+    ${responsive.sm`
+      padding: 0;
+    `}
+  }
   h1 {
     margin-bottom: ${rem(8)};
+    ${responsive.sm`
+      padding: 0 ${rem(16)};
+    `}
+    span {
+      display: contents;
+      ${responsive.sm`
+        display: none;
+      `}
+    }
   }
   h5 {
     color: rgba(81, 113, 133, 1);
@@ -12,6 +30,26 @@ export const StyledFeesBusinessWrapper = styled.section`
     ${responsive.xxl`
       margin-bottom: ${rem(40)};
     `}
+    ${responsive.sm`
+      margin-bottom: ${rem(18.33)};
+      line-height: ${rem(26)};
+      padding: 0 ${rem(16)};
+    `}
+
+    .br-desktop {
+      ${responsive.xxl`
+        display: none;
+      `}
+    }
+    .br-1200 {
+      display: none;
+      ${responsive.xxl`
+        display: block;
+      `}
+      ${responsive.xl`
+        display: none;
+      `}
+    }
   }
   .content-wrapper {
     display: flex;
@@ -22,12 +60,16 @@ export const StyledFeesBusinessWrapper = styled.section`
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: ${rem(24)};
-      margin-bottom: ${rem(22)};
+      margin-bottom: ${rem(30)};
     `}
     ${responsive.xl`
       display: flex;
       flex-direction: column;
-      row-gap: ${rem(39)};
+      row-gap: ${rem(19)};
+    `}
+    ${responsive.sm`
+      row-gap: 0;
+      margin-bottom: 0;
     `}
   }
 
@@ -40,6 +82,9 @@ export const StyledFeesBusinessWrapper = styled.section`
     `}
     ${responsive.xl`
       max-width: 100%;
+    `}
+    ${responsive.sm`
+      margin-bottom: ${rem(24)};
     `}
     &,
     th,
@@ -54,6 +99,9 @@ export const StyledFeesBusinessWrapper = styled.section`
         th {
           &:first-child {
             padding-left: ${rem(32)};
+            ${responsive.sm`
+              padding-left: ${rem(16)};
+            `}
           }
           p {
             color: rgba(81, 113, 133, 1);
@@ -63,6 +111,9 @@ export const StyledFeesBusinessWrapper = styled.section`
           &:last-child {
             text-align: end;
             padding-right: ${rem(32)};
+            ${responsive.sm`
+              padding-right: ${rem(16)};
+            `}
             p {
               width: 100%;
             }
@@ -74,7 +125,7 @@ export const StyledFeesBusinessWrapper = styled.section`
       &:before {
         content: '@';
         display: block;
-        line-height: ${rem(8)};
+        line-height: ${rem(3)};
         text-indent: -99999px;
       }
       tr {
@@ -90,13 +141,19 @@ export const StyledFeesBusinessWrapper = styled.section`
             border-radius: 16px;
             background: rgba(244, 245, 250, 1);
             z-index: -1;
+            ${responsive.sm`
+              border-radius: 0;
+            `}
           }
         }
 
         td {
-          height: ${rem(56)};
+          height: ${rem(55)};
           &:first-child {
             padding-left: ${rem(32)};
+            ${responsive.sm`
+              padding-left: ${rem(16)};
+            `}
             p {
               font-weight: 700;
             }
@@ -104,6 +161,9 @@ export const StyledFeesBusinessWrapper = styled.section`
           &:last-child {
             text-align: end;
             padding-right: ${rem(32)};
+            ${responsive.sm`
+              padding-right: ${rem(16)};
+            `}
           }
         }
       }
@@ -114,7 +174,6 @@ export const StyledFeesBusinessWrapper = styled.section`
     overflow: hidden;
     position: relative;
     padding: ${rem(40)};
-    /* margin-top: ${rem(26)}; */
     border-radius: 16px;
     background: var(--confident-light-grey, #f4f5fa);
     display: flex;
@@ -122,15 +181,21 @@ export const StyledFeesBusinessWrapper = styled.section`
     width: 100%;
     justify-content: space-between;
     ${responsive.xxl`
-      column-gap: ${rem(44)};
+      column-gap: ${rem(57)};
       padding: ${rem(34)} ${rem(24)};
     `};
     ${responsive.xl`
       padding: ${rem(40)} ${rem(24)};
       max-width: 100%;
+      column-gap: ${rem(17)};
       margin: 0;
     `}
-
+    ${responsive.sm`
+      padding: ${rem(40)} ${rem(16)};
+      flex-direction: column;
+      row-gap: ${rem(16)};
+      border-radius: 0;
+    `}
     .cart-left-side {
       z-index: 1;
       flex-shrink: 0;
@@ -166,7 +231,10 @@ export const StyledFeesBusinessWrapper = styled.section`
       @media (max-width: 1536px) and (min-width: 1279px) {
         margin-top: ${rem(10)};
       }
+
       p {
+        transform: translateY(-4%);
+
         ${responsive.xxl`
           .br-desktop {
             display: none;
@@ -174,6 +242,8 @@ export const StyledFeesBusinessWrapper = styled.section`
         `};
         ${responsive.xl`
           margin-bottom: ${rem(60)};
+          transform: translateY(7%);
+
           .br-desktop {
             display: inline-block;
           }
@@ -184,6 +254,14 @@ export const StyledFeesBusinessWrapper = styled.section`
             display: none;
           };
         `};
+        ${responsive.sm`
+          margin-bottom: ${rem(32)};
+        `}
+      }
+      button {
+        ${responsive.sm`
+          width: 100%;
+        `}
       }
     }
 
@@ -193,6 +271,11 @@ export const StyledFeesBusinessWrapper = styled.section`
       left: 0;
       z-index: 0;
       transform: translate(-50%, 50%);
+      ${responsive.sm`
+        left: auto;
+        right: 0;
+        transform: translate(50%, 50%);
+      `}
     }
   }
 
@@ -202,6 +285,7 @@ export const StyledFeesBusinessWrapper = styled.section`
     ${responsive.xl`
       display: none;
     `}
+
     &.tablet {
       display: none;
       ${responsive.xl`
@@ -210,13 +294,88 @@ export const StyledFeesBusinessWrapper = styled.section`
           display: none
         }
       `}
+      ${responsive.sm`
+        margin-bottom: ${rem(40)};
+      `}
     }
     .description {
       display: inline-block;
       color: rgba(81, 113, 133, 1);
+      ${responsive.sm`
+        padding: 0 ${rem(16)};
+      `}
       &:first-child {
         margin-bottom: ${rem(8)};
       }
+      &:nth-child(3) {
+        ${responsive.xl`
+            margin-bottom: ${rem(10)};
+          `}
+      }
+
+      &:nth-child(4) {
+        ${responsive.xl`
+            margin-bottom: ${rem(20)};
+          `}
+      }
+
+      .br-desktop {
+        ${responsive.xxl`
+          display: none;
+        `}
+      }
+      .br-1200 {
+        display: none;
+        ${responsive.xxl`
+          display: block;
+        `}
+        ${responsive.xl`
+          display: none;
+        `}
+      }
+
+      &.hide {
+        ${responsive.sm`
+          display: none;
+        `}
+      }
+
+      &.learnMore {
+        display: none;
+        position: relative;
+        margin-bottom: ${rem(4)};
+
+        ${responsive.sm`
+          display: block;
+        `}
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            360deg,
+            #fff 0%,
+            rgba(255, 255, 255, 0) 100%
+          );
+        }
+      }
+    }
+    .learnMoreButton {
+      display: none;
+
+      height: fit-content;
+      padding: 0 0 0 ${rem(16)};
+      color: #077453;
+      font-size: ${rem(14)};
+      font-weight: 700;
+      line-height: ${rem(18)};
+      ${urbanist.style};
+      ${responsive.sm`
+        display: block;
+      `}
     }
   }
 `

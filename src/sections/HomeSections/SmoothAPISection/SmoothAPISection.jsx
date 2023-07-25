@@ -28,7 +28,11 @@ const gridContent = [
   {
     id: 1,
     icon: <Icon2 className='icon' />,
-    title: 'Advanced anti-fraud features',
+    title: (
+      <>
+        Advanced anti-fraud <br /> features
+      </>
+    ),
     description:
       'Fraud-Proof Transactions: Benefit from our sophisticated security features.',
   },
@@ -70,7 +74,14 @@ export default function SmoothAPISection() {
             className='smoothAPIImageTablet'
           />
 
-          <StyledTypographyUrbanistH5 className='smoothAPIDescription'>
+          <StyledTypographyUrbanistH5 className='smoothAPIDescription desktop'>
+            Advanced onramp & offramp payment processing, scalability,
+            customization, and seamless integration. Streamline payment process
+            and spur growth with API integration. Experience boosted efficiency,
+            scalability, and heightened business growth.
+          </StyledTypographyUrbanistH5>
+
+          <StyledTypographyUrbanistH5 className='smoothAPIDescription tablet'>
             Advanced onramp & offramp payment processing, customization,
             scalability, and seamless integration. Streamline your payment
             process and spur growth with API integration. Experience boosted

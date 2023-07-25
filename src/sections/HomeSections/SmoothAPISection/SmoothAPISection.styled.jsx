@@ -8,8 +8,9 @@ export const StyledSmoothAPISection = styled.section`
   ${responsive.xl`
     padding: ${rem(120)} 0;
   `};
-  ${responsive.xs`
+  ${responsive.sm`
     padding: ${rem(96)} 0;
+    order: 5;
   `};
 
   .container {
@@ -19,7 +20,7 @@ export const StyledSmoothAPISection = styled.section`
     align-items: center;
     ${responsive.xxl`
       grid-template-columns: 1fr 1fr;
-      gap: ${rem(30)};
+      gap: ${rem(24)};
     `}
     ${responsive.xl`
       gap: 0;
@@ -58,8 +59,9 @@ export const StyledSmoothAPISection = styled.section`
           margin-bottom: ${rem(23)};
         `};
 
-        ${responsive.xs`
+        ${responsive.sm`
           margin-bottom: ${rem(18)};
+          background-color: rgba(244, 245, 250, 1);
         `};
       }
 
@@ -69,7 +71,7 @@ export const StyledSmoothAPISection = styled.section`
           text-align: center;
           margin-bottom: ${rem(40)};
         `};
-        ${responsive.xs`
+        ${responsive.sm`
           margin-bottom: ${rem(32)};
         `};
 
@@ -93,28 +95,52 @@ export const StyledSmoothAPISection = styled.section`
           height: ${rem(277.15)};
           margin: 0 auto ${rem(40)};
         `};
-        ${responsive.xs`
+        ${responsive.sm`
           max-width: 100%;
           margin-bottom: ${rem(32)};
+          height: fit-content;
         `};
       }
 
       .smoothAPIDescription {
         margin-bottom: ${rem(56)};
+        &.desktop {
+          ${responsive.xl`
+            display: none;
+          `}
+        }
+        &.tablet {
+          display: none;
+
+          ${responsive.xl`
+            display: block;
+          `}
+          ${responsive.sm`
+            display: none;
+          `}
+        }
+
         ${responsive.xxl`
           font-size: ${rem(18)};
           font-weight: 500;
           line-height: ${rem(26)};
         `}
 
-        ${responsive.xs`
+        ${responsive.xl`
+          font-size: 24px;
+          font-weight: 400;
+          line-height: 34px;
+          letter-spacing: 0em;
+        `}
+
+        ${responsive.sm`
           display: none;
         `};
       }
 
       .smoothAPIDescriptionMobile {
         display: none;
-        ${responsive.xs`
+        ${responsive.sm`
           display: block;
           margin-bottom: ${rem(40)};
           text-align: center;
@@ -125,15 +151,19 @@ export const StyledSmoothAPISection = styled.section`
 
       .smoothAPIGrid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 0.77fr 0.8fr;
         column-gap: ${rem(40)};
         row-gap: ${rem(40)};
         margin-bottom: ${rem(56)};
         ${responsive.xxl`
           column-gap: ${rem(24)};
-          row-gap: ${rem(30)};
+          row-gap: ${rem(40)};
         `}
-        ${responsive.xs`
+        ${responsive.xl`
+          column-gap: ${rem(34)};
+          row-gap: ${rem(40)};
+        `}
+        ${responsive.sm`
           grid-template-columns: 1fr;
           gap: ${rem(16)};
           margin-bottom: ${rem(48)};
@@ -143,7 +173,7 @@ export const StyledSmoothAPISection = styled.section`
         `};
 
         .smoothAPIGridItem {
-          ${responsive.xs`
+          ${responsive.sm`
             display: flex;
             align-items: center;
             gap: ${rem(12)};
@@ -151,7 +181,7 @@ export const StyledSmoothAPISection = styled.section`
 
           .check {
             display: none;
-            ${responsive.xs`
+            ${responsive.sm`
               display: block;
             `};
           }
@@ -160,7 +190,10 @@ export const StyledSmoothAPISection = styled.section`
             width: ${rem(48)};
             height: ${rem(48.002)};
             margin-bottom: ${rem(8)};
-            ${responsive.xs`
+            ${responsive.xxl`
+              margin-bottom: ${rem(4)};
+            `}
+            ${responsive.sm`
               display: none;
             `};
           }
@@ -169,18 +202,29 @@ export const StyledSmoothAPISection = styled.section`
             margin-bottom: ${rem(16)};
             font-weight: 700;
             ${responsive.xxl`
-              margin-bottom: ${rem(10)};
+              margin-bottom: ${rem(8)};
             `}
-            ${responsive.xs`
+            br {
+              display: none;
+            }
+            ${responsive.md`
+              br {
+                display: block;
+              }
+            `}
+            ${responsive.sm`
               font-weight: 400;
               margin-bottom: 0;
+              br {
+                display: none;
+              }
             `};
           }
 
           .smoothAPIGridItemDescription {
             color: #517185;
             font-weight: 500;
-            ${responsive.xs`
+            ${responsive.sm`
               display: none;
             `};
           }
@@ -191,20 +235,26 @@ export const StyledSmoothAPISection = styled.section`
         display: flex;
         align-items: center;
         gap: ${rem(16)};
-        ${responsive.xs`
+        ${responsive.sm`
           flex-direction: column;
           gap: ${rem(8)};
         `};
 
         .smoothAPIButtonGetStarted {
-          ${responsive.xs`
+          ${responsive.sm`
             width: 100%;
+            height: ${rem(48)};
+            svg {
+              width: ${rem(40)};
+              height: ${rem(40)};
+            }
           `};
         }
 
         .smoothAPIButtonGhost {
-          ${responsive.xs`
+          ${responsive.sm`
             width: 100%;
+            height: ${rem(48)};
           `};
         }
       }

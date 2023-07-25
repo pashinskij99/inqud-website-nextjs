@@ -8,16 +8,17 @@ export const YourNeedsSectionWrapper = styled.section`
   padding-bottom: ${rem(229)};
   overflow: hidden;
   ${responsive.xxl`
-    padding-top: ${rem(137)};
+    padding-top: ${rem(139)};
   `}
   ${responsive.xl`
     padding-top: ${rem(119)};
-    padding-bottom: ${rem(110)};
+    padding-bottom: ${rem(102)};
   `};
 
-  ${responsive.xs`
+  ${responsive.sm`
     padding-top: ${rem(95)};
-    padding-bottom: ${rem(55)};
+    padding-bottom: ${rem(129.67)};
+    order: 2;
   `};
 
   .title {
@@ -45,8 +46,8 @@ export const YourNeedsSectionWrapper = styled.section`
         display: block;
       }
     `};
-    ${responsive.xs`
-      margin-bottom: ${rem(15)};
+    ${responsive.sm`
+      margin-bottom: ${rem(32)};
       .br-mobile {
         display: block;
       }
@@ -76,16 +77,55 @@ export const YourNeedsSectionWrapper = styled.section`
       display: none;
     }
 
-    ${responsive.xs`
+    ${responsive.sm`
       margin-bottom: ${rem(40)};
       &.subTitle-desktop {
         display: none;
       }
 
       &.subTitle-mobile {
-        display: block;
+        display: none;
       }
     `};
+  }
+
+  .cart-requirements {
+    /* max-width: 100% !important; */
+    /* width: 100%; */
+    ${responsive.sm`
+      border-radius: 16px;
+      background: var(--confident-light-grey, #F4F5FA);
+      padding: ${rem(24)} ${rem(16)};
+    `}
+    .cartBody {
+      ${responsive.sm`
+        padding: 0;
+      `}
+      .cartTitle {
+        ${responsive.sm`
+          margin-bottom: ${rem(8)};
+        `}
+      }
+      .cartDescription {
+        ${responsive.sm`
+          margin-bottom: ${rem(16)};
+        `}
+      }
+      button {
+        ${responsive.sm`
+          height: fit-content;
+        `}
+      }
+    }
+    img {
+      ${responsive.xxl`
+        border-radius: 30px;
+        object-fit: cover;
+      `}
+      ${responsive.sm`
+        display: none;
+      `}
+    }
   }
 
   .listRequirements {
@@ -93,15 +133,24 @@ export const YourNeedsSectionWrapper = styled.section`
     grid-template-columns: repeat(3, 1fr);
     gap: ${rem(40)};
     ${responsive.xxl`
-      gap: ${rem(0)};
+      gap: ${rem(24)};
     `};
     ${responsive.xl`
       display: none;
     `};
 
+    .cart-requirements {
+      ${responsive.xxl`
+        max-width: 100%;
+      `};
+    }
+
     .cartBody {
       ${responsive.xxl`
         padding: ${rem(40)} ${rem(10)} 0;
+      `};
+      ${responsive.xl`
+        padding: ${rem(40)} 20px 0;
       `};
     }
 
@@ -121,6 +170,12 @@ export const YourNeedsSectionWrapper = styled.section`
     overflow: visible;
     display: none;
 
+    .swiper-slide {
+      ${responsive.sm`
+        // width: fit-content;
+      `}
+    }
+
     .listRequirementsSwiperScollbar {
       bottom: -${rem(46)};
       width: ${rem(200)};
@@ -129,9 +184,11 @@ export const YourNeedsSectionWrapper = styled.section`
       background: rgba(81, 113, 133, 0.2);
       opacity: 1 !important;
       height: ${rem(2)};
-
-      ${responsive.xs`
-        bottom: -${rem(36)};
+      ${responsive.xl`
+        bottom: -${rem(12)};
+      `};
+      ${responsive.sm`
+        bottom: -${rem(32)};
       `};
 
       .swiper-scrollbar-drag {
@@ -160,7 +217,7 @@ export const StyledCustomScrollbarWrapper = styled.div`
   right: 0;
   bottom: -${rem(46)};
   width: fit-content;
-  ${responsive.xs`
+  ${responsive.sm`
     bottom: -${rem(36)};
   `};
   .scrollBarLine {
@@ -173,4 +230,15 @@ export const StyledCustomScrollbarWrapper = styled.div`
     background-color: rgba(7, 116, 83, 1);
     height: 2px;
   }
+`
+
+export const StyledCoinsListWrapper = styled.div`
+  display: none;
+  column-gap: ${rem(16)};
+  justify-content: center;
+  margin-bottom: ${rem(32)};
+
+  ${responsive.sm`
+    display: flex;
+  `}
 `

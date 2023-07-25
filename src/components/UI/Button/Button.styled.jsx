@@ -96,7 +96,7 @@ export const StyledButtonGetStarted = styled.button`
     }
   }
 
-  ${responsive.xs`
+  ${responsive.sm`
     display: flex;
     justify-content: center;
     position: relative;
@@ -140,7 +140,7 @@ export const StyledButtonGetStartedLight = styled(StyledButtonGetStarted)`
     }
   }
 
-  ${responsive.xs`
+  ${responsive.sm`
     display: flex;
     justify-content: center;
     position: relative;
