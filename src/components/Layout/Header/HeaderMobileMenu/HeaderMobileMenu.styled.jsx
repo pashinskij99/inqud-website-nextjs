@@ -132,18 +132,19 @@ export const StyledHeaderMobileMenuAccordion = styled((props) => (
   '.css-1jfjrob-MuiButtonBase-root-MuiAccordionSummary-root': {
     minHeight: 'auto',
   },
-  '.css-yw020d-MuiAccordionSummary-expandIconWrapper': {
-    position: 'absolute',
-    right: '10px',
-    top: 0,
-    bottom: 0,
-    margin: 'auto 0',
-    height: 'fit-content',
-    svg: {
-      width: '14px',
-      height: '16px',
+  '.css-yw020d-MuiAccordionSummary-expandIconWrapper, .MuiAccordionSummary-expandIconWrapper.css-1fx8m19':
+    {
+      position: 'absolute',
+      right: '10px',
+      top: 0,
+      bottom: 0,
+      margin: 'auto 0',
+      height: 'fit-content',
+      svg: {
+        width: '14px',
+        height: '16px',
+      },
     },
-  },
 }))
 
 export const StyledHeaderMobileMenuAccordionSummary = styled((props) => (
