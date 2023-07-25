@@ -77,10 +77,12 @@ export default function BlogsSection() {
             0: {
               slidesPerView: 1,
               spaceBetween: 8,
-              initialSlide: 1,
+              initialSlide: 0,
+              loop: true,
               centeredSlides: true,
             },
             500: {
+              loop: false,
               slidesPerView: 'auto',
               initialSlide: 0,
               spaceBetween: 24,

@@ -255,7 +255,8 @@ function IndustriesTab() {
         slidesPerView={1}
         centeredSlides
         spaceBetween={8}
-        initialSlide='1'
+        initialSlide='0'
+        loop
         height={500}
         scrollbar={{
           dragSize: 200 / 3,
