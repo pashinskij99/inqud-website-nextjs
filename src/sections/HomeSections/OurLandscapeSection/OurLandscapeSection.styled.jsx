@@ -157,9 +157,9 @@ export const StyledCoverageWrapper = styled.div`
       row-gap: ${rem(16.5)};
       flex-wrap: wrap;
     `};
-    ${responsive.xs`
-      justify-content: space-between;
-      column-gap: ${rem(0)};
+    ${responsive.sm`
+      justify-content: normal;
+      column-gap: ${rem(32)};
     `}
     li {
       display: flex;
@@ -229,14 +229,24 @@ export const StyledCoverageWrapper = styled.div`
         .name {
           color: rgba(31, 40, 53, 1);
           font-weight: 700;
+          ${responsive.sm`
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 26px;
+          `}
         }
 
         .description {
           white-space: nowrap;
           color: rgba(81, 113, 133, 1);
           ${responsive.xl`
-              white-space: nowrap;
-            `}
+            white-space: nowrap;
+          `}
+          ${responsive.sm`
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+          `}
         }
       }
     }
