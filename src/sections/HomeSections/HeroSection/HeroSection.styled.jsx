@@ -14,7 +14,7 @@ export const StyledHeroSectionWrapper = styled.section`
     padding-bottom: 0;
   `}
   ${responsive.sm`
-    padding-top: ${rem(32)};
+    padding-top: ${rem(18)};
     text-align: center;
     order: 1;
   `}
@@ -60,6 +60,7 @@ export const StyledHeroSectionWrapper = styled.section`
           font-weight: 700;
           margin-bottom: ${rem(8)};
           line-height: ${rem(46)};
+          letter-spacing: .2px;
         `};
       }
 
@@ -76,9 +77,8 @@ export const StyledHeroSectionWrapper = styled.section`
         `}
         ${responsive.sm`
           font-size: ${rem(18)};
-          line-height: ${rem(26)};
+          line-height: ${rem(25.7)};
           margin-bottom: ${rem(32)};
-
         `};
       }
 
@@ -99,7 +99,8 @@ export const StyledHeroSectionWrapper = styled.section`
         ${responsive.sm`
           grid-template-columns: 1fr 1fr;
           margin: 0 auto ${rem(40)};
-          row-gap: ${rem(14)};
+          row-gap: ${rem(12)};
+          column-gap: ${rem(14)};
         `};
 
         li {
@@ -118,6 +119,7 @@ export const StyledHeroSectionWrapper = styled.section`
             `};
           }
           ${responsive.sm`
+            gap: ${rem(3)};
             &:nth-child(1) {
               order: 1;
             }
@@ -190,6 +192,7 @@ export const StyledHeroSectionWrapper = styled.section`
           `}
           ${responsive.sm`
             text-align: start;
+            margin-bottom: ${rem(16)};
           `};
         }
 
@@ -203,6 +206,10 @@ export const StyledHeroSectionWrapper = styled.section`
 
           ${responsive.xxl`
             gap: ${rem(33)};
+          `}
+
+          ${responsive.sm`
+            gap: ${rem(25)};
           `}
 
           &::-webkit-scrollbar {
@@ -263,6 +270,9 @@ export const StyledHeroSectionWrapper = styled.section`
 
             h5 {
               color: rgba(129, 158, 176, 0.8);
+              ${responsive.sm`
+                font-size: 24px;
+              `}
             }
           }
         }

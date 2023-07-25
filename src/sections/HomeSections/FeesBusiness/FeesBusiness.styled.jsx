@@ -15,7 +15,8 @@ export const StyledFeesBusinessWrapper = styled.section`
   h1 {
     margin-bottom: ${rem(8)};
     ${responsive.sm`
-      padding: 0 ${rem(16)};
+      padding: 0 ${rem(20)};
+      letter-spacing: 0.7px;
     `}
     span {
       display: contents;
@@ -31,9 +32,9 @@ export const StyledFeesBusinessWrapper = styled.section`
       margin-bottom: ${rem(40)};
     `}
     ${responsive.sm`
-      margin-bottom: ${rem(18.33)};
+      margin-bottom: ${rem(19)};
       line-height: ${rem(26)};
-      padding: 0 ${rem(16)};
+      padding: 0 ${rem(20)};
     `}
 
     .br-desktop {
@@ -77,6 +78,7 @@ export const StyledFeesBusinessWrapper = styled.section`
     position: relative;
     max-width: ${rem(560)};
     width: 100%;
+    border-collapse: collapse;
     ${responsive.xxl`
       max-width: 100%;
     `}
@@ -84,7 +86,7 @@ export const StyledFeesBusinessWrapper = styled.section`
       max-width: 100%;
     `}
     ${responsive.sm`
-      margin-bottom: ${rem(24)};
+      margin-bottom: ${rem(26)};
     `}
     &,
     th,
@@ -100,7 +102,7 @@ export const StyledFeesBusinessWrapper = styled.section`
           &:first-child {
             padding-left: ${rem(32)};
             ${responsive.sm`
-              padding-left: ${rem(16)};
+              padding-left: ${rem(20)};
             `}
           }
           p {
@@ -112,7 +114,7 @@ export const StyledFeesBusinessWrapper = styled.section`
             text-align: end;
             padding-right: ${rem(32)};
             ${responsive.sm`
-              padding-right: ${rem(16)};
+              padding-right: ${rem(20)};
             `}
             p {
               width: 100%;
@@ -125,34 +127,27 @@ export const StyledFeesBusinessWrapper = styled.section`
       &:before {
         content: '@';
         display: block;
-        line-height: ${rem(3)};
+        line-height: ${rem(7)};
         text-indent: -99999px;
       }
       tr {
-        position: relative;
         &:nth-child(odd) {
-          &::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 16px;
-            background: rgba(244, 245, 250, 1);
-            z-index: -1;
-            ${responsive.sm`
-              border-radius: 0;
-            `}
-          }
+          border-radius: 16px;
+          background: rgba(244, 245, 250, 1);
+          ${responsive.sm`
+            border-radius: 0;
+          `}
         }
 
         td {
-          height: ${rem(55)};
+          height: ${rem(56)};
+          ${responsive.sm`
+            height: ${rem(56)};
+          `}
           &:first-child {
             padding-left: ${rem(32)};
             ${responsive.sm`
-              padding-left: ${rem(16)};
+              padding-left: ${rem(20)};
             `}
             p {
               font-weight: 700;
@@ -162,7 +157,7 @@ export const StyledFeesBusinessWrapper = styled.section`
             text-align: end;
             padding-right: ${rem(32)};
             ${responsive.sm`
-              padding-right: ${rem(16)};
+              padding-right: ${rem(20)};
             `}
           }
         }
@@ -193,7 +188,7 @@ export const StyledFeesBusinessWrapper = styled.section`
     ${responsive.sm`
       padding: ${rem(40)} ${rem(16)};
       flex-direction: column;
-      row-gap: ${rem(16)};
+      row-gap: ${rem(11)};
       border-radius: 0;
     `}
     .cart-left-side {
@@ -219,6 +214,12 @@ export const StyledFeesBusinessWrapper = styled.section`
           .br-1200 {
             display: none;
           }
+        `}
+        ${responsive.sm`
+          font-size: 32px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 42px;
         `}
       }
     }
@@ -255,7 +256,7 @@ export const StyledFeesBusinessWrapper = styled.section`
           };
         `};
         ${responsive.sm`
-          margin-bottom: ${rem(32)};
+          margin-bottom: ${rem(36)};
         `}
       }
       button {

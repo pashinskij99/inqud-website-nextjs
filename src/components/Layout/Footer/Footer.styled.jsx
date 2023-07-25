@@ -59,6 +59,9 @@ export const StyledFooter = styled.footer`
       }
 
       .footerSubscribeSectionButton {
+        ${responsive.sm`
+          height: 48px;
+        `}
       }
     }
 

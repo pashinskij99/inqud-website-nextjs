@@ -48,6 +48,7 @@ export const YourNeedsSectionWrapper = styled.section`
     `};
     ${responsive.sm`
       margin-bottom: ${rem(32)};
+      letter-spacing: 0.2px;
       .br-mobile {
         display: block;
       }
@@ -95,7 +96,7 @@ export const YourNeedsSectionWrapper = styled.section`
     ${responsive.sm`
       border-radius: 16px;
       background: var(--confident-light-grey, #F4F5FA);
-      padding: ${rem(24)} ${rem(16)};
+      padding: ${rem(24)} ${rem(26)};
     `}
     .cartBody {
       ${responsive.sm`
@@ -104,6 +105,9 @@ export const YourNeedsSectionWrapper = styled.section`
       .cartTitle {
         ${responsive.sm`
           margin-bottom: ${rem(8)};
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 34px;
         `}
       }
       .cartDescription {
@@ -240,5 +244,6 @@ export const StyledCoinsListWrapper = styled.div`
 
   ${responsive.sm`
     display: flex;
+    column-gap: ${rem(15)};
   `}
 `

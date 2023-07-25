@@ -55,7 +55,7 @@ const GlobalStyle = createGlobalStyle`
       padding: 0 ${rem(40)};
     }
     @media (max-width: 767px) {
-      padding: 0 ${rem(15.58)};
+      padding: 0 ${rem(26)};
     }
   }
 
@@ -74,7 +74,7 @@ const GlobalStyle = createGlobalStyle`
       padding: 0 ${rem(40)};
     }
     @media (max-width: 767px) {
-      padding: 0 ${rem(16)};
+      padding: 0 ${rem(20)};
     }
   }
 

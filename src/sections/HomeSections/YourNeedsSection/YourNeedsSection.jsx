@@ -201,11 +201,11 @@ export default function YourNeedsSection() {
 // }
 
 const coinsList = [
+  { id: 3, icon: <Coins4 /> },
+  { id: 4, icon: <Coins5 /> },
   { id: 0, icon: <Coins1 /> },
   { id: 1, icon: <Coins2 /> },
   { id: 2, icon: <Coins3 /> },
-  { id: 3, icon: <Coins4 /> },
-  { id: 4, icon: <Coins5 /> },
 ]
 
 function CoinsList() {

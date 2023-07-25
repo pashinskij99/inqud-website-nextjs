@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { urbanist } from '@/utils/font'
 import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledInputTextWrapper = styled.div`
   .inputTextLabel {
@@ -35,7 +36,9 @@ export const StyledInputTextWrapper = styled.div`
       ${urbanist.style}
 
       background-color: transparent;
-
+      ${responsive.sm`
+        padding: 0 ${rem(32)} 0 ${rem(24)};
+      `}
       &::placeholder {
         color: rgba(81, 113, 133, 0.6000000238418579);
         opacity: 1;
@@ -95,7 +98,7 @@ export const StyledInputSearchWrapper = styled.div`
 
     ${urbanist.style}
     &::placeholder {
-      color: rgba(81, 113, 133, 1);
+      color: rgba(81, 113, 133, 0.6000000238418579);
       opacity: 1;
     }
 

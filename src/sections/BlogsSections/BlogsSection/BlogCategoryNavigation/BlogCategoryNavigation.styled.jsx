@@ -1,12 +1,12 @@
-import styled from '@emotion/styled';
-import {rem} from '@/utils/rem';
+import styled from '@emotion/styled'
+import { rem } from '@/utils/rem'
 
 export const StyledBlogCategoryNavigationWrapper = styled.div`
   background-color: rgba(239, 242, 245, 1);
   position: relative;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -45,7 +45,7 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
     }
 
     &::after {
-      content: "";
+      content: '';
       display: block;
       width: ${(props) => props.width};
       height: 100%;
@@ -57,7 +57,7 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
 
       button {
         border-radius: ${rem(50)};
-        background: #FFF;
+        background: #fff;
         height: ${rem(34)};
         display: flex;
         justify-content: center;
@@ -73,7 +73,6 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
         }
       }
 
-
       &.active {
         position: sticky;
         left: 0;
@@ -83,15 +82,15 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
           background: rgba(191, 255, 200, 1);
 
           &::before {
-            content: "";
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            width: calc(100% + ${rem(8)});
             height: 100%;
             background-color: rgba(239, 242, 245, 1);
             z-index: -1;
-            border-radius: 0 ${rem(50)} ${rem(50)} 0;
+            /* border-radius: 0 ${rem(50)} ${rem(50)} 0; */
           }
         }
 

@@ -84,6 +84,9 @@ export const StyledHeaderWrapper = styled.header`
         p {
           color: var(--independent-grey, #517185);
           font-weight: 400;
+          ${responsive.sm`
+            font-size: 14px;
+          `};
         }
       }
 
@@ -95,6 +98,7 @@ export const StyledHeaderWrapper = styled.header`
         padding: 0 ${rem(14)};
         ${responsive.sm`
           height: ${rem(32)}!important;
+          font-size: 14px;
         `};
       }
     }

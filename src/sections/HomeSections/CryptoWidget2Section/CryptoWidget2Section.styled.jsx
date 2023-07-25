@@ -70,6 +70,7 @@ export const StyledCryptoWidget2Section = styled.section`
         `};
         ${responsive.sm`
           margin-bottom: ${rem(22)};
+          letter-spacing: 0.4px;
         `};
       }
 
@@ -87,9 +88,10 @@ export const StyledCryptoWidget2Section = styled.section`
           width: ${rem(400)};
           height: ${rem(400)};
         `};
-        ${responsive.sm`
+        ${responsive.xs`
           width: ${rem(233.001)};
           height: ${rem(233)};
+          margin: 0 auto ${rem(25)};
         `};
       }
 
@@ -156,6 +158,18 @@ export const StyledCryptoWidget2Section = styled.section`
             display: flex;
             align-items: center;
             gap: ${rem(12)};
+            &:nth-child(1) {
+              order: 1;
+            }
+            &:nth-child(2) {
+              order: 4;
+            }
+            &:nth-child(3) {
+              order: 2;
+            }
+            &:nth-child(4) {
+              order: 3;
+            }
           `};
 
           .check {
@@ -309,6 +323,7 @@ export const StyledCryptoWidget2Section = styled.section`
           order: 3;
           white-space: nowrap;
           ${responsive.sm`
+            height: ${rem(48)};
             width: 100%;
           `};
         }

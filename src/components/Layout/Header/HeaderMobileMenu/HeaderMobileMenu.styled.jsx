@@ -114,6 +114,8 @@ export const StyledHeaderMobileMenu = styled.div`
 export const StyledHeaderMobileMenuAccordion = styled((props) => (
   <Accordion disableGutters elevation={0} square {...props} />
 ))(() => ({
+  width: 'fit-content',
+  margin: '0 auto',
   borderRadius: rem(16),
   borderBottom: 'none',
   overflow: 'hidden',
@@ -126,6 +128,21 @@ export const StyledHeaderMobileMenuAccordion = styled((props) => (
   },
   '& .css-1uh3lx7-MuiAccordionDetails-root': {
     border: 'none',
+  },
+  '.css-1jfjrob-MuiButtonBase-root-MuiAccordionSummary-root': {
+    minHeight: 'auto',
+  },
+  '.css-yw020d-MuiAccordionSummary-expandIconWrapper': {
+    position: 'absolute',
+    right: '10px',
+    top: 0,
+    bottom: 0,
+    margin: 'auto 0',
+    height: 'fit-content',
+    svg: {
+      width: '14px',
+      height: '16px',
+    },
   },
 }))
 

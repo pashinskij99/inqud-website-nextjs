@@ -23,6 +23,7 @@ import Icon3 from '@/assets/images/our-landscape/3.svg'
 import Coverage1 from '@/assets/images/our-landscape/coverage1.svg'
 import Coverage2 from '@/assets/images/our-landscape/coverage2.svg'
 import Coverage3 from '@/assets/images/our-landscape/coverage3.svg'
+import Coverage5 from '@/assets/images/our-landscape/coverage5.svg'
 // import Coverage4 from '@/assets/images/our-landscape/coverage4.svg'
 import Map from '@/assets/images/our-landscape/map.svg'
 
@@ -152,7 +153,12 @@ const coverageList = [
     id: 1,
     name: 'European',
     description: 'license coverage',
-    icon: <Coverage2 className='coverage2' />,
+    icon: (
+      <>
+        <Coverage2 className='coverage2 desktop' />
+        <Coverage5 className='coverage5 mobile' />
+      </>
+    ),
   },
   {
     id: 2,
@@ -198,7 +204,7 @@ function CoverageTab() {
         <Map className='map' />
       </div>
 
-      <ul className='list mobile'>
+      {/* <ul className='list mobile'>
         {coverageList.map(({ id, description, icon, name }) => (
           <li key={id}>
             <div className='coverageWrapper'>{icon}</div>
@@ -212,7 +218,7 @@ function CoverageTab() {
             </div>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </StyledCoverageWrapper>
   )
 }
@@ -246,9 +252,9 @@ function IndustriesTab() {
 
       <Swiper
         className='ourLandscapeSwiper'
-        slidesPerView={1.1}
+        slidesPerView={1}
         centeredSlides
-        spaceBetween={10}
+        spaceBetween={8}
         initialSlide='1'
         height={500}
         scrollbar={{

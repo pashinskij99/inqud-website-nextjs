@@ -18,7 +18,7 @@ export const StyledBreadcrumbs = styled(Breadcrumbs)`
     color: rgba(45, 52, 57, 1);
   }
 
-  .css-4pdmu4-MuiBreadcrumbs-ol {
+  ol {
     li {
       font-size: ${rem(14)};
       color: rgba(45, 52, 57, 1);

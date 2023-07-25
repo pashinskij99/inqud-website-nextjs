@@ -115,8 +115,11 @@ export default function PickSection({ variant, className }) {
           Pick a time that works <br /> best for you
         </StyledTypographyUrbanistBody>
 
-        <StyledButtonSecondaryLight className='pickPickButton'>
+        <StyledButtonSecondaryLight className='pickPickButton desktop'>
           Book a free consultation
+        </StyledButtonSecondaryLight>
+        <StyledButtonSecondaryLight className='pickPickButton mobile'>
+          Book a consultation
         </StyledButtonSecondaryLight>
         {variant !== 'dontLose' && (
           <StyledButtonSecondaryLight className='pickPickButtonTablet'>

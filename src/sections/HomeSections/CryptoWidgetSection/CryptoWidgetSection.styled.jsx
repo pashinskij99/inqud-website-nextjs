@@ -65,7 +65,7 @@ export const StyledCryptoWidgetSection = styled.section`
         padding: ${rem(5)} ${rem(16)};
       `};
       ${responsive.sm`
-        margin: 0 auto ${rem(16)};
+        margin: 0 auto ${rem(18)};
         &.cryptoSubTitle-desktop {
           display: none;
         }
@@ -82,6 +82,9 @@ export const StyledCryptoWidgetSection = styled.section`
       margin-bottom: ${rem(24)};
       ${responsive.xl`
         text-align: center;
+      `};
+      ${responsive.sm`
+        letter-spacing: 0.3px;
       `};
     }
 
@@ -174,10 +177,24 @@ export const StyledCryptoWidgetSection = styled.section`
 
       .cryptoGridItem {
         position: relative;
+
         ${responsive.sm`
           display: flex;
           align-items: center;
           gap: ${rem(12)};
+
+          &:nth-child(1) {
+            order: 1;
+          }
+          &:nth-child(2) {
+            order: 3;
+          }
+          &:nth-child(3) {
+            order: 2;
+          }
+          &:nth-child(4) {
+            order: 4;
+          }
         `};
 
         .icon-wrapper {

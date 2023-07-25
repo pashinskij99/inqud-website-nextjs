@@ -1,8 +1,9 @@
 'use client'
 
-import {useState} from 'react'
+import { useState } from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
+import Arrow from '@/assets/icons/arrow-down.svg'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH5,
@@ -13,42 +14,42 @@ import {
   StyledHeaderMobileMenuAccordionDetails,
   StyledHeaderMobileMenuAccordionSummary,
 } from './HeaderMobileMenu.styled'
-import {ButtonGetStarted} from '@/components/UI/Button'
-import {StyledButtonGhost} from '@/components/UI/Button/Button.styled'
+import { ButtonGetStarted } from '@/components/UI/Button'
+import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 
 const navList = [
-  {id: 0, name: 'Company'},
-  {id: 1, name: 'Insights'},
-  {id: 2, name: 'Help centre'},
+  { id: 0, name: 'Company' },
+  { id: 1, name: 'Insights' },
+  { id: 2, name: 'Help centre' },
 ]
 
 const dropdownList = [
   {
     id: 0,
     items: [
-      {id: 0, name: 'Business'},
-      {id: 1, name: 'Crypto widget'},
-      {id: 2, name: 'API'},
-      {id: 3, name: 'Card 2 crypto'},
-      {id: 4, name: 'Crypto exchange'},
-      {id: 5, name: 'Recurring payments'},
-      {id: 6, name: 'Accept crypto'},
+      { id: 0, name: 'Business' },
+      { id: 1, name: 'Crypto widget' },
+      { id: 2, name: 'API' },
+      { id: 3, name: 'Card 2 crypto' },
+      { id: 4, name: 'Crypto exchange' },
+      { id: 5, name: 'Recurring payments' },
+      { id: 6, name: 'Accept crypto' },
     ],
   },
   {
     id: 1,
     items: [
-      {id: 0, name: 'Personal '},
-      {id: 1, name: 'Wallet'},
-      {id: 2, name: 'Exchange'},
-      {id: 3, name: 'Transfer money'},
-      {id: 4, name: 'Buy crypto with card'},
-      {id: 5, name: 'Pink market'},
+      { id: 0, name: 'Personal ' },
+      { id: 1, name: 'Wallet' },
+      { id: 2, name: 'Exchange' },
+      { id: 3, name: 'Transfer money' },
+      { id: 4, name: 'Buy crypto with card' },
+      { id: 5, name: 'Pink market' },
     ],
   },
 ]
 
-export default function HeaderMobileMenu({active}) {
+export default function HeaderMobileMenu({ active }) {
   const [expanded, setExpanded] = useState('')
 
   const handleChange = (panel) => (event, newExpanded) => {
@@ -62,29 +63,28 @@ export default function HeaderMobileMenu({active}) {
         ['hide']: !active,
       })}
     >
-      <div className="container">
-        <div className="headerMobileMenuNav">
+      <div className='container'>
+        <div className='headerMobileMenuNav'>
           <div>
             <AccordionComponent
-              title="Products"
+              title='Products'
               handleChange={handleChange}
               expanded={expanded}
             />
           </div>
 
-
-          {navList.map(({id, name}) => (
+          {navList.map(({ id, name }) => (
             <StyledTypographyUrbanistH5
               key={id}
-              className="headerMobileMenuNavTitle"
+              className='headerMobileMenuNavTitle'
             >
               {name}
             </StyledTypographyUrbanistH5>
           ))}
         </div>
 
-        <div className="headerMobileMenuButtons">
-          <Link target="_blank" href="https://cabinet.inqud.com/#/signup">
+        <div className='headerMobileMenuButtons'>
+          <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
             <ButtonGetStarted>Get started</ButtonGetStarted>
           </Link>
           <StyledButtonGhost>Log in</StyledButtonGhost>
@@ -94,24 +94,27 @@ export default function HeaderMobileMenu({active}) {
   )
 }
 
-function AccordionComponent({title, expanded, handleChange}) {
+function AccordionComponent({ title, expanded, handleChange }) {
   return (
     <StyledHeaderMobileMenuAccordion
       expanded={expanded === title}
       onChange={handleChange(title)}
     >
-      <StyledHeaderMobileMenuAccordionSummary expanded={expanded === title}>
-        <StyledTypographyUrbanistH5 className="headerMobileMenuAccordionTitle">
+      <StyledHeaderMobileMenuAccordionSummary
+        expanded={expanded === title}
+        expandIcon={<Arrow />}
+      >
+        <StyledTypographyUrbanistH5 className='headerMobileMenuAccordionTitle'>
           {title}
         </StyledTypographyUrbanistH5>
       </StyledHeaderMobileMenuAccordionSummary>
       <StyledHeaderMobileMenuAccordionDetails expanded={expanded === title}>
-        {dropdownList.map(({id, items}) => (
-          <ul className="headerMobileMenuAccordionBodyList" key={id}>
-            {items.map(({id: itemId, name}) => (
+        {dropdownList.map(({ id, items }) => (
+          <ul className='headerMobileMenuAccordionBodyList' key={id}>
+            {items.map(({ id: itemId, name }) => (
               <StyledTypographyUrbanistBody
                 key={itemId}
-                className="headerMobileMenuAccordionBodyText"
+                className='headerMobileMenuAccordionBodyText'
               >
                 {name}
               </StyledTypographyUrbanistBody>

@@ -18,6 +18,7 @@ export const StyledReasonsToTeamUp = styled.section`
   .reasonsToTeamUpTitle {
     margin-bottom: ${rem(24)};
     ${responsive.sm`
+      letter-spacing: 0.2px;
       margin-bottom: ${rem(15)};
     `};
   }
@@ -68,6 +69,25 @@ export const StyledReasonsToTeamUp = styled.section`
         display: flex;
         align-items: center;
         gap: ${rem(24)};
+
+        &:nth-child(1) {
+          order: 1;
+        }
+        &:nth-child(2) {
+          order: 2;
+        }
+        &:nth-child(3) {
+          order: 3;
+        }
+        &:nth-child(4) {
+          order: 6;
+        }
+        &:nth-child(5) {
+          order: 6;
+        }
+        &:nth-child(6) {
+          order: 5;
+        }
       `};
 
       svg {

@@ -60,7 +60,7 @@ export const StyledSmoothAPISection = styled.section`
         `};
 
         ${responsive.sm`
-          margin-bottom: ${rem(18)};
+          margin-bottom: ${rem(17)};
           background-color: rgba(244, 245, 250, 1);
         `};
       }
@@ -73,6 +73,7 @@ export const StyledSmoothAPISection = styled.section`
         `};
         ${responsive.sm`
           margin-bottom: ${rem(32)};
+          letter-spacing: 0.3px;
         `};
 
         .br-1200 {
@@ -97,7 +98,7 @@ export const StyledSmoothAPISection = styled.section`
         `};
         ${responsive.sm`
           max-width: 100%;
-          margin-bottom: ${rem(32)};
+          margin-bottom: ${rem(28)};
           height: fit-content;
         `};
       }
@@ -177,6 +178,19 @@ export const StyledSmoothAPISection = styled.section`
             display: flex;
             align-items: center;
             gap: ${rem(12)};
+
+            &:nth-child(1) {
+              order: 1;
+            }
+            &:nth-child(2) {
+              order: 3;
+            }
+            &:nth-child(3) {
+              order: 2;
+            }
+            &:nth-child(4) {
+              order: 4;
+            }
           `};
 
           .check {

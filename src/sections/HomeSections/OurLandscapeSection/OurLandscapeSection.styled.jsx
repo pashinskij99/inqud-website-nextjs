@@ -150,34 +150,27 @@ export const StyledCoverageWrapper = styled.div`
     display: flex;
     column-gap: ${rem(63)};
 
-    &.desktop {
-      ${responsive.sm`
-        display: none;
-      `}
-    }
-    &.mobile {
-      display: none;
-      ${responsive.sm`
-        display: flex;
-      `}
-    }
     ${responsive.xxl`
-        column-gap: ${rem(34)};
-      `}
+      column-gap: ${rem(34)};
+    `}
     ${responsive.lg`
-        row-gap: ${rem(16.5)};
-        flex-wrap: wrap;
-      `};
+      row-gap: ${rem(16.5)};
+      flex-wrap: wrap;
+    `};
+    ${responsive.xs`
+      justify-content: space-between;
+      column-gap: ${rem(0)};
+    `}
     li {
       display: flex;
       align-items: center;
       border-radius: 30px;
       ${responsive.sm`
-        width: 100%;
+        // width: 100%;
         text-align: start;
-        padding: ${rem(15)} ${rem(26.2)} ${rem(14)} ${rem(26.2)};
-        border-radius: 30px;
-        background: var(--confident-light-grey, #F4F5FA);
+        // padding: ${rem(15)} ${rem(26.2)} ${rem(14)} ${rem(26.2)};
+        // border-radius: 30px;
+        // background: var(--confident-light-grey, #F4F5FA);
       `};
 
       .coverageWrapper {
@@ -188,10 +181,25 @@ export const StyledCoverageWrapper = styled.div`
         align-items: center;
         margin-right: ${rem(22.77)};
         flex: 0 0 auto;
+        ${responsive.sm`
+          margin-right: ${rem(14)};
+        `}
       }
 
       svg {
         flex: 0 0 auto;
+
+        &.desktop {
+          ${responsive.sm`
+            display: none;
+          `}
+        }
+        &.mobile {
+          display: none;
+          ${responsive.sm`
+            display: block;
+          `}
+        }
       }
 
       .coverage1 {
@@ -212,6 +220,9 @@ export const StyledCoverageWrapper = styled.div`
       .coverage4 {
         width: ${rem(24.96)};
         height: ${rem(32.058)};
+      }
+
+      .coverage5 {
       }
 
       .descriptionWrapper {
@@ -353,7 +364,7 @@ export const StyledIndustriesWrapper = styled.div`
       }
 
       ${responsive.sm`
-          bottom: -${rem(39)};
+          bottom: -${rem(35)};
         `};
     }
 

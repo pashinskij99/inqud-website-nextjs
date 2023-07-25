@@ -11,7 +11,7 @@ export const StyledQuestionsSection = styled.section`
   `};
   ${responsive.sm`
     order: 13;
-    padding: ${rem(117)} 0 ${rem(98)};
+    padding: ${rem(117)} 0 ${rem(93)};
   `};
 
   .questionsTitle {
@@ -77,7 +77,7 @@ export const StyledQuestionsSection = styled.section`
     `};
     ${responsive.sm`
       position: relative;
-      flex-direction: column;
+      // flex-direction: column;
       align-items: start;
       font-weight: 400;
       line-height: 26px;
@@ -89,30 +89,44 @@ export const StyledQuestionsSection = styled.section`
       height: fit-content;
       padding-right: 0;
       gap: 12px;
+      border-radius: 0;
+      &.desktop {
+        ${responsive.sm`
+          display: none;
+        `}
+      }
+      &.mobile {
+        display: none;
+
+        ${responsive.sm`
+          display: flex;
+        `}
+      }
       ${responsive.sm`
         position: static;
         padding: 0;
+        gap: 6px;
       `};
       p {
         ${responsive.sm`
           font-size: 18px;
           font-style: normal;
-          font-weight: 400;
           line-height: 26px;
-          color: rgba(45, 52, 57, 1);
+          font-weight: 700;
+          // color: rgba(45, 52, 57, 1);
         `}
       }
       svg {
         width: ${rem(24)};
         height: ${rem(24)};
         ${responsive.sm`
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          margin: auto 0;
-          right: ${rem(16)};
+          position: static;
+          // top: 0;
+          // bottom: 0;
+          // margin: auto 0;
+          // right: ${rem(16)};
         `};
-        circle {
+        /* circle {
           ${responsive.sm`
             fill: #517185;
           `};
@@ -121,7 +135,7 @@ export const StyledQuestionsSection = styled.section`
           ${responsive.sm`
             fill: white;
           `};
-        }
+        } */
       }
     }
   }
@@ -175,7 +189,7 @@ export const StyledQuestionsSectionAccordionSummary = styled((props) => (
     },
   },
   '@media (max-width: 767px)': {
-    padding: `${rem(16)} ${rem(16)} ${rem(10)} ${rem(16)}`,
+    padding: `${rem(16)}`,
   },
   svg: {
     '@media (max-width: 767px)': {
