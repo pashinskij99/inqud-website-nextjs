@@ -1,5 +1,6 @@
 import { Fragment, useState } from 'react'
 import clsx from 'clsx'
+import { DialogContent } from '@mui/material'
 import {
   StyledFeeModalWrapper,
   StyledModalSendRequestWrapper,
@@ -246,57 +247,112 @@ export function FeeModal({ open, handleClose }) {
   ]
 
   return (
-    <StyledFeeModalWrapper open={open} onClose={handleClose}>
-      <div className='modalContainer'>
-        <button className='closeButton' onClick={handleClose}>
-          <Close />
-        </button>
-        <div className='header'>
-          <StyledTypographyUrbanistH4>
-            Please provide the details for preparing a special offer
-          </StyledTypographyUrbanistH4>
-        </div>
-        <div className='body'>
-          <div className='input-wrapper'>
-            {feeInputs.map(({ ...args }) => (
-              <Fragment key={args.id}>{getInput({ ...args })}</Fragment>
-            ))}
-          </div>
-
-          <StyledTypographyUrbanistBody className='description'>
-            Share your preferred communication method for a better experience.
-          </StyledTypographyUrbanistBody>
-
-          <div className='tabs'>
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => handleTab(tab)}
-                className={clsx({
-                  ['active']: activeTab === tab,
-                })}
-              >
-                <StyledTypographyUrbanistBody>
-                  {tab}
-                </StyledTypographyUrbanistBody>
-              </button>
-            ))}
-          </div>
-          <div className='tab-content'>{getTabContent(activeTab)}</div>
-        </div>
-        <div className='footer'>
-          <button className='submit-btn'>
-            <StyledTypographyUrbanistBody>
-              Get a special offer
-            </StyledTypographyUrbanistBody>
+    <StyledFeeModalWrapper scroll='body' open={open} onClose={handleClose}>
+      <DialogContent>
+        {/* <DialogContentText tabIndex={-1}> */}
+        <div className='modalContainer'>
+          <button className='closeButton' onClick={handleClose}>
+            <Close />
           </button>
+          <div className='header'>
+            <StyledTypographyUrbanistH4>
+              Please provide the details for preparing a special offer
+            </StyledTypographyUrbanistH4>
+          </div>
+          <div className='body'>
+            <div className='input-wrapper'>
+              {feeInputs.map(({ ...args }) => (
+                <Fragment key={args.id}>{getInput({ ...args })}</Fragment>
+              ))}
+            </div>
 
-          <StyledTypographyUrbanistSmallSpaces className='description'>
-            by submitting this form, you contirm that you agree to the storing
-            and processing of your personal data
-          </StyledTypographyUrbanistSmallSpaces>
+            <StyledTypographyUrbanistBody className='description'>
+              Share your preferred communication method for a better experience.
+            </StyledTypographyUrbanistBody>
+
+            <div className='tabs'>
+              {tabs.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => handleTab(tab)}
+                  className={clsx({
+                    ['active']: activeTab === tab,
+                  })}
+                >
+                  <StyledTypographyUrbanistBody>
+                    {tab}
+                  </StyledTypographyUrbanistBody>
+                </button>
+              ))}
+            </div>
+            <div className='tab-content'>{getTabContent(activeTab)}</div>
+          </div>
+          <div className='footer'>
+            <button className='submit-btn'>
+              <StyledTypographyUrbanistBody>
+                Get a special offer
+              </StyledTypographyUrbanistBody>
+            </button>
+
+            <StyledTypographyUrbanistSmallSpaces className='description'>
+              by submitting this form, you contirm that you agree to the storing
+              and processing of your personal data
+            </StyledTypographyUrbanistSmallSpaces>
+          </div>
         </div>
-      </div>
+      </DialogContent>
+      {/* <DialogContent>
+        <div className='modalContainer'>
+          <button className='closeButton' onClick={handleClose}>
+            <Close />
+          </button>
+          <div className='header'>
+            <StyledTypographyUrbanistH4>
+              Please provide the details for preparing a special offer
+            </StyledTypographyUrbanistH4>
+          </div>
+          <div className='body'>
+            <div className='input-wrapper'>
+              {feeInputs.map(({ ...args }) => (
+                <Fragment key={args.id}>{getInput({ ...args })}</Fragment>
+              ))}
+            </div>
+
+            <StyledTypographyUrbanistBody className='description'>
+              Share your preferred communication method for a better experience.
+            </StyledTypographyUrbanistBody>
+
+            <div className='tabs'>
+              {tabs.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => handleTab(tab)}
+                  className={clsx({
+                    ['active']: activeTab === tab,
+                  })}
+                >
+                  <StyledTypographyUrbanistBody>
+                    {tab}
+                  </StyledTypographyUrbanistBody>
+                </button>
+              ))}
+            </div>
+            <div className='tab-content'>{getTabContent(activeTab)}</div>
+          </div>
+          <div className='footer'>
+            <button className='submit-btn'>
+              <StyledTypographyUrbanistBody>
+                Get a special offer
+              </StyledTypographyUrbanistBody>
+            </button>
+
+            <StyledTypographyUrbanistSmallSpaces className='description'>
+              by submitting this form, you contirm that you agree to the storing
+              and processing of your personal data
+            </StyledTypographyUrbanistSmallSpaces>
+          </div>
+        </div>
+      </DialogContent> */}
     </StyledFeeModalWrapper>
   )
 }

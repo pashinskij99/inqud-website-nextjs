@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Modal } from '@mui/material'
+import { Dialog, Modal } from '@mui/material'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
@@ -141,17 +141,24 @@ export const StyledModalSubmitEmailWrapper = styled(Modal)`
   }
 `
 
-export const StyledFeeModalWrapper = styled(Modal)`
+export const StyledFeeModalWrapper = styled(Dialog)`
+  .MuiDialogContent-root.css-ypiqx9-MuiDialogContent-root {
+    display: contents;
+  }
+  .css-2zwj5t-MuiPaper-root-MuiDialog-paper {
+    background-color: transparent;
+    box-shadow: none;
+  }
   .modalContainer {
-    position: absolute;
+    /* position: absolute; */
     border-radius: ${rem(30)};
     background: var(--clarity-white, #fff);
     padding: ${rem(40)};
     width: 100%;
     max-width: ${rem(498)};
-    top: 50%;
+    /* top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     &:focus-visible {
       outline: none;
     }

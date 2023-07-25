@@ -3,6 +3,7 @@ import { MenuItem, Select } from '@mui/material'
 import { rem } from '@/utils/rem'
 
 export const StyledSelectWrapper = styled.div`
+  z-index: 1;
   .label {
     color: rgba(45, 52, 57, 1);
     font-weight: 700;
