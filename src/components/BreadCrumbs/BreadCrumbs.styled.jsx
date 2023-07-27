@@ -23,6 +23,9 @@ export const StyledBreadcrumbs = styled(Breadcrumbs)`
       font-size: ${rem(14)};
       color: rgba(45, 52, 57, 1);
       cursor: pointer;
+      a {
+        display: inline-block;
+      }
       p {
         transition: color 0.3s ease-in-out;
       }

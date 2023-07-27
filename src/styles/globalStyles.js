@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
       --header-height: ${rem(82)};
     }
     @media (max-width: 767px) {
-      --header-height: ${rem(60)};
+      --header-height: ${rem(55)};
     }
   }
 
@@ -55,7 +55,7 @@ const GlobalStyle = createGlobalStyle`
       padding: 0 ${rem(40)};
     }
     @media (max-width: 767px) {
-      padding: 0 ${rem(26)};
+      padding: 0 ${rem(16)};
     }
   }
 
