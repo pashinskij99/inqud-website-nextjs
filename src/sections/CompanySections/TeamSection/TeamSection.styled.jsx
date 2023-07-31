@@ -119,9 +119,8 @@ export const StyledTeamCartWrapper = styled.div`
   .team-grid-item-image {
     max-width: 320px;
     width: 100%;
-    object-position: top;
-    object-fit: none;
-    transform: scale(1.3) translateY(11%);
+    object-fit: cover;
+    transform: scale(1.2) translateY(7%);
   }
   .team-grid-item-title {
     font-weight: 700;

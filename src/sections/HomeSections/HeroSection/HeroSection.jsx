@@ -4,6 +4,7 @@ import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import {
   StyledHeroSectionWrapper,
   StyledMobileGridWrapper,
+  StyledPaymentListWrapper,
 } from './HeroSection.styled'
 import Val1 from '@/assets/images/hero/val1.svg'
 import Val2 from '@/assets/images/hero/val2.svg'
@@ -20,11 +21,6 @@ import Grid3 from '@/assets/images/hero/grid3.svg'
 import Grid4 from '@/assets/images/hero/grid4.svg'
 import Grid5 from '@/assets/images/hero/grid5.svg'
 import Grid6 from '@/assets/images/hero/grid6.svg'
-// import Val1 from '@/assets/images/hero/val1-1.svg'
-// import Val2 from '@/assets/images/hero/val2-2.svg'
-// import Val3 from '@/assets/images/hero/val3-3.svg'
-// import Val4 from '@/assets/images/hero/val4-4.svg'
-// import Val5 from '@/assets/images/hero/val5-5.svg'
 import HeroGraphic from '@/assets/images/hero/illustration.svg'
 import Check from '@/assets/icons/check-green-background.svg'
 import {
@@ -60,6 +56,25 @@ const methodsPayment = [
   { id: 7, text: 'TRX', icon: <Val8 /> },
   { id: 8, text: 'TRY', icon: <Val9 /> },
 ]
+
+export function PaymentList() {
+  return (
+    <StyledPaymentListWrapper className='payment'>
+      <StyledTypographyUrbanistBody className='payment-descr'>
+        Supported currencies
+      </StyledTypographyUrbanistBody>
+
+      <ul className='payment-list'>
+        {methodsPayment.map(({ icon, text, id }) => (
+          <li key={id}>
+            <div className='icon-wrapper'>{icon}</div>
+            <StyledTypographyUrbanistH5>{text}</StyledTypographyUrbanistH5>
+          </li>
+        ))}
+      </ul>
+    </StyledPaymentListWrapper>
+  )
+}
 
 export default function HeroSection() {
   return (
@@ -101,22 +116,7 @@ export default function HeroSection() {
             </StyledButtonGhost>
           </div>
 
-          <div className='payment'>
-            <StyledTypographyUrbanistBody className='payment-descr'>
-              Supported currencies
-            </StyledTypographyUrbanistBody>
-
-            <ul className='payment-list'>
-              {methodsPayment.map(({ icon, text, id }) => (
-                <li key={id}>
-                  <div className='icon-wrapper'>{icon}</div>
-                  <StyledTypographyUrbanistH5>
-                    {text}
-                  </StyledTypographyUrbanistH5>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <PaymentList />
         </div>
 
         <div className='rightSide'>

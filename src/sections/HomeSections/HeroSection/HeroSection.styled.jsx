@@ -182,101 +182,6 @@ export const StyledHeroSectionWrapper = styled.section`
           }
         `};
       }
-
-      .payment {
-        .payment-descr {
-          color: rgba(81, 113, 133, 0.800000011920929);
-          margin-bottom: ${rem(24)};
-          ${responsive.xl`
-            margin-bottom: ${rem(13)};
-          `}
-          ${responsive.sm`
-            text-align: start;
-            margin-bottom: ${rem(16)};
-          `};
-        }
-
-        .payment-list {
-          display: flex;
-          align-items: center;
-          gap: ${rem(32)};
-          overflow: auto;
-          -ms-overflow-style: none; /* Internet Explorer 10+ */
-          scrollbar-width: none; /* Firefox */
-
-          ${responsive.xxl`
-            gap: ${rem(33)};
-          `}
-
-          ${responsive.sm`
-            gap: ${rem(25)};
-          `}
-
-          &::-webkit-scrollbar {
-            display: none; /* Safari and Chrome */
-          }
-          li {
-            display: flex;
-            align-items: center;
-            gap: ${rem(10)};
-
-            &:nth-last-child(1),
-            &:nth-last-child(2),
-            &:nth-last-child(3),
-            &:nth-last-child(4) {
-              display: none;
-
-              ${responsive.xl`
-                  display: flex;
-              `}
-            }
-            .icon-wrapper {
-              position: relative;
-              display: flex;
-              svg {
-                position: relative;
-                width: ${rem(32)};
-                height: ${rem(32)};
-                border-radius: 50%;
-
-                z-index: 1;
-              }
-
-              &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border-radius: 50%;
-
-                background-color: rgba(154, 177, 192, 0.2);
-              }
-
-              &::after {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 95%;
-                height: 95%;
-                background-color: white;
-                border-radius: 50%;
-                transform: translate(-50%, -50%);
-                border-radius: 50%;
-              }
-            }
-
-            h5 {
-              color: rgba(129, 158, 176, 0.8);
-              ${responsive.sm`
-                font-size: 24px;
-              `}
-            }
-          }
-        }
-      }
     }
 
     .rightSide {
@@ -324,4 +229,99 @@ export const StyledMobileGridWrapper = styled.div`
   ${responsive.sm`
     display: grid;
   `}
+`
+
+export const StyledPaymentListWrapper = styled.div`
+  .payment-descr {
+    color: rgba(81, 113, 133, 0.800000011920929);
+    margin-bottom: ${rem(24)};
+    ${responsive.xl`
+            margin-bottom: ${rem(13)};
+          `}
+    ${responsive.sm`
+            text-align: start;
+            margin-bottom: ${rem(16)};
+          `};
+  }
+
+  .payment-list {
+    display: flex;
+    align-items: center;
+    gap: ${rem(32)};
+    overflow: auto;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+
+    ${responsive.xxl`
+            gap: ${rem(33)};
+          `}
+
+    ${responsive.sm`
+            gap: ${rem(25)};
+          `}
+
+          &::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
+    }
+    li {
+      display: flex;
+      align-items: center;
+      gap: ${rem(10)};
+
+      &:nth-last-child(1),
+      &:nth-last-child(2),
+      &:nth-last-child(3),
+      &:nth-last-child(4) {
+        display: none;
+
+        ${responsive.xl`
+                  display: flex;
+              `}
+      }
+      .icon-wrapper {
+        position: relative;
+        display: flex;
+        svg {
+          position: relative;
+          width: ${rem(32)};
+          height: ${rem(32)};
+          border-radius: 50%;
+
+          z-index: 1;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+
+          background-color: rgba(154, 177, 192, 0.2);
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 95%;
+          height: 95%;
+          background-color: white;
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+        }
+      }
+
+      h5 {
+        color: rgba(129, 158, 176, 0.8);
+        ${responsive.sm`
+                font-size: 24px;
+              `}
+      }
+    }
+  }
 `
