@@ -11,7 +11,7 @@ export const StyledBlogsSectionWrapper = styled.section`
   .blog-grid {
     padding: ${rem(56)} 0 ${rem(48)};
     display: grid;
-    grid-template-columns: repeat(3, min-content);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
     row-gap: ${rem(48)};
     ${responsive.xxl`
