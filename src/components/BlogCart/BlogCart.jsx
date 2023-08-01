@@ -1,6 +1,4 @@
 import Image from 'next/image'
-import { useState } from 'react'
-import clsx from 'clsx'
 import {
   StyledBlogCartWrapper,
   StyledBlogCartWrapper2,
@@ -15,20 +13,8 @@ import Dot from '@/assets/icons/dot.svg'
 import { ButtonLearnMore } from '@/components/UI/Button'
 
 export function BlogCart({ imageSrc, date, time, subTitle, title }) {
-  // const [hover, setHover] = useState(false)
-  // const handleEnter = () => {
-  //   setHover(true)
-  // }
-  // const handleLeave = () => {
-  //   setHover(false)
-  // }
-
   return (
-    <StyledBlogCartWrapper
-      className='cart'
-      // onMouseEnter={handleEnter}
-      // onMouseLeave={handleLeave}
-    >
+    <StyledBlogCartWrapper className='cart'>
       <div className='imageWrapper'>
         <Image
           src={imageSrc}
@@ -46,9 +32,7 @@ export function BlogCart({ imageSrc, date, time, subTitle, title }) {
         {title}
       </StyledTypographyUrbanistH4>
 
-      {/* {hover ? ( */}
       <ButtonLearnMore>Learn more</ButtonLearnMore>
-      {/* ) : ( */}
       <div className='footer'>
         <StyledTypographyUrbanistBody className='date'>
           {date}
@@ -58,7 +42,6 @@ export function BlogCart({ imageSrc, date, time, subTitle, title }) {
           {time}
         </StyledTypographyUrbanistBody>
       </div>
-      {/* )} */}
     </StyledBlogCartWrapper>
   )
 }
