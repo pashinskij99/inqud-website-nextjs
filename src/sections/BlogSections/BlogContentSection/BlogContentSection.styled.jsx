@@ -3,16 +3,15 @@ import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
 export const StyledBlogContentSectionWrapper = styled.section`
-  padding-top: ${rem(61)};
-  padding-bottom: ${rem(140)};
+  padding-top: ${rem(39)};
+  padding-bottom: ${rem(110)};
 
   ${responsive.xxl`
-    padding-top: ${rem(40)};
-    padding-bottom: ${rem(140)};
+    padding-bottom: ${rem(144)};
   `};
   ${responsive.xl`
     padding-top: ${rem(52)};
-    padding-bottom: ${rem(124)};
+    padding-bottom: ${rem(120)};
   `};
   ${responsive.xs`
     padding-top: ${rem(24)};
@@ -27,7 +26,7 @@ export const StyledBlogContentSectionWrapper = styled.section`
     `}
     ${responsive.xl`
       flex-direction: column;
-      row-gap: ${rem(36)};
+      row-gap: ${rem(39)};
     `};
     ${responsive.xs`
       flex-direction: column;
@@ -72,12 +71,9 @@ export const StyledLeftSide = styled.div`
   .blog-content-nav {
     display: flex;
     flex-direction: column;
-    row-gap: ${rem(12)};
+    row-gap: ${rem(16)};
     margin-bottom: ${rem(40)};
 
-    ${responsive.xxl`
-      row-gap: ${rem(16)};
-    `}
     ${responsive.xl`
       display: none;
     `};
@@ -223,7 +219,6 @@ export const StyledCenterSide = styled.div`
     .image {
       width: 100%;
       object-fit: contain;
-      height: auto;
       margin: ${rem(40)} 0;
 
       &:last-child,

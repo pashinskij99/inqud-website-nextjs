@@ -2,17 +2,40 @@ import styled from '@emotion/styled'
 import { responsive } from '@/utils/response'
 
 export const StyledLandscapeSectionWrapper = styled.section`
-  padding-top: 240px;
+  padding-top: 200px;
+  ${responsive.xxl`
+    padding-top: 199px;
+  `}
   ${responsive.xl`
     padding-top: 120px;
   `}
   ${responsive.sm`
-    padding-top: 98px;
+    padding-top: 95px;
   `}
   .container {
   }
+  .text-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    column-gap: 94px;
+    margin-bottom: 50px;
+    ${responsive.xxl`
+      column-gap: 0;
+    `}
+    ${responsive.xl`
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 25px;
+    `}
+  }
+  .title-wrapper {
+    /* display: flex; */
+    ${responsive.xl`
+      text-align: center;
+    `}
+  }
   .title {
-    text-align: center;
     margin-bottom: 16px;
     ${responsive.sm`
       font-size: 40px;
@@ -21,15 +44,25 @@ export const StyledLandscapeSectionWrapper = styled.section`
     `}
   }
   .description {
-    text-align: center;
     color: rgba(81, 113, 133, 1);
-    margin-bottom: 64px;
+
+    ${responsive.xxl`
+      br {
+        display: none;
+      }
+    `}
     ${responsive.xl`
-      margin-bottom: 40px;
+      font-size: 18px;
+      line-height: 24px;
+      letter-spacing: 0em;
+      max-width: 585px;
+
+      margin-bottom: 38px;
     `}
     ${responsive.sm`
       font-size: 18px;
-      line-height: 26px;
+      line-height: 24px;
+      max-width: 100%;
       br {
         display: none;
       }
@@ -37,13 +70,17 @@ export const StyledLandscapeSectionWrapper = styled.section`
   }
   .list {
     display: flex;
-    column-gap: 63px;
+    column-gap: 56px;
     justify-content: center;
-    margin-bottom: 48px;
-
+    ${responsive.xxl`
+      max-width: 667px;
+      width: 100%;
+      column-gap: 0px;
+      justify-content: space-between;
+    `}
     ${responsive.xl`
-      column-gap: 32px;
-      margin-bottom: 25px;
+      column-gap: 26px;
+      justify-content: center;
     `}
     ${responsive.sm`
       flex-wrap: wrap;
@@ -55,8 +92,11 @@ export const StyledLandscapeSectionWrapper = styled.section`
     display: flex;
     align-items: center;
     gap: 22.77px;
-    ${responsive.xl`
+    ${responsive.xxl`
       gap: 15.8px;
+    `}
+    ${responsive.xl`
+      gap: 12px;
     `}
     ${responsive.sm`
       max-width: auto;
@@ -64,27 +104,28 @@ export const StyledLandscapeSectionWrapper = styled.section`
 
     &:nth-child(1) {
       svg {
-        width: 27px;
-        height: 26px;
+        width: 37.031px;
+        height: 35.872px;
         flex-shrink: 0;
       }
     }
     &:nth-child(2) {
       img {
-        width: 28px;
-        height: 25px;
+        width: 42.189px;
+        height: 38.638px;
         flex-shrink: 0;
       }
     }
     &:nth-child(3) {
       svg {
-        width: 28px;
-        height: 25px;
+        width: 34.878px;
+        height: 28.418px;
         flex-shrink: 0;
       }
     }
   }
   .list-item-icon-wrapper {
+    flex: 1;
   }
   .list-item-text-wrapper {
   }
@@ -102,7 +143,7 @@ export const StyledLandscapeSectionWrapper = styled.section`
   }
 
   .map {
-    max-width: 999.998px;
+    max-width: 775.02px;
     width: 100%;
     height: auto;
     margin: 0 auto;

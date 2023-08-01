@@ -4,8 +4,8 @@ import { responsive } from '@/utils/response'
 
 export const YourNeedsSectionWrapper = styled.section`
   text-align: center;
-  padding-top: ${rem(116)};
-  padding-bottom: ${rem(229)};
+  padding-top: 98px;
+  padding-bottom: 199px;
   overflow: hidden;
   ${responsive.xxl`
     padding-top: ${rem(139)};
@@ -22,7 +22,8 @@ export const YourNeedsSectionWrapper = styled.section`
   `};
 
   .title {
-    margin-bottom: ${rem(24)};
+    margin-bottom: 16px;
+    line-height: 62px;
     .br-tablet {
       display: none;
     }
@@ -68,7 +69,7 @@ export const YourNeedsSectionWrapper = styled.section`
   }
 
   .subTitle {
-    margin-bottom: ${rem(64)};
+    margin-bottom: 50px;
     color: rgba(81, 113, 133, 1);
 
     &.subTitle-desktop {
@@ -91,8 +92,6 @@ export const YourNeedsSectionWrapper = styled.section`
   }
 
   .cart-requirements {
-    /* max-width: 100% !important; */
-    /* width: 100%; */
     ${responsive.sm`
       border-radius: 16px;
       background: var(--confident-light-grey, #F4F5FA);

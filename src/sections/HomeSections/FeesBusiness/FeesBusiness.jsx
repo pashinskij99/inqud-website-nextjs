@@ -4,9 +4,8 @@ import { useState } from 'react'
 import clsx from 'clsx'
 import {
   StyledTypographyUrbanistBody,
-  StyledTypographyUrbanistH1,
+  StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH4,
-  StyledTypographyUrbanistH5,
   StyledTypographyUrbanistSmallSpaces,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledFeesBusinessWrapper } from './FeesBusiness.styled'
@@ -48,16 +47,17 @@ export default function FeesBusiness() {
   return (
     <StyledFeesBusinessWrapper>
       <div className='container'>
-        <StyledTypographyUrbanistH1>
-          Fees <span>for your business</span>
-        </StyledTypographyUrbanistH1>
+        <div className='title-wrapper'>
+          <StyledTypographyUrbanistH2>
+            Fees <span>for your business</span>
+          </StyledTypographyUrbanistH2>
 
-        <StyledTypographyUrbanistH5>
-          Please review the examples of market fees charged by
-          <br className='br-desktop br-1200' /> companies. We assure you that we
-          will provide the most <br className='br-1200' /> suitable
-          <br className='br-desktop' /> fees for your business!
-        </StyledTypographyUrbanistH5>
+          <StyledTypographyUrbanistBody className='description'>
+            Please review the examples of market fees charged by companies. We
+            assure you that we will provide the most suitable fees for your
+            business!
+          </StyledTypographyUrbanistBody>
+        </div>
 
         <div className='content-wrapper'>
           <table>
@@ -130,10 +130,10 @@ export default function FeesBusiness() {
           <div className='cart'>
             <div className='cart-left-side'>
               <StyledTypographyUrbanistH4>
-                Submit your <br className='br-1200' /> inquiry{' '}
-                <br className='br-desktop' /> now for <br className='br-1200' />{' '}
-                the best offer <br className='br-desktop' /> in{' '}
-                <br className='br-1200' /> 10 minutes
+                Submit your inquiry <br className='br-desktop' /> now for{' '}
+                <br className='br-1200' /> the best offer{' '}
+                <br className='br-desktop' /> in <br className='br-1200' /> 10
+                minutes
               </StyledTypographyUrbanistH4>
             </div>
             <div className='cart-right-side'>

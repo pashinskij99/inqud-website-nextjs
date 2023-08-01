@@ -3,8 +3,8 @@ import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
 export const StyledSmoothAPISection = styled.section`
-  padding-top: ${rem(240)};
-  padding-bottom: ${rem(410)};
+  padding-top: 200px;
+  padding-bottom: 372px;
   ${responsive.xl`
     padding: ${rem(120)} 0;
   `};
@@ -14,17 +14,15 @@ export const StyledSmoothAPISection = styled.section`
   `};
 
   .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: ${rem(45)};
+    display: flex;
+    justify-content: space-between;
+    column-gap: 171.55px;
     align-items: center;
     ${responsive.xxl`
-      grid-template-columns: 1fr 1fr;
       gap: ${rem(24)};
     `}
     ${responsive.xl`
       gap: 0;
-      grid-template-columns: 1fr;
     `};
 
     .leftSide {
@@ -33,8 +31,9 @@ export const StyledSmoothAPISection = styled.section`
         display: flex;
       }
       svg {
-        width: ${rem(481)};
-        height: ${rem(693)};
+        width: 416.4502258300781px;
+        height: 600px;
+        transform: translateX(132px);
       }
 
       ${responsive.xl`
@@ -43,6 +42,8 @@ export const StyledSmoothAPISection = styled.section`
     }
 
     .rightSide {
+      max-width: 680px;
+      width: 100%;
       .smoothAPISubTitle {
         border-radius: ${rem(50)};
         background: var(--independent-grey-dt-20, rgba(129, 158, 176, 0.2));
@@ -51,7 +52,7 @@ export const StyledSmoothAPISection = styled.section`
         line-height: 1;
         padding: ${rem(7)} ${rem(16)};
         width: fit-content;
-        margin-bottom: ${rem(21)};
+        margin-bottom: 10px;
         ${responsive.xl`
           margin-right: auto;
           margin-left: auto;
@@ -66,7 +67,7 @@ export const StyledSmoothAPISection = styled.section`
       }
 
       .smoothAPITitle {
-        margin-bottom: ${rem(24)};
+        margin-bottom: 15px;
         ${responsive.xl`
           text-align: center;
           margin-bottom: ${rem(40)};
@@ -104,7 +105,9 @@ export const StyledSmoothAPISection = styled.section`
       }
 
       .smoothAPIDescription {
-        margin-bottom: ${rem(56)};
+        line-height: 24px;
+
+        margin-bottom: 39px;
         &.desktop {
           ${responsive.xl`
             display: none;
@@ -152,10 +155,10 @@ export const StyledSmoothAPISection = styled.section`
 
       .smoothAPIGrid {
         display: grid;
-        grid-template-columns: 0.77fr 0.8fr;
-        column-gap: ${rem(40)};
-        row-gap: ${rem(40)};
-        margin-bottom: ${rem(56)};
+        grid-template-columns: repeat(2, 320px);
+        column-gap: 40px;
+        row-gap: 24px;
+        margin-bottom: 42px;
         ${responsive.xxl`
           column-gap: ${rem(24)};
           row-gap: ${rem(40)};
@@ -203,7 +206,7 @@ export const StyledSmoothAPISection = styled.section`
           .icon {
             width: ${rem(48)};
             height: ${rem(48.002)};
-            margin-bottom: ${rem(8)};
+            margin-bottom: 2px;
             ${responsive.xxl`
               margin-bottom: ${rem(4)};
             `}
@@ -213,7 +216,7 @@ export const StyledSmoothAPISection = styled.section`
           }
 
           .smoothAPIGridItemTitle {
-            margin-bottom: ${rem(16)};
+            margin-bottom: 6px;
             font-weight: 700;
             ${responsive.xxl`
               margin-bottom: ${rem(8)};

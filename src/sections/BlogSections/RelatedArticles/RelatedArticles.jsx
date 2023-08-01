@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import { StyledTypographyUrbanistH1 } from '@/components/UI/Typography/Typography.styled'
+import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import Image1 from '@/assets/images/blogs/image1.png'
 import Image2 from '@/assets/images/blogs/image2.png'
 import Image3 from '@/assets/images/blogs/image3.png'
@@ -41,9 +41,9 @@ export default function RelatedArticles() {
     <StyledRelatedArticlesSection>
       <div className='container'>
         <div className='relatedBlogsHeader blogsHeader'>
-          <StyledTypographyUrbanistH1 className='relatedBlogsHeaderTitle blogsHeaderTitle'>
+          <StyledTypographyUrbanistH2 className='relatedBlogsHeaderTitle blogsHeaderTitle'>
             Related articles
-          </StyledTypographyUrbanistH1>
+          </StyledTypographyUrbanistH2>
           <Link href='/blog'>
             <StyledButtonGhost className='relatedBlogsHeaderButton blogsHeaderButton'>
               Go to blog

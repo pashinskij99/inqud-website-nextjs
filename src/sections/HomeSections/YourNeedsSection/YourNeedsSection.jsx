@@ -1,14 +1,13 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
 import { useState, Fragment } from 'react'
-// import Slider from 'react-slick'
 import {
   StyledTypographyUrbanistH1,
-  StyledTypographyUrbanistH4,
+  StyledTypographyUrbanistH2,
+  StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import {
   StyledCoinsListWrapper,
-  // StyledCustomScrollbarWrapper,
   YourNeedsSectionWrapper,
 } from './YourNeedsSection.styled'
 import Image1 from '@/assets/images/your-needs/image1.png'
@@ -73,23 +72,18 @@ export default function YourNeedsSection() {
   return (
     <YourNeedsSectionWrapper>
       <div className='container'>
-        <StyledTypographyUrbanistH1 className='title title-desktop'>
-          We understand <br className='br-mobile' /> your{' '}
-          <br className='br-tablet' /> needs, <br className='br-desktop' />{' '}
-          backed by <br className='br-tablet' /> industry expertise
-        </StyledTypographyUrbanistH1>
+        <StyledTypographyUrbanistH2 className='title title-desktop'>
+          We understand your needs
+        </StyledTypographyUrbanistH2>
         <StyledTypographyUrbanistH1 className='title title-mobile'>
           We understand <br className='br-mobile' /> your needs
         </StyledTypographyUrbanistH1>
 
         <CoinsList />
 
-        <StyledTypographyUrbanistH4 className='subTitle subTitle-desktop'>
-          Catering to these requirements and beyond.
-        </StyledTypographyUrbanistH4>
-        <StyledTypographyUrbanistH4 className='subTitle subTitle-mobile'>
-          backed by industry expertise
-        </StyledTypographyUrbanistH4>
+        <StyledTypographyUrbanistH5 className='subTitle subTitle-desktop'>
+          Backed by industry expertise
+        </StyledTypographyUrbanistH5>
 
         <div className='listRequirements'>
           {list.map(

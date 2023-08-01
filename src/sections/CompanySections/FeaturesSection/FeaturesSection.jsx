@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import {
   StyledTypographyUrbanistBody,
-  StyledTypographyUrbanistH1,
-  StyledTypographyUrbanistH4,
+  StyledTypographyUrbanistH2,
+  StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import {
   Accordion,
@@ -104,9 +104,10 @@ export default function FeaturesSection() {
     <StyledFeaturesSectionWrapper>
       <div className='container'>
         <div className='left-side'>
-          <StyledTypographyUrbanistH1 className='title'>
-            Our Features and Approaches that Stand Out!
-          </StyledTypographyUrbanistH1>
+          <StyledTypographyUrbanistH2 className='title'>
+            Our Features and <br className='br-desktop' /> Approaches that Stand
+            <br className='br-desktop' /> Out!
+          </StyledTypographyUrbanistH2>
 
           <div className='accordion'>
             {accordionData.map(({ key, id, title, description }) => (
@@ -132,7 +133,7 @@ export default function FeaturesSection() {
             src={img.src}
             alt='Our Features and Approaches that Stand Out!'
             width={559}
-            height={754}
+            height={650}
           />
         </div>
       </div>
@@ -157,7 +158,7 @@ function AccordionItem({
       <Accordion expanded={expanded === id} onChange={handleChange(id)}>
         <AccordionSummary expanded={expanded === id}>
           <StyledTypographyUrbanistBody>{number}</StyledTypographyUrbanistBody>
-          <StyledTypographyUrbanistH4>{title}</StyledTypographyUrbanistH4>
+          <StyledTypographyUrbanistH5>{title}</StyledTypographyUrbanistH5>
         </AccordionSummary>
         <AccordionDetails>
           <StyledTypographyUrbanistBody>

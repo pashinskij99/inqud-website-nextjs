@@ -3,8 +3,8 @@ import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
 export const StyledReasonsToTeamUp = styled.section`
-  padding-top: ${rem(240)};
-  padding-bottom: ${rem(214)};
+  padding-top: 198px;
+  padding-bottom: 197px;
   text-align: center;
   overflow: hidden;
   ${responsive.xl`
@@ -16,16 +16,16 @@ export const StyledReasonsToTeamUp = styled.section`
   `};
 
   .reasonsToTeamUpTitle {
-    margin-bottom: ${rem(24)};
+    margin-bottom: 14px;
     ${responsive.sm`
       letter-spacing: 0.2px;
-      margin-bottom: ${rem(15)};
+      margin-bottom: 14px;
     `};
   }
 
   .reasonsToTeamUpSubTitle {
     color: #517185;
-    margin-bottom: ${rem(64)};
+    margin-bottom: 46px;
     ${responsive.xxl`
       margin-bottom: ${rem(62)};
     `}
@@ -36,9 +36,9 @@ export const StyledReasonsToTeamUp = styled.section`
 
   .reasonsToTeamUpGrid {
     display: grid;
-    grid-template-columns: repeat(3, ${rem(390)});
-    justify-content: space-between;
-    justify-self: center;
+    grid-template-columns: repeat(3, 343px);
+    justify-content: center;
+    column-gap: 137px;
     row-gap: ${rem(37)};
     ${responsive.xxl`
       grid-template-columns: repeat(3, ${rem(320)});
@@ -91,7 +91,7 @@ export const StyledReasonsToTeamUp = styled.section`
       `};
 
       svg {
-        margin-bottom: ${rem(23)};
+        margin-bottom: 10px;
         ${responsive.xxl`
           margin-bottom: ${rem(21)};
         `}
@@ -103,7 +103,7 @@ export const StyledReasonsToTeamUp = styled.section`
 
       .reasonsToTeamUpGridItemTitle {
         font-weight: 700;
-        margin-bottom: ${rem(14)};
+        margin-bottom: 9px;
         ${responsive.xxl`
           margin-bottom: ${rem(16)};
         `}
@@ -118,6 +118,7 @@ export const StyledReasonsToTeamUp = styled.section`
 
       .reasonsToTeamUpGridItemDescription {
         color: #517185;
+        line-height: 24px;
         ${responsive.sm`
           display: none;
         `};

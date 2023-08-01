@@ -2,9 +2,9 @@ import styled from '@emotion/styled'
 import { responsive } from '@/utils/response'
 
 export const StyledCoreSectionWrapper = styled.section`
-  padding-top: 240px;
+  padding-top: 187px;
   ${responsive.xxl`
-    padding-top: 180px;
+    padding-top: 198px;
   `}
   ${responsive.xl`
     padding-top: 120px;
@@ -15,15 +15,15 @@ export const StyledCoreSectionWrapper = styled.section`
   .container {
   }
   .title {
-    margin-bottom: 64px;
+    margin-bottom: 54px;
     ${responsive.xl`
-      margin-bottom: 56px;
+      margin-bottom: 36px;
     `}
     ${responsive.sm`
       font-size: 40px;
       font-weight: 700;
       line-height: 46px;
-      margin-bottom: 32px;
+      margin-bottom: 31px;
     `}
   }
   .grid {
@@ -38,7 +38,7 @@ export const StyledCoreSectionWrapper = styled.section`
       row-gap: 32px;
     `}
     ${responsive.sm`
-      row-gap: 24px;
+      row-gap: 22px;
     `}
     li {
       display: contents;
@@ -117,6 +117,7 @@ export const StyledGridCartWrapper = styled.div`
     ${responsive.xl`
       font-weight: 500;
       white-space: nowrap;
+      letter-spacing: -0.18px;
     `}
     ${responsive.sm`
       white-space: normal;

@@ -3,37 +3,64 @@ import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
 export const StyledBlogsSectionWrapper = styled.section`
-  padding-bottom: ${rem(144)};
+  padding-bottom: ${rem(126)};
 
-  ${responsive.lg`
+  ${responsive.xl`
     padding-bottom: ${rem(96)};
   `}
   .blog-grid {
-    padding: ${rem(56)} 0 ${rem(48)};
+    padding: ${rem(66)} 0 ${rem(52)};
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: space-between;
-    row-gap: ${rem(48)};
+    column-gap: 40px;
+    row-gap: 44px;
     ${responsive.xxl`
-      column-gap: ${rem(24)};
-      row-gap: ${rem(40)};
+      padding: ${rem(56)} 0 ${rem(52)};
+      column-gap: 24px;
+      row-gap: 40px;
     `}
-
-    ${responsive.lg`
+    ${responsive.xl`
+      padding: ${rem(40)} 0 ${rem(52)};
       grid-template-columns: repeat(2, 1fr);
       column-gap: ${rem(24)};
       justify-content: space-between;
     `}
-    ${responsive.xs`
-      grid-template-columns: repeat(1, 1fr);
+    ${responsive.sm`
+      grid-template-columns: 1fr;
       column-gap: 0;
       justify-content: center;
-      padding: ${rem(40)} 0;
-      row-gap: ${rem(40)};
+      padding: ${rem(24)} 0;
+      row-gap: ${rem(32)};
     `}
     li {
       display: contents;
+      .cart {
+        ${responsive.xxl`
+          max-width: 389px;
+        `}
 
+        .imageWrapper {
+          ${responsive.xl`
+            margin-bottom: 33px;
+          `}
+          ${responsive.sm`
+            margin-bottom: 21px;
+          `}
+        }
+
+        .subTitle {
+          ${responsive.sm`
+            margin-bottom: 9px;
+          `}
+        }
+
+        .title {
+          ${responsive.sm`
+            line-height: 32px;
+          `}
+        }
+      }
       a {
         display: contents;
       }
@@ -41,9 +68,9 @@ export const StyledBlogsSectionWrapper = styled.section`
   }
 
   .loadMoreButton {
-    margin-bottom: ${rem(56)};
+    margin-bottom: ${rem(71)};
 
-    ${responsive.lg`
+    ${responsive.xl`
       margin-bottom: ${rem(41)};
     `}
   }

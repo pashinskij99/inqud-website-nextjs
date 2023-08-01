@@ -26,7 +26,7 @@ import Check from '@/assets/icons/check-green-background.svg'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
-  StyledTypographyUrbanistDisplay,
+  StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
@@ -57,25 +57,6 @@ const methodsPayment = [
   { id: 8, text: 'TRY', icon: <Val9 /> },
 ]
 
-export function PaymentList() {
-  return (
-    <StyledPaymentListWrapper className='payment'>
-      <StyledTypographyUrbanistBody className='payment-descr'>
-        Supported currencies
-      </StyledTypographyUrbanistBody>
-
-      <ul className='payment-list'>
-        {methodsPayment.map(({ icon, text, id }) => (
-          <li key={id}>
-            <div className='icon-wrapper'>{icon}</div>
-            <StyledTypographyUrbanistH5>{text}</StyledTypographyUrbanistH5>
-          </li>
-        ))}
-      </ul>
-    </StyledPaymentListWrapper>
-  )
-}
-
 export default function HeroSection() {
   return (
     <StyledHeroSectionWrapper>
@@ -85,12 +66,12 @@ export default function HeroSection() {
           <StyledTypographyIBMH5 className='subTitle'>
             For business
           </StyledTypographyIBMH5>
-          <StyledTypographyUrbanistDisplay className='title'>
+          <StyledTypographyUrbanistH1 className='title'>
             Bespoke diversity crypto payments
-          </StyledTypographyUrbanistDisplay>
+          </StyledTypographyUrbanistH1>
           <StyledTypographyUrbanistH5 className='paragraph'>
-            Inqud is the trusted partner and provider of tailored <br /> crypto
-            & fiat payment solutions.
+            Inqud is the trusted partner and provider of tailored crypto & fiat
+            payment solutions.
           </StyledTypographyUrbanistH5>
 
           <ul className='features'>
@@ -143,5 +124,24 @@ function MobileGrid() {
         <Fragment key={id}>{icon}</Fragment>
       ))}
     </StyledMobileGridWrapper>
+  )
+}
+
+export function PaymentList() {
+  return (
+    <StyledPaymentListWrapper className='payment'>
+      <StyledTypographyUrbanistBody className='payment-descr'>
+        Supported currencies
+      </StyledTypographyUrbanistBody>
+
+      <ul className='payment-list'>
+        {methodsPayment.map(({ icon, text, id }) => (
+          <li key={id}>
+            <div className='icon-wrapper'>{icon}</div>
+            <StyledTypographyUrbanistH5>{text}</StyledTypographyUrbanistH5>
+          </li>
+        ))}
+      </ul>
+    </StyledPaymentListWrapper>
   )
 }

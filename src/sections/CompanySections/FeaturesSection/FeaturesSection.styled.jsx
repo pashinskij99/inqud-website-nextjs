@@ -5,10 +5,14 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails'
 import { responsive } from '@/utils/response'
 
 export const StyledFeaturesSectionWrapper = styled.section`
-  padding: 240px 0;
+  padding: 200px 0;
+  ${responsive.xxl`
+    padding-top: 200px;
+    padding-bottom: 200px;
+  `}
   ${responsive.xl`
     padding-top: 120px;
-    padding-bottom: 64px;
+    padding-bottom: 144px;
   `}
   ${responsive.sm`
     padding-top: 96px;
@@ -18,7 +22,6 @@ export const StyledFeaturesSectionWrapper = styled.section`
   .container {
     display: flex;
     justify-content: space-between;
-    column-gap: 200.38px;
     ${responsive.xxl`
       column-gap: 61px;
     `}
@@ -27,25 +30,45 @@ export const StyledFeaturesSectionWrapper = styled.section`
     `}
   }
   .left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 679px;
+    ${responsive.xl`
+      max-width: 100%;
+    `}
     .title {
-      margin-bottom: 120px;
-      ${responsive.xxl`
-        margin-bottom: 124px;
-      `}
+      line-height: 62px;
+      letter-spacing: 0em;
+      margin-bottom: 52px;
+
       ${responsive.xl`
-        margin-bottom: 56px;
+        margin-bottom: 46px;
+        white-space: nowrap;
+        br {
+          &:nth-child(2) {
+            display: none;
+          }
+        }
       `}
       ${responsive.sm`
+        white-space: normal;
         font-size: 40px;
         font-weight: 700;
         line-height: 46px;
         margin-bottom: 32px;
+        br {
+          display: none;
+        }
       `}
     }
     .accordion {
       display: flex;
       flex-direction: column;
-      row-gap: 23px;
+      row-gap: 18px;
+      ${responsive.xxl`
+        row-gap: 19px;
+      `}
       ${responsive.sm`
         row-gap: 19px;
       `}
@@ -53,15 +76,25 @@ export const StyledFeaturesSectionWrapper = styled.section`
   }
 
   .right-side {
+    overflow: hidden;
     display: flex;
     flex-shrink: 0;
+    max-width: 559px;
+    width: 100%;
+    border-radius: 28px;
+    ${responsive.xxl`
+      max-width: 559px;
+      height: 650px;
+    `}
     ${responsive.xl`
       display: none;
     `}
     img {
-      max-width: 559px;
       width: 100%;
-      height: auto;
+      object-fit: cover;
+      ${responsive.xxl`
+        height: 650px;
+      `}
     }
   }
 `
@@ -94,8 +127,8 @@ export const AccordionSummary = styled((props) => (
     '@media (max-width: 767px)': {
       alignItems: 'flex-start',
     },
-    h4: {
-      lineHeight: '1',
+    h5: {
+      lineHeight: '32px',
       padding: '0 0 0 43px',
       fontWeight: expanded ? 700 : 400,
       br: {
@@ -103,8 +136,10 @@ export const AccordionSummary = styled((props) => (
       },
       '@media (max-width: 767px)': {
         padding: '0 0 0 35px',
-        fontSize: '32px',
-        lineHeight: '42px',
+        fontSize: '24px',
+        fontWeight: '700',
+        lineHeight: '32px',
+        letterSpacing: '0em',
 
         br: {
           display: 'inline-block',
@@ -116,23 +151,24 @@ export const AccordionSummary = styled((props) => (
       left: 0,
       color: 'rgba(81, 113, 133, 1)',
       '@media (max-width: 767px)': {
-        top: '12px',
+        top: '5px',
       },
     },
   },
 }))
 
 export const AccordionDetails = styled(MuiAccordionDetails)(() => ({
-  padding: '16px 0 0 0',
+  padding: '8px 0 0 0',
   border: 'none',
   p: {
     color: 'rgba(81, 113, 133, 1)',
+    lineHeight: '24px',
   },
   '@media (max-width: 1536px)': {
-    padding: '22px 0 0 43px',
+    padding: '8px 0 0 43px',
   },
   '@media (max-width: 767px)': {
-    padding: '16px 0 0 35px',
+    padding: '9px 0 0 35px',
   },
 }))
 

@@ -1,7 +1,7 @@
 import {
   StyledTypographyIBMH4,
   StyledTypographyUrbanistBody,
-  StyledTypographyUrbanistH1,
+  StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH3,
 } from '@/components/UI/Typography/Typography.styled'
 import {
@@ -51,9 +51,9 @@ export default function CoreSection() {
   return (
     <StyledCoreSectionWrapper>
       <div className='container'>
-        <StyledTypographyUrbanistH1 className='title'>
+        <StyledTypographyUrbanistH2 className='title'>
           Our core values
-        </StyledTypographyUrbanistH1>
+        </StyledTypographyUrbanistH2>
 
         <ul className='grid'>
           {grid.map(({ id, title, description }) => (

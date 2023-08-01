@@ -5,7 +5,7 @@ import { responsive } from '@/utils/response'
 export const StyledBlogHeroSectionWrapper = styled.section`
   position: relative;
   text-align: center;
-  padding: ${rem(56)} 0;
+  padding: ${rem(54)} 0;
   background-color: rgba(191, 255, 200, 1);
   overflow: hidden;
 
@@ -54,12 +54,11 @@ export const StyledBlogHeroSectionWrapper = styled.section`
   }
   .title {
     margin-bottom: ${rem(16)};
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 62px;
+    letter-spacing: 0em;
     ${responsive.xxl`
-      font-size: 56px;
-      font-weight: 400;
-      line-height: 62px;
-      letter-spacing: 0em;
-
       margin-bottom: ${rem(14)};
     `}
     ${responsive.xl`

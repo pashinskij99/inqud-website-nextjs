@@ -5,7 +5,7 @@ import { responsive } from '@/utils/response'
 
 export const StyledRelatedArticlesSection = styled(StyledBlogsSection)`
   padding-top: 0;
-  padding-bottom: ${rem(140)};
+  padding-bottom: ${rem(186)};
   ${responsive.xxl`
     padding-bottom: ${rem(144)};
     padding-top: 0;
@@ -14,7 +14,7 @@ export const StyledRelatedArticlesSection = styled(StyledBlogsSection)`
     padding-bottom: ${rem(126)};
     padding-top: 0;
   `}
-  ${responsive.xs`
+  ${responsive.sm`
     padding-top: 0;
     padding-bottom: 95px;
   `};
@@ -23,11 +23,15 @@ export const StyledRelatedArticlesSection = styled(StyledBlogsSection)`
     ${responsive.xl`
       margin-bottom: 40px;
     `}
-    ${responsive.xs`
+    ${responsive.sm`
       padding-top: 0;
       margin-bottom: 42px;
     `}
     .relatedBlogsHeaderTitle {
+      font-size: 56px;
+      line-height: 62px;
+      letter-spacing: 0em;
+
       ${responsive.xxl`
         font-size: 56px;
         font-weight: 400;

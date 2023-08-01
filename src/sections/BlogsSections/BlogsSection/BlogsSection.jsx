@@ -74,7 +74,7 @@ const data = [
     subTitle: 'cryptocurrency',
     title: 'Introduction to Cryptocurrency for Beginners',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
   },
   {
     id: 1,
@@ -82,7 +82,7 @@ const data = [
     subTitle: 'cryptocurrency',
     title: 'Exploring the Most Promising Cryptocurrencies of 2023',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
   },
   {
     id: 2,
@@ -90,7 +90,7 @@ const data = [
     subTitle: 'cryptocurrency',
     title: 'How to Sell Cryptocurrencies on Our Platform',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
   },
   {
     id: 3,
@@ -98,7 +98,7 @@ const data = [
     subTitle: 'cryptocurrency',
     title: 'Introduction to Cryptocurrency for Beginners',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
   },
   {
     id: 4,
@@ -106,7 +106,7 @@ const data = [
     subTitle: 'cryptocurrency',
     title: 'Why INQUD-like Platforms are Vital in the Crypto World',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
   },
   {
     id: 5,
@@ -114,7 +114,7 @@ const data = [
     subTitle: 'cryptocurrency',
     title: 'Understanding Blockchain Technology',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
   },
   {
     id: 6,
@@ -122,7 +122,7 @@ const data = [
     subTitle: 'cryptocurrency',
     title: 'Understanding Blockchain Technology',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
   },
   {
     id: 7,
@@ -130,7 +130,7 @@ const data = [
     subTitle: 'cryptocurrency',
     title: 'How to Sell Cryptocurrencies on Our Platform',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
   },
   {
     id: 8,
@@ -138,7 +138,7 @@ const data = [
     subTitle: 'cryptocurrency',
     title: 'Exploring the Most Promising Cryptocurrencies of 2023',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
   },
   {
     id: 9,
@@ -146,7 +146,7 @@ const data = [
     subTitle: 'cryptocurrency',
     title: 'Introduction to Cryptocurrency for Beginners',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
   },
   {
     id: 10,
@@ -154,7 +154,7 @@ const data = [
     subTitle: 'cryptocurrency',
     title: 'Exploring the Most Promising Cryptocurrencies of 2023',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
   },
   {
     id: 11,
@@ -162,6 +162,6 @@ const data = [
     subTitle: 'cryptocurrency',
     title: 'How to Sell Cryptocurrencies on Our Platform',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
   },
 ]

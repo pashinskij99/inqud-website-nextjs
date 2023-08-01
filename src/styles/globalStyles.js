@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
       --header-height: ${rem(72)};
     }
     @media (max-width: 767px) {
-      --header-height: ${rem(60)};
+      --header-height: ${rem(54)};
     }
   }
 

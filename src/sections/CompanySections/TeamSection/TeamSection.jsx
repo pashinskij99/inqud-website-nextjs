@@ -3,9 +3,8 @@ import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import {
   StyledTypographyUrbanistBody,
-  StyledTypographyUrbanistH1,
+  StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH4,
-  StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import {
   StyledTeamCartWrapper,
@@ -90,14 +89,14 @@ export default function TeamSection() {
   return (
     <StyledTeamSectionWrapper>
       <div className='container'>
-        <StyledTypographyUrbanistH1 className='title'>
+        <StyledTypographyUrbanistH2 className='title'>
           Our team
-        </StyledTypographyUrbanistH1>
-        <StyledTypographyUrbanistH5 className='description'>
-          Our team consists of 10+ experienced visionaries and
-          <br className='br-desktop' /> developers with a strong background in
-          global companies like <br className='br-desktop' /> Google.
-        </StyledTypographyUrbanistH5>
+        </StyledTypographyUrbanistH2>
+        <StyledTypographyUrbanistBody className='description'>
+          Our team consists of 10+ experienced visionaries and developers with a
+          strong <br className='br-desktop' /> background in global companies
+          like Google.
+        </StyledTypographyUrbanistBody>
 
         <ul className='team-grid'>
           {grid.map(({ id, image, socials, subTitle, title }) => (

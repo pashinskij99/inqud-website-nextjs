@@ -3,7 +3,7 @@ import { useState } from 'react'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
-  StyledTypographyUrbanistH1,
+  StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledCryptoWidget2Section } from './CryptoWidget2Section.styled'
@@ -68,9 +68,9 @@ export default function CryptoWidget2Section() {
           <StyledTypographyIBMH5 className='crypto2SubTitle'>
             on-ramp
           </StyledTypographyIBMH5>
-          <StyledTypographyUrbanistH1 className='crypto2Title'>
+          <StyledTypographyUrbanistH2 className='crypto2Title'>
             Card 2 Crypto
-          </StyledTypographyUrbanistH1>
+          </StyledTypographyUrbanistH2>
 
           <Image
             className='crypto2WidgetTablet'
@@ -78,12 +78,12 @@ export default function CryptoWidget2Section() {
             alt='widget'
           />
 
-          <StyledTypographyUrbanistH5 className='crypto2Description crypto2Description-desktop'>
+          <StyledTypographyUrbanistBody className='crypto2Description crypto2Description-desktop'>
             Widget that seamlessly accepts local fiat payments for your products
             & services: Effortlessly elevate payments - our widget securely
             transitions between fiat and crypto, enhancing your financial
             flexibility.
-          </StyledTypographyUrbanistH5>
+          </StyledTypographyUrbanistBody>
 
           <StyledTypographyUrbanistH5 className='crypto2Description crypto2Description-mobile'>
             Widget that seamlessly accepts local fiat payments for your products

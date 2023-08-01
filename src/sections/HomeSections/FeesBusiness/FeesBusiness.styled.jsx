@@ -12,8 +12,11 @@ export const StyledFeesBusinessWrapper = styled.section`
       padding: 0;
     `}
   }
-  h1 {
-    margin-bottom: ${rem(8)};
+  .title-wrapper {
+    max-width: 680px;
+  }
+  h2 {
+    margin-bottom: 6px;
     ${responsive.sm`
       padding: 0 ${rem(20)};
       letter-spacing: 0.7px;
@@ -25,9 +28,10 @@ export const StyledFeesBusinessWrapper = styled.section`
       `}
     }
   }
-  h5 {
+  .description {
     color: rgba(81, 113, 133, 1);
-    margin-bottom: ${rem(40)};
+    margin-bottom: 29px;
+    line-height: 24px;
     ${responsive.xxl`
       margin-bottom: ${rem(40)};
     `}
@@ -36,27 +40,12 @@ export const StyledFeesBusinessWrapper = styled.section`
       line-height: ${rem(26)};
       padding: 0 ${rem(20)};
     `}
-
-    .br-desktop {
-      ${responsive.xxl`
-        display: none;
-      `}
-    }
-    .br-1200 {
-      display: none;
-      ${responsive.xxl`
-        display: block;
-      `}
-      ${responsive.xl`
-        display: none;
-      `}
-    }
   }
   .content-wrapper {
     display: flex;
     justify-content: space-between;
-    column-gap: ${rem(39)};
-    margin-bottom: ${rem(32)};
+    column-gap: 40px;
+    margin-bottom: 32px;
     ${responsive.xxl`
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -76,7 +65,7 @@ export const StyledFeesBusinessWrapper = styled.section`
 
   table {
     position: relative;
-    max-width: ${rem(560)};
+    max-width: 680px;
     width: 100%;
     border-collapse: collapse;
     ${responsive.xxl`
@@ -99,6 +88,7 @@ export const StyledFeesBusinessWrapper = styled.section`
       tr {
         width: 100%;
         th {
+          height: 32px;
           &:first-child {
             padding-left: ${rem(32)};
             ${responsive.sm`
@@ -124,16 +114,27 @@ export const StyledFeesBusinessWrapper = styled.section`
       }
     }
     tbody {
-      &:before {
+      /* &:before {
         content: '@';
         display: block;
         line-height: ${rem(7)};
         text-indent: -99999px;
-      }
+      } */
       tr {
         &:nth-child(odd) {
           border-radius: 16px;
-          background: rgba(244, 245, 250, 1);
+          /* background: rgba(244, 245, 250, 1); */
+          td:first-child {
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            background: rgba(244, 245, 250, 1);
+          }
+
+          td:last-child {
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background: rgba(244, 245, 250, 1);
+          }
           ${responsive.sm`
             border-radius: 0;
           `}
@@ -172,7 +173,7 @@ export const StyledFeesBusinessWrapper = styled.section`
     border-radius: 16px;
     background: var(--confident-light-grey, #f4f5fa);
     display: flex;
-    max-width: ${rem(801)};
+    max-width: 680px;
     width: 100%;
     justify-content: space-between;
     ${responsive.xxl`

@@ -2,14 +2,11 @@ import styled from '@emotion/styled'
 import { responsive } from '@/utils/response'
 
 export const StyledTeamSectionWrapper = styled.section`
-  padding-top: 240px;
+  padding-top: 195px;
   text-align: center;
   overflow: hidden;
-  ${responsive.xxl`
-    padding-top: 311.88px;
-  `}
   ${responsive.xl`
-    padding-top: 120px;
+    padding-top: 118px;
   `}
   ${responsive.sm`
     padding-top: 96px;
@@ -18,19 +15,27 @@ export const StyledTeamSectionWrapper = styled.section`
   .container {
   }
   .title {
-    margin-bottom: 24px;
+    margin-bottom: 13px;
+
     ${responsive.sm`
       font-size: 40px;
       font-weight: 700;
       line-height: 46px;
+
+      margin-bottom: 16px;
     `}
   }
   .description {
     color: rgba(81, 113, 133, 1);
-    margin-bottom: 64px;
+    margin-bottom: 49px;
+    line-height: 24px;
+    letter-spacing: 0em;
+    ${responsive.xl`
+      margin-bottom: 40px;
+    `}
     ${responsive.sm`
       font-size: 18px;
-      line-height: 26px;
+      line-height: 24px;
       margin-bottom: 40px;
       br {
         display: none;
@@ -48,8 +53,8 @@ export const StyledTeamSectionWrapper = styled.section`
     ${responsive.xl`
       display: grid;
       grid-template-columns: repeat(2, auto);
-      column-gap: 48px;
-      row-gap: 40px;
+      column-gap: 24px;
+      row-gap: 24px;
       justify-items: center;
       justify-content: center;
       margin-bottom: 40px;
@@ -62,18 +67,6 @@ export const StyledTeamSectionWrapper = styled.section`
     `}
     li {
       display: contents;
-
-      /* &:nth-child(1) {
-        .team-grid-item-image {
-          transform: scale(1.3) translateY(16%);
-        }
-      }
-      &:nth-child(2) {
-      }
-      &:nth-child(3) {
-      }
-      &:nth-child(4) {
-      } */
     }
   }
 
@@ -105,15 +98,17 @@ export const StyledTeamCartWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 32px;
+    margin-bottom: 23px;
     ${responsive.xxl`
       height: 286px;
+      margin-bottom: 31px;
     `}
     ${responsive.xl`
       height: 320px;
+      margin-bottom: 22px;
     `}
     ${responsive.sm`
-      height: 328px;
+      height: 322px;
     `}
   }
   .team-grid-item-image {
@@ -124,7 +119,7 @@ export const StyledTeamCartWrapper = styled.div`
   }
   .team-grid-item-title {
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     ${responsive.sm`
       font-size: 32px;
       line-height: 42px;
@@ -133,7 +128,7 @@ export const StyledTeamCartWrapper = styled.div`
   }
   .team-grid-item-subTitle {
     color: rgba(81, 113, 133, 1);
-    margin-bottom: 24px;
+    margin-bottom: 15px;
   }
   .team-grid-social-list {
     display: flex;

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
-  StyledTypographyUrbanistH1,
+  StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledSmoothAPISection } from './SmoothAPISection.styled'
@@ -64,9 +64,9 @@ export default function SmoothAPISection() {
           <StyledTypographyIBMH5 className='smoothAPISubTitle'>
             Tailored for business
           </StyledTypographyIBMH5>
-          <StyledTypographyUrbanistH1 className='smoothAPITitle'>
+          <StyledTypographyUrbanistH2 className='smoothAPITitle'>
             Smooth API <br className='br-1200' /> integration
-          </StyledTypographyUrbanistH1>
+          </StyledTypographyUrbanistH2>
 
           <Image
             src={GraphicTabletImage}
@@ -74,12 +74,12 @@ export default function SmoothAPISection() {
             className='smoothAPIImageTablet'
           />
 
-          <StyledTypographyUrbanistH5 className='smoothAPIDescription desktop'>
+          <StyledTypographyUrbanistBody className='smoothAPIDescription desktop'>
             Advanced onramp & offramp payment processing, scalability,
             customization, and seamless integration. Streamline payment process
             and spur growth with API integration. Experience boosted efficiency,
             scalability, and heightened business growth.
-          </StyledTypographyUrbanistH5>
+          </StyledTypographyUrbanistBody>
 
           <StyledTypographyUrbanistH5 className='smoothAPIDescription tablet'>
             Advanced onramp & offramp payment processing, customization,

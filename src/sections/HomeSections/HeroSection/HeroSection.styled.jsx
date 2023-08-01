@@ -3,7 +3,7 @@ import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
 export const StyledHeroSectionWrapper = styled.section`
-  padding-top: ${rem(90)};
+  padding-top: ${rem(64)};
   padding-bottom: ${rem(98)};
   overflow: hidden;
   ${responsive.xxl`
@@ -19,9 +19,9 @@ export const StyledHeroSectionWrapper = styled.section`
     order: 1;
   `}
   .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: ${rem(44)};
+    display: flex;
+    justify-content: space-between;
+    column-gap: 127px;
     ${responsive.xl`
       display: flex;
       flex-direction: column-reverse;
@@ -38,7 +38,7 @@ export const StyledHeroSectionWrapper = styled.section`
         width: fit-content;
         padding: ${rem(7)} ${rem(16)};
         line-height: 1;
-        margin-bottom: ${rem(24)};
+        margin-bottom: 19px;
         ${responsive.xxl`
           margin-bottom: ${rem(20)};
         `};
@@ -55,6 +55,7 @@ export const StyledHeroSectionWrapper = styled.section`
 
       .title {
         margin-bottom: ${rem(24)};
+        line-height: 70px;
         ${responsive.sm`
           font-size: ${rem(40)};
           font-weight: 700;
@@ -66,7 +67,7 @@ export const StyledHeroSectionWrapper = styled.section`
 
       .paragraph {
         color: #517185;
-        margin-bottom: ${rem(45)};
+        margin-bottom: 27px;
         ${responsive.xxl`
           margin-bottom: ${rem(32)};
         `}
@@ -85,10 +86,10 @@ export const StyledHeroSectionWrapper = styled.section`
       .features {
         width: fit-content;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: ${rem(20)};
-        row-gap: ${rem(16)};
-        margin-bottom: ${rem(45)};
+        grid-template-columns: repeat(2, auto);
+        column-gap: 24px;
+        row-gap: 13px;
+        margin-bottom: 45px;
         ${responsive.xxl`
           column-gap: ${rem(2)};
           row-gap: ${rem(12)};
@@ -156,7 +157,7 @@ export const StyledHeroSectionWrapper = styled.section`
         display: flex;
         align-items: center;
         gap: ${rem(16)};
-        margin-bottom: ${rem(80)};
+        margin-bottom: 64px;
         ${responsive.xl`
           margin-bottom: ${rem(65)};
         `}
@@ -186,8 +187,8 @@ export const StyledHeroSectionWrapper = styled.section`
 
     .rightSide {
       .graphic {
-        width: 100%;
-        height: 100%;
+        width: 595px;
+        height: 595px;
       }
 
       ${responsive.xl`

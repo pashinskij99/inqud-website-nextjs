@@ -23,10 +23,11 @@ export const StyledCartRequirement = styled.div`
     max-width: 100%;
   `}
   .cartImage {
-    max-width: ${rem(440)};
-    height: ${rem(300)};
+    max-width: 440px;
+    height: 240px;
     width: 100%;
-
+    object-fit: cover;
+    border-radius: 30px;
     ${responsive.xxl`
       max-width: ${rem(380)};
       height: ${rem(260)};
@@ -51,19 +52,22 @@ export const StyledCartRequirement = styled.div`
   }
 
   .cartBody {
-    padding: ${rem(40)} ${rem(32)} 0;
+    padding: 38px 0 0;
 
     ${responsive.xs`
       padding: ${rem(32)} ${rem(32)} 0;
     `}
     .cartTitle {
       font-weight: 700;
-      margin-bottom: ${rem(16)};
+      margin-bottom: 7px;
     }
 
     .cartDescription {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 24px;
       color: #517185;
-      margin-bottom: ${rem(20)};
+      margin-bottom: 2px;
       ${responsive.xs`
         margin-bottom: ${rem(13)};
       `}

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import {
   StyledTypographyUrbanistBody,
-  StyledTypographyUrbanistH1,
+  StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledLandscapeSectionWrapper } from './LandscapeSection.styled'
@@ -37,33 +37,37 @@ export default function LandscapeSection() {
   return (
     <StyledLandscapeSectionWrapper>
       <div className='container'>
-        <StyledTypographyUrbanistH1 className='title'>
-          Our landscape
-        </StyledTypographyUrbanistH1>
-        <StyledTypographyUrbanistH5 className='description'>
-          With our clients, we grow and advance every day,
-          <br className='br-desktop' />
-          pushing boundaries and achieving new heights.
-        </StyledTypographyUrbanistH5>
+        <div className='text-wrapper'>
+          <div className='title-wrapper'>
+            <StyledTypographyUrbanistH2 className='title'>
+              Our landscape
+            </StyledTypographyUrbanistH2>
+            <StyledTypographyUrbanistH5 className='description'>
+              With our clients, we grow and advance every day,{' '}
+              <br className='br-desktop' />
+              pushing boundaries and achieving new heights.
+            </StyledTypographyUrbanistH5>
+          </div>
 
-        <ul className='list'>
-          {grid.map(({ id, description, icon, title }) => (
-            <li className='list-item' key={id}>
-              <div className='list-item-icon-wrapper'>{icon}</div>
+          <ul className='list'>
+            {grid.map(({ id, description, icon, title }) => (
+              <li className='list-item' key={id}>
+                <div className='list-item-icon-wrapper'>{icon}</div>
 
-              <div className='list-item-text-wrapper'>
-                <StyledTypographyUrbanistBody className='list-item-title'>
-                  {title}
-                </StyledTypographyUrbanistBody>
-                <StyledTypographyUrbanistBody className='list-item-description'>
-                  {description}
-                </StyledTypographyUrbanistBody>
-              </div>
-            </li>
-          ))}
-        </ul>
+                <div className='list-item-text-wrapper'>
+                  <StyledTypographyUrbanistBody className='list-item-title'>
+                    {title}
+                  </StyledTypographyUrbanistBody>
+                  <StyledTypographyUrbanistBody className='list-item-description'>
+                    {description}
+                  </StyledTypographyUrbanistBody>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <Image src={map.src} width={999.998} height={516.117} className='map' />
+        <Image src={map.src} width={775.02} height={400} className='map' />
       </div>
     </StyledLandscapeSectionWrapper>
   )

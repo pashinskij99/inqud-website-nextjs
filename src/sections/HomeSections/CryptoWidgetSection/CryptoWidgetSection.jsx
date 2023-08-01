@@ -2,7 +2,7 @@ import { StyledCryptoWidgetSection } from './CryptoWidgetSection.styled'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
-  StyledTypographyUrbanistH1,
+  StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { ButtonGetStartedLight } from '@/components/UI/Button/Button'
@@ -42,8 +42,7 @@ const gridContent = [
     title: 'Auto-conversion',
     description: (
       <>
-        Mitigate market volatility risks with <br /> our automatic conversion
-        system.
+        Mitigate market volatility risks with our automatic conversion system.
       </>
     ),
   },
@@ -70,21 +69,20 @@ export default function CryptoWidgetSection() {
           <StyledTypographyIBMH5 className='cryptoSubTitle cryptoSubTitle-mobile'>
             {' // '} Tailored for devs
           </StyledTypographyIBMH5>
-          <StyledTypographyUrbanistH1 className='cryptoTitle'>
+          <StyledTypographyUrbanistH2 className='cryptoTitle'>
             Crypto widget
-          </StyledTypographyUrbanistH1>
+          </StyledTypographyUrbanistH2>
 
           <div className='cryptoWidgetMobileWrapper'>
             <WidgetMobile className='cryptoWidgetMobile' />
             <WidgetMobileSmaller className='cryptoWidgetMobileSmaller' />
           </div>
 
-          <StyledTypographyUrbanistH5 className='cryptoDescription'>
-            Get on board with the future of payments — our <br /> embeddable
-            crypto widget for your website makes it <br /> simple to accept
-            cryptocurrency payments including <br /> Bitcoin, Ethereum and other
-            crypto.
-          </StyledTypographyUrbanistH5>
+          <StyledTypographyUrbanistBody className='cryptoDescription'>
+            Get on board with the future of payments — our embeddable crypto
+            widget for your website makes it simple to accept cryptocurrency
+            payments including Bitcoin, Ethereum and other crypto.
+          </StyledTypographyUrbanistBody>
 
           <StyledTypographyUrbanistH5 className='cryptoDescriptionMobile'>
             Embrace crypto payments on your website with our seamless widget.
