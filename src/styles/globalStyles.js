@@ -3,13 +3,13 @@ import { rem } from '@/utils/rem'
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --header-height: ${rem(96)};
+    --header-height: ${rem(72)};
 
     @media (max-width: 1279px) {
-      --header-height: ${rem(82)};
+      --header-height: ${rem(72)};
     }
     @media (max-width: 767px) {
-      --header-height: ${rem(55)};
+      --header-height: ${rem(60)};
     }
   }
 

@@ -15,19 +15,19 @@ import Dot from '@/assets/icons/dot.svg'
 import { ButtonLearnMore } from '@/components/UI/Button'
 
 export function BlogCart({ imageSrc, date, time, subTitle, title }) {
-  const [hover, setHover] = useState(false)
-  const handleEnter = () => {
-    setHover(true)
-  }
-  const handleLeave = () => {
-    setHover(false)
-  }
+  // const [hover, setHover] = useState(false)
+  // const handleEnter = () => {
+  //   setHover(true)
+  // }
+  // const handleLeave = () => {
+  //   setHover(false)
+  // }
 
   return (
     <StyledBlogCartWrapper
       className='cart'
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
+      // onMouseEnter={handleEnter}
+      // onMouseLeave={handleLeave}
     >
       <div className='imageWrapper'>
         <Image
@@ -46,19 +46,19 @@ export function BlogCart({ imageSrc, date, time, subTitle, title }) {
         {title}
       </StyledTypographyUrbanistH4>
 
-      {hover ? (
-        <ButtonLearnMore>Learn more</ButtonLearnMore>
-      ) : (
-        <div className={clsx('footer')}>
-          <StyledTypographyUrbanistBody className='date'>
-            {date}
-          </StyledTypographyUrbanistBody>
-          <Dot />
-          <StyledTypographyUrbanistBody className='time'>
-            {time}
-          </StyledTypographyUrbanistBody>
-        </div>
-      )}
+      {/* {hover ? ( */}
+      <ButtonLearnMore>Learn more</ButtonLearnMore>
+      {/* ) : ( */}
+      <div className='footer'>
+        <StyledTypographyUrbanistBody className='date'>
+          {date}
+        </StyledTypographyUrbanistBody>
+        <Dot />
+        <StyledTypographyUrbanistBody className='time'>
+          {time}
+        </StyledTypographyUrbanistBody>
+      </div>
+      {/* )} */}
     </StyledBlogCartWrapper>
   )
 }

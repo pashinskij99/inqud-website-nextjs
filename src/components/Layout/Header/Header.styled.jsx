@@ -44,9 +44,10 @@ export const StyledHeaderWrapper = styled.header`
     `};
 
     .logo {
-      width: ${rem(155.001)};
-      height: ${rem(50)};
+      width: ${rem(124.001)};
+      height: ${rem(40)};
       flex-shrink: 0;
+
       ${responsive.sm`
         display: none;
       `};

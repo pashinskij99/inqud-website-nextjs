@@ -6,7 +6,7 @@ import { StyledTypographyUrbanistH1 } from '@/components/UI/Typography/Typograph
 import Image1 from '@/assets/images/blogs/image1.png'
 import Image2 from '@/assets/images/blogs/image2.png'
 import Image3 from '@/assets/images/blogs/image3.png'
-import { BlogCart, BlogCart2 } from '@/components/BlogCart'
+import { BlogCart } from '@/components/BlogCart'
 import { StyledRelatedArticlesSection } from './RelatedArticles.styled'
 
 const blogs = [
@@ -15,7 +15,7 @@ const blogs = [
     subTitle: 'cryptocurrency',
     title: 'Understanding Blockchain Technology',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
     imageSrc: Image1.src,
   },
   {
@@ -23,7 +23,7 @@ const blogs = [
     subTitle: 'cryptocurrency',
     title: 'How to Sell Cryptocurrencies on Our Platform',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
     imageSrc: Image2.src,
   },
   {
@@ -31,7 +31,7 @@ const blogs = [
     subTitle: 'cryptocurrency',
     title: 'Exploring the Most Promising Cryptocurrencies of 2023',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
     imageSrc: Image3.src,
   },
 ]
@@ -40,18 +40,18 @@ export default function RelatedArticles() {
   return (
     <StyledRelatedArticlesSection>
       <div className='container'>
-        <div className='blogsHeader'>
-          <StyledTypographyUrbanistH1 className='blogsHeaderTitle'>
+        <div className='relatedBlogsHeader blogsHeader'>
+          <StyledTypographyUrbanistH1 className='relatedBlogsHeaderTitle blogsHeaderTitle'>
             Related articles
           </StyledTypographyUrbanistH1>
           <Link href='/blog'>
-            <StyledButtonGhost className='blogsHeaderButton'>
+            <StyledButtonGhost className='relatedBlogsHeaderButton blogsHeaderButton'>
               Go to blog
             </StyledButtonGhost>
           </Link>
         </div>
 
-        <div className='blogsGrid'>
+        <div className='relatedBlogsGrid blogsGrid'>
           {blogs.map(({ id, date, imageSrc, subTitle, time, title }) => (
             <Link href='/blog/1'>
               <BlogCart
@@ -69,7 +69,7 @@ export default function RelatedArticles() {
         {/* mobile */}
 
         <Swiper
-          className='blogsSwiper'
+          className='relatedBlogsSwiper blogsSwiper'
           slidesPerView='auto'
           spaceBetween={24}
           updateOnWindowResize
@@ -103,7 +103,7 @@ export default function RelatedArticles() {
           {blogs.map(({ id, date, imageSrc, subTitle, time, title }) => (
             <SwiperSlide className='slide' key={id}>
               <Link href='/blog/1'>
-                <BlogCart2
+                <BlogCart
                   date={date}
                   imageSrc={imageSrc}
                   subTitle={subTitle}
@@ -115,7 +115,7 @@ export default function RelatedArticles() {
           ))}
         </Swiper>
         <Link href='/blog'>
-          <StyledButtonGhost className='blogsHeaderButtonMobile'>
+          <StyledButtonGhost className='relatedBlogsHeaderButtonMobile blogsHeaderButtonMobile'>
             Go to blog
           </StyledButtonGhost>
         </Link>

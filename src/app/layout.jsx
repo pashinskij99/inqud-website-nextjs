@@ -27,12 +27,22 @@ export default function RootLayout({ children }) {
 
   const pathname = usePathname()
 
+  const getCurrentPageName = (page) => {
+    switch (page) {
+      case 'blog':
+        return 'insights'
+
+      default:
+        return page
+    }
+  }
+
   useEffect(() => {
     const path = getUrlForBreadCrumbs(pathname)
 
     const pagesArray = path.map((page, i) => ({
       id: i,
-      name: page ? capitalize(page) : 'Home page',
+      name: page ? capitalize(getCurrentPageName(page)) : 'Home page',
       href: page ? `/${page}` : '/',
     }))
     setPages(pagesArray)

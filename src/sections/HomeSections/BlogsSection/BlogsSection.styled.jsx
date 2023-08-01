@@ -42,7 +42,6 @@ export const StyledBlogsSection = styled.section`
 
     .blogsHeaderButton {
       ${responsive.xl`
-        height: ${rem(48)};
         margin-top: ${rem(15)};
       `};
       ${responsive.sm`

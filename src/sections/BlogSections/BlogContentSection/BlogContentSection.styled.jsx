@@ -4,29 +4,35 @@ import { responsive } from '@/utils/response'
 
 export const StyledBlogContentSectionWrapper = styled.section`
   padding-top: ${rem(61)};
+  padding-bottom: ${rem(140)};
+
+  ${responsive.xxl`
+    padding-top: ${rem(40)};
+    padding-bottom: ${rem(140)};
+  `};
   ${responsive.xl`
-    padding-top: ${rem(68)};
+    padding-top: ${rem(52)};
+    padding-bottom: ${rem(124)};
   `};
   ${responsive.xs`
     padding-top: ${rem(24)};
+    padding-bottom: ${rem(96)};
   `};
   .container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: ${rem(140)};
-    column-gap: ${rem(40)};
+    column-gap: ${rem(56)};
     ${responsive.xxl`
       column-gap: ${rem(24)};
     `}
     ${responsive.xl`
       flex-direction: column;
       row-gap: ${rem(36)};
-      margin-bottom: ${rem(98)};
     `};
     ${responsive.xs`
       flex-direction: column;
       row-gap: ${rem(24)};
-      margin-bottom: ${rem(96)};
+      padding: 0;
     `};
   }
 `
@@ -51,8 +57,9 @@ export const StyledLeftSide = styled.div`
     max-width: 100%;
   `};
 
-  ${responsive.xs`
+  ${responsive.sm`
     top: calc(var(--header-height) + ${rem(24)});
+    padding: 0 16px;
   `};
 
   h5 {
@@ -68,6 +75,9 @@ export const StyledLeftSide = styled.div`
     row-gap: ${rem(12)};
     margin-bottom: ${rem(40)};
 
+    ${responsive.xxl`
+      row-gap: ${rem(16)};
+    `}
     ${responsive.xl`
       display: none;
     `};
@@ -116,16 +126,24 @@ export const StyledLeftSide = styled.div`
     ${responsive.xl`
       display: flex;
       justify-content: space-between;
+      align-items: center;
     `};
     .share-title {
       font-weight: 700;
       margin-bottom: ${rem(8)};
+      ${responsive.xl`
+        line-height: 1;
+        margin-bottom: 0;
+      `}
     }
     .share {
       display: flex;
       align-items: center;
       column-gap: ${rem(8)};
       flex-direction: row;
+      ${responsive.sm`
+        column-gap: 16px;
+      `}
       li {
         display: contents;
         a {
@@ -182,40 +200,113 @@ export const StyledCenterSide = styled.div`
   ${responsive.xl`
     order: 1;
   `};
-  .description {
+  .content-section {
     margin-bottom: ${rem(40)};
+    ${responsive.xxl`
+      margin-bottom: ${rem(38)};
+    `}
     &:last-child {
       margin-bottom: 0;
     }
+
+    .description {
+      margin-bottom: ${rem(16)};
+      &:last-child,
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      ${responsive.sm`
+        padding: 0 16px;
+      `}
+    }
+
+    .image {
+      width: 100%;
+      object-fit: contain;
+      height: auto;
+      margin: ${rem(40)} 0;
+
+      &:last-child,
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      ${responsive.xxl`
+        height: 247px;
+        object-fit: cover;
+      `}
+    }
   }
+
   .link {
-    display: inline-block;
-    text-decoration-line: underline;
-    color: #077453;
+    display: contents;
+    span {
+      text-decoration-line: underline;
+      color: #077453;
+    }
   }
   .title {
     margin-bottom: ${rem(16)};
     font-weight: 700;
+    ${responsive.sm`
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 42px;
+      letter-spacing: 0em;
+      padding: 0 16px;
+    `}
   }
-  .image {
-    width: 100%;
-    object-fit: contain;
-    height: auto;
-    margin-bottom: ${rem(40)};
-  }
+
   .separated {
     border-left: ${rem(4)} solid rgba(7, 116, 83, 1);
     padding-left: ${rem(24)};
-    margin-top: ${rem(25)};
-    margin-bottom: ${rem(23)};
-    ${responsive.sm`
+    margin-top: ${rem(23)};
+    margin-bottom: ${rem(25)};
+    line-height: 32px;
+
+    ${responsive.xl`
       font-size: ${rem(24)};
       font-weight: 400;
-      line-height: ${rem(34)};
+      margin: 23px 0 25px;
+      line-height: 32px;
+
       br {
         display: none;
       }
     `};
+
+    ${responsive.sm`
+      margin: 23px 16px 25px;
+    `}
+
+    &.desktop {
+      ${responsive.xxl`
+        display: none;
+      `}
+    }
+    &.laptop {
+      display: none;
+
+      ${responsive.xxl`
+        display: block;
+      `}
+    }
+
+    &.tablet {
+      display: none;
+
+      ${responsive.xl`
+        display: block;
+      `}
+    }
+
+    &.mobile {
+      display: none;
+
+      ${responsive.sm`
+        display: block;
+      `}
+    }
   }
 `
 export const StyledRightSide = styled.div`
@@ -241,6 +332,7 @@ export const StyledRightSide = styled.div`
 
   ${responsive.sm`
     grid-template-columns: 1fr;
+    padding: 0 16px;
   `};
 `
 

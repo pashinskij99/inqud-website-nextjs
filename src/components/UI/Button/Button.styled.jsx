@@ -109,6 +109,7 @@ export const StyledButtonGetStarted = styled.button`
 
 export const StyledButtonLearnMore = styled(StyledButtonGetStarted)`
   background: transparent;
+  border-radius: 0;
 
   .text {
     color: #077453;

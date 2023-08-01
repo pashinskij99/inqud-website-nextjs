@@ -93,98 +93,114 @@ function LeftSide() {
 function CenterSide() {
   return (
     <StyledCenterSide>
-      <StyledTypographyUrbanistBody className='description'>
-        This article provides a beginner-friendly introduction to
-        cryptocurrencies, explaining their basics and significance in the
-        financial world.{' '}
-        <Link className='link' href='#1'>
-          Discover how Inqud
-        </Link>
-        , a trusted financial technology company, contributes to the world of
-        cryptocurrencies and international payments.
-      </StyledTypographyUrbanistBody>
+      <div className='content-section'>
+        <StyledTypographyUrbanistBody className='description'>
+          This article provides a beginner-friendly introduction to
+          cryptocurrencies, explaining their basics and significance in the
+          financial world.{' '}
+          <Link className='link' href='#1'>
+            <span>Discover how Inqud</span>
+          </Link>
+          , a trusted financial technology company, contributes to the world of
+          cryptocurrencies and international payments.
+        </StyledTypographyUrbanistBody>
+      </div>
 
-      <StyledTypographyUrbanistH4 className='title'>
-        What are Cryptocurrencies?
-      </StyledTypographyUrbanistH4>
+      <div className='content-section'>
+        <StyledTypographyUrbanistH4 className='title'>
+          What are Cryptocurrencies?
+        </StyledTypographyUrbanistH4>
 
-      <StyledTypographyUrbanistBody className='description'>
-        This article provides a beginner-friendly introduction to
-        cryptocurrencies, explaining their basics and significance in the
-        financial world.{' '}
-        <Link className='link' href='#1'>
-          Discover how Inqud
-        </Link>
-        , a trusted financial technology company, contributes to the world of
-        cryptocurrencies and international payments.
-        <br />
-        <br />
-        Cryptocurrencies are based on blockchain technology, a decentralized and
-        transparent ledger that records all transactions. Each transaction is
-        verified and added to the blockchain, ensuring transparency and
-        immutability. This decentralized nature empowers individuals by giving
-        them control over their finances and eliminating the need for
-        traditional financial institutions.
-        <br />
-        <br />
-        Cryptocurrencies, also known as digital currencies, have revolutionized
-        the financial world with their decentralized nature and use of
-        cryptographic technology. providing individuals and businesses with a
-        new way to transact.
-      </StyledTypographyUrbanistBody>
+        <StyledTypographyUrbanistBody className='description'>
+          This article provides a beginner-friendly introduction to
+          cryptocurrencies, explaining their basics and significance in the
+          financial world.{' '}
+          <Link className='link' href='#1'>
+            <span>Discover how Inqud</span>
+          </Link>
+          , a trusted financial technology company, contributes to the world of
+          cryptocurrencies and international payments.
+        </StyledTypographyUrbanistBody>
 
-      <Image
-        className='image'
-        src={Image1}
-        width={680}
-        height={448}
-        alt='image'
-      />
+        <StyledTypographyUrbanistBody className='description'>
+          Cryptocurrencies are based on blockchain technology, a decentralized
+          and transparent ledger that records all transactions. Each transaction
+          is verified and added to the blockchain, ensuring transparency and
+          immutability. This decentralized nature empowers individuals by giving
+          them control over their finances and eliminating the need for
+          traditional financial institutions.
+        </StyledTypographyUrbanistBody>
 
-      <StyledTypographyUrbanistH4 className='title'>
-        How Do Cryptocurrencies Work?
-      </StyledTypographyUrbanistH4>
+        <StyledTypographyUrbanistBody className='description'>
+          Cryptocurrencies, also known as digital currencies, have
+          revolutionized the financial world with their decentralized nature and
+          use of cryptographic technology. providing individuals and businesses
+          with a new way to transact.
+        </StyledTypographyUrbanistBody>
 
-      <StyledTypographyUrbanistBody>
-        Cryptocurrencies are based on blockchain technology, a decentralized and
-        transparent ledger that records all transactions. Each transaction is
-        verified and added to the blockchain, ensuring transparency and
-        immutability. This decentralized nature empowers individuals by giving
-        them control over their finances and eliminat need for traditional
-        financial institutions. Cryptocurrencies are based on blockchain
-        technology, a decentralized and transparent ledger that records all
-        transactions. Each transaction is verified and added to the blockchain,
-        ensuring transparency and immutability. This decentralized nature
-        empowers individuals by giving them control over their finances and
-        eliminating the need for traditional financial institutions.
-      </StyledTypographyUrbanistBody>
+        <Image
+          className='image'
+          src={Image1}
+          width={680}
+          height={448}
+          alt='image'
+        />
+      </div>
 
-      <StyledTypographyUrbanistH5 className='separated'>
-        Each transaction is verified and added to the
-        <br className='br-desktop' /> blockchain, ensuring transparency and
-        immutability <br className='br-desktop' /> and added to the blockchain,
-        ensuring transparency <br className='br-desktop' /> and immutability.
-      </StyledTypographyUrbanistH5>
+      <div className='content-section'>
+        <StyledTypographyUrbanistH4 className='title'>
+          How Do Cryptocurrencies Work?
+        </StyledTypographyUrbanistH4>
 
-      <StyledTypographyUrbanistBody className='description'>
-        Cryptocurrencies, also known as digital currencies, have revolutionized
-        the financial world with their decentralized nature and use of
-        cryptographic technology. providing individuals and businesses with a
-        new way to transact.
-      </StyledTypographyUrbanistBody>
+        <StyledTypographyUrbanistBody className='description'>
+          Cryptocurrencies are based on blockchain technology, a decentralized
+          and transparent ledger that records all transactions. Each transaction
+          is verified and added to the blockchain, ensuring transparency and
+          immutability. This decentralized nature empowers individuals by giving
+          them control over their finances and eliminat need for traditional
+          financial institutions. Cryptocurrencies are based on blockchain
+          technology, a decentralized and transparent ledger that records all
+          transactions. Each transaction is verified and added to the
+          blockchain, ensuring transparency and immutability. This decentralized
+          nature empowers individuals by giving them control over their finances
+          and eliminating the need for traditional financial institutions.
+        </StyledTypographyUrbanistBody>
 
-      <StyledTypographyUrbanistH4 className='title'>
-        Conclusion
-      </StyledTypographyUrbanistH4>
+        <StyledTypographyUrbanistH5 className='separated desktop'>
+          Each transaction is verified and added to the
+          <br className='br-desktop' /> blockchain, ensuring transparency and
+          immutability <br className='br-desktop' /> and added to the
+          blockchain, ensuring transparency <br className='br-desktop' /> and
+          immutability.
+        </StyledTypographyUrbanistH5>
+        <StyledTypographyUrbanistH5 className='separated laptop'>
+          Each transaction is verified and added to the
+          <br className='br-desktop' /> blockchain, ensuring transparency and
+          immutability
+        </StyledTypographyUrbanistH5>
 
-      <StyledTypographyUrbanistBody className='description'>
-        Cryptocurrencies are based on blockchain technology, a decentralized and
-        transparent ledger that records all transactions. Each transaction is
-        verified and added to the blockchain, ensuring transparency and
-        immutability. This decentralized nature empowers individuals by giving
-        them control over their finances and eliminating the need for
-        traditional financial institutions.
-      </StyledTypographyUrbanistBody>
+        <StyledTypographyUrbanistBody className='description'>
+          Cryptocurrencies, also known as digital currencies, have
+          revolutionized the financial world with their decentralized nature and
+          use of cryptographic technology. providing individuals and businesses
+          with a new way to transact.
+        </StyledTypographyUrbanistBody>
+      </div>
+
+      <div className='content-section'>
+        <StyledTypographyUrbanistH4 className='title'>
+          Conclusion
+        </StyledTypographyUrbanistH4>
+
+        <StyledTypographyUrbanistBody className='description'>
+          Cryptocurrencies are based on blockchain technology, a decentralized
+          and transparent ledger that records all transactions. Each transaction
+          is verified and added to the blockchain, ensuring transparency and
+          immutability. This decentralized nature empowers individuals by giving
+          them control over their finances and eliminating the need for
+          traditional financial institutions.
+        </StyledTypographyUrbanistBody>
+      </div>
     </StyledCenterSide>
   )
 }

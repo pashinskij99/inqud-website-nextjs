@@ -20,6 +20,10 @@ export const StyledFooter = styled.footer`
       color: var(--exciting-lime, #bfffc8);
       margin-bottom: ${rem(20)};
       max-width: ${rem(440)};
+      ${responsive.xl`
+        line-height: 32px;
+        margin-bottom: 19px;
+      `}
       ${responsive.sm`
         max-width: 100%;
         text-align: center;
@@ -37,7 +41,12 @@ export const StyledFooter = styled.footer`
       gap: ${rem(16)};
       margin-bottom: ${rem(16)};
       max-width: ${rem(440)};
+      ${responsive.xl`
+        align-items: center;
+        margin-bottom: ${rem(14)};
+      `}
       ${responsive.sm`
+        align-items: normal;
         max-width: 100%;
       `}
       ${responsive.xs`

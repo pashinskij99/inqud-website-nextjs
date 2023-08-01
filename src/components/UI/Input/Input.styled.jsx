@@ -36,6 +36,9 @@ export const StyledInputTextWrapper = styled.div`
       ${urbanist.style}
 
       background-color: transparent;
+      ${responsive.xl`
+        padding: 0 ${rem(32)} 0 ${rem(22)};
+      `}
       ${responsive.sm`
         padding: 0 ${rem(32)} 0 ${rem(24)};
       `}

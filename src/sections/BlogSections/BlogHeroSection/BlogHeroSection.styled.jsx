@@ -16,7 +16,7 @@ export const StyledBlogHeroSectionWrapper = styled.section`
   `};
 
   ${responsive.xs`
-    padding: ${rem(32)} 0;
+    padding: ${rem(32)} 0 ${rem(38)};
   `};
 
   .arrowLeftBackground {
@@ -26,6 +26,9 @@ export const StyledBlogHeroSectionWrapper = styled.section`
     bottom: 0;
     margin: auto 0;
     z-index: 0;
+    ${responsive.xxl`
+      transform: translateX(-43%)
+    `};
     ${responsive.xl`
       display: none;
     `};
@@ -38,6 +41,9 @@ export const StyledBlogHeroSectionWrapper = styled.section`
     margin: auto 0;
     z-index: 0;
 
+    ${responsive.xxl`
+      transform: translateX(43%)
+    `};
     ${responsive.xl`
       display: none;
     `};
@@ -48,16 +54,26 @@ export const StyledBlogHeroSectionWrapper = styled.section`
   }
   .title {
     margin-bottom: ${rem(16)};
-
-    ${responsive.md`
-      br {
-        display: none;
-      }
-    `};
-    ${responsive.xs`
-      font-size: ${rem(40)};
-      line-height: ${rem(46)};
+    ${responsive.xxl`
+      font-size: 56px;
       font-weight: 400;
+      line-height: 62px;
+      letter-spacing: 0em;
+
+      margin-bottom: ${rem(14)};
+    `}
+    ${responsive.xl`
+      font-size: 56px;
+      font-weight: 400;
+      line-height: 62px;
+    `}
+    ${responsive.sm`
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 46px;
+      letter-spacing: -0.02em;
+
+      margin-bottom: ${rem(8)};
       br {
         display: none;
       }
@@ -85,7 +101,11 @@ export const StyledBlogHeroSectionWrapper = styled.section`
     border-radius: 42px;
     border: 1px solid #f4f5fa;
     background: #fff;
+    z-index: 1;
 
+    ${responsive.xxl`
+      left: ${rem(32)};
+    `};
     ${responsive.xl`
       position: static;
       width: fit-content;

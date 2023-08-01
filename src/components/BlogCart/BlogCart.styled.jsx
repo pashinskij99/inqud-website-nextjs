@@ -9,6 +9,12 @@ export const StyledBlogCartWrapper = styled.div`
     .image {
       transform: scale(1.1);
     }
+    button {
+      display: flex;
+    }
+    .footer {
+      display: none;
+    }
   }
 
   ${responsive.xxl`
@@ -30,6 +36,9 @@ export const StyledBlogCartWrapper = styled.div`
     margin-bottom: ${rem(30)};
     height: fit-content;
     display: flex;
+    ${responsive.xl`
+      margin-bottom: ${rem(20)};
+    `};
     ${responsive.xs`
       margin-bottom: ${rem(24)};
     `};
@@ -39,22 +48,19 @@ export const StyledBlogCartWrapper = styled.div`
     max-width: ${rem(440)};
     height: ${rem(250)};
     transition: transform 0.3s ease-in-out;
+    width: 100%;
 
     ${responsive.xxl`
-      max-width: ${rem(380)};
-      height: ${rem(260)};
+      max-width: ${rem(389)};
+      height: ${rem(221)};
     `};
 
     ${responsive.xl`
-      max-width: ${rem(300)};
-      height: ${rem(210)};
+      max-width: ${rem(332)};
+      height: ${rem(189)};
     `};
-    ${responsive.lg`
-      max-width: 100%;
-      height: ${rem(250)};
-      object-fit: cover;
-    `};
-    ${responsive.xs`
+
+    ${responsive.sm`
       max-width: 100%;
       height: auto;
       object-fit: contain;
@@ -89,10 +95,15 @@ export const StyledBlogCartWrapper = styled.div`
   }
 
   button {
+    display: none;
     padding: 0;
     height: fit-content;
+    ${responsive.sm`
+      margin: 0 auto;
+    `}
 
     svg {
+      position: static;
       width: ${rem(24)};
       height: ${rem(24)};
     }
