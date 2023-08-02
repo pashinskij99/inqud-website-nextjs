@@ -137,7 +137,6 @@ export const AccordionSummary = styled((props) => (
       '@media (max-width: 767px)': {
         padding: '0 0 0 35px',
         fontSize: '24px',
-        fontWeight: '700',
         lineHeight: '32px',
         letterSpacing: '0em',
 

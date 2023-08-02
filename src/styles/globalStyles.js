@@ -50,12 +50,15 @@ const GlobalStyle = createGlobalStyle`
   .containerHeader {
     max-width: 1920px;
     margin: 0 auto;
-    padding: 0 ${rem(60)};
-    @media (max-width: 1280px) {
-      padding: 0 ${rem(40)};
+    padding: 0 60px;
+    @media (max-width: 1536px) {
+      padding: 0 32px;
+    }
+    @media (max-width: 1279px) {
+      padding: 0 40px;
     }
     @media (max-width: 767px) {
-      padding: 0 ${rem(16)};
+      padding: 0 16px;
     }
   }
 
