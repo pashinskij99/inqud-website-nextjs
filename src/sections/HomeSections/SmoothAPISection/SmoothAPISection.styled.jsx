@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import {rem} from '@/utils/rem'
+import {responsive} from '@/utils/response'
 
 export const StyledSmoothAPISection = styled.section`
   padding-top: 200px;
@@ -26,14 +26,19 @@ export const StyledSmoothAPISection = styled.section`
     `};
 
     .leftSide {
-      @media (max-width: 1536px) and (min-width: 1279px) {
-        justify-content: center;
+      ${responsive.xxl`
+        flex: 1;
         display: flex;
-      }
+        justify-content: center;
+        align-items: center;
+      `}
       svg {
         width: 416.4502258300781px;
         height: 600px;
         transform: translateX(132px);
+        ${responsive.xxl`
+          transform: translateX(0);
+        `}
       }
 
       ${responsive.xl`
@@ -44,6 +49,13 @@ export const StyledSmoothAPISection = styled.section`
     .rightSide {
       max-width: 680px;
       width: 100%;
+
+      ${responsive.xxl`
+        max-width: 596px;
+      `}
+      ${responsive.xl`
+        max-width: 100%;
+      `}
       .smoothAPISubTitle {
         border-radius: ${rem(50)};
         background: var(--independent-grey-dt-20, rgba(129, 158, 176, 0.2));
@@ -57,7 +69,6 @@ export const StyledSmoothAPISection = styled.section`
           margin-right: auto;
           margin-left: auto;
           padding: ${rem(5)} ${rem(16)};
-          margin-bottom: ${rem(23)};
         `};
 
         ${responsive.sm`
@@ -75,6 +86,7 @@ export const StyledSmoothAPISection = styled.section`
         ${responsive.sm`
           margin-bottom: ${rem(32)};
           letter-spacing: 0.3px;
+          line-height: 46px;
         `};
 
         .br-1200 {
@@ -108,11 +120,13 @@ export const StyledSmoothAPISection = styled.section`
         line-height: 24px;
 
         margin-bottom: 39px;
+
         &.desktop {
           ${responsive.xl`
             display: none;
           `}
         }
+
         &.tablet {
           display: none;
 
@@ -125,16 +139,15 @@ export const StyledSmoothAPISection = styled.section`
         }
 
         ${responsive.xxl`
-          font-size: ${rem(18)};
           font-weight: 500;
-          line-height: ${rem(26)};
         `}
 
         ${responsive.xl`
-          font-size: 24px;
+          font-size: 18px;
           font-weight: 400;
-          line-height: 34px;
+          line-height: 24px;
           letter-spacing: 0em;
+          margin-bottom: 49px;
         `}
 
         ${responsive.sm`
@@ -146,10 +159,10 @@ export const StyledSmoothAPISection = styled.section`
         display: none;
         ${responsive.sm`
           display: block;
-          margin-bottom: ${rem(40)};
+          margin-bottom: 34px;
           text-align: center;
           font-size: ${rem(24)};
-          line-height: ${rem(34)};
+          line-height: 32px;
         `};
       }
 
@@ -160,28 +173,32 @@ export const StyledSmoothAPISection = styled.section`
         row-gap: 24px;
         margin-bottom: 42px;
         ${responsive.xxl`
-          column-gap: ${rem(24)};
-          row-gap: ${rem(40)};
+          grid-template-columns: repeat(2, 286px);
+          column-gap: 24px;
+          row-gap: 22px;
         `}
         ${responsive.xl`
-          column-gap: ${rem(34)};
-          row-gap: ${rem(40)};
+          grid-template-columns: repeat(2, 332px);
+          column-gap: 24px;
+          justify-content: space-between;
+          row-gap: 18px;
+          align-items: flex-start;
+          margin-bottom: 36px;
         `}
         ${responsive.sm`
           grid-template-columns: 1fr;
-          gap: ${rem(16)};
-          margin-bottom: ${rem(48)};
+          margin-bottom: 43px;
           width: fit-content;
           margin-left: auto;
           margin-right: auto;
+          gap: 6px;
         `};
 
         .smoothAPIGridItem {
-          ${responsive.sm`
-            display: flex;
-            align-items: center;
-            gap: ${rem(12)};
-
+          ${responsive.xl`
+            row-gap: 8px;
+            display: grid;
+            grid-template-columns: auto 268px;
             &:nth-child(1) {
               order: 1;
             }
@@ -196,6 +213,11 @@ export const StyledSmoothAPISection = styled.section`
             }
           `};
 
+          ${responsive.sm`
+            display: flex;
+            align-items: center;
+            gap: ${rem(12)};
+          `}
           .check {
             display: none;
             ${responsive.sm`
@@ -210,6 +232,9 @@ export const StyledSmoothAPISection = styled.section`
             ${responsive.xxl`
               margin-bottom: ${rem(4)};
             `}
+            ${responsive.xl`
+              margin-bottom: 0;
+            `}
             ${responsive.sm`
               display: none;
             `};
@@ -218,12 +243,25 @@ export const StyledSmoothAPISection = styled.section`
           .smoothAPIGridItemTitle {
             margin-bottom: 6px;
             font-weight: 700;
+
             ${responsive.xxl`
               margin-bottom: ${rem(8)};
+              line-height: 32px;
+            `}
+            ${responsive.xl`
+              grid-column-start: 2;
+              grid-column-end: 2;
+              width: 100%;
+              height: 48px;
+              line-height: 1;
+              display: flex;
+              align-items: center;
+              line-height: 32px;
             `}
             br {
               display: none;
             }
+
             ${responsive.md`
               br {
                 display: block;
@@ -232,6 +270,8 @@ export const StyledSmoothAPISection = styled.section`
             ${responsive.sm`
               font-weight: 400;
               margin-bottom: 0;
+              height: auto;
+              
               br {
                 display: none;
               }
@@ -241,6 +281,10 @@ export const StyledSmoothAPISection = styled.section`
           .smoothAPIGridItemDescription {
             color: #517185;
             font-weight: 500;
+            ${responsive.xl`
+              grid-column-start: 1;
+              grid-column-end: 3;
+            `}
             ${responsive.sm`
               display: none;
             `};

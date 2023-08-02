@@ -1,23 +1,32 @@
 import styled from '@emotion/styled'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import {rem} from '@/utils/rem'
+import {responsive} from '@/utils/response'
 
 export const StyledReasonsToTeamUp = styled.section`
   padding-top: 198px;
   padding-bottom: 197px;
   text-align: center;
   overflow: hidden;
+  ${responsive.xxl`
+    padding-top: 194px;
+  `};
   ${responsive.xl`
-    padding: ${rem(120)} 0 ${rem(94)};
+    padding: ${rem(120)} 0 ${rem(119)};
   `};
   ${responsive.sm`
-    padding: ${rem(96)} 0;
+    padding: 96px 0;
     order: 8;
   `};
 
   .reasonsToTeamUpTitle {
     margin-bottom: 14px;
+    ${responsive.xl`
+      text-align: start;
+      line-height: 62px;
+    `}
     ${responsive.sm`
+      line-height: 46px;
+      text-align: center;
       letter-spacing: 0.2px;
       margin-bottom: 14px;
     `};
@@ -26,11 +35,19 @@ export const StyledReasonsToTeamUp = styled.section`
   .reasonsToTeamUpSubTitle {
     color: #517185;
     margin-bottom: 46px;
-    ${responsive.xxl`
-      margin-bottom: ${rem(62)};
+    ${responsive.xl`
+      text-align: start;
+      line-height: 30px;
+      margin-bottom: 64px;
     `}
     ${responsive.sm`
-      margin-bottom: ${rem(39)};
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 32px;
+      letter-spacing: 0em;
+      text-align: center;
+
+      margin-bottom: 42px;
     `};
   }
 
@@ -41,30 +58,35 @@ export const StyledReasonsToTeamUp = styled.section`
     column-gap: 137px;
     row-gap: ${rem(37)};
     ${responsive.xxl`
-      grid-template-columns: repeat(3, ${rem(320)});
+      column-gap: 70.5px;
     `}
     ${responsive.xl`
-      grid-template-columns: repeat(2, ${rem(320)});
+      grid-template-columns: repeat(2, 332px);
       justify-items: center;
-      row-gap: ${rem(48)};
+      row-gap: 39px;
       justify-content: center;
-      column-gap: ${rem(48)};
+      column-gap: 25px;
+      align-items: flex-start;
     `};
 
     ${responsive.sm`
       grid-template-columns: repeat(1, 1fr);
       justify-content: center;
       column-gap: 0;
-    `};
-
-    ${responsive.sm`
       justify-items: start;
       justify-content: start;
       text-align: start;
-      row-gap: ${rem(21)};
+      row-gap: 24px;
     `};
 
     li {
+      ${responsive.xl`
+        row-gap: 17px;
+        column-gap: 16px;
+        display: grid;
+        grid-template-columns: 64px 252px;
+        text-align: start;
+      `}
       ${responsive.sm`
         display: flex;
         align-items: center;
@@ -92,8 +114,8 @@ export const StyledReasonsToTeamUp = styled.section`
 
       svg {
         margin-bottom: 10px;
-        ${responsive.xxl`
-          margin-bottom: ${rem(21)};
+        ${responsive.xl`
+          margin-bottom: 0;
         `}
         ${responsive.sm`
           flex-shrink: 0;
@@ -104,12 +126,19 @@ export const StyledReasonsToTeamUp = styled.section`
       .reasonsToTeamUpGridItemTitle {
         font-weight: 700;
         margin-bottom: 9px;
-        ${responsive.xxl`
-          margin-bottom: ${rem(16)};
+        ${responsive.xl`
+          grid-column-start: 2;
+          grid-column-end: 2;
+          margin-bottom: 0;
+          line-height: 30px;
+          display: flex;
+          align-items: center;
         `}
         ${responsive.sm`
-          margin-bottom: 0;
+          font-size: 24px;
           font-weight: 400;
+          line-height: 32px;
+          letter-spacing: 0em;
           br {
             display: none;
           }
@@ -119,6 +148,10 @@ export const StyledReasonsToTeamUp = styled.section`
       .reasonsToTeamUpGridItemDescription {
         color: #517185;
         line-height: 24px;
+        ${responsive.xl`
+          grid-column-start: 1;
+          grid-column-end: 3;
+        `}
         ${responsive.sm`
           display: none;
         `};

@@ -68,6 +68,7 @@ export const StyledFooter = styled.footer`
       }
 
       .footerSubscribeSectionButton {
+        height: 56px;
         ${responsive.sm`
           height: 48px;
         `}
@@ -212,6 +213,9 @@ export const StyledFooter = styled.footer`
       .footerSubscribeSection {
         margin-top: ${rem(20)};
         max-width: ${rem(440)};
+        ${responsive.xxl`
+          margin-top: 15px;
+        `}
         ${responsive.xl`
           display: none;
         `};
@@ -225,6 +229,7 @@ export const StyledFooter = styled.footer`
         .footerSubscribeSectionInputWrapper {
           display: flex;
           justify-content: space-between;
+          align-items: center;
           gap: ${rem(16)};
           margin-bottom: ${rem(16)};
 
@@ -242,7 +247,9 @@ export const StyledFooter = styled.footer`
           }
 
           .footerSubscribeSectionButton {
-            height: 48px;
+            ${responsive.sm`
+              height: 48px;
+            `}
           }
         }
 

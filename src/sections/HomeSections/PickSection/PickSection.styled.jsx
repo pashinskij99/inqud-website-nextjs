@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import {rem} from '@/utils/rem'
+import {responsive} from '@/utils/response'
 
 export const StyledPickSectionSection = styled.section`
   border-radius: ${rem(30)};
@@ -18,37 +18,77 @@ export const StyledPickSectionSection = styled.section`
   align-items: center;
 
   ${responsive.xl`
-    padding: ${rem(92)} 0 !important;
     max-width: 100% !important;
     border-radius: 0;
     flex-direction: column;
     height: auto;
     text-align: center;
+
+    display: grid;
+    grid-template-columns: 317.33px 312px;
+    padding-left: 39.5px !important;
+    padding-right: 39.5px !important;
+    justify-content: space-between;
+    column-gap: 59.67px;
+    padding-top: 96px !important;
+    padding-bottom: 72px !important;
+    row-gap: 24px;
   `};
+
   ${responsive.sm`
+    display: flex;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
     order: 5;
     order: 11;
   `}
-
   .pickTitle {
     color: white;
     flex-shrink: 0;
+    ${responsive.xxl`
+      .pickTitle10Minutes {
+        line-height: 62px;
+      }
+    `};
     ${responsive.xl`
       margin-bottom: ${rem(24)};
       font-weight: 400;
-      line-height: ${rem(74.5)};
+      grid-column-start: 1;
+      grid-column-end: 4;
+      text-align: start;
+      line-height: 62px;
+      .pickTitleDontLose {
+        br {
+          display: none;
+        }
+      }
       .pickTitle10Minutes {
         margin-bottom: ${rem(11.5)};
+        br {
+          display: none;
+        }
       }
     `};
     ${responsive.sm`
+      text-align: center;
       font-weight: 700;
-      line-height: ${rem(50)};
-      margin-bottom: ${rem(30)};
+      line-height: 46px;
+      margin-bottom: 6px;
+      max-width: 300px; 
       .pickTitle10Minutes {
+        line-height: 46px;
         margin-bottom: ${rem(6)};
+        br {
+          display: block;
+        }
       }
     `};
+  }
+
+  .pickListWrapper {
+    ${responsive.xl`
+      text-align: start;
+    `}
   }
 
   .pickListMobile {
@@ -84,6 +124,7 @@ export const StyledPickSectionSection = styled.section`
       `};
 
       ${responsive.sm`
+        text-align: center;
         font-size: ${rem(24)};
         font-weight: 700;
         margin-bottom: ${rem(28)};
@@ -107,6 +148,7 @@ export const StyledPickSectionSection = styled.section`
         align-items: center;
         font-weight: 500;
         gap: ${rem(16)};
+
         ${responsive.xl`
           &:nth-child(1) {
             order: 2
@@ -129,7 +171,6 @@ export const StyledPickSectionSection = styled.section`
             order: 3
           }
         `}
-
         .pickListItemText {
           color: white;
         }
@@ -145,11 +186,26 @@ export const StyledPickSectionSection = styled.section`
     ${responsive.xl`
       ul {
         gap: ${rem(21)};
+        li {
+          &:nth-child(1) {
+            order: 1;
+            br {
+              display: none;
+            }
+          }
+          &:nth-child(2) {
+            order: 2
+          }
+          &:nth-child(3) {
+            order: 3
+          }
+        }
       }
     `};
 
     ${responsive.sm`
       ul {
+        max-width: 308px;
         row-gap: ${rem(20)};
       }
     `};
@@ -166,38 +222,49 @@ export const StyledPickSectionSection = styled.section`
     background: var(--ambitious-green, #0f674d);
 
     ${responsive.xl`
-        background: #077453;
-      `};
+      background: rgba(45, 52, 57, 0.2);
+      border-radius: 30px;
+      padding-left: 34px;
+      padding-right: 34px;
+      transform: translateY(-25px);
+      padding-top: 32px;
+      padding-bottom: 32px;
+    `};
 
     ${responsive.sm`
-        width: 100%;
-        padding: 0 ${rem(16)};
-      `};
+      background: transparent;
+      width: 100%;
+      padding: 0;
+    `};
 
     svg {
       margin-bottom: ${rem(16)};
-      ${responsive.xl`
-          display: none;
-        `};
+      ${responsive.sm`
+        display: none;
+      `};
     }
 
     .pickPickDescription {
       color: white;
       margin-bottom: ${rem(32)};
       font-weight: 500;
-      ${responsive.xl`
-          display: none;
-        `};
+      ${responsive.sm`
+        display: none;
+      `};
     }
 
     .pickPickButton {
       width: 100%;
+      ${responsive.sm`
+        height: 48px;
+      `};
 
       &.desktop {
         ${responsive.xl`
           display: none
         `}
       }
+
       &.mobile {
         display: none;
         ${responsive.xl`

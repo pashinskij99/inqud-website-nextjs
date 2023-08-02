@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { responsive } from '@/utils/response'
+import {responsive} from '@/utils/response'
 
 export const StyledHomeWrapper = styled.main`
   height: 100%;
@@ -7,7 +7,6 @@ export const StyledHomeWrapper = styled.main`
   ${responsive.sm`
     display: grid;
   `}
-
   .pickSection {
     position: absolute;
     margin: 0 auto;
@@ -33,6 +32,23 @@ export const StyledHomeWrapper = styled.main`
   }
 
   .pickSection2 {
+    ${responsive.xl`
+      padding-bottom: 76px !important;
+      grid-template-columns: 332px 312px;
+      column-gap: 44px;
+      
+      .pickTitle {
+        margin-bottom: 6px;
+      }
+      .pickPick {
+        transform: translateY(-19px);
+      }
+      .pickList {
+        ul {
+          gap: 16px;
+        }
+      }
+    `}
     ${responsive.sm`
       order: 9;
     `}
@@ -40,10 +56,10 @@ export const StyledHomeWrapper = styled.main`
       display: none;
     }
 
-    ${responsive.lg`
-      .pickPickButton {
-        display: none;
-      }
+    ${responsive.xl`
+      // .pickPickButton {
+      //   display: none;
+      // }
 
       .pickPickButtonTablet {
         display: block;

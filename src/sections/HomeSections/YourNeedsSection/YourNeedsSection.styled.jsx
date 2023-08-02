@@ -1,20 +1,20 @@
 import styled from '@emotion/styled'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import {rem} from '@/utils/rem'
+import {responsive} from '@/utils/response'
 
 export const YourNeedsSectionWrapper = styled.section`
   text-align: center;
   padding-top: 98px;
   padding-bottom: 199px;
   overflow: hidden;
-  ${responsive.xxl`
-    padding-top: ${rem(139)};
-  `}
-  ${responsive.xl`
-    padding-top: ${rem(119)};
-    padding-bottom: ${rem(102)};
-  `};
 
+  ${responsive.xxl`
+    padding-bottom: 184px;
+  `};
+  ${responsive.xl`
+    padding-top: 119px;
+    padding-bottom: 132px;
+  `};
   ${responsive.sm`
     padding-top: ${rem(95)};
     padding-bottom: ${rem(129.67)};
@@ -24,6 +24,7 @@ export const YourNeedsSectionWrapper = styled.section`
   .title {
     margin-bottom: 16px;
     line-height: 62px;
+
     .br-tablet {
       display: none;
     }
@@ -40,14 +41,11 @@ export const YourNeedsSectionWrapper = styled.section`
     }
 
     ${responsive.xl`
-      .br-desktop {
-        display: none;
-      }
-      .br-tablet {
-        display: block;
-      }
+      text-align: start;
     `};
     ${responsive.sm`
+      text-align: center;
+      line-height: 46px;
       margin-bottom: ${rem(32)};
       letter-spacing: 0.2px;
       .br-mobile {
@@ -79,6 +77,10 @@ export const YourNeedsSectionWrapper = styled.section`
       display: none;
     }
 
+    ${responsive.xl`
+      text-align: start;
+      margin-bottom: 38px;
+    `}
     ${responsive.sm`
       margin-bottom: ${rem(40)};
       &.subTitle-desktop {
@@ -109,17 +111,21 @@ export const YourNeedsSectionWrapper = styled.section`
           line-height: 34px;
         `}
       }
+
       .cartDescription {
         ${responsive.sm`
           margin-bottom: ${rem(16)};
         `}
       }
+
       button {
         ${responsive.sm`
           height: fit-content;
+          margin: 0 auto;
         `}
       }
     }
+
     img {
       ${responsive.xxl`
         border-radius: 30px;
@@ -134,9 +140,9 @@ export const YourNeedsSectionWrapper = styled.section`
   .listRequirements {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: ${rem(40)};
+    gap: 40px;
     ${responsive.xxl`
-      gap: ${rem(24)};
+      column-gap: 24px;
     `};
     ${responsive.xl`
       display: none;
@@ -144,7 +150,7 @@ export const YourNeedsSectionWrapper = styled.section`
 
     .cart-requirements {
       ${responsive.xxl`
-        max-width: 100%;
+        max-width: 389.33px;
       `};
     }
 
@@ -155,11 +161,18 @@ export const YourNeedsSectionWrapper = styled.section`
       ${responsive.xl`
         padding: ${rem(40)} 20px 0;
       `};
+
+      .cartTitle {
+        margin-bottom: 9px;
+        ${responsive.xxl`
+          margin-bottom: 14px;        
+        `}
+      }
     }
 
     .cartImage {
       ${responsive.xxl`
-        height: ${rem(300)};
+        height: ${rem(240)};
       `};
     }
   }
@@ -179,6 +192,18 @@ export const YourNeedsSectionWrapper = styled.section`
       `}
     }
 
+    .cart-requirements {
+      ${responsive.xl`
+        max-width: 389.33px;
+      `};
+
+      .cartImage {
+        ${responsive.xl`
+        height: ${rem(240)};
+      `};
+      }
+    }
+
     .listRequirementsSwiperScollbar {
       bottom: -${rem(46)};
       width: ${rem(200)};
@@ -188,7 +213,7 @@ export const YourNeedsSectionWrapper = styled.section`
       opacity: 1 !important;
       height: ${rem(2)};
       ${responsive.xl`
-        bottom: -${rem(12)};
+        bottom: -54px;
       `};
       ${responsive.sm`
         bottom: -${rem(32)};
@@ -223,10 +248,12 @@ export const StyledCustomScrollbarWrapper = styled.div`
   ${responsive.sm`
     bottom: -${rem(36)};
   `};
+
   .scrollBarLine {
     height: 2px;
     background: rgba(81, 113, 133, 0.2);
   }
+
   .scrollBarLineActive {
     position: absolute;
     top: 0;

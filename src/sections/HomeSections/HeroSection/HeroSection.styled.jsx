@@ -1,11 +1,12 @@
 import styled from '@emotion/styled'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import {rem} from '@/utils/rem'
+import {responsive} from '@/utils/response'
 
 export const StyledHeroSectionWrapper = styled.section`
   padding-top: ${rem(64)};
   padding-bottom: ${rem(98)};
   overflow: hidden;
+
   ${responsive.xxl`
     padding-top: ${rem(63)};
   `}
@@ -22,11 +23,15 @@ export const StyledHeroSectionWrapper = styled.section`
     display: flex;
     justify-content: space-between;
     column-gap: 127px;
+    ${responsive.xxl`
+      column-gap: 24px;
+    `}
     ${responsive.xl`
       display: flex;
       flex-direction: column-reverse;
-      gap: ${rem(40)};
+      row-gap: 40px;
     `};
+
     ${responsive.sm`
       gap: 0;
     `}
@@ -69,12 +74,7 @@ export const StyledHeroSectionWrapper = styled.section`
         color: #517185;
         margin-bottom: 27px;
         ${responsive.xxl`
-          margin-bottom: ${rem(32)};
-        `}
-        ${responsive.xl`
-          br {
-            display: none;
-          }
+          margin-bottom: 27px;
         `}
         ${responsive.sm`
           font-size: ${rem(18)};
@@ -90,17 +90,11 @@ export const StyledHeroSectionWrapper = styled.section`
         column-gap: 24px;
         row-gap: 13px;
         margin-bottom: 45px;
-        ${responsive.xxl`
-          column-gap: ${rem(2)};
-          row-gap: ${rem(12)};
-        `}
-        ${responsive.xl`
-          margin-bottom: ${rem(38)};
-        `}
+
         ${responsive.sm`
           grid-template-columns: 1fr 1fr;
           margin: 0 auto ${rem(40)};
-          row-gap: ${rem(12)};
+          row-gap: 20px;
           column-gap: ${rem(14)};
         `};
 
@@ -112,13 +106,13 @@ export const StyledHeroSectionWrapper = styled.section`
           ${responsive.xxl`
             gap: ${rem(9)};
           `}
-
           span {
             display: contents;
             ${responsive.sm`
               display: none;
             `};
           }
+
           ${responsive.sm`
             gap: ${rem(3)};
             &:nth-child(1) {
@@ -149,6 +143,9 @@ export const StyledHeroSectionWrapper = styled.section`
           p {
             font-weight: 500;
             color: rgba(45, 52, 57, 1);
+            ${responsive.sm`
+              line-height: 22px;
+            `}
           }
         }
       }
@@ -195,8 +192,8 @@ export const StyledHeroSectionWrapper = styled.section`
         display: flex;
         justify-content: center;
         .graphic {
-          max-width: ${rem(407.186)};
-          height: ${rem(407.186)};
+          max-width: 400px;
+          height: 400px;
         }
       `};
 
@@ -226,7 +223,7 @@ export const StyledMobileGridWrapper = styled.div`
   gap: ${rem(8)};
   grid-template-columns: 1fr 1fr 1fr;
   width: fit-content;
-  margin: 0 auto ${rem(24)};
+  margin: 0 auto 24px;
   ${responsive.sm`
     display: grid;
   `}
@@ -256,14 +253,13 @@ export const StyledPaymentListWrapper = styled.div`
     ${responsive.xxl`
             gap: ${rem(33)};
           `}
-
     ${responsive.sm`
             gap: ${rem(25)};
           `}
-
-          &::-webkit-scrollbar {
+    &::-webkit-scrollbar {
       display: none; /* Safari and Chrome */
     }
+
     li {
       display: flex;
       align-items: center;
@@ -279,9 +275,11 @@ export const StyledPaymentListWrapper = styled.div`
                   display: flex;
               `}
       }
+
       .icon-wrapper {
         position: relative;
         display: flex;
+
         svg {
           position: relative;
           width: ${rem(32)};

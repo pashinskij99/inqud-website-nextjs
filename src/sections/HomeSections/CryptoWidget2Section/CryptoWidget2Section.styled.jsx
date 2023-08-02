@@ -1,13 +1,13 @@
 import styled from '@emotion/styled'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import {rem} from '@/utils/rem'
+import {responsive} from '@/utils/response'
 
 export const StyledCryptoWidget2Section = styled.section`
   background: var(--exciting-lime, #bfffc8);
   padding-top: 372px;
   padding-bottom: 202px;
   ${responsive.xxl`
-    padding-top: ${rem(413)};
+    padding-top: 372px;
   `};
   ${responsive.xl`
     padding: ${rem(120)} 0;
@@ -24,10 +24,6 @@ export const StyledCryptoWidget2Section = styled.section`
     justify-content: space-between;
     column-gap: 40px;
 
-    ${responsive.xxl`
-      gap: ${rem(60)};
-    `};
-
     ${responsive.xl`
       grid-template-columns: 1fr;
       justify-items: auto;
@@ -36,6 +32,14 @@ export const StyledCryptoWidget2Section = styled.section`
 
     .leftSide {
       max-width: 680px;
+      width: 100%;
+
+      ${responsive.xxl`
+        max-width: 595px;
+      `}
+      ${responsive.xl`
+        max-width: 100%;
+      `}
       .crypto2SubTitle {
         border-radius: ${rem(50)};
         background: var(--clarity-white, #fff);
@@ -44,11 +48,9 @@ export const StyledCryptoWidget2Section = styled.section`
         padding: ${rem(7)} ${rem(16)};
         width: fit-content;
         margin-bottom: 10px;
-        ${responsive.xxl`
-          margin-bottom: ${rem(20)};
-        `};
+
         ${responsive.xl`
-          margin: 0 auto ${rem(24)};
+          margin: 0 auto 15px;
           padding: ${rem(5)} ${rem(16)};
         `};
         ${responsive.sm`
@@ -58,12 +60,13 @@ export const StyledCryptoWidget2Section = styled.section`
 
       .crypto2Title {
         margin-bottom: 6px;
+
         ${responsive.xxl`
-          margin-bottom: ${rem(26)};
+          margin-bottom: 12px;
         `};
         ${responsive.xl`
           text-align: center;
-          margin-bottom: ${rem(40)};
+          margin-bottom: 38px;
         `};
         ${responsive.sm`
           margin-bottom: ${rem(22)};
@@ -76,38 +79,26 @@ export const StyledCryptoWidget2Section = styled.section`
 
         ${responsive.xl`
           display: block;
-          max-width: ${rem(400)};
-          max-height: ${rem(400)};
+          max-width: 300px;
+          max-height: 300px;
           object-fit: contain;
           margin: 0 auto ${rem(39)};
         `};
         ${responsive.sm`
           width: ${rem(400)};
           height: ${rem(400)};
+          margin: 0 auto 22px;
         `};
         ${responsive.xs`
           width: ${rem(233.001)};
           height: ${rem(233)};
-          margin: 0 auto ${rem(25)};
         `};
       }
 
       .crypto2Description {
         line-height: 24px;
         margin-bottom: 40px;
-        ${responsive.xxl`
-          font-size: ${rem(18)};
-          font-weight: 500;
-          line-height: ${rem(26)};
-          margin-bottom: ${rem(56)};
-        `}
-        ${responsive.xl`
-          font-size: 24px;
-          font-weight: 400;
-          line-height: 34px;
-          letter-spacing: 0em;
-          margin-bottom: ${rem(56)};
-        `}
+
         &.crypto2Description-desktop {
         }
 
@@ -115,10 +106,21 @@ export const StyledCryptoWidget2Section = styled.section`
           display: none;
         }
 
+        ${responsive.xxl`
+          font-size: ${rem(18)};
+          font-weight: 500;
+        `}
+        ${responsive.xl`
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 24px;
+          letter-spacing: 0em;
+        `}
+
         ${responsive.sm`
-          margin-bottom: ${rem(40)};
+          margin-bottom: 34px;
           font-size: ${rem(24)};
-          line-height: ${rem(34)};
+          line-height: 32px;
           &.crypto2Description-desktop {
             display: none;
           }
@@ -137,21 +139,33 @@ export const StyledCryptoWidget2Section = styled.section`
         margin-bottom: 39px;
         ${responsive.xxl`
           column-gap: ${rem(22)};
-          row-gap: ${rem(40)};
         `}
         ${responsive.xl`
-          grid-template-columns: repeat(2, 0.48fr);
-          column-gap: ${rem(46)};
+          grid-template-columns: repeat(2, 332px);
+          column-gap: 23px;
+          row-gap: 40px;
         `};
         ${responsive.sm`
           grid-template-columns: repeat(1, 1fr);
-          gap: ${rem(16)};
+          gap: 6px;
           text-align: start;
           width: fit-content;
-          margin: 0 auto ${rem(48)};
+          margin: 0 auto 43px;
         `};
 
         .crypto2GridItem {
+          ${responsive.xl`
+            row-gap: 8px;
+            display: grid;
+            grid-template-columns: auto 268px;
+
+            &:nth-child(4) {
+              row-gap: 16px;
+            }
+            &:nth-child(3) {
+              row-gap: 16px;
+            }
+          `}
           ${responsive.sm`
             display: flex;
             align-items: center;
@@ -184,6 +198,9 @@ export const StyledCryptoWidget2Section = styled.section`
             ${responsive.xxl`
               margin-bottom: ${rem(4)};
             `}
+            ${responsive.xl`
+              margin-bottom: 0;
+            `}
             ${responsive.sm`
               display: none;
             `};
@@ -195,7 +212,19 @@ export const StyledCryptoWidget2Section = styled.section`
             ${responsive.xxl`
               margin-bottom: ${rem(7)};
             `}
+            ${responsive.xl`
+              grid-column-start: 2;
+              grid-column-end: 2;
+              width: 100%;
+              height: 48px;
+              line-height: 1;
+              display: flex;
+              align-items: center;
+              line-height: 32px;
+              margin-bottom: 0;
+            `}
             ${responsive.sm`
+              height: auto;
               margin-bottom: 0;
               font-weight: 500;
             `};
@@ -203,6 +232,11 @@ export const StyledCryptoWidget2Section = styled.section`
 
           .crypto2GridItemDescription {
             font-weight: 500;
+            ${responsive.xl`
+              grid-column-start: 1;
+              grid-column-end: 3;
+              line-height: 24px;
+            `}
             ${responsive.sm`
               display: none;
             `};
@@ -302,7 +336,6 @@ export const StyledCryptoWidget2Section = styled.section`
           ${responsive.sm`
             margin-right: 0;
           `}
-
           &:hover {
             path,
             rect {
@@ -332,6 +365,7 @@ export const StyledCryptoWidget2Section = styled.section`
       display: flex;
       justify-content: center;
       flex: 1;
+
       svg {
         width: 500px;
         height: 500px;

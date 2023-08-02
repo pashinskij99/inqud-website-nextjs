@@ -68,10 +68,10 @@ export const StyledButtonGetStarted = styled.button`
   svg {
     width: ${rem(48)};
     height: ${rem(48)};
+    transition: all 0.3s ease-in-out;
   }
 
   &,
-  svg,
   path,
   .text {
     overflow: hidden;

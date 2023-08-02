@@ -148,14 +148,11 @@ export default function YourNeedsSection() {
               centeredSlides: false,
             },
             767: {
+              slidesPerView: 'auto',
               loop: false,
-              centeredSlides: true,
-              spaceBetween: 28,
-            },
-            1536: {
-              // slidesPerView: 'auto',
-              spaceBetween: 28,
-              initialSlide: '1',
+              centeredSlides: false,
+              initialSlide: '0',
+              spaceBetween: 24,
             },
           }}
           modules={[Scrollbar]}

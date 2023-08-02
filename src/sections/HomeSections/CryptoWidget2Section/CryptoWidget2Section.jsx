@@ -18,40 +18,73 @@ import Check from '@/assets/icons/check-dark.svg'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import { ModalSubmitEmail } from '@/components/Modal'
 import { ButtonGhostCrypto } from '@/components/UI/Button'
-
-const gridContent = [
-  {
-    id: 0,
-    icon: <Icon1 className='icon' />,
-    title: 'Zero chargebacks',
-    description:
-      'Say goodbye to chargebacks with our secure and reliable fiat onramp and off-ramp solutions.',
-  },
-  {
-    id: 1,
-    icon: <Icon2 className='icon' />,
-    title: 'Boost sales',
-    description:
-      "Not missing out on customers in all your markets,regardless of your audience's geography.",
-  },
-  {
-    id: 2,
-    icon: <Icon3 className='icon' />,
-    title: 'Enhance customer satisfaction',
-    description:
-      'Give your customers the ability to pay easily and conveniently using their preferred payment methods.',
-  },
-  {
-    id: 3,
-    icon: <Icon4 className='icon' />,
-    title: 'Trustworthy payment partner',
-    description:
-      'Maximally involved in addressing your business needs and fostering its growth.',
-  },
-]
+import { useTextByBreakPoint } from '@/hooks/useTextByBreakPoint'
 
 export default function CryptoWidget2Section() {
   const [open, setOpen] = useState(false)
+
+  const text1 = useTextByBreakPoint({
+    contentDesktop:
+      'Say goodbye to chargebacks with our secure and reliable fiat onramp and off-ramp solutions',
+    contentLaptop:
+      'Say goodbye to chargebacks with our secure and reliable fiat onramp and off-ramp solutions',
+    contentTablet:
+      'Say goodbye to chargebacks with our secure and reliable solutions.',
+    contentMobile: '',
+  })
+  const text2 = useTextByBreakPoint({
+    contentDesktop:
+      "Not missing out on customers in all your markets,regardless of your audience's geography.",
+    contentLaptop:
+      "Not missing out on customers in all your markets,regardless of your audience's geography.",
+    contentTablet: 'Global customer reach without geographical limitations.',
+    contentMobile: '',
+  })
+  const text3 = useTextByBreakPoint({
+    contentDesktop:
+      'Give your customers the ability to pay easily and conveniently using their preferred payment methods.',
+    contentLaptop:
+      'Give your customers the ability to pay easily and conveniently using their preferred payment methods.',
+    contentTablet:
+      'Enable seamless and preferred payment methods for your customers.',
+    contentMobile: '',
+  })
+  const text4 = useTextByBreakPoint({
+    contentDesktop:
+      'Maximally involved in addressing your business needs and fostering its growth.',
+    contentLaptop:
+      'Maximally involved in addressing your business needs and fostering its growth.',
+    contentTablet:
+      'Maximally involved in addressing your business needs and fostering its growth.',
+    contentMobile: '',
+  })
+
+  const gridContent = [
+    {
+      id: 0,
+      icon: <Icon1 className='icon' />,
+      title: 'Zero chargebacks',
+      description: text1,
+    },
+    {
+      id: 1,
+      icon: <Icon2 className='icon' />,
+      title: 'Boost sales',
+      description: text2,
+    },
+    {
+      id: 2,
+      icon: <Icon3 className='icon' />,
+      title: 'Enhance customer satisfaction',
+      description: text3,
+    },
+    {
+      id: 3,
+      icon: <Icon4 className='icon' />,
+      title: 'Trustworthy payment partner',
+      description: text4,
+    },
+  ]
 
   const handleOpen = () => {
     setOpen(true)

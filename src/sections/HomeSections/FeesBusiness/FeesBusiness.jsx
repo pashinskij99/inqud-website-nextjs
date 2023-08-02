@@ -115,32 +115,26 @@ export default function FeesBusiness() {
 
             <StyledTypographyUrbanistSmallSpaces className='description hide'>
               All data is sourced from publicly available information or
-              provided by customer support of <br className='br-desktop' /> the
-              <br className='br-1200' />
-              specified companies in private correspondence.
+              provided by customer support of the specified companies in private
+              correspondence.
             </StyledTypographyUrbanistSmallSpaces>
             <StyledTypographyUrbanistSmallSpaces className='description hide'>
               If you notice any discrepancies between the displayed information
-              and reality, please let us <br className='br-desktop' /> know{' '}
-              <br className='br-1200' /> by info@inqud.com, and we will update
-              the information accordingly.
+              and reality, please let us know by info@inqud.com, and we will
+              update the information accordingly.
             </StyledTypographyUrbanistSmallSpaces>
           </div>
 
           <div className='cart'>
             <div className='cart-left-side'>
               <StyledTypographyUrbanistH4>
-                Submit your inquiry <br className='br-desktop' /> now for{' '}
-                <br className='br-1200' /> the best offer{' '}
-                <br className='br-desktop' /> in <br className='br-1200' /> 10
-                minutes
+                Submit your inquiry now for the best offer in 10 minutes
               </StyledTypographyUrbanistH4>
             </div>
             <div className='cart-right-side'>
               <StyledTypographyUrbanistBody>
-                Our team will clarify all the necessary{' '}
-                <br className='br-desktop' /> information and prepare an offer
-                for <br className='br-desktop' /> you right away.
+                Our team will clarify all the necessary information and prepare
+                an offer for you right away.
               </StyledTypographyUrbanistBody>
               <StyledButtonSecondaryLight onClick={handleShowModal}>
                 Get a special offer
@@ -153,15 +147,13 @@ export default function FeesBusiness() {
         <div className='description-wrapper'>
           <StyledTypographyUrbanistSmallSpaces className='description'>
             All data is sourced from publicly available information or provided
-            by customer support of <br className='br-desktop' /> the
-            <br className='br-1200' />
-            specified companies in private correspondence.
+            by customer support of the specified companies in private
+            correspondence.
           </StyledTypographyUrbanistSmallSpaces>
           <StyledTypographyUrbanistSmallSpaces className='description hide'>
             If you notice any discrepancies between the displayed information
-            and reality, please let us <br className='br-desktop' /> know{' '}
-            <br className='br-1200' /> by info@inqud.com, and we will update the
-            information accordingly.
+            and reality, please let us know by info@inqud.com, and we will
+            update the information accordingly.
           </StyledTypographyUrbanistSmallSpaces>
         </div>
       </div>

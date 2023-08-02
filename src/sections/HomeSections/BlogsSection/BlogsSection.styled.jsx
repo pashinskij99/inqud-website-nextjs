@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import {rem} from '@/utils/rem'
+import {responsive} from '@/utils/response'
 
 export const StyledBlogsSection = styled.section`
   /* padding-top: 24rem; */
@@ -27,9 +27,10 @@ export const StyledBlogsSection = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: ${rem(56)};
+    margin-bottom: 56px;
     ${responsive.xl`
       align-items: center;
+      margin-bottom: 36px;
     `};
     ${responsive.sm`
       justify-content: center;
@@ -63,14 +64,19 @@ export const StyledBlogsSection = styled.section`
 
     .cart {
       max-width: 100%;
+
       .imageWrapper,
       img {
         max-width: 100%;
         height: 250px;
+        ${responsive.xxl`
+          height: 221px;
+        `};
       }
     }
 
     .image {
+
     }
   }
 
@@ -146,6 +152,41 @@ export const StyledBlogsSection = styled.section`
     ${responsive.sm`
       margin-bottom: ${rem(82)};
     `};
+
+    .cart {
+      ${responsive.xl`
+        max-width: 332px
+      `}
+      img {
+        ${responsive.xl`
+          height: 193px;
+          margin-bottom: 24px;
+        `}
+        ${responsive.sm`
+          height: 193px;
+          margin-bottom: 18px;
+        `}
+      }
+
+      .subTitle {
+        ${responsive.xl`
+          margin-bottom: 9px;
+        `}
+      }
+
+      .title {
+        ${responsive.xl`
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 32px;
+          letter-spacing: 0em;
+          margin-bottom: 12px;
+        `}
+
+      }
+    }
+
+
     ${responsive.xs`
       .cart {
         max-width: 100%;
@@ -154,7 +195,6 @@ export const StyledBlogsSection = styled.section`
         }
       }
     `}
-
     .listRequirementsSwiperScollbar {
       bottom: -${rem(58)};
       width: ${rem(200)};
@@ -163,7 +203,11 @@ export const StyledBlogsSection = styled.section`
       background: rgba(81, 113, 133, 0.2);
       opacity: 1 !important;
       height: ${rem(2)};
+      ${responsive.xl`
+        display: none;
+      `};
       ${responsive.sm`
+        display: block;
         bottom: -${rem(40)};
       `};
 
@@ -176,6 +220,7 @@ export const StyledBlogsSection = styled.section`
   .blogsHeaderButtonMobile {
     display: none;
     ${responsive.sm`
+      height: 48px;
       width: 100%;
       display: block;
     `};

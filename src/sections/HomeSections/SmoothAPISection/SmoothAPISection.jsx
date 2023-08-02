@@ -65,7 +65,7 @@ export default function SmoothAPISection() {
             Tailored for business
           </StyledTypographyIBMH5>
           <StyledTypographyUrbanistH2 className='smoothAPITitle'>
-            Smooth API <br className='br-1200' /> integration
+            Smooth API integration
           </StyledTypographyUrbanistH2>
 
           <Image

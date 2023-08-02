@@ -14,6 +14,8 @@ export const StyledCartRequirement = styled.div`
   `}
   ${responsive.xl`
     max-width: ${rem(440)};
+    text-align: start;
+    align-items: flex-start;
   `}
   ${responsive.lg`
     // max-width: ${rem(332)};
@@ -40,8 +42,6 @@ export const StyledCartRequirement = styled.div`
     `};
     ${responsive.lg`
       max-width: 100%;
-      // height: ${rem(250)};
-      // object-fit: cover;
     `};
     ${responsive.xs`
       max-width: 100%;
@@ -60,6 +60,9 @@ export const StyledCartRequirement = styled.div`
     .cartTitle {
       font-weight: 700;
       margin-bottom: 7px;
+      ${responsive.xl`
+        margin-bottom: 15px;
+      `}
     }
 
     .cartDescription {
@@ -75,6 +78,10 @@ export const StyledCartRequirement = styled.div`
 
     .cartBtn {
       margin: 0 auto;
+      ${responsive.xl`
+        margin: 0;
+        padding: 0;
+      `}
       svg {
         width: ${rem(24.000164031982422)};
         height: ${rem(24.000164031982422)};

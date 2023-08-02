@@ -1,24 +1,24 @@
 import styled from '@emotion/styled'
-import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import {Accordion, AccordionSummary, AccordionDetails} from '@mui/material'
+import {rem} from '@/utils/rem'
+import {responsive} from '@/utils/response'
 
 export const StyledQuestionsSection = styled.section`
-  padding: ${rem(240)} 0;
-
+  padding: 200px 0;
+  ${responsive.xxl`
+    padding: 198px 0;
+  `};
   ${responsive.xl`
-    padding: ${rem(117)} 0;
+    padding: 56px 0 122px;
   `};
   ${responsive.sm`
     order: 13;
-    padding: ${rem(117)} 0 ${rem(93)};
+    padding: ${rem(117)} 0 ${rem(97)};
   `};
 
   .questionsTitle {
-    margin-bottom: ${rem(38)};
-    ${responsive.xxl`
-      margin-bottom: ${rem(60)};
-    `};
+    margin-bottom: 54px;
+
     ${responsive.xl`
       display: none;
     `};
@@ -27,7 +27,8 @@ export const StyledQuestionsSection = styled.section`
   .questionsTitleMobile {
     display: none;
     ${responsive.xl`
-      margin-bottom: ${rem(38)};
+      margin-bottom: 36px;
+
       display: block;
     `};
     ${responsive.sm`
@@ -45,7 +46,7 @@ export const StyledQuestionsSection = styled.section`
     gap: ${rem(8)};
     margin-bottom: ${rem(8)};
     ${responsive.sm`
-      gap: ${rem(14)};
+      gap: 11px;
     `};
   }
 
@@ -90,11 +91,13 @@ export const StyledQuestionsSection = styled.section`
       padding-right: 0;
       gap: 12px;
       border-radius: 0;
+
       &.desktop {
         ${responsive.sm`
           display: none;
         `}
       }
+
       &.mobile {
         display: none;
 
@@ -102,11 +105,13 @@ export const StyledQuestionsSection = styled.section`
           display: flex;
         `}
       }
+
       ${responsive.sm`
         position: static;
         padding: 0;
         gap: 6px;
       `};
+
       p {
         ${responsive.sm`
           font-size: 18px;
@@ -116,7 +121,9 @@ export const StyledQuestionsSection = styled.section`
           // color: rgba(45, 52, 57, 1);
         `}
       }
+
       svg {
+        overflow: visible;
         width: ${rem(24)};
         height: ${rem(24)};
         ${responsive.sm`
@@ -126,7 +133,7 @@ export const StyledQuestionsSection = styled.section`
           // margin: auto 0;
           // right: ${rem(16)};
         `};
-        /* circle {
+          /* circle {
           ${responsive.sm`
             fill: #517185;
           `};

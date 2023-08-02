@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
-import { StyledTypographyUrbanistH1 } from '@/components/UI/Typography/Typography.styled'
+import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import { StyledBlogsSection } from './BlogsSection.styled'
 import Image1 from '@/assets/images/blogs/image1.png'
 import Image2 from '@/assets/images/blogs/image2.png'
@@ -15,7 +15,7 @@ const blogs = [
     subTitle: 'cryptocurrency',
     title: 'Understanding Blockchain Technology',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
     imageSrc: Image1.src,
   },
   {
@@ -23,7 +23,7 @@ const blogs = [
     subTitle: 'cryptocurrency',
     title: 'How to Sell Cryptocurrencies on Our Platform',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
     imageSrc: Image2.src,
   },
   {
@@ -31,7 +31,7 @@ const blogs = [
     subTitle: 'cryptocurrency',
     title: 'Exploring the Most Promising Cryptocurrencies of 2023',
     date: 'June 21, 2023',
-    time: '5 min',
+    time: '5 min read',
     imageSrc: Image3.src,
   },
 ]
@@ -41,9 +41,9 @@ export default function BlogsSection() {
     <StyledBlogsSection>
       <div className='container'>
         <div className='blogsHeader'>
-          <StyledTypographyUrbanistH1 className='blogsHeaderTitle'>
+          <StyledTypographyUrbanistH2 className='blogsHeaderTitle'>
             Insights
-          </StyledTypographyUrbanistH1>
+          </StyledTypographyUrbanistH2>
           <Link href='/blog'>
             <StyledButtonGhost className='blogsHeaderButton'>
               Go to blog

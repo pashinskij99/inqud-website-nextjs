@@ -1,16 +1,14 @@
 import styled from '@emotion/styled'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
-import { urbanist } from '@/utils/font'
+import {rem} from '@/utils/rem'
+import {responsive} from '@/utils/response'
+import {urbanist} from '@/utils/font'
 
 export const StyledOurLandscapeSection = styled.section`
-  padding: ${rem(242)} 0;
+  padding: 168px 0 199px;
   overflow: hidden;
-  ${responsive.xxl`
-    padding: ${rem(240)} 0;
-  `};
+
   ${responsive.xl`
-    padding: ${rem(98)} 0 ${rem(122)};
+    padding: 87px 0 ${rem(122)};
   `};
   ${responsive.sm`
     text-align: center;
@@ -20,17 +18,18 @@ export const StyledOurLandscapeSection = styled.section`
 
   .container {
     .ourLandscapeTitle {
-      margin-bottom: ${rem(40)};
+      margin-bottom: 20px;
       ${responsive.xxl`
-        margin-bottom: ${rem(40)};
+        margin-bottom: 22px;
       `};
       ${responsive.sm`
-        margin-bottom: ${rem(32)};
+        margin-bottom: 20px;
       `};
     }
 
     .MuiTabs-root {
       display: contents;
+
       .MuiTabs-flexContainer,
       .MuiTabs-scroller,
       .css-heg063-MuiTabs-flexContainer {
@@ -45,7 +44,7 @@ export const StyledOurLandscapeSection = styled.section`
       background: var(--clarity-white, #fff);
       padding: ${rem(1)};
       width: fit-content;
-      margin-bottom: ${rem(24)};
+      margin-bottom: 24px;
       height: ${rem(44)};
       ${responsive.sm`
         margin: 0 auto ${rem(24)};
@@ -64,7 +63,7 @@ export const StyledOurLandscapeSection = styled.section`
 
       .ourLandscapeTabsButton {
         border-radius: ${rem(72)};
-        padding: ${rem(7)} ${rem(14.5)}!important;
+        padding: ${rem(7)} ${rem(14.5)} !important;
         background: transparent;
         color: rgba(81, 113, 133, 1);
         min-height: auto;
@@ -96,18 +95,13 @@ export const StyledOurLandscapeSection = styled.section`
         display: none;
       }
 
-      ${responsive.xl`
-        .br-desktop {
-          display: none;
-        }
-
-        .br-tablet {
-          display: block;
-        }
-      `};
       ${responsive.sm`
-        font-size: ${rem(24)};
-        br, .br-tablet {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0em;
+
+        br {
           display: none;
         }
       `};
@@ -127,16 +121,15 @@ export const StyledCoverageWrapper = styled.div`
     ${responsive.sm`
       margin-bottom: ${rem(32)};
     `};
+
     .ourLandscapeDescription {
       ${responsive.xxl`
         .br-desktop {
           display: none;
         }
       `};
-      ${responsive.lg`
-        br {
-          display: none!important;
-        }
+      ${responsive.xl`
+        margin-bottom: 10px;
       `};
       ${responsive.sm`
         br {
@@ -157,6 +150,7 @@ export const StyledCoverageWrapper = styled.div`
       row-gap: ${rem(16.5)};
       flex-wrap: wrap;
     `};
+
     ${responsive.sm`
       justify-content: normal;
       column-gap: ${rem(32)};
@@ -194,6 +188,7 @@ export const StyledCoverageWrapper = styled.div`
             display: none;
           `}
         }
+
         &.mobile {
           display: none;
           ${responsive.sm`
@@ -251,6 +246,7 @@ export const StyledCoverageWrapper = styled.div`
       }
     }
   }
+
   .coverageWrapper {
     display: flex;
     justify-content: space-between;
@@ -278,27 +274,28 @@ export const StyledCoverageWrapper = styled.div`
 
 export const StyledIndustriesWrapper = styled.div`
   .ourLandscapeDescription {
-    margin-bottom: ${rem(66)};
+    margin-bottom: 48px;
 
     ${responsive.xl`
-      margin-bottom: ${rem(62)};
+      margin-bottom: 39px;
     `};
     ${responsive.sm`
       margin-bottom: ${rem(39)};
     `};
   }
+
   .ourLandscapeRisk {
     display: flex;
     justify-content: space-between;
     ${responsive.xxl`
-        gap: ${rem(24)};
-      `};
+      gap: ${rem(24)};
+    `};
     ${responsive.xl`
-        gap: ${rem(24)};
-      `};
+      gap: ${rem(24)};
+    `};
     ${responsive.sm`
-        display: none;
-      `};
+      display: none;
+    `};
 
     .ourLandscapeAccordion {
       max-width: ${rem(440)};
@@ -312,8 +309,8 @@ export const StyledIndustriesWrapper = styled.div`
         gap: ${rem(24)};
         margin-bottom: ${rem(16)};
         ${responsive.xl`
-            margin-bottom: ${rem(14)};
-          `};
+          margin-bottom: ${rem(14)};
+        `};
 
         h5 {
           font-size: ${rem(32)};
@@ -325,11 +322,11 @@ export const StyledIndustriesWrapper = styled.div`
         }
 
         ${responsive.xl`
-            h5 {
-              font-size: ${rem(24)};
-              line-height: ${rem(23)};
-            }
-          `};
+          h5 {
+            font-size: ${rem(24)};
+            line-height: ${rem(23)};
+          }
+        `};
       }
     }
   }
@@ -374,24 +371,24 @@ export const StyledIndustriesWrapper = styled.div`
       }
 
       ${responsive.sm`
-          bottom: -${rem(35)};
-        `};
+        bottom: -40px;
+      `};
     }
 
     ${responsive.sm`
-        display: block;
-      `};
+      display: block;
+    `};
   }
 
   .accordion-prob {
-    height: 64px;
+    height: 56px;
     border-radius: 20px;
     background: #ffa3a3;
     display: flex;
     align-items: center;
-    padding: ${rem(18)} ${rem(32)} ${rem(20)};
+    padding: 15px 32px;
     ${responsive.sm`
-      padding: ${rem(18)} ${rem(24)} ${rem(20)};
+      padding: 15px 32px;
     `}
   }
 

@@ -26,7 +26,7 @@ export const StyledInputTextWrapper = styled.div`
       border-radius: ${rem(62)};
       border: 1px solid rgba(45, 52, 57, 0.20000000298023224);
 
-      padding: 0 ${rem(32)} 0 ${rem(16)};
+      padding: 0 32px 0 24px;
 
       color: #2d3439;
 
