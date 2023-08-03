@@ -3,10 +3,9 @@
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { capitalize } from '@mui/material'
+import { Provider } from 'react-redux'
 import StyledComponentsRegistry from '@/app/registry'
 import { urbanist } from '@/utils/font'
-// import 'slick-carousel/slick/slick.css'
-// import 'slick-carousel/slick/slick-theme.css'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
 
@@ -16,6 +15,7 @@ import GlobalStyle from '@/styles/globalStyles'
 
 import BreadCrumbs from '@/components/BreadCrumbs'
 import { getUrlForBreadCrumbs } from '@/utils/getUrlForBreadCrumbs'
+import { store } from '@/store'
 
 // export const metadata = {
 //   title: 'Create Next App',
@@ -54,17 +54,20 @@ export default function RootLayout({ children }) {
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <meta name='robots' content='noindex,nofollow' />
       </head>
-      <StyledComponentsRegistry>
-        <body className={urbanist.className}>
-          <GlobalStyle />
-          <Header />
-          {pathname === '/' ? null : <BreadCrumbs pages={pages} />}
 
-          {children}
+      <body className={urbanist.className}>
+        <Provider store={store}>
+          <StyledComponentsRegistry>
+            <GlobalStyle />
+            <Header />
+            {pathname === '/' ? null : <BreadCrumbs pages={pages} />}
 
-          <Footer />
-        </body>
-      </StyledComponentsRegistry>
+            {children}
+
+            <Footer />
+          </StyledComponentsRegistry>
+        </Provider>
+      </body>
     </html>
   )
 }

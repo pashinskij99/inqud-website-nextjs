@@ -54,3 +54,25 @@ export const StyledTabsComponentWrapper = styled.div`
     `};
   }
 `
+
+export const StyledTabsHeaderComponentWrapper = styled(
+  StyledTabsComponentWrapper
+)`
+  border: none;
+  background: transparent;
+  ${responsive.sm`
+    width: fit-content;  
+  `}
+
+  .ourLandscapeTabsButton {
+    background: transparent;
+    border-radius: 50px;
+
+    &.active {
+      background: transparent;
+      color: rgba(7, 116, 83, 1);
+      font-weight: 700;
+      border: 1px solid #eef1f3;
+    }
+  }
+`
