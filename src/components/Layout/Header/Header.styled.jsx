@@ -1,20 +1,23 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem'
-import {responsive} from '@/utils/response'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledHeaderWrapper = styled.header`
   height: var(--header-height);
   max-width: 1920px;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: ${({ active }) =>
+    active ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.9)'};
   position: sticky;
-  backdrop-filter: ${({isTop}) => isTop ? 'blur(0px)' : 'blur(5px)'};
+  backdrop-filter: ${({ isTop, active }) =>
+    // eslint-disable-next-line no-nested-ternary
+    isTop ? 'blur(0px)' : active ? 'none' : 'blur(5px)'};
   top: 0;
   z-index: 100;
   transition: background-color 0.3s ease-in-out;
   transform: translate3d(0, 0, 0);
 
-  border-bottom: ${({isHome}) =>
+  border-bottom: ${({ isHome }) =>
     isHome ? 'none' : '1px solid rgba(0, 0, 0, 0.07)'};
 
   .containerHeader {
@@ -167,7 +170,7 @@ export const StyledHeaderWrapper = styled.header`
 
   .languageMenu {
     @media (max-width: 639px) {
-      display: ${({active}) => (active ? 'flex' : 'none')};
+      display: ${({ active }) => (active ? 'flex' : 'none')};
     }
   }
 
