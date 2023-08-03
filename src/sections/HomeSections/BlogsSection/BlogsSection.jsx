@@ -1,13 +1,13 @@
 import Link from 'next/link'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Scrollbar } from 'swiper/modules'
-import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
-import { StyledBlogsSection } from './BlogsSection.styled'
+import {Swiper, SwiperSlide} from 'swiper/react'
+import {Scrollbar} from 'swiper/modules'
+import {StyledTypographyUrbanistH2} from '@/components/UI/Typography/Typography.styled'
+import {StyledBlogsSection} from './BlogsSection.styled'
 import Image1 from '@/assets/images/blogs/image1.png'
 import Image2 from '@/assets/images/blogs/image2.png'
 import Image3 from '@/assets/images/blogs/image3.png'
-import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import { BlogCart, BlogCart2 } from '@/components/BlogCart'
+import {StyledButtonGhost} from '@/components/UI/Button/Button.styled'
+import {BlogCart, BlogCart2} from '@/components/BlogCart'
 
 const blogs = [
   {
@@ -39,21 +39,21 @@ const blogs = [
 export default function BlogsSection() {
   return (
     <StyledBlogsSection>
-      <div className='container'>
-        <div className='blogsHeader'>
-          <StyledTypographyUrbanistH2 className='blogsHeaderTitle'>
+      <div className="container">
+        <div className="blogsHeader">
+          <StyledTypographyUrbanistH2 className="blogsHeaderTitle">
             Insights
           </StyledTypographyUrbanistH2>
-          <Link href='/blog'>
-            <StyledButtonGhost className='blogsHeaderButton'>
+          <Link href="/blog">
+            <StyledButtonGhost className="blogsHeaderButton">
               Go to blog
             </StyledButtonGhost>
           </Link>
         </div>
 
-        <div className='blogsGrid'>
-          {blogs.map(({ id, date, imageSrc, subTitle, time, title }) => (
-            <Link href='/blog/1'>
+        <div className="blogsGrid">
+          {blogs.map(({id, date, imageSrc, subTitle, time, title}) => (
+            <Link href="/blog/1">
               <BlogCart
                 time={time}
                 title={title}
@@ -69,15 +69,15 @@ export default function BlogsSection() {
         {/* mobile */}
 
         <Swiper
-          className='blogsSwiper'
-          slidesPerView='auto'
+          className="blogsSwiper"
+          slidesPerView="auto"
           spaceBetween={24}
           updateOnWindowResize
           breakpoints={{
             0: {
               slidesPerView: 1,
               spaceBetween: 8,
-              initialSlide: 0,
+              initialSlide: 1,
               loop: true,
               centeredSlides: true,
             },
@@ -96,9 +96,9 @@ export default function BlogsSection() {
           }}
           modules={[Scrollbar]}
         >
-          {blogs.map(({ id, date, imageSrc, subTitle, time, title }) => (
-            <SwiperSlide className='slide' key={id}>
-              <Link href='/blog/1'>
+          {blogs.map(({id, date, imageSrc, subTitle, time, title}) => (
+            <SwiperSlide className="slide" key={id}>
+              <Link href="/blog/1">
                 <BlogCart2
                   date={date}
                   imageSrc={imageSrc}
@@ -110,8 +110,8 @@ export default function BlogsSection() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <Link href='/blog'>
-          <StyledButtonGhost className='blogsHeaderButtonMobile'>
+        <Link href="/blog">
+          <StyledButtonGhost className="blogsHeaderButtonMobile">
             Go to blog
           </StyledButtonGhost>
         </Link>

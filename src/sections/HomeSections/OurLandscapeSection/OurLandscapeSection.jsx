@@ -203,22 +203,6 @@ function CoverageTab() {
       <div className="coverageWrapper">
         <Map className="map"/>
       </div>
-
-      {/* <ul className='list mobile'>
-        {coverageList.map(({ id, description, icon, name }) => (
-          <li key={id}>
-            <div className='coverageWrapper'>{icon}</div>
-            <div className='descriptionWrapper'>
-              <StyledTypographyUrbanistBody className='name'>
-                {name}
-              </StyledTypographyUrbanistBody>
-              <StyledTypographyUrbanistBody className='description'>
-                {description}
-              </StyledTypographyUrbanistBody>
-            </div>
-          </li>
-        ))}
-      </ul> */}
     </StyledCoverageWrapper>
   )
 }
@@ -255,7 +239,7 @@ function IndustriesTab() {
         slidesPerView={1}
         centeredSlides
         spaceBetween={8}
-        initialSlide="0"
+        initialSlide="1"
         loop
         height={500}
         scrollbar={{

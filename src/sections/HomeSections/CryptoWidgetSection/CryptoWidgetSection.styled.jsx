@@ -103,10 +103,27 @@ export const StyledCryptoWidgetSection = styled.section`
     .cryptoWidgetMobileWrapper {
       display: none;
       ${responsive.xl`
-
         display: flex;
         justify-content: center;
         margin: 0 auto 22px;
+        position: relative;
+
+        &::before, &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 133.333px;
+        }
+        &::before {
+          top: 0;
+          background: linear-gradient(180deg, #077453 0%, rgba(7, 116, 83, 0.00) 100%);        
+        }
+  
+        &::after {
+          bottom: 0;
+          background: linear-gradient(360deg, #077453 0%, rgba(7, 116, 83, 0.00) 100%);
+        }
 
         svg {
           width: 397.33px;
@@ -122,6 +139,16 @@ export const StyledCryptoWidgetSection = styled.section`
       `};
       ${responsive.sm`
         margin-bottom: ${rem(24.47)};
+        overflow: hidden;
+        &::before, &::after {
+          height: 80px;
+        }
+        
+        &::after {
+          background: linear-gradient(360deg, #077453 0%, rgba(7, 116, 83, 0.00) 100%);
+          transform: translateY(50px); 
+        }
+  
         .cryptoWidgetMobileSmaller {
           display: block;
           width: 100%;
@@ -435,20 +462,34 @@ export const StyledCryptoWidgetSection = styled.section`
     }
 
     .rightSide {
-      svg {
-        max-width: ${rem(500)};
+      position: relative;
+
+      &::before, &::after {
+        content: "";
+        position: absolute;
+        left: 0;
         width: 100%;
-        ${responsive.xxl`
-          transform: translateY(53px) translateX(-1px);
-        `}
-        ${responsive.xl`
-          transform: none;
-        `};
+        height: 200px;
+      }
+
+      &::before {
+        top: 0;
+        background: linear-gradient(180deg, #077453 0%, rgba(7, 116, 83, 0.00) 100%);
+      }
+
+      &::after {
+        bottom: 0;
+        background: linear-gradient(360deg, #077453 0%, rgba(7, 116, 83, 0.00) 100%);
       }
 
       ${responsive.xl`
         display: none;
       `};
+
+      svg {
+        max-width: ${rem(500)};
+        width: 100%;
+      }
     }
   }
 `

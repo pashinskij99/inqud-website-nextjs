@@ -3,11 +3,10 @@ import {rem} from '@/utils/rem'
 import {responsive} from '@/utils/response'
 
 export const StyledBlogsSection = styled.section`
-  /* padding-top: 24rem; */
-  padding-top: ${rem(240)};
+  padding-top: 200px;
   ${responsive.xl`
-    padding-top: ${rem(120)};
-    padding-bottom: ${rem(62)};
+    padding-top: 120px;
+    padding-bottom: 62px;
     overflow: hidden;
   `};
   ${responsive.sm`
