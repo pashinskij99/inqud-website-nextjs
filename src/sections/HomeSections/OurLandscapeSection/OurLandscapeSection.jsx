@@ -1,10 +1,8 @@
 'use client'
 
-import clsx from 'clsx'
-import {useState} from 'react'
-import {Swiper, SwiperSlide} from 'swiper/react'
-import {Scrollbar} from 'swiper/modules'
-import {Tab, Tabs} from '@mui/material'
+import { useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Scrollbar } from 'swiper/modules'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -24,8 +22,8 @@ import Coverage1 from '@/assets/images/our-landscape/coverage1.svg'
 import Coverage2 from '@/assets/images/our-landscape/coverage2.svg'
 import Coverage3 from '@/assets/images/our-landscape/coverage3.svg'
 import Coverage5 from '@/assets/images/our-landscape/coverage5.svg'
-// import Coverage4 from '@/assets/images/our-landscape/coverage4.svg'
 import Map from '@/assets/images/our-landscape/map.svg'
+import { TabsComponent } from '@/components/TabsComponent/TabsComponent'
 
 const tabs = [
   {
@@ -42,52 +40,48 @@ const accordionData = [
   {
     id: 0,
     title: 'High-risk',
-    icon: <Icon1/>,
+    icon: <Icon1 />,
     columnColor: '255, 163, 163',
     defaultExpanded: '',
     items: [
-      {id: 0, title: 'Igaming', description: ''},
-      {id: 1, title: 'Betting', description: ''},
-      {id: 2, title: 'Adult', description: ''},
-      {id: 3, title: 'Crypto', description: ''},
-      {id: 4, title: 'NFT', description: ''},
-      {id: 5, title: 'Farmacy', description: ''},
+      { id: 0, title: 'Igaming', description: '' },
+      { id: 1, title: 'Betting', description: '' },
+      { id: 2, title: 'Adult', description: '' },
+      { id: 3, title: 'Crypto', description: '' },
+      { id: 4, title: 'NFT', description: '' },
+      { id: 5, title: 'Farmacy', description: '' },
     ],
   },
   {
     id: 1,
     title: 'Middle risk',
-    icon: <Icon2/>,
+    icon: <Icon2 />,
     columnColor: '255, 196, 81',
     defaultExpanded: 'Gaming',
     items: [
-      {id: 0, title: 'Fintech', description: ''},
-      {id: 1, title: 'Medicine', description: ''},
-      {id: 2, title: 'E-commerce', description: ''},
-      {id: 3, title: 'Gaming', description: ''},
+      { id: 0, title: 'Fintech', description: '' },
+      { id: 1, title: 'Medicine', description: '' },
+      { id: 2, title: 'E-commerce', description: '' },
+      { id: 3, title: 'Gaming', description: '' },
     ],
   },
   {
     id: 2,
     title: 'LoW risk',
-    icon: <Icon3/>,
+    icon: <Icon3 />,
     columnColor: '129, 158, 176',
     defaultExpanded: 'Blogging',
     items: [
-      {id: 0, title: 'Travel', description: ''},
-      {id: 1, title: 'Horeca', description: ''},
-      {id: 2, title: 'Education', description: ''},
-      {id: 3, title: 'Blogging', description: ''},
+      { id: 0, title: 'Travel', description: '' },
+      { id: 1, title: 'Horeca', description: '' },
+      { id: 2, title: 'Education', description: '' },
+      { id: 3, title: 'Blogging', description: '' },
     ],
   },
 ]
 
 export default function OurLandscapeSection() {
   const [active, setActive] = useState(0)
-  const [value, setValue] = useState(0)
-  const handleChange = (event, newValue) => {
-    setValue(newValue)
-  }
   const handleClick = (id) => {
     setActive(id)
   }
@@ -95,46 +89,27 @@ export default function OurLandscapeSection() {
   const getContent = () => {
     switch (active) {
       case 0:
-        return <IndustriesTab/>
+        return <IndustriesTab />
       case 1:
-        return <CoverageTab/>
+        return <CoverageTab />
 
       default:
-        return <IndustriesTab/>
-    }
-  }
-
-  function a11yProps(index) {
-    return {
-      id: `simple-tab-${index}`,
-      'aria-controls': `simple-tabpanel-${index}`,
+        return <IndustriesTab />
     }
   }
 
   return (
     <StyledOurLandscapeSection>
-      <div className="container">
-        <StyledTypographyUrbanistH2 className="ourLandscapeTitle">
+      <div className='container'>
+        <StyledTypographyUrbanistH2 className='ourLandscapeTitle'>
           Our landscape
         </StyledTypographyUrbanistH2>
-        <div className="ourLandscapeTabs">
-          <Tabs value={value} onChange={handleChange}>
-            {tabs.map(({id, text}) => (
-              <Tab
-                label={text}
-                className={clsx(
-                  'ourLandscapeTabsButton ourLandscapeTabsButtonText',
-                  {
-                    ['active']: active === id,
-                  }
-                )}
-                onClick={() => handleClick(id)}
-                key={id}
-                {...a11yProps(0)}
-              />
-            ))}
-          </Tabs>
-        </div>
+        <TabsComponent
+          tabs={tabs}
+          className='ourLandscapeTabs'
+          active={active}
+          handleClick={handleClick}
+        />
 
         {getContent()}
       </div>
@@ -147,7 +122,7 @@ const coverageList = [
     id: 0,
     name: 'Worldwide',
     description: 'crypto coverage',
-    icon: <Coverage1 className="coverage1"/>,
+    icon: <Coverage1 className='coverage1' />,
   },
   {
     id: 1,
@@ -155,8 +130,8 @@ const coverageList = [
     description: 'license coverage',
     icon: (
       <>
-        <Coverage2 className="coverage2 desktop"/>
-        <Coverage5 className="coverage5 mobile"/>
+        <Coverage2 className='coverage2 desktop' />
+        <Coverage5 className='coverage5 mobile' />
       </>
     ),
   },
@@ -164,34 +139,28 @@ const coverageList = [
     id: 2,
     name: 'Focus 2023',
     description: 'Latin America, Africa, Asia',
-    icon: <Coverage3 className="coverage3"/>,
+    icon: <Coverage3 className='coverage3' />,
   },
-  // {
-  //   id: 3,
-  //   name: 'Our Offices',
-  //   description: 'Istanbul, Kyiv, Bogota, & Lisbon',
-  //   icon: <Coverage4 className='coverage4' />,
-  // },
 ]
 
 function CoverageTab() {
   return (
     <StyledCoverageWrapper>
-      <div className="headerWrapper">
-        <StyledTypographyUrbanistH5 className="ourLandscapeDescription">
+      <div className='headerWrapper'>
+        <StyledTypographyUrbanistH5 className='ourLandscapeDescription'>
           With our clients, we grow and advance every day,
-          <br className="br-desktop"/> pushing boundaries
-          <br className="br-tablet"/> and achieving new heights.
+          <br className='br-desktop' /> pushing boundaries
+          <br className='br-tablet' /> and achieving new heights.
         </StyledTypographyUrbanistH5>
-        <ul className="list desktop">
-          {coverageList.map(({id, description, icon, name}) => (
+        <ul className='list desktop'>
+          {coverageList.map(({ id, description, icon, name }) => (
             <li key={id}>
-              <div className="coverageWrapper">{icon}</div>
-              <div className="descriptionWrapper">
-                <StyledTypographyUrbanistBody className="name">
+              <div className='coverageWrapper'>{icon}</div>
+              <div className='descriptionWrapper'>
+                <StyledTypographyUrbanistBody className='name'>
                   {name}
                 </StyledTypographyUrbanistBody>
-                <StyledTypographyUrbanistBody className="description">
+                <StyledTypographyUrbanistBody className='description'>
                   {description}
                 </StyledTypographyUrbanistBody>
               </div>
@@ -200,8 +169,8 @@ function CoverageTab() {
         </ul>
       </div>
 
-      <div className="coverageWrapper">
-        <Map className="map"/>
+      <div className='coverageWrapper'>
+        <Map className='map' />
       </div>
     </StyledCoverageWrapper>
   )
@@ -210,15 +179,14 @@ function CoverageTab() {
 function IndustriesTab() {
   return (
     <StyledIndustriesWrapper>
-      <StyledTypographyUrbanistH5 className="ourLandscapeDescription">
+      <StyledTypographyUrbanistH5 className='ourLandscapeDescription'>
         Always on the hustle, we&apos;re leveling up
-        <br className="br-desktop"/> and broadening{' '}
-        our reach, nonstop.
+        <br className='br-desktop' /> and broadening our reach, nonstop.
       </StyledTypographyUrbanistH5>
 
-      <div className="ourLandscapeRisk">
+      <div className='ourLandscapeRisk'>
         {accordionData.map(
-          ({icon, id, defaultExpanded, items, title, columnColor}) => (
+          ({ icon, id, defaultExpanded, items, title, columnColor }) => (
             <Accordion
               key={id}
               idColumn={id}
@@ -235,24 +203,23 @@ function IndustriesTab() {
       {/* mobile */}
 
       <Swiper
-        className="ourLandscapeSwiper"
+        className='ourLandscapeSwiper'
         slidesPerView={1}
         centeredSlides
         spaceBetween={8}
-        initialSlide="1"
+        initialSlide='1'
         loop
         height={500}
         scrollbar={{
           dragSize: 200 / 3,
-          // dragClass: 'listRequirementsSwiperDrag',
           horizontalClass: 'listRequirementsSwiperScollbar',
           hide: true,
         }}
         modules={[Scrollbar]}
       >
         {accordionData.map(
-          ({icon, id, items, title, columnColor, defaultExpanded}) => (
-            <SwiperSlide className="listRequirementsSwiperItems" key={id}>
+          ({ icon, id, items, title, columnColor, defaultExpanded }) => (
+            <SwiperSlide className='listRequirementsSwiperItems' key={id}>
               <Accordion
                 key={id}
                 idColumn={id}
@@ -284,13 +251,13 @@ const stepsOpacity = [
 ]
 
 function Accordion({
-                     idColumn,
-                     icon,
-                     items,
-                     title,
-                     columnColor,
-                     defaultExpanded,
-                   }) {
+  idColumn,
+  icon,
+  items,
+  title,
+  columnColor,
+  defaultExpanded,
+}) {
   // eslint-disable-next-line no-unused-vars
   const [expanded, setExpanded] = useState(defaultExpanded || '')
 
@@ -300,13 +267,13 @@ function Accordion({
   }
 
   return (
-    <div className="ourLandscapeAccordion">
-      <div className="ourLandscapeAccordionTitle">
+    <div className='ourLandscapeAccordion'>
+      <div className='ourLandscapeAccordionTitle'>
         {icon}
         <StyledTypographyIBMH5>{title}</StyledTypographyIBMH5>
       </div>
       {/* eslint-disable-next-line no-unused-vars */}
-      {items.map(({id, description, title: accordionTitle}) => (
+      {items.map(({ id, description, title: accordionTitle }) => (
         <div
           style={{
             backgroundColor: `rgba(${columnColor}, ${
@@ -317,37 +284,15 @@ function Accordion({
             flex: id === items.length - 1 ? 1 : 0,
             alignItems: id === items.length - 1 ? 'start' : 'start',
           }}
-          className="accordion-prob"
+          className='accordion-prob'
           key={id}
         >
           <StyledTypographyUrbanistBody>
             {accordionTitle}
           </StyledTypographyUrbanistBody>
-          <div/>
+          <div />
         </div>
-        // <OurLandscapeSectionAccordion
-        //   key={id}
-        //   id={id}
-        //   description={description}
-        //   expanded={expanded}
-        //   handleChange={handleChange}
-        //   title={accordionTitle}
-        //   columnColor={columnColor}
-        //   lastchild={items.length - 1 === id}
-        // />
       ))}
     </div>
   )
 }
-
-/* <button
-    className={clsx('ourLandscapeTabsButton', {
-      ['active']: active === id,
-    })}
-    onClick={() => handleClick(id)}
-    key={id}
-  >
-    <StyledTypographyUrbanistBody className='ourLandscapeTabsButtonText'>
-      {text}
-    </StyledTypographyUrbanistBody>
-  </button> */

@@ -1,5 +1,5 @@
 import {
-  StyledTypographyUrbanistDisplay,
+  StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import {
@@ -19,19 +19,21 @@ export default function HeroB2CSection() {
     <StyledHeroB2CSectionWrapper>
       <div className='container'>
         <div className='left-side'>
-          <SubTitle className='sub-title'>For personal use</SubTitle>
-          <StyledTypographyUrbanistDisplay className='title'>
-            Simplify your personal finance
-          </StyledTypographyUrbanistDisplay>
-          <StyledTypographyUrbanistH5 className='description'>
-            Seamlessly integrate crypto and local currencies into{' '}
-            <br className='br-desktop' /> your daily routine using regular
-            credit cards.
-          </StyledTypographyUrbanistH5>
+          <div className='text-wrapper'>
+            <SubTitle className='sub-title'>For personal use</SubTitle>
+            <StyledTypographyUrbanistH1 className='title'>
+              Simplify your personal finance
+            </StyledTypographyUrbanistH1>
+            <StyledTypographyUrbanistH5 className='description'>
+              Seamlessly integrate crypto and local currencies into{' '}
+              <br className='br-desktop' /> your daily routine using regular
+              credit cards.
+            </StyledTypographyUrbanistH5>
 
-          <ButtonGetStarted className='get-started-btn'>
-            Get started
-          </ButtonGetStarted>
+            <ButtonGetStarted className='get-started-btn'>
+              Get started
+            </ButtonGetStarted>
+          </div>
 
           <PaymentList />
         </div>

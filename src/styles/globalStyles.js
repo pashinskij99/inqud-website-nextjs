@@ -73,10 +73,11 @@ const GlobalStyle = createGlobalStyle`
       max-width: ${rem(1024)};
     }
     @media (max-width: 1024px) {
-      max-width: 100%;
+      max-width: 767px;
       padding: 0 ${rem(40)};
     }
     @media (max-width: 767px) {
+      max-width: 100%;
       padding: 0 ${rem(16)};
     }
   }
