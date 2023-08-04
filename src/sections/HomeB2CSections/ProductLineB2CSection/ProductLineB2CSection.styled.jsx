@@ -15,10 +15,8 @@ export const StyledProductLineB2CSectionWrapper = styled.section`
     line-height: 62px;
     text-align: center;
     margin-bottom: 24px;
-    ${responsive.xxl`
-      text-align: start;
-    `}
     ${responsive.xl`
+      text-align: start;
       margin-bottom: 31px;
     `}
     ${responsive.sm`
@@ -87,6 +85,7 @@ export const StyledTabContentWrapper = styled.div`
     grid-template-columns: repeat(2, 680px);
     justify-content: space-between;
     column-gap: 40px;
+    align-items: center;
     ${responsive.xxl`
       grid-template-columns: 595px 596px;
       column-gap: 25px;
@@ -102,6 +101,7 @@ export const StyledTabContentWrapper = styled.div`
     .content-title {
       line-height: 46px;
       margin-bottom: 8px;
+      font-weight: 700;
       ${responsive.xxl`
         margin-bottom: 16px;
       `}
@@ -213,6 +213,7 @@ export const StyledTabContentWrapper = styled.div`
       grid-column-start: 1;
       grid-column-end: 3;
       line-height: 24px;
+      color: rgba(81, 113, 133, 1);
       ${responsive.sm`
         grid-column-start: auto;
         grid-column-end: auto;

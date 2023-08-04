@@ -20,6 +20,8 @@ import Icon4 from '@/assets/images/homeB2C/product-line/icon4.svg'
 import Icon5 from '@/assets/images/homeB2C/product-line/icon5.svg'
 import Icon6 from '@/assets/images/homeB2C/product-line/icon6.svg'
 import Icon7 from '@/assets/images/homeB2C/product-line/icon7.svg'
+import Icon8 from '@/assets/images/homeB2C/product-line/icon8.svg'
+import Icon9 from '@/assets/images/homeB2C/product-line/icon9.svg'
 import picture1 from '@/assets/images/homeB2C/product-line/Picture1.png'
 import picture1Tablet from '@/assets/images/homeB2C/product-line/Picture1-tablet.png'
 import picture1Mobile from '@/assets/images/homeB2C/product-line/Picture1-mobile.png'
@@ -126,13 +128,13 @@ const gridExchange = [
 const gridTransfer = [
   {
     id: 0,
-    icon: <Icon5 />,
+    icon: <Icon8 />,
     title: 'Zero commissions',
     description: 'Experience cost-free transactions within the Inqud platform.',
   },
   {
     id: 1,
-    icon: <Icon6 />,
+    icon: <Icon9 />,
     title: 'Send in a heartbeat',
     description: 'Benefit from swift fund transfers with lightning speed.',
   },
