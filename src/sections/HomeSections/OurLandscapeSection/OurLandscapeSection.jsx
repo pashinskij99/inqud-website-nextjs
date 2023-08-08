@@ -99,7 +99,7 @@ export default function OurLandscapeSection() {
   }
 
   return (
-    <StyledOurLandscapeSection>
+    <StyledOurLandscapeSection className='our-landscape'>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='ourLandscapeTitle'>
           Our landscape

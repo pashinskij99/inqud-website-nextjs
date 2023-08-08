@@ -10,7 +10,7 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 import { PaymentList } from '@/sections/HomeSections/HeroSection/HeroSection'
 import Picture from '@/assets/images/homeB2C/hero/Picture.svg'
 
-function SubTitle({ className, children }) {
+export function SubTitle({ className, children }) {
   return <StyledSubTitle className={className}>{children}</StyledSubTitle>
 }
 

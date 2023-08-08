@@ -45,7 +45,7 @@ export default function FeesBusiness() {
   const hadleShowMore = () => setShowMore((prevState) => !prevState)
 
   return (
-    <StyledFeesBusinessWrapper>
+    <StyledFeesBusinessWrapper className='fees'>
       <div className='container'>
         <div className='title-wrapper'>
           <StyledTypographyUrbanistH2>

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem'
-import {responsive} from '@/utils/response'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledPickSectionSection = styled.section`
   border-radius: ${rem(30)};
@@ -45,6 +45,54 @@ export const StyledPickSectionSection = styled.section`
   .pickTitle {
     color: white;
     flex-shrink: 0;
+    &.pickTitleApi {
+      ${responsive.xl`
+        font-size: 40px;
+        font-weight: 400;
+        line-height: 46px;
+        margin-bottom: 40px;
+      `}
+      ${responsive.sm`
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        white-space: nowrap;
+        line-height: 50px;
+        margin-bottom: 13px;
+      `}
+      span {
+        ${responsive.sm`
+          display: contents;
+          text-align: center;
+        `}
+      }
+      .br-desktop {
+        ${responsive.xl`
+          display: none;
+        `}
+      }
+      .br-tablet {
+        display: none;
+        ${responsive.xl`
+          display: block;
+        `}
+        ${responsive.sm`
+          display: none;
+        `}
+      }
+      .br-mobile {
+        display: none;
+
+        ${responsive.sm`
+          display: block;
+        `}
+      }
+
+      span {
+        font-weight: 700;
+      }
+    }
     ${responsive.xxl`
       .pickTitle10Minutes {
         line-height: 62px;
@@ -114,6 +162,36 @@ export const StyledPickSectionSection = styled.section`
     ${responsive.sm`
       margin-bottom: ${rem(38)};
     `};
+
+    &.pickListApi {
+      ul {
+        ${responsive.xl`
+          row-gap: 16px;
+        `}
+
+        li {
+          &:nth-child(1) {
+            ${responsive.xl`
+              order: 1;
+            `}
+          }
+          &:nth-child(2) {
+            order: 2;
+            ${responsive.xl`
+              order: 2;
+            `}
+          }
+          &:nth-child(3) {
+            ${responsive.xl`
+              order: 3;
+            `}
+          }
+          p {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
 
     .pickListTitle {
       color: white;
@@ -258,6 +336,18 @@ export const StyledPickSectionSection = styled.section`
       ${responsive.sm`
         height: 48px;
       `};
+
+      &.pickPickButtonApi-1 {
+        ${responsive.sm`
+          display: none;
+        `}
+      }
+      &.pickPickButtonApi-2 {
+        display: none;
+        ${responsive.sm`
+          display: block;
+        `}
+      }
 
       &.desktop {
         ${responsive.xl`

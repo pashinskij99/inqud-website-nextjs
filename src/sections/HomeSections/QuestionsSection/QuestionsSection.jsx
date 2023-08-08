@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -12,13 +12,13 @@ import {
 } from './QuestionsSection.styled'
 import Plus from '@/assets/icons/plus.svg'
 import Minus from '@/assets/icons/minus.svg'
-import {ButtonLearnMore} from '@/components/UI/Button'
+import { ButtonLearnMore } from '@/components/UI/Button'
 
 const questions = [
-  {id: 0, title: 'Reduce transaction cost?', description: ''},
-  {id: 1, title: 'Expand payments provider line up?', description: ''},
-  {id: 2, title: 'Find off-market solutions?', description: ''},
-  {id: 3, title: 'Effortlessly manage funds?', description: ''},
+  { id: 0, title: 'Reduce transaction cost?', description: '' },
+  { id: 1, title: 'Expand payments provider line up?', description: '' },
+  { id: 2, title: 'Find off-market solutions?', description: '' },
+  { id: 3, title: 'Effortlessly manage funds?', description: '' },
 ]
 
 export default function QuestionsSection() {
@@ -29,16 +29,16 @@ export default function QuestionsSection() {
   }
 
   return (
-    <StyledQuestionsSection>
-      <div className="container">
-        <StyledTypographyUrbanistH2 className="questionsTitle">
+    <StyledQuestionsSection className='faq'>
+      <div className='container'>
+        <StyledTypographyUrbanistH2 className='questionsTitle'>
           Frequently asked questions
         </StyledTypographyUrbanistH2>
-        <StyledTypographyUrbanistH2 className="questionsTitleMobile">
+        <StyledTypographyUrbanistH2 className='questionsTitleMobile'>
           FAQ
         </StyledTypographyUrbanistH2>
-        <div className="questionsAccordion">
-          {questions.map(({description, id, title}) => (
+        <div className='questionsAccordion'>
+          {questions.map(({ description, id, title }) => (
             <AccordionItem
               key={id}
               description={description}
@@ -48,12 +48,12 @@ export default function QuestionsSection() {
             />
           ))}
         </div>
-        <StyledTypographyUrbanistH5 className="questionsButton">
+        <StyledTypographyUrbanistH5 className='questionsButton'>
           Didn’t get an answers?
-          <ButtonLearnMore className="questionsButtonHelp desktop">
+          <ButtonLearnMore className='questionsButtonHelp desktop'>
             Go to Help centre
           </ButtonLearnMore>
-          <ButtonLearnMore className="questionsButtonHelp mobile">
+          <ButtonLearnMore className='questionsButtonHelp mobile'>
             Help centre
           </ButtonLearnMore>
         </StyledTypographyUrbanistH5>
@@ -62,7 +62,7 @@ export default function QuestionsSection() {
   )
 }
 
-function AccordionItem({title, expanded, description, handleChange}) {
+function AccordionItem({ title, expanded, description, handleChange }) {
   return (
     <StyledQuestionsSectionAccordion
       expanded={expanded === title}
@@ -70,14 +70,14 @@ function AccordionItem({title, expanded, description, handleChange}) {
     >
       <StyledQuestionsSectionAccordionSummary
         expanded={expanded === title}
-        expandIcon={expanded === title ? <Minus/> : <Plus/>}
+        expandIcon={expanded === title ? <Minus /> : <Plus />}
       >
-        <StyledTypographyUrbanistH5 className="questionsAccordionTitle">
+        <StyledTypographyUrbanistH5 className='questionsAccordionTitle'>
           {title}
         </StyledTypographyUrbanistH5>
       </StyledQuestionsSectionAccordionSummary>
       <StyledQuestionsSectionAccordionDetails expanded={expanded === title}>
-        <StyledTypographyUrbanistBody className="questionsAccordionBodyText">
+        <StyledTypographyUrbanistBody className='questionsAccordionBodyText'>
           {description ||
             'Get on board with the future of payments - our embeddable crypto widget for your website makes it simple to accept cryptocurrency payments including Bitcoin, Ethereum and other crypto.'}
         </StyledTypographyUrbanistBody>
