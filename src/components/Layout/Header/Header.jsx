@@ -33,6 +33,9 @@ export default function Header() {
   const handleClickHamburger = () => {
     setActive((prevState) => !prevState)
   }
+  const handleClose = () => {
+    setActive(false)
+  }
 
   const [isTop, setIsTop] = useState(true)
 
@@ -131,7 +134,7 @@ export default function Header() {
           </div>
         </div>
 
-        <HeaderMobileMenu active={active} />
+        <HeaderMobileMenu active={active} handleClose={handleClose} />
       </div>
     </StyledHeaderWrapper>
   )
