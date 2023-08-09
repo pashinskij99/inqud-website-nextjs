@@ -33,7 +33,7 @@ const dropdownList = [
 ]
 
 export default function HeaderDropdown() {
-  const [active, setActive] = useState(true)
+  const [active, setActive] = useState(false)
   const handleClick = () => {
     setActive((prev) => !prev)
   }
