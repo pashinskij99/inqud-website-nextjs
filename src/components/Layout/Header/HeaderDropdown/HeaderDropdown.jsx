@@ -8,24 +8,24 @@ const dropdownList = [
   {
     id: 0,
     items: [
-      { id: 0, name: 'Business' },
-      { id: 1, name: 'Crypto widget' },
-      { id: 2, name: 'API' },
-      { id: 3, name: 'Card 2 crypto' },
-      { id: 4, name: 'Crypto exchange' },
-      { id: 5, name: 'Recurring payments' },
-      { id: 6, name: 'Accept crypto' },
+      { id: 0, name: 'Business', href: '/' },
+      { id: 1, name: 'Crypto widget', href: '/crypto-widget' },
+      { id: 2, name: 'API', href: '/api' },
+      { id: 3, name: 'Card 2 crypto', href: '/' },
+      { id: 4, name: 'Crypto exchange', href: '/' },
+      { id: 5, name: 'Recurring payments', href: '/' },
+      { id: 6, name: 'Accept crypto', href: '/' },
     ],
   },
   {
     id: 1,
     items: [
-      { id: 0, name: 'Personal ' },
-      { id: 1, name: 'Wallet' },
-      { id: 2, name: 'Exchange' },
-      { id: 3, name: 'Transfer money' },
-      { id: 4, name: 'Buy crypto with card' },
-      { id: 5, name: 'Pink market' },
+      { id: 0, name: 'Personal ', href: '/' },
+      { id: 1, name: 'Wallet', href: '/' },
+      { id: 2, name: 'Exchange', href: '/' },
+      { id: 3, name: 'Transfer money', href: '/' },
+      { id: 4, name: 'Buy crypto with card', href: '/' },
+      { id: 5, name: 'Pink market', href: '/' },
     ],
   },
 ]
@@ -68,9 +68,9 @@ export default function HeaderDropdown() {
         >
           {dropdownList.map(({ id, items }) => (
             <ul key={id}>
-              {items.map(({ id: itemId, name }) => (
+              {items.map(({ id: itemId, name, href }) => (
                 <li key={itemId}>
-                  <Link onClick={handleClose} href='#1'>
+                  <Link onClick={handleClose} href={href}>
                     {name}
                   </Link>
                 </li>
