@@ -86,6 +86,9 @@ export const StyledCryptoWidgetHeroSectionWrapper = styled.section`
       `}
 
       .getStarted {
+        ${responsive.sm`
+          padding-left: 0;
+        `}
       }
       .ghostButton {
         &.ghostButton-1 {

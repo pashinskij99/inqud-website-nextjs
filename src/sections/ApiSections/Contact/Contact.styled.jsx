@@ -5,6 +5,9 @@ export const StyledContactWrapper = styled.section`
   padding: 120px 0 124px;
   background: rgba(7, 116, 83, 1);
   position: relative;
+  .background {
+    z-index: 0;
+  }
   ${responsive.xxl`
     padding: 111px 0 124px;
   `}
@@ -19,6 +22,8 @@ export const StyledContactWrapper = styled.section`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+    position: relative;
   }
   .form {
     border-radius: 30px;

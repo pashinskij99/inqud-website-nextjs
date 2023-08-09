@@ -27,7 +27,12 @@ export const grid = [
 export default function Contact() {
   return (
     <StyledContactWrapper>
-      <Image src={background.src} alt='Get a personalized proposal' fill />
+      <Image
+        className='background'
+        src={background.src}
+        alt='Get a personalized proposal'
+        fill
+      />
       <div className='container'>
         <form className='form'>
           <StyledTypographyUrbanistH4 className='title'>

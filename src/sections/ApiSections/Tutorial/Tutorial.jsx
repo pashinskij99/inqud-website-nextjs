@@ -37,7 +37,7 @@ const tutorials = [
 
 export default function Tutorial() {
   return (
-    <StyledTutorialWrapper>
+    <StyledTutorialWrapper className='tutorial'>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='title'>
           Tutorials
