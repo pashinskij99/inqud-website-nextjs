@@ -1,6 +1,8 @@
-import Link from 'next/link'
+'use client'
+
 import { useState } from 'react'
 import clsx from 'clsx'
+import Link from 'next/link'
 import ArrowDown from '@/assets/icons/arrow-down.svg'
 import { StyledHeaderDropdownWrapper } from './HeaderDropdown.styled'
 
@@ -31,10 +33,11 @@ const dropdownList = [
 ]
 
 export default function HeaderDropdown() {
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(true)
   const handleClick = () => {
     setActive((prev) => !prev)
   }
+
   const handleClose = () => {
     setActive(false)
   }

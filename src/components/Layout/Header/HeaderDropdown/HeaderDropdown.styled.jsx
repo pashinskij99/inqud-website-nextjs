@@ -123,6 +123,9 @@ export const StyledHeaderDropdownWrapper = styled.div`
 
         a {
           font-weight: 400 !important;
+          display: block !important;
+          padding: 0 !important;
+          width: 100% !important;
         }
 
         &:not(:first-child) {
