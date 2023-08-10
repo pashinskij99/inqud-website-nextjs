@@ -118,10 +118,11 @@ export default function SmoothAPISection() {
                 Get started
               </ButtonGetStarted>
             </Link>
-
-            <StyledButtonGhost className='smoothAPIButtonGhost'>
-              Learn more
-            </StyledButtonGhost>
+            <Link target='_blank' href='/api'>
+              <StyledButtonGhost className='smoothAPIButtonGhost'>
+                Learn more
+              </StyledButtonGhost>
+            </Link>
           </div>
         </div>
       </div>

@@ -54,7 +54,7 @@ export const StyledInstantFreeWrapper = styled.section`
       display: grid;
       grid-template-columns: repeat(2, 320px);
       justify-content: flex-start;
-      align-items: center;
+      /* align-items: center; */
       column-gap: 40px;
       margin-bottom: 40px;
       ${responsive.xxl`

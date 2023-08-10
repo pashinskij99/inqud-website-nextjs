@@ -10,10 +10,10 @@ import {
   StyledTeamCartWrapper,
   StyledTeamSectionWrapper,
 } from './TeamSection.styled'
-import image1 from '@/assets/images/company/team/image1.png'
-import image2 from '@/assets/images/company/team/image2.png'
-import image3 from '@/assets/images/company/team/image3.png'
-import image4 from '@/assets/images/company/team/image4.png'
+import image1 from '@/assets/images/company/team/image1.webp'
+import image2 from '@/assets/images/company/team/image2.webp'
+import image3 from '@/assets/images/company/team/image3.webp'
+import image4 from '@/assets/images/company/team/image4.webp'
 import Telegram from '@/assets/images/company/team/telegram.svg'
 import Linkedin from '@/assets/images/company/team/linkedin.svg'
 import { StyledLoadMoreLarge } from '@/components/UI/Button/Button.styled'

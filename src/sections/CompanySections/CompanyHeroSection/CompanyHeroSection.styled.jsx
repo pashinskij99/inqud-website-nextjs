@@ -157,7 +157,7 @@ export const StyledCompanyHeroSectionWrapper = styled.section`
       justify-content: center;
     `}
 
-    svg {
+    img {
       max-width: 550px;
       width: 100%;
       height: auto;

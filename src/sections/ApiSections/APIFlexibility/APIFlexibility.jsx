@@ -4,12 +4,12 @@ import {
   StyledTypographyUrbanistH4,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledAPIFlexibilityWrapper } from './APIFlexibility.styled'
-import Icon1 from '@/assets/images/api/flexibility/icon1.svg'
-import Icon2 from '@/assets/images/api/flexibility/icon2.svg'
-import Icon3 from '@/assets/images/api/flexibility/icon3.svg'
-import Icon4 from '@/assets/images/api/flexibility/icon4.svg'
-import Icon5 from '@/assets/images/api/flexibility/icon5.svg'
-import Icon6 from '@/assets/images/api/flexibility/icon6.svg'
+import Icon1 from '@/assets/images/api/flexibility/icon1-min.svg'
+import Icon2 from '@/assets/images/api/flexibility/icon2-min.svg'
+import Icon3 from '@/assets/images/api/flexibility/icon3-min.svg'
+import Icon4 from '@/assets/images/api/flexibility/icon4-min.svg'
+import Icon5 from '@/assets/images/api/flexibility/icon5-min.svg'
+import Icon6 from '@/assets/images/api/flexibility/icon6-min.svg'
 
 const grid = [
   {

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
+import Image from 'next/image'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -22,7 +23,8 @@ import Coverage1 from '@/assets/images/our-landscape/coverage1.svg'
 import Coverage2 from '@/assets/images/our-landscape/coverage2.svg'
 import Coverage3 from '@/assets/images/our-landscape/coverage3.svg'
 import Coverage5 from '@/assets/images/our-landscape/coverage5.svg'
-import Map from '@/assets/images/our-landscape/map.svg'
+// import Map from '@/assets/images/our-landscape/map.svg'
+import mapImage from '@/assets/images/our-landscape/map.webp'
 import { TabsComponent } from '@/components/TabsComponent/TabsComponent'
 
 const tabs = [
@@ -170,7 +172,8 @@ function CoverageTab() {
       </div>
 
       <div className='coverageWrapper'>
-        <Map className='map' />
+        <Image src={mapImage.src} width={775.02} height={400} />
+        {/* <Map className='map' /> */}
       </div>
     </StyledCoverageWrapper>
   )

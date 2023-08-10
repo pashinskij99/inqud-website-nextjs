@@ -33,10 +33,7 @@ export default function CryptoWidgetHeroSection() {
               </ButtonGetStarted>
             </Link>
 
-            <StyledButtonGhost className='ghostButton ghostButton-1'>
-              Get proposal
-            </StyledButtonGhost>
-            <StyledButtonGhost className='ghostButton ghostButton-2'>
+            <StyledButtonGhost className='ghostButton'>
               Contact sales
             </StyledButtonGhost>
           </div>

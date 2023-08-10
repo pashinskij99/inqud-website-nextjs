@@ -31,6 +31,8 @@ export default function RootLayout({ children }) {
     switch (page) {
       case 'blog':
         return 'insights'
+      case 'crypto-widget':
+        return 'crypto widget'
 
       default:
         return page

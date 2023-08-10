@@ -11,9 +11,9 @@ import {
   StyledTutorialCartWrapper,
   StyledTutorialWrapper,
 } from './Tutorial.styled'
-import image1 from '@/assets/images/api/tutorials/image1.png'
-import image2 from '@/assets/images/api/tutorials/image2.png'
-import image3 from '@/assets/images/api/tutorials/image3.png'
+import image1 from '@/assets/images/api/tutorials/image1.webp'
+import image2 from '@/assets/images/api/tutorials/image2.webp'
+import image3 from '@/assets/images/api/tutorials/image3.webp'
 import Play from '@/assets/images/api/tutorials/play.svg'
 import { StyledLoadMoreLarge } from '@/components/UI/Button/Button.styled'
 

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { StyledDevelopGuideWrapper } from './DevelopGuide.styled'
-import image from '../../../assets/images/api/develop-guide/image.png'
+import image from '../../../assets/images/api/develop-guide/image.webp'
 import {
   StyledTypographyUrbanistH3,
   StyledTypographyUrbanistH5,

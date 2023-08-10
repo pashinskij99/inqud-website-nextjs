@@ -8,7 +8,7 @@ import { StyledLandscapeSectionWrapper } from './LandscapeSection.styled'
 import Icon1 from '@/assets/images/our-landscape/coverage1.svg'
 import Icon2 from '@/assets/images/our-landscape/coverage6.png'
 import Icon3 from '@/assets/images/our-landscape/coverage3.svg'
-import map from '@/assets/images/our-landscape/map.png'
+import map from '@/assets/images/our-landscape/map.webp'
 
 const grid = [
   {

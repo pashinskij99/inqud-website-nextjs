@@ -17,8 +17,8 @@ import Linkedin from '@/assets/icons/linkedin.svg'
 import Twitter from '@/assets/icons/twitter.svg'
 import Facebook from '@/assets/icons/facebook.svg'
 import Line from '@/assets/images/blog-detail/list-line.svg'
-import Image1 from '@/assets/images/blog-detail/image1.jpg'
-import AuthorImage from '@/assets/images/blog-detail/author-image.png'
+import Image1 from '@/assets/images/blog-detail/image1.webp'
+import AuthorImage from '@/assets/images/blog-detail/author-image.webp'
 
 export default function BlogContentSection() {
   return (

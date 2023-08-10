@@ -7,7 +7,7 @@ import {
 import { StyledContactWrapper } from './Contact.styled'
 import Icon1 from '@/assets/images/api/contact/icon1.svg'
 import Icon2 from '@/assets/images/api/contact/icon2.svg'
-import background from '@/assets/images/api/contact/background.png'
+import background from '@/assets/images/api/contact/background.webp'
 import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 

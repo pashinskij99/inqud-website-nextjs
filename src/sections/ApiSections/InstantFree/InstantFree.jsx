@@ -6,7 +6,7 @@ import {
   StyledTypographyUrbanistBody,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledInstantFreeWrapper } from './InstantFree.styled'
-import image from '../../../assets/images/api/instant/graphic.png'
+import image from '../../../assets/images/api/instant/graphic.webp'
 import Icon1 from '../../../assets/images/api/instant/icon1.svg'
 import Icon2 from '../../../assets/images/api/instant/icon2.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'

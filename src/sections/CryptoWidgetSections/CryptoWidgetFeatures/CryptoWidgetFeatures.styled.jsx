@@ -49,7 +49,6 @@ export const StyledCryptoWidgetFeaturesWrapper = styled(
         ${responsive.sm`
           color: var(--directness-black, #2D3439);
           font-size: 24px;
-          font-weight: 700;
         `}
       }
       .accordion-description {

@@ -12,7 +12,7 @@ import {
   StyledAccordionLoading,
   StyledFeaturesSectionWrapper,
 } from './FeaturesSection.styled'
-import img from '@/assets/images/company/features/image.png'
+import img from '@/assets/images/company/features/image.webp'
 
 const accordionData = [
   {

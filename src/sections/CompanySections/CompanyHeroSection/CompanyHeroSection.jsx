@@ -7,8 +7,7 @@ import {
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledCompanyHeroSectionWrapper } from './CompanyHeroSection.styled'
-import Graphic from '@/assets/images/company/hero/graphic.svg'
-import graphic from '@/assets/images/company/hero/graphic.png'
+import graphic from '@/assets/images/company/hero/graphic.webp'
 
 export default function CompanyHeroSection() {
   return (
@@ -44,7 +43,7 @@ export default function CompanyHeroSection() {
           </StyledTypographyUrbanistBody>
         </div>
         <div className='right-side'>
-          <Graphic />
+          <Image src={graphic.src} width={550} height={550} />
         </div>
       </div>
 

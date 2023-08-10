@@ -9,10 +9,10 @@ import {
 import arrowImage from '@/assets/images/homeB2C/how-to-start/arrow.png'
 import arrowImageMobile from '@/assets/images/homeB2C/PassKYC/arrow-down.png'
 import TimeIcon from '@/assets/images/homeB2C/how-to-start/time.svg'
-import Icon1 from '@/assets/images/api/how-integrate/num1.svg'
-import Icon2 from '@/assets/images/api/how-integrate/num2.svg'
-import Icon3 from '@/assets/images/api/how-integrate/num3.svg'
-import Icon4 from '@/assets/images/api/how-integrate/num4.svg'
+import Icon1 from '@/assets/images/api/how-integrate/num1-min.svg'
+import Icon2 from '@/assets/images/api/how-integrate/num2-min.svg'
+import Icon3 from '@/assets/images/api/how-integrate/num3-min.svg'
+import Icon4 from '@/assets/images/api/how-integrate/num4-min.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
 
 const stepsContent = [

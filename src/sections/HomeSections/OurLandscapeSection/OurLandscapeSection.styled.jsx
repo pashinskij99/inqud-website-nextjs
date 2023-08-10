@@ -206,8 +206,10 @@ export const StyledCoverageWrapper = styled.div`
       flex-direction: column-reverse;
     `};
 
-    .map {
+    img {
+      max-width: 775.02px;
       width: 100%;
+      margin: 0 auto;
       height: fit-content;
       max-height: ${rem(452)};
       ${responsive.sm`

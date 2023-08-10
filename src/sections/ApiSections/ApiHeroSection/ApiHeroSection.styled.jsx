@@ -165,7 +165,7 @@ export const StyledApiHeroSectionWrapper = styled.section`
         height: 398.125px;
       `}
 
-      svg {
+      img {
         ${responsive.xl`
           width: 375.143px;
           height: 365.571px;

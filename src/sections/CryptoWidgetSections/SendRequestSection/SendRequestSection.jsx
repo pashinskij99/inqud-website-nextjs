@@ -11,7 +11,7 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
-import background from '@/assets/images/api/contact/background.png'
+import background from '@/assets/images/api/contact/background.webp'
 
 export default function SendRequestSection() {
   return (
@@ -83,7 +83,9 @@ function Form() {
           )}
         </div>
         <div className='footer'>
-          <StyledButtonSecondary>Submit</StyledButtonSecondary>
+          <StyledButtonSecondary className='submit-btn'>
+            Submit
+          </StyledButtonSecondary>
           <StyledTypographyUrbanistSmallSpaces>
             by submitting this form, you contirm that you agree to the storing
             and processing of your personal data

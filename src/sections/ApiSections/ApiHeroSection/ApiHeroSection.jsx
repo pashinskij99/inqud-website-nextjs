@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
 import { StyledApiHeroSectionWrapper } from './ApiHeroSection.styled'
 import {
@@ -9,7 +10,7 @@ import { PaymentList } from '@/sections/HomeSections/HeroSection/HeroSection'
 import Check from '@/assets/icons/check-green-background.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import Code from '@/assets/images/api/code.svg'
+import codeImage from '@/assets/images/api/code.webp'
 
 const features = [
   { id: 0, text: '2 days seamless Integration' },
@@ -61,7 +62,7 @@ export default function ApiHeroSection() {
         </div>
         <div className='right-side'>
           <div className='cart'>
-            <Code />
+            <Image src={codeImage.src} width={500} height={488} />
           </div>
         </div>
       </div>
