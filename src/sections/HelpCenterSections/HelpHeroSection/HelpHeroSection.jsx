@@ -22,7 +22,7 @@ function HelpHeroSection({ page }) {
 
   return (
     <StyledHelpHeroSectionWrapper className={page}>
-      <button className='btn-back'>
+      <button className={clsx('btn-back', page)}>
         <BackIcon />
         <StyledTypographyUrbanistBody>Back</StyledTypographyUrbanistBody>
       </button>

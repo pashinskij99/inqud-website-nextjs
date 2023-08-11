@@ -20,11 +20,11 @@ export const StyledHelpHeroSectionWrapper = styled.section`
   }
 
   .btn-back {
+    display: none;
     border-radius: 42px;
     border: 1px solid var(--confident-light-grey, #f4f5fa);
     background: var(--clarity-white, #fff);
     height: 48px;
-    display: flex;
     align-items: center;
     column-gap: 6px;
     padding: 0 24px;
@@ -33,12 +33,17 @@ export const StyledHelpHeroSectionWrapper = styled.section`
     top: 50%;
     left: 60px;
     transform: translateY(-50%);
+
     ${responsive.xxl`
       left: 32px;
     `}
-    ${responsive.xl`
-      display: none;
-    `}
+
+    &.general {
+      display: flex;
+      ${responsive.xl`
+        display: none;
+      `}
+    }
 
     &:hover {
       background-color: #f4f5fa;
