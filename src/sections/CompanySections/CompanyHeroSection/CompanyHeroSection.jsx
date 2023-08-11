@@ -43,7 +43,7 @@ export default function CompanyHeroSection() {
           </StyledTypographyUrbanistBody>
         </div>
         <div className='right-side'>
-          <Image src={graphic.src} width={550} height={550} />
+          <Image src={graphic.src} alt='About us' width={550} height={550} />
         </div>
       </div>
 
@@ -61,7 +61,7 @@ export default function CompanyHeroSection() {
         </div>
 
         <div className='cart'>
-          <Image src={graphic.src} width={332} height={332} />
+          <Image src={graphic.src} alt='About us' width={332} height={332} />
         </div>
 
         <div className='cart'>

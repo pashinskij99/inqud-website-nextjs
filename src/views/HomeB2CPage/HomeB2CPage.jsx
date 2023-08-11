@@ -8,9 +8,11 @@ import HowToStartsB2CSection from '@/sections/HomeB2CSections/HowToStartsB2CSect
 import PassKYCB2CSection from '@/sections/HomeB2CSections/PassKYCB2CSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import BlogsSection from '@/sections/HomeSections/BlogsSection'
+// import LayoutComponent from '@/components/Layout/LayoutComponent'
 
 export default function HomeB2CPage() {
   return (
+    // <LayoutComponent>
     <StyledHomeB2CPageWrapper>
       <HeroB2CSection />
       <FeaturesB2CSection />
@@ -20,5 +22,6 @@ export default function HomeB2CPage() {
       <BlogsSection />
       <QuestionsSection />
     </StyledHomeB2CPageWrapper>
+    // </LayoutComponent>
   )
 }

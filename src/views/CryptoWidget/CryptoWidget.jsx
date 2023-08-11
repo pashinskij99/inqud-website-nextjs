@@ -1,3 +1,5 @@
+'use client'
+
 import { StyledCryptoWidgetWrapper } from './CryptoWidget.styled'
 
 import CryptoWidgetHeroSection from '@/sections/CryptoWidgetSections/CryptoWidgetHeroSection'

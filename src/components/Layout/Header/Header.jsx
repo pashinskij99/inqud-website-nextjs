@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import {usePathname} from 'next/navigation'
 import Logo from '../../../assets/icons/logo.svg'
 import LogoMobile from '../../../assets/icons/logo-header-mobile-without-text.svg'
-import { StyledHeaderWrapper } from './Header.styled'
+import {StyledHeaderWrapper} from './Header.styled'
 import HeaderDropdown from './HeaderDropdown'
 import HeaderLanguageSelect from './HeaderLanguageSelect'
 import {
@@ -17,14 +17,14 @@ import HeaderMobileMenu from './HeaderMobileMenu'
 import HeaderTabs from './HeaderTabs'
 
 const navList = [
-  { id: 0, name: 'Company', href: '/company' },
-  { id: 1, name: 'Insights', href: '/blog' },
-  { id: 2, name: 'Help centre', href: '/help' },
+  {id: 0, name: 'Company', href: '/company'},
+  {id: 1, name: 'Insights', href: '/blog'},
+  {id: 2, name: 'Help centre', href: '/help-center'},
 ]
 
 const signButton = [
-  { id: 0, name: 'Log in', className: 'signIn' },
-  { id: 1, name: 'Get started', className: 'signUp' },
+  {id: 0, name: 'Log in', className: 'signIn'},
+  {id: 1, name: 'Get started', className: 'signUp'},
 ]
 
 export default function Header() {
@@ -73,21 +73,21 @@ export default function Header() {
       active={active}
       isHome={pathname === '/'}
     >
-      <div className='containerHeader'>
-        <div className='logoSection'>
-          <Link href='/'>
-            <Logo className='logo' />
-            <LogoMobile className='logo-mobile' />
+      <div className="containerHeader">
+        <div className="logoSection">
+          <Link href="/">
+            <Logo className="logo"/>
+            <LogoMobile className="logo-mobile"/>
           </Link>
 
-          <HeaderTabs />
+          <HeaderTabs/>
         </div>
 
-        <nav className='navSection'>
+        <nav className="navSection">
           <ul>
-            <HeaderDropdown />
+            <HeaderDropdown/>
 
-            {navList.map(({ id, name, href }) => (
+            {navList.map(({id, name, href}) => (
               <li key={id}>
                 <Link
                   className={clsx({
@@ -102,8 +102,8 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className='userSection'>
-          <HeaderLanguageSelect className='languageMenu' />
+        <div className="userSection">
+          <HeaderLanguageSelect className="languageMenu"/>
 
           <button
             onClick={handleClickHamburger}
@@ -111,22 +111,22 @@ export default function Header() {
               ['open']: active,
             })}
           >
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
-            <span />
+            <span/>
+            <span/>
+            <span/>
+            <span/>
+            <span/>
+            <span/>
           </button>
 
-          <div className='sign'>
-            <Link target='_blank' href='https://cabinet.inqud.com/#/login'>
+          <div className="sign">
+            <Link target="_blank" href="https://cabinet.inqud.com/#/login">
               <StyledButtonGhost className={signButton[0].className}>
                 {signButton[0].name}
               </StyledButtonGhost>
             </Link>
 
-            <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
+            <Link target="_blank" href="https://cabinet.inqud.com/#/signup">
               <StyledButtonSecondary className={signButton[1].className}>
                 {signButton[1].name}
               </StyledButtonSecondary>
@@ -134,7 +134,7 @@ export default function Header() {
           </div>
         </div>
 
-        <HeaderMobileMenu active={active} handleClose={handleClose} />
+        <HeaderMobileMenu active={active} handleClose={handleClose}/>
       </div>
     </StyledHeaderWrapper>
   )

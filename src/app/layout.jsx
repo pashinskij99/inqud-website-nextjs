@@ -1,21 +1,7 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
-import { capitalize } from '@mui/material'
-import { Provider } from 'react-redux'
-import StyledComponentsRegistry from '@/app/registry'
+import LayoutComponent from '@/components/Layout/LayoutComponent'
 import { urbanist } from '@/utils/font'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
-
-import Header from '@/components/Layout/Header'
-import Footer from '@/components/Layout/Footer'
-import GlobalStyle from '@/styles/globalStyles'
-
-import BreadCrumbs from '@/components/BreadCrumbs'
-import { getUrlForBreadCrumbs } from '@/utils/getUrlForBreadCrumbs'
-import { store } from '@/store'
 
 // export const metadata = {
 //   title: 'Create Next App',
@@ -23,33 +9,6 @@ import { store } from '@/store'
 // }
 
 export default function RootLayout({ children }) {
-  const [pages, setPages] = useState([])
-
-  const pathname = usePathname()
-
-  const getCurrentPageName = (page) => {
-    switch (page) {
-      case 'blog':
-        return 'insights'
-      case 'crypto-widget':
-        return 'crypto widget'
-
-      default:
-        return page
-    }
-  }
-
-  useEffect(() => {
-    const path = getUrlForBreadCrumbs(pathname)
-
-    const pagesArray = path.map((page, i) => ({
-      id: i,
-      name: page ? capitalize(getCurrentPageName(page)) : 'Home page',
-      href: page ? `/${page}` : '/',
-    }))
-    setPages(pagesArray)
-  }, [pathname])
-
   return (
     <html lang='en'>
       <head>
@@ -58,17 +17,7 @@ export default function RootLayout({ children }) {
       </head>
 
       <body className={urbanist.className}>
-        <Provider store={store}>
-          <StyledComponentsRegistry>
-            <GlobalStyle />
-            <Header />
-            {pathname === '/' ? null : <BreadCrumbs pages={pages} />}
-
-            {children}
-
-            <Footer />
-          </StyledComponentsRegistry>
-        </Provider>
+        <LayoutComponent>{children}</LayoutComponent>
       </body>
     </html>
   )

@@ -8,7 +8,7 @@ import {
 export function TabsComponent({ className, active, handleClick, tabs }) {
   return (
     <StyledTabsComponentWrapper className={className}>
-      <Tabs value={active} onChange={handleClick}>
+      <Tabs value={active}>
         {tabs.map(({ id, text }) => (
           <Tab
             label={text}
@@ -30,7 +30,7 @@ export function TabsComponent({ className, active, handleClick, tabs }) {
 export function TabsHeaderComponent({ className, active, handleClick, tabs }) {
   return (
     <StyledTabsHeaderComponentWrapper className={className}>
-      <Tabs value={active} onChange={handleClick}>
+      <Tabs value={active}>
         {tabs.map(({ id, text }) => (
           <Tab
             label={text}

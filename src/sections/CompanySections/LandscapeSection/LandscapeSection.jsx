@@ -67,7 +67,13 @@ export default function LandscapeSection() {
           </ul>
         </div>
 
-        <Image src={map.src} width={775.02} height={400} className='map' />
+        <Image
+          src={map.src}
+          alt='Map'
+          width={775.02}
+          height={400}
+          className='map'
+        />
       </div>
     </StyledLandscapeSectionWrapper>
   )

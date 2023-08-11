@@ -1,16 +1,15 @@
-import {StyledBlogsPageWrapper} from '@/views/BlogsPage/BlogsPage.styled';
-import BlogsSection from '@/sections/BlogsSections/BlogsSection';
-import BlogsPageMainSection from '@/sections/BlogsSections/BlogsPageMainSection';
+import { StyledBlogsPageWrapper } from '@/views/BlogsPage/BlogsPage.styled'
+import BlogsSection from '@/sections/BlogsSections/BlogsSection'
+import BlogsPageMainSection from '@/sections/BlogsSections/BlogsPageMainSection'
 
 function BlogsPage() {
-
   return (
     <StyledBlogsPageWrapper>
-      <BlogsPageMainSection/>
+      <BlogsPageMainSection />
 
-      <BlogsSection/>
+      <BlogsSection />
     </StyledBlogsPageWrapper>
-  );
+  )
 }
 
-export default BlogsPage;
+export default BlogsPage
