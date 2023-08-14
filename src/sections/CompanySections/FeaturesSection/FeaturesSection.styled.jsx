@@ -101,7 +101,7 @@ export const StyledFeaturesSectionWrapper = styled.section`
 
 export const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
-))(() => ({
+))(({ expanded }) => ({
   border: 'none',
   '&:not(:last-child)': {
     borderBottom: 0,
@@ -109,6 +109,8 @@ export const Accordion = styled((props) => (
   '&:before': {
     display: 'none',
   },
+  pointerEvents: expanded ? 'none' : 'auto',
+  touchAction: expanded ? 'none' : 'auto',
 }))
 
 export const AccordionSummary = styled((props) => (
@@ -176,6 +178,9 @@ export const StyledAccordionLoading = styled.div`
   height: 1px;
   width: 100%;
   background: rgba(129, 158, 176, 0.2);
+  opacity: ${({ isLast, isExpanded }) =>
+    // eslint-disable-next-line no-nested-ternary
+    isLast ? (isExpanded ? '1' : '0') : '1'};
 
   &::before {
     content: '';

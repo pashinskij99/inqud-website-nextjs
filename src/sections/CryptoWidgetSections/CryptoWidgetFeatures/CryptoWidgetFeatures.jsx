@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { InView } from 'react-intersection-observer'
 import { StyledCryptoWidgetFeaturesWrapper } from './CryptoWidgetFeatures.styled'
 import {
   StyledTypographyUrbanistBody,
@@ -166,20 +167,36 @@ export default function CryptoWidgetFeatures() {
   const [expanded, setExpanded] = useState(accordionData[0].key)
   const [percent, setPercent] = useState(0)
   const [isInterval, setIsInterval] = useState(true)
+  const [isPause, setIsPause] = useState(true)
   const interval = useRef(null)
+
+  const onPause = () => {
+    setIsPause(true)
+  }
+
+  const onStart = () => {
+    setIsPause(false)
+  }
+
+  const handleInView = (inView) => {
+    if (inView) onStart()
+    else onPause()
+  }
 
   useEffect(() => {
     interval.current = setInterval(() => {
-      setPercent((prevState) => {
-        if (prevState === 250) return 0
-        return prevState + 1
-      })
+      if (!isPause) {
+        setPercent((prevState) => {
+          if (prevState === 250) return 0
+          return prevState + 1
+        })
+      }
     }, 100)
 
     return () => {
       clearInterval(interval.current)
     }
-  }, [])
+  }, [isPause])
 
   useEffect(() => {
     if (percent === 250) {
@@ -214,7 +231,7 @@ export default function CryptoWidgetFeatures() {
   }
 
   return (
-    <StyledCryptoWidgetFeaturesWrapper>
+    <InView as={StyledCryptoWidgetFeaturesWrapper} onChange={handleInView}>
       <div className='container'>
         <div className='left-side'>
           <StyledTypographyUrbanistH2 className='title'>
@@ -242,15 +259,9 @@ export default function CryptoWidgetFeatures() {
 
         <div className='right-side'>
           <div className='cart'>{accordionData[expanded].image.src}</div>
-          {/* <Image
-            src={img.src}
-            alt='Our Features and Approaches that Stand Out!'
-            width={559}
-            height={650}
-          /> */}
         </div>
       </div>
-    </StyledCryptoWidgetFeaturesWrapper>
+    </InView>
   )
 }
 
@@ -284,16 +295,14 @@ function AccordionItem({
         </AccordionDetails>
       </Accordion>
 
-      {id === count ? null : (
-        <StyledAccordionLoading
-          className='line'
-          width={
-            expanded === id
-              ? width({ isInterval, expanded, percent, count })
-              : 0
-          }
-        />
-      )}
+      <StyledAccordionLoading
+        className='line'
+        isLast={id === count}
+        isExpanded={expanded === id}
+        width={
+          expanded === id ? width({ isInterval, expanded, percent, count }) : 0
+        }
+      />
     </>
   )
 }

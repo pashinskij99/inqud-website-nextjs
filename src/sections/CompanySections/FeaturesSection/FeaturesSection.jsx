@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { InView } from 'react-intersection-observer'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -53,20 +54,36 @@ export default function FeaturesSection() {
   const [expanded, setExpanded] = useState(accordionData[0].key)
   const [percent, setPercent] = useState(0)
   const [isInterval, setIsInterval] = useState(true)
+  const [isPause, setIsPause] = useState(true)
   const interval = useRef(null)
+
+  const onPause = () => {
+    setIsPause(true)
+  }
+
+  const onStart = () => {
+    setIsPause(false)
+  }
+
+  const handleInView = (inView) => {
+    if (inView) onStart()
+    else onPause()
+  }
 
   useEffect(() => {
     interval.current = setInterval(() => {
-      setPercent((prevState) => {
-        if (prevState === 250) return 0
-        return prevState + 1
-      })
+      if (!isPause) {
+        setPercent((prevState) => {
+          if (prevState === 250) return 0
+          return prevState + 1
+        })
+      }
     }, 100)
 
     return () => {
       clearInterval(interval.current)
     }
-  }, [])
+  }, [isPause])
 
   useEffect(() => {
     if (percent === 250) {
@@ -101,7 +118,7 @@ export default function FeaturesSection() {
   }
 
   return (
-    <StyledFeaturesSectionWrapper>
+    <InView as={StyledFeaturesSectionWrapper} onChange={handleInView}>
       <div className='container'>
         <div className='left-side'>
           <StyledTypographyUrbanistH2 className='title'>
@@ -137,7 +154,7 @@ export default function FeaturesSection() {
           />
         </div>
       </div>
-    </StyledFeaturesSectionWrapper>
+    </InView>
   )
 }
 

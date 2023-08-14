@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { InView } from 'react-intersection-observer'
 import { StyledSafetyReliabilitySection } from './SafetyReliability.styled'
 import {
   StyledTypographyUrbanistBody,
@@ -60,20 +61,36 @@ export default function SafetyReliability() {
   const [expanded, setExpanded] = useState(accordionData[0].key)
   const [percent, setPercent] = useState(0)
   const [isInterval, setIsInterval] = useState(true)
+  const [isPause, setIsPause] = useState(true)
   const interval = useRef(null)
+
+  const onPause = () => {
+    setIsPause(true)
+  }
+
+  const onStart = () => {
+    setIsPause(false)
+  }
+
+  const handleInView = (inView) => {
+    if (inView) onStart()
+    else onPause()
+  }
 
   useEffect(() => {
     interval.current = setInterval(() => {
-      setPercent((prevState) => {
-        if (prevState === 250) return 0
-        return prevState + 1
-      })
+      if (!isPause) {
+        setPercent((prevState) => {
+          if (prevState === 250) return 0
+          return prevState + 1
+        })
+      }
     }, 100)
 
     return () => {
       clearInterval(interval.current)
     }
-  }, [])
+  }, [isPause])
 
   useEffect(() => {
     if (percent === 250) {
@@ -108,7 +125,7 @@ export default function SafetyReliability() {
   }
 
   return (
-    <StyledSafetyReliabilitySection>
+    <InView as={StyledSafetyReliabilitySection} onChange={handleInView}>
       <div className='container'>
         <div className='left-side'>
           <StyledTypographyUrbanistH2 className='title'>
@@ -148,7 +165,7 @@ export default function SafetyReliability() {
           </div>
         </div>
       </div>
-    </StyledSafetyReliabilitySection>
+    </InView>
   )
 }
 
@@ -186,16 +203,14 @@ function AccordionItem({
         </AccordionDetails>
       </Accordion>
 
-      {id === count ? null : (
-        <StyledAccordionLoading
-          className='line'
-          width={
-            expanded === id
-              ? width({ isInterval, expanded, percent, count })
-              : 0
-          }
-        />
-      )}
+      <StyledAccordionLoading
+        className='line'
+        isLast={id === count}
+        isExpanded={expanded === id}
+        width={
+          expanded === id ? width({ isInterval, expanded, percent, count }) : 0
+        }
+      />
     </>
   )
 }
