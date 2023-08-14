@@ -21,8 +21,8 @@ function BreadCrumbs() {
         return 'insights'
       case 'crypto-widget':
         return 'crypto widget'
-      case 'help-center':
-        return 'help center'
+      case 'help-centre':
+        return 'help centre'
 
       default:
         return page

@@ -27,7 +27,7 @@ export const StyledPersonalSectionWrapper = styled.section`
 `
 export const StyledLeftSideWrapper = styled.div`
   position: sticky;
-  top: 0;
+  top: calc(var(--header-height) + 10px);
   left: 0;
   ${responsive.xl`
     display: none;

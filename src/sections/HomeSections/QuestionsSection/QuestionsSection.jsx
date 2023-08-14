@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -50,12 +51,16 @@ export default function QuestionsSection() {
         </div>
         <StyledTypographyUrbanistH5 className='questionsButton'>
           Didn’t get an answers?
-          <ButtonLearnMore className='questionsButtonHelp desktop'>
-            Go to Help centre
-          </ButtonLearnMore>
-          <ButtonLearnMore className='questionsButtonHelp mobile'>
-            Help centre
-          </ButtonLearnMore>
+          <Link href='/help-centre'>
+            <ButtonLearnMore className='questionsButtonHelp desktop'>
+              Go to Help centre
+            </ButtonLearnMore>
+          </Link>
+          <Link href='/help-centre'>
+            <ButtonLearnMore className='questionsButtonHelp mobile'>
+              Help centre
+            </ButtonLearnMore>
+          </Link>
         </StyledTypographyUrbanistH5>
       </div>
     </StyledQuestionsSection>

@@ -78,13 +78,33 @@ export const StyledInputSearchWrapper = styled.div`
     display: contents;
   }
 
-  svg {
+  .search-icon {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: ${rem(13)};
     pointer-events: none;
     touch-action: none;
+  }
+
+  .close {
+    display: none;
+    position: absolute;
+    right: 13.5px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    ${responsive.xl`
+      right: 16.5px;
+    `}
+    ${responsive.sm`
+      right: 16px;
+    `}
+
+    &.active {
+      display: block;
+    }
   }
 
   .input {

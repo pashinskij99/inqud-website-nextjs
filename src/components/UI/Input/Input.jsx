@@ -8,6 +8,7 @@ import {
 } from './Input.styled'
 import ErrorInput from '@/assets/icons/error-input.svg'
 import Search from '@/assets/icons/search.svg'
+import Close from '../../../assets/icons/close-search.svg'
 
 export function InputText(props) {
   const { label, type, id, helperTextBottom, helperTextTop, placeholder } =
@@ -43,14 +44,22 @@ export function InputSearch(props) {
     // classNameWrapperIcon,
     classNameIcon,
     className,
+    value,
+    handleChange,
   } = props
 
   return (
     <StyledInputSearchWrapper className={classNameWrapper}>
       {/* <button className={classNameWrapperIcon}> */}
-      <Search className={classNameIcon} />
+      <Search className={clsx('search-icon', classNameIcon)} />
       {/* </button> */}
       <input className={clsx('input', className)} {...props} />
+      <Close
+        onClick={() => handleChange('')}
+        className={clsx('close', {
+          ['active']: value,
+        })}
+      />
     </StyledInputSearchWrapper>
   )
 }

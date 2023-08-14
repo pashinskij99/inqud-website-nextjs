@@ -32,8 +32,8 @@ const footerData = [
     title: 'Legal',
     items: [
       { id: 0, text: 'Documentations', href: '#' },
-      { id: 1, text: 'Insights', href: '#' },
-      { id: 2, text: 'Help Center', href: '#' },
+      { id: 1, text: 'Insights', href: '/blog' },
+      { id: 2, text: 'Help Center', href: '/help-centre' },
       { id: 3, text: 'Pitch deck', href: '#' },
       { id: 4, text: 'Contact us', href: '#' },
     ],

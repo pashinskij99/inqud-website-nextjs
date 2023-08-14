@@ -21,7 +21,7 @@ import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 const navList = [
   { id: 0, name: 'Company', href: '/company' },
   { id: 1, name: 'Insights', href: '/blog' },
-  { id: 2, name: 'Help centre', href: '/help-center' },
+  { id: 2, name: 'Help centre', href: '/help-centre' },
 ]
 
 const dropdownList = [
