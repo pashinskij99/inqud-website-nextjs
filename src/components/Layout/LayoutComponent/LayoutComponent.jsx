@@ -5,18 +5,21 @@ import GlobalStyle from '@/styles/globalStyles'
 
 import BreadCrumbs from '@/components/BreadCrumbs'
 import ReduxProvider from '@/store/ReduxProvider'
+import { NotFoundProvider } from '@/contexts/NotFoundContext/NotFoundContext'
 
 export default function LayoutComponent({ children }) {
   return (
     <ReduxProvider>
-      <StyledComponentsRegistry>
-        <GlobalStyle />
-        <Header />
-        <BreadCrumbs />
-        {children}
+      <NotFoundProvider>
+        <StyledComponentsRegistry>
+          <GlobalStyle />
+          <Header />
+          <BreadCrumbs />
+          {children}
 
-        <Footer />
-      </StyledComponentsRegistry>
+          <Footer />
+        </StyledComponentsRegistry>
+      </NotFoundProvider>
     </ReduxProvider>
   )
 }

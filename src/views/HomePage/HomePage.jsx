@@ -1,5 +1,6 @@
 'use client'
 
+import { useContext, useEffect } from 'react'
 import HeroSection from '@/sections/HomeSections/HeroSection'
 import { StyledHomeWrapper } from './HomePage.styled'
 import YourNeedsSection from '@/sections/HomeSections/YourNeedsSection'
@@ -12,9 +13,20 @@ import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import BlogsSection from '@/sections/HomeSections/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
+import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
 // import LayoutComponent from '@/components/Layout/LayoutComponent'
 
 export default function HomePage() {
+  const { setIsNotFound } = useContext(NotFoundContext)
+
+  useEffect(() => {
+    setIsNotFound(true)
+
+    return () => {
+      setIsNotFound(false)
+    }
+  }, [])
+
   return (
     // <LayoutComponent>
     <StyledHomeWrapper>

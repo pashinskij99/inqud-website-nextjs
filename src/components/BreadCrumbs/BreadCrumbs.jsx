@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { capitalize } from '@mui/material'
 import {
@@ -10,10 +10,13 @@ import {
 } from '@/components/BreadCrumbs/BreadCrumbs.styled'
 import { StyledTypographyUrbanistSmallSpaces } from '@/components/UI/Typography/Typography.styled'
 import { getUrlForBreadCrumbs } from '@/utils/getUrlForBreadCrumbs'
+import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
 
 function BreadCrumbs() {
   const [pages, setPages] = useState([])
   const pathname = usePathname()
+
+  const { isNotFound } = useContext(NotFoundContext)
 
   const getCurrentPageName = (page) => {
     switch (page) {
@@ -40,7 +43,7 @@ function BreadCrumbs() {
     setPages(pagesArray)
   }, [pathname])
 
-  return pathname === '/' ? null : (
+  return isNotFound ? null : (
     <StyledBreadCrumbsWrapper>
       <div className='containerHeader'>
         <StyledBreadcrumbs>

@@ -1,6 +1,8 @@
 import clsx from 'clsx'
 // import { useState } from 'react'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { InView } from 'react-intersection-observer'
+import { Element, Link } from 'react-scroll'
 import {
   StyledCenterSideWrapper,
   StyledContentItemAccordion,
@@ -21,24 +23,80 @@ import MessageIcon from '@/assets/images/help-center/message.svg'
 import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
 import Plus from '@/assets/icons/plus.svg'
 import Minus from '@/assets/icons/minus.svg'
+import { ArticleContext } from '@/contexts/ArticleContext/ArticleContext'
 
 const list = [
-  { id: 0, text: 'How to start using INQUD?' },
-  { id: 7, text: 'What is INQUD?' },
-  { id: 1, text: 'Can anyone use INQUD?' },
-  { id: 2, text: 'Where is Inqud registered?' },
-  { id: 3, text: 'How to sign-up for Swapin?' },
-  { id: 4, text: 'How I can log in to my Inqud account?' },
-  { id: 5, text: 'How do I reset my Password?' },
-  { id: 6, text: 'What countries are supported by Inqud?' },
+  {
+    id: 0,
+    text: 'How to start using INQUD?',
+    description: [
+      'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
+      'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
+    ],
+  },
+  {
+    id: 7,
+    text: 'What is INQUD?',
+    description: [
+      'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
+    ],
+  },
+  {
+    id: 1,
+    text: 'Can anyone use INQUD?',
+    description: [
+      'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API. ',
+      'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
+    ],
+  },
+  {
+    id: 2,
+    text: 'Where is Inqud registered?',
+    description: [
+      'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
+    ],
+  },
+  {
+    id: 3,
+    text: 'How to sign-up for Swapin?',
+    description: [
+      'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
+    ],
+  },
+  {
+    id: 4,
+    text: 'How I can log in to my Inqud account?',
+    description: [
+      'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
+    ],
+  },
+  {
+    id: 5,
+    text: 'How do I reset my Password?',
+    description: [
+      'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
+    ],
+  },
+  {
+    id: 6,
+    text: 'What countries are supported by Inqud?',
+    description: [
+      'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
+    ],
+  },
 ]
 
 function PersonalSection() {
   const [expanded, setExpanded] = useState('')
+  const { activeHeader, setActiveHeader } = useContext(ArticleContext)
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false)
   }
+
+  useEffect(() => {
+    setActiveHeader(list[0].text)
+  }, [])
 
   return (
     <StyledPersonalSectionWrapper>
@@ -52,73 +110,32 @@ function PersonalSection() {
               <li
                 key={id}
                 className={clsx('list-item', {
-                  ['active']: id === 0,
+                  ['active']: activeHeader === text,
                 })}
               >
-                <StyledTypographyUrbanistBody
-                  className={clsx('list-item-text', {
-                    ['active']: id === 0,
-                  })}
-                >
-                  {' '}
-                  {/* active */}
-                  {text}
-                </StyledTypographyUrbanistBody>
+                <Link to={text} offset={-100} spy smooth duration={500}>
+                  <StyledTypographyUrbanistBody
+                    className={clsx('list-item-text', {
+                      ['active']: activeHeader === text,
+                    })}
+                  >
+                    {text}
+                  </StyledTypographyUrbanistBody>
+                </Link>
               </li>
             ))}
           </ul>
         </StyledLeftSideWrapper>
         <StyledCenterSideWrapper>
-          <Content
-            title='How to start using INQUD?'
-            description={[
-              'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
-              'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
-            ]}
-            expanded={expanded}
-            handleChange={handleChange}
-          />
-          <Content
-            title='What is INQUD?'
-            description={[
-              'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
-            ]}
-            expanded={expanded}
-            handleChange={handleChange}
-          />
-          <Content
-            title='Can anyone use INQUD?'
-            description={[
-              'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API. ',
-              'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
-            ]}
-            expanded={expanded}
-            handleChange={handleChange}
-          />
-          <Content
-            title='Effortlessly manage funds?'
-            description={[
-              'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
-            ]}
-            expanded={expanded}
-            handleChange={handleChange}
-          />
-          <Content
-            title='What is INQUD?'
-            description={[
-              'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
-            ]}
-            expanded={expanded}
-            handleChange={handleChange}
-          />
-          <Content
-            title='Can anyone use INQUD?'
-            description={[
-              'We are building a holistic fintech platform providing global business from both fiat and crypto worlds with a wide range of financial services, accessible through single API integration. Mercuryo is backed by a team of 200+ professionals and a high profile fintech investor. Together we create cutting-edge business payment solutions binding conventional and crypto finance. This is the future, and we already know everything about it.',
-            ]}
-            expanded={expanded}
-            handleChange={handleChange}
-          />
+          {list.map(({ id, description, text }) => (
+            <Content
+              key={id}
+              title={text}
+              description={description}
+              expanded={expanded}
+              handleChange={handleChange}
+            />
+          ))}
         </StyledCenterSideWrapper>
         <StyledRightSideWrapper>
           <div className='cart'>
@@ -140,41 +157,52 @@ function PersonalSection() {
         </StyledRightSideWrapper>
       </div>
     </StyledPersonalSectionWrapper>
+    // </ArticleProvider>
   )
 }
 
 function Content({ title, description, expanded, handleChange }) {
-  // const [like, setLike] = useState(null)
+  const { setActiveHeader } = useContext(ArticleContext)
 
   return (
     <>
-      <div className='content content-1'>
-        <StyledTypographyUrbanistH4 className='content-title'>
-          {title}
-        </StyledTypographyUrbanistH4>
-        <div className='content-description-wrapper'>
-          {description.map((text, i) => (
-            <StyledTypographyUrbanistBody
-              // eslint-disable-next-line react/no-array-index-key
-              key={text + i}
-              className='content-description'
-            >
-              {text}
-            </StyledTypographyUrbanistBody>
-          ))}
-        </div>
+      <Element className='content content-1' name={title}>
+        <InView
+          threshold={0}
+          as='div'
+          id={title}
+          rootMargin='-30% 0px -70% 0px'
+          onChange={(inView) => (inView ? setActiveHeader(title) : null)}
+        >
+          <div className=''>
+            <StyledTypographyUrbanistH4 className='content-title'>
+              {title}
+            </StyledTypographyUrbanistH4>
+            <div className='content-description-wrapper'>
+              {description.map((text, i) => (
+                <StyledTypographyUrbanistBody
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={text + i}
+                  className='content-description'
+                >
+                  {text}
+                </StyledTypographyUrbanistBody>
+              ))}
+            </div>
 
-        <div className='content-footer'>
-          <StyledTypographyUrbanistBody className='content-footer-text'>
-            Did this answer your question?
-          </StyledTypographyUrbanistBody>
+            <div className='content-footer'>
+              <StyledTypographyUrbanistBody className='content-footer-text'>
+                Did this answer your question?
+              </StyledTypographyUrbanistBody>
 
-          <div className='likeOrDislike'>
-            <DislikeIcon />
-            <LikeIcon />
+              <div className='likeOrDislike'>
+                <DislikeIcon />
+                <LikeIcon />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </InView>
+      </Element>
       <div className='content content-2'>
         <ContentAccordionItem
           title={title}

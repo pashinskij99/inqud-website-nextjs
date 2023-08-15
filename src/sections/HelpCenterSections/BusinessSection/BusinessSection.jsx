@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   StyledBusinessSectionWrapper,
   StyledOtherDocumentationSectionWrapper,
@@ -185,6 +186,42 @@ function BusinessSection() {
   )
 }
 
+function Cart({ icon, titleCart, listQuestions, answers }) {
+  return (
+    <li className='cart'>
+      <div className='cart-header'>
+        {icon}
+        <StyledTypographyUrbanistH5 className='cart-title'>
+          {titleCart}
+        </StyledTypographyUrbanistH5>
+      </div>
+      <div className='cart-body'>
+        {listQuestions.map(({ idQuestion, text }) => (
+          <Link href='/help-centre/general'>
+            <StyledTypographyUrbanistBody
+              key={idQuestion}
+              className='cart-question'
+            >
+              {text}
+            </StyledTypographyUrbanistBody>
+          </Link>
+        ))}
+      </div>
+      <div className='cart-footer'>
+        <Link href='/help-centre/general'>
+          <StyledButtonLearnMore className='cart-btn-view'>
+            View all
+          </StyledButtonLearnMore>
+        </Link>
+
+        <StyledTypographyUrbanistBody className='cart-answers-text'>
+          {answers} answers
+        </StyledTypographyUrbanistBody>
+      </div>
+    </li>
+  )
+}
+
 function SubSection({ title, grid }) {
   return (
     <StyledSubSectionWrapper className='sub-section'>
@@ -193,33 +230,13 @@ function SubSection({ title, grid }) {
       </StyledTypographyUrbanistH3>
       <div className='grid'>
         {grid.map(({ id, icon, title: titleCart, answers, listQuestions }) => (
-          <li className='cart' key={id}>
-            <div className='cart-header'>
-              {icon}
-              <StyledTypographyUrbanistH5 className='cart-title'>
-                {titleCart}
-              </StyledTypographyUrbanistH5>
-            </div>
-            <div className='cart-body'>
-              {listQuestions.map(({ idQuestion, text }) => (
-                <StyledTypographyUrbanistBody
-                  key={idQuestion}
-                  className='cart-question'
-                >
-                  {text}
-                </StyledTypographyUrbanistBody>
-              ))}
-            </div>
-            <div className='cart-footer'>
-              <StyledButtonLearnMore className='cart-btn-view'>
-                View all
-              </StyledButtonLearnMore>
-
-              <StyledTypographyUrbanistBody className='cart-answers-text'>
-                {answers} answers
-              </StyledTypographyUrbanistBody>
-            </div>
-          </li>
+          <Cart
+            key={id}
+            icon={icon}
+            titleCart={titleCart}
+            answers={answers}
+            listQuestions={listQuestions}
+          />
         ))}
       </div>
     </StyledSubSectionWrapper>

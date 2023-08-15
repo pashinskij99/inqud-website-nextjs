@@ -46,6 +46,8 @@ export const StyledLeftSideWrapper = styled.div`
 
     .list-item {
       cursor: pointer;
+      border-left: 0px solid transparent;
+      /* transition: border-left 0.3s ease-in-out; */
 
       &.active {
         border-left: 2px solid rgba(7, 116, 83, 1);
@@ -55,6 +57,8 @@ export const StyledLeftSideWrapper = styled.div`
         color: var(--independent-grey, #517185);
         font-weight: 400;
         line-height: 26px;
+        transform: translateX(0px);
+        transition: 0.2s ease;
 
         &.active {
           color: var(--ambitious-green, #077453);
@@ -76,7 +80,7 @@ export const StyledCenterSideWrapper = styled.div`
     ${responsive.sm`
       margin-bottom: 34px;
     `}
-    &:nth-last-child(2),
+    /* &:nth-last-child(2), */
     &:nth-last-child(1) {
       margin-bottom: 0;
       ${responsive.xl`
@@ -135,6 +139,9 @@ export const StyledCenterSideWrapper = styled.div`
 `
 export const StyledRightSideWrapper = styled.div`
   transform: translateY(-7px);
+  position: sticky;
+  top: calc(var(--header-height) + 17px);
+  right: 0;
   .cart {
     display: flex;
     align-items: center;

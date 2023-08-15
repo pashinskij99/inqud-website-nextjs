@@ -9,6 +9,7 @@ import BusinessSection from '@/sections/HelpCenterSections/BusinessSection'
 import SearchResultSection from '@/sections/HelpCenterSections/SearchResultSection'
 import PersonalSection from '@/sections/HelpCenterSections/PersonalSection'
 import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection'
+import { ArticleProvider } from '@/contexts/ArticleContext/ArticleContext'
 // import SearchResultSection from '@/sections/HelpCenterSections/SearchResultSection'
 // import PersonalSection from '@/sections/HelpCenterSections/PersonalSection'
 // import BusinessSection from '@/sections/HelpCenterSections/BusinessSection';
@@ -39,7 +40,9 @@ export function HelpCenterPageContent() {
       {searchValue ? (
         <SearchResultSection />
       ) : path.search('general') !== -1 ? (
-        <PersonalSection />
+        <ArticleProvider>
+          <PersonalSection />
+        </ArticleProvider>
       ) : (
         <BusinessSection />
       )}

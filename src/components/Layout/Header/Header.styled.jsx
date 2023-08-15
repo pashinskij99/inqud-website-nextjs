@@ -60,8 +60,8 @@ export const StyledHeaderWrapper = styled.header`
 
     .logo-mobile {
       display: none;
-      width: ${rem(32)};
-      height: ${rem(32)};
+      width: ${rem(33)};
+      height: ${rem(33)};
       flex-shrink: 0;
       ${responsive.sm`
         display: block;
@@ -73,7 +73,7 @@ export const StyledHeaderWrapper = styled.header`
         margin: 0 auto;
       `};
       @media (max-width: 576px) {
-        display: ${(props) => (props.active ? 'none' : 'block')};
+        display: ${(props) => (props.active ? 'none' : 'flex')};
       }
       display: flex;
       align-items: center;
@@ -103,7 +103,7 @@ export const StyledHeaderWrapper = styled.header`
       button {
         padding: 0 ${rem(14)};
         ${responsive.sm`
-          height: ${rem(32)}!important;
+          height: ${rem(33)}!important;
           font-size: 14px;
         `};
       }
