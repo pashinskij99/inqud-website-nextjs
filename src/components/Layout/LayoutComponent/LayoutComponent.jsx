@@ -1,4 +1,5 @@
-import StyledComponentsRegistry from '@/app/registry'
+import { NextIntlClientProvider } from 'next-intl'
+import StyledComponentsRegistry from '@/app/[locale]/registry'
 import Header from '@/components/Layout/Header'
 import Footer from '@/components/Layout/Footer'
 import GlobalStyle from '@/styles/globalStyles'
@@ -6,20 +7,25 @@ import GlobalStyle from '@/styles/globalStyles'
 import BreadCrumbs from '@/components/BreadCrumbs'
 import ReduxProvider from '@/store/ReduxProvider'
 import { NotFoundProvider } from '@/contexts/NotFoundContext/NotFoundContext'
+// import Lang from '@/components/Lang'
 
-export default function LayoutComponent({ children }) {
+export default function LayoutComponent({ children, messages, locale }) {
   return (
     <ReduxProvider>
-      <NotFoundProvider>
-        <StyledComponentsRegistry>
-          <GlobalStyle />
-          <Header />
-          <BreadCrumbs />
-          {children}
+      <NextIntlClientProvider messages={messages} locale={locale}>
+        <NotFoundProvider>
+          <StyledComponentsRegistry>
+            {/* <Lang lang={lang} /> */}
+            <GlobalStyle />
+            <Header />
+            <BreadCrumbs />
 
-          <Footer />
-        </StyledComponentsRegistry>
-      </NotFoundProvider>
+            {children}
+
+            <Footer />
+          </StyledComponentsRegistry>
+        </NotFoundProvider>
+      </NextIntlClientProvider>
     </ReduxProvider>
   )
 }

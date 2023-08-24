@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH5,
@@ -15,23 +16,23 @@ export function SubTitle({ className, children }) {
 }
 
 export default function HeroB2CSection() {
+  const t = useTranslations('home_b2c_page.hero_section')
+
   return (
     <StyledHeroB2CSectionWrapper>
       <div className='container'>
         <div className='left-side'>
           <div className='text-wrapper'>
-            <SubTitle className='sub-title'>For personal use</SubTitle>
+            <SubTitle className='sub-title'>{t('sub_title')}</SubTitle>
             <StyledTypographyUrbanistH1 className='title'>
-              Simplify your personal finance
+              {t('title')}
             </StyledTypographyUrbanistH1>
             <StyledTypographyUrbanistH5 className='description'>
-              Seamlessly integrate crypto and local currencies into{' '}
-              <br className='br-desktop' /> your daily routine using regular
-              credit cards.
+              {t('description')}
             </StyledTypographyUrbanistH5>
 
             <ButtonGetStarted className='get-started-btn'>
-              Get started
+              {t('button_text')}
             </ButtonGetStarted>
           </div>
 

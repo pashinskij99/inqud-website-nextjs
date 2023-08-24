@@ -36,10 +36,14 @@ export const StyledOurLandscapeSection = styled.section`
     .ourLandscapeDescription {
       color: #517185;
       line-height: ${rem(32)};
+      max-width: 440px;
 
       .br-tablet {
         display: none;
       }
+      ${responsive.xl`
+        max-width: 100%;
+      `}
 
       ${responsive.sm`
         font-size: 16px;

@@ -1,0 +1,705 @@
+{
+  "header": {
+    "tabs": {
+      "item1": "Business",
+      "item2": "Personal"
+    },
+    "nav": {
+      "dropdown": {
+        "dropdown_title": "Products",
+        "dropdown_items_title": {
+          "item1": "Business",
+          "item2": "Personal"
+        },
+        "dropdown_items_1": {
+          "item1": "Crypto widget",
+          "item2": "API",
+          "item3": "Card 2 crypto",
+          "item4": "Crypto exchange",
+          "item5": "Recurring payments",
+          "item6": "Accept crypto"
+        },
+        "dropdown_items_2": {
+          "item1": "Wallet",
+          "item2": "Exchange",
+          "item3": "Transfer money",
+          "item4": "Buy crypto with card",
+          "item5": "Pink market"
+        }
+      }
+    },
+    "items": {
+      "item1": "Company",
+      "item2": "Insights",
+      "item3": "Help centre"
+    },
+    "buttons_text_login": "Log in",
+    "buttons_text_get_started": "Get started"
+  },
+
+  "footer": {
+    "description": "Initium Limited, doing business as Switchere, is located at Flat 2A1-A7, Pahsang Industrial Building, 16 Sun On Street, Tuen Mun, N.T, Hong Kong.",
+    "resources_title": "Resources",
+    "resources_items": {
+      "item1": "Privacy Notice",
+      "item2": "Cookie Policy",
+      "item3": "AML / KYC Policy",
+      "item4": "Terms of Use",
+      "item5": "Press kit"
+    },
+    "legal_title": "Legal",
+    "legal_items": {
+      "item1": "Documentations",
+      "item2": "Insights",
+      "item3": "Help Center",
+      "item4": "Pitch deck",
+      "item5": "Contact us"
+    },
+    "email_title": "Don't miss out on the most important updates. Subscribe now!",
+    "email_button_text": "Subscribe",
+    "email_description": "by submitting this form, you contirm that you agree to the storing and processing of your personal data",
+    "all_rights_reserved": "© Inqud. 2023. All rights reserved."
+  },
+
+  "home_page": {
+    "hero_section": {
+      "sub_title": "For business",
+      "title": "Bespoke diversity crypto payments",
+      "paragraph": "Inqud is the trusted partner and provider of tailored crypto & fiat payment solutions.",
+      "features_list_text": {
+        "item1": "Payments without refunds",
+        "item2": "24/7 expert & caring support",
+        "item3": "Tailored payment options",
+        "item4": "No hidden fees"
+      },
+      "features_list_textMobile": {
+        "item1": "Payments without refunds",
+        "item2": "24/7 caring support",
+        "item3": "Tailored payment options",
+        "item4": "No hidden fees"
+      },
+      "button_text_get_started": "Get started",
+      "button_text_contact_sales": "Contact sales",
+      "crypto_list_title": "Supported currencies"
+    },
+    "your_needs_section": {
+      "title": "We understand your needs",
+      "paragraph": "Backed by industry expertise",
+      "list_item_title": {
+        "item1": "Accept global crypto payments",
+        "item2": "Tailored payment options",
+        "item3": "Reliable alternative payment system"
+      },
+      "list_item_description": {
+        "item1": "Simplify your global payment process by accepting crypto currencies from around the world.",
+        "item2": "Need a specific payment method or currency for your business? Just ask! We'll be in touch to make it happen.",
+        "item3": "Ensure uninterrupted transactions with our robust backup payment system, offering rock-solid reliability and security."
+      },
+      "list_item_button_text": "Add your request",
+
+      "modal": {
+        "title": "Send your request",
+        "description": "Let's meet your goals!",
+        "label_email": "Email",
+        "label_message": "Message",
+        "placeholder_message": "Enter your request or question...",
+        "button_text": "Submit",
+        "footer_description": "by submitting this form, you contirm that you agree to the storing and processing of your personal data"
+      }
+    },
+    "crypto_widget_section": {
+      "sub_title": "Tailored for developers",
+      "sub_title_mobile": "Tailored for devs",
+      "title": "Crypto widget",
+      "paragraph": "Get on board with the future of payments — our embeddable crypto widget for your website makes it simple to accept cryptocurrency payments including Bitcoin, Ethereum and other crypto.",
+      "paragraph_mobile": "Embrace crypto payments on your website with our seamless widget.",
+      "list_item_title": {
+        "item1": "BTC, ETH & other crypto",
+        "item2": "Fee flexibility",
+        "item3": "Auto-conversion",
+        "item4": "Widget customization"
+      },
+      "list_item_description": {
+        "item1": "Accept crypto seamlessly, crafting an effortless and user-friendly payment journey for your customers.",
+        "item2": "Decide who covers the transaction fee - either the business itself or the customer.",
+        "item3": "Mitigate market volatility risks with our automatic conversion system.",
+        "item4": "Our SDK lets you shape your widget to align with your brand."
+      },
+      "comming_soon": "comming soon",
+      "button_text_learn_more": "Learn more"
+    },
+    "smooth_api_section": {
+      "sub_title": "Tailored for business",
+      "title": "Smooth API integration",
+      "paragraph": "Advanced onramp & offramp payment processing, scalability,  customization, and seamless integration. Streamline payment process and spur growth with API integration. Experience boosted efficiency, scalability, and heightened business growth.",
+      "paragraph_mobile": "Efficient onramp & offramp processing for business growth. Scale, integrate, succeed.",
+      "list_item_title": {
+        "item1": "Developer-friendly documentation",
+        "item2": "Advanced anti-fraud features",
+        "item3": "Full-fledged onboarding",
+        "item4": "Accept crypto & local fiat"
+      },
+      "list_item_description": {
+        "item1": "Clear, comprehensive guides aiding swift integration and hassle-free development",
+        "item2": "Fraud-Proof Transactions: Benefit from our sophisticated security features.",
+        "item3": "Initial setup to full implementation, guiding you through every step for a seamless, worry-free start.",
+        "item4": "Expand your business's financial accessibility and customer reach."
+      }
+    },
+    "dont_lose_api_section": {
+      "title": "Don't lose crypto-paying customers!",
+
+      "list_title": "If you are looking for:",
+      "list_item_title": {
+        "item1": "additional payment assistance for effective issue resolution",
+        "item2": "client retention, cost-effectiveness, and time efficiency",
+        "item3": "niche-specialized provider"
+      },
+      "list_item_title_mobile": {
+        "item1": "Client retention, cost-effectiveness",
+        "item2": "Additional payment assistance",
+        "item3": "Niche-specialized provider"
+      },
+      "pick_description": "Pick a time that works best for you",
+      "pick_button_text": "Book a free consultation"
+    },
+    "crypto_card2_section": {
+      "sub_title": "on-ramp",
+      "title": "Card 2 Crypto",
+      "paragraph": "Widget that seamlessly accepts local fiat payments for your products & services: Effortlessly elevate payments - our widget securely transitions between fiat and crypto, enhancing your financial flexibility.",
+      "paragraph_mobile": "Efficient onramp & offramp processing for business growth. Scale, integrate, succeed.",
+      "list_item_title": {
+        "item1": "Zero chargebacks",
+        "item2": "Boost sales",
+        "item3": "Enhance customer satisfaction",
+        "item4": "Trustworthy payment partner"
+      },
+      "list_item_description": {
+        "item1": "Say goodbye to chargebacks with our secure and reliable fiat onramp and off-ramp solutions.",
+        "item2": "Not missing out on customers in all your markets,regardless of your audience's geography.",
+        "item3": "Give your customers the ability to pay easily and conveniently using their preferred payment methods.",
+        "item4": "Maximally involved in addressing your business needs and fostering its growth."
+      },
+      "list_item_description_mobile": {
+        "item1": "Say goodbye to chargebacks with our secure and reliable solutions.",
+        "item2": "Global customer reach without geographical limitations.",
+        "item3": "Enable seamless and preferred payment methods for your customers.",
+        "item4": "Maximally involved in addressing your business needs and fostering its growth."
+      },
+
+      "alert_title": "Be the first to use it upon launch",
+      "alert_button_text": "Apply now",
+
+      "modal": {
+        "title": "Submit your email",
+        "description": "We'll alert you when Card2crypto launches!"
+      }
+    },
+    "stack_the_deck_section": {
+      "title": "Stack the Deck in Your Favor",
+      "paragraph": "6 Winning Reasons to Team Up!",
+      "list_item_title": {
+        "item1": "Say goodbye to chargebacks",
+        "item2": "Transparent & clear pricing",
+        "item3": "Tap into new markets",
+        "item4": "Simplified fund management",
+        "item5": "Trustworthy customer care",
+        "item6": "Uncover hidden market solutions"
+      },
+      "list_item_description": {
+        "item1": "Provide solutions to eliminate fraud chargebacks.",
+        "item2": "We believe in clear-cut pricing with  no surprises. With us, you get precisely what you expect.",
+        "item3": "Seize new market opportunities swiftly with our customized payment solutions.",
+        "item4": "Enjoy effortless fund allocation, robust security, and flexible withdrawal options.",
+        "item5": "Whether you have questions, need assistance, or encounter any issues, we are here to help.",
+        "item6": "Discover unique payment methods and solutions for non-standard cases."
+      }
+    },
+    "fees_section": {
+      "title": "Fees for your business",
+      "title_mobile": "Fees",
+      "paragraph": "Please review the examples of market fees charged by companies. We assure you that we will provide the most suitable fees for your business!",
+      "tablet": {
+        "head": {
+          "item1": "Company name",
+          "item2": "Crypto processing"
+        },
+        "body_name": {
+          "item1": "Bitpay",
+          "item2": "Switchere",
+          "item3": "Coingate",
+          "item4": "Coinpayments"
+        },
+        "body_value": {
+          "item1": "2% - 1% + 25¢ fixed fee",
+          "item2": "0,5%",
+          "item3": "1%",
+          "item4": "1%"
+        }
+      },
+      "description": {
+        "item1": "All data is sourced from publicly available information or provided by customer support of the specified companies in private correspondence.",
+        "item2": "If you notice any discrepancies between the displayed information and reality, please let us know by info@inqud.com, and we will update the information accordingly."
+      },
+      "cart_title": "Submit your inquiry now for the best offer in 10 minutes",
+      "cart_description": "Our team will clarify all the necessary information and prepare an offer for you right away.",
+      "cart_button_text": "Get a special offer"
+    },
+    "our_landscape": {
+      "title": "Our landscape",
+      "tabs": { "item1": "Industries", "item2": "Coverage" },
+      "description": "Always on the hustle, we're leveling up and broadening our reach, nonstop.",
+      "description_coverage": "With our clients, we grow and advance every day, pushing boundaries and achieving new heights.",
+      "coverage_list_title": {
+        "item1": "Worldwide",
+        "item2": "European",
+        "item3": "Focus 2023"
+      },
+      "coverage_list_sub_title": {
+        "item1": "crypto coverage",
+        "item2": "license coverage",
+        "item3": "Latin America, Africa, Asia"
+      },
+      "hight_risk_title": "High-risk",
+      "hight_risk_items": {
+        "item1": "Igaming",
+        "item2": "Betting",
+        "item3": "Adult",
+        "item4": "Crypto",
+        "item5": "NFT",
+        "item6": "Farmacy"
+      },
+      "middle_risk_title": "Middle risk",
+      "middle_risk_items": {
+        "item1": "Fintech",
+        "item2": "Medicine",
+        "item3": "E-commerce",
+        "item4": "Gaming"
+      },
+      "low_risk_title": "LoW risk",
+      "low_risk_items": {
+        "item1": "Travel",
+        "item2": "Horeca",
+        "item3": "Education",
+        "item4": "Blogging"
+      }
+    },
+    "10_minutes_section": {
+      "title": "10 minutes of free expert consultation",
+
+      "list_item_text": {
+        "item1": "24/7 personal manager at your service",
+        "item2": "Tailored solutions to fit your specific needs",
+        "item3": "Priority in solving your issues"
+      }
+    },
+    "insights_section": {
+      "title": "Insights",
+      "button_title": "Go to blog"
+    }
+  },
+
+  "home_b2c_page": {
+    "hero_section": {
+      "sub_title": "For personal use",
+      "title": "Simplify your personal finance",
+      "description": "Seamlessly integrate crypto and local currencies into your daily routine using regular credit cards.",
+      "button_text": "Get started",
+      "list_title": "Supported currencies"
+    },
+    "features_section": {
+      "features_items_title": {
+        "item1": "Lightning-fast transactions",
+        "item2": "Full control of your money",
+        "item3": "Support that never sleeps",
+        "item4": "Location-specific currencies",
+        "item5": "Unlock crypto with card",
+        "item6": "Hottest crypto currencies"
+      },
+      "features_items_description": {
+        "item1": "Say goodbye to snail-paced payments process.",
+        "item2": "Our solutions designed for ultimate flexibility and independence.",
+        "item3": "The top-notch support that's always by your side, 24/7.",
+        "item4": "Use your credit card to purchase local currencies: IDR, KZT, TRY, and others.",
+        "item5": "Buy cryptocurrency effortlessly using your credit card in a few simple steps.",
+        "item6": "Embrace the most popular digital assets: BTC,  ETH, TRX, USDT, and more."
+      }
+    },
+    "our_product_section": {
+      "title": "Our product line",
+      "tabs1": {
+        "tabs_name": "Personal wallet",
+        "tabs_title": "Personal wallet",
+        "tabs_description": "Experience hassle-free digital asset management with our secure personal wallet. Store, manage, and transact with popular cryptocurrencies, local currencies in just few clicks.",
+        "tabs_items_title": {
+          "item1": "BTC, ETH, and other crypto",
+          "item2": "Multi-currency: crypto & fiat",
+          "item3": "Secure Storage",
+          "item4": "Real-Time Updates"
+        },
+        "tabs_items_description": {
+          "item1": "Keep all your favorite cryptocurrencies in your wallet, ready to use anytime.",
+          "item2": "Enjoy the flexibility of managing various crypto and fiat currencies in one place.",
+          "item3": "Keep your digital assets safe, and protected by advanced encryption technology.",
+          "item4": "Stay informed with instant balance updates, transaction history, and notifications."
+        }
+      },
+      "tabs2": {
+        "tabs_name": "Exchange",
+        "tabs_title": "Exchange",
+        "tabs_description": "Experience seamless conversion between Bitcoin, other cryptocurrencies, and fiat currencies. Effortlessly trade and exchange digital and traditional currencies with our intuitive platform.",
+        "tabs_items_title": {
+          "item1": "Transparent pricing",
+          "item2": "Swap in a snap",
+          "item3": "Robust security",
+          "item4": "Expert support"
+        },
+        "tabs_items_description": {
+          "item1": "Access clear and competitive pricing for your crypto and fiat currency trades.",
+          "item2": "Instant currency conversion at your fingertips.",
+          "item3": "Your funds and personal information are protected by top-notch security measures.",
+          "item4": "Get dedicated assistance from our skilled team for all your inquiries and concerns."
+        }
+      },
+      "tabs3": {
+        "tabs_name": "Transfer",
+        "tabs_title": "Transfer",
+        "tabs_description": "Enjoy fee-free transfers of fiat and cryptocurrency within the Inqud community. Instant, secure, and hassle-free transactions for registered users.",
+        "tabs_items_title": {
+          "item1": "Zero commissions",
+          "item2": "Send in a heartbeat"
+        },
+        "tabs_items_description": {
+          "item1": "Experience cost-free transactions within the Inqud platform.",
+          "item2": "Benefit from swift fund transfers with lightning speed."
+        }
+      },
+      "get_started_btn": "Get started"
+    },
+    "how_start_section": {
+      "title": "How to start",
+      "items_title": {
+        "item1": "Sign up",
+        "item2": "Pass KYC",
+        "item3": "Deposit. Transfer. Withdraw"
+      },
+      "items_description": {
+        "item1": "Use your email or socilal media",
+        "item2": "Just your phone, email, and ID",
+        "item3": ""
+      },
+      "items_time": {
+        "item1": "Less than 60 sec",
+        "item2": "Less than 5 min",
+        "item3": "All time is yours"
+      }
+    },
+    "pass_KYC_section": {
+      "title": "Pass KYC in a breeze!",
+      "sub_title": "Get verified in less then 5 minutes!",
+      "items_title": {
+        "item1": "Email confirmation",
+        "item2": "Phone confirmation",
+        "item3": "ID confirmation",
+        "item4": "Full success"
+      },
+      "items_time": {
+        "item1": "Less than 60 sec",
+        "item2": "Less than 5 min",
+        "item3": "Less than 3 min"
+      },
+
+      "button_text": "Get started"
+    }
+  },
+
+  "company_page": {
+    "hero_section": {
+      "title": "About us",
+      "description": "Inqud is a trusted financial technology company that provides an international payment gateway with a diverse range of crypto & fiat payment methods and currencies, cryptocurrency exchange with our own crypto processing and crypto widget.",
+      "our_mission": {
+        "title": "Our mission",
+        "description": "Our mission is to offer bespoke payment options, eliminating hidden fees, and providing expert support around the clock, we strive to enhance the payment experiences of our clients."
+      },
+      "our_vision": {
+        "title": "Our mission",
+        "description": "Our mission is to offer bespoke payment options, eliminating hidden fees, and providing expert support around the clock, we strive to enhance the payment experiences of our clients."
+      }
+    },
+    "our_core_section": {
+      "title": "Our core values",
+
+      "items_title": {
+        "item1": "Trustworthiness",
+        "item2": "Client-centric",
+        "item3": "Expertise",
+        "item4": "Transparency",
+        "item5": "Commitment",
+        "item6": "Growth together"
+      },
+      "items_description": {
+        "item1": "Reliable and secure financial technology services with utmost integrity.",
+        "item2": "Understanding unique needs, delivering personalized solutions.",
+        "item3": "Deep knowledge in finance, crypto, tech, and payments for quality solutions.",
+        "item4": "Clear operations, pricing, and policies for client understanding..",
+        "item5": "Dedicated to client success, exceeding expectations and supporting growth.",
+        "item6": "Our growth is intertwined with the success of our customers."
+      }
+    },
+    "our_landscape_section": {
+      "title": "Our landscape",
+      "description": "With our clients, we grow and advance every day, pushing boundaries and achieving new heights.",
+      "items_title": {
+        "item1": "Worldwide",
+        "item2": "European",
+        "item3": "Focus 2023"
+      },
+      "items_description": {
+        "item1": "crypto coverage",
+        "item2": "license coverage",
+        "item3": "Latin America, Africa, Asia"
+      }
+    },
+    "our_team_section": {
+      "title": "Our team",
+      "description": "Our team consists of 10+ experienced visionaries and developers with a strong background in global companies like Google. ",
+      "items_title": {
+        "item1": "Ihor",
+        "item2": "Oleh",
+        "item3": "Ihor",
+        "item4": "Artur"
+      },
+      "items_description": {
+        "item1": "Founder, CEO",
+        "item2": "Founder, Product Owner",
+        "item3": "CTO, Crypto expert",
+        "item4": "Head of customer support dept"
+      },
+      "button_text": "more specialists"
+    },
+    "our_features_section": {
+      "title": "Our Features and Approaches that Stand Out!",
+      "items_title": {
+        "item1": "Bespoke diversity payments",
+        "item2": "Eliminate chargebacks",
+        "item3": "Transparent Pricing",
+        "item4": "Round-the-Clock Expert Support"
+      },
+      "items_description": {
+        "item1": "At Inqud, we excel in crafting customized payment solutions that are perfectly tailored to meet your specific requirements. Simply inform us of the new payment methods you wish to incorporate, and we will handle the rest with utmost care.",
+        "item2": "At Inqud, we excel in crafting customized payment solutions that are perfectly tailored to meet your specific requirements. Simply inform us of the new payment methods you wish to incorporate, and we will handle the rest with utmost care.",
+        "item3": "At Inqud, we excel in crafting customized payment solutions that are perfectly tailored to meet your specific requirements. Simply inform us of the new payment methods you wish to incorporate, and we will handle the rest with utmost care.",
+        "item4": "At Inqud, we excel in crafting customized payment solutions that are perfectly tailored to meet your specific requirements. Simply inform us of the new payment methods you wish to incorporate, and we will handle the rest with utmost care."
+      },
+      "button_text": "more specialists"
+    }
+  },
+
+  "insights_page": {
+    "hero_section": {
+      "title": "Inqud insights",
+      "description": "Payment solutions for businesses & individuals.",
+      "search_placeholder": "Search article, industry or product",
+      "search_button_text": "Search"
+    },
+    "blogs": {
+      "button_text": "Load more"
+    }
+  },
+
+  "help_centre_page": {
+    "hero_section": {
+      "title": "Hi, how can we help?",
+      "search_placeholder": "Search for articles...",
+      "search_button_text": "Search"
+    }
+  },
+
+  "crypto_centre_page": {
+    "hero_section": {
+      "sub_title": "Crypto widget",
+      "title": "Reach crypto customers around the world",
+      "paragraph": "Boost your business with our crypto widget. Draw in crypto-users, ensure quick, minimize chargebacks, and reach a global market effortlessly.",
+      "button_text_get_started": "Get started",
+      "button_text_contact_sales": "Contact sales"
+    },
+    "features_section": {
+      "items_title": {
+        "item1": "Zero chargebacks",
+        "item2": "No hidden fees",
+        "item3": "Fee flexibility"
+      },
+      "items_description": {
+        "item1": "Enjoy hassle-free transactions with no chargebacks. Our system guarantees finality in every transaction, freeing your business from potential disputes and losses.",
+        "item2": "Embrace a fully transparent payment solution with our crypto widget. No hidden costs or surprise fees - just straightforward pricing for efficient financial planning.",
+        "item3": "Exercise your freedom to choose the fee setup that grants you the authority to designate whether the transaction fee is to be shouldered by your business or borne by the customer."
+      }
+    },
+    "your_business_section": {
+      "title": "Your business",
+      "items1": {
+        "item1": "Your goals",
+        "item2": "Maximize client profitability",
+        "item3": "Tap into a new market & expand customer base",
+        "item4": "Increase customer satisfaction",
+        "item5": "Get more profit"
+      },
+      "items2": {
+        "item1": "Obstacles",
+        "item2": "Chargebacks",
+        "item3": "Constant search for new payment providers",
+        "item4": "Churn of existing customers",
+        "item5": "No swift, resource-saving solutions"
+      },
+      "items3": {
+        "item1": "Inqud painkillers",
+        "item2": "Zero chargebacks system",
+        "item3": "Reliable expert & payment provider in your niche",
+        "item4": "New crypto payment option introduced",
+        "item5": "Inqud crypto widget"
+      }
+    },
+    "crypto_widget_features_section": {
+      "title": "Crypto widget features",
+      "items_title": {
+        "item1": "Auto-conversion",
+        "item2": "BTC, ETH & other crypto",
+        "item3": "Fee flexibility",
+        "item4": "Developer-friendly docs",
+        "item5": "Instant free transfer",
+        "item6": "24/7 expert support",
+        "item7": "Customization"
+      },
+      "items_description": {
+        "item1": "Eliminate market volatility risks with our automatic conversion system. Effortlessly convert between currencies in real-time, ensuring you have the right currency at the right moment.",
+        "item2": "Seamlessly integrate crypto payments into your business, offering a convenient and modern payment solution that enhances customer satisfaction and expands your reach in the digital economy.",
+        "item3": "Empower your business with the flexibility to choose who bears the transaction fee - whether it's absorbed by your company or passed on to the customer.",
+        "item4": "Easily integrate our services into your platform with our documentation. Our clear and comprehensive guides provide step-by-step instructions, ensuring swift integration and hassle-free development.",
+        "item5": "Experience the convenience of instant and free Account-to-Account (A2A) payments within Inqud. You can reduce transaction costs and mitigate the risks associated with cash handling and unreliable platforms.",
+        "item6": "Round-the-clock expert support is available to assist you with any questions, concerns, or technical issues you may have, ensuring a seamless and reliable experience.",
+        "item7": "Empower your business with the flexibility to choose who bears the transaction fee - whether it's absorbed by your company or passed on to the customer."
+      }
+    },
+    "how_integrate_section": {
+      "title": "How to integrate crypto to your business?",
+      "items_title": {
+        "item1": "Complete your KYB verification",
+        "item2": "Sign the agreement",
+        "item3": "Comprehensive onboarding",
+        "item4": "Embed your crypto widget"
+      },
+      "items_time": {
+        "item1": "less than 48 hours",
+        "item2": "5-10 minutes",
+        "item3": "60 minutes",
+        "item4": "1-2 hours"
+      },
+
+      "button_text": "Get started"
+    },
+    "safety_&_reliability_section": {
+      "title": "Safety & reliability",
+      "items_title": {
+        "item1": "Safeguarding data",
+        "item2": "Anti-Fraud measures",
+        "item3": "Security compliance"
+      },
+      "items_description": {
+        "item1": "2FA for account access, settings approval, and fund transfers. Encryption of sensitive information.",
+        "item2": "2FA for account access, settings approval, and fund transfers. Encryption of sensitive information.",
+        "item3": "2FA for account access, settings approval, and fund transfers. Encryption of sensitive information."
+      }
+    },
+    "connect_with_crypto_section": {
+      "title": "Connect with crypto customers!",
+      "description": "Expand your customer base by targeting",
+      "description_selected": "over 300 million crypto holders in 2023",
+      "button_text": "Book a free demo"
+    }
+  },
+
+  "api_page": {
+    "hero_section": {
+      "sub_title": "API",
+      "title": "Reach API customers around the world",
+      "features_list": {
+        "item1": "2 days seamless Integration",
+        "item2": "Developer-friendly docs",
+        "item3": "Dedicated technical support",
+        "item4": "Zero chargebacks"
+      },
+      "button_text_get_started": "Get started",
+      "button_text_contact_sales": "Get proposal",
+      "button_text_contact_sales_tablet": "Contact sales"
+    },
+    "api_flexibility_section": {
+      "title": "API flexibility",
+      "description": "Enjoy a wide array of options to tailor the integration to your specific needs and enhance the payment experience for your customers.",
+      "features_list_title": {
+        "item1": "Wide payment options",
+        "item2": "Future-proof scalability",
+        "item3": "Cut Expenses",
+        "item4": "Enhanced Security",
+        "item5": "Personalize Checkout",
+        "item6": "Boost Payment Efficiency"
+      },
+      "features_list_description": {
+        "item1": "Choose from credit cards, digital wallets, and cryptocurrencies to adapt to customer preferences and stay ahead of evolving payment trends.",
+        "item2": "Effortlessly handle increased transaction volumes and stay ahead of the curve with the latest security standards and payment technologies",
+        "item3": "Optimize your payment operations, automate processes, and eliminate manual tasks for streamlined efficiency and significant cost savings.",
+        "item4": "Your data and transactions are protected with advanced security measures like encryption and fraud detection.",
+        "item5": "Customize the payment process to reflect your brand's identity, creating a seamless and cohesive experience for customers.",
+        "item6": "Monitor and analyze payment data, track transaction details, and gain valuable insights to optimize your payment strategy."
+      }
+    },
+    "instant_fee_section": {
+      "title": "Instant Free A2A Payments for Merchants",
+      "description": "Seamlessly connect with your partners and enjoy fee-free transactions for sending and receiving payments within Inqud in seconds.",
+      "features_list": {
+        "item1": "Mitigate cash handling risks and platforms unreliability",
+        "item2": "Reduce transaction costs"
+      },
+      "button_get_started": {
+        "item1": "Get started now",
+        "item2": "Get started"
+      },
+      "button_contact_sales": {
+        "item1": "Contact an expert",
+        "item2": "Contact sales"
+      }
+    },
+    "simplified_developer_section": {
+      "title": "Simplified developer guides",
+      "description": "Navigate the integration process effortlessly with our concise and structured guides, providing developers with the necessary information for successful implementation.",
+
+      "button_text_get_started": "Documentation"
+    },
+    "get_personalized_section": {
+      "title": "Get a personalized free consultation with a payment solutions market expert",
+
+      "list_item": {
+        "item1": "Customized pricing for your niche",
+        "item2": "Tailored payment options",
+        "item3": "Answering all your questions"
+      },
+      "pick_description": "Pick a time that works best for you",
+      "pick_button_text": "Book a free consultation"
+    },
+    "contact": {
+      "title_wrapper_selected": "Get a personalized proposal",
+      "title_wrapper_not_selected": "within 24 hours",
+      "items": {
+        "item1": "Tailored fee structure based on your niche",
+        "item2": "Catering to your every unique requirement"
+      },
+      "email_wrapper_label": "Email",
+      "button_text": "Get proposal",
+      "footer_text": "by submitting this form, you contirm that you agree to the storing and processing of your personal data"
+    }
+  },
+
+  "404_page": {
+    "sub_title": "Page not found",
+    "button_text": "Back to home"
+  }
+}

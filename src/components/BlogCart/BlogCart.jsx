@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import {
   StyledBlogCartWrapper,
   StyledBlogCartWrapper2,
@@ -11,8 +12,16 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 import Dot from '@/assets/icons/dot.svg'
 import { ButtonLearnMore } from '@/components/UI/Button'
+import { getTimeForBlog } from '@/utils/getTimeForBlog'
 
+// eslint-disable-next-line no-unused-vars
 export function BlogCart({ imageSrc, date, time, subTitle, title }) {
+  const [currentDate, setCurrentDate] = useState({})
+
+  useEffect(() => {
+    setCurrentDate(getTimeForBlog(date))
+  }, [date])
+
   return (
     <StyledBlogCartWrapper className='cart'>
       <div className='imageWrapper'>
@@ -35,11 +44,11 @@ export function BlogCart({ imageSrc, date, time, subTitle, title }) {
       <ButtonLearnMore>Learn more</ButtonLearnMore>
       <div className='footer'>
         <StyledTypographyUrbanistBody className='date'>
-          {date}
+          {currentDate.date}
         </StyledTypographyUrbanistBody>
         <Dot />
         <StyledTypographyUrbanistBody className='time'>
-          {time}
+          {currentDate.time} read
         </StyledTypographyUrbanistBody>
       </div>
     </StyledBlogCartWrapper>

@@ -1,38 +1,38 @@
-const fs = require('fs')
+const fs = require('fs');
 
 function getIndexUrl(name) {
   return `
       <sitemap>
         <loc>https://admiral-studios.com/${name}</loc>
       </sitemap>
-    `
+    `;
 }
 
 function createAndWriteFile(pathWithFileName, content) {
-  fs.writeFileSync(pathWithFileName, content)
+  fs.writeFileSync(pathWithFileName, content);
 }
 
 function createSubSitemap(fileName, data) {
   const sitemapSubStart =
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-  const sitemapSubEnd = '</urlset>'
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+  const sitemapSubEnd = '</urlset>';
 
   createAndWriteFile(
     fileName,
     [sitemapSubStart, data.join(' '), sitemapSubEnd].join(' ')
-  )
+  );
 }
 
 function createIndexSitemap(fileName, data) {
   const sitemapIndexStart = `<?xml version="1.0" encoding="UTF-8"?>
   <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-`
-  const sitemapIndexEnd = '</sitemapindex>'
+`;
+  const sitemapIndexEnd = '</sitemapindex>';
 
   createAndWriteFile(
     fileName,
     [sitemapIndexStart, data.join(' '), sitemapIndexEnd].join(' ')
-  )
+  );
 }
 
 function getUrl(name) {
@@ -42,11 +42,11 @@ function getUrl(name) {
       <lastmod>2023-04-18T12:27:40.152Z</lastmod>
       <priority>1</priority>
     </url>
-  `
+  `;
 }
 
 function getStaticPath() {
-  const staticPath = fs
+  return fs
     .readdirSync('src/app')
     .filter(
       (staticPage) =>
@@ -64,21 +64,19 @@ function getStaticPath() {
     )
     .map((staticPagePath) =>
       staticPagePath !== 'page.jsx' ? staticPagePath.split('.')[0] : ''
-    )
-
-  return staticPath
+    );
 }
 
-;(async () => {
-  const newSitemapPagesData = getStaticPath().map((name) => getUrl(name))
+(async () => {
+  const newSitemapPagesData = getStaticPath().map((name) => getUrl(name));
   const sitemapSubData = [
     { name: 'sitemap-pages.xml', data: newSitemapPagesData },
-  ]
+  ];
   const newSitemapIndexData = sitemapSubData.map(({ name }) =>
     getIndexUrl(name)
-  )
+  );
   sitemapSubData.forEach(({ name, data }) => {
-    createSubSitemap(`public/${name}`, data)
-  })
-  createIndexSitemap('public/sitemap.xml', newSitemapIndexData)
-})()
+    createSubSitemap(`public/${name}`, data);
+  });
+  createIndexSitemap('public/sitemap.xml', newSitemapIndexData);
+})();

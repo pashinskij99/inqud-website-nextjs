@@ -1,10 +1,23 @@
 /** @type {import('next').NextConfig} */
 // const isProd = process.env.NODE_ENV === 'production'
 
+const withNextIntl = require('next-intl/plugin')(
+  // This is the default (also the `src` folder is supported out of the box)
+  './i18n.js'
+)
+
 const nextConfig = {
   compiler: {
     styledComponents: true,
     removeConsole: process.env.NODE_ENV === 'production',
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.datocms-assets.com',
+      },
+    ],
   },
   // redirects: async () =>
   //   isProd
@@ -57,4 +70,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = withNextIntl(nextConfig)

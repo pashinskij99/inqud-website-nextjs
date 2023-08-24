@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH4,
@@ -9,6 +10,8 @@ import image from '../../../assets/images/crypto-widget/page/connect/image.png'
 import image2 from '../../../assets/images/crypto-widget/page/connect/image2.png'
 
 export default function ConnectCryptoSection() {
+  const t = useTranslations('crypto_centre_page.connect_with_crypto_section')
+
   return (
     <StyledConnectCryptoSectionWrapper>
       <Image
@@ -27,15 +30,14 @@ export default function ConnectCryptoSection() {
       />
       <div className='container'>
         <StyledTypographyUrbanistH2 className='title'>
-          Connect with crypto customers!
+          {t('title')}
         </StyledTypographyUrbanistH2>
         <StyledTypographyUrbanistH4 className='description'>
-          Expand your customer base by targeting{' '}
-          <span>over 300 million crypto holders in 2023</span>
+          {t('description')} <span>{t('description_selected')}</span>
         </StyledTypographyUrbanistH4>
 
         <ButtonGetStartedLight className='get-started'>
-          Book a free demo
+          {t('button_text')}
         </ButtonGetStartedLight>
       </div>
     </StyledConnectCryptoSectionWrapper>

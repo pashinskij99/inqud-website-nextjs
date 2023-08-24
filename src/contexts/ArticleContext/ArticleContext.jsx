@@ -1,9 +1,9 @@
-import { createContext, useMemo, useState } from 'react'
+import { createContext, useMemo, useState } from 'react';
 
-export const ArticleContext = createContext()
+export const ArticleContext = createContext(null);
 
 export function ArticleProvider({ children }) {
-  const [activeHeader, setActiveHeader] = useState(null)
+  const [activeHeader, setActiveHeader] = useState(null);
 
   const value = useMemo(
     () => ({
@@ -11,9 +11,9 @@ export function ArticleProvider({ children }) {
       setActiveHeader,
     }),
     [activeHeader]
-  )
+  );
 
   return (
     <ArticleContext.Provider value={value}>{children}</ArticleContext.Provider>
-  )
+  );
 }

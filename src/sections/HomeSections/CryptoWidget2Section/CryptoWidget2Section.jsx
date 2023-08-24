@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -19,43 +20,44 @@ import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled
 import { ModalSubmitEmail } from '@/components/Modal'
 import { ButtonGhostCrypto } from '@/components/UI/Button'
 import { useTextByBreakPoint } from '@/hooks/useTextByBreakPoint'
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function CryptoWidget2Section() {
   const [open, setOpen] = useState(false)
 
+  const t = useTranslations('home_page.crypto_card2_section')
+  const tListTitle = useTranslations(
+    'home_page.crypto_card2_section.list_item_title'
+  )
+  const tListDescription = useTranslations(
+    'home_page.crypto_card2_section.list_item_description'
+  )
+  const tListDescriptionMobile = useTranslations(
+    'home_page.crypto_card2_section.list_item_description_mobile'
+  )
+
   const text1 = useTextByBreakPoint({
-    contentDesktop:
-      'Say goodbye to chargebacks with our secure and reliable fiat onramp and off-ramp solutions',
-    contentLaptop:
-      'Say goodbye to chargebacks with our secure and reliable fiat onramp and off-ramp solutions',
-    contentTablet:
-      'Say goodbye to chargebacks with our secure and reliable solutions.',
+    contentDesktop: tListDescription(keysForLocale.keys4[0]),
+    contentLaptop: tListDescription(keysForLocale.keys4[0]),
+    contentTablet: tListDescriptionMobile(keysForLocale.keys4[0]),
     contentMobile: '',
   })
   const text2 = useTextByBreakPoint({
-    contentDesktop:
-      "Not missing out on customers in all your markets,regardless of your audience's geography.",
-    contentLaptop:
-      "Not missing out on customers in all your markets,regardless of your audience's geography.",
-    contentTablet: 'Global customer reach without geographical limitations.',
+    contentDesktop: tListDescription(keysForLocale.keys4[1]),
+    contentLaptop: tListDescription(keysForLocale.keys4[1]),
+    contentTablet: tListDescriptionMobile(keysForLocale.keys4[1]),
     contentMobile: '',
   })
   const text3 = useTextByBreakPoint({
-    contentDesktop:
-      'Give your customers the ability to pay easily and conveniently using their preferred payment methods.',
-    contentLaptop:
-      'Give your customers the ability to pay easily and conveniently using their preferred payment methods.',
-    contentTablet:
-      'Enable seamless and preferred payment methods for your customers.',
+    contentDesktop: tListDescription(keysForLocale.keys4[2]),
+    contentLaptop: tListDescription(keysForLocale.keys4[2]),
+    contentTablet: tListDescriptionMobile(keysForLocale.keys4[2]),
     contentMobile: '',
   })
   const text4 = useTextByBreakPoint({
-    contentDesktop:
-      'Maximally involved in addressing your business needs and fostering its growth.',
-    contentLaptop:
-      'Maximally involved in addressing your business needs and fostering its growth.',
-    contentTablet:
-      'Maximally involved in addressing your business needs and fostering its growth.',
+    contentDesktop: tListDescription(keysForLocale.keys4[3]),
+    contentLaptop: tListDescription(keysForLocale.keys4[3]),
+    contentTablet: tListDescriptionMobile(keysForLocale.keys4[3]),
     contentMobile: '',
   })
 
@@ -63,25 +65,25 @@ export default function CryptoWidget2Section() {
     {
       id: 0,
       icon: <Icon1 className='icon' />,
-      title: 'Zero chargebacks',
+      title: tListTitle(keysForLocale.keys4[0]),
       description: text1,
     },
     {
       id: 1,
       icon: <Icon2 className='icon' />,
-      title: 'Boost sales',
+      title: tListTitle(keysForLocale.keys4[1]),
       description: text2,
     },
     {
       id: 2,
       icon: <Icon3 className='icon' />,
-      title: 'Enhance customer satisfaction',
+      title: tListTitle(keysForLocale.keys4[2]),
       description: text3,
     },
     {
       id: 3,
       icon: <Icon4 className='icon' />,
-      title: 'Trustworthy payment partner',
+      title: tListTitle(keysForLocale.keys4[3]),
       description: text4,
     },
   ]
@@ -99,10 +101,10 @@ export default function CryptoWidget2Section() {
       <div className='container'>
         <div className='leftSide'>
           <StyledTypographyIBMH5 className='crypto2SubTitle'>
-            on-ramp
+            {t('sub_title')}
           </StyledTypographyIBMH5>
           <StyledTypographyUrbanistH2 className='crypto2Title'>
-            Card 2 Crypto
+            {t('title')}
           </StyledTypographyUrbanistH2>
 
           <Image
@@ -112,15 +114,11 @@ export default function CryptoWidget2Section() {
           />
 
           <StyledTypographyUrbanistBody className='crypto2Description crypto2Description-desktop'>
-            Widget that seamlessly accepts local fiat payments for your products
-            & services: Effortlessly elevate payments - our widget securely
-            transitions between fiat and crypto, enhancing your financial
-            flexibility.
+            {t('paragraph')}
           </StyledTypographyUrbanistBody>
 
           <StyledTypographyUrbanistH5 className='crypto2Description crypto2Description-mobile'>
-            Widget that seamlessly accepts local fiat payments for your products
-            & services.
+            {t('paragraph_mobile')}
           </StyledTypographyUrbanistH5>
 
           <ul className='crypto2Grid'>
@@ -140,7 +138,7 @@ export default function CryptoWidget2Section() {
 
           <div className='crypto2Footer'>
             <StyledTypographyUrbanistH5 className='crypto2FooterTitle'>
-              Be the first to use <br /> it upon launch
+              {t('alert_title')}
             </StyledTypographyUrbanistH5>
             <div className='crypto2FooterButtons'>
               <ButtonGhostCrypto className='crypto2FooterButtonCrypto'>
@@ -155,7 +153,7 @@ export default function CryptoWidget2Section() {
               onClick={handleOpen}
               className='crypto2FooterApplyButton'
             >
-              Apply now
+              {t('alert_button_text')}
             </StyledButtonSecondaryLight>
 
             <ModalSubmitEmail open={open} handleClose={handleClose} />

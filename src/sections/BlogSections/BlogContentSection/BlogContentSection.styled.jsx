@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import styled from '@emotion/styled';
+import { rem } from '@/utils/rem';
+import { responsive } from '@/utils/response';
 
 export const StyledBlogContentSectionWrapper = styled.section`
   padding-top: ${rem(39)};
@@ -17,6 +17,7 @@ export const StyledBlogContentSectionWrapper = styled.section`
     padding-top: ${rem(24)};
     padding-bottom: ${rem(96)};
   `};
+
   .container {
     display: flex;
     justify-content: space-between;
@@ -34,13 +35,13 @@ export const StyledBlogContentSectionWrapper = styled.section`
       padding: 0;
     `};
   }
-`
+`;
 
 export const StyledLeftSide = styled.div`
   top: calc(var(--header-height) + ${rem(68)});
   position: sticky;
   height: fit-content;
-  width: ${rem(305)};
+  width: 321px;
   flex-shrink: 0;
 
   ${responsive.xxl`
@@ -68,6 +69,7 @@ export const StyledLeftSide = styled.div`
       display: none;
     `};
   }
+
   .blog-content-nav {
     display: flex;
     flex-direction: column;
@@ -79,51 +81,37 @@ export const StyledLeftSide = styled.div`
     `};
 
     li {
-      display: flex;
-      align-items: start;
-      .line {
-        display: inline-block;
-        position: absolute;
-        opacity: 0;
-        width: ${rem(2)};
-        height: ${rem(16)};
-        flex-shrink: 0;
-        transform: translateY(25%);
-        animation: animateListItemLineReverse 0.3s ease-in-out forwards;
-        transition: 0.3s ease-in-out;
-      }
-      .title {
-        transform: translateX(0);
-        transition: 0.3s ease-in-out;
-        animation: animateListItemTextReverse 0.3s ease-in-out forwards;
-        color: #517185;
-      }
-
-      /* &:hover {
-        .line {
-          animation: animateListItemLine 0.3s ease-in-out forwards;
-        }
-        .title {
-          animation: animateListItemText 0.3s ease-in-out forwards;
-        }
-      } */
+      cursor: pointer;
+      border-left: 0px solid transparent;
 
       &.active {
-        .line {
-          animation: animateListItemLine 0.3s ease-in-out forwards;
-        }
-        .title {
-          animation: animateListItemText 0.3s ease-in-out forwards;
+        border-left: 2px solid rgba(7, 116, 83, 1);
+      }
+
+      .title {
+        display: block;
+        color: var(--independent-grey, #517185);
+        font-weight: 400;
+        line-height: 26px;
+        transform: translateX(0px);
+        transition: 0.2s ease;
+
+        &.active {
+          color: var(--ambitious-green, #077453);
+          font-weight: 700;
+          transform: translateX(10px);
         }
       }
     }
   }
+
   .share-wrapper {
     ${responsive.xl`
       display: flex;
       justify-content: space-between;
       align-items: center;
     `};
+
     .share-title {
       font-weight: 700;
       margin-bottom: ${rem(8)};
@@ -132,21 +120,25 @@ export const StyledLeftSide = styled.div`
         margin-bottom: 0;
       `}
     }
+
     .share {
       display: flex;
       align-items: center;
       column-gap: ${rem(8)};
       flex-direction: row;
+
       ${responsive.sm`
         column-gap: 16px;
       `}
       li {
         display: contents;
+
         a {
           svg {
             rect {
               fill: rgba(159, 159, 159, 1);
             }
+
             path {
               fill: rgba(29, 25, 25, 1);
             }
@@ -190,14 +182,16 @@ export const StyledLeftSide = styled.div`
       transform: translateX(${rem(0)});
     }
   }
-`
+`;
 export const StyledCenterSide = styled.div`
   width: 100%;
   ${responsive.xl`
     order: 1;
   `};
+
   .content-section {
     margin-bottom: ${rem(40)};
+
     ${responsive.xxl`
       margin-bottom: ${rem(38)};
     `}
@@ -207,10 +201,12 @@ export const StyledCenterSide = styled.div`
 
     .description {
       margin-bottom: ${rem(16)};
+
       &:last-child,
       &:last-of-type {
         margin-bottom: 0;
       }
+
       ${responsive.sm`
         padding: 0 16px;
       `}
@@ -235,11 +231,13 @@ export const StyledCenterSide = styled.div`
 
   .link {
     display: contents;
+
     span {
       text-decoration-line: underline;
       color: #077453;
     }
   }
+
   .title {
     margin-bottom: ${rem(16)};
     font-weight: 700;
@@ -273,12 +271,12 @@ export const StyledCenterSide = styled.div`
     ${responsive.sm`
       margin: 23px 16px 25px;
     `}
-
     &.desktop {
       ${responsive.xxl`
         display: none;
       `}
     }
+
     &.laptop {
       display: none;
 
@@ -303,7 +301,7 @@ export const StyledCenterSide = styled.div`
       `}
     }
   }
-`
+`;
 export const StyledRightSide = styled.div`
   width: ${rem(320)};
   flex-shrink: 0;
@@ -329,7 +327,7 @@ export const StyledRightSide = styled.div`
     grid-template-columns: 1fr;
     padding: 0 16px;
   `};
-`
+`;
 
 export const StyledCartInfoWrapper = styled.div`
   width: 100%;
@@ -345,13 +343,21 @@ export const StyledCartInfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
   }
+
   .title {
     font-weight: 700;
   }
+
+  .description-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .description {
     color: rgba(81, 113, 133, 1);
   }
+
   .author-image {
     border-radius: 50%;
   }
-`
+`;

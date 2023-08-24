@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 import Image from 'next/image'
+import { Fragment, useContext, useEffect } from 'react'
+import { Element, Link as LinkAnchor } from 'react-scroll'
+import { InView } from 'react-intersection-observer'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH4,
@@ -16,9 +19,8 @@ import {
 import Linkedin from '@/assets/icons/linkedin.svg'
 import Twitter from '@/assets/icons/twitter.svg'
 import Facebook from '@/assets/icons/facebook.svg'
-import Line from '@/assets/images/blog-detail/list-line.svg'
-import Image1 from '@/assets/images/blog-detail/image1.webp'
-import AuthorImage from '@/assets/images/blog-detail/author-image.webp'
+import { BlogContext } from '@/contexts/BlogContext/BlogContext'
+import { ArticleContext } from '@/contexts/ArticleContext/ArticleContext'
 
 export default function BlogContentSection() {
   return (
@@ -32,20 +34,6 @@ export default function BlogContentSection() {
   )
 }
 
-const leftSideList = [
-  { id: 0, title: 'Backstory and the Goals', href: '#' },
-  { id: 1, title: 'What Did We Get at the Stage of Data', href: '#' },
-  { id: 2, title: 'Analysis?', href: '#' },
-  {
-    id: 3,
-    title:
-      'What Did We Get after CustDev, Which Was Tested on the Audience of a Potential Consumer?',
-    href: '#',
-  },
-  { id: 4, title: 'What MVP Do We Want to Develop as a Result?', href: '#' },
-  { id: 5, title: 'Conclusion', href: '#' },
-]
-
 const share = [
   { id: 0, icon: <Facebook />, href: '#' },
   { id: 1, icon: <Twitter />, href: '#' },
@@ -53,23 +41,32 @@ const share = [
 ]
 
 function LeftSide() {
+  const { activeHeader } = useContext(ArticleContext)
+
+  const {
+    data: { titlesForNavigation },
+  } = useContext(BlogContext)
+
   return (
     <StyledLeftSide>
       <StyledTypographyUrbanistH5>Contents</StyledTypographyUrbanistH5>
       <ul className='blog-content-nav'>
-        {leftSideList.map(({ href, id, title }) => (
-          <Link key={id} href={href}>
-            <li
-              className={clsx({
-                ['active']: id === 0,
-              })}
-            >
-              <Line className='line' />
-              <StyledTypographyUrbanistBody className='title'>
+        {titlesForNavigation.map((title) => (
+          <li
+            className={clsx('list-item', {
+              ['active']: activeHeader === title,
+            })}
+          >
+            <LinkAnchor to={title} offset={-100} spy smooth duration={500}>
+              <StyledTypographyUrbanistBody
+                className={clsx('title', {
+                  ['active']: activeHeader === title,
+                })}
+              >
                 {title}
               </StyledTypographyUrbanistBody>
-            </li>
-          </Link>
+            </LinkAnchor>
+          </li>
         ))}
       </ul>
 
@@ -91,141 +88,160 @@ function LeftSide() {
 }
 
 function CenterSide() {
+  const { setActiveHeader } = useContext(ArticleContext)
+  const {
+    data: { bodyContent, titlesForNavigation },
+  } = useContext(BlogContext)
+
+  useEffect(() => {
+    setActiveHeader(titlesForNavigation[0])
+  }, [])
+
   return (
     <StyledCenterSide>
-      <div className='content-section'>
-        <StyledTypographyUrbanistBody className='description'>
-          This article provides a beginner-friendly introduction to
-          cryptocurrencies, explaining their basics and significance in the
-          financial world.{' '}
-          <Link className='link' href='#1'>
-            <span>Discover how Inqud</span>
-          </Link>
-          , a trusted financial technology company, contributes to the world of
-          cryptocurrencies and international payments.
-        </StyledTypographyUrbanistBody>
-      </div>
-
-      <div className='content-section'>
-        <StyledTypographyUrbanistH4 className='title'>
-          What are Cryptocurrencies?
-        </StyledTypographyUrbanistH4>
-
-        <StyledTypographyUrbanistBody className='description'>
-          This article provides a beginner-friendly introduction to
-          cryptocurrencies, explaining their basics and significance in the
-          financial world.{' '}
-          <Link className='link' href='#1'>
-            <span>Discover how Inqud</span>
-          </Link>
-          , a trusted financial technology company, contributes to the world of
-          cryptocurrencies and international payments.
-        </StyledTypographyUrbanistBody>
-
-        <StyledTypographyUrbanistBody className='description'>
-          Cryptocurrencies are based on blockchain technology, a decentralized
-          and transparent ledger that records all transactions. Each transaction
-          is verified and added to the blockchain, ensuring transparency and
-          immutability. This decentralized nature empowers individuals by giving
-          them control over their finances and eliminating the need for
-          traditional financial institutions.
-        </StyledTypographyUrbanistBody>
-
-        <StyledTypographyUrbanistBody className='description'>
-          Cryptocurrencies, also known as digital currencies, have
-          revolutionized the financial world with their decentralized nature and
-          use of cryptographic technology. providing individuals and businesses
-          with a new way to transact.
-        </StyledTypographyUrbanistBody>
-
-        <Image
-          className='image'
-          src={Image1}
-          width={680}
-          height={448}
-          alt='image'
-        />
-      </div>
-
-      <div className='content-section'>
-        <StyledTypographyUrbanistH4 className='title'>
-          How Do Cryptocurrencies Work?
-        </StyledTypographyUrbanistH4>
-
-        <StyledTypographyUrbanistBody className='description'>
-          Cryptocurrencies are based on blockchain technology, a decentralized
-          and transparent ledger that records all transactions. Each transaction
-          is verified and added to the blockchain, ensuring transparency and
-          immutability. This decentralized nature empowers individuals by giving
-          them control over their finances and eliminat need for traditional
-          financial institutions. Cryptocurrencies are based on blockchain
-          technology, a decentralized and transparent ledger that records all
-          transactions. Each transaction is verified and added to the
-          blockchain, ensuring transparency and immutability. This decentralized
-          nature empowers individuals by giving them control over their finances
-          and eliminating the need for traditional financial institutions.
-        </StyledTypographyUrbanistBody>
-
-        <StyledTypographyUrbanistH5 className='separated desktop'>
-          Each transaction is verified and added to the
-          <br className='br-desktop' /> blockchain, ensuring transparency and
-          immutability <br className='br-desktop' /> and added to the
-          blockchain, ensuring transparency <br className='br-desktop' /> and
-          immutability.
-        </StyledTypographyUrbanistH5>
-        <StyledTypographyUrbanistH5 className='separated laptop'>
-          Each transaction is verified and added to the
-          <br className='br-desktop' /> blockchain, ensuring transparency and
-          immutability
-        </StyledTypographyUrbanistH5>
-
-        <StyledTypographyUrbanistBody className='description'>
-          Cryptocurrencies, also known as digital currencies, have
-          revolutionized the financial world with their decentralized nature and
-          use of cryptographic technology. providing individuals and businesses
-          with a new way to transact.
-        </StyledTypographyUrbanistBody>
-      </div>
-
-      <div className='content-section'>
-        <StyledTypographyUrbanistH4 className='title'>
-          Conclusion
-        </StyledTypographyUrbanistH4>
-
-        <StyledTypographyUrbanistBody className='description'>
-          Cryptocurrencies are based on blockchain technology, a decentralized
-          and transparent ledger that records all transactions. Each transaction
-          is verified and added to the blockchain, ensuring transparency and
-          immutability. This decentralized nature empowers individuals by giving
-          them control over their finances and eliminating the need for
-          traditional financial institutions.
-        </StyledTypographyUrbanistBody>
-      </div>
+      {bodyContent.map(
+        ({ descriptions, descriptions2, id, selectedText, title, image }) =>
+          title ? (
+            <Element className='content-section' name={title}>
+              <InView
+                threshold={0}
+                as='div'
+                id={title}
+                rootMargin='-30% 0px -70% 0px'
+                onChange={(inView) => (inView ? setActiveHeader(title) : null)}
+              >
+                <Content
+                  key={id}
+                  title={title}
+                  descriptions={descriptions}
+                  image={image}
+                  selectedText={selectedText}
+                  descriptions1={descriptions2}
+                />
+              </InView>
+            </Element>
+          ) : (
+            <Content
+              key={id}
+              title={title}
+              descriptions={descriptions}
+              image={image}
+              selectedText={selectedText}
+              descriptions1={descriptions2}
+            />
+          )
+      )}
     </StyledCenterSide>
   )
 }
 
-const blogInfo = [
-  { id: 0, title: 'Industries', description: 'SMB' },
-  { id: 1, title: 'Products', description: 'Crypto widget, API, card2crypto' },
-  { id: 2, title: 'Tags', description: 'Cryptocurrency, payment methods' },
-  {
-    id: 3,
-    title: 'Author',
-    description: 'Mike Kim, VP of finance',
-    imageSrc: AuthorImage.src,
-  },
-]
+function Content({ title, descriptions, descriptions1, image, selectedText }) {
+  return (
+    <div className='content-section'>
+      {title && (
+        <StyledTypographyUrbanistH4 className='title'>
+          {title}
+        </StyledTypographyUrbanistH4>
+      )}
+
+      <Description descriptions={descriptions} />
+
+      {image?.url && (
+        <Image
+          className='image'
+          src={image.url}
+          width={680}
+          height={448}
+          alt='image'
+        />
+      )}
+
+      {selectedText && (
+        <StyledTypographyUrbanistH5 className='separated'>
+          {selectedText}
+        </StyledTypographyUrbanistH5>
+      )}
+
+      <Description descriptions={descriptions1} />
+    </div>
+  )
+}
+
+function Description({ descriptions }) {
+  return (
+    descriptions?.length > 0 && (
+      // eslint-disable-next-line react/jsx-no-useless-fragment
+      <>
+        {descriptions?.map(({ id, description }) => {
+          const desc = description?.value.document.children
+          return (
+            <StyledTypographyUrbanistBody key={id} className='description'>
+              {desc?.map(({ children }) =>
+                children.map(({ value, url, children }) =>
+                  value ? (
+                    <Fragment key={value}>{value}</Fragment>
+                  ) : (
+                    <Link key={children[0].value} className='link' href={url}>
+                      <span>{children[0].value}</span>
+                    </Link>
+                  )
+                )
+              )}
+            </StyledTypographyUrbanistBody>
+          )
+        })}
+      </>
+    )
+  )
+}
 
 function RightSide() {
+  const { setActiveHeader } = useContext(ArticleContext)
+
+  const {
+    data: {
+      industries,
+      products,
+      tags,
+      authorImage,
+      professionAuthor,
+      nameAuthor,
+    },
+  } = useContext(BlogContext)
+
+  const blogInfo = [
+    {
+      id: 0,
+      title: 'Industries',
+      description: industries.map(({ industry }) => industry).join(', '),
+    },
+    {
+      id: 1,
+      title: 'Products',
+      description: products.map(({ product }) => product).join(', '),
+    },
+    {
+      id: 2,
+      title: 'Tags',
+      description: tags.map(({ tag }) => tag).join(', '),
+    },
+    {
+      id: 3,
+      title: 'Author',
+      description: [nameAuthor, professionAuthor],
+      imageSrc: authorImage.url,
+    },
+  ]
+
   return (
     <StyledRightSide>
-      {blogInfo.map((info) => (
+      {blogInfo.map(({ id, title, description, imageSrc = '' }) => (
         <CartInfo
-          key={info.id}
-          title={info.title}
-          description={info.description}
-          imageSrc={info?.imageSrc}
+          key={id}
+          title={title}
+          description={description}
+          imageSrc={imageSrc}
+          setActiveHeader={setActiveHeader}
         />
       ))}
     </StyledRightSide>
@@ -233,18 +249,32 @@ function RightSide() {
 }
 
 function CartInfo({ title, description, imageSrc = '' }) {
+  const isAuthor = title === 'Author'
+
   return (
     <StyledCartInfoWrapper>
       <div className='info'>
         <StyledTypographyUrbanistBody className='title'>
           {title}
         </StyledTypographyUrbanistBody>
-        <StyledTypographyUrbanistBody className='description'>
-          {description}
-        </StyledTypographyUrbanistBody>
+
+        {isAuthor ? (
+          <div className='description-wrapper'>
+            {description.map((item, i) => (
+              <StyledTypographyUrbanistBody key={item} className='description'>
+                {item}
+                {description.length - 1 !== i && ', '}
+              </StyledTypographyUrbanistBody>
+            ))}
+          </div>
+        ) : (
+          <StyledTypographyUrbanistBody className='description'>
+            {description}
+          </StyledTypographyUrbanistBody>
+        )}
       </div>
 
-      {imageSrc ? (
+      {isAuthor && imageSrc ? (
         <Image
           className='author-image'
           src={imageSrc}

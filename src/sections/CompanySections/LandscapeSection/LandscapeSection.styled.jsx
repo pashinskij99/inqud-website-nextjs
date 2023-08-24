@@ -45,7 +45,10 @@ export const StyledLandscapeSectionWrapper = styled.section`
   }
   .description {
     color: rgba(81, 113, 133, 1);
-
+    max-width: 537px;
+    ${responsive.xl`
+      max-width: 100%;
+    `}
     ${responsive.xxl`
       br {
         display: none;

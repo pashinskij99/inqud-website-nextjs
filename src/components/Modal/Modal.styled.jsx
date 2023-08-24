@@ -1,7 +1,7 @@
-import styled from '@emotion/styled'
-import { Dialog, Modal } from '@mui/material'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import styled from '@emotion/styled';
+import { Dialog, Modal } from '@mui/material';
+import { rem } from '@/utils/rem';
+import { responsive } from '@/utils/response';
 
 export const StyledModalSendRequestWrapper = styled(Modal)`
   background-color: rgba(45, 52, 57, 0.0000000298023224);
@@ -70,87 +70,20 @@ export const StyledModalSendRequestWrapper = styled(Modal)`
       color: rgba(81, 113, 133, 0.6000000238418579);
     }
   }
-`
-
-export const StyledModalSubmitEmailWrapper = styled(Modal)`
-  background-color: rgba(45, 52, 57, 0.0000000298023224);
-
-  .modalContainer {
-    padding: ${rem(64)} ${rem(40)};
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: ${rem(498)};
-    background-color: rgba(255, 255, 255, 1);
-    border-radius: ${rem(30)};
-    text-align: center;
-
-    &:focus-visible {
-      outline: none;
-    }
-
-    ${responsive.xs`
-      max-width: 100%;
-    `}
-  }
-
-  .closeButton {
-    position: absolute;
-    top: ${rem(32)};
-    right: ${rem(32)};
-  }
-
-  .header {
-    svg {
-      margin-bottom: ${rem(16)};
-    }
-
-    h3 {
-      font-weight: 700;
-      margin-bottom: ${rem(8)};
-    }
-
-    p {
-      color: #517185;
-      margin-bottom: ${rem(32)};
-    }
-  }
-
-  .body {
-    display: flex;
-    flex-direction: column;
-    gap: ${rem(16)};
-    margin-bottom: ${rem(32)};
-
-    .label {
-      text-align: start;
-      margin-left: ${rem(16)};
-    }
-  }
-
-  .footer {
-    button {
-      width: 100%;
-      margin-bottom: ${rem(16)};
-    }
-
-    p {
-      color: rgba(81, 113, 133, 0.6000000238418579);
-    }
-  }
-`
+`;
 
 export const StyledFeeModalWrapper = styled(Dialog)`
   .MuiDialogContent-root.css-ypiqx9-MuiDialogContent-root,
   .MuiDialogContent-root.css-1ty026z {
     display: contents;
   }
+
   .css-2zwj5t-MuiPaper-root-MuiDialog-paper,
   .css-wpa0th {
     background-color: transparent;
     box-shadow: none;
   }
+
   .modalContainer {
     /* position: absolute; */
     border-radius: ${rem(30)};
@@ -161,6 +94,7 @@ export const StyledFeeModalWrapper = styled(Dialog)`
     /* top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); */
+
     &:focus-visible {
       outline: none;
     }
@@ -168,16 +102,19 @@ export const StyledFeeModalWrapper = styled(Dialog)`
     ${responsive.xs`
       padding: ${rem(40)} ${rem(10)};
     `};
+
     .closeButton {
       position: absolute;
       right: ${rem(16)};
       top: ${rem(16)};
+
       svg {
       }
     }
 
     .header {
       margin-bottom: ${rem(24)};
+
       h4 {
         font-weight: 700;
       }
@@ -187,6 +124,7 @@ export const StyledFeeModalWrapper = styled(Dialog)`
       .input-wrapper {
         margin-bottom: ${rem(32)};
       }
+
       .description {
         margin-bottom: ${rem(18)};
       }
@@ -206,12 +144,15 @@ export const StyledFeeModalWrapper = styled(Dialog)`
           background-color: transparent;
           border-radius: ${rem(72)};
           /* transition: 0.1s ease-in-out; */
+
           p {
             color: rgba(81, 113, 133, 1);
             /* transition: 0.1s ease-in-out; */
           }
+
           &.active {
             background-color: rgba(7, 116, 83, 1);
+
             p {
               color: #fff;
               font-weight: 700;
@@ -219,8 +160,10 @@ export const StyledFeeModalWrapper = styled(Dialog)`
           }
         }
       }
+
       .tab-content {
         margin-bottom: ${rem(32)};
+
         .tabInput {
           p {
             color: rgba(45, 52, 57, 1) !important;
@@ -246,6 +189,7 @@ export const StyledFeeModalWrapper = styled(Dialog)`
         border-radius: 54px;
         background: #819eb0;
         transition: 0.3s ease-in-out;
+
         p {
           color: rgba(255, 255, 255, 1);
           font-weight: 700;
@@ -262,4 +206,4 @@ export const StyledFeeModalWrapper = styled(Dialog)`
       }
     }
   }
-`
+`;

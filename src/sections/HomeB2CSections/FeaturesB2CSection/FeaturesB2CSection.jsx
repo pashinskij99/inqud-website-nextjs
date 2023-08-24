@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import { StyledFeaturesB2CSectionWrapper } from './FeaturesB2CSection.styled'
 import Icon1 from '@/assets/images/homeB2C/features/icon1.svg'
 import Icon2 from '@/assets/images/homeB2C/features/icon2.svg'
@@ -9,51 +10,55 @@ import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH4,
 } from '@/components/UI/Typography/Typography.styled'
-
-const grid = [
-  {
-    id: 0,
-    icon: <Icon1 />,
-    title: 'Lightning-fast transactions',
-    description: 'Say goodbye to snail-paced payments process.',
-  },
-  {
-    id: 1,
-    icon: <Icon2 />,
-    title: 'Full control of your money',
-    description:
-      'Our solutions designed for ultimate flexibility and independence.',
-  },
-  {
-    id: 2,
-    icon: <Icon3 />,
-    title: 'Support that never sleeps',
-    description: "The top-notch support that's always by your side, 24/7.",
-  },
-  {
-    id: 3,
-    icon: <Icon4 />,
-    title: 'Location-specific currencies',
-    description:
-      'Use your credit card to purchase local currencies: IDR, KZT, TRY, and others.',
-  },
-  {
-    id: 4,
-    icon: <Icon5 />,
-    title: 'Unlock crypto with card',
-    description:
-      'Buy cryptocurrency effortlessly using your credit card in a few simple steps.',
-  },
-  {
-    id: 5,
-    icon: <Icon6 />,
-    title: 'Hottest crypto currencies',
-    description:
-      'Embrace the most popular digital assets: BTC,  ETH, TRX, USDT, and more.',
-  },
-]
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function FeaturesB2CSection() {
+  const tListTitle = useTranslations(
+    'home_b2c_page.features_section.features_items_title'
+  )
+  const tListDescription = useTranslations(
+    'home_b2c_page.features_section.features_items_description'
+  )
+
+  const grid = [
+    {
+      id: 0,
+      icon: <Icon1 />,
+      title: tListTitle(keysForLocale.keys6[0]),
+      description: tListDescription(keysForLocale.keys6[0]),
+    },
+    {
+      id: 1,
+      icon: <Icon2 />,
+      title: tListTitle(keysForLocale.keys6[1]),
+      description: tListDescription(keysForLocale.keys6[1]),
+    },
+    {
+      id: 2,
+      icon: <Icon3 />,
+      title: tListTitle(keysForLocale.keys6[2]),
+      description: tListDescription(keysForLocale.keys6[2]),
+    },
+    {
+      id: 3,
+      icon: <Icon4 />,
+      title: tListTitle(keysForLocale.keys6[3]),
+      description: tListDescription(keysForLocale.keys6[3]),
+    },
+    {
+      id: 4,
+      icon: <Icon5 />,
+      title: tListTitle(keysForLocale.keys6[4]),
+      description: tListDescription(keysForLocale.keys6[4]),
+    },
+    {
+      id: 5,
+      icon: <Icon6 />,
+      title: tListTitle(keysForLocale.keys6[5]),
+      description: tListDescription(keysForLocale.keys6[5]),
+    },
+  ]
+
   return (
     <StyledFeaturesB2CSectionWrapper>
       <div className='container'>

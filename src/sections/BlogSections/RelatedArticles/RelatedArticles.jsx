@@ -1,76 +1,58 @@
-import Link from 'next/link'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Scrollbar } from 'swiper/modules'
-import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
-import Image1 from '@/assets/images/blogs/image1.webp'
-import Image2 from '@/assets/images/blogs/image2.webp'
-import Image3 from '@/assets/images/blogs/image3.webp'
-import { BlogCart } from '@/components/BlogCart'
-import { StyledRelatedArticlesSection } from './RelatedArticles.styled'
-
-const blogs = [
-  {
-    id: 0,
-    subTitle: 'cryptocurrency',
-    title: 'Understanding Blockchain Technology',
-    date: 'June 21, 2023',
-    time: '5 min read',
-    imageSrc: Image1.src,
-  },
-  {
-    id: 1,
-    subTitle: 'cryptocurrency',
-    title: 'How to Sell Cryptocurrencies on Our Platform',
-    date: 'June 21, 2023',
-    time: '5 min read',
-    imageSrc: Image2.src,
-  },
-  {
-    id: 2,
-    subTitle: 'cryptocurrency',
-    title: 'Exploring the Most Promising Cryptocurrencies of 2023',
-    date: 'June 21, 2023',
-    time: '5 min read',
-    imageSrc: Image3.src,
-  },
-]
+import Link from 'next/link';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Scrollbar } from 'swiper/modules';
+import { useContext } from 'react';
+import { StyledButtonGhost } from '@/components/UI/Button/Button.styled';
+import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled';
+import { BlogCart } from '@/components/BlogCart';
+import { StyledRelatedArticlesSection } from './RelatedArticles.styled';
+import { BlogContext } from '@/contexts/BlogContext/BlogContext';
 
 export default function RelatedArticles() {
+  const { relatedData } = useContext(BlogContext);
+
   return (
     <StyledRelatedArticlesSection>
-      <div className='container'>
-        <div className='relatedBlogsHeader blogsHeader'>
-          <StyledTypographyUrbanistH2 className='relatedBlogsHeaderTitle blogsHeaderTitle'>
+      <div className="container">
+        <div className="relatedBlogsHeader blogsHeader">
+          <StyledTypographyUrbanistH2 className="relatedBlogsHeaderTitle blogsHeaderTitle">
             Related articles
           </StyledTypographyUrbanistH2>
-          <Link href='/blog'>
-            <StyledButtonGhost className='relatedBlogsHeaderButton blogsHeaderButton'>
+          <Link href="/blog">
+            <StyledButtonGhost className="relatedBlogsHeaderButton blogsHeaderButton">
               Go to blog
             </StyledButtonGhost>
           </Link>
         </div>
 
-        <div className='relatedBlogsGrid blogsGrid'>
-          {blogs.map(({ id, date, imageSrc, subTitle, time, title }) => (
-            <Link href='/blog/1'>
-              <BlogCart
-                time={time}
-                title={title}
-                date={date}
-                imageSrc={imageSrc}
-                subTitle={subTitle}
-                key={id}
-              />
-            </Link>
-          ))}
+        <div className="relatedBlogsGrid blogsGrid">
+          {relatedData.map(
+            ({
+              id,
+              dateAndTime,
+              mainImage: { url },
+              tags,
+              mainTitle,
+              slugPage,
+            }) => (
+              <Link href={`/blog/${slugPage}`}>
+                <BlogCart
+                  title={mainTitle}
+                  date={dateAndTime}
+                  imageSrc={url}
+                  subTitle={tags[0].tag}
+                  key={id}
+                />
+              </Link>
+            )
+          )}
         </div>
 
         {/* mobile */}
 
         <Swiper
-          className='relatedBlogsSwiper blogsSwiper'
-          slidesPerView='auto'
+          className="relatedBlogsSwiper blogsSwiper"
+          slidesPerView="auto"
           spaceBetween={24}
           updateOnWindowResize
           breakpoints={{
@@ -100,26 +82,34 @@ export default function RelatedArticles() {
           }}
           modules={[Scrollbar]}
         >
-          {blogs.map(({ id, date, imageSrc, subTitle, time, title }) => (
-            <SwiperSlide className='slide' key={id}>
-              <Link href='/blog/1'>
-                <BlogCart
-                  date={date}
-                  imageSrc={imageSrc}
-                  subTitle={subTitle}
-                  time={time}
-                  title={title}
-                />
-              </Link>
-            </SwiperSlide>
-          ))}
+          {relatedData.map(
+            ({
+              id,
+              dateAndTime,
+              mainImage: { url },
+              tags,
+              mainTitle,
+              slugPage,
+            }) => (
+              <SwiperSlide className="slide" key={id}>
+                <Link href={`/blog/${slugPage}`}>
+                  <BlogCart
+                    title={mainTitle}
+                    date={dateAndTime}
+                    imageSrc={url}
+                    subTitle={tags[0].tag}
+                  />
+                </Link>
+              </SwiperSlide>
+            )
+          )}
         </Swiper>
-        <Link href='/blog'>
-          <StyledButtonGhost className='relatedBlogsHeaderButtonMobile blogsHeaderButtonMobile'>
+        <Link href="/blog">
+          <StyledButtonGhost className="relatedBlogsHeaderButtonMobile blogsHeaderButtonMobile">
             Go to blog
           </StyledButtonGhost>
         </Link>
       </div>
     </StyledRelatedArticlesSection>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem'
-import {responsive} from '@/utils/response'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledCryptoWidget2Section = styled.section`
   background: var(--exciting-lime, #bfffc8);
@@ -270,6 +270,7 @@ export const StyledCryptoWidget2Section = styled.section`
           font-weight: 700;
           line-height: ${rem(30)};
           margin-right: auto;
+          max-width: 198px;
           ${responsive.xxl`
             // br {
             //   display: none;
@@ -285,6 +286,7 @@ export const StyledCryptoWidget2Section = styled.section`
             margin: ${rem(16)} auto ${rem(17)};
             font-size: ${rem(24)};
             order: 2;
+            max-width: 100%;
             br {
               display: none;
             }

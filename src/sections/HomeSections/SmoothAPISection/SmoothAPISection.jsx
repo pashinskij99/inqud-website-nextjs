@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -16,43 +17,44 @@ import Icon2 from '@/assets/images/smooth-API/icon2.svg'
 import Icon3 from '@/assets/images/smooth-API/icon3.svg'
 import Icon4 from '@/assets/images/smooth-API/icon4.svg'
 import Check from '@/assets/icons/check-green-background.svg'
-
-const gridContent = [
-  {
-    id: 0,
-    icon: <Icon1 className='icon' />,
-    title: 'Developer-friendly documentation',
-    description:
-      'Clear, comprehensive guides aiding swift integration and hassle-free development',
-  },
-  {
-    id: 1,
-    icon: <Icon2 className='icon' />,
-    title: (
-      <>
-        Advanced anti-fraud <br /> features
-      </>
-    ),
-    description:
-      'Fraud-Proof Transactions: Benefit from our sophisticated security features.',
-  },
-  {
-    id: 2,
-    icon: <Icon3 className='icon' />,
-    title: 'Full-fledged onboarding',
-    description:
-      'Initial setup to full implementation, guiding you through every step for a seamless, worry-free start.',
-  },
-  {
-    id: 3,
-    icon: <Icon4 className='icon' />,
-    title: 'Accept crypto & local fiat',
-    description:
-      "Expand your business's financial accessibility and customer reach.",
-  },
-]
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function SmoothAPISection() {
+  const t = useTranslations('home_page.smooth_api_section')
+  const t2 = useTranslations('home_page.hero_section')
+  const t3 = useTranslations('home_page.crypto_widget_section')
+  const tList = useTranslations('home_page.smooth_api_section.list_item_title')
+  const tList2 = useTranslations(
+    'home_page.smooth_api_section.list_item_description'
+  )
+
+  const gridContent = [
+    {
+      id: 0,
+      icon: <Icon1 className='icon' />,
+      title: tList(keysForLocale.keys4[0]),
+      description: tList2(keysForLocale.keys4[0]),
+    },
+    {
+      id: 1,
+      icon: <Icon2 className='icon' />,
+      title: tList(keysForLocale.keys4[1]),
+      description: tList2(keysForLocale.keys4[1]),
+    },
+    {
+      id: 2,
+      icon: <Icon3 className='icon' />,
+      title: tList(keysForLocale.keys4[2]),
+      description: tList2(keysForLocale.keys4[2]),
+    },
+    {
+      id: 3,
+      icon: <Icon4 className='icon' />,
+      title: tList(keysForLocale.keys4[3]),
+      description: tList2(keysForLocale.keys4[3]),
+    },
+  ]
+
   return (
     <StyledSmoothAPISection>
       <div className='container'>
@@ -62,35 +64,28 @@ export default function SmoothAPISection() {
 
         <div className='rightSide'>
           <StyledTypographyIBMH5 className='smoothAPISubTitle'>
-            Tailored for business
+            {t('sub_title')}
           </StyledTypographyIBMH5>
           <StyledTypographyUrbanistH2 className='smoothAPITitle'>
-            Smooth API integration
+            {t('title')}
           </StyledTypographyUrbanistH2>
 
           <Image
             src={GraphicTabletImage}
-            alt='Smooth API integration'
+            alt={t('title')}
             className='smoothAPIImageTablet'
           />
 
           <StyledTypographyUrbanistBody className='smoothAPIDescription desktop'>
-            Advanced onramp & offramp payment processing, scalability,
-            customization, and seamless integration. Streamline payment process
-            and spur growth with API integration. Experience boosted efficiency,
-            scalability, and heightened business growth.
+            {t('paragraph')}
           </StyledTypographyUrbanistBody>
 
           <StyledTypographyUrbanistH5 className='smoothAPIDescription tablet'>
-            Advanced onramp & offramp payment processing, customization,
-            scalability, and seamless integration. Streamline your payment
-            process and spur growth with API integration. Experience boosted
-            efficiency, scalability, and heightened business growth.
+            {t('paragraph')}
           </StyledTypographyUrbanistH5>
 
           <StyledTypographyUrbanistH5 className='smoothAPIDescriptionMobile'>
-            Efficient onramp & offramp processing for business growth. Scale,
-            integrate, succeed.
+            {t('paragraph_mobile')}
           </StyledTypographyUrbanistH5>
 
           <ul className='smoothAPIGrid'>
@@ -115,12 +110,12 @@ export default function SmoothAPISection() {
           <div className='smoothAPIButtonWrapper'>
             <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
               <ButtonGetStarted className='smoothAPIButtonGetStarted'>
-                Get started
+                {t2('button_text_get_started')}
               </ButtonGetStarted>
             </Link>
             <Link target='_blank' href='/api'>
               <StyledButtonGhost className='smoothAPIButtonGhost'>
-                Learn more
+                {t3('button_text_learn_more')}
               </StyledButtonGhost>
             </Link>
           </div>

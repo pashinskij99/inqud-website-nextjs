@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -17,85 +18,90 @@ import image4 from '@/assets/images/company/team/image4.webp'
 import Telegram from '@/assets/images/company/team/telegram.svg'
 import Linkedin from '@/assets/images/company/team/linkedin.svg'
 import { StyledLoadMoreLarge } from '@/components/UI/Button/Button.styled'
-
-const grid = [
-  {
-    id: 0,
-    title: 'Ihor',
-    subTitle: 'Founder, CEO',
-    socials: [
-      {
-        href: '#1',
-        icon: <Linkedin />,
-      },
-      {
-        href: '#2',
-        icon: <Telegram />,
-      },
-    ],
-    image: image1.src,
-  },
-  {
-    id: 1,
-    title: 'Oleh',
-    subTitle: 'Founder, Product Owner',
-    socials: [
-      {
-        href: '#1',
-        icon: <Linkedin />,
-      },
-      {
-        href: '#2',
-        icon: <Telegram />,
-      },
-    ],
-    image: image2.src,
-  },
-  {
-    id: 2,
-    title: 'Ihor',
-    subTitle: 'CTO, Crypto expert',
-    socials: [
-      {
-        href: '#1',
-        icon: <Linkedin />,
-      },
-      {
-        href: '#2',
-        icon: <Telegram />,
-      },
-    ],
-    image: image3.src,
-  },
-  {
-    id: 3,
-    title: 'Artur',
-    subTitle: 'Head of customer support dept',
-    socials: [
-      {
-        href: '#1',
-        icon: <Linkedin />,
-      },
-      {
-        href: '#2',
-        icon: <Telegram />,
-      },
-    ],
-    image: image4.src,
-  },
-]
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function TeamSection() {
+  const t = useTranslations('company_page.our_team_section')
+  const tTitles = useTranslations('company_page.our_team_section.items_title')
+  const tDescriptions = useTranslations(
+    'company_page.our_team_section.items_description'
+  )
+
+  const grid = [
+    {
+      id: 0,
+      title: tTitles(keysForLocale.keys4[0]),
+      subTitle: tDescriptions(keysForLocale.keys4[0]),
+      socials: [
+        {
+          href: '#1',
+          icon: <Linkedin />,
+        },
+        {
+          href: '#2',
+          icon: <Telegram />,
+        },
+      ],
+      image: image1.src,
+    },
+    {
+      id: 1,
+      title: tTitles(keysForLocale.keys4[1]),
+      subTitle: tDescriptions(keysForLocale.keys4[1]),
+      socials: [
+        {
+          href: '#1',
+          icon: <Linkedin />,
+        },
+        {
+          href: '#2',
+          icon: <Telegram />,
+        },
+      ],
+      image: image2.src,
+    },
+    {
+      id: 2,
+      title: tTitles(keysForLocale.keys4[2]),
+      subTitle: tDescriptions(keysForLocale.keys4[2]),
+      socials: [
+        {
+          href: '#1',
+          icon: <Linkedin />,
+        },
+        {
+          href: '#2',
+          icon: <Telegram />,
+        },
+      ],
+      image: image3.src,
+    },
+    {
+      id: 3,
+      title: tTitles(keysForLocale.keys4[3]),
+      subTitle: tDescriptions(keysForLocale.keys4[3]),
+      socials: [
+        {
+          href: '#1',
+          icon: <Linkedin />,
+        },
+        {
+          href: '#2',
+          icon: <Telegram />,
+        },
+      ],
+      image: image4.src,
+    },
+  ]
+
   return (
     <StyledTeamSectionWrapper>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='title'>
-          Our team
+          {t('title')}
         </StyledTypographyUrbanistH2>
         <StyledTypographyUrbanistBody className='description'>
-          Our team consists of 10+ experienced visionaries and developers with a
-          strong <br className='br-desktop' /> background in global companies
-          like Google.
+          {t('description')}
         </StyledTypographyUrbanistBody>
 
         <ul className='team-grid'>
@@ -133,7 +139,7 @@ export default function TeamSection() {
 
         <StyledLoadMoreLarge className='more-btn'>
           <StyledTypographyUrbanistBody>
-            +10 more specialists
+            +10 {t('button_text')}
           </StyledTypographyUrbanistBody>
         </StyledLoadMoreLarge>
       </div>

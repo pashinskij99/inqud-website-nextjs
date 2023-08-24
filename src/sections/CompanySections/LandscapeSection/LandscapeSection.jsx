@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -9,43 +10,50 @@ import Icon1 from '@/assets/images/our-landscape/coverage1.svg'
 import Icon2 from '@/assets/images/our-landscape/coverage6.png'
 import Icon3 from '@/assets/images/our-landscape/coverage3.svg'
 import map from '@/assets/images/our-landscape/map.webp'
-
-const grid = [
-  {
-    id: 0,
-    icon: <Icon1 />,
-    title: 'Worldwide',
-    description: 'crypto coverage',
-  },
-  {
-    id: 1,
-    icon: (
-      <Image src={Icon2.src} width={38.189} height={33.638} alt='coverage' />
-    ),
-    title: 'European',
-    description: 'license coverage',
-  },
-  {
-    id: 2,
-    icon: <Icon3 />,
-    title: 'Focus 2023',
-    description: 'Latin America, Africa, Asia',
-  },
-]
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function LandscapeSection() {
+  const t = useTranslations('company_page.our_landscape_section')
+  const tTitles = useTranslations(
+    'company_page.our_landscape_section.items_title'
+  )
+  const tDescriptions = useTranslations(
+    'company_page.our_landscape_section.items_description'
+  )
+
+  const grid = [
+    {
+      id: 0,
+      icon: <Icon1 />,
+      title: tTitles(keysForLocale.keys3[0]),
+      description: tDescriptions(keysForLocale.keys3[0]),
+    },
+    {
+      id: 1,
+      icon: (
+        <Image src={Icon2.src} width={38.189} height={33.638} alt='coverage' />
+      ),
+      title: tTitles(keysForLocale.keys3[1]),
+      description: tDescriptions(keysForLocale.keys3[1]),
+    },
+    {
+      id: 2,
+      icon: <Icon3 />,
+      title: tTitles(keysForLocale.keys3[2]),
+      description: tDescriptions(keysForLocale.keys3[2]),
+    },
+  ]
+
   return (
     <StyledLandscapeSectionWrapper>
       <div className='container'>
         <div className='text-wrapper'>
           <div className='title-wrapper'>
             <StyledTypographyUrbanistH2 className='title'>
-              Our landscape
+              {t('title')}
             </StyledTypographyUrbanistH2>
             <StyledTypographyUrbanistH5 className='description'>
-              With our clients, we grow and advance every day,{' '}
-              <br className='br-desktop' />
-              pushing boundaries and achieving new heights.
+              {t('description')}
             </StyledTypographyUrbanistH5>
           </div>
 

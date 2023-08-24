@@ -1,132 +1,76 @@
-import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
-import { InView } from 'react-intersection-observer'
+import Image from 'next/image';
+import { InView } from 'react-intersection-observer';
+import { useTranslations } from 'next-intl';
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
-} from '@/components/UI/Typography/Typography.styled'
+} from '@/components/UI/Typography/Typography.styled';
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   StyledAccordionLoading,
   StyledFeaturesSectionWrapper,
-} from './FeaturesSection.styled'
-import img from '@/assets/images/company/features/image.webp'
-
-const accordionData = [
-  {
-    key: 0,
-    id: '01.',
-    title: 'Bespoke diversity payments',
-    description:
-      'At Inqud, we excel in crafting customized payment solutions that are perfectly tailored to meet your specific requirements. Simply inform us of the new payment methods you wish to incorporate, and we will handle the rest with utmost care.',
-  },
-  {
-    key: 1,
-    id: '02.',
-    title: 'Eliminate chargebacks',
-    description:
-      'At Inqud, we excel in crafting customized payment solutions that are perfectly tailored to meet your specific requirements. Simply inform us of the new payment methods you wish to incorporate, and we will handle the rest with utmost care.',
-  },
-  {
-    key: 2,
-    id: '03.',
-    title: 'Transparent Pricing',
-    description:
-      'At Inqud, we excel in crafting customized payment solutions that are perfectly tailored to meet your specific requirements. Simply inform us of the new payment methods you wish to incorporate, and we will handle the rest with utmost care.',
-  },
-  {
-    key: 3,
-    id: '04.',
-    title: (
-      <>
-        Round-the-Clock <br /> Expert Support
-      </>
-    ),
-    description:
-      'At Inqud, we excel in crafting customized payment solutions that are perfectly tailored to meet your specific requirements. Simply inform us of the new payment methods you wish to incorporate, and we will handle the rest with utmost care.',
-  },
-]
+} from './FeaturesSection.styled';
+import img from '@/assets/images/company/features/image.webp';
+import { keysForLocale } from '@/config/keysForLocale';
+import { useIntervalStep } from '@/hooks/useIntervalStep';
 
 export default function FeaturesSection() {
-  const [expanded, setExpanded] = useState(accordionData[0].key)
-  const [percent, setPercent] = useState(0)
-  const [isInterval, setIsInterval] = useState(true)
-  const [isPause, setIsPause] = useState(true)
-  const interval = useRef(null)
+  const t = useTranslations('company_page.our_features_section');
+  const tTitles = useTranslations(
+    'company_page.our_features_section.items_title'
+  );
+  const tDescriptions = useTranslations(
+    'company_page.our_features_section.items_description'
+  );
 
-  const onPause = () => {
-    setIsPause(true)
-  }
+  const accordionData = [
+    {
+      key: 0,
+      id: '01.',
+      title: tTitles(keysForLocale.keys4[0]),
+      description: tDescriptions(keysForLocale.keys4[0]),
+    },
+    {
+      key: 1,
+      id: '02.',
+      title: tTitles(keysForLocale.keys4[1]),
+      description: tDescriptions(keysForLocale.keys4[1]),
+    },
+    {
+      key: 2,
+      id: '03.',
+      title: tTitles(keysForLocale.keys4[2]),
+      description: tDescriptions(keysForLocale.keys4[2]),
+    },
+    {
+      key: 3,
+      id: '04.',
+      title: tTitles(keysForLocale.keys4[3]),
+      description: tDescriptions(keysForLocale.keys4[3]),
+    },
+  ];
 
-  const onStart = () => {
-    setIsPause(false)
-  }
-
-  const handleInView = (inView) => {
-    if (inView) onStart()
-    else onPause()
-  }
-
-  useEffect(() => {
-    interval.current = setInterval(() => {
-      if (!isPause) {
-        setPercent((prevState) => {
-          if (prevState === 250) return 0
-          return prevState + 1
-        })
-      }
-    }, 100)
-
-    return () => {
-      clearInterval(interval.current)
-    }
-  }, [isPause])
-
-  useEffect(() => {
-    if (percent === 250) {
-      setExpanded((prevState) => {
-        const nextState = prevState + 1
-
-        if (prevState === accordionData.length - 1) {
-          return 0
-        }
-
-        return nextState
-      })
-      setPercent(0)
-    }
-  }, [percent])
-
-  const getPercent = (number, total) => (number / total) * 100
-
-  // eslint-disable-next-line no-shadow
-  const setWidth = ({ isInterval, expanded, percent, count }) => {
-    if (expanded === count) {
-      return isInterval ? getPercent(percent, 250) : 100
-    }
-
-    return isInterval ? getPercent(percent, 250) : 100
-  }
-
-  const handleChange = (panel) => (_, newExpanded) => {
-    setExpanded(newExpanded ? panel : false)
-    clearInterval(interval.current)
-    setIsInterval(false)
-  }
+  const {
+    setWidth,
+    handleInView,
+    handleChange,
+    expanded,
+    isInterval,
+    percent,
+  } = useIntervalStep({ accordionData });
 
   return (
     <InView as={StyledFeaturesSectionWrapper} onChange={handleInView}>
-      <div className='container'>
-        <div className='left-side'>
-          <StyledTypographyUrbanistH2 className='title'>
-            Our Features and <br className='br-desktop' /> Approaches that Stand
-            <br className='br-desktop' /> Out!
+      <div className="container">
+        <div className="left-side">
+          <StyledTypographyUrbanistH2 className="title">
+            {t('title')}
           </StyledTypographyUrbanistH2>
 
-          <div className='accordion'>
+          <div className="accordion">
             {accordionData.map(({ key, id, title, description }) => (
               <AccordionItem
                 key={key}
@@ -145,17 +89,17 @@ export default function FeaturesSection() {
           </div>
         </div>
 
-        <div className='right-side'>
+        <div className="right-side">
           <Image
             src={img.src}
-            alt='Our Features and Approaches that Stand Out!'
+            alt="Our Features and Approaches that Stand Out!"
             width={559}
             height={650}
           />
         </div>
       </div>
     </InView>
-  )
+  );
 }
 
 function AccordionItem({
@@ -194,5 +138,5 @@ function AccordionItem({
         />
       )}
     </>
-  )
+  );
 }

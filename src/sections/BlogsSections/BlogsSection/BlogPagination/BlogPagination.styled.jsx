@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import {rem} from '@/utils/rem';
+import styled from '@emotion/styled'
+import { rem } from '@/utils/rem'
 
 export const StyledBlogPagination = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ export const StyledBlogPagination = styled.div`
     }
 
     &.active {
-      background: var(--exciting-lime, #BFFFC8);
+      background: var(--exciting-lime, #bfffc8);
 
       p {
         font-weight: 700;
@@ -57,7 +57,6 @@ export const StyledBlogPagination = styled.div`
   .dots {
   }
 
-
   .events-none {
     pointer-events: none;
     touch-action: none;
@@ -68,7 +67,7 @@ export const StyledBlogPagination = styled.div`
     @media (max-width: 576px) {
       margin-left: 0;
     }
-
+    /* 
     circle {
       fill: rgba(191, 255, 200, 1);
     }
@@ -76,7 +75,16 @@ export const StyledBlogPagination = styled.div`
     path {
       fill: rgba(7, 116, 83, 1);
       opacity: 1;
-    }
+    } */
   }
 
+  .active {
+    circle {
+      fill: rgba(191, 255, 200, 1);
+    }
+    path {
+      fill: rgba(7, 116, 83, 1);
+      opacity: 1;
+    }
+  }
 `

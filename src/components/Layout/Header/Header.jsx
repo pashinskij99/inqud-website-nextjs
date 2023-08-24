@@ -1,71 +1,71 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
-import clsx from 'clsx'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import Logo from '../../../assets/icons/logo.svg'
-import LogoMobile from '../../../assets/icons/logo-header-mobile-without-text.svg'
-import { StyledHeaderWrapper } from './Header.styled'
-import HeaderDropdown from './HeaderDropdown'
-import HeaderLanguageSelect from './HeaderLanguageSelect'
+import { useEffect, useState } from 'react';
+import clsx from 'clsx';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import Logo from '../../../assets/icons/logo.svg';
+import LogoMobile from '../../../assets/icons/logo-header-mobile-without-text.svg';
+import { StyledHeaderWrapper } from './Header.styled';
+import HeaderDropdown from './HeaderDropdown';
+import HeaderLanguageSelect from './HeaderLanguageSelect';
 import {
   StyledButtonGhost,
   StyledButtonSecondary,
-} from '@/components/UI/Button/Button.styled'
-import HeaderMobileMenu from './HeaderMobileMenu'
-import HeaderTabs from './HeaderTabs'
+} from '@/components/UI/Button/Button.styled';
+import HeaderMobileMenu from './HeaderMobileMenu';
+import HeaderTabs from './HeaderTabs';
 
 const navList = [
   { id: 0, name: 'Company', href: '/company' },
   { id: 1, name: 'Insights', href: '/blog' },
   { id: 2, name: 'Help centre', href: '/help-centre' },
-]
+];
 
 const signButton = [
   { id: 0, name: 'Log in', className: 'signIn' },
   { id: 1, name: 'Get started', className: 'signUp' },
-]
+];
 
 export default function Header() {
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(false);
 
   const handleClickHamburger = () => {
-    setActive((prevState) => !prevState)
-  }
+    setActive((prevState) => !prevState);
+  };
   const handleClose = () => {
-    setActive(false)
-  }
+    setActive(false);
+  };
 
-  const [isTop, setIsTop] = useState(true)
+  const [isTop, setIsTop] = useState(true);
 
   const scrollHandler = () => {
-    setIsTop(window.pageYOffset <= 20)
-  }
+    setIsTop(window.scrollY <= 20);
+  };
 
   useEffect(() => {
-    window.addEventListener('scroll', scrollHandler)
+    window.addEventListener('scroll', scrollHandler);
 
-    scrollHandler()
+    scrollHandler();
 
     return () => {
-      window.removeEventListener('scroll', scrollHandler)
-    }
-  }, [])
+      window.removeEventListener('scroll', scrollHandler);
+    };
+  }, []);
 
   useEffect(() => {
     if (active) {
-      document.body.classList.add('no-scroll')
+      document.body.classList.add('no-scroll');
     } else {
-      document.body.classList.remove('no-scroll')
+      document.body.classList.remove('no-scroll');
     }
 
     return () => {
-      document.body.classList.remove('no-scroll')
-    }
-  }, [active])
+      document.body.classList.remove('no-scroll');
+    };
+  }, [active]);
 
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <StyledHeaderWrapper
@@ -73,17 +73,17 @@ export default function Header() {
       active={active}
       isHome={pathname === '/'}
     >
-      <div className='containerHeader'>
-        <div className='logoSection'>
-          <Link href='/'>
-            <Logo className='logo' />
-            <LogoMobile className='logo-mobile' />
+      <div className="containerHeader">
+        <div className="logoSection">
+          <Link href="/">
+            <Logo className="logo" />
+            <LogoMobile className="logo-mobile" />
           </Link>
 
           <HeaderTabs />
         </div>
 
-        <nav className='navSection'>
+        <nav className="navSection">
           <ul>
             <HeaderDropdown />
 
@@ -102,8 +102,8 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className='userSection'>
-          <HeaderLanguageSelect className='languageMenu' />
+        <div className="userSection">
+          <HeaderLanguageSelect className="languageMenu" />
 
           <button
             onClick={handleClickHamburger}
@@ -119,14 +119,14 @@ export default function Header() {
             <span />
           </button>
 
-          <div className='sign'>
-            <Link target='_blank' href='https://cabinet.inqud.com/#/login'>
+          <div className="sign">
+            <Link target="_blank" href="https://cabinet.inqud.com/#/login">
               <StyledButtonGhost className={signButton[0].className}>
                 {signButton[0].name}
               </StyledButtonGhost>
             </Link>
 
-            <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
+            <Link target="_blank" href="https://cabinet.inqud.com/#/signup">
               <StyledButtonSecondary className={signButton[1].className}>
                 {signButton[1].name}
               </StyledButtonSecondary>
@@ -137,5 +137,5 @@ export default function Header() {
         <HeaderMobileMenu active={active} handleClose={handleClose} />
       </div>
     </StyledHeaderWrapper>
-  )
+  );
 }

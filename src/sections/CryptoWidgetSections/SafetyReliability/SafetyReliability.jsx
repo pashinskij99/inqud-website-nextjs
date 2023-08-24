@@ -1,138 +1,73 @@
-import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
-import { InView } from 'react-intersection-observer'
-import { StyledSafetyReliabilitySection } from './SafetyReliability.styled'
+import Image from 'next/image';
+import { InView } from 'react-intersection-observer';
+import { useTranslations } from 'next-intl';
+import { StyledSafetyReliabilitySection } from './SafetyReliability.styled';
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
-} from '@/components/UI/Typography/Typography.styled'
+} from '@/components/UI/Typography/Typography.styled';
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   StyledAccordionLoading,
-} from '../../CompanySections/FeaturesSection/FeaturesSection.styled'
-import img from '../../../assets/images/crypto-widget/page/reliability/shield.png'
-
-const accordionData = [
-  {
-    key: 0,
-    id: '01.',
-    title: 'Safeguarding data',
-    description:
-      '2FA for account access, settings approval, and fund transfers. Encryption of sensitive information.',
-    descriptionMobile: (
-      <>
-        2FA for account access, settings approval, and fund transfers.
-        <span className='offset'>Encryption of sensitive information.</span>
-      </>
-    ),
-  },
-  {
-    key: 1,
-    id: '02.',
-    title: 'Anti-Fraud measures',
-    description:
-      '2FA for account access, settings approval, and fund transfers. Encryption of sensitive information.',
-    descriptionMobile: (
-      <>
-        2FA for account access, settings approval, and fund transfers.
-        Encryption of sensitive information.
-      </>
-    ),
-  },
-  {
-    key: 2,
-    id: '03.',
-    title: 'Security compliance',
-    description:
-      '2FA for account access, settings approval, and fund transfers. Encryption of sensitive information.',
-    descriptionMobile: (
-      <>
-        2FA for account access, settings approval, and fund transfers.
-        Encryption of sensitive information.
-      </>
-    ),
-  },
-]
+} from '../../CompanySections/FeaturesSection/FeaturesSection.styled';
+import img from '../../../assets/images/crypto-widget/page/reliability/shield.png';
+import { keysForLocale } from '@/config/keysForLocale';
+import { useIntervalStep } from '@/hooks/useIntervalStep';
 
 export default function SafetyReliability() {
-  const [expanded, setExpanded] = useState(accordionData[0].key)
-  const [percent, setPercent] = useState(0)
-  const [isInterval, setIsInterval] = useState(true)
-  const [isPause, setIsPause] = useState(true)
-  const interval = useRef(null)
+  const t = useTranslations('crypto_centre_page.safety_&_reliability_section');
+  const tTitles = useTranslations(
+    'crypto_centre_page.safety_&_reliability_section.items_title'
+  );
+  const tDescriptions = useTranslations(
+    'crypto_centre_page.safety_&_reliability_section.items_description'
+  );
 
-  const onPause = () => {
-    setIsPause(true)
-  }
+  const accordionData = [
+    {
+      key: 0,
+      id: '01.',
+      title: tTitles(keysForLocale.keys3[0]),
+      description: tDescriptions(keysForLocale.keys3[0]),
+      descriptionMobile: tDescriptions(keysForLocale.keys3[0]),
+    },
+    {
+      key: 1,
+      id: '02.',
+      title: tTitles(keysForLocale.keys3[1]),
+      description: tDescriptions(keysForLocale.keys3[1]),
+      descriptionMobile: tDescriptions(keysForLocale.keys3[1]),
+    },
+    {
+      key: 2,
+      id: '03.',
+      title: tTitles(keysForLocale.keys3[2]),
+      description: tDescriptions(keysForLocale.keys3[2]),
+      descriptionMobile: tDescriptions(keysForLocale.keys3[2]),
+    },
+  ];
 
-  const onStart = () => {
-    setIsPause(false)
-  }
-
-  const handleInView = (inView) => {
-    if (inView) onStart()
-    else onPause()
-  }
-
-  useEffect(() => {
-    interval.current = setInterval(() => {
-      if (!isPause) {
-        setPercent((prevState) => {
-          if (prevState === 250) return 0
-          return prevState + 1
-        })
-      }
-    }, 100)
-
-    return () => {
-      clearInterval(interval.current)
-    }
-  }, [isPause])
-
-  useEffect(() => {
-    if (percent === 250) {
-      setExpanded((prevState) => {
-        const nextState = prevState + 1
-
-        if (prevState === accordionData.length - 1) {
-          return 0
-        }
-
-        return nextState
-      })
-      setPercent(0)
-    }
-  }, [percent])
-
-  const getPercent = (number, total) => (number / total) * 100
-
-  // eslint-disable-next-line no-shadow
-  const setWidth = ({ isInterval, expanded, percent, count }) => {
-    if (expanded === count) {
-      return isInterval ? getPercent(percent, 250) : 100
-    }
-
-    return isInterval ? getPercent(percent, 250) : 100
-  }
-
-  const handleChange = (panel) => (_, newExpanded) => {
-    setExpanded(newExpanded ? panel : false)
-    clearInterval(interval.current)
-    setIsInterval(false)
-  }
+  const {
+    setWidth,
+    handleInView,
+    handleChange,
+    expanded,
+    isInterval,
+    percent,
+  } = useIntervalStep({ accordionData });
 
   return (
     <InView as={StyledSafetyReliabilitySection} onChange={handleInView}>
-      <div className='container'>
-        <div className='left-side'>
-          <StyledTypographyUrbanistH2 className='title'>
-            Safety & reliability
+      <div className="container">
+        <div className="left-side">
+          <StyledTypographyUrbanistH2 className="title">
+            {t('title')}
           </StyledTypographyUrbanistH2>
 
-          <div className='accordion'>
+          <div className="accordion">
             {accordionData.map(
               ({ key, id, title, description, descriptionMobile }) => (
                 <AccordionItem
@@ -154,11 +89,11 @@ export default function SafetyReliability() {
           </div>
         </div>
 
-        <div className='right-side'>
-          <div className='cart'>
+        <div className="right-side">
+          <div className="cart">
             <Image
               src={img.src}
-              alt='Safety & reliability'
+              alt="Safety & reliability"
               width={212.223}
               height={241.7}
             />
@@ -166,7 +101,7 @@ export default function SafetyReliability() {
         </div>
       </div>
     </InView>
-  )
+  );
 }
 
 function AccordionItem({
@@ -186,25 +121,25 @@ function AccordionItem({
     <>
       <Accordion expanded={expanded === id} onChange={handleChange(id)}>
         <AccordionSummary expanded={expanded === id}>
-          <StyledTypographyUrbanistBody className='accordion-sub-title'>
+          <StyledTypographyUrbanistBody className="accordion-sub-title">
             {number}
           </StyledTypographyUrbanistBody>
-          <StyledTypographyUrbanistH5 className='accordion-title'>
+          <StyledTypographyUrbanistH5 className="accordion-title">
             {title}
           </StyledTypographyUrbanistH5>
         </AccordionSummary>
         <AccordionDetails>
-          <StyledTypographyUrbanistBody className='accordion-description accordion-description-1'>
+          <StyledTypographyUrbanistBody className="accordion-description accordion-description-1">
             {description}
           </StyledTypographyUrbanistBody>
-          <StyledTypographyUrbanistBody className='accordion-description accordion-description-2'>
+          <StyledTypographyUrbanistBody className="accordion-description accordion-description-2">
             {descriptionMobile}
           </StyledTypographyUrbanistBody>
         </AccordionDetails>
       </Accordion>
 
       <StyledAccordionLoading
-        className='line'
+        className="line"
         isLast={id === count}
         isExpanded={expanded === id}
         width={
@@ -212,5 +147,5 @@ function AccordionItem({
         }
       />
     </>
-  )
+  );
 }

@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.1",
+    "@datocms/cma-client-browser": "^2.0.0",
+    "@datocms/cma-client-node": "^2.0.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.13.6",
@@ -16,14 +19,18 @@
     "clsx": "^1.2.1",
     "eslint": "^7.32.0",
     "eslint-config-next": "13.4.7",
+    "graphql": "^16.8.0",
     "next": "13.4.7",
+    "next-intl": "3.0.0-beta.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.45.4",
     "react-intersection-observer": "^9.5.2",
     "react-redux": "^8.1.2",
     "react-scroll": "^1.8.9",
     "styled-components": "^6.0.3",
-    "swiper": "^10.0.3"
+    "swiper": "^10.0.3",
+    "use-debounce": "^9.0.4"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",

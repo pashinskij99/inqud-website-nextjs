@@ -12,7 +12,7 @@ const dropdownList = [
     items: [
       { id: 0, name: 'Business', href: '/' },
       { id: 1, name: 'Crypto widget', href: '/crypto-widget' },
-      { id: 2, name: 'API', href: '/api' },
+      { id: 2, name: 'API', href: '/company-api' },
       { id: 3, name: 'Card 2 crypto', href: '/' },
       { id: 4, name: 'Crypto exchange', href: '/' },
       { id: 5, name: 'Recurring payments', href: '/' },

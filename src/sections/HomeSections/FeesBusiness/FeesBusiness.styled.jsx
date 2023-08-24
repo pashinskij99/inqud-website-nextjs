@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem'
-import {responsive} from '@/utils/response'
-import {urbanist} from '@/utils/font'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
+import { urbanist } from '@/utils/font'
 
 export const StyledFeesBusinessWrapper = styled.section`
   --left-side-max-width: 680px;
@@ -25,17 +25,23 @@ export const StyledFeesBusinessWrapper = styled.section`
     max-width: var(--left-side-max-width);
   }
 
-  h2 {
+  .title {
     margin-bottom: 6px;
 
     ${responsive.sm`
       padding: 0 ${rem(20)};
       letter-spacing: 0.7px;
     `}
-    span {
-      display: contents;
+
+    &.title-1 {
       ${responsive.sm`
         display: none;
+      `}
+    }
+    &.title-2 {
+      display: none;
+      ${responsive.sm`
+        display: block;
       `}
     }
   }
@@ -137,7 +143,7 @@ export const StyledFeesBusinessWrapper = styled.section`
     }
 
     tbody {
-        /* &:before {
+      /* &:before {
         content: '@';
         display: block;
         line-height: ${rem(7)};
@@ -394,9 +400,11 @@ export const StyledFeesBusinessWrapper = styled.section`
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(360deg,
-          #fff 0%,
-          rgba(255, 255, 255, 0) 100%);
+          background: linear-gradient(
+            360deg,
+            #fff 0%,
+            rgba(255, 255, 255, 0) 100%
+          );
         }
       }
     }

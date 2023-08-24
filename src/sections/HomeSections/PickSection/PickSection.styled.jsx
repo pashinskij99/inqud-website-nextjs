@@ -45,19 +45,21 @@ export const StyledPickSectionSection = styled.section`
   .pickTitle {
     color: white;
     flex-shrink: 0;
+
     &.pickTitleApi {
+      max-width: 400px;
       ${responsive.xl`
         font-size: 40px;
         font-weight: 400;
         line-height: 46px;
         margin-bottom: 40px;
+        max-width: 100%;
       `}
       ${responsive.sm`
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        white-space: nowrap;
         line-height: 50px;
         margin-bottom: 13px;
       `}
@@ -131,6 +133,13 @@ export const StyledPickSectionSection = styled.section`
         }
       }
     `};
+
+    .pickTitle10Minutes {
+      max-width: 390px;
+      ${responsive.xl`
+        max-width: 100%; 
+      `}
+    }
   }
 
   .pickListWrapper {
@@ -261,6 +270,10 @@ export const StyledPickSectionSection = styled.section`
   }
 
   .pickList10Minutes {
+    max-width: 300px;
+    ${responsive.sm`
+      max-width: 100%;
+    `}
     ${responsive.xl`
       ul {
         gap: ${rem(21)};
@@ -326,6 +339,7 @@ export const StyledPickSectionSection = styled.section`
       color: white;
       margin-bottom: ${rem(32)};
       font-weight: 500;
+      max-width: 187px;
       ${responsive.sm`
         display: none;
       `};

@@ -1,25 +1,18 @@
-'use client'
+'use client';
 
-// import { useSelector } from 'react-redux'
-import { usePathname } from 'next/navigation'
-import { useSelector } from 'react-redux'
-import { StyledHelpCenterPageWrapper } from '@/views/HelpCenterPage/HelpCenterPage.styled'
-// import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection'
-import BusinessSection from '@/sections/HelpCenterSections/BusinessSection'
-import SearchResultSection from '@/sections/HelpCenterSections/SearchResultSection'
-import PersonalSection from '@/sections/HelpCenterSections/PersonalSection'
-import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection'
-import { ArticleProvider } from '@/contexts/ArticleContext/ArticleContext'
-// import SearchResultSection from '@/sections/HelpCenterSections/SearchResultSection'
-// import PersonalSection from '@/sections/HelpCenterSections/PersonalSection'
-// import BusinessSection from '@/sections/HelpCenterSections/BusinessSection';
-// import PersonalSection from '@/sections/HelpCenterSections/PersonalSection'
+import { usePathname } from 'next/navigation';
+import { useSelector } from 'react-redux';
+import { StyledHelpCenterPageWrapper } from '@/views/HelpCenterPage/HelpCenterPage.styled';
+import BusinessSection from '@/sections/HelpCenterSections/BusinessSection';
+import SearchResultSection from '@/sections/HelpCenterSections/SearchResultSection';
+import PersonalSection from '@/sections/HelpCenterSections/PersonalSection';
+import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection';
+import { ArticleProvider } from '@/contexts/ArticleContext/ArticleContext';
 
 function HelpCenterPage({ children }) {
-  const path = usePathname()
+  const path = usePathname();
 
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
     <StyledHelpCenterPageWrapper>
       <HelpHeroSection
         page={path.search('general') !== -1 ? 'general' : null}
@@ -27,17 +20,17 @@ function HelpCenterPage({ children }) {
 
       {children}
     </StyledHelpCenterPageWrapper>
-  )
+  );
 }
 
 export function HelpCenterPageContent() {
-  const { searchValue } = useSelector((state) => state.searchHelpCenter)
-  const path = usePathname()
+  const { searchHelpCenterValue } = useSelector((state) => state.search);
+  const path = usePathname();
 
   return (
     <>
       {/* eslint-disable-next-line no-nested-ternary */}
-      {searchValue ? (
+      {searchHelpCenterValue ? (
         <SearchResultSection />
       ) : path.search('general') !== -1 ? (
         <ArticleProvider>
@@ -47,7 +40,7 @@ export function HelpCenterPageContent() {
         <BusinessSection />
       )}
     </>
-  )
+  );
 }
 
-export default HelpCenterPage
+export default HelpCenterPage;

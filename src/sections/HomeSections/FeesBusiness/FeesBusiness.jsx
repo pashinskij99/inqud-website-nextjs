@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import clsx from 'clsx'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -15,24 +16,27 @@ import {
 } from '@/components/UI/Button/Button.styled'
 import BackCart from '@/assets/images/fee/cart-back.svg'
 import { FeeModal } from '@/components/Modal/Modal'
-
-const tableData = {
-  head: [
-    'Company name',
-    'Crypto processing',
-    // 'On-ramp'
-  ],
-  body: [
-    ['Bitpay', '2% - 1% + 25¢ fixed fee'],
-    ['Switchere', '0,5%'],
-    ['Coingate', '1%'],
-    ['Coinpayments', '1%'],
-  ],
-}
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function FeesBusiness() {
   const [showModal, setShowModal] = useState(false)
   const [showMore, setShowMore] = useState(false)
+
+  const t = useTranslations('home_page.fees_section')
+  const tHead = useTranslations('home_page.fees_section.tablet.head')
+  const tBodyName = useTranslations('home_page.fees_section.tablet.body_name')
+  const tBodyValue = useTranslations('home_page.fees_section.tablet.body_value')
+  const tBodyDescription = useTranslations('home_page.fees_section.description')
+
+  const tableData = {
+    head: [tHead(keysForLocale.keys2[0]), tHead(keysForLocale.keys2[1])],
+    body: [
+      [tBodyName(keysForLocale.keys4[0]), tBodyValue(keysForLocale.keys4[0])],
+      [tBodyName(keysForLocale.keys4[1]), tBodyValue(keysForLocale.keys4[1])],
+      [tBodyName(keysForLocale.keys4[2]), tBodyValue(keysForLocale.keys4[2])],
+      [tBodyName(keysForLocale.keys4[3]), tBodyValue(keysForLocale.keys4[3])],
+    ],
+  }
 
   const handleShowModal = () => {
     setShowModal(true)
@@ -48,14 +52,15 @@ export default function FeesBusiness() {
     <StyledFeesBusinessWrapper className='fees'>
       <div className='container'>
         <div className='title-wrapper'>
-          <StyledTypographyUrbanistH2>
-            Fees <span>for your business</span>
+          <StyledTypographyUrbanistH2 className='title title-1'>
+            {t('title')}
+          </StyledTypographyUrbanistH2>
+          <StyledTypographyUrbanistH2 className='title title-2'>
+            {t('title_mobile')}
           </StyledTypographyUrbanistH2>
 
           <StyledTypographyUrbanistBody className='description'>
-            Please review the examples of market fees charged by companies. We
-            assure you that we will provide the most suitable fees for your
-            business!
+            {t('paragraph')}
           </StyledTypographyUrbanistBody>
         </div>
 
@@ -80,12 +85,6 @@ export default function FeesBusiness() {
                       <StyledTypographyUrbanistBody>
                         {value}
                       </StyledTypographyUrbanistBody>
-
-                      {/* {
-                        i === 0
-                          ? <StyledTypographyUrbanistBody>{value}</StyledTypographyUrbanistBody>
-                          :
-                      } */}
                     </td>
                   ))}
                 </tr>
@@ -101,7 +100,9 @@ export default function FeesBusiness() {
             >
               <LearnMoreText
                 showMore={showMore}
-                text='All data is sourced from publicly available information or provided by customer support of the specified companies in private correspondence. If you notice any discrepancies between the displayed information and reality, please let us know by info@inqud.com, and we will update the information accordingly.'
+                text={`${tBodyDescription(
+                  keysForLocale.keys2[0]
+                )} ${tBodyDescription(keysForLocale.keys2[1])}`}
                 endText={141}
               />
             </StyledTypographyUrbanistSmallSpaces>
@@ -114,30 +115,25 @@ export default function FeesBusiness() {
             </StyledButtonLearnMore>
 
             <StyledTypographyUrbanistSmallSpaces className='description hide'>
-              All data is sourced from publicly available information or
-              provided by customer support of the specified companies in private
-              correspondence.
+              {tBodyDescription(keysForLocale.keys2[0])}
             </StyledTypographyUrbanistSmallSpaces>
             <StyledTypographyUrbanistSmallSpaces className='description hide'>
-              If you notice any discrepancies between the displayed information
-              and reality, please let us know by info@inqud.com, and we will
-              update the information accordingly.
+              {tBodyDescription(keysForLocale.keys2[1])}
             </StyledTypographyUrbanistSmallSpaces>
           </div>
 
           <div className='cart'>
             <div className='cart-left-side'>
               <StyledTypographyUrbanistH4>
-                Submit your inquiry now for the best offer in 10 minutes
+                {t('cart_title')}
               </StyledTypographyUrbanistH4>
             </div>
             <div className='cart-right-side'>
               <StyledTypographyUrbanistBody>
-                Our team will clarify all the necessary information and prepare
-                an offer for you right away.
+                {t('cart_description')}
               </StyledTypographyUrbanistBody>
               <StyledButtonSecondaryLight onClick={handleShowModal}>
-                Get a special offer
+                {t('cart_button_text')}
               </StyledButtonSecondaryLight>
             </div>
             <BackCart className='cart-back' />

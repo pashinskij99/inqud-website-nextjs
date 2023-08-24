@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyIBMH4,
   StyledTypographyUrbanistBody,
@@ -8,51 +9,52 @@ import {
   StyledCoreSectionWrapper,
   StyledGridCartWrapper,
 } from './CoreSection.styled'
-
-const grid = [
-  {
-    id: '01',
-    title: 'Trustworthiness',
-    description:
-      'Reliable and secure financial technology services with utmost integrity.',
-  },
-  {
-    id: '02',
-    title: 'Client-centric',
-    description:
-      'Understanding unique needs, delivering personalized solutions.',
-  },
-  {
-    id: '03',
-    title: 'Expertise',
-    description:
-      'Deep knowledge in finance, crypto, tech, and payments for quality solutions.',
-  },
-  {
-    id: '04',
-    title: 'Transparency',
-    description:
-      'Clear operations, pricing, and policies for client understanding..',
-  },
-  {
-    id: '05',
-    title: 'Commitment',
-    description:
-      'Dedicated to client success, exceeding expectations and supporting growth.',
-  },
-  {
-    id: '06',
-    title: 'Growth together',
-    description: 'Our growth is intertwined with the success of our customers.',
-  },
-]
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function CoreSection() {
+  const t = useTranslations('company_page.our_core_section')
+  const tTitles = useTranslations('company_page.our_core_section.items_title')
+  const tDescriptions = useTranslations(
+    'company_page.our_core_section.items_description'
+  )
+
+  const grid = [
+    {
+      id: '01',
+      title: tTitles(keysForLocale.keys6[0]),
+      description: tDescriptions(keysForLocale.keys6[0]),
+    },
+    {
+      id: '02',
+      title: tTitles(keysForLocale.keys6[1]),
+      description: tDescriptions(keysForLocale.keys6[1]),
+    },
+    {
+      id: '03',
+      title: tTitles(keysForLocale.keys6[2]),
+      description: tDescriptions(keysForLocale.keys6[2]),
+    },
+    {
+      id: '04',
+      title: tTitles(keysForLocale.keys6[3]),
+      description: tDescriptions(keysForLocale.keys6[3]),
+    },
+    {
+      id: '05',
+      title: tTitles(keysForLocale.keys6[4]),
+      description: tDescriptions(keysForLocale.keys6[4]),
+    },
+    {
+      id: '06',
+      title: tTitles(keysForLocale.keys6[5]),
+      description: tDescriptions(keysForLocale.keys6[5]),
+    },
+  ]
   return (
     <StyledCoreSectionWrapper>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='title'>
-          Our core values
+          {t('title')}
         </StyledTypographyUrbanistH2>
 
         <ul className='grid'>

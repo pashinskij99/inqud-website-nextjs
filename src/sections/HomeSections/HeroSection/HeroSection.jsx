@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Fragment } from 'react'
+import { useTranslations } from 'next-intl'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import {
   StyledHeroSectionWrapper,
@@ -30,20 +31,7 @@ import {
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
-
-const features = [
-  { id: 0, text: 'Payments without refunds' },
-  {
-    id: 1,
-    text: (
-      <>
-        24/7 <span>expert &</span> caring support
-      </>
-    ),
-  },
-  { id: 2, text: 'Tailored payment options' },
-  { id: 3, text: 'No hidden fees' },
-]
+import { keysForLocale } from '@/config/keysForLocale'
 
 const methodsPayment = [
   { id: 0, text: 'BTC', icon: <Val1 /> },
@@ -58,28 +46,59 @@ const methodsPayment = [
 ]
 
 export default function HeroSection() {
+  const t = useTranslations('home_page.hero_section')
+  const tList = useTranslations('home_page.hero_section.features_list_text')
+  const tListMobile = useTranslations(
+    'home_page.hero_section.features_list_textMobile'
+  )
+
+  const features = [
+    {
+      id: 0,
+      text: tList(keysForLocale.keys4[0]),
+      textMobile: tListMobile(keysForLocale.keys4[0]),
+    },
+    {
+      id: 1,
+      text: tList(keysForLocale.keys4[1]),
+      textMobile: tListMobile(keysForLocale.keys4[1]),
+    },
+    {
+      id: 2,
+      text: tList(keysForLocale.keys4[2]),
+      textMobile: tListMobile(keysForLocale.keys4[2]),
+    },
+    {
+      id: 3,
+      text: tList(keysForLocale.keys4[3]),
+      textMobile: tListMobile(keysForLocale.keys4[3]),
+    },
+  ]
+
   return (
     <StyledHeroSectionWrapper>
       <div className='container'>
         <div className='leftSide'>
           <MobileGrid />
           <StyledTypographyIBMH5 className='subTitle'>
-            For business
+            {t('sub_title')}
           </StyledTypographyIBMH5>
           <StyledTypographyUrbanistH1 className='title'>
-            Bespoke diversity crypto payments
+            {t('title')}
           </StyledTypographyUrbanistH1>
           <StyledTypographyUrbanistH5 className='paragraph'>
-            Inqud is the trusted partner and provider of tailored crypto & fiat
-            payment solutions.
+            {t('paragraph')}
           </StyledTypographyUrbanistH5>
 
           <ul className='features'>
-            {features.map(({ id, text }) => (
+            {features.map(({ id, text, textMobile }) => (
               <li key={id}>
                 <Check />
-                <StyledTypographyUrbanistBody key={id}>
+                <StyledTypographyUrbanistBody className='features-title features-title-1'>
                   {text}
+                </StyledTypographyUrbanistBody>
+                <StyledTypographyUrbanistBody className='features-title features-title-2'>
+                  {textMobile}
                 </StyledTypographyUrbanistBody>
               </li>
             ))}
@@ -88,12 +107,12 @@ export default function HeroSection() {
           <div className='buttonsWrapper'>
             <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
               <ButtonGetStarted className='getStarted'>
-                Get started
+                {t('button_text_get_started')}
               </ButtonGetStarted>
             </Link>
 
             <StyledButtonGhost className='ghostButton'>
-              Contact sales
+              {t('button_text_contact_sales')}
             </StyledButtonGhost>
           </div>
 
@@ -128,10 +147,12 @@ function MobileGrid() {
 }
 
 export function PaymentList() {
+  const t = useTranslations('home_page.hero_section')
+
   return (
     <StyledPaymentListWrapper className='payment'>
       <StyledTypographyUrbanistBody className='payment-descr'>
-        Supported currencies
+        {t('crypto_list_title')}
       </StyledTypographyUrbanistBody>
 
       <ul className='payment-list'>

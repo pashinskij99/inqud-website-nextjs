@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
+import { useTranslations } from 'next-intl'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import { StyledBlogsSection } from './BlogsSection.styled'
 import Image1 from '@/assets/images/blogs/image1.webp'
@@ -37,16 +38,18 @@ const blogs = [
 ]
 
 export default function BlogsSection() {
+  const t = useTranslations('home_page.insights_section')
+
   return (
     <StyledBlogsSection>
       <div className='container'>
         <div className='blogsHeader'>
           <StyledTypographyUrbanistH2 className='blogsHeaderTitle'>
-            Insights
+            {t('title')}
           </StyledTypographyUrbanistH2>
           <Link href='/blog'>
             <StyledButtonGhost className='blogsHeaderButton'>
-              Go to blog
+              {t('button_title')}
             </StyledButtonGhost>
           </Link>
         </div>

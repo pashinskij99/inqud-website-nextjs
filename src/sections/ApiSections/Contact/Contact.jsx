@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH4,
@@ -10,21 +11,26 @@ import Icon2 from '@/assets/images/api/contact/icon2.svg'
 import background from '@/assets/images/api/contact/background.webp'
 import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
-
-export const grid = [
-  {
-    id: 0,
-    icon: <Icon1 />,
-    title: 'Tailored fee structure based on your niche',
-  },
-  {
-    id: 1,
-    icon: <Icon2 />,
-    title: 'Catering to your every unique requirement',
-  },
-]
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function Contact() {
+  const t = useTranslations('api_page.contact')
+  const t2 = useTranslations('home_page.your_needs_section.modal')
+  const tList = useTranslations('api_page.contact.items')
+
+  const grid = [
+    {
+      id: 0,
+      icon: <Icon1 />,
+      title: tList(keysForLocale.keys2[0]),
+    },
+    {
+      id: 1,
+      icon: <Icon2 />,
+      title: tList(keysForLocale.keys2[1]),
+    },
+  ]
+
   return (
     <StyledContactWrapper>
       <Image
@@ -36,7 +42,8 @@ export default function Contact() {
       <div className='container'>
         <form className='form'>
           <StyledTypographyUrbanistH4 className='title'>
-            <span>Get a personalized proposal</span> within 24 hours
+            <span>{t('title_wrapper_selected')}</span>{' '}
+            {t('title_wrapper_not_selected')}
           </StyledTypographyUrbanistH4>
 
           <ul className='grid'>
@@ -52,7 +59,7 @@ export default function Contact() {
 
           <InputSendRequest
             className='input'
-            label='Email'
+            label={t('email_wrapper_label')}
             placeholder='example@mail.com'
           />
           <TextAreaSendRequest
@@ -62,15 +69,14 @@ export default function Contact() {
           />
 
           <StyledButtonSecondary className='submit-btn submit-btn-1'>
-            Get proposal
+            {t('button_text')}
           </StyledButtonSecondary>
           <StyledButtonSecondary className='submit-btn submit-btn-2'>
-            Submit
+            {t2('button_text')}
           </StyledButtonSecondary>
 
           <StyledTypographyUrbanistSmallSpaces className='description'>
-            by submitting this form, you contirm that you agree to the storing
-            and processing of your personal data
+            {t('footer_text')}
           </StyledTypographyUrbanistSmallSpaces>
         </form>
       </div>

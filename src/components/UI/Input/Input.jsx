@@ -45,7 +45,7 @@ export function InputSearch(props) {
     classNameIcon,
     className,
     value,
-    handleChange,
+    handleClear,
   } = props
 
   return (
@@ -55,7 +55,7 @@ export function InputSearch(props) {
       {/* </button> */}
       <input className={clsx('input', className)} {...props} />
       <Close
-        onClick={() => handleChange('')}
+        onClick={() => handleClear('')}
         className={clsx('close', {
           ['active']: value,
         })}

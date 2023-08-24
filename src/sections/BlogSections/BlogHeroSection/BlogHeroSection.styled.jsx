@@ -58,6 +58,8 @@ export const StyledBlogHeroSectionWrapper = styled.section`
     font-weight: 400;
     line-height: 62px;
     letter-spacing: 0em;
+    max-width: 678px;
+    margin: 0 auto;
     ${responsive.xxl`
       margin-bottom: ${rem(14)};
     `}
@@ -71,6 +73,7 @@ export const StyledBlogHeroSectionWrapper = styled.section`
       font-weight: 400;
       line-height: 46px;
       letter-spacing: -0.02em;
+      max-width: 100%;
 
       margin-bottom: ${rem(8)};
       br {

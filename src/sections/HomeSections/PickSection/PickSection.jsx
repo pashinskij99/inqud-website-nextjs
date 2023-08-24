@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -13,80 +14,65 @@ import Message from '@/assets/icons/message-pick.svg'
 import Dolar from '../../../assets/images/api/pick/icon1.svg'
 import SpecificNeeds from '@/assets/icons/specific-needs-pick.svg'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
-
-const list1 = [
-  {
-    id: 0,
-    text: (
-      <>
-        additional payment assistance for <br /> effective issue resolution
-      </>
-    ),
-  },
-  {
-    id: 1,
-    text: (
-      <>
-        client retention, cost-effectiveness, <br /> and time efficiency
-      </>
-    ),
-  },
-  { id: 2, text: 'niche-specialized provider' },
-]
-
-const list1Mobile = [
-  {
-    id: 0,
-    text: <>Client retention, cost-effectiveness</>,
-  },
-  {
-    id: 1,
-    text: <>Additional payment assistance</>,
-  },
-  { id: 2, text: 'Niche-specialized provider' },
-]
-
-const list2 = [
-  {
-    id: 0,
-    text: (
-      <>
-        24/7 personal manager at <br />
-        your service
-      </>
-    ),
-    icon: <Message />,
-  },
-  {
-    id: 1,
-    text: (
-      <>
-        Tailored solutions to fit your
-        <br />
-        specific needs
-      </>
-    ),
-    icon: <SpecificNeeds />,
-  },
-  { id: 2, text: <>Priority in solving your issues</>, icon: <Priority /> },
-]
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function PickSection({ variant, className }) {
+  const t = useTranslations('home_page.dont_lose_api_section')
+  const tList = useTranslations(
+    'home_page.dont_lose_api_section.list_item_title'
+  )
+  const tListMobile = useTranslations(
+    'home_page.dont_lose_api_section.list_item_title_mobile'
+  )
+
+  const t2 = useTranslations('home_page.10_minutes_section')
+  const tList2 = useTranslations('home_page.10_minutes_section.list_item_text')
+
+  const list1 = [
+    {
+      id: 0,
+      text: tList(keysForLocale.keys3[0]),
+    },
+    {
+      id: 1,
+      text: tList(keysForLocale.keys3[1]),
+    },
+    { id: 2, text: tList(keysForLocale.keys3[2]) },
+  ]
+
+  const list1Mobile = [
+    {
+      id: 0,
+      text: tListMobile(keysForLocale.keys3[0]),
+    },
+    {
+      id: 1,
+      text: tListMobile(keysForLocale.keys3[1]),
+    },
+    { id: 2, text: tListMobile(keysForLocale.keys3[2]) },
+  ]
+
+  const list2 = [
+    {
+      id: 0,
+      text: tList2(keysForLocale.keys3[0]),
+      icon: <Message />,
+    },
+    {
+      id: 1,
+      text: tList2(keysForLocale.keys3[1]),
+      icon: <SpecificNeeds />,
+    },
+    { id: 2, text: tList2(keysForLocale.keys3[2]), icon: <Priority /> },
+  ]
+
   return (
     <StyledPickSectionSection className={clsx(className, 'container')}>
       <StyledTypographyUrbanistH2 className='pickTitle'>
         {variant === 'dontLose' ? (
-          <div className='pickTitleDontLose'>
-            Don&apos;t lose <br />
-            crypto-paying <br />
-            customers!
-          </div>
+          <div className='pickTitleDontLose'>{t('title')}</div>
         ) : (
-          <div className='pickTitle10Minutes'>
-            10 minutes <br />
-            of free expert <br />
-            consultation
-          </div>
+          <div className='pickTitle10Minutes'>{t2('title')}</div>
         )}
       </StyledTypographyUrbanistH2>
 
@@ -109,30 +95,24 @@ export default function PickSection({ variant, className }) {
         <Pick />
 
         <StyledTypographyUrbanistBody className='pickPickDescription'>
-          Pick a time that works <br /> best for you
+          {t('pick_description')}
         </StyledTypographyUrbanistBody>
 
         <StyledButtonSecondaryLight className='pickPickButton'>
-          Book a free consultation
+          {t('pick_button_text')}
         </StyledButtonSecondaryLight>
-        {/* <StyledButtonSecondaryLight className='pickPickButton'>
-          Book a consultation
-        </StyledButtonSecondaryLight> */}
-        {/* {variant !== 'dontLose' && (
-          <StyledButtonSecondaryLight className='pickPickButtonTablet desktop'>
-            Book a demo
-          </StyledButtonSecondaryLight>
-        )} */}
       </div>
     </StyledPickSectionSection>
   )
 }
 
 export function PickListDontLose({ list }) {
+  const t = useTranslations('home_page.dont_lose_api_section')
+
   return (
-    <div className='pickList'>
+    <div className='pickList pickList_dontLose'>
       <StyledTypographyUrbanistH5 className='pickListTitle'>
-        If you are looking for:
+        {t('list_title')}
       </StyledTypographyUrbanistH5>
       <ul>
         {list.map(({ id, text }) => (
@@ -165,34 +145,30 @@ export function PickList10Minutes({ list }) {
   )
 }
 
-const listApiSection = [
-  { id: 2, text: <>Customized pricing for your niche</>, icon: <Dolar /> },
-
-  {
-    id: 1,
-    text: <>Tailored payment options</>,
-    icon: <SpecificNeeds />,
-  },
-  {
-    id: 0,
-    text: <>Answering all your questions</>,
-    icon: <Message />,
-  },
-]
-
 export function PickApiSection({ className }) {
+  const t = useTranslations('api_page.get_personalized_section')
+  const tList = useTranslations('api_page.get_personalized_section.list_item')
+
+  const listApiSection = [
+    { id: 2, text: tList(keysForLocale.keys3[0]), icon: <Dolar /> },
+
+    {
+      id: 1,
+      text: tList(keysForLocale.keys3[1]),
+      icon: <SpecificNeeds />,
+    },
+    {
+      id: 0,
+      text: tList(keysForLocale.keys3[2]),
+      icon: <Message />,
+    },
+  ]
+
   return (
     <StyledPickSectionSection className={clsx(className, 'container')}>
       <StyledTypographyUrbanistH3 className='pickTitle pickTitleApi'>
-        <span>
-          Get a personalized <br className='br-mobile' />
-          <br className='br-desktop' /> free consultation
-        </span>{' '}
-        <br className='br-tablet' />
-        <br className='br-mobile' /> with <br className='br-desktop' /> a
-        payment <br className='br-mobile' /> solutions
-        <br className='br-mobile' /> <br className='br-desktop' /> market{' '}
-        <br className='br-tablet' /> expert
+        <span>{t('title').slice(0, 36)}</span>{' '}
+        {t('title').slice(36, t('title').length)}
       </StyledTypographyUrbanistH3>
 
       <div className='pickListWrapper'>
@@ -203,15 +179,15 @@ export function PickApiSection({ className }) {
         <Pick />
 
         <StyledTypographyUrbanistBody className='pickPickDescription'>
-          Pick a time that works <br /> best for you
+          {t('pick_description')}
         </StyledTypographyUrbanistBody>
 
         <StyledButtonSecondaryLight className='pickPickButton pickPickButtonApi-1'>
-          Book a free consultation
+          {t('pick_button_text')}
         </StyledButtonSecondaryLight>
 
         <StyledButtonSecondaryLight className='pickPickButton pickPickButtonApi-2'>
-          Book a consultation
+          {t('pick_button_text')}
         </StyledButtonSecondaryLight>
       </div>
     </StyledPickSectionSection>

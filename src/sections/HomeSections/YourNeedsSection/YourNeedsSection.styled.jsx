@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
-import {rem} from '@/utils/rem'
-import {responsive} from '@/utils/response'
+import styled from '@emotion/styled';
+import { rem } from '@/utils/rem';
+import { responsive } from '@/utils/response';
 
 export const YourNeedsSectionWrapper = styled.section`
   text-align: center;
@@ -236,31 +236,7 @@ export const YourNeedsSectionWrapper = styled.section`
       display: block;
     `};
   }
-`
-
-export const StyledCustomScrollbarWrapper = styled.div`
-  position: absolute;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  bottom: -${rem(46)};
-  width: fit-content;
-  ${responsive.sm`
-    bottom: -${rem(36)};
-  `};
-
-  .scrollBarLine {
-    height: 2px;
-    background: rgba(81, 113, 133, 0.2);
-  }
-
-  .scrollBarLineActive {
-    position: absolute;
-    top: 0;
-    background-color: rgba(7, 116, 83, 1);
-    height: 2px;
-  }
-`
+`;
 
 export const StyledCoinsListWrapper = styled.div`
   display: none;
@@ -272,4 +248,4 @@ export const StyledCoinsListWrapper = styled.div`
     display: flex;
     column-gap: ${rem(15)};
   `}
-`
+`;

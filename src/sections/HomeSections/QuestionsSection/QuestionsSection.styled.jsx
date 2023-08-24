@@ -1,7 +1,7 @@
-import styled from '@emotion/styled'
-import {Accordion, AccordionSummary, AccordionDetails} from '@mui/material'
-import {rem} from '@/utils/rem'
-import {responsive} from '@/utils/response'
+import styled from '@emotion/styled';
+import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
+import { rem } from '@/utils/rem';
+import { responsive } from '@/utils/response';
 
 export const StyledQuestionsSection = styled.section`
   padding: 200px 0;
@@ -133,7 +133,7 @@ export const StyledQuestionsSection = styled.section`
           // margin: auto 0;
           // right: ${rem(16)};
         `};
-          /* circle {
+        /* circle {
           ${responsive.sm`
             fill: #517185;
           `};
@@ -156,7 +156,7 @@ export const StyledQuestionsSection = styled.section`
       fontSize: ${rem(18)};
     `}
   }
-`
+`;
 
 export const StyledQuestionsSectionAccordion = styled((props) => (
   <Accordion disableGutters elevation={0} square {...props} />
@@ -176,13 +176,13 @@ export const StyledQuestionsSectionAccordion = styled((props) => (
   '& .css-1uh3lx7-MuiAccordionDetails-root': {
     border: 'none',
   },
-}))
+}));
 
 export const StyledQuestionsSectionAccordionSummary = styled((props) => (
   <AccordionSummary {...props} />
-))((props) => ({
+))(({ expanded }) => ({
   padding: `${rem(25)} ${rem(32)} ${rem(21)}`,
-  paddingBottom: `${props.expanded ? '0' : `${rem(21)}`}`,
+  paddingBottom: `${expanded ? '0' : `${rem(21)}`}`,
   lineHeight: 1,
   height: 'fit-content',
   '& .css-1betqn-MuiAccordionSummary-content, & .MuiAccordionSummary-content.css-1n11r91':
@@ -190,7 +190,7 @@ export const StyledQuestionsSectionAccordionSummary = styled((props) => (
       margin: 0,
     },
   '& .questionsAccordionTitle': {
-    fontWeight: `${props.expanded ? '700' : '400'}`,
+    fontWeight: `${expanded ? '700' : '400'}`,
     '@media (max-width: 767px)': {
       fontSize: '18px',
     },
@@ -205,10 +205,10 @@ export const StyledQuestionsSectionAccordionSummary = styled((props) => (
     },
   },
   transition: 'padding 0.3s ease',
-}))
+}));
 
 export const StyledQuestionsSectionAccordionDetails = styled(AccordionDetails)(
-  (props) => ({
+  ({ expanded }) => ({
     // background: '#FFA3A3',
     padding: `0 ${rem(120)} ${rem(10)} ${rem(32)}`,
     display: 'flex',
@@ -225,10 +225,8 @@ export const StyledQuestionsSectionAccordionDetails = styled(AccordionDetails)(
       '@media (max-width: 767px)': {
         maxWidth: '100%',
       },
-      transform: `${
-        props.expanded ? `translateY(-${rem(26)})` : 'translateY(0)'
-      }`,
+      transform: `${expanded ? `translateY(-${rem(26)})` : 'translateY(0)'}`,
       transition: '0.3s ease',
     },
   })
-)
+);

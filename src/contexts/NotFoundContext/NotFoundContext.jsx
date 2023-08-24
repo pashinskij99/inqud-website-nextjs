@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
-import { createContext, useMemo, useState } from 'react'
+import { createContext, useMemo, useState } from 'react';
 
-export const NotFoundContext = createContext()
+export const NotFoundContext = createContext(null);
 
 export function NotFoundProvider({ children }) {
-  const [isNotFound, setIsNotFound] = useState(false)
+  const [isNotFound, setIsNotFound] = useState(false);
 
   const value = useMemo(
     () => ({
@@ -13,11 +13,11 @@ export function NotFoundProvider({ children }) {
       setIsNotFound,
     }),
     [isNotFound]
-  )
+  );
 
   return (
     <NotFoundContext.Provider value={value}>
       {children}
     </NotFoundContext.Provider>
-  )
+  );
 }

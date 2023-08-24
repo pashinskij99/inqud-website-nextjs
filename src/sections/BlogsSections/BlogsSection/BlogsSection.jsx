@@ -1,167 +1,92 @@
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { useContext } from 'react'
 import { StyledBlogsSectionWrapper } from '@/sections/BlogsSections/BlogsSection/BlogsSection.styled'
 import BlogCategoryNavigation from '@/sections/BlogsSections/BlogsSection/BlogCategoryNavigation'
 import { BlogCart } from '@/components/BlogCart'
-import image1 from '@/assets/images/blog-page/1.webp'
-import image2 from '@/assets/images/blog-page/2.webp'
-import image3 from '@/assets/images/blog-page/3.webp'
-import image4 from '@/assets/images/blog-page/4.webp'
-import image5 from '@/assets/images/blog-page/5.webp'
-import image6 from '@/assets/images/blog-page/6.webp'
-import image7 from '@/assets/images/blog-page/7.webp'
-import image8 from '@/assets/images/blog-page/8.webp'
-import image9 from '@/assets/images/blog-page/9.webp'
-import image10 from '@/assets/images/blog-page/10.webp'
-import image11 from '@/assets/images/blog-page/11.webp'
-import image12 from '@/assets/images/blog-page/12.webp'
 import { ButtonLoadMoreLarge } from '@/components/UI/Button'
 import BlogPagination from '@/sections/BlogsSections/BlogsSection/BlogPagination'
+import { BlogContext } from '@/contexts/BlogContext/BlogContext'
 
 function BlogsSection() {
+  const { data, searchParams, pagination } = useContext(BlogContext)
+
+  const t = useTranslations('insights_page.blogs')
   return (
     <StyledBlogsSectionWrapper>
       {/* eslint-disable-next-line no-use-before-define */}
-      <BlogCategoryNavigation category={category} />
+      <BlogCategoryNavigation />
 
       <div className='container'>
         <ul className='blog-grid'>
           {/* eslint-disable-next-line no-use-before-define */}
-          {data.map(({ id, date, imageSrc, subTitle, time, title }) => (
-            <li key={id}>
-              <Link href='/blog/1'>
-                <BlogCart
-                  time={time}
-                  date={date}
-                  title={title}
-                  imageSrc={imageSrc}
-                  subTitle={subTitle}
-                />
-              </Link>
-            </li>
-          ))}
+          {data.map(
+            ({
+              id,
+              dateAndTime,
+              mainImage: { url },
+              tags,
+              mainTitle,
+              slugPage,
+            }) => (
+              <li key={id}>
+                <Link href={`/blog/${slugPage}`}>
+                  <BlogCart
+                    time={dateAndTime}
+                    date={dateAndTime}
+                    title={mainTitle}
+                    imageSrc={url}
+                    subTitle={tags[0].tag}
+                  />
+                </Link>
+              </li>
+            )
+          )}
         </ul>
 
-        <ButtonLoadMoreLarge className='loadMoreButton'>
-          Load more
-        </ButtonLoadMoreLarge>
+        {pagination.first >= pagination.count ? (
+          <Link
+            href={{
+              query: {
+                ...searchParams,
+                first: 3,
+              },
+            }}
+          >
+            <ButtonLoadMoreLarge className='loadMoreButton'>
+              Load less
+            </ButtonLoadMoreLarge>
+          </Link>
+        ) : (
+          <Link
+            href={{
+              query: {
+                ...searchParams,
+                first: pagination.first + 3,
+              },
+            }}
+          >
+            <ButtonLoadMoreLarge className='loadMoreButton'>
+              {t('button_text')}
+            </ButtonLoadMoreLarge>
+          </Link>
+        )}
 
-        <BlogPagination page={1} pageSize={12} total={322} />
+        {/* 
+        {console.log(
+          Math.floor(pagination.count / pagination.skip),
+          pagination.first,
+          pagination.count
+        )} */}
+
+        <BlogPagination
+          page={Math.floor(pagination.skip / pagination.first + 1 || 1)}
+          pageSize={pagination.first}
+          total={pagination.count}
+        />
       </div>
     </StyledBlogsSectionWrapper>
   )
 }
 
 export default BlogsSection
-
-const category = [
-  { name: 'ALL' },
-  { name: 'onramp' },
-  { name: 'offramp' },
-  { name: 'cryptocurrency' },
-  { name: 'gambling' },
-  { name: 'betting' },
-  { name: 'case studies' },
-  { name: 'pink market' },
-  { name: 'e-commerce' },
-  { name: 'fiat' },
-  { name: 'payment methods' },
-]
-
-const data = [
-  {
-    id: 0,
-    imageSrc: image1,
-    subTitle: 'cryptocurrency',
-    title: 'Introduction to Cryptocurrency for Beginners',
-    date: 'June 21, 2023',
-    time: '5 min read',
-  },
-  {
-    id: 1,
-    imageSrc: image2,
-    subTitle: 'cryptocurrency',
-    title: 'Exploring the Most Promising Cryptocurrencies of 2023',
-    date: 'June 21, 2023',
-    time: '5 min read',
-  },
-  {
-    id: 2,
-    imageSrc: image3,
-    subTitle: 'cryptocurrency',
-    title: 'How to Sell Cryptocurrencies on Our Platform',
-    date: 'June 21, 2023',
-    time: '5 min read',
-  },
-  {
-    id: 3,
-    imageSrc: image4,
-    subTitle: 'cryptocurrency',
-    title: 'Introduction to Cryptocurrency for Beginners',
-    date: 'June 21, 2023',
-    time: '5 min read',
-  },
-  {
-    id: 4,
-    imageSrc: image5,
-    subTitle: 'cryptocurrency',
-    title: 'Why INQUD-like Platforms are Vital in the Crypto World',
-    date: 'June 21, 2023',
-    time: '5 min read',
-  },
-  {
-    id: 5,
-    imageSrc: image6,
-    subTitle: 'cryptocurrency',
-    title: 'Understanding Blockchain Technology',
-    date: 'June 21, 2023',
-    time: '5 min read',
-  },
-  {
-    id: 6,
-    imageSrc: image7,
-    subTitle: 'cryptocurrency',
-    title: 'Understanding Blockchain Technology',
-    date: 'June 21, 2023',
-    time: '5 min read',
-  },
-  {
-    id: 7,
-    imageSrc: image8,
-    subTitle: 'cryptocurrency',
-    title: 'How to Sell Cryptocurrencies on Our Platform',
-    date: 'June 21, 2023',
-    time: '5 min read',
-  },
-  {
-    id: 8,
-    imageSrc: image9,
-    subTitle: 'cryptocurrency',
-    title: 'Exploring the Most Promising Cryptocurrencies of 2023',
-    date: 'June 21, 2023',
-    time: '5 min read',
-  },
-  {
-    id: 9,
-    imageSrc: image10,
-    subTitle: 'cryptocurrency',
-    title: 'Introduction to Cryptocurrency for Beginners',
-    date: 'June 21, 2023',
-    time: '5 min read',
-  },
-  {
-    id: 10,
-    imageSrc: image11,
-    subTitle: 'cryptocurrency',
-    title: 'Exploring the Most Promising Cryptocurrencies of 2023',
-    date: 'June 21, 2023',
-    time: '5 min read',
-  },
-  {
-    id: 11,
-    imageSrc: image12,
-    subTitle: 'cryptocurrency',
-    title: 'How to Sell Cryptocurrencies on Our Platform',
-    date: 'June 21, 2023',
-    time: '5 min read',
-  },
-]

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistH3,
   StyledTypographyUrbanistH5,
@@ -11,28 +12,38 @@ import Icon1 from '../../../assets/images/api/instant/icon1.svg'
 import Icon2 from '../../../assets/images/api/instant/icon2.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-
-const grid = [
-  {
-    id: 0,
-    icon: <Icon1 />,
-    description: 'Mitigate cash handling risks and platforms unreliability',
-  },
-  { id: 1, icon: <Icon2 />, description: 'Reduce transaction costs' },
-]
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function InstantFree() {
+  const t = useTranslations('api_page.instant_fee_section')
+  const tFeatures = useTranslations(
+    'api_page.instant_fee_section.features_list'
+  )
+  const tButtonsGetStarted = useTranslations(
+    'api_page.instant_fee_section.button_get_started'
+  )
+  const tButtonsContactSales = useTranslations(
+    'api_page.instant_fee_section.button_contact_sales'
+  )
+
+  const grid = [
+    {
+      id: 0,
+      icon: <Icon1 />,
+      description: tFeatures(keysForLocale.keys2[0]),
+    },
+    { id: 1, icon: <Icon2 />, description: tFeatures(keysForLocale.keys2[1]) },
+  ]
+
   return (
     <StyledInstantFreeWrapper>
       <div className='container'>
         <div className='left-side'>
           <StyledTypographyUrbanistH3 className='title'>
-            Instant Free A2A Payments for Merchants
+            {t('title')}
           </StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistH5 className='description'>
-            Seamlessly connect with your partners and enjoy fee-free
-            transactions for sending and receiving payments within Inqud in
-            seconds.
+            {t('description')}
           </StyledTypographyUrbanistH5>
 
           <div className='grid'>
@@ -49,18 +60,18 @@ export default function InstantFree() {
           <div className='buttonsWrapper'>
             <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
               <ButtonGetStarted className='getStarted getStarted-1'>
-                Get started now
+                {tButtonsGetStarted(keysForLocale.keys2[0])}
               </ButtonGetStarted>
               <ButtonGetStarted className='getStarted getStarted-2'>
-                Get started
+                {tButtonsGetStarted(keysForLocale.keys2[1])}
               </ButtonGetStarted>
             </Link>
 
             <StyledButtonGhost className='ghostButton ghostButton-1'>
-              Contact an expert
+              {tButtonsContactSales(keysForLocale.keys2[0])}
             </StyledButtonGhost>
             <StyledButtonGhost className='ghostButton ghostButton-2'>
-              Contact sales
+              {tButtonsContactSales(keysForLocale.keys2[1])}
             </StyledButtonGhost>
           </div>
         </div>

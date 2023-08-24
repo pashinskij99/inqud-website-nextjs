@@ -1,41 +1,46 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
-import { StyledApiHeroSectionWrapper } from './ApiHeroSection.styled'
+import Link from 'next/link';
+import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection';
+import { StyledApiHeroSectionWrapper } from './ApiHeroSection.styled';
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistBody,
-} from '@/components/UI/Typography/Typography.styled'
-import { PaymentList } from '@/sections/HomeSections/HeroSection/HeroSection'
-import Check from '@/assets/icons/check-green-background.svg'
-import { ButtonGetStarted } from '@/components/UI/Button'
-import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import codeImage from '@/assets/images/api/code.webp'
-
-const features = [
-  { id: 0, text: '2 days seamless Integration' },
-  {
-    id: 1,
-    text: 'Developer-friendly docs',
-  },
-  { id: 2, text: 'Dedicated technical support' },
-  { id: 3, text: 'Zero chargebacks' },
-]
+} from '@/components/UI/Typography/Typography.styled';
+import { PaymentList } from '@/sections/HomeSections/HeroSection/HeroSection';
+import Check from '@/assets/icons/check-green-background.svg';
+import { ButtonGetStarted } from '@/components/UI/Button';
+import { StyledButtonGhost } from '@/components/UI/Button/Button.styled';
+import codeImage from '@/assets/images/api/code.webp';
+import { keysForLocale } from '@/config/keysForLocale';
 
 export default function ApiHeroSection() {
+  const t = useTranslations('api_page.hero_section');
+  const tFeatures = useTranslations('api_page.hero_section.features_list');
+
+  const features = [
+    { id: 0, text: tFeatures(keysForLocale.keys4[0]) },
+    {
+      id: 1,
+      text: tFeatures(keysForLocale.keys4[1]),
+    },
+    { id: 2, text: tFeatures(keysForLocale.keys4[2]) },
+    { id: 3, text: tFeatures(keysForLocale.keys4[3]) },
+  ];
+
   return (
     <StyledApiHeroSectionWrapper>
-      <div className='container'>
-        <div className='left-side'>
-          <SubTitle className='sub-title'>API</SubTitle>
-          <StyledTypographyUrbanistH1 className='title title-1'>
-            Reach API customers around the world
+      <div className="container">
+        <div className="left-side">
+          <SubTitle className="sub-title">{t('sub_title')}</SubTitle>
+          <StyledTypographyUrbanistH1 className="title title-1">
+            {t('title')}
           </StyledTypographyUrbanistH1>
-          <StyledTypographyUrbanistH1 className='title title-2'>
-            Reach crypto customers around the world
+          <StyledTypographyUrbanistH1 className="title title-2">
+            {t('title')}
           </StyledTypographyUrbanistH1>
 
-          <ul className='features'>
+          <ul className="features">
             {features.map(({ id, text }) => (
               <li key={id}>
                 <Check />
@@ -46,26 +51,31 @@ export default function ApiHeroSection() {
             ))}
           </ul>
 
-          <div className='buttonsWrapper'>
-            <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
-              <ButtonGetStarted className='getStarted'>
-                Get started
+          <div className="buttonsWrapper">
+            <Link target="_blank" href="https://cabinet.inqud.com/#/signup">
+              <ButtonGetStarted className="getStarted">
+                {t('button_text_get_started')}
               </ButtonGetStarted>
             </Link>
 
-            <StyledButtonGhost className='ghostButton'>
-              Get proposal
+            <StyledButtonGhost className="ghostButton">
+              {t('button_text_contact_sales')}
             </StyledButtonGhost>
           </div>
 
           <PaymentList />
         </div>
-        <div className='right-side'>
-          <div className='cart'>
-            <Image src={codeImage.src} width={500} height={488} />
+        <div className="right-side">
+          <div className="cart">
+            <Image
+              src={codeImage.src}
+              width={500}
+              height={488}
+              alt={t('title')}
+            />
           </div>
         </div>
       </div>
     </StyledApiHeroSectionWrapper>
-  )
+  );
 }

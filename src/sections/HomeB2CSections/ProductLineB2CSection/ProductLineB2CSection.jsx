@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -30,147 +31,164 @@ import picture3 from '@/assets/images/homeB2C/product-line/Picture3.png'
 import picture3Tablet from '@/assets/images/homeB2C/product-line/Picture3-tablet.png'
 import picture3Mobile from '@/assets/images/homeB2C/product-line/Picture3-mobile.png'
 import { ButtonGetStarted } from '@/components/UI/Button'
-
-const tabs = [
-  {
-    id: 'personal',
-    text: 'Personal wallet',
-    textMobie: 'Personal',
-  },
-  {
-    id: 'exchange',
-    text: 'Exchange',
-    textMobie: 'Exchange',
-  },
-  {
-    id: 'transfer',
-    text: 'Transfer',
-    textMobie: 'Transfer',
-  },
-]
-
-const tabsMobile = [
-  {
-    id: 'personal',
-    text: 'Personal',
-  },
-  {
-    id: 'exchange',
-    text: 'Exchange',
-  },
-  {
-    id: 'transfer',
-    text: 'Transfer',
-  },
-]
-
-const gridPersonal = [
-  {
-    id: 0,
-    icon: <Icon1 />,
-    title: 'BTC, ETH, and other crypto',
-    description:
-      'Keep all your favorite cryptocurrencies in your wallet, ready to use anytime.',
-  },
-  {
-    id: 1,
-    icon: <Icon2 />,
-    title: 'Multi-currency: crypto & fiat',
-    description:
-      'Enjoy the flexibility of managing various crypto and fiat currencies in one place.',
-  },
-  {
-    id: 2,
-    icon: <Icon3 />,
-    title: 'Secure Storage',
-    description:
-      'Keep your digital assets safe, and protected by advanced encryption technology.',
-  },
-  {
-    id: 3,
-    icon: <Icon4 />,
-    title: 'Real-Time Updates',
-    description:
-      'Stay informed with instant balance updates, transaction history, and notifications.',
-  },
-]
-
-const gridExchange = [
-  {
-    id: 0,
-    icon: <Icon5 />,
-    title: 'Transparent pricing',
-    description:
-      'Stay informed with instant balance updates, transaction history, and notifications.',
-  },
-  {
-    id: 1,
-    icon: <Icon6 />,
-    title: 'Swap in a snap',
-    description: 'Instant currency conversion at your fingertips.',
-  },
-  {
-    id: 2,
-    icon: <Icon3 />,
-    title: 'Robust security',
-    description:
-      'Your funds and personal information are protected by top-notch security measures.',
-  },
-  {
-    id: 3,
-    icon: <Icon7 />,
-    title: 'Expert support',
-    description:
-      'Get dedicated assistance from our skilled team for all your inquiries and concerns.',
-  },
-]
-
-const gridTransfer = [
-  {
-    id: 0,
-    icon: <Icon8 />,
-    title: 'Zero commissions',
-    description: 'Experience cost-free transactions within the Inqud platform.',
-  },
-  {
-    id: 1,
-    icon: <Icon9 />,
-    title: 'Send in a heartbeat',
-    description: 'Benefit from swift fund transfers with lightning speed.',
-  },
-]
-
-const content = {
-  personal: {
-    title: 'Personal wallet',
-    description:
-      'Experience hassle-free digital asset management with our secure personal wallet. Store, manage, and transact with popular cryptocurrencies, local currencies in just few clicks.',
-    grid: gridPersonal,
-    image: picture1.src,
-    imageTablet: picture1Tablet.src,
-    imageMobile: picture1Mobile.src,
-  },
-  exchange: {
-    title: 'Exchange',
-    description:
-      'Experience seamless conversion between Bitcoin, other cryptocurrencies, and fiat currencies. Effortlessly trade and exchange digital and traditional currencies with our intuitive platform.',
-    grid: gridExchange,
-    image: picture2.src,
-    imageTablet: picture1Tablet.src,
-    imageMobile: picture1Mobile.src,
-  },
-  transfer: {
-    title: 'Transfer',
-    description:
-      'Enjoy fee-free transfers of fiat and cryptocurrency within the Inqud community. Instant, secure, and hassle-free transactions for registered users.',
-    grid: gridTransfer,
-    image: picture3.src,
-    imageTablet: picture3Tablet.src,
-    imageMobile: picture3Mobile.src,
-  },
-}
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function ProductLineB2CSection() {
+  const t = useTranslations('home_b2c_page.our_product_section')
+
+  const tTab1 = useTranslations('home_b2c_page.our_product_section.tabs1')
+  const tTab1TitleList = useTranslations(
+    'home_b2c_page.our_product_section.tabs1.tabs_items_title'
+  )
+  const tTab1DescriptionList = useTranslations(
+    'home_b2c_page.our_product_section.tabs1.tabs_items_description'
+  )
+
+  const tTab2 = useTranslations('home_b2c_page.our_product_section.tabs2')
+  const tTab2TitleList = useTranslations(
+    'home_b2c_page.our_product_section.tabs2.tabs_items_title'
+  )
+  const tTab2DescriptionList = useTranslations(
+    'home_b2c_page.our_product_section.tabs2.tabs_items_description'
+  )
+
+  const tTab3 = useTranslations('home_b2c_page.our_product_section.tabs3')
+  const tTab3TitleList = useTranslations(
+    'home_b2c_page.our_product_section.tabs3.tabs_items_title'
+  )
+  const tTab3DescriptionList = useTranslations(
+    'home_b2c_page.our_product_section.tabs3.tabs_items_description'
+  )
+
+  const tabs = [
+    {
+      id: 'personal',
+      text: tTab1('tabs_name'),
+      textMobie: tTab1('tabs_name'),
+    },
+    {
+      id: 'exchange',
+      text: tTab2('tabs_name'),
+      textMobie: tTab2('tabs_name'),
+    },
+    {
+      id: 'transfer',
+      text: tTab3('tabs_name'),
+      textMobie: tTab3('tabs_name'),
+    },
+  ]
+
+  const tabsMobile = [
+    {
+      id: 'personal',
+      text: tTab1('tabs_name'),
+    },
+    {
+      id: 'exchange',
+      text: tTab2('tabs_name'),
+    },
+    {
+      id: 'transfer',
+      text: tTab3('tabs_name'),
+    },
+  ]
+
+  const gridPersonal = [
+    {
+      id: 0,
+      icon: <Icon1 />,
+      title: tTab1TitleList(keysForLocale.keys4[0]),
+      description: tTab1DescriptionList(keysForLocale.keys4[0]),
+    },
+    {
+      id: 1,
+      icon: <Icon2 />,
+      title: tTab1TitleList(keysForLocale.keys4[1]),
+      description: tTab1DescriptionList(keysForLocale.keys4[1]),
+    },
+    {
+      id: 2,
+      icon: <Icon3 />,
+      title: tTab1TitleList(keysForLocale.keys4[2]),
+      description: tTab1DescriptionList(keysForLocale.keys4[2]),
+    },
+    {
+      id: 3,
+      icon: <Icon4 />,
+      title: tTab1TitleList(keysForLocale.keys4[3]),
+      description: tTab1DescriptionList(keysForLocale.keys4[3]),
+    },
+  ]
+
+  const gridExchange = [
+    {
+      id: 0,
+      icon: <Icon5 />,
+      title: tTab2TitleList(keysForLocale.keys4[0]),
+      description: tTab2DescriptionList(keysForLocale.keys4[0]),
+    },
+    {
+      id: 1,
+      icon: <Icon6 />,
+      title: tTab2TitleList(keysForLocale.keys4[1]),
+      description: tTab2DescriptionList(keysForLocale.keys4[1]),
+    },
+    {
+      id: 2,
+      icon: <Icon3 />,
+      title: tTab2TitleList(keysForLocale.keys4[2]),
+      description: tTab2DescriptionList(keysForLocale.keys4[2]),
+    },
+    {
+      id: 3,
+      icon: <Icon7 />,
+      title: tTab2TitleList(keysForLocale.keys4[3]),
+      description: tTab2DescriptionList(keysForLocale.keys4[3]),
+    },
+  ]
+
+  const gridTransfer = [
+    {
+      id: 0,
+      icon: <Icon8 />,
+      title: tTab3TitleList(keysForLocale.keys4[0]),
+      description: tTab3DescriptionList(keysForLocale.keys4[0]),
+    },
+    {
+      id: 1,
+      icon: <Icon9 />,
+      title: tTab3TitleList(keysForLocale.keys4[1]),
+      description: tTab3DescriptionList(keysForLocale.keys4[1]),
+    },
+  ]
+
+  const content = {
+    personal: {
+      title: tTab1('tabs_title'),
+      description: tTab1('tabs_description'),
+      grid: gridPersonal,
+      image: picture1.src,
+      imageTablet: picture1Tablet.src,
+      imageMobile: picture1Mobile.src,
+    },
+    exchange: {
+      title: tTab2('tabs_title'),
+      description: tTab2('tabs_description'),
+      grid: gridExchange,
+      image: picture2.src,
+      imageTablet: picture1Tablet.src,
+      imageMobile: picture1Mobile.src,
+    },
+    transfer: {
+      title: tTab3('tabs_title'),
+      description: tTab3('tabs_description'),
+      grid: gridTransfer,
+      image: picture3.src,
+      imageTablet: picture3Tablet.src,
+      imageMobile: picture3Mobile.src,
+    },
+  }
+
   const [active, setActive] = useState(tabs[0].id)
   const handleClick = (id) => {
     setActive(id)
@@ -180,7 +198,7 @@ export default function ProductLineB2CSection() {
     <StyledProductLineB2CSectionWrapper>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='title'>
-          Our product line
+          {t('title')}
         </StyledTypographyUrbanistH2>
 
         <Image
@@ -226,6 +244,8 @@ export default function ProductLineB2CSection() {
 
 // eslint-disable-next-line no-shadow
 function TabContent({ title, description, grid, picture }) {
+  const t = useTranslations('home_b2c_page.our_product_section')
+
   return (
     <StyledTabContentWrapper>
       <div className='content-wrapper'>
@@ -254,7 +274,7 @@ function TabContent({ title, description, grid, picture }) {
           </div>
 
           <ButtonGetStarted className='content-grid-item-button'>
-            Get started
+            {t('get_started_btn')}
           </ButtonGetStarted>
         </div>
         <div className='right-side'>

@@ -29,27 +29,38 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
     //overflow-x: auto;
   }
 
+  .list-wrapper {
+    display: flex;
+  }
+
   ul {
-    width: 100%;
+    width: fit-content;
     display: flex;
     align-items: center;
     gap: ${rem(8)};
     padding: ${rem(23)} 0;
-    overflow-x: auto;
 
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
+    &:first-child {
+      flex: 0 0 auto;
+    }
+
+    &:last-child {
+      overflow-x: auto;
+      margin-left: 8px;
+
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      scrollbar-width: none; /* Firefox */
+      &::after {
+        content: '';
+        display: block;
+        width: ${(props) => props.width};
+        height: 100%;
+        flex: 0 0 auto;
+      }
+    }
 
     &::-webkit-scrollbar {
       display: none; /* Safari and Chrome */
-    }
-
-    &::after {
-      content: '';
-      display: block;
-      width: ${(props) => props.width};
-      height: 100%;
-      flex: 0 0 auto;
     }
 
     li {

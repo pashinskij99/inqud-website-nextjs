@@ -26,9 +26,17 @@ function BreadCrumbs() {
         return 'crypto widget'
       case 'help-centre':
         return 'help centre'
+      case 'company-api':
+        return 'api'
 
+      // for blog details page
       default:
-        return page
+        return page.split('-').length === 1
+          ? page
+          : page
+              .split('-')
+              .map((word) => capitalize(word))
+              .join(' ')
     }
   }
 
@@ -40,6 +48,7 @@ function BreadCrumbs() {
       name: page ? capitalize(getCurrentPageName(page)) : 'Home page',
       href: page ? `/${page}` : '/',
     }))
+
     setPages(pagesArray)
   }, [pathname])
 

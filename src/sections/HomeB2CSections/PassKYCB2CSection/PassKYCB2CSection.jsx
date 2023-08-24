@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH1,
@@ -16,47 +17,54 @@ import Icon1 from '@/assets/images/homeB2C/PassKYC/icon1.svg'
 import Icon2 from '@/assets/images/homeB2C/PassKYC/icon2.svg'
 import Icon3 from '@/assets/images/homeB2C/PassKYC/icon3.svg'
 import Icon4 from '@/assets/images/homeB2C/PassKYC/icon4.svg'
-
-const stepsContent = [
-  {
-    id: 1,
-    title: 'Email confirmation',
-    time: 'Less than 60 sec',
-    icon: <Icon1 className='step-icon' />,
-  },
-  { id: 2, imageSrc: arrowImage.src, imageSrcMobile: arrowImageMobile.src },
-  {
-    id: 3,
-    title: 'Phone confirmation',
-    time: 'Less than 5 min',
-    icon: <Icon2 className='step-icon' />,
-  },
-  { id: 4, imageSrc: arrowImage.src, imageSrcMobile: arrowImageMobile.src },
-  {
-    id: 5,
-    title: 'ID confirmation',
-    time: 'Less than 3 min',
-    icon: <Icon3 className='step-icon' />,
-  },
-  { id: 6, imageSrc: arrowImage.src, imageSrcMobile: arrowImageMobile.src },
-  {
-    id: 7,
-    title: 'Full success',
-    time: '',
-    button: 'Get started',
-    icon: <Icon4 className='step-icon' />,
-  },
-]
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function PassKYCB2CSection() {
+  const t = useTranslations('home_b2c_page.pass_KYC_section')
+  const tListTitle = useTranslations(
+    'home_b2c_page.pass_KYC_section.items_title'
+  )
+  const tListTime = useTranslations('home_b2c_page.pass_KYC_section.items_time')
+
+  const stepsContent = [
+    {
+      id: 1,
+      title: tListTitle(keysForLocale.keys4[0]),
+      time: tListTime(keysForLocale.keys4[0]),
+      icon: <Icon1 className='step-icon' />,
+    },
+    { id: 2, imageSrc: arrowImage.src, imageSrcMobile: arrowImageMobile.src },
+    {
+      id: 3,
+      title: tListTitle(keysForLocale.keys4[1]),
+      time: tListTime(keysForLocale.keys4[1]),
+      icon: <Icon2 className='step-icon' />,
+    },
+    { id: 4, imageSrc: arrowImage.src, imageSrcMobile: arrowImageMobile.src },
+    {
+      id: 5,
+      title: tListTitle(keysForLocale.keys4[2]),
+      time: tListTime(keysForLocale.keys4[2]),
+      icon: <Icon3 className='step-icon' />,
+    },
+    { id: 6, imageSrc: arrowImage.src, imageSrcMobile: arrowImageMobile.src },
+    {
+      id: 7,
+      title: tListTitle(keysForLocale.keys4[3]),
+      time: '',
+      button: t('button_text'),
+      icon: <Icon4 className='step-icon' />,
+    },
+  ]
+
   return (
     <StyledPassKYCB2CSectionWrapper>
       <div className='container'>
         <StyledTypographyUrbanistH1 className='title'>
-          Pass KYC in a breeze!
+          {t('title')}
         </StyledTypographyUrbanistH1>
         <StyledTypographyUrbanistH4 className='sub-title'>
-          Get verified in less then 5 minutes!
+          {t('sub_title')}
         </StyledTypographyUrbanistH4>
 
         <div className='steps-wrapper'>

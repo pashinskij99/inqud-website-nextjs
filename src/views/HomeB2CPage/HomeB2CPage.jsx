@@ -1,5 +1,6 @@
 'use client'
 
+import { useContext, useEffect } from 'react'
 import { StyledHomeB2CPageWrapper } from './HomeB2CPage.styled'
 import HeroB2CSection from '@/sections/HomeB2CSections/HeroB2CSection'
 import FeaturesB2CSection from '@/sections/HomeB2CSections/FeaturesB2CSection'
@@ -8,11 +9,20 @@ import HowToStartsB2CSection from '@/sections/HomeB2CSections/HowToStartsB2CSect
 import PassKYCB2CSection from '@/sections/HomeB2CSections/PassKYCB2CSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import BlogsSection from '@/sections/HomeSections/BlogsSection'
-// import LayoutComponent from '@/components/Layout/LayoutComponent'
+import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
 
 export default function HomeB2CPage() {
+  const { setIsNotFound } = useContext(NotFoundContext)
+
+  useEffect(() => {
+    setIsNotFound(true)
+
+    return () => {
+      setIsNotFound(false)
+    }
+  }, [])
+
   return (
-    // <LayoutComponent>
     <StyledHomeB2CPageWrapper>
       <HeroB2CSection />
       <FeaturesB2CSection />
@@ -22,6 +32,5 @@ export default function HomeB2CPage() {
       <BlogsSection />
       <QuestionsSection />
     </StyledHomeB2CPageWrapper>
-    // </LayoutComponent>
   )
 }

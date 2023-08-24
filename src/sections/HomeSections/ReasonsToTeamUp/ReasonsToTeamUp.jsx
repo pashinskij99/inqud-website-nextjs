@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -10,77 +11,64 @@ import Icon3 from '@/assets/images/reason-to-team-up/3.svg'
 import Icon4 from '@/assets/images/reason-to-team-up/4.svg'
 import Icon5 from '@/assets/images/reason-to-team-up/5.svg'
 import Icon6 from '@/assets/images/reason-to-team-up/6.svg'
-
-const gridItems = [
-  {
-    id: 0,
-    title: <>Say goodbye to chargebacks</>,
-    description: <>Provide solutions to eliminate fraud chargebacks.</>,
-    icon: <Icon1 />,
-  },
-  {
-    id: 1,
-    title: <>Transparent & clear pricing</>,
-    description: (
-      <>
-        We believe in clear-cut pricing with no surprises. With us, you get
-        precisely what you expect.
-      </>
-    ),
-    icon: <Icon2 />,
-  },
-  {
-    id: 2,
-    title: <>Tap into new markets</>,
-    description: (
-      <>
-        Seize new market opportunities swiftly with our customized payment
-        solutions.
-      </>
-    ),
-    icon: <Icon3 />,
-  },
-  {
-    id: 3,
-    title: <>Simplified fund management</>,
-    description: (
-      <>
-        Enjoy effortless fund allocation, robust security, and flexible
-        withdrawal options.
-      </>
-    ),
-    icon: <Icon4 />,
-  },
-  {
-    id: 4,
-    title: <>Trustworthy customer care</>,
-    description: (
-      <>
-        Whether you have questions, need assistance, or encounter any issues, we
-        are here to help.
-      </>
-    ),
-    icon: <Icon5 />,
-  },
-  {
-    id: 5,
-    title: <>Uncover hidden market solutions</>,
-    description: (
-      <>Discover unique payment methods and solutions for non-standard cases.</>
-    ),
-    icon: <Icon6 />,
-  },
-]
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function ReasonsToTeamUp() {
+  const t = useTranslations('home_page.stack_the_deck_section')
+  const tListTitle = useTranslations(
+    'home_page.stack_the_deck_section.list_item_title'
+  )
+  const tListDescription = useTranslations(
+    'home_page.stack_the_deck_section.list_item_description'
+  )
+
+  const gridItems = [
+    {
+      id: 0,
+      title: tListTitle(keysForLocale.keys6[0]),
+      description: tListDescription(keysForLocale.keys6[0]),
+      icon: <Icon1 />,
+    },
+    {
+      id: 1,
+      title: tListTitle(keysForLocale.keys6[1]),
+      description: tListDescription(keysForLocale.keys6[1]),
+      icon: <Icon2 />,
+    },
+    {
+      id: 2,
+      title: tListTitle(keysForLocale.keys6[2]),
+      description: tListDescription(keysForLocale.keys6[2]),
+      icon: <Icon3 />,
+    },
+    {
+      id: 3,
+      title: tListTitle(keysForLocale.keys6[3]),
+      description: tListDescription(keysForLocale.keys6[3]),
+      icon: <Icon4 />,
+    },
+    {
+      id: 4,
+      title: tListTitle(keysForLocale.keys6[4]),
+      description: tListDescription(keysForLocale.keys6[4]),
+      icon: <Icon5 />,
+    },
+    {
+      id: 5,
+      title: tListTitle(keysForLocale.keys6[5]),
+      description: tListDescription(keysForLocale.keys6[5]),
+      icon: <Icon6 />,
+    },
+  ]
+
   return (
     <StyledReasonsToTeamUp>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='reasonsToTeamUpTitle'>
-          Stack the Deck in Your Favor
+          {t('title')}
         </StyledTypographyUrbanistH2>
         <StyledTypographyUrbanistH5 className='reasonsToTeamUpSubTitle'>
-          6 Winning Reasons to Team Up!
+          {t('paragraph')}
         </StyledTypographyUrbanistH5>
 
         <ul className='reasonsToTeamUpGrid'>

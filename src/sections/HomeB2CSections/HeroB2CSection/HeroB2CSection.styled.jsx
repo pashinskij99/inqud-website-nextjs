@@ -76,6 +76,10 @@ export const StyledHeroB2CSectionWrapper = styled.section`
       margin-bottom: 33px;
       color: rgba(81, 113, 133, 1);
       line-height: 32px;
+      max-width: 557px;
+      ${responsive.xl`
+        max-width: 100%; 
+      `}
 
       ${responsive.sm`
         letter-spacing: 0em;

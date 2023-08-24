@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH1,
@@ -10,36 +11,33 @@ import { StyledCompanyHeroSectionWrapper } from './CompanyHeroSection.styled'
 import graphic from '@/assets/images/company/hero/graphic.webp'
 
 export default function CompanyHeroSection() {
+  const t = useTranslations('company_page.hero_section')
+  const tMission = useTranslations('company_page.hero_section.our_mission')
+  const tVision = useTranslations('company_page.hero_section.our_vision')
+
   return (
     <StyledCompanyHeroSectionWrapper>
       <div className='container desktop'>
         <div className='left-side'>
           <StyledTypographyUrbanistH1 className='title'>
-            About us
+            {t('title')}
           </StyledTypographyUrbanistH1>
           <StyledTypographyUrbanistH5 className='title-description'>
-            Inqud is a trusted financial technology company that provides an
-            international payment gateway with a diverse range of crypto & fiat
-            payment methods and currencies, cryptocurrency exchange with our own
-            crypto processing and crypto widget.
+            {t('description')}
           </StyledTypographyUrbanistH5>
 
           <StyledTypographyUrbanistH3 className='subTitle'>
-            Our mission
+            {tMission('title')}
           </StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistBody className='subTitle-description'>
-            Our mission is to offer bespoke payment options, eliminating hidden
-            fees, and providing expert support around the clock, we strive to
-            enhance the payment experiences of our clients.
+            {tMission('description')}
           </StyledTypographyUrbanistBody>
 
           <StyledTypographyUrbanistH3 className='subTitle'>
-            Our vision
+            {tVision('title')}
           </StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistBody className='subTitle-description'>
-            Our vision is to be the trusted partner and provider of tailored
-            financial technology solutions, empowering businesses and
-            individuals to thrive in their industries.
+            {tVision('description')}
           </StyledTypographyUrbanistBody>
         </div>
         <div className='right-side'>
@@ -50,13 +48,10 @@ export default function CompanyHeroSection() {
       <div className='container tablet'>
         <div className='cart'>
           <StyledTypographyUrbanistH2 className='title'>
-            About us
+            {t('title')}
           </StyledTypographyUrbanistH2>
           <StyledTypographyUrbanistBody className='title-description'>
-            Inqud is a trusted financial technology company that provides an
-            international payment gateway with a diverse range of crypto & fiat
-            payment methods and currencies, cryptocurrency exchange with our own
-            crypto processing and crypto widget.
+            {t('description')}
           </StyledTypographyUrbanistBody>
         </div>
 
@@ -66,23 +61,19 @@ export default function CompanyHeroSection() {
 
         <div className='cart'>
           <StyledTypographyUrbanistH3 className='subTitle'>
-            Our mission
+            {tMission('title')}
           </StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistBody className='subTitle-description'>
-            Our mission is to offer bespoke payment options, eliminating hidden
-            fees, and providing expert support around the clock, we strive to
-            enhance the payment experiences of our clients.
+            {tMission('description')}
           </StyledTypographyUrbanistBody>
         </div>
 
         <div className='cart'>
           <StyledTypographyUrbanistH3 className='subTitle'>
-            Our vision
+            {tVision('title')}
           </StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistBody className='subTitle-description'>
-            Our vision is to be the trusted partner and provider of tailored
-            financial technology solutions, empowering businesses and
-            individuals to thrive in their industries.
+            {tVision('description')}
           </StyledTypographyUrbanistBody>
         </div>
       </div>

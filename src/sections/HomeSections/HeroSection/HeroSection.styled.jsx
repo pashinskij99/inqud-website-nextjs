@@ -106,12 +106,6 @@ export const StyledHeroSectionWrapper = styled.section`
           ${responsive.xxl`
             gap: ${rem(9)};
           `}
-          span {
-            display: contents;
-            ${responsive.sm`
-              display: none;
-            `};
-          }
 
           ${responsive.sm`
             gap: ${rem(3)};
@@ -140,12 +134,24 @@ export const StyledHeroSectionWrapper = styled.section`
             height: ${rem(21.333)};
           }
 
-          p {
+          .features-title {
             font-weight: 500;
             color: rgba(45, 52, 57, 1);
             ${responsive.sm`
               line-height: 22px;
             `}
+            &.features-title-1 {
+              ${responsive.sm`
+              display: none;
+            `}
+            }
+            &.features-title-2 {
+              display: none;
+
+              ${responsive.sm`
+              display: block;
+            `}
+            }
           }
         }
       }

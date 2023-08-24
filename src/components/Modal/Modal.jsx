@@ -1,57 +1,57 @@
-import { Fragment, useState } from 'react'
-import clsx from 'clsx'
-import { DialogContent } from '@mui/material'
+import { Fragment, useState } from 'react';
+import clsx from 'clsx';
+import { DialogContent } from '@mui/material';
+import { useTranslations } from 'next-intl';
 import {
   StyledFeeModalWrapper,
   StyledModalSendRequestWrapper,
-  StyledModalSubmitEmailWrapper,
-} from '@/components/Modal/Modal.styled'
-import Message from '@/assets/icons/message.svg'
+} from '@/components/Modal/Modal.styled';
+import Message from '@/assets/icons/message.svg';
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH3,
   StyledTypographyUrbanistH4,
   StyledTypographyUrbanistSmallSpaces,
-} from '@/components/UI/Typography/Typography.styled'
-import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
-import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
-import Close from '@/assets/icons/close.svg'
-import { SelectPrimary } from '../UI/Select'
-
-const inputs = [
-  {
-    id: 0,
-    label: 'Email',
-    placeholder: 'example@mail.com',
-    name: 'email',
-    type: 'email',
-  },
-  {
-    id: 1,
-    label: 'Message',
-    placeholder: 'Enter your request or question...',
-    name: 'message',
-    type: 'textarea',
-  },
-]
+} from '@/components/UI/Typography/Typography.styled';
+import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input';
+import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled';
+import Close from '@/assets/icons/close.svg';
+import { SelectPrimary } from '../UI/Select';
 
 export function ModalSendRequest({ open, handleClose }) {
+  const t = useTranslations('home_page.your_needs_section.modal');
+
+  const inputs = [
+    {
+      id: 0,
+      label: t('label_email'),
+      placeholder: 'example@mail.com',
+      name: 'email',
+      type: 'email',
+    },
+    {
+      id: 1,
+      label: t('label_message'),
+      placeholder: t('placeholder_message'),
+      name: 'message',
+      type: 'textarea',
+    },
+  ];
+
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
-      <div className='modalContainer'>
-        <button className='closeButton' onClick={handleClose}>
+      <div className="modalContainer">
+        <button className="closeButton" onClick={handleClose}>
           <Close />
         </button>
-        <div className='header'>
+        <div className="header">
           <Message />
-          <StyledTypographyUrbanistH3>
-            Send your request
-          </StyledTypographyUrbanistH3>
+          <StyledTypographyUrbanistH3>{t('title')}</StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistBody>
-            Let&apos;s meet your goals!
+            {t('description')}
           </StyledTypographyUrbanistBody>
         </div>
-        <div className='body'>
+        <div className="body">
           {inputs.map(({ id, name, label, placeholder, type }) =>
             type === 'textarea' ? (
               <TextAreaSendRequest
@@ -70,54 +70,53 @@ export function ModalSendRequest({ open, handleClose }) {
             )
           )}
         </div>
-        <div className='footer'>
-          <StyledButtonSecondary>Submit</StyledButtonSecondary>
+        <div className="footer">
+          <StyledButtonSecondary>{t('button_text')}</StyledButtonSecondary>
           <StyledTypographyUrbanistSmallSpaces>
-            by submitting this form, you contirm that you agree to the storing
-            and processing of your personal data
+            {t('footer_description')}
           </StyledTypographyUrbanistSmallSpaces>
         </div>
       </div>
     </StyledModalSendRequestWrapper>
-  )
+  );
 }
 
 export function ModalSubmitEmail({ open, handleClose }) {
+  const t = useTranslations('home_page.crypto_card2_section.modal');
+  const t2 = useTranslations('home_page.your_needs_section.modal');
+
   return (
-    <StyledModalSubmitEmailWrapper open={open} onClose={handleClose}>
-      <div className='modalContainer'>
-        <button className='closeButton' onClick={handleClose}>
+    <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
+      <div className="modalContainer">
+        <button className="closeButton" onClick={handleClose}>
           <Close />
         </button>
-        <div className='header'>
+        <div className="header">
           <Message />
-          <StyledTypographyUrbanistH3>
-            Submit your email
-          </StyledTypographyUrbanistH3>
+          <StyledTypographyUrbanistH3>{t('title')}</StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistBody>
-            We&apos;ll alert you when Card2crypto launches!
+            {t('description')}
           </StyledTypographyUrbanistBody>
         </div>
-        <div className='body'>
+        <div className="body">
           <InputSendRequest
-            name='email'
-            label=''
-            placeholder='example@mail.com'
+            name="email"
+            label=""
+            placeholder="example@mail.com"
           />
         </div>
-        <div className='footer'>
-          <StyledButtonSecondary>Submit</StyledButtonSecondary>
+        <div className="footer">
+          <StyledButtonSecondary>{t2('button_text')}</StyledButtonSecondary>
           <StyledTypographyUrbanistSmallSpaces>
-            by submitting this form, you contirm that you agree to the storing
-            and processing of your personal data
+            {t2('footer_description')}
           </StyledTypographyUrbanistSmallSpaces>
         </div>
       </div>
-    </StyledModalSubmitEmailWrapper>
-  )
+    </StyledModalSendRequestWrapper>
+  );
 }
 
-const industryList = ['Fintech1', 'Fintech2', 'Fintech3']
+const industryList = ['Fintech1', 'Fintech2', 'Fintech3'];
 
 const getInput = ({
   name,
@@ -136,7 +135,7 @@ const getInput = ({
           name={name}
           placeholder={placeholder}
         />
-      )
+      );
     case 'textarea':
       return (
         <TextAreaSendRequest
@@ -144,7 +143,7 @@ const getInput = ({
           label={label}
           placeholder={placeholder}
         />
-      )
+      );
     case 'select':
       return (
         <SelectPrimary
@@ -155,62 +154,62 @@ const getInput = ({
           activeItem={industry}
           listItems={industryList}
         />
-      )
+      );
     default:
-      return null
+      return null;
   }
-}
+};
 
-const tabs = ['Email', 'Phone', 'Whatsapp']
+const tabs = ['Email', 'Phone', 'Whatsapp'];
 
 const getTabContent = (tab) => {
   switch (tab) {
     case 'Email':
       return (
         <InputSendRequest
-          classNameWrapper='tabInput'
-          name='email'
-          placeholder='example@mail.com'
-          type='email'
-          label='Email'
+          classNameWrapper="tabInput"
+          name="email"
+          placeholder="example@mail.com"
+          type="email"
+          label="Email"
         />
-      )
+      );
     case 'Phone':
       return (
         <InputSendRequest
-          classNameWrapper='tabInput'
-          name='phone'
-          placeholder='+38067XXXXXXX'
-          type='text'
-          label='Phone'
+          classNameWrapper="tabInput"
+          name="phone"
+          placeholder="+38067XXXXXXX"
+          type="text"
+          label="Phone"
         />
-      )
+      );
     case 'Whatsapp':
       return (
         <InputSendRequest
-          classNameWrapper='tabInput'
-          name='whatsapp'
-          placeholder='whatsapp username'
-          type='text'
-          label='Whatsapp'
+          classNameWrapper="tabInput"
+          name="whatsapp"
+          placeholder="whatsapp username"
+          type="text"
+          label="Whatsapp"
         />
-      )
+      );
     default:
-      return null
+      return null;
   }
-}
+};
 
 export function FeeModal({ open, handleClose }) {
-  const [activeTab, setActiveTab] = useState(tabs[0])
-  const [industry, setIndustry] = useState('')
+  const [activeTab, setActiveTab] = useState(tabs[0]);
+  const [industry, setIndustry] = useState('');
 
   const handleChange = (event) => {
-    setIndustry(event.target.value)
-  }
+    setIndustry(event.target.value);
+  };
 
   const handleTab = (nameTab) => {
-    setActiveTab(nameTab)
-  }
+    setActiveTab(nameTab);
+  };
 
   const feeInputs = [
     {
@@ -244,33 +243,33 @@ export function FeeModal({ open, handleClose }) {
       placeholder:
         'Feel free to provide any additional information or details here.',
     },
-  ]
+  ];
 
   return (
-    <StyledFeeModalWrapper scroll='body' open={open} onClose={handleClose}>
+    <StyledFeeModalWrapper scroll="body" open={open} onClose={handleClose}>
       <DialogContent>
         {/* <DialogContentText tabIndex={-1}> */}
-        <div className='modalContainer'>
-          <button className='closeButton' onClick={handleClose}>
+        <div className="modalContainer">
+          <button className="closeButton" onClick={handleClose}>
             <Close />
           </button>
-          <div className='header'>
+          <div className="header">
             <StyledTypographyUrbanistH4>
               Please provide the details for preparing a special offer
             </StyledTypographyUrbanistH4>
           </div>
-          <div className='body'>
-            <div className='input-wrapper'>
+          <div className="body">
+            <div className="input-wrapper">
               {feeInputs.map(({ ...args }) => (
                 <Fragment key={args.id}>{getInput({ ...args })}</Fragment>
               ))}
             </div>
 
-            <StyledTypographyUrbanistBody className='description'>
+            <StyledTypographyUrbanistBody className="description">
               Share your preferred communication method for a better experience.
             </StyledTypographyUrbanistBody>
 
-            <div className='tabs'>
+            <div className="tabs">
               {tabs.map((tab) => (
                 <button
                   key={tab}
@@ -285,16 +284,16 @@ export function FeeModal({ open, handleClose }) {
                 </button>
               ))}
             </div>
-            <div className='tab-content'>{getTabContent(activeTab)}</div>
+            <div className="tab-content">{getTabContent(activeTab)}</div>
           </div>
-          <div className='footer'>
-            <button className='submit-btn'>
+          <div className="footer">
+            <button className="submit-btn">
               <StyledTypographyUrbanistBody>
                 Get a special offer
               </StyledTypographyUrbanistBody>
             </button>
 
-            <StyledTypographyUrbanistSmallSpaces className='description'>
+            <StyledTypographyUrbanistSmallSpaces className="description">
               by submitting this form, you contirm that you agree to the storing
               and processing of your personal data
             </StyledTypographyUrbanistSmallSpaces>
@@ -354,5 +353,5 @@ export function FeeModal({ open, handleClose }) {
         </div>
       </DialogContent> */}
     </StyledFeeModalWrapper>
-  )
+  );
 }
