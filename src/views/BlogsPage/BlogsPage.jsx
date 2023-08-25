@@ -8,12 +8,6 @@ import BlogsPageMainSection from '@/sections/BlogsSections/BlogsPageMainSection'
 import { BlogProvider } from '@/contexts/BlogContext/BlogContext'
 
 function BlogsPage({ data, tags, searchParams, pagination }) {
-  // const { updateScroll } = useRouterScroll()
-
-  // useEffect(() => {
-  //   updateScroll()
-  // }, [])
-
   return (
     <BlogProvider
       searchParams={searchParams}

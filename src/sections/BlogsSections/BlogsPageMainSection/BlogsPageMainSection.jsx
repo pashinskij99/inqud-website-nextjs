@@ -13,7 +13,7 @@ import { BlogContext } from '@/contexts/BlogContext/BlogContext'
 function BlogsPageMainSection() {
   const t = useTranslations('insights_page.hero_section')
   const { searchParams } = useContext(BlogContext)
-  const [searchValue, setSearchValue] = useState('')
+  const [searchValue, setSearchValue] = useState(searchParams.search || '')
 
   const handleChange = (event) => {
     setSearchValue(event.target.value)

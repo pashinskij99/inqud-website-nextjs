@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useContext, useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { capitalize } from '@mui/material'
+import { useSelector } from 'react-redux'
 import {
   StyledBreadcrumbs,
   StyledBreadCrumbsWrapper,
@@ -17,6 +18,7 @@ function BreadCrumbs() {
   const pathname = usePathname()
 
   const { isNotFound } = useContext(NotFoundContext)
+  const breadcrumb = useSelector((state) => state.breadcrumb)
 
   const getCurrentPageName = (page) => {
     switch (page) {
@@ -31,12 +33,11 @@ function BreadCrumbs() {
 
       // for blog details page
       default:
-        return page.split('-').length === 1
-          ? page
-          : page
-              .split('-')
-              .map((word) => capitalize(word))
-              .join(' ')
+        return page.split('-').length === 1 ? page : breadcrumb.blog
+      // : page
+      // .split('-')
+      // .map((word) => capitalize(word))
+      // .join(' ')
     }
   }
 
@@ -50,7 +51,7 @@ function BreadCrumbs() {
     }))
 
     setPages(pagesArray)
-  }, [pathname])
+  }, [pathname, breadcrumb])
 
   return isNotFound ? null : (
     <StyledBreadCrumbsWrapper>

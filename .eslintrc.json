@@ -36,6 +36,7 @@
       "no-shadow":"off",
       "no-continue": "off",
       "no-plusplus":"off",
-      "react/jsx-no-useless-fragment": "off"
+      "react/jsx-no-useless-fragment": "off",
+      "no-param-reassign": "off"
     }
 }

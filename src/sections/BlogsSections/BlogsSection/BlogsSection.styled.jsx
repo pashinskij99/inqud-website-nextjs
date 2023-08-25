@@ -67,6 +67,10 @@ export const StyledBlogsSectionWrapper = styled.section`
     }
   }
 
+  .error-message {
+    margin-top: 100px;
+  }
+
   .loadMoreButton {
     margin-bottom: ${rem(71)};
 
