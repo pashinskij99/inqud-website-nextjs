@@ -66,16 +66,20 @@ async function Page({ searchParams }) {
               ? `{products: {anyIn: [${productIdArray}]}},`
               : ''
           }
-          ${tagIdArray.length > 0 ? `{tags: {anyIn: [${tagIdArray}]}},` : ''}
+          ${tagIdArray.length > 0 ? `{mainTag: {in: [${tagIdArray}]}},` : ''}
         ]}) {
         id
         mainTitle
+        mainTag {
+          tag
+        }
         tags {
           tag
           id
         }
         slugPage
         _createdAt
+        timeToRead
         mainImage {
         url
         }
@@ -98,7 +102,7 @@ async function Page({ searchParams }) {
               ? `{products: {anyIn: [${productIdArray}]}},`
               : ''
           }
-          ${tagIdArray.length > 0 ? `{tags: {anyIn: [${tagIdArray}]}},` : ''}
+          ${tagIdArray.length > 0 ? `{mainTag: {in: [${tagIdArray}]}},` : ''}
         ]}) {
       count
     }

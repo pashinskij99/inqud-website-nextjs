@@ -203,11 +203,15 @@ function RightSide() {
       industries,
       products,
       tags,
+      mainTag,
       authorImage,
       professionAuthor,
       nameAuthor,
     },
   } = useContext(BlogContext)
+
+  const subTags =
+    tags.length > 0 && `, ${tags.map(({ tag }) => tag).join(', ')}`
 
   const blogInfo = [
     {
@@ -223,7 +227,7 @@ function RightSide() {
     {
       id: 2,
       title: 'Tags',
-      description: tags.map(({ tag }) => tag).join(', '),
+      description: `${mainTag.tag}${subTags}`,
     },
     {
       id: 3,

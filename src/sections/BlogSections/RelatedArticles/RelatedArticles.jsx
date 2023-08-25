@@ -31,16 +31,18 @@ export default function RelatedArticles() {
               id,
               _createdAt,
               mainImage: { url },
-              tags,
+              timeToRead,
+              mainTag,
               mainTitle,
               slugPage,
             }) => (
               <Link href={`/blog/${slugPage}`}>
                 <BlogCart
+                  time={timeToRead}
                   title={mainTitle}
                   date={_createdAt}
                   imageSrc={url}
-                  subTitle={tags[0].tag}
+                  subTitle={mainTag?.tag}
                   key={id}
                 />
               </Link>
@@ -85,19 +87,21 @@ export default function RelatedArticles() {
           {relatedData.map(
             ({
               id,
-              dateAndTime,
+              _createdAt,
               mainImage: { url },
-              tags,
+              timeToRead,
+              mainTag,
               mainTitle,
               slugPage,
             }) => (
               <SwiperSlide className='slide' key={id}>
                 <Link href={`/blog/${slugPage}`}>
                   <BlogCart
+                    time={timeToRead}
                     title={mainTitle}
-                    date={dateAndTime}
+                    date={_createdAt}
                     imageSrc={url}
-                    subTitle={tags[0].tag}
+                    subTitle={mainTag?.tag}
                   />
                 </Link>
               </SwiperSlide>

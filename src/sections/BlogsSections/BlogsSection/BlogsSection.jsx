@@ -20,19 +20,20 @@ function BlogsSection() {
             ({
               id,
               _createdAt,
+              timeToRead,
               mainImage: { url },
-              tags,
+              mainTag,
               mainTitle,
               slugPage,
             }) => (
               <li key={id}>
                 <Link href={`/blog/${slugPage}`}>
                   <BlogCart
-                    time={_createdAt}
+                    time={timeToRead}
                     date={_createdAt}
                     title={mainTitle}
                     imageSrc={url}
-                    subTitle={tags[0].tag}
+                    subTitle={mainTag?.tag}
                   />
                 </Link>
               </li>

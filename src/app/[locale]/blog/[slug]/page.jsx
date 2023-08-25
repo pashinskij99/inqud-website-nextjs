@@ -17,6 +17,7 @@ query Blog($slug: String) {
     professionAuthor
     slugPage
     titlesForNavigation
+    timeToRead
     _createdAt
     seoMetaTag {
       description
@@ -27,6 +28,10 @@ query Blog($slug: String) {
       }
     }
     mainTitle
+    mainTag {
+      tag
+      id
+    }
     mainImage {
       url
     }
@@ -81,14 +86,15 @@ query Blog($slug: String) {
 
 const PAGE_RELATED_CONTENT_QUERY = `
 query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId]) {
-    allBlogs(orderBy: _createdAt_DESC, first: $first, filter: { id: {notIn: $blogId}, tags: {anyIn: $tagId} }) {
+    allBlogs(orderBy: _createdAt_DESC, first: $first, filter: { id: {notIn: $blogId}, mainTag: {in: $tagId} }) {
         id
         mainTitle
-        tags {
+        mainTag {
           tag
           id
         }
         slugPage
+        timeToRead
         _createdAt
         mainImage {
           url
@@ -134,7 +140,7 @@ export default async function page({ params }) {
   const relatedData = await performRequest({
     query: PAGE_RELATED_CONTENT_QUERY,
     variables: {
-      tagId: allBlogs[0].tags.map(({ id }) => id),
+      tagId: allBlogs[0].mainTag.id,
       blogId: allBlogs[0].id,
     },
   })

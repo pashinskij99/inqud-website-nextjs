@@ -14,10 +14,10 @@ import { getTimeForBlog } from '@/utils/getTimeForBlog'
 
 export default function BlogHeroSection() {
   const {
-    data: { mainTitle, _createdAt },
+    data: { mainTitle, _createdAt, timeToRead },
   } = useContext(BlogContext)
 
-  const { date, time } = getTimeForBlog(_createdAt)
+  const { date } = getTimeForBlog(_createdAt)
 
   return (
     <StyledBlogHeroSectionWrapper>
@@ -33,7 +33,7 @@ export default function BlogHeroSection() {
           <StyledTypographyUrbanistBody>{date}</StyledTypographyUrbanistBody>
           <Dot />
           <StyledTypographyUrbanistBody>
-            {time} read
+            {timeToRead} read
           </StyledTypographyUrbanistBody>
         </div>
       </div>

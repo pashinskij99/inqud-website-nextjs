@@ -48,7 +48,7 @@ export function BlogCart({ imageSrc, date, time, subTitle, title }) {
         </StyledTypographyUrbanistBody>
         <Dot />
         <StyledTypographyUrbanistBody className='time'>
-          {currentDate.time} read
+          {time} read
         </StyledTypographyUrbanistBody>
       </div>
     </StyledBlogCartWrapper>
