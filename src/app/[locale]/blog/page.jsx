@@ -39,8 +39,6 @@ async function Page({ searchParams }) {
     query: TAGS_QUERY,
   })
 
-  // console.log(allProducts, allIndustries)
-
   const productIdArray = allProducts.map(({ id }) => id)
   const industryIdArray = allIndustries.map(({ id }) => id)
   const tagIdArray = searchParams.tag ? searchParams.tag.split(',') : []
@@ -81,7 +79,26 @@ async function Page({ searchParams }) {
         url
         }
     }
-    _allBlogsMeta {
+    _allBlogsMeta (
+      filter: {
+        OR: [
+          ${
+            searchParams.search
+              ? `{mainTitle: {matches: {pattern: "^(?=.*${searchParams.search}).*"}}},`
+              : ''
+          }
+          ${
+            industryIdArray.length > 0
+              ? `{industries: {anyIn: [${industryIdArray}]}}`
+              : ''
+          }
+          ${
+            productIdArray.length > 0
+              ? `{products: {anyIn: [${productIdArray}]}},`
+              : ''
+          }
+          ${tagIdArray.length > 0 ? `{tags: {anyIn: [${tagIdArray}]}},` : ''}
+        ]}) {
       count
     }
   }`

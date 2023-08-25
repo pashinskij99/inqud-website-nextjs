@@ -35,6 +35,7 @@
       "no-useless-computed-key": "off",
       "no-shadow":"off",
       "no-continue": "off",
-      "no-plusplus":"off"
+      "no-plusplus":"off",
+      "react/jsx-no-useless-fragment": "off"
     }
 }

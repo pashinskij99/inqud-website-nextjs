@@ -126,7 +126,6 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function page({ params }) {
-  console.log(params)
   const { allBlogs } = await performRequest({
     query: PAGE_CONTENT_QUERY,
     variables: { slug: params.slug },

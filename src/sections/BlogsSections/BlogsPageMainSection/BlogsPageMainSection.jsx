@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl'
-import { Controller, useForm } from 'react-hook-form'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
+import Link from 'next/link'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
@@ -12,19 +12,15 @@ import { BlogContext } from '@/contexts/BlogContext/BlogContext'
 
 function BlogsPageMainSection() {
   const t = useTranslations('insights_page.hero_section')
-  const { handleSearch, searchParams } = useContext(BlogContext)
+  const { searchParams } = useContext(BlogContext)
+  const [searchValue, setSearchValue] = useState('')
 
-  const { handleSubmit, control, setValue } = useForm({
-    defaultValues: { search: searchParams.search },
-  })
-
-  const onSubmit = (data) => {
-    const { search } = data
-    handleSearch(search)
+  const handleChange = (event) => {
+    setSearchValue(event.target.value)
   }
 
   const handleClear = () => {
-    setValue('search', '')
+    setSearchValue('')
   }
 
   return (
@@ -37,27 +33,28 @@ function BlogsPageMainSection() {
           {t('description')}
         </StyledTypographyUrbanistH5>
 
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className='blogsPageSearchWrapper'
-        >
-          <Controller
-            render={({ field: { onChange, value } }) => (
-              <InputSearch
-                onChange={onChange}
-                value={value}
-                classNameWrapper='inputWrapper'
-                placeholder={t('search_placeholder')}
-                handleClear={handleClear}
-              />
-            )}
-            name='search'
-            control={control}
+        <form className='blogsPageSearchWrapper'>
+          <InputSearch
+            onChange={handleChange}
+            value={searchValue}
+            classNameWrapper='inputWrapper'
+            placeholder={t('search_placeholder')}
+            handleClear={handleClear}
           />
-
-          <StyledButtonSecondaryLight className='blogsPageSearchButton'>
-            {t('search_button_text')}
-          </StyledButtonSecondaryLight>
+          <Link
+            href={{
+              query: {
+                ...searchParams,
+                search: searchValue,
+                skip: 0,
+                first: 3,
+              },
+            }}
+          >
+            <StyledButtonSecondaryLight className='blogsPageSearchButton'>
+              {t('search_button_text')}
+            </StyledButtonSecondaryLight>
+          </Link>
         </form>
       </div>
     </StyledBlogsPageMainSection>

@@ -43,20 +43,24 @@ function BlogsSection() {
             )
           )}
         </ul>
-
         {pagination.first >= pagination.count ? (
-          <Link
-            href={{
-              query: {
-                ...searchParams,
-                first: 3,
-              },
-            }}
-          >
-            <ButtonLoadMoreLarge className='loadMoreButton'>
-              Load less
-            </ButtonLoadMoreLarge>
-          </Link>
+          <>
+            {pagination.count !== 3 ? (
+              <Link
+                href={{
+                  query: {
+                    ...searchParams,
+                    first: 3,
+                    skip: 0,
+                  },
+                }}
+              >
+                <ButtonLoadMoreLarge className='loadMoreButton'>
+                  Load less
+                </ButtonLoadMoreLarge>
+              </Link>
+            ) : null}
+          </>
         ) : (
           <Link
             href={{
@@ -71,13 +75,6 @@ function BlogsSection() {
             </ButtonLoadMoreLarge>
           </Link>
         )}
-
-        {/* 
-        {console.log(
-          Math.floor(pagination.count / pagination.skip),
-          pagination.first,
-          pagination.count
-        )} */}
 
         <BlogPagination
           page={Math.floor(pagination.skip / pagination.first + 1 || 1)}
