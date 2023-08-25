@@ -46,6 +46,7 @@ async function Page({ searchParams }) {
   const PAGE_CONTENT_QUERY = `
   query Home($first: IntType = 6, $skip: IntType = 0) {
     allBlogs(
+      orderBy: _createdAt_DESC,
       first: $first, 
       skip: $skip, 
       filter: {
@@ -74,7 +75,7 @@ async function Page({ searchParams }) {
           id
         }
         slugPage
-        dateAndTime
+        _createdAt
         mainImage {
         url
         }

@@ -1,35 +1,35 @@
-import Link from 'next/link';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Scrollbar } from 'swiper/modules';
-import { useContext } from 'react';
-import { StyledButtonGhost } from '@/components/UI/Button/Button.styled';
-import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled';
-import { BlogCart } from '@/components/BlogCart';
-import { StyledRelatedArticlesSection } from './RelatedArticles.styled';
-import { BlogContext } from '@/contexts/BlogContext/BlogContext';
+import Link from 'next/link'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Scrollbar } from 'swiper/modules'
+import { useContext } from 'react'
+import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
+import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
+import { BlogCart } from '@/components/BlogCart'
+import { StyledRelatedArticlesSection } from './RelatedArticles.styled'
+import { BlogContext } from '@/contexts/BlogContext/BlogContext'
 
 export default function RelatedArticles() {
-  const { relatedData } = useContext(BlogContext);
+  const { relatedData } = useContext(BlogContext)
 
   return (
     <StyledRelatedArticlesSection>
-      <div className="container">
-        <div className="relatedBlogsHeader blogsHeader">
-          <StyledTypographyUrbanistH2 className="relatedBlogsHeaderTitle blogsHeaderTitle">
+      <div className='container'>
+        <div className='relatedBlogsHeader blogsHeader'>
+          <StyledTypographyUrbanistH2 className='relatedBlogsHeaderTitle blogsHeaderTitle'>
             Related articles
           </StyledTypographyUrbanistH2>
-          <Link href="/blog">
-            <StyledButtonGhost className="relatedBlogsHeaderButton blogsHeaderButton">
+          <Link href='/blog'>
+            <StyledButtonGhost className='relatedBlogsHeaderButton blogsHeaderButton'>
               Go to blog
             </StyledButtonGhost>
           </Link>
         </div>
 
-        <div className="relatedBlogsGrid blogsGrid">
+        <div className='relatedBlogsGrid blogsGrid'>
           {relatedData.map(
             ({
               id,
-              dateAndTime,
+              _createdAt,
               mainImage: { url },
               tags,
               mainTitle,
@@ -38,7 +38,7 @@ export default function RelatedArticles() {
               <Link href={`/blog/${slugPage}`}>
                 <BlogCart
                   title={mainTitle}
-                  date={dateAndTime}
+                  date={_createdAt}
                   imageSrc={url}
                   subTitle={tags[0].tag}
                   key={id}
@@ -51,8 +51,8 @@ export default function RelatedArticles() {
         {/* mobile */}
 
         <Swiper
-          className="relatedBlogsSwiper blogsSwiper"
-          slidesPerView="auto"
+          className='relatedBlogsSwiper blogsSwiper'
+          slidesPerView='auto'
           spaceBetween={24}
           updateOnWindowResize
           breakpoints={{
@@ -91,7 +91,7 @@ export default function RelatedArticles() {
               mainTitle,
               slugPage,
             }) => (
-              <SwiperSlide className="slide" key={id}>
+              <SwiperSlide className='slide' key={id}>
                 <Link href={`/blog/${slugPage}`}>
                   <BlogCart
                     title={mainTitle}
@@ -104,12 +104,12 @@ export default function RelatedArticles() {
             )
           )}
         </Swiper>
-        <Link href="/blog">
-          <StyledButtonGhost className="relatedBlogsHeaderButtonMobile blogsHeaderButtonMobile">
+        <Link href='/blog'>
+          <StyledButtonGhost className='relatedBlogsHeaderButtonMobile blogsHeaderButtonMobile'>
             Go to blog
           </StyledButtonGhost>
         </Link>
       </div>
     </StyledRelatedArticlesSection>
-  );
+  )
 }

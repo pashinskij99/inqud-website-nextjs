@@ -17,7 +17,7 @@ query Blog($slug: String) {
     professionAuthor
     slugPage
     titlesForNavigation
-    dateAndTime
+    _createdAt
     seoMetaTag {
       description
       title
@@ -81,7 +81,7 @@ query Blog($slug: String) {
 
 const PAGE_RELATED_CONTENT_QUERY = `
 query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId]) {
-    allBlogs(first: $first, filter: { id: {notIn: $blogId}, tags: {anyIn: $tagId} }) {
+    allBlogs(orderBy: _createdAt_DESC, first: $first, filter: { id: {notIn: $blogId}, tags: {anyIn: $tagId} }) {
         id
         mainTitle
         tags {
@@ -89,7 +89,7 @@ query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId]) {
           id
         }
         slugPage
-        dateAndTime
+        _createdAt
         mainImage {
           url
         }

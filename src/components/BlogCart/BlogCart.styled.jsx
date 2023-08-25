@@ -68,13 +68,17 @@ export const StyledBlogCartWrapper = styled.div`
   }
 
   .subTitle {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: auto;
+    white-space: nowrap;
+    max-width: fit-content;
     border-radius: ${rem(50)};
     background: var(--independent-grey-dt-20, rgba(129, 158, 176, 0.2));
     padding: ${rem(4)} ${rem(16)};
 
     color: rgba(81, 113, 133, 1);
     margin-bottom: ${rem(16)};
-    width: fit-content;
     line-height: 1;
     ${responsive.xs`
       font-size: ${rem(14)};

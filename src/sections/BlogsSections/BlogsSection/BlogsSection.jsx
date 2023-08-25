@@ -19,7 +19,7 @@ function BlogsSection() {
           {data.map(
             ({
               id,
-              dateAndTime,
+              _createdAt,
               mainImage: { url },
               tags,
               mainTitle,
@@ -28,8 +28,8 @@ function BlogsSection() {
               <li key={id}>
                 <Link href={`/blog/${slugPage}`}>
                   <BlogCart
-                    time={dateAndTime}
-                    date={dateAndTime}
+                    time={_createdAt}
+                    date={_createdAt}
                     title={mainTitle}
                     imageSrc={url}
                     subTitle={tags[0].tag}
