@@ -1,21 +1,16 @@
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
 import { useContext } from 'react'
 import { StyledBlogsSectionWrapper } from '@/sections/BlogsSections/BlogsSection/BlogsSection.styled'
 import BlogCategoryNavigation from '@/sections/BlogsSections/BlogsSection/BlogCategoryNavigation'
 import { BlogCart } from '@/components/BlogCart'
-import { ButtonLoadMoreLarge } from '@/components/UI/Button'
 import BlogPagination from '@/sections/BlogsSections/BlogsSection/BlogPagination'
 import { BlogContext } from '@/contexts/BlogContext/BlogContext'
 
 function BlogsSection() {
-  const { data, searchParams, pagination } = useContext(BlogContext)
-
-  const t = useTranslations('insights_page.blogs')
+  const { data, pagination } = useContext(BlogContext)
 
   return (
     <StyledBlogsSectionWrapper>
-      {/* eslint-disable-next-line no-use-before-define */}
       <BlogCategoryNavigation />
 
       <div className='container'>
@@ -44,47 +39,6 @@ function BlogsSection() {
             )
           )}
         </ul>
-        {pagination.count - pagination.skip > pagination.first && (
-          <>
-            {pagination.first >= pagination.count ? (
-              <>
-                {pagination.count >= 4 ? (
-                  <Link
-                    href={{
-                      href: '/blog',
-                      query: {
-                        ...searchParams,
-                        first: 3,
-                        skip: 0,
-                      },
-                    }}
-                    scroll={false}
-                  >
-                    <ButtonLoadMoreLarge className='loadMoreButton'>
-                      Load less
-                    </ButtonLoadMoreLarge>
-                  </Link>
-                ) : null}
-              </>
-            ) : (
-              <Link
-                href={{
-                  href: '/blog',
-                  query: {
-                    ...searchParams,
-                    first: pagination.first + 3,
-                    skip: 0,
-                  },
-                }}
-                scroll={false}
-              >
-                <ButtonLoadMoreLarge className='loadMoreButton'>
-                  {t('button_text')}
-                </ButtonLoadMoreLarge>
-              </Link>
-            )}
-          </>
-        )}
 
         <BlogPagination
           page={Math.floor(pagination.skip / pagination.first + 1 || 1)}
