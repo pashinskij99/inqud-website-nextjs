@@ -50,6 +50,7 @@ function BlogsPageMainSection() {
                 first: 3,
               },
             }}
+            scroll={false}
           >
             <StyledButtonSecondaryLight className='blogsPageSearchButton'>
               {t('search_button_text')}

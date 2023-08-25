@@ -1,4 +1,4 @@
-import { createContext, useMemo } from 'react'
+import { useState, createContext, useMemo } from 'react'
 
 export const BlogContext = createContext(null)
 
@@ -17,6 +17,8 @@ export function BlogProvider({
     count: 0,
   },
 }) {
+  const [isLastPaginationPage, setIsLastPaginationPage] = useState(false)
+
   const value = useMemo(
     () => ({
       data,
@@ -25,6 +27,8 @@ export function BlogProvider({
       relatedData: relatedData.allBlogs,
       searchParams,
       pagination,
+      isLastPaginationPage,
+      setIsLastPaginationPage,
     }),
     [data, relatedData, tags]
   )

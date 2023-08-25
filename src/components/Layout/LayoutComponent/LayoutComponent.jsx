@@ -7,10 +7,12 @@ import GlobalStyle from '@/styles/globalStyles'
 import BreadCrumbs from '@/components/BreadCrumbs'
 import ReduxProvider from '@/store/ReduxProvider'
 import { NotFoundProvider } from '@/contexts/NotFoundContext/NotFoundContext'
+// import RouteScrollProviderComponent from '@/components/RouteScrollProviderComponent'
 // import Lang from '@/components/Lang'
 
 export default function LayoutComponent({ children, messages, locale }) {
   return (
+    // <RouteScrollProviderComponent>
     <ReduxProvider>
       <NextIntlClientProvider messages={messages} locale={locale}>
         <NotFoundProvider>
@@ -27,5 +29,6 @@ export default function LayoutComponent({ children, messages, locale }) {
         </NotFoundProvider>
       </NextIntlClientProvider>
     </ReduxProvider>
+    // </RouteScrollProviderComponent>
   )
 }

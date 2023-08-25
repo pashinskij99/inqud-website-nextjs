@@ -12,6 +12,7 @@ function BlogsSection() {
   const { data, searchParams, pagination } = useContext(BlogContext)
 
   const t = useTranslations('insights_page.blogs')
+
   return (
     <StyledBlogsSectionWrapper>
       {/* eslint-disable-next-line no-use-before-define */}
@@ -43,37 +44,46 @@ function BlogsSection() {
             )
           )}
         </ul>
-        {pagination.first >= pagination.count ? (
+        {pagination.count - pagination.skip > pagination.first && (
           <>
-            {pagination.count !== 3 ? (
+            {pagination.first >= pagination.count ? (
+              <>
+                {pagination.count >= 4 ? (
+                  <Link
+                    href={{
+                      href: '/blog',
+                      query: {
+                        ...searchParams,
+                        first: 3,
+                        skip: 0,
+                      },
+                    }}
+                    scroll={false}
+                  >
+                    <ButtonLoadMoreLarge className='loadMoreButton'>
+                      Load less
+                    </ButtonLoadMoreLarge>
+                  </Link>
+                ) : null}
+              </>
+            ) : (
               <Link
                 href={{
+                  href: '/blog',
                   query: {
                     ...searchParams,
-                    first: 3,
+                    first: pagination.first + 3,
                     skip: 0,
                   },
                 }}
+                scroll={false}
               >
                 <ButtonLoadMoreLarge className='loadMoreButton'>
-                  Load less
+                  {t('button_text')}
                 </ButtonLoadMoreLarge>
               </Link>
-            ) : null}
+            )}
           </>
-        ) : (
-          <Link
-            href={{
-              query: {
-                ...searchParams,
-                first: pagination.first + 3,
-              },
-            }}
-          >
-            <ButtonLoadMoreLarge className='loadMoreButton'>
-              {t('button_text')}
-            </ButtonLoadMoreLarge>
-          </Link>
         )}
 
         <BlogPagination

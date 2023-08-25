@@ -23,6 +23,7 @@ function Tag({ tag, isActive }) {
       href={{
         query: { ...searchParams, tag: tagQuery, skip: 0, first: 3 },
       }}
+      scroll={false}
     >
       <li className={clsx({ ['active']: isActive })}>
         <button>

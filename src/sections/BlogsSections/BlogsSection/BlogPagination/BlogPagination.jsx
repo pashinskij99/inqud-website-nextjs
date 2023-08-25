@@ -62,7 +62,6 @@ function BlogPagination({ page, total, pageSize }) {
                   skip: pagination.first * pageNumber - pagination.first,
                 },
               }}
-              scroll
             >
               <li
                 className={clsx('number', {
@@ -88,7 +87,6 @@ function BlogPagination({ page, total, pageSize }) {
       >
         <li className={page === lastPage ? 'events-none' : 'active'}>
           <ArrowNext className='next' />
-          {/* <div className="next"/> */}
         </li>
       </Link>
     </StyledBlogPagination>
