@@ -19,7 +19,7 @@ export function BlogProvider({
   },
 }) {
   const { push } = useRouter()
-  const entriesSearchParams = Object.entries(searchParams)
+  const entriesSearchParams = Object.entries(searchParams || {})
 
   const addActiveTag = (id) => {
     const oldQuery = entriesSearchParams
