@@ -21,7 +21,16 @@ export function HelpCentreProvider({
             id,
             icon: iconBusiness.url,
             answers: contentBusiness.length,
-            listQuestions: contentBusiness,
+            listQuestions: contentBusiness.map(
+              ({ descriptions, title, id }) => ({
+                id,
+                title,
+                descriptions: descriptions.map(
+                  ({ description }) =>
+                    description.value?.document.children[0].children[0].value
+                ),
+              })
+            ),
           })
         )
       )
@@ -32,7 +41,16 @@ export function HelpCentreProvider({
             id,
             icon: iconBusiness.url,
             answers: contentBusiness.length,
-            listQuestions: contentBusiness,
+            listQuestions: contentBusiness.map(
+              ({ descriptions, title, id }) => ({
+                id,
+                title,
+                descriptions: descriptions.map(
+                  ({ description }) =>
+                    description.value?.document.children[0].children[0].value
+                ),
+              })
+            ),
           })
         )
       )
@@ -44,7 +62,16 @@ export function HelpCentreProvider({
             id,
             icon: iconPersonal.url,
             answers: contentPersonal.length,
-            listQuestions: contentPersonal,
+            listQuestions: contentPersonal.map(
+              ({ descriptions, title, id }) => ({
+                id,
+                title,
+                descriptions: descriptions.map(
+                  ({ description }) =>
+                    description.value?.document.children[0].children[0].value
+                ),
+              })
+            ),
           })
         )
       )
@@ -55,7 +82,16 @@ export function HelpCentreProvider({
             id,
             icon: iconPersonal.url,
             answers: contentPersonal.length,
-            listQuestions: contentPersonal,
+            listQuestions: contentPersonal.map(
+              ({ descriptions, title, id }) => ({
+                id,
+                title,
+                descriptions: descriptions.map(
+                  ({ description }) =>
+                    description.value?.document.children[0].children[0].value
+                ),
+              })
+            ),
           })
         )
       )

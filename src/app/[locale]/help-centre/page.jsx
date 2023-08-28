@@ -80,10 +80,10 @@ const getData = async () => {
   }
 }
 
-async function Page() {
+async function Page({ searchParams }) {
   const data = await getData()
 
-  return <HelpCenterPageContent data={data} />
+  return <HelpCenterPageContent data={data} isSearch={!!searchParams.search} />
 }
 
 export default Page

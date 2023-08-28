@@ -1,5 +1,6 @@
 'use client'
 
+import { useContext } from 'react'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH3,
@@ -10,6 +11,50 @@ import {
   StyledSearchResultSectionWrapper,
 } from './SearchResultSection.styled'
 import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
+import { HelpCentreContext } from '@/contexts/HelpCentreContext/HelpCentreContext'
+
+export default function SearchResultSection() {
+  const searchValue = 'Wallet'
+
+  const {} = useContext(HelpCentreContext)
+
+  return (
+    <StyledSearchResultSectionWrapper>
+      <div className='container'>
+        <StyledTypographyUrbanistH3 className='title'>
+          Search results for: <span className='search-text'>{searchValue}</span>
+        </StyledTypographyUrbanistH3>
+        <div className='list-search-result'>
+          {/* eslint-disable-next-line no-use-before-define */}
+          {data.map(({ id, description, title }) => (
+            <Cart key={id} title={title} description={description} />
+          ))}
+        </div>
+      </div>
+    </StyledSearchResultSectionWrapper>
+  )
+}
+
+function Cart({ title, description }) {
+  return (
+    <StyledSearchCartWrapper>
+      <div className='cart-text-wrapper'>
+        <StyledTypographyUrbanistH5 className='cart-title'>
+          {title}
+        </StyledTypographyUrbanistH5>
+        <StyledTypographyUrbanistBody className='cart-description'>
+          {description}
+        </StyledTypographyUrbanistBody>
+      </div>
+
+      <StyledButtonLearnMore className='cart-btn'>
+        <StyledTypographyUrbanistBody className='cart-btn-text'>
+          Learn more
+        </StyledTypographyUrbanistBody>
+      </StyledButtonLearnMore>
+    </StyledSearchCartWrapper>
+  )
+}
 
 const data = [
   {
@@ -61,43 +106,3 @@ const data = [
     ),
   },
 ]
-
-export default function SearchResultSection() {
-  const searchValue = 'Wallet'
-
-  return (
-    <StyledSearchResultSectionWrapper>
-      <div className='container'>
-        <StyledTypographyUrbanistH3 className='title'>
-          Search results for: <span className='search-text'>{searchValue}</span>
-        </StyledTypographyUrbanistH3>
-        <div className='list-search-result'>
-          {data.map(({ id, description, title }) => (
-            <Cart key={id} title={title} description={description} />
-          ))}
-        </div>
-      </div>
-    </StyledSearchResultSectionWrapper>
-  )
-}
-
-function Cart({ title, description }) {
-  return (
-    <StyledSearchCartWrapper>
-      <div className='cart-text-wrapper'>
-        <StyledTypographyUrbanistH5 className='cart-title'>
-          {title}
-        </StyledTypographyUrbanistH5>
-        <StyledTypographyUrbanistBody className='cart-description'>
-          {description}
-        </StyledTypographyUrbanistBody>
-      </div>
-
-      <StyledButtonLearnMore className='cart-btn'>
-        <StyledTypographyUrbanistBody className='cart-btn-text'>
-          Learn more
-        </StyledTypographyUrbanistBody>
-      </StyledButtonLearnMore>
-    </StyledSearchCartWrapper>
-  )
-}

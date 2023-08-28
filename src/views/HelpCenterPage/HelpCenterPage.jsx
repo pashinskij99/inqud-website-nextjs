@@ -2,11 +2,13 @@
 
 import { usePathname } from 'next/navigation'
 // import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { StyledHelpCenterPageWrapper } from '@/views/HelpCenterPage/HelpCenterPage.styled'
 import MainSection from '@/sections/HelpCenterSections/MainSection'
 // import SearchResultSection from '@/sections/HelpCenterSections/SearchResultSection'
 import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection'
 import { HelpCentreProvider } from '@/contexts/HelpCentreContext/HelpCentreContext'
+import SearchResultSection from '@/sections/HelpCenterSections/SearchResultSection'
 // import { getHighlightedText } from '@/utils/getHighlightedText'
 
 function HelpCenterPage({ children }) {
@@ -23,9 +25,7 @@ function HelpCenterPage({ children }) {
   )
 }
 
-export function HelpCenterPageContent({ data }) {
-  // const { searchHelpCenterValue } = useSelector((state) => state.search)
-
+export function HelpCenterPageContent({ data, isSearch }) {
   if (!data) return null
 
   return (
@@ -34,9 +34,7 @@ export function HelpCenterPageContent({ data }) {
       exploreByCategory={data.allHelpCentreBlockSeconds}
     >
       {/* {getHighlightedText('Hello my name is Yaroslav name Yaros', 'Yaros')} */}
-      {/* eslint-disable-next-line no-nested-ternary */}
-      {/* {searchHelpCenterValue ? <SearchResultSection /> : <MainSection />} */}
-      <MainSection />
+      {isSearch ? <SearchResultSection /> : <MainSection />}
     </HelpCentreProvider>
   )
 }

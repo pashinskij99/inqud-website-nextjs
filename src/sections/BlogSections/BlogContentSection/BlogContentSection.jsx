@@ -181,9 +181,11 @@ function Description({ descriptions }) {
                   value ? (
                     <Fragment key={value}>{value}</Fragment>
                   ) : (
-                    <Link key={children[0].value} className='link' href={url}>
-                      <span>{children[0].value}</span>
-                    </Link>
+                    <>
+                      <Link key={children[0].value} className='link' href={url}>
+                        <span>{children[0].value}</span>
+                      </Link>
+                    </>
                   )
                 )
               )}

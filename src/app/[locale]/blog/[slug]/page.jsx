@@ -68,7 +68,10 @@ query Blog($slug: ItemId) {
     }
   }
 }`
-
+// twitterCard
+// image {
+//   url
+// }
 const PAGE_CONTENT_QUERY_SEO = `
 query Blog($slug: ItemId) {
   blog(filter: {id: {eq: $slug}}) {
@@ -76,10 +79,7 @@ query Blog($slug: ItemId) {
     seoMetaTag {
       description
       title
-      twitterCard
-      image {
-        url
-      }
+      
     }
   }
 }`

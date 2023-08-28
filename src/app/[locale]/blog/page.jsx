@@ -113,6 +113,7 @@ async function Page({ searchParams }) {
 
   const { _allBlogsMeta, allBlogs } = await performRequest({
     query: PAGE_CONTENT_QUERY,
+    revalidate: 0,
     variables: {
       first,
       skip,

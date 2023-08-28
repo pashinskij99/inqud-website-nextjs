@@ -61,7 +61,13 @@ function HelpHeroSection({ page }) {
             handleChange={handleChange}
             handleClear={handleClear}
           />
-          <Link href={`help-centre/search/${searchValue}`}>
+          <Link
+            href={{
+              query: {
+                search: searchValue,
+              },
+            }}
+          >
             <StyledButtonSecondaryLight className='search-btn'>
               {t('search_button_text')}
             </StyledButtonSecondaryLight>
