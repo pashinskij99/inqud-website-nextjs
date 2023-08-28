@@ -31,12 +31,15 @@ async function Page({ searchParams }) {
 
   const { allProducts } = await performRequest({
     query: PRODUCTS_QUERY,
+    revalidate: 0,
   })
   const { allIndustries } = await performRequest({
     query: INDUSTRIES_QUERY,
+    revalidate: 0,
   })
   const { allTags } = await performRequest({
     query: TAGS_QUERY,
+    revalidate: 0,
   })
 
   const productIdArray = allProducts.map(({ id }) => id)

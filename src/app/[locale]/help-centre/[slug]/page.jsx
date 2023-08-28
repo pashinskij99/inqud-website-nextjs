@@ -77,6 +77,8 @@ const getData = async (id, type) => {
   try {
     const helpCentreData = await performRequest({
       query: type === 'product' ? HELP_CENTRE_PRODUCT : HELP_CENTRE_CATEGORY,
+      revalidate: 0,
+
       variables: {
         itemId: id,
       },

@@ -122,6 +122,7 @@ export async function generateMetadata({ params }) {
     blog: { seoMetaTag },
   } = await performRequest({
     query: PAGE_CONTENT_QUERY_SEO,
+    revalidate: 0,
     variables: { slug: params.slug },
   })
 
@@ -134,11 +135,14 @@ export async function generateMetadata({ params }) {
 export default async function page({ params }) {
   const { blog } = await performRequest({
     query: PAGE_CONTENT_QUERY,
+    revalidate: 0,
     variables: { slug: params.slug },
   })
 
   const relatedData = await performRequest({
     query: PAGE_RELATED_CONTENT_QUERY,
+    revalidate: 0,
+
     variables: {
       tagId: blog.mainTag.id,
       blogId: blog.id,
