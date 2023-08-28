@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import {responsive} from '@/utils/response';
+import styled from '@emotion/styled'
+import { responsive } from '@/utils/response'
 
 export const StyledBusinessSectionWrapper = styled.section`
   padding: 56px 0 239px;
@@ -71,7 +71,10 @@ export const StyledSubSectionWrapper = styled.div`
     align-items: center;
     margin-bottom: 16px;
 
-    svg {
+    img {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
       flex-shrink: 0;
     }
 
@@ -88,7 +91,6 @@ export const StyledSubSectionWrapper = styled.div`
     }
   }
 
-
   .cart-body {
     display: flex;
     flex-direction: column;
@@ -100,7 +102,6 @@ export const StyledSubSectionWrapper = styled.div`
       letter-spacing: 0em;
     }
   }
-
 
   .cart-footer {
     display: flex;
@@ -137,7 +138,7 @@ export const StyledOtherDocumentationSectionWrapper = styled.div`
 
   .cart {
     border-radius: 30px;
-    background: #FFF;
+    background: #fff;
     max-width: 930px;
     width: 100%;
     padding: 32px;
@@ -185,15 +186,12 @@ export const StyledOtherDocumentationSectionWrapper = styled.div`
       padding: 0 24px;
 
       .cart-btn-text {
-        color: #FFF;
+        color: #fff;
         font-weight: 700;
         line-height: 27px;
       }
     }
-
-
   }
-
 
   .right-side {
     ${responsive.sm`

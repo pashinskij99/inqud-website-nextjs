@@ -15,6 +15,10 @@ export default function BlogPage({ blog, relatedData }) {
 
   useEffect(() => {
     dispatch(setBlogBreadcrumbs(blog.mainTitle))
+
+    return () => {
+      dispatch(setBlogBreadcrumbs(''))
+    }
   }, [blog])
 
   return (

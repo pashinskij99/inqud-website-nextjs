@@ -1,16 +1,16 @@
-'use client';
+'use client'
 
-import { usePathname } from 'next/navigation';
-import { useSelector } from 'react-redux';
-import { StyledHelpCenterPageWrapper } from '@/views/HelpCenterPage/HelpCenterPage.styled';
-import BusinessSection from '@/sections/HelpCenterSections/BusinessSection';
-import SearchResultSection from '@/sections/HelpCenterSections/SearchResultSection';
-import PersonalSection from '@/sections/HelpCenterSections/PersonalSection';
-import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection';
-import { ArticleProvider } from '@/contexts/ArticleContext/ArticleContext';
+import { usePathname } from 'next/navigation'
+// import { useSelector } from 'react-redux'
+import { StyledHelpCenterPageWrapper } from '@/views/HelpCenterPage/HelpCenterPage.styled'
+import MainSection from '@/sections/HelpCenterSections/MainSection'
+// import SearchResultSection from '@/sections/HelpCenterSections/SearchResultSection'
+import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection'
+import { HelpCentreProvider } from '@/contexts/HelpCentreContext/HelpCentreContext'
+// import { getHighlightedText } from '@/utils/getHighlightedText'
 
 function HelpCenterPage({ children }) {
-  const path = usePathname();
+  const path = usePathname()
 
   return (
     <StyledHelpCenterPageWrapper>
@@ -20,27 +20,25 @@ function HelpCenterPage({ children }) {
 
       {children}
     </StyledHelpCenterPageWrapper>
-  );
+  )
 }
 
-export function HelpCenterPageContent() {
-  const { searchHelpCenterValue } = useSelector((state) => state.search);
-  const path = usePathname();
+export function HelpCenterPageContent({ data }) {
+  // const { searchHelpCenterValue } = useSelector((state) => state.search)
+
+  if (!data) return null
 
   return (
-    <>
+    <HelpCentreProvider
+      browseByProduct={data.allHelpCentreBlocks}
+      exploreByCategory={data.allHelpCentreBlockSeconds}
+    >
+      {/* {getHighlightedText('Hello my name is Yaroslav name Yaros', 'Yaros')} */}
       {/* eslint-disable-next-line no-nested-ternary */}
-      {searchHelpCenterValue ? (
-        <SearchResultSection />
-      ) : path.search('general') !== -1 ? (
-        <ArticleProvider>
-          <PersonalSection />
-        </ArticleProvider>
-      ) : (
-        <BusinessSection />
-      )}
-    </>
-  );
+      {/* {searchHelpCenterValue ? <SearchResultSection /> : <MainSection />} */}
+      <MainSection />
+    </HelpCentreProvider>
+  )
 }
 
-export default HelpCenterPage;
+export default HelpCenterPage

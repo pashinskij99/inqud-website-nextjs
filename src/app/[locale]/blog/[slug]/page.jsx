@@ -2,8 +2,8 @@ import { performRequest } from '@/lib/datocms'
 import BlogPage from '@/views/BlogPage'
 
 const PAGE_CONTENT_QUERY = `
-query Blog($slug: String) {
-  allBlogs(filter: {slugPage: {eq: $slug}}) {
+query Blog($slug: ItemId) {
+  blog(filter: {id: {eq: $slug}}) {
     id
     nameAuthor
     industries {
@@ -70,8 +70,8 @@ query Blog($slug: String) {
 }`
 
 const PAGE_CONTENT_QUERY_SEO = `
-query Blog($slug: String) {
-  allBlogs(filter: {slugPage: {eq: $slug}}) {
+query Blog($slug: ItemId) {
+  blog(filter: {id: {eq: $slug}}) {
     slugPage
     seoMetaTag {
       description
@@ -102,24 +102,24 @@ query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId]) {
     }
 }`
 
-const PAGE_CONTENT_QUERY_SLUG = `
-query Blog {
-  allBlogs {
-    slugPage
-  }
-}`
+// const PAGE_CONTENT_QUERY_SLUG = `
+// query Blog {
+//   allBlogs {
+//     slugPage
+//   }
+// }`
 
-export async function generateStaticParams() {
-  const { allBlogs } = await performRequest({ query: PAGE_CONTENT_QUERY_SLUG })
+// export async function generateStaticParams() {
+//   const { allBlogs } = await performRequest({ query: PAGE_CONTENT_QUERY_SLUG })
 
-  return allBlogs.map(({ slugPage }) => ({
-    slug: slugPage,
-  }))
-}
+//   return allBlogs.map(({ slugPage }) => ({
+//     slug: slugPage,
+//   }))
+// }
 
 export async function generateMetadata({ params }) {
   const {
-    allBlogs: [{ seoMetaTag }],
+    blog: { seoMetaTag },
   } = await performRequest({
     query: PAGE_CONTENT_QUERY_SEO,
     variables: { slug: params.slug },
@@ -132,7 +132,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function page({ params }) {
-  const { allBlogs } = await performRequest({
+  const { blog } = await performRequest({
     query: PAGE_CONTENT_QUERY,
     variables: { slug: params.slug },
   })
@@ -140,10 +140,10 @@ export default async function page({ params }) {
   const relatedData = await performRequest({
     query: PAGE_RELATED_CONTENT_QUERY,
     variables: {
-      tagId: allBlogs[0].mainTag.id,
-      blogId: allBlogs[0].id,
+      tagId: blog.mainTag.id,
+      blogId: blog.id,
     },
   })
 
-  return <BlogPage blog={allBlogs[0]} relatedData={relatedData} />
+  return <BlogPage blog={blog} relatedData={relatedData} />
 }

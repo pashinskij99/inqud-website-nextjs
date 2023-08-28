@@ -1,7 +1,89 @@
+import { performRequest } from '@/lib/datocms'
 import { HelpCenterPageContent } from '@/views/HelpCenterPage/HelpCenterPage'
 
-function Page() {
-  return <HelpCenterPageContent />
+const HELP_CENTRE_QUERY = `
+  query MyQuery {
+    allHelpCentreBlockSeconds {
+      mainTitleBusiness
+      mainTitlePersonal
+      id
+      iconPersonal {
+        url
+      }
+      iconBusiness {
+        url
+      }
+      contentPersonal {
+        id
+        title
+        descriptions {
+          id
+          description {
+            value
+          }
+        }
+      }
+      contentBusiness {
+        id
+        title
+        descriptions {
+          id
+          description {
+            value
+          }
+        }
+      }
+    }
+    allHelpCentreBlocks {
+      mainTitleBusiness
+      mainTitlePersonal
+      id
+      iconPersonal {
+        url
+      }
+      iconBusiness {
+        url
+      }
+      contentPersonal {
+        id
+        title
+        descriptions {
+          id
+          description {
+            value
+          }
+        }
+      }
+      contentBusiness {
+        id
+        title
+        descriptions {
+          id
+          description {
+            value
+          }
+        }
+      }
+    }
+  }
+`
+
+const getData = async () => {
+  try {
+    const helpCentreData = await performRequest({
+      query: HELP_CENTRE_QUERY,
+    })
+
+    return helpCentreData
+  } catch (error) {
+    throw Error(error.message)
+  }
+}
+
+async function Page() {
+  const data = await getData()
+
+  return <HelpCenterPageContent data={data} />
 }
 
 export default Page

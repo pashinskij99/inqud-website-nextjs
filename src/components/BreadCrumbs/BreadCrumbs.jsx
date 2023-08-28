@@ -33,7 +33,12 @@ function BreadCrumbs() {
 
       // for blog details page
       default:
-        return page.split('-').length === 1 ? page : breadcrumb.blog
+        // eslint-disable-next-line no-nested-ternary
+        return breadcrumb.blog
+          ? breadcrumb.blog
+          : page.split('-').length === 1
+          ? page
+          : null
       // : page
       // .split('-')
       // .map((word) => capitalize(word))
