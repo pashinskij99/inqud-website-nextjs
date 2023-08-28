@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext } from 'react'
+// import { useContext } from 'react'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH3,
@@ -11,12 +11,12 @@ import {
   StyledSearchResultSectionWrapper,
 } from './SearchResultSection.styled'
 import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
-import { HelpCentreContext } from '@/contexts/HelpCentreContext/HelpCentreContext'
+// import { HelpCentreContext } from '@/contexts/HelpCentreContext/HelpCentreContext'
 
 export default function SearchResultSection() {
   const searchValue = 'Wallet'
 
-  const {} = useContext(HelpCentreContext)
+  // const {} = useContext(HelpCentreContext)
 
   return (
     <StyledSearchResultSectionWrapper>

@@ -41,7 +41,7 @@ export function HelpCentreDetailsProvider({ children, data, type }) {
     }
   }, [data, type])
 
-  console.log(currentData)
+  // console.log(currentData)
 
   const value = useMemo(
     () => ({
