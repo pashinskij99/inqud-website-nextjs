@@ -48,7 +48,7 @@ async function Page({ searchParams }) {
     allBlogs(
       orderBy: _createdAt_DESC,
       first: $first, 
-      skip: $skip, 
+      skip: $skip,
       filter: {
         OR: [
           ${
@@ -108,7 +108,7 @@ async function Page({ searchParams }) {
     }
   }`
 
-  const first = searchParams.first ? +searchParams.first : 3
+  const first = searchParams.first ? +searchParams.first : 12
   const skip = searchParams.skip ? +searchParams.skip : 0
 
   const { _allBlogsMeta, allBlogs } = await performRequest({
