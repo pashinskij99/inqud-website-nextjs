@@ -34,9 +34,8 @@ export default function RelatedArticles() {
               timeToRead,
               mainTag,
               mainTitle,
-              slugPage,
             }) => (
-              <Link href={`/blog/${slugPage}`}>
+              <Link href={`/blog/${id}`}>
                 <BlogCart
                   time={timeToRead}
                   title={mainTitle}
