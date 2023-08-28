@@ -1,6 +1,7 @@
-import styled from '@emotion/styled';
-import { rem } from '@/utils/rem';
-import { responsive } from '@/utils/response';
+import styled from '@emotion/styled'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
+import { urbanist } from '@/utils/font'
 
 export const StyledBlogContentSectionWrapper = styled.section`
   padding-top: ${rem(39)};
@@ -35,7 +36,7 @@ export const StyledBlogContentSectionWrapper = styled.section`
       padding: 0;
     `};
   }
-`;
+`
 
 export const StyledLeftSide = styled.div`
   top: calc(var(--header-height) + ${rem(68)});
@@ -182,7 +183,7 @@ export const StyledLeftSide = styled.div`
       transform: translateX(${rem(0)});
     }
   }
-`;
+`
 export const StyledCenterSide = styled.div`
   width: 100%;
   ${responsive.xl`
@@ -199,7 +200,13 @@ export const StyledCenterSide = styled.div`
       margin-bottom: 0;
     }
 
-    .description {
+    p {
+      ${urbanist.style};
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 26px;
+      letter-spacing: 0em;
+
       margin-bottom: ${rem(16)};
 
       &:last-child,
@@ -212,7 +219,16 @@ export const StyledCenterSide = styled.div`
       `}
     }
 
-    .image {
+    ul {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      margin-bottom: 10px;
+      li {
+      }
+    }
+
+    img {
       width: 100%;
       object-fit: contain;
       margin: ${rem(40)} 0;
@@ -223,19 +239,16 @@ export const StyledCenterSide = styled.div`
       }
 
       ${responsive.xxl`
-        height: 247px;
+        height: auto;
         object-fit: cover;
       `}
     }
   }
 
-  .link {
-    display: contents;
-
-    span {
-      text-decoration-line: underline;
-      color: #077453;
-    }
+  a {
+    display: inline;
+    text-decoration-line: underline;
+    color: #077453;
   }
 
   .title {
@@ -301,7 +314,7 @@ export const StyledCenterSide = styled.div`
       `}
     }
   }
-`;
+`
 export const StyledRightSide = styled.div`
   width: ${rem(320)};
   flex-shrink: 0;
@@ -327,7 +340,7 @@ export const StyledRightSide = styled.div`
     grid-template-columns: 1fr;
     padding: 0 16px;
   `};
-`;
+`
 
 export const StyledCartInfoWrapper = styled.div`
   width: 100%;
@@ -360,4 +373,4 @@ export const StyledCartInfoWrapper = styled.div`
   .author-image {
     border-radius: 50%;
   }
-`;
+`

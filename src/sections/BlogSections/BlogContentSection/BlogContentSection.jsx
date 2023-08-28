@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Fragment, useContext, useEffect } from 'react'
 import { Element, Link as LinkAnchor } from 'react-scroll'
 import { InView } from 'react-intersection-observer'
+import { StructuredText } from 'react-datocms/structured-text'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH4,
@@ -172,26 +173,9 @@ function Description({ descriptions }) {
     descriptions?.length > 0 && (
       // eslint-disable-next-line react/jsx-no-useless-fragment
       <>
-        {descriptions?.map(({ id, description }) => {
-          const desc = description?.value.document.children
-          return (
-            <StyledTypographyUrbanistBody key={id} className='description'>
-              {desc?.map(({ children }) =>
-                children.map(({ value, url, children }) =>
-                  value ? (
-                    <Fragment key={value}>{value}</Fragment>
-                  ) : (
-                    <>
-                      <Link key={children[0].value} className='link' href={url}>
-                        <span>{children[0].value}</span>
-                      </Link>
-                    </>
-                  )
-                )
-              )}
-            </StyledTypographyUrbanistBody>
-          )
-        })}
+        {descriptions?.map(({ id, description }) => (
+          <StructuredText key={id} data={description} />
+        ))}
       </>
     )
   )
