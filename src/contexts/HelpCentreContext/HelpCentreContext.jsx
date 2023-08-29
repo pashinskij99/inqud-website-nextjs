@@ -1,5 +1,6 @@
 import { createContext, useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { render } from 'datocms-structured-text-to-html-string'
 
 export const HelpCentreContext = createContext()
 
@@ -7,6 +8,7 @@ export function HelpCentreProvider({
   children,
   browseByProduct,
   exploreByCategory,
+  searchValue,
 }) {
   const { tab } = useSelector((state) => state.activeTab)
   const [browseByProductData, setBrowseByProductData] = useState([])
@@ -25,9 +27,10 @@ export function HelpCentreProvider({
               ({ descriptions, title, id }) => ({
                 id,
                 title,
-                descriptions: descriptions.map(
-                  ({ description }) =>
-                    description.value?.document.children[0].children[0].value
+                descriptions: descriptions.map(({ description }) =>
+                  render(description)
+                    .replace(/(<([^>]+)>)/gi, '')
+                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
                 ),
               })
             ),
@@ -45,9 +48,10 @@ export function HelpCentreProvider({
               ({ descriptions, title, id }) => ({
                 id,
                 title,
-                descriptions: descriptions.map(
-                  ({ description }) =>
-                    description.value?.document.children[0].children[0].value
+                descriptions: descriptions.map(({ description }) =>
+                  render(description)
+                    .replace(/(<([^>]+)>)/gi, '')
+                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
                 ),
               })
             ),
@@ -66,9 +70,10 @@ export function HelpCentreProvider({
               ({ descriptions, title, id }) => ({
                 id,
                 title,
-                descriptions: descriptions.map(
-                  ({ description }) =>
-                    description.value?.document.children[0].children[0].value
+                descriptions: descriptions.map(({ description }) =>
+                  render(description)
+                    .replace(/(<([^>]+)>)/gi, '')
+                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
                 ),
               })
             ),
@@ -86,9 +91,10 @@ export function HelpCentreProvider({
               ({ descriptions, title, id }) => ({
                 id,
                 title,
-                descriptions: descriptions.map(
-                  ({ description }) =>
-                    description.value?.document.children[0].children[0].value
+                descriptions: descriptions.map(({ description }) =>
+                  render(description)
+                    .replace(/(<([^>]+)>)/gi, '')
+                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
                 ),
               })
             ),
@@ -102,8 +108,9 @@ export function HelpCentreProvider({
     () => ({
       browseByProductData,
       exploreByCategoryData,
+      searchValue,
     }),
-    [browseByProductData, exploreByCategoryData]
+    [browseByProductData, exploreByCategoryData, searchValue]
   )
 
   return (

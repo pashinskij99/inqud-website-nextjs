@@ -34,6 +34,10 @@ export const StyledSearchResultSectionWrapper = styled.section`
     }
   }
 
+  .error-message {
+    text-align: center;
+  }
+
   .list-search-result {
     display: grid;
     row-gap: 16px;
@@ -62,7 +66,9 @@ export const StyledSearchCartWrapper = styled.div`
         line-height: 24px;
       `}
     }
-    .cart-description {
+    p,
+    span {
+      font-size: 1.125rem;
       color: var(--independent-grey, #517185);
       line-height: 26px;
       .select {

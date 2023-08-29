@@ -171,7 +171,8 @@ export const StyledOtherDocumentationSectionWrapper = styled.div`
       `}
     }
 
-    .cart-description {
+    p,
+    span {
       color: var(--independent-grey, #517185);
       font-size: 18px;
       line-height: 24px;

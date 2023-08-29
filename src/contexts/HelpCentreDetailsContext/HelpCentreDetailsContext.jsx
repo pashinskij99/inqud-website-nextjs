@@ -39,9 +39,7 @@ export function HelpCentreDetailsProvider({ children, data, type }) {
         mainTitle: data.helpCentreBlockSecond.mainTitlePersonal,
       })
     }
-  }, [data, type])
-
-  // console.log(currentData)
+  }, [data, type, tab])
 
   const value = useMemo(
     () => ({

@@ -4,6 +4,8 @@ import clsx from 'clsx'
 import { useContext, useEffect, useState } from 'react'
 import { InView } from 'react-intersection-observer'
 import { Element, Link } from 'react-scroll'
+import { StructuredText } from 'react-datocms/structured-text'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   StyledCenterSideWrapper,
   StyledContentItemAccordion,
@@ -32,8 +34,30 @@ import {
   HelpCentreDetailsContext,
   HelpCentreDetailsProvider,
 } from '@/contexts/HelpCentreDetailsContext/HelpCentreDetailsContext'
+import { setBlogBreadcrumbs } from '@/store/features/breadcrumb/breadcrumbSlice'
 
 function DetailsSection({ data, type }) {
+  const { tab } = useSelector((state) => state.activeTab)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(
+      setBlogBreadcrumbs(
+        // eslint-disable-next-line no-nested-ternary
+        tab
+          ? type === 'product'
+            ? data.helpCentreBlock.mainTitlePersonal
+            : data.helpCentreBlockSecond.mainTitlePersonal
+          : type === 'product'
+          ? data.helpCentreBlock.mainTitleBusiness
+          : data.helpCentreBlockSecond.mainTitleBusiness
+      )
+    )
+
+    return () => {
+      dispatch(setBlogBreadcrumbs(''))
+    }
+  }, [tab, data])
+
   return (
     <HelpCentreDetailsProvider data={data} type={type}>
       <ArticleProvider>
@@ -90,10 +114,7 @@ function DetailsSectionInner() {
             <Content
               key={id}
               title={title}
-              description={descriptions.map(
-                ({ description }) =>
-                  description.value?.document.children[0].children[0].value
-              )}
+              description={descriptions}
               expanded={expanded}
               handleChange={handleChange}
             />
@@ -140,13 +161,14 @@ function Content({ title, description, expanded, handleChange }) {
               {title}
             </StyledTypographyUrbanistH4>
             <div className='content-description-wrapper'>
-              {description.map((text, i) => (
+              {description.map(({ description, id }) => (
+                // eslint-disable-next-line no-undef, react/no-array-index-key
                 <StyledTypographyUrbanistBody
                   // eslint-disable-next-line react/no-array-index-key
-                  key={text + i}
+                  key={id}
                   className='content-description'
                 >
-                  {text}
+                  <StructuredText key={id} data={description} />
                 </StyledTypographyUrbanistBody>
               ))}
             </div>
@@ -192,8 +214,9 @@ function ContentAccordionItem({ title, expanded, description, handleChange }) {
       </StyledContentItemAccordionSummary>
       <StyledContentItemAccordionDetails expanded={expanded === title}>
         <StyledTypographyUrbanistBody className='questionsAccordionBodyText'>
-          {description ||
-            'Get on board with the future of payments - our embeddable crypto widget for your website makes it simple to accept cryptocurrency payments including Bitcoin, Ethereum and other crypto.'}
+          {description.map(({ description }) => (
+            <StructuredText data={description} />
+          ))}
         </StyledTypographyUrbanistBody>
         <div className='content-footer'>
           <StyledTypographyUrbanistBody className='content-footer-text'>

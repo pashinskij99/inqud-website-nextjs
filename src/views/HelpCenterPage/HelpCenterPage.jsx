@@ -25,11 +25,12 @@ function HelpCenterPage({ children }) {
   )
 }
 
-export function HelpCenterPageContent({ data, isSearch }) {
+export function HelpCenterPageContent({ data, isSearch, searchValue }) {
   if (!data) return null
 
   return (
     <HelpCentreProvider
+      searchValue={searchValue}
       browseByProduct={data.allHelpCentreBlocks}
       exploreByCategory={data.allHelpCentreBlockSeconds}
     >

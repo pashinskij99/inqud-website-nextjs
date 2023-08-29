@@ -63,6 +63,7 @@ function HelpHeroSection({ page }) {
           />
           <Link
             href={{
+              pathname: '/help-centre',
               query: {
                 search: searchValue,
               },

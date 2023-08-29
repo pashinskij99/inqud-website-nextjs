@@ -84,7 +84,13 @@ const getData = async () => {
 async function Page({ searchParams }) {
   const data = await getData()
 
-  return <HelpCenterPageContent data={data} isSearch={!!searchParams.search} />
+  return (
+    <HelpCenterPageContent
+      data={data}
+      isSearch={!!searchParams.search}
+      searchValue={searchParams.search || ''}
+    />
+  )
 }
 
 export default Page

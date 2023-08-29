@@ -220,11 +220,14 @@ export const StyledCenterSide = styled.div`
     }
 
     ul {
+      list-style: disc;
       display: flex;
       flex-direction: column;
       row-gap: 10px;
       margin-bottom: 10px;
+      padding-inline-start: 40px;
       li {
+        list-style: disc;
       }
     }
 
@@ -371,6 +374,7 @@ export const StyledCartInfoWrapper = styled.div`
   }
 
   .author-image {
+    flex-shrink: 0;
     border-radius: 50%;
   }
 `
