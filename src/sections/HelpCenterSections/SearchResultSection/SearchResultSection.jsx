@@ -30,6 +30,8 @@ export default function SearchResultSection() {
     searchValue,
   })
 
+  console.log(filteredValue)
+
   // console.log([...browseByProductData, ...exploreByCategoryData])
 
   return (
@@ -43,11 +45,12 @@ export default function SearchResultSection() {
           {filteredValue.length > 0 ? (
             filteredValue.map(
               ({ id: idElement, is, listQuestions, description }) =>
-                listQuestions.map(({ id, descriptions, title }) => (
+                listQuestions.map(({ id, descriptions, title, type }) => (
                   <Cart
                     id={idElement}
                     key={id}
                     is={is}
+                    type={type}
                     title={title}
                     descriptions={descriptions}
                     description={description}
@@ -65,7 +68,7 @@ export default function SearchResultSection() {
   )
 }
 
-function Cart({ id, title, is, description, descriptions }) {
+function Cart({ id, title, is, description, descriptions, type }) {
   const { searchValue } = useContext(HelpCentreContext)
 
   return (
@@ -95,7 +98,7 @@ function Cart({ id, title, is, description, descriptions }) {
       </div>
 
       <StyledButtonLearnMore className='cart-btn'>
-        <Link href={`/help-centre/${id}`}>
+        <Link href={{ pathname: `/help-centre/${id}`, query: { type } }}>
           <StyledTypographyUrbanistBody className='cart-btn-text'>
             Learn more
           </StyledTypographyUrbanistBody>

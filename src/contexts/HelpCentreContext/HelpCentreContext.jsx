@@ -26,6 +26,7 @@ export function HelpCentreProvider({
             listQuestions: contentBusiness.map(
               ({ descriptions, title, id }) => ({
                 id,
+                type: 'product',
                 title,
                 descriptions: descriptions.map(({ description }) =>
                   render(description)
@@ -42,6 +43,7 @@ export function HelpCentreProvider({
           ({ mainTitleBusiness, id, iconBusiness, contentBusiness }) => ({
             title: mainTitleBusiness,
             id,
+            type: 'category',
             icon: iconBusiness.url,
             answers: contentBusiness.length,
             listQuestions: contentBusiness.map(
@@ -64,6 +66,7 @@ export function HelpCentreProvider({
           ({ mainTitlePersonal, id, iconPersonal, contentPersonal }) => ({
             title: mainTitlePersonal,
             id,
+            type: 'product',
             icon: iconPersonal.url,
             answers: contentPersonal.length,
             listQuestions: contentPersonal.map(
@@ -85,6 +88,7 @@ export function HelpCentreProvider({
           ({ mainTitlePersonal, id, iconPersonal, contentPersonal }) => ({
             title: mainTitlePersonal,
             id,
+            type: 'category',
             icon: iconPersonal.url,
             answers: contentPersonal.length,
             listQuestions: contentPersonal.map(

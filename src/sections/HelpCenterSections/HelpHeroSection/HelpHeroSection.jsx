@@ -1,8 +1,7 @@
 import clsx from 'clsx'
-// import { useDispatch, useSelector } from 'react-redux'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { StyledHelpHeroSectionWrapper } from '@/sections/HelpCenterSections/HelpHeroSection/HelpHeroSection.styled'
 import {
   StyledTypographyUrbanistBody,
@@ -11,17 +10,18 @@ import {
 import { InputSearch } from '@/components/UI/Input'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import HeaderTabs from '@/components/Layout/Header/HeaderTabs'
-// import { setSearchHelpCenterValue } from '@/store/features/search/searchSlice'
 import BackIcon from '@/assets/icons/arrow-back.svg'
+import { HelpCentreContext } from '@/contexts/HelpCentreContext/HelpCentreContext'
 
 function HelpHeroSection({ page }) {
-  // const dispatch = useDispatch()
-  // const { searchValue } = useSelector((state) => state.search)
-  const [searchValue, setSearchValue] = useState('')
+  const helpCentreData = useContext(HelpCentreContext)
+  const [searchValue, setSearchValue] = useState(
+    // eslint-disable-next-line react/destructuring-assignment
+    helpCentreData?.searchValue || ''
+  )
 
   const handleChange = (value) => {
     setSearchValue(value)
-    // dispatch(setSearchHelpCenterValue(value))
   }
 
   const handleClear = () => {
