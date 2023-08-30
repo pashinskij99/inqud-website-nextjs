@@ -134,7 +134,7 @@ const getData = async (query) => {
   try {
     const data = await performRequest({
       query,
-      revalidate: 10,
+      revalidate: 0,
     })
 
     return data

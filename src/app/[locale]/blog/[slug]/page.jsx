@@ -112,7 +112,7 @@ export async function generateStaticParams() {
 
   const { allBlogs } = await performRequest({
     query: PAGE_ALL_CONTENT_QUERY,
-    revalidate: 10,
+    revalidate: 0,
     // includeDrafts: isEnabled,
   })
   return allBlogs.map((blog) => ({ slug: blog.id }))
@@ -126,7 +126,7 @@ export async function generateMetadata({ params }) {
   } = await performRequest({
     query: PAGE_CONTENT_QUERY_SEO,
     // includeDrafts: isEnabled,
-    revalidate: 10,
+    revalidate: 0,
     variables: { slug: params.slug },
   })
 
@@ -141,7 +141,7 @@ export default async function page({ params }) {
 
   const { blog } = await performRequest({
     query: PAGE_CONTENT_QUERY,
-    revalidate: 10,
+    revalidate: 0,
     // includeDrafts: isEnabled,
     variables: {
       slug: params.slug,
@@ -151,7 +151,7 @@ export default async function page({ params }) {
   const relatedData = await performRequest({
     query: PAGE_RELATED_CONTENT_QUERY,
     // includeDrafts: isEnabled,
-    revalidate: 10,
+    revalidate: 0,
 
     variables: {
       tagId: blog.mainTag.id,

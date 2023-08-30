@@ -23,12 +23,12 @@ async function Page({ searchParams }) {
   const { allProducts } = await performRequest({
     query: PRODUCTS_QUERY,
     // includeDrafts: isEnabled,
-    revalidate: 10,
+    revalidate: 0,
   })
   const { allIndustries } = await performRequest({
     query: INDUSTRIES_QUERY,
     // includeDrafts: isEnabled,
-    revalidate: 10,
+    revalidate: 0,
   })
 
   const idAllProducts = allProducts.map(({ id }) => id)
@@ -108,7 +108,7 @@ async function Page({ searchParams }) {
   const skip = searchParams.skip ? +searchParams.skip : 0
   const { _allBlogsMeta, allBlogs, allTags } = await performRequest({
     query: PAGE_CONTENT_QUERY,
-    revalidate: 10,
+    revalidate: 0,
     // includeDrafts: isEnabled,
     variables: {
       first,
