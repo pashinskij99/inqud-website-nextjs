@@ -108,7 +108,7 @@ export const StyledFeaturesB2CSectionWrapper = styled.section`
       order: 6;
     }
   }
-  svg {
+  img {
     display: block;
     width: 64px;
     height: 64px;

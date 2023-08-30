@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { useTranslations } from 'next-intl'
+import { useContext } from 'react'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -11,107 +12,114 @@ import {
   StyledTeamCartWrapper,
   StyledTeamSectionWrapper,
 } from './TeamSection.styled'
-import image1 from '@/assets/images/company/team/image1.webp'
-import image2 from '@/assets/images/company/team/image2.webp'
-import image3 from '@/assets/images/company/team/image3.webp'
-import image4 from '@/assets/images/company/team/image4.webp'
-import Telegram from '@/assets/images/company/team/telegram.svg'
-import Linkedin from '@/assets/images/company/team/linkedin.svg'
+// import image1 from '@/assets/images/company/team/image1.webp'
+// import image2 from '@/assets/images/company/team/image2.webp'
+// import image3 from '@/assets/images/company/team/image3.webp'
+// import image4 from '@/assets/images/company/team/image4.webp'
+// import Telegram from '@/assets/images/company/team/telegram.svg'
+// import Linkedin from '@/assets/images/company/team/linkedin.svg'
 import { StyledLoadMoreLarge } from '@/components/UI/Button/Button.styled'
-import { keysForLocale } from '@/config/keysForLocale'
+// import { keysForLocale } from '@/config/keysForLocale'
+import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export default function TeamSection() {
   const t = useTranslations('company_page.our_team_section')
-  const tTitles = useTranslations('company_page.our_team_section.items_title')
-  const tDescriptions = useTranslations(
-    'company_page.our_team_section.items_description'
-  )
+  // const tTitles = useTranslations('company_page.our_team_section.items_title')
+  // const tDescriptions = useTranslations(
+  //   'company_page.our_team_section.items_description'
+  // )
 
-  const grid = [
-    {
-      id: 0,
-      title: tTitles(keysForLocale.keys4[0]),
-      subTitle: tDescriptions(keysForLocale.keys4[0]),
-      socials: [
-        {
-          href: '#1',
-          icon: <Linkedin />,
-        },
-        {
-          href: '#2',
-          icon: <Telegram />,
-        },
-      ],
-      image: image1.src,
-    },
-    {
-      id: 1,
-      title: tTitles(keysForLocale.keys4[1]),
-      subTitle: tDescriptions(keysForLocale.keys4[1]),
-      socials: [
-        {
-          href: '#1',
-          icon: <Linkedin />,
-        },
-        {
-          href: '#2',
-          icon: <Telegram />,
-        },
-      ],
-      image: image2.src,
-    },
-    {
-      id: 2,
-      title: tTitles(keysForLocale.keys4[2]),
-      subTitle: tDescriptions(keysForLocale.keys4[2]),
-      socials: [
-        {
-          href: '#1',
-          icon: <Linkedin />,
-        },
-        {
-          href: '#2',
-          icon: <Telegram />,
-        },
-      ],
-      image: image3.src,
-    },
-    {
-      id: 3,
-      title: tTitles(keysForLocale.keys4[3]),
-      subTitle: tDescriptions(keysForLocale.keys4[3]),
-      socials: [
-        {
-          href: '#1',
-          icon: <Linkedin />,
-        },
-        {
-          href: '#2',
-          icon: <Telegram />,
-        },
-      ],
-      image: image4.src,
-    },
-  ]
+  const {
+    dataPage: { aboutUsPage: data, allTeams: teamData },
+  } = useContext(PageContext)
+
+  // const grid = [
+  //   {
+  //     id: 0,
+  //     title: tTitles(keysForLocale.keys4[0]),
+  //     subTitle: tDescriptions(keysForLocale.keys4[0]),
+  //     socials: [
+  //       {
+  //         href: '#1',
+  //         icon: <Linkedin />,
+  //       },
+  //       {
+  //         href: '#2',
+  //         icon: <Telegram />,
+  //       },
+  //     ],
+  //     image: image1.src,
+  //   },
+  //   {
+  //     id: 1,
+  //     title: tTitles(keysForLocale.keys4[1]),
+  //     subTitle: tDescriptions(keysForLocale.keys4[1]),
+  //     socials: [
+  //       {
+  //         href: '#1',
+  //         icon: <Linkedin />,
+  //       },
+  //       {
+  //         href: '#2',
+  //         icon: <Telegram />,
+  //       },
+  //     ],
+  //     image: image2.src,
+  //   },
+  //   {
+  //     id: 2,
+  //     title: tTitles(keysForLocale.keys4[2]),
+  //     subTitle: tDescriptions(keysForLocale.keys4[2]),
+  //     socials: [
+  //       {
+  //         href: '#1',
+  //         icon: <Linkedin />,
+  //       },
+  //       {
+  //         href: '#2',
+  //         icon: <Telegram />,
+  //       },
+  //     ],
+  //     image: image3.src,
+  //   },
+  //   {
+  //     id: 3,
+  //     title: tTitles(keysForLocale.keys4[3]),
+  //     subTitle: tDescriptions(keysForLocale.keys4[3]),
+  //     socials: [
+  //       {
+  //         href: '#1',
+  //         icon: <Linkedin />,
+  //       },
+  //       {
+  //         href: '#2',
+  //         icon: <Telegram />,
+  //       },
+  //     ],
+  //     image: image4.src,
+  //   },
+  // ]
 
   return (
     <StyledTeamSectionWrapper>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='title'>
-          {t('title')}
+          {/* {t('title')} */}
+          {data.screen4Title}
         </StyledTypographyUrbanistH2>
         <StyledTypographyUrbanistBody className='description'>
-          {t('description')}
+          {/* {t('description')} */}
+          {data.screen4Description}
         </StyledTypographyUrbanistBody>
 
         <ul className='team-grid'>
-          {grid.map(({ id, image, socials, subTitle, title }) => (
+          {teamData.map(({ id, image, social, profession, name }) => (
             <li key={id}>
               <Cart
-                image={image}
-                socials={socials}
-                subTitle={subTitle}
-                title={title}
+                image={image.url}
+                socials={social}
+                subTitle={profession}
+                title={name}
               />
             </li>
           ))}
@@ -125,13 +133,13 @@ export default function TeamSection() {
           updateOnWindowResize
           className='swiper-team-grid'
         >
-          {grid.map(({ id, image, socials, subTitle, title }) => (
+          {teamData.map(({ id, image, social, profession, name }) => (
             <SwiperSlide className='swiper-team-grid-slide' key={id}>
               <Cart
-                image={image}
-                socials={socials}
-                subTitle={subTitle}
-                title={title}
+                image={image.url}
+                socials={social}
+                subTitle={profession}
+                title={name}
               />
             </SwiperSlide>
           ))}
@@ -167,9 +175,9 @@ function Cart({ image, title, subTitle, socials }) {
         {subTitle}
       </StyledTypographyUrbanistBody>
       <div className='team-grid-social-list'>
-        {socials.map(({ href, icon }) => (
-          <Link className='team-grid-social-list-link' key={href} href={href}>
-            {icon}
+        {socials.map(({ id, title, image }) => (
+          <Link className='team-grid-social-list-link' key={id} href={title}>
+            <Image src={image?.url} alt='' width={32} height={32} />
           </Link>
         ))}
       </div>

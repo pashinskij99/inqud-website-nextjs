@@ -12,21 +12,24 @@ import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import Tutorial from '@/sections/ApiSections/Tutorial'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import Contact from '@/sections/ApiSections/Contact'
+import PageProvider from '@/contexts/PageContext/PageContext'
 
-export default function ApiPage() {
+export default function ApiPage({ data }) {
   return (
-    <StyledApiPageWrapper>
-      <ApiHeroSection />
-      <APIFlexibility />
-      <HowIntegrate />
-      <InstantFree />
-      <DevelopGuide />
-      <PickApiSection />
-      <FeesBusiness />
-      <OurLandscapeSection />
-      <Tutorial />
-      <QuestionsSection />
-      <Contact />
-    </StyledApiPageWrapper>
+    <PageProvider dataPage={data}>
+      <StyledApiPageWrapper>
+        <ApiHeroSection />
+        <APIFlexibility />
+        <HowIntegrate />
+        <InstantFree />
+        <DevelopGuide />
+        <PickApiSection />
+        <FeesBusiness />
+        <OurLandscapeSection />
+        <Tutorial />
+        <QuestionsSection />
+        <Contact />
+      </StyledApiPageWrapper>
+    </PageProvider>
   )
 }

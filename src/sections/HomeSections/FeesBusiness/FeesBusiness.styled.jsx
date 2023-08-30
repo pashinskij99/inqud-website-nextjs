@@ -332,10 +332,11 @@ export const StyledFeesBusinessWrapper = styled.section`
       `}
     }
 
-    .description {
+    p {
       display: inline-block;
       color: rgba(81, 113, 133, 1);
       line-height: 18px;
+      font-size: 14px;
       letter-spacing: 0em;
 
       ${responsive.xl`

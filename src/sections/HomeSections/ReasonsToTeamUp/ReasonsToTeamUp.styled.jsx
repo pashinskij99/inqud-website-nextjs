@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem'
-import {responsive} from '@/utils/response'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledReasonsToTeamUp = styled.section`
   padding-top: 198px;
@@ -112,7 +112,7 @@ export const StyledReasonsToTeamUp = styled.section`
         }
       `};
 
-      svg {
+      img {
         margin-bottom: 10px;
         ${responsive.xl`
           margin-bottom: 0;

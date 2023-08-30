@@ -191,7 +191,7 @@ export const StyledCryptoWidget2Section = styled.section`
             `};
           }
 
-          .icon {
+          img {
             width: ${rem(48)};
             height: ${rem(48.002)};
             margin-bottom: 2px;
@@ -368,7 +368,7 @@ export const StyledCryptoWidget2Section = styled.section`
       justify-content: center;
       flex: 1;
 
-      svg {
+      img {
         width: 500px;
         height: 500px;
       }

@@ -1,41 +1,57 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+// import { useTranslations } from 'next-intl'
+import { useContext } from 'react'
+import { StructuredText } from 'react-datocms/structured-text'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
 import { StyledCryptoWidgetHeroSectionWrapper } from './CryptoWidgetHeroSection.styled'
 import {
-  StyledTypographyUrbanistBody,
+  // StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH1,
 } from '@/components/UI/Typography/Typography.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { PaymentList } from '@/sections/HomeSections/HeroSection/HeroSection'
-import image from '../../../assets/images/crypto-widget/page/hero/Image.png'
+// import image from '@/assets/images/crypto-widget/page/hero/Image.png'
+import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export default function CryptoWidgetHeroSection() {
-  const t = useTranslations('crypto_centre_page.hero_section')
+  // const t = useTranslations('crypto_centre_page.hero_section')
+
+  const {
+    dataPage: { cryptoWidgetPage: data },
+  } = useContext(PageContext)
 
   return (
     <StyledCryptoWidgetHeroSectionWrapper>
       <div className='container'>
         <div className='left-side'>
-          <SubTitle className='subTitle'>{t('sub_title')}</SubTitle>
+          <SubTitle className='subTitle'>
+            {/* {t('sub_title')} */}
+            {data.subTitle}
+          </SubTitle>
           <StyledTypographyUrbanistH1 className='title'>
-            {t('title')}
+            {/* {t('title')} */}
+            {data.title}
           </StyledTypographyUrbanistH1>
-          <StyledTypographyUrbanistBody className='description'>
-            {t('paragraph')}
-          </StyledTypographyUrbanistBody>
+          <div className='description'>
+            <StructuredText data={data.description} />
+          </div>
+          {/* <StyledTypographyUrbanistBody className='description'> */}
+          {/* {t('paragraph')} */}
+          {/* </StyledTypographyUrbanistBody> */}
 
           <div className='buttonsWrapper'>
             <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
               <ButtonGetStarted className='getStarted'>
-                {t('button_text_get_started')}
+                {/* {t('button_text_get_started')} */}
+                {data.buttonScreen1A}
               </ButtonGetStarted>
             </Link>
 
             <StyledButtonGhost className='ghostButton'>
-              {t('button_text_contact_sales')}
+              {/* {t('button_text_contact_sales')} */}
+              {data.buttonScreen1B}
             </StyledButtonGhost>
           </div>
 
@@ -45,7 +61,7 @@ export default function CryptoWidgetHeroSection() {
         <div className='right-side'>
           <Image
             unoptimized
-            src={image.src}
+            src={data.image.url}
             alt='Crypto widget'
             width={633.969}
             height={572.441}

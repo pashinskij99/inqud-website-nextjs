@@ -1,42 +1,48 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Scrollbar } from 'swiper/modules';
-import { useState, Fragment } from 'react';
-import { useTranslations } from 'next-intl';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Scrollbar } from 'swiper/modules'
+import { useState, Fragment, useContext } from 'react'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
-} from '@/components/UI/Typography/Typography.styled';
+} from '@/components/UI/Typography/Typography.styled'
 import {
   StyledCoinsListWrapper,
   YourNeedsSectionWrapper,
-} from './YourNeedsSection.styled';
-import Image1 from '@/assets/images/your-needs/image1.png';
-import Image2 from '@/assets/images/your-needs/image2.png';
-import Image3 from '@/assets/images/your-needs/image3.png';
-import Coins1 from '@/assets/images/your-needs/Coins1.svg';
-import Coins2 from '@/assets/images/your-needs/Coins2.svg';
-import Coins3 from '@/assets/images/your-needs/Coins3.svg';
-import Coins4 from '@/assets/images/your-needs/Coins4.svg';
-import Coins5 from '@/assets/images/your-needs/Coins5.svg';
-import { CartRequirement } from '@/components/CartRequirement';
-import { ModalSendRequest } from '@/components/Modal';
-import { keysForLocale } from '@/config/keysForLocale';
+} from './YourNeedsSection.styled'
+import Image1 from '@/assets/images/your-needs/image1.png'
+import Image2 from '@/assets/images/your-needs/image2.png'
+import Image3 from '@/assets/images/your-needs/image3.png'
+import Coins1 from '@/assets/images/your-needs/Coins1.svg'
+import Coins2 from '@/assets/images/your-needs/Coins2.svg'
+import Coins3 from '@/assets/images/your-needs/Coins3.svg'
+import Coins4 from '@/assets/images/your-needs/Coins4.svg'
+import Coins5 from '@/assets/images/your-needs/Coins5.svg'
+import { CartRequirement } from '@/components/CartRequirement'
+import { ModalSendRequest } from '@/components/Modal'
+import { keysForLocale } from '@/config/keysForLocale'
+import { PageContext } from '@/contexts/PageContext/PageContext'
+// import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export default function YourNeedsSection() {
-  const [openModalSendRequest, setOpenModalSendRequest] = useState(false);
-  const t = useTranslations('home_page.your_needs_section');
-  const tList = useTranslations('home_page.your_needs_section.list_item_title');
+  const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
+  const t = useTranslations('home_page.your_needs_section')
+  const tList = useTranslations('home_page.your_needs_section.list_item_title')
   const tList2 = useTranslations(
     'home_page.your_needs_section.list_item_description'
-  );
+  )
 
   const handleOpen = () => {
-    setOpenModalSendRequest(true);
-  };
+    setOpenModalSendRequest(true)
+  }
   const handleClose = () => {
-    setOpenModalSendRequest(false);
-  };
+    setOpenModalSendRequest(false)
+  }
+
+  const {
+    dataPage: { homePage: data },
+  } = useContext(PageContext)
 
   const list = [
     {
@@ -60,32 +66,32 @@ export default function YourNeedsSection() {
       description: tList2(keysForLocale.keys3[2]),
       image: Image3.src,
     },
-  ];
+  ]
 
   return (
     <YourNeedsSectionWrapper>
-      <div className="container">
-        <StyledTypographyUrbanistH2 className="title title-desktop">
+      <div className='container'>
+        <StyledTypographyUrbanistH2 className='title title-desktop'>
           {t('title')}
         </StyledTypographyUrbanistH2>
-        <StyledTypographyUrbanistH1 className="title title-mobile">
+        <StyledTypographyUrbanistH1 className='title title-mobile'>
           {t('title')}
         </StyledTypographyUrbanistH1>
 
         <CoinsList />
 
-        <StyledTypographyUrbanistH5 className="subTitle subTitle-desktop">
+        <StyledTypographyUrbanistH5 className='subTitle subTitle-desktop'>
           {t('paragraph')}
         </StyledTypographyUrbanistH5>
 
-        <div className="listRequirements">
+        <div className='listRequirements'>
           {list.map(
             ({ id, buttonText, description, image, title, handleClick }) => (
               <CartRequirement
                 key={id}
                 buttonText={buttonText}
                 description={description}
-                href="#"
+                href='#'
                 handleClick={handleClick}
                 imageSrc={image}
                 title={title}
@@ -95,8 +101,8 @@ export default function YourNeedsSection() {
         </div>
 
         <Swiper
-          className="listRequirementsSwiper"
-          slidesPerView="auto"
+          className='listRequirementsSwiper'
+          slidesPerView='auto'
           centeredSlides
           initialSlide={1}
           updateOnWindowResize
@@ -130,26 +136,24 @@ export default function YourNeedsSection() {
           }}
           modules={[Scrollbar]}
         >
-          {list.map(
-            ({ id, buttonText, description, image, title, handleClick }) => (
-              <SwiperSlide className="listRequirementsSwiperItems" key={id}>
-                <CartRequirement
-                  buttonText={buttonText}
-                  description={description}
-                  href="#"
-                  handleClick={handleClick}
-                  imageSrc={image}
-                  title={title}
-                />
-              </SwiperSlide>
-            )
-          )}
+          {list.map(({ id, description, image, title, handleClick }) => (
+            <SwiperSlide className='listRequirementsSwiperItems' key={id}>
+              <CartRequirement
+                buttonText={id === 1 && data.buttonScreen2}
+                description={description}
+                href='#'
+                handleClick={handleClick}
+                imageSrc={image}
+                title={title}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
 
       <ModalSendRequest handleClose={handleClose} open={openModalSendRequest} />
     </YourNeedsSectionWrapper>
-  );
+  )
 }
 
 const coinsList = [
@@ -158,7 +162,7 @@ const coinsList = [
   { id: 0, icon: <Coins1 /> },
   { id: 1, icon: <Coins2 /> },
   { id: 2, icon: <Coins3 /> },
-];
+]
 
 function CoinsList() {
   return (
@@ -167,5 +171,5 @@ function CoinsList() {
         <Fragment key={id}>{icon}</Fragment>
       ))}
     </StyledCoinsListWrapper>
-  );
+  )
 }

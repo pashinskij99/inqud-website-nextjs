@@ -1,29 +1,30 @@
-import { Fragment } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Scrollbar } from 'swiper/modules';
-import { useTranslations } from 'next-intl';
+import { Fragment, useContext } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Scrollbar } from 'swiper/modules'
+import { useTranslations } from 'next-intl'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
-} from '@/components/UI/Typography/Typography.styled';
+} from '@/components/UI/Typography/Typography.styled'
 import {
   StyledCryptoBusinessSectionWrapper,
   StyledListItem,
   StyledListItemMobile,
-} from './CryptoBusinessSection.styled';
-import { keysForLocale } from '@/config/keysForLocale';
+} from './CryptoBusinessSection.styled'
+import { keysForLocale } from '@/config/keysForLocale'
+import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export default function CryptoBusinessSection() {
-  const t = useTranslations('crypto_centre_page.your_business_section');
+  // const t = useTranslations('crypto_centre_page.your_business_section')
   const tItems1 = useTranslations(
     'crypto_centre_page.your_business_section.items1'
-  );
+  )
   const tItems2 = useTranslations(
     'crypto_centre_page.your_business_section.items2'
-  );
+  )
   const tItems3 = useTranslations(
     'crypto_centre_page.your_business_section.items3'
-  );
+  )
 
   const grid = [
     {
@@ -120,7 +121,7 @@ export default function CryptoBusinessSection() {
       opacity: 1,
       color: 'rgba(7, 116, 83, 1)',
     },
-  ];
+  ]
 
   const gridSwiperElement1 = [
     {
@@ -153,7 +154,7 @@ export default function CryptoBusinessSection() {
       opacity: 1,
       color: 'rgba(82, 54, 0, 1)',
     },
-  ];
+  ]
   const gridSwiperElement2 = [
     {
       title: tItems2(keysForLocale.keys5[0]),
@@ -185,7 +186,7 @@ export default function CryptoBusinessSection() {
       opacity: 1,
       color: 'rgba(127, 0, 0, 1)',
     },
-  ];
+  ]
 
   const gridSwiper = [
     [[0], gridSwiperElement1],
@@ -228,16 +229,21 @@ export default function CryptoBusinessSection() {
     ],
     [[3], gridSwiperElement1],
     [[4], gridSwiperElement2],
-  ];
+  ]
+
+  const {
+    dataPage: { cryptoWidgetPage: data },
+  } = useContext(PageContext)
 
   return (
     <StyledCryptoBusinessSectionWrapper>
-      <div className="container">
-        <StyledTypographyUrbanistH2 className="title">
-          {t('title')}
+      <div className='container'>
+        <StyledTypographyUrbanistH2 className='title'>
+          {/* {t('title')} */}
+          {data.screen3Title}
         </StyledTypographyUrbanistH2>
 
-        <ul className="grid grid-1">
+        <ul className='grid grid-1'>
           {grid.map(({ title, rgb, opacity, color }) => (
             <Fragment key={title}>
               <StyledListItem
@@ -253,8 +259,8 @@ export default function CryptoBusinessSection() {
         </ul>
 
         <Swiper
-          className="grid grid-2"
-          slidesPerView="auto"
+          className='grid grid-2'
+          slidesPerView='auto'
           spaceBetween={14}
           loop
           scrollbar={{
@@ -266,7 +272,7 @@ export default function CryptoBusinessSection() {
           modules={[Scrollbar]}
         >
           {gridSwiper.map(([key, items]) => (
-            <SwiperSlide className="swiper-slide" key={key}>
+            <SwiperSlide className='swiper-slide' key={key}>
               {items.map(({ title, rgb, opacity, color }) => (
                 <StyledListItemMobile
                   rgb={rgb}
@@ -284,5 +290,5 @@ export default function CryptoBusinessSection() {
         </Swiper>
       </div>
     </StyledCryptoBusinessSectionWrapper>
-  );
+  )
 }

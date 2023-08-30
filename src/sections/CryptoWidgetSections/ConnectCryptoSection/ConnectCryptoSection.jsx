@@ -1,5 +1,7 @@
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+// import { useTranslations } from 'next-intl'
+import { useContext } from 'react'
+import { StructuredText } from 'react-datocms/structured-text'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH4,
@@ -8,9 +10,20 @@ import { StyledConnectCryptoSectionWrapper } from './ConnectCryptoSection.styled
 import { ButtonGetStartedLight } from '@/components/UI/Button'
 import image from '../../../assets/images/crypto-widget/page/connect/image.png'
 import image2 from '../../../assets/images/crypto-widget/page/connect/image2.png'
+import { PageContext } from '@/contexts/PageContext/PageContext'
+// import { PageContext } from '@/contexts/PageContext/PageContext'
+// import { useContext } from 'react'
 
 export default function ConnectCryptoSection() {
-  const t = useTranslations('crypto_centre_page.connect_with_crypto_section')
+  // const t = useTranslations('crypto_centre_page.connect_with_crypto_section')
+
+  const {
+    dataPage: { cryptoWidgetPage: data },
+  } = useContext(PageContext)
+
+  // const {
+  //   dataPage: { cryptoWidgetPage: data },
+  // } = useContext(PageContext)
 
   return (
     <StyledConnectCryptoSectionWrapper>
@@ -30,14 +43,16 @@ export default function ConnectCryptoSection() {
       />
       <div className='container'>
         <StyledTypographyUrbanistH2 className='title'>
-          {t('title')}
+          {/* {t('title')} */}
+          {data.lead2Title}
         </StyledTypographyUrbanistH2>
         <StyledTypographyUrbanistH4 className='description'>
-          {t('description')} <span>{t('description_selected')}</span>
+          <StructuredText data={data.leadForm2Description} />
         </StyledTypographyUrbanistH4>
 
         <ButtonGetStartedLight className='get-started'>
-          {t('button_text')}
+          {/* {t('button_text')} */}
+          {data.leadForm2Button}
         </ButtonGetStartedLight>
       </div>
     </StyledConnectCryptoSectionWrapper>

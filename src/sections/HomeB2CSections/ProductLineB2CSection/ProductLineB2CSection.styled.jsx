@@ -25,33 +25,46 @@ export const StyledProductLineB2CSectionWrapper = styled.section`
       margin-bottom: 33px;
     `}
   }
+  .cart-wrapper {
+    background: conic-gradient(
+        from -66.33deg at 51.32% 46.84%,
+        #71bef6 0deg,
+        #ffc451 99.25deg,
+        #e1f664 212.14deg,
+        #ff9a61 282.04deg,
+        #cdacfe 360deg
+      ),
+      linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+    padding: 69px 0;
+    margin-bottom: 40px;
+    border-radius: 16px;
+    display: none;
+    ${responsive.xl`
+      display: block;
+    `}
+    ${responsive.sm`
+      margin-bottom: 32px;
+    `}
+  }
   .image-tablet-or-mobile {
     max-width: 688px;
     height: 322px;
     width: 100%;
-    margin-bottom: 40px;
+    object-fit: contain;
     ${responsive.xl`
       max-width: 100%;
+      height: 183.1px;
     `}
     ${responsive.sm`
       max-width: 100%;
-      height: 273.392px;
-      margin-bottom: 32px;
+      height: 183.1px;
     `}
 
-    &.tablet, &.mobile {
+    &.tablet {
       display: none;
     }
     &.tablet {
       ${responsive.xl`
-        display: block;
-      `}
-      ${responsive.sm`
-        display: none;
-      `}
-    }
-    &.mobile {
-      ${responsive.sm`
         display: block;
       `}
     }
@@ -192,7 +205,7 @@ export const StyledTabContentWrapper = styled.div`
         gap: 0;
       `}
     }
-    svg {
+    img {
       align-self: center;
       ${responsive.sm`
         margin: 0 auto 15px;
@@ -239,16 +252,32 @@ export const StyledTabContentWrapper = styled.div`
 
   .right-side {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 32px;
+    background: conic-gradient(
+        from -66.33deg at 51.32% 46.84%,
+        #71bef6 0deg,
+        #ffc451 99.25deg,
+        #e1f664 212.14deg,
+        #ff9a61 282.04deg,
+        #cdacfe 360deg
+      ),
+      linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
     ${responsive.xxl`
       align-self: center;
     `}
     ${responsive.xl`
       display: none;
     `}
+
+    .image-wrapper {
+    }
     img {
       ${responsive.xxl`
-        width: 596px;
-        height: 475.049px; 
+        max-width: 596px;
+        height: auto; 
       `}
     }
   }

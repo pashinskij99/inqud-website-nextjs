@@ -70,7 +70,7 @@ export const StyledInstantFreeWrapper = styled.section`
         row-gap: 40px;
       `}
       .cart {
-        svg {
+        img {
           margin-bottom: 16px;
           ${responsive.xl`
             margin-bottom: 11px;

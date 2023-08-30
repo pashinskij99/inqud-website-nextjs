@@ -14,22 +14,25 @@ import ConnectCryptoSection from '@/sections/CryptoWidgetSections/ConnectCryptoS
 import Tutorial from '@/sections/ApiSections/Tutorial'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import SendRequestSection from '@/sections/CryptoWidgetSections/SendRequestSection'
+import PageProvider from '@/contexts/PageContext/PageContext'
 
-export default function CryptoWidget() {
+export default function CryptoWidget({ data }) {
   return (
-    <StyledCryptoWidgetWrapper>
-      <CryptoWidgetHeroSection />
-      <CryptoWidgetFlexibility />
-      <CryptoBusinessSection />
-      <CryptoWidgetFeatures />
-      <FeesBusiness />
-      <HowIntegrateCryptoSection />
-      <SafetyReliability />
-      <OurLandscapeSection />
-      <ConnectCryptoSection />
-      <Tutorial />
-      <QuestionsSection />
-      <SendRequestSection />
-    </StyledCryptoWidgetWrapper>
+    <PageProvider dataPage={data}>
+      <StyledCryptoWidgetWrapper>
+        <CryptoWidgetHeroSection />
+        <CryptoWidgetFlexibility />
+        <CryptoBusinessSection />
+        <CryptoWidgetFeatures />
+        <FeesBusiness />
+        <HowIntegrateCryptoSection />
+        <SafetyReliability />
+        <OurLandscapeSection />
+        <ConnectCryptoSection />
+        <Tutorial />
+        <QuestionsSection />
+        <SendRequestSection />
+      </StyledCryptoWidgetWrapper>
+    </PageProvider>
   )
 }

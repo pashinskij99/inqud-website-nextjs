@@ -262,6 +262,7 @@ export const StyledPickSectionSection = styled.section`
           color: white;
         }
 
+        img,
         svg {
           flex-shrink: 0;
         }

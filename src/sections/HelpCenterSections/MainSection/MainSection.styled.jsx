@@ -171,7 +171,17 @@ export const StyledOtherDocumentationSectionWrapper = styled.div`
       `}
     }
 
-    p,
+    .cart-description {
+      color: var(--independent-grey, #517185);
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 16px;
+      ${responsive.xl`
+        line-height: 26px;
+        letter-spacing: 0em;
+      `}
+    }
+
     span {
       color: var(--independent-grey, #517185);
       font-size: 18px;

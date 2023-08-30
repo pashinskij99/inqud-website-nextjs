@@ -1,30 +1,32 @@
-import Image from 'next/image';
-import { InView } from 'react-intersection-observer';
-import { useTranslations } from 'next-intl';
+import Image from 'next/image'
+import { InView } from 'react-intersection-observer'
+import { useTranslations } from 'next-intl'
+import { useContext } from 'react'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
-} from '@/components/UI/Typography/Typography.styled';
+} from '@/components/UI/Typography/Typography.styled'
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   StyledAccordionLoading,
   StyledFeaturesSectionWrapper,
-} from './FeaturesSection.styled';
-import img from '@/assets/images/company/features/image.webp';
-import { keysForLocale } from '@/config/keysForLocale';
-import { useIntervalStep } from '@/hooks/useIntervalStep';
+} from './FeaturesSection.styled'
+// import img from '@/assets/images/company/features/image.webp'
+import { keysForLocale } from '@/config/keysForLocale'
+import { useIntervalStep } from '@/hooks/useIntervalStep'
+import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export default function FeaturesSection() {
-  const t = useTranslations('company_page.our_features_section');
+  // const t = useTranslations('company_page.our_features_section')
   const tTitles = useTranslations(
     'company_page.our_features_section.items_title'
-  );
+  )
   const tDescriptions = useTranslations(
     'company_page.our_features_section.items_description'
-  );
+  )
 
   const accordionData = [
     {
@@ -51,7 +53,7 @@ export default function FeaturesSection() {
       title: tTitles(keysForLocale.keys4[3]),
       description: tDescriptions(keysForLocale.keys4[3]),
     },
-  ];
+  ]
 
   const {
     setWidth,
@@ -60,46 +62,53 @@ export default function FeaturesSection() {
     expanded,
     isInterval,
     percent,
-  } = useIntervalStep({ accordionData });
+  } = useIntervalStep({ accordionData })
+
+  const {
+    dataPage: { aboutUsPage: data },
+  } = useContext(PageContext)
 
   return (
     <InView as={StyledFeaturesSectionWrapper} onChange={handleInView}>
-      <div className="container">
-        <div className="left-side">
-          <StyledTypographyUrbanistH2 className="title">
-            {t('title')}
+      <div className='container'>
+        <div className='left-side'>
+          <StyledTypographyUrbanistH2 className='title'>
+            {/* {t('title')} */}
+            {data.screen5Title}
           </StyledTypographyUrbanistH2>
 
-          <div className="accordion">
-            {accordionData.map(({ key, id, title, description }) => (
-              <AccordionItem
-                key={key}
-                id={key}
-                number={id}
-                title={title}
-                description={description}
-                expanded={expanded}
-                handleChange={handleChange}
-                width={setWidth}
-                isInterval={isInterval}
-                percent={percent}
-                count={accordionData.length - 1}
-              />
-            ))}
+          <div className='accordion'>
+            {data.screen5Features.map(
+              ({ id, cartId, title, description }, i) => (
+                <AccordionItem
+                  key={id}
+                  id={i}
+                  number={cartId}
+                  title={title}
+                  description={description}
+                  expanded={expanded}
+                  handleChange={handleChange}
+                  width={setWidth}
+                  isInterval={isInterval}
+                  percent={percent}
+                  count={accordionData.length - 1}
+                />
+              )
+            )}
           </div>
         </div>
 
-        <div className="right-side">
+        <div className='right-side'>
           <Image
-            src={img.src}
-            alt="Our Features and Approaches that Stand Out!"
+            src={data.screen5Features[expanded].image.url}
+            alt='Our Features and Approaches that Stand Out!'
             width={559}
             height={650}
           />
         </div>
       </div>
     </InView>
-  );
+  )
 }
 
 function AccordionItem({
@@ -138,5 +147,5 @@ function AccordionItem({
         />
       )}
     </>
-  );
+  )
 }

@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { responsive } from '@/utils/response'
+import { urbanist } from '@/utils/font'
 
 export const StyledCryptoWidgetHeroSectionWrapper = styled.section`
   padding-top: 64px;
@@ -60,6 +61,11 @@ export const StyledCryptoWidgetHeroSectionWrapper = styled.section`
       line-height: 24px;
       letter-spacing: 0em;
       color: rgba(81, 113, 133, 1);
+      font-family: ${urbanist.style};
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0em;
 
       margin-bottom: 40px;
 

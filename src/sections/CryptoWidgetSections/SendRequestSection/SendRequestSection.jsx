@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useContext } from 'react'
 import {
   StyledFormWrapper,
   StyledSendRequestSectionWrapper,
@@ -12,6 +13,7 @@ import {
 import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import background from '@/assets/images/api/contact/background.webp'
+import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export default function SendRequestSection() {
   return (
@@ -47,6 +49,10 @@ function Form() {
     },
   ]
 
+  const {
+    dataPage: { cryptoWidgetPage: data },
+  } = useContext(PageContext)
+
   return (
     <StyledFormWrapper>
       {/* <div className='container'> */}
@@ -57,10 +63,10 @@ function Form() {
         <div className='header'>
           <Message />
           <StyledTypographyUrbanistH3>
-            Send your request
+            {data.lead3Title}
           </StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistBody>
-            Let&apos;s meet your goals!
+            {data.leadForm3Description}
           </StyledTypographyUrbanistBody>
         </div>
         <div className='body'>
@@ -84,11 +90,10 @@ function Form() {
         </div>
         <div className='footer'>
           <StyledButtonSecondary className='submit-btn'>
-            Submit
+            {data.leadForm3SubmitButton}
           </StyledButtonSecondary>
           <StyledTypographyUrbanistSmallSpaces>
-            by submitting this form, you contirm that you agree to the storing
-            and processing of your personal data
+            {data.leadForm3FooterText}
           </StyledTypographyUrbanistSmallSpaces>
         </div>
       </div>

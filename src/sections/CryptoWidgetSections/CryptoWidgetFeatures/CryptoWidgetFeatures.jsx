@@ -1,39 +1,39 @@
-import Image from 'next/image';
-import { InView } from 'react-intersection-observer';
-import { useTranslations } from 'next-intl';
-import { StyledCryptoWidgetFeaturesWrapper } from './CryptoWidgetFeatures.styled';
+import Image from 'next/image'
+import { InView } from 'react-intersection-observer'
+import { useTranslations } from 'next-intl'
+import { useContext } from 'react'
+import { StyledCryptoWidgetFeaturesWrapper } from './CryptoWidgetFeatures.styled'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
-} from '@/components/UI/Typography/Typography.styled';
+} from '@/components/UI/Typography/Typography.styled'
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
   StyledAccordionLoading,
-} from '../../CompanySections/FeaturesSection/FeaturesSection.styled';
+} from '../../CompanySections/FeaturesSection/FeaturesSection.styled'
 
-import image1 from '@/assets/images/crypto-widget/page/features/image1.png';
-import image2 from '@/assets/images/crypto-widget/page/features/image2.png';
-import image3 from '@/assets/images/crypto-widget/page/features/image3.png';
-import image4 from '@/assets/images/crypto-widget/page/features/image4.png';
-import image5 from '@/assets/images/crypto-widget/page/features/image5.png';
-import image6 from '@/assets/images/crypto-widget/page/features/image6.png';
-import image7 from '@/assets/images/crypto-widget/page/features/image7.png';
-import { keysForLocale } from '@/config/keysForLocale';
-import { useIntervalStep } from '@/hooks/useIntervalStep';
+import image1 from '@/assets/images/crypto-widget/page/features/image1.png'
+import image2 from '@/assets/images/crypto-widget/page/features/image2.png'
+import image3 from '@/assets/images/crypto-widget/page/features/image3.png'
+import image4 from '@/assets/images/crypto-widget/page/features/image4.png'
+import image5 from '@/assets/images/crypto-widget/page/features/image5.png'
+import image6 from '@/assets/images/crypto-widget/page/features/image6.png'
+import image7 from '@/assets/images/crypto-widget/page/features/image7.png'
+import { keysForLocale } from '@/config/keysForLocale'
+import { useIntervalStep } from '@/hooks/useIntervalStep'
+import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export default function CryptoWidgetFeatures() {
-  const t = useTranslations(
-    'crypto_centre_page.crypto_widget_features_section'
-  );
+  // const t = useTranslations('crypto_centre_page.crypto_widget_features_section')
   const tTitles = useTranslations(
     'crypto_centre_page.crypto_widget_features_section.items_title'
-  );
+  )
   const tDescriptions = useTranslations(
     'crypto_centre_page.crypto_widget_features_section.items_description'
-  );
+  )
   const accordionData = [
     {
       key: 0,
@@ -63,7 +63,7 @@ export default function CryptoWidgetFeatures() {
         src: (
           <Image
             src={image2.src}
-            alt="Auto-conversion"
+            alt='Auto-conversion'
             width={343}
             height={370}
           />
@@ -82,7 +82,7 @@ export default function CryptoWidgetFeatures() {
         src: (
           <Image
             src={image3.src}
-            alt="Auto-conversion"
+            alt='Auto-conversion'
             width={343}
             height={256}
           />
@@ -100,7 +100,7 @@ export default function CryptoWidgetFeatures() {
         src: (
           <Image
             src={image4.src}
-            alt="Auto-conversion"
+            alt='Auto-conversion'
             width={343}
             height={472}
           />
@@ -119,7 +119,7 @@ export default function CryptoWidgetFeatures() {
         src: (
           <Image
             src={image5.src}
-            alt="Auto-conversion"
+            alt='Auto-conversion'
             width={343}
             height={534}
           />
@@ -138,7 +138,7 @@ export default function CryptoWidgetFeatures() {
         src: (
           <Image
             src={image6.src}
-            alt="Auto-conversion"
+            alt='Auto-conversion'
             width={351}
             height={500}
           />
@@ -157,7 +157,7 @@ export default function CryptoWidgetFeatures() {
         src: (
           <Image
             src={image7.src}
-            alt="Auto-conversion"
+            alt='Auto-conversion'
             width={351}
             height={546}
           />
@@ -166,7 +166,10 @@ export default function CryptoWidgetFeatures() {
         height: 546,
       },
     },
-  ];
+  ]
+  const {
+    dataPage: { cryptoWidgetPage: data },
+  } = useContext(PageContext)
 
   const {
     setWidth,
@@ -175,22 +178,25 @@ export default function CryptoWidgetFeatures() {
     expanded,
     isInterval,
     percent,
-  } = useIntervalStep({ accordionData });
+  } = useIntervalStep({
+    accordionData: data.screen4Features.map((el, i) => ({ ...el, key: i })),
+  })
 
   return (
     <InView as={StyledCryptoWidgetFeaturesWrapper} onChange={handleInView}>
-      <div className="container">
-        <div className="left-side">
-          <StyledTypographyUrbanistH2 className="title">
-            {t('title')}
+      <div className='container'>
+        <div className='left-side'>
+          <StyledTypographyUrbanistH2 className='title'>
+            {/* {t('title')} */}
+            {data.screen4Title}
           </StyledTypographyUrbanistH2>
 
-          <div className="accordion">
-            {accordionData.map(({ key, id, title, description }) => (
+          <div className='accordion'>
+            {data.screen4Features.map(({ cartId, title, description }, i) => (
               <AccordionItem
-                key={key}
-                id={key}
-                number={id}
+                key={cartId}
+                id={i}
+                number={cartId}
                 title={title}
                 description={description}
                 expanded={expanded}
@@ -204,12 +210,19 @@ export default function CryptoWidgetFeatures() {
           </div>
         </div>
 
-        <div className="right-side">
-          <div className="cart">{accordionData[expanded].image.src}</div>
+        <div className='right-side'>
+          <div className='cart'>
+            <Image
+              src={data.screen4Features[expanded].image.url}
+              alt=''
+              width={343}
+              height={282}
+            />
+          </div>
         </div>
       </div>
     </InView>
-  );
+  )
 }
 
 function AccordionItem({
@@ -228,22 +241,22 @@ function AccordionItem({
     <>
       <Accordion expanded={expanded === id} onChange={handleChange(id)}>
         <AccordionSummary expanded={expanded === id}>
-          <StyledTypographyUrbanistBody className="accordion-sub-title">
+          <StyledTypographyUrbanistBody className='accordion-sub-title'>
             {number}
           </StyledTypographyUrbanistBody>
-          <StyledTypographyUrbanistH5 className="accordion-title">
+          <StyledTypographyUrbanistH5 className='accordion-title'>
             {title}
           </StyledTypographyUrbanistH5>
         </AccordionSummary>
         <AccordionDetails>
-          <StyledTypographyUrbanistBody className="accordion-description">
+          <StyledTypographyUrbanistBody className='accordion-description'>
             {description}
           </StyledTypographyUrbanistBody>
         </AccordionDetails>
       </Accordion>
 
       <StyledAccordionLoading
-        className="line"
+        className='line'
         isLast={id === count}
         isExpanded={expanded === id}
         width={
@@ -251,5 +264,5 @@ function AccordionItem({
         }
       />
     </>
-  );
+  )
 }

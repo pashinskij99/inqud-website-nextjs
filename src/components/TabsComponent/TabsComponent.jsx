@@ -9,16 +9,16 @@ export function TabsComponent({ className, active, handleClick, tabs }) {
   return (
     <StyledTabsComponentWrapper className={className}>
       <Tabs value={active}>
-        {tabs.map(({ id, text }) => (
+        {tabs.map(({ id, text }, i) => (
           <Tab
             label={text}
             className={clsx(
               'ourLandscapeTabsButton ourLandscapeTabsButtonText',
               {
-                ['active']: active === id,
+                ['active']: active === i,
               }
             )}
-            onClick={() => handleClick(id)}
+            onClick={() => handleClick(i)}
             key={id}
           />
         ))}

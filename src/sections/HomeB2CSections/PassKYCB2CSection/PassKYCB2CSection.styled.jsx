@@ -80,7 +80,7 @@ export const StyledPassKYCB2CSectionWrapper = styled.section`
       
     `}
 
-    .step-wrapper {
+    .step-wrapper, .step-image-wrapper {
       &:nth-child(1) {
         ${responsive.xl`
           order: 1;        
@@ -93,6 +93,7 @@ export const StyledPassKYCB2CSectionWrapper = styled.section`
         ${responsive.sm`
           display: grid;
           justify-content: center;
+          margin: 0 auto;
           
           .step-image {
             transform: translateY(23px) translateX(-50%);
@@ -113,6 +114,7 @@ export const StyledPassKYCB2CSectionWrapper = styled.section`
           order: 4;        
           display: grid;
           justify-content: center;
+          margin: 0 auto;
 
           .step-image {
             transform: translateY(27px) translateX(-50%);
@@ -137,6 +139,7 @@ export const StyledPassKYCB2CSectionWrapper = styled.section`
         ${responsive.sm`
           display: grid;
           justify-content: center;
+          margin: 0 auto;
 
           .step-image {
             transform: translateY(30px) translateX(-50%);
@@ -188,7 +191,7 @@ export const StyledPassKYCB2CSectionWrapper = styled.section`
 `
 
 export const StyledStepCartKYCWrapper = styled(StyledStepCartWrapper)`
-  .step-icon {
+  img {
     margin-bottom: 24px;
     ${responsive.sm`
       margin-bottom: 8px;

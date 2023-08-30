@@ -30,7 +30,7 @@ export default function SearchResultSection() {
     searchValue,
   })
 
-  console.log(filteredValue)
+  // console.log(filteredValue)
 
   // console.log([...browseByProductData, ...exploreByCategoryData])
 

@@ -45,7 +45,7 @@ export const StyledCryptoWidgetFlexibilityWrapper = styled.section`
           padding: 0px 32px;
           background: transparent;
         `}
-        svg {
+        img {
           margin-bottom: 23px;
           ${responsive.sm`
             margin-bottom: 16px;

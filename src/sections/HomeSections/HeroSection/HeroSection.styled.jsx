@@ -271,22 +271,22 @@ export const StyledPaymentListWrapper = styled.div`
       align-items: center;
       gap: ${rem(10)};
 
-      &:nth-last-child(1),
+      /* &:nth-last-child(1),
       &:nth-last-child(2),
       &:nth-last-child(3),
       &:nth-last-child(4) {
         display: none;
 
         ${responsive.xl`
-                  display: flex;
-              `}
-      }
+          display: flex;
+        `}
+      } */
 
       .icon-wrapper {
         position: relative;
         display: flex;
 
-        svg {
+        img {
           position: relative;
           width: ${rem(32)};
           height: ${rem(32)};

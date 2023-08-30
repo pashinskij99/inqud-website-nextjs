@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem'
-import {responsive} from '@/utils/response'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledSmoothAPISection = styled.section`
   padding-top: 200px;
@@ -225,7 +225,7 @@ export const StyledSmoothAPISection = styled.section`
             `};
           }
 
-          .icon {
+          img {
             width: ${rem(48)};
             height: ${rem(48.002)};
             margin-bottom: 2px;

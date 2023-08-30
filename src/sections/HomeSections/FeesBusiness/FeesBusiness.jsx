@@ -1,8 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
+import { render } from 'datocms-structured-text-to-html-string'
+import { StructuredText } from 'react-datocms/structured-text'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -17,16 +19,17 @@ import {
 import BackCart from '@/assets/images/fee/cart-back.svg'
 import { FeeModal } from '@/components/Modal/Modal'
 import { keysForLocale } from '@/config/keysForLocale'
+import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export default function FeesBusiness() {
   const [showModal, setShowModal] = useState(false)
   const [showMore, setShowMore] = useState(false)
 
-  const t = useTranslations('home_page.fees_section')
+  // const t = useTranslations('home_page.fees_section')
   const tHead = useTranslations('home_page.fees_section.tablet.head')
   const tBodyName = useTranslations('home_page.fees_section.tablet.body_name')
   const tBodyValue = useTranslations('home_page.fees_section.tablet.body_value')
-  const tBodyDescription = useTranslations('home_page.fees_section.description')
+  // const tBodyDescription = useTranslations('home_page.fees_section.description')
 
   const tableData = {
     head: [tHead(keysForLocale.keys2[0]), tHead(keysForLocale.keys2[1])],
@@ -48,19 +51,26 @@ export default function FeesBusiness() {
 
   const hadleShowMore = () => setShowMore((prevState) => !prevState)
 
+  const {
+    dataPage: { feesYourBusiness: data },
+  } = useContext(PageContext)
+
   return (
     <StyledFeesBusinessWrapper className='fees'>
       <div className='container'>
         <div className='title-wrapper'>
           <StyledTypographyUrbanistH2 className='title title-1'>
-            {t('title')}
+            {/* {t('title')} */}
+            {data.title}
           </StyledTypographyUrbanistH2>
           <StyledTypographyUrbanistH2 className='title title-2'>
-            {t('title_mobile')}
+            {/* {t('title_mobile')} */}
+            {data.title}
           </StyledTypographyUrbanistH2>
 
           <StyledTypographyUrbanistBody className='description'>
-            {t('paragraph')}
+            {/* {t('paragraph')} */}
+            {data.description}
           </StyledTypographyUrbanistBody>
         </div>
 
@@ -78,15 +88,18 @@ export default function FeesBusiness() {
               </tr>
             </thead>
             <tbody>
-              {tableData.body.map((arr) => (
-                <tr key={arr[0]}>
-                  {arr.map((value) => (
-                    <td key={value}>
-                      <StyledTypographyUrbanistBody>
-                        {value}
-                      </StyledTypographyUrbanistBody>
-                    </td>
-                  ))}
+              {data.table.map(({ description, id, title }) => (
+                <tr key={id}>
+                  <td>
+                    <StyledTypographyUrbanistBody>
+                      {title}
+                    </StyledTypographyUrbanistBody>
+                  </td>
+                  <td>
+                    <StyledTypographyUrbanistBody>
+                      {description}
+                    </StyledTypographyUrbanistBody>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -100,9 +113,9 @@ export default function FeesBusiness() {
             >
               <LearnMoreText
                 showMore={showMore}
-                text={`${tBodyDescription(
-                  keysForLocale.keys2[0]
-                )} ${tBodyDescription(keysForLocale.keys2[1])}`}
+                text={render(data.footerDescription)
+                  .replace(/(<([^>]+)>)/gi, '')
+                  .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')}
                 endText={141}
               />
             </StyledTypographyUrbanistSmallSpaces>
@@ -114,26 +127,29 @@ export default function FeesBusiness() {
               {showMore ? 'Hide text' : 'Show more'}
             </StyledButtonLearnMore>
 
-            <StyledTypographyUrbanistSmallSpaces className='description hide'>
-              {tBodyDescription(keysForLocale.keys2[0])}
-            </StyledTypographyUrbanistSmallSpaces>
-            <StyledTypographyUrbanistSmallSpaces className='description hide'>
+            {/* <StyledTypographyUrbanistSmallSpaces className='description hide'> */}
+            <StructuredText data={data.footerDescription} />
+            {/* </StyledTypographyUrbanistSmallSpaces> */}
+            {/* <StyledTypographyUrbanistSmallSpaces className='description hide'>
               {tBodyDescription(keysForLocale.keys2[1])}
-            </StyledTypographyUrbanistSmallSpaces>
+            </StyledTypographyUrbanistSmallSpaces> */}
           </div>
 
           <div className='cart'>
             <div className='cart-left-side'>
               <StyledTypographyUrbanistH4>
-                {t('cart_title')}
+                {/* {t('cart_title')} */}
+                {data.cartTitle}
               </StyledTypographyUrbanistH4>
             </div>
             <div className='cart-right-side'>
               <StyledTypographyUrbanistBody>
-                {t('cart_description')}
+                {/* {t('cart_description')} */}
+                {data.cartDescription}
               </StyledTypographyUrbanistBody>
               <StyledButtonSecondaryLight onClick={handleShowModal}>
-                {t('cart_button_text')}
+                {/* {t('cart_button_text')} */}
+                {data.cartButton}
               </StyledButtonSecondaryLight>
             </div>
             <BackCart className='cart-back' />
@@ -141,16 +157,14 @@ export default function FeesBusiness() {
         </div>
 
         <div className='description-wrapper'>
-          <StyledTypographyUrbanistSmallSpaces className='description'>
-            All data is sourced from publicly available information or provided
-            by customer support of the specified companies in private
-            correspondence.
-          </StyledTypographyUrbanistSmallSpaces>
-          <StyledTypographyUrbanistSmallSpaces className='description hide'>
+          {/* <StyledTypographyUrbanistSmallSpaces className='description'> */}
+          <StructuredText data={data.footerDescription} />
+          {/* </StyledTypographyUrbanistSmallSpaces> */}
+          {/* <StyledTypographyUrbanistSmallSpaces className='description hide'>
             If you notice any discrepancies between the displayed information
             and reality, please let us know by info@inqud.com, and we will
             update the information accordingly.
-          </StyledTypographyUrbanistSmallSpaces>
+          </StyledTypographyUrbanistSmallSpaces> */}
         </div>
       </div>
 

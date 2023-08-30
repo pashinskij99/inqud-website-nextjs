@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import {IBM} from '@/utils/font'
-import {rem} from '@/utils/rem'
-import {responsive} from '@/utils/response'
+import { IBM } from '@/utils/font'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledCryptoWidgetSection = styled.section`
   background: var(--ambitious-green, #077453);
@@ -464,8 +464,9 @@ export const StyledCryptoWidgetSection = styled.section`
     .rightSide {
       position: relative;
 
-      &::before, &::after {
-        content: "";
+      &::before,
+      &::after {
+        content: '';
         position: absolute;
         left: 0;
         width: 100%;
@@ -474,19 +475,27 @@ export const StyledCryptoWidgetSection = styled.section`
 
       &::before {
         top: 0;
-        background: linear-gradient(180deg, #077453 0%, rgba(7, 116, 83, 0.00) 100%);
+        background: linear-gradient(
+          180deg,
+          #077453 0%,
+          rgba(7, 116, 83, 0) 100%
+        );
       }
 
       &::after {
         bottom: 0;
-        background: linear-gradient(360deg, #077453 0%, rgba(7, 116, 83, 0.00) 100%);
+        background: linear-gradient(
+          360deg,
+          #077453 0%,
+          rgba(7, 116, 83, 0) 100%
+        );
       }
 
       ${responsive.xl`
         display: none;
       `};
 
-      svg {
+      img {
         max-width: ${rem(500)};
         width: 100%;
       }
