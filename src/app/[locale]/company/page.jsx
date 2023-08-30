@@ -71,7 +71,7 @@ const getData = async (query) => {
   try {
     const data = await performRequest({
       query,
-      revalidate: 0,
+      revalidate: 10,
     })
 
     return data

@@ -1,12 +1,14 @@
+import { draftMode } from 'next/headers'
 import { performRequest } from '@/lib/datocms'
 import BlogsPage from '@/views/BlogsPage'
 
 async function Page({ searchParams }) {
+  const { isEnabled } = draftMode()
+
   const PRODUCTS_QUERY = `
     query Products {
       allProducts (filter: {product: {matches: {pattern: "^(?=.*${searchParams.search}).*"}}}) {
         id
-        product
       }
     }
   `
@@ -15,39 +17,26 @@ async function Page({ searchParams }) {
     query Industries {
       allIndustries (filter: {industry: {matches: {pattern: "^(?=.*${searchParams.search}).*"}}}) {
         id
-        industry
       }
     }
   `
-
-  const TAGS_QUERY = `
-    query Tags {
-      allTags {
-        id
-        tag
-      }
-    }
-  `
-
   const { allProducts } = await performRequest({
     query: PRODUCTS_QUERY,
-    revalidate: 0,
+    includeDrafts: isEnabled,
+    revalidate: 10,
   })
   const { allIndustries } = await performRequest({
     query: INDUSTRIES_QUERY,
-    revalidate: 0,
-  })
-  const { allTags } = await performRequest({
-    query: TAGS_QUERY,
-    revalidate: 0,
+    includeDrafts: isEnabled,
+    revalidate: 10,
   })
 
-  const productIdArray = allProducts.map(({ id }) => id)
-  const industryIdArray = allIndustries.map(({ id }) => id)
+  const idAllProducts = allProducts.map(({ id }) => id)
+  const idAllIndustries = allIndustries.map(({ id }) => id)
   const tagIdArray = searchParams.tag ? searchParams.tag.split(',') : []
 
   const PAGE_CONTENT_QUERY = `
-  query Home($first: IntType = 6, $skip: IntType = 0) {
+  query Blog($first: IntType = 6, $skip: IntType = 0) {
     allBlogs(
       orderBy: _createdAt_DESC,
       first: $first, 
@@ -60,13 +49,13 @@ async function Page({ searchParams }) {
               : ''
           }
           ${
-            industryIdArray.length > 0
-              ? `{industries: {anyIn: [${industryIdArray}]}}`
+            idAllIndustries.length > 0
+              ? `{industries: {anyIn: [${idAllIndustries}]}}`
               : ''
           }
           ${
-            productIdArray.length > 0
-              ? `{products: {anyIn: [${productIdArray}]}},`
+            idAllIndustries.length > 0
+              ? `{products: {anyIn: [${idAllIndustries}]}},`
               : ''
           }
           ${tagIdArray.length > 0 ? `{mainTag: {in: [${tagIdArray}]}},` : ''}
@@ -96,32 +85,36 @@ async function Page({ searchParams }) {
               : ''
           }
           ${
-            industryIdArray.length > 0
-              ? `{industries: {anyIn: [${industryIdArray}]}}`
+            idAllIndustries.length > 0
+              ? `{industries: {anyIn: [${idAllIndustries}]}}`
               : ''
           }
           ${
-            productIdArray.length > 0
-              ? `{products: {anyIn: [${productIdArray}]}},`
+            idAllProducts.length > 0
+              ? `{products: {anyIn: [${idAllProducts}]}},`
               : ''
           }
           ${tagIdArray.length > 0 ? `{mainTag: {in: [${tagIdArray}]}},` : ''}
         ]}) {
       count
     }
+    allTags {
+      id
+      tag
+    }
   }`
 
   const first = searchParams.first ? +searchParams.first : 12
   const skip = searchParams.skip ? +searchParams.skip : 0
-
-  const { _allBlogsMeta, allBlogs } = await performRequest({
+  const { _allBlogsMeta, allBlogs, allTags } = await performRequest({
     query: PAGE_CONTENT_QUERY,
-    revalidate: 0,
+    revalidate: 10,
+    includeDrafts: isEnabled,
     variables: {
       first,
       skip,
-      productId: productIdArray.length > 0 ? productIdArray : '',
-      industryId: industryIdArray.length > 0 ? industryIdArray : '',
+      productId: idAllProducts.length > 0 ? idAllProducts : '',
+      industryId: idAllIndustries.length > 0 ? idAllIndustries : '',
       tagId: tagIdArray.length > 0 ? tagIdArray : '',
     },
   })

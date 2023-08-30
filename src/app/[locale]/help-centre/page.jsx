@@ -72,7 +72,7 @@ const getData = async () => {
   try {
     const helpCentreData = await performRequest({
       query: HELP_CENTRE_QUERY,
-      revalidate: 0,
+      revalidate: 10,
     })
 
     return helpCentreData

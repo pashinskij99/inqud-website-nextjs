@@ -128,12 +128,16 @@ export default function FeesBusiness() {
             </StyledButtonLearnMore>
 
             {/* <StyledTypographyUrbanistSmallSpaces className='description hide'> */}
-            <StructuredText data={data.footerDescription} />
+
             {/* </StyledTypographyUrbanistSmallSpaces> */}
             {/* <StyledTypographyUrbanistSmallSpaces className='description hide'>
               {tBodyDescription(keysForLocale.keys2[1])}
             </StyledTypographyUrbanistSmallSpaces> */}
           </div>
+          {/* 
+          <div className='description-wrapper'>
+            <StructuredText data={data.footerDescription} />
+          </div> */}
 
           <div className='cart'>
             <div className='cart-left-side'>

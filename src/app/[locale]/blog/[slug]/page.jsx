@@ -1,5 +1,13 @@
+import { draftMode } from 'next/headers'
 import { performRequest } from '@/lib/datocms'
 import BlogPage from '@/views/BlogPage'
+
+const PAGE_ALL_CONTENT_QUERY = `
+query Blog {
+  allBlogs {
+    id
+  }
+}`
 
 const PAGE_CONTENT_QUERY = `
 query Blog($slug: ItemId) {
@@ -68,10 +76,7 @@ query Blog($slug: ItemId) {
     }
   }
 }`
-// twitterCard
-// image {
-//   url
-// }
+
 const PAGE_CONTENT_QUERY_SEO = `
 query Blog($slug: ItemId) {
   blog(filter: {id: {eq: $slug}}) {
@@ -102,27 +107,26 @@ query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId]) {
     }
 }`
 
-// const PAGE_CONTENT_QUERY_SLUG = `
-// query Blog {
-//   allBlogs {
-//     slugPage
-//   }
-// }`
+export async function generateStaticParams() {
+  const { isEnabled } = draftMode()
 
-// export async function generateStaticParams() {
-//   const { allBlogs } = await performRequest({ query: PAGE_CONTENT_QUERY_SLUG })
-
-//   return allBlogs.map(({ slugPage }) => ({
-//     slug: slugPage,
-//   }))
-// }
+  const { allBlogs } = await performRequest({
+    query: PAGE_ALL_CONTENT_QUERY,
+    revalidate: 10,
+    includeDrafts: isEnabled,
+  })
+  return allBlogs.map((blog) => ({ slug: blog.id }))
+}
 
 export async function generateMetadata({ params }) {
+  const { isEnabled } = draftMode()
+
   const {
     blog: { seoMetaTag },
   } = await performRequest({
     query: PAGE_CONTENT_QUERY_SEO,
-    revalidate: 0,
+    includeDrafts: isEnabled,
+    revalidate: 10,
     variables: { slug: params.slug },
   })
 
@@ -133,15 +137,21 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function page({ params }) {
+  const { isEnabled } = draftMode()
+
   const { blog } = await performRequest({
     query: PAGE_CONTENT_QUERY,
-    revalidate: 0,
-    variables: { slug: params.slug },
+    revalidate: 10,
+    includeDrafts: isEnabled,
+    variables: {
+      slug: params.slug,
+    },
   })
 
   const relatedData = await performRequest({
     query: PAGE_RELATED_CONTENT_QUERY,
-    revalidate: 0,
+    includeDrafts: isEnabled,
+    revalidate: 10,
 
     variables: {
       tagId: blog.mainTag.id,

@@ -86,6 +86,17 @@ export const StyledCryptoBusinessSectionWrapper = styled.section`
         width: 328px;
       }
     }
+
+    .list {
+      .item {
+        &:not(:last-child) {
+          border: none !important;
+          .list-item-styled {
+            border: none !important;
+          }
+        }
+      }
+    }
   }
 `
 
@@ -110,9 +121,7 @@ export const StyledListItem = styled.div`
     line-height: 26px;
   }
 
-  &:nth-child(1),
-  &:nth-child(2),
-  &:nth-child(3) {
+  &:first-child {
     padding: 18px 24px 22px;
     ${responsive.xl`
       padding: 15px 16px 20px;
@@ -124,9 +133,7 @@ export const StyledListItem = styled.div`
     }
   }
 
-  &:nth-last-child(1),
-  &:nth-last-child(2),
-  &:nth-last-child(3) {
+  &:last-child {
     border: ${({ color }) => `2px solid ${color}`};
     padding: 15px 18px;
     ${responsive.xl`
