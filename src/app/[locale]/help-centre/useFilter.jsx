@@ -1,3 +1,4 @@
+import { render } from 'datocms-structured-text-to-html-string'
 import { useEffect, useState } from 'react'
 
 export const useFilter = ({ data = [], searchValue }) => {
@@ -9,8 +10,8 @@ export const useFilter = ({ data = [], searchValue }) => {
       for (let i = 0; i < data.length; i++) {
         const element = data[i]
 
-        for (let j = 0; j < element.listQuestions.length; j++) {
-          const elementInner = element.listQuestions[j]
+        for (let j = 0; j < element.content.length; j++) {
+          const elementInner = element.content[j]
           if (
             elementInner.title
               .toLowerCase()
@@ -22,7 +23,10 @@ export const useFilter = ({ data = [], searchValue }) => {
 
           // eslint-disable-next-line no-restricted-syntax, no-labels
           third: for (let k = 0; k < elementInner.descriptions.length; k++) {
-            const description = elementInner.descriptions[k]
+            const description = render(elementInner.descriptions[k].description)
+              .replace(/(<([^>]+)>)/gi, '')
+              .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
+
             const splitedString = description.split('.')
 
             for (let l = 0; l < splitedString.length; l++) {

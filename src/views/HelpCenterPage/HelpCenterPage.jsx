@@ -31,8 +31,9 @@ export function HelpCenterPageContent({ data, isSearch, searchValue }) {
   return (
     <HelpCentreProvider
       searchValue={searchValue}
-      browseByProduct={data.allHelpCentreBlocks}
-      exploreByCategory={data.allHelpCentreBlockSeconds}
+      data={data}
+      // browseByProduct={data.allHelpCentreBlocks}
+      // exploreByCategory={data.allHelpCentreBlockSeconds}
     >
       {/* {getHighlightedText('Hello my name is Yaroslav name Yaros', 'Yaros')} */}
       {isSearch ? <SearchResultSection /> : <MainSection />}

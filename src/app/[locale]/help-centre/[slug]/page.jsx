@@ -1,82 +1,40 @@
 import { performRequest } from '@/lib/datocms'
 import DetailsSection from '@/sections/HelpCenterSections/DetailsSection'
 
-const HELP_CENTRE_PRODUCT = `
+const HELP_CENTRE_PAGE = `
   query MyQuery($itemId: ItemId) {
-    helpCentreBlock(filter: {id: {eq: $itemId}}) {
-      mainTitleBusiness
-      mainTitlePersonal
+    helpCentre(filter: {id: {eq: $itemId}}) {
+      content {
+        id
+        title
+        descriptions {
+          description {
+            value
+          }
+          id
+        }
+      }
+      icon {
+        url
+      }
       id
-      iconPersonal {
-        url
-      }
-      iconBusiness {
-        url
-      }
-      contentPersonal {
+      mainTitle
+      category {
         id
-        title
-        descriptions {
-          id
-          description {
-            value
-          }
-        }
+        name
       }
-      contentBusiness {
+      typeContent {
+        name
         id
-        title
-        descriptions {
-          id
-          description {
-            value
-          }
-        }
       }
     }
   }
 `
 
-const HELP_CENTRE_CATEGORY = `
-query MyQuery($itemId: ItemId) {
-  helpCentreBlockSecond(filter: {id: {eq: $itemId}}) {
-    mainTitleBusiness
-    mainTitlePersonal
-    id
-    iconPersonal {
-      url
-    }
-    iconBusiness {
-      url
-    }
-    contentPersonal {
-      id
-      title
-      descriptions {
-        id
-        description {
-          value
-        }
-      }
-    }
-    contentBusiness {
-      id
-      title
-      descriptions {
-        id
-        description {
-          value
-        }
-      }
-    }
-  }
-}
-`
-
-const getData = async (id, type) => {
+const getData = async (id) => {
   try {
     const helpCentreData = await performRequest({
-      query: type === 'product' ? HELP_CENTRE_PRODUCT : HELP_CENTRE_CATEGORY,
+      query: HELP_CENTRE_PAGE,
       revalidate: 0,
 
       variables: {
@@ -91,7 +49,7 @@ const getData = async (id, type) => {
 }
 
 async function Page({ params, searchParams }) {
-  const helpCenterData = await getData(params.slug, searchParams?.type)
+  const helpCenterData = await getData(params.slug)
 
   return <DetailsSection data={helpCenterData} type={searchParams?.type} />
 }

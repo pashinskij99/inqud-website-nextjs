@@ -2,6 +2,7 @@
 
 import { useContext, Fragment, useMemo } from 'react'
 import Link from 'next/link'
+import { render } from 'datocms-structured-text-to-html-string'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH3,
@@ -16,23 +17,14 @@ import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
 import { HelpCentreContext } from '@/contexts/HelpCentreContext/HelpCentreContext'
 import { useFilter } from '@/app/[locale]/help-centre/useFilter'
 import { getHighlightedText } from '@/utils/getHighlightedText'
-// import searchSlice from '@/store/features/search/searchSlice'
 
 export default function SearchResultSection() {
-  const { browseByProductData, exploreByCategoryData, searchValue } =
-    useContext(HelpCentreContext)
-  const newArray = useMemo(
-    () => [...browseByProductData, ...exploreByCategoryData],
-    [browseByProductData, exploreByCategoryData]
-  )
+  const { searchValue, data } = useContext(HelpCentreContext)
+  const newArray = useMemo(() => [...data], [data])
   const { filteredValue } = useFilter({
     data: newArray,
     searchValue,
   })
-
-  // console.log(filteredValue)
-
-  // console.log([...browseByProductData, ...exploreByCategoryData])
 
   return (
     <StyledSearchResultSectionWrapper>
@@ -43,19 +35,18 @@ export default function SearchResultSection() {
         <div className='list-search-result'>
           {/* eslint-disable-next-line no-use-before-define */}
           {filteredValue.length > 0 ? (
-            filteredValue.map(
-              ({ id: idElement, is, listQuestions, description }) =>
-                listQuestions.map(({ id, descriptions, title, type }) => (
-                  <Cart
-                    id={idElement}
-                    key={id}
-                    is={is}
-                    type={type}
-                    title={title}
-                    descriptions={descriptions}
-                    description={description}
-                  />
-                ))
+            filteredValue.map(({ id: idElement, is, content, description }) =>
+              content.map(({ id, descriptions, title, type }) => (
+                <Cart
+                  id={idElement}
+                  key={id}
+                  is={is}
+                  type={type}
+                  title={title}
+                  descriptions={descriptions}
+                  description={description}
+                />
+              ))
             )
           ) : (
             <StyledTypographyUrbanistH4 className='error-message'>
@@ -68,7 +59,7 @@ export default function SearchResultSection() {
   )
 }
 
-function Cart({ id, title, is, description, descriptions, type }) {
+function Cart({ id, title, is, description, descriptions }) {
   const { searchValue } = useContext(HelpCentreContext)
 
   return (
@@ -79,26 +70,25 @@ function Cart({ id, title, is, description, descriptions, type }) {
         </StyledTypographyUrbanistH5>
         {is !== 'description' ? (
           <>
-            {descriptions.map((text, i) => (
+            {descriptions.map(({ description }, i) => (
               // eslint-disable-next-line react/no-array-index-key
               <Fragment key={i}>
                 <StyledTypographyUrbanistBody className='cart-description'>
-                  {text}
+                  {render(description)
+                    .replace(/(<([^>]+)>)/gi, '')
+                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')}
                 </StyledTypographyUrbanistBody>
                 <br />
               </Fragment>
             ))}
           </>
         ) : (
-          <>
-            {/* {console.log(description)} */}
-            {getHighlightedText(description, searchValue)}
-          </>
+          <>{getHighlightedText(description, searchValue)}</>
         )}
       </div>
 
       <StyledButtonLearnMore className='cart-btn'>
-        <Link href={{ pathname: `/help-centre/${id}`, query: { type } }}>
+        <Link href={`/help-centre/${id}`}>
           <StyledTypographyUrbanistBody className='cart-btn-text'>
             Learn more
           </StyledTypographyUrbanistBody>

@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import {
   StyledBusinessSectionWrapper,
   StyledOtherDocumentationSectionWrapper,
+  // StyledOtherDocumentationSectionWrapper,
   StyledSubSectionWrapper,
 } from '@/sections/HelpCenterSections/MainSection/MainSection.styled'
 import {
@@ -11,9 +12,9 @@ import {
   StyledTypographyUrbanistH3,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-import image from '@/assets/images/help-center/folder.png'
+// import image from '@/assets/images/help-center/folder.png'
 import {
-  StyledButtonGetStarted,
+  // StyledButtonGetStarted,
   StyledButtonLearnMore,
 } from '@/components/UI/Button/Button.styled'
 import { HelpCentreContext } from '@/contexts/HelpCentreContext/HelpCentreContext'
@@ -27,7 +28,7 @@ function MainSection() {
       <div className='container'>
         <SubSection title='Browse by product' grid={browseByProductData} />
         <SubSection title='Explore by category' grid={exploreByCategoryData} />
-        <OtherDocumentationSection
+        <StyledOtherDocumentationSectionWrapper
           title='Other documentation'
           titleCart='Knowlage base'
           btnText='Go to knowlage base'
@@ -50,7 +51,6 @@ function SubSection({ title, grid }) {
             key={id}
             id={id}
             icon={icon}
-            mainTitle={title}
             titleCart={titleCart}
             answers={answers}
             listQuestions={listQuestions}
@@ -61,7 +61,7 @@ function SubSection({ title, grid }) {
   )
 }
 
-function Cart({ id, icon, mainTitle, titleCart, listQuestions, answers }) {
+function Cart({ id, icon, titleCart, listQuestions, answers }) {
   return (
     <li className='cart'>
       <div className='cart-header'>
@@ -74,17 +74,7 @@ function Cart({ id, icon, mainTitle, titleCart, listQuestions, answers }) {
         {listQuestions.map(
           ({ id: key, title }, i) =>
             i <= 2 && (
-              <Link
-                href={{
-                  pathname: `/help-centre/${id}`,
-                  query: {
-                    type:
-                      mainTitle === 'Browse by product'
-                        ? 'product'
-                        : 'category',
-                  },
-                }}
-              >
+              <Link href={`/help-centre/${id}`}>
                 <StyledTypographyUrbanistBody
                   key={key}
                   className='cart-question'
@@ -96,14 +86,7 @@ function Cart({ id, icon, mainTitle, titleCart, listQuestions, answers }) {
         )}
       </div>
       <div className='cart-footer'>
-        <Link
-          href={{
-            pathname: `/help-centre/${id}`,
-            query: {
-              type: mainTitle === 'Browse by product' ? 'product' : 'category',
-            },
-          }}
-        >
+        <Link href={`/help-centre/${id}`}>
           <StyledButtonLearnMore className='cart-btn-view'>
             View all
           </StyledButtonLearnMore>
@@ -114,45 +97,6 @@ function Cart({ id, icon, mainTitle, titleCart, listQuestions, answers }) {
         </StyledTypographyUrbanistBody>
       </div>
     </li>
-  )
-}
-
-function OtherDocumentationSection({
-  title,
-  titleCart,
-  descriptionCart,
-  btnText,
-}) {
-  return (
-    <StyledOtherDocumentationSectionWrapper>
-      <StyledTypographyUrbanistH3 className='title'>
-        {title}
-      </StyledTypographyUrbanistH3>
-
-      <div className='cart'>
-        <div className='left-side'>
-          <StyledTypographyUrbanistH5 className='cart-title'>
-            {titleCart}
-          </StyledTypographyUrbanistH5>
-          <StyledTypographyUrbanistBody className='cart-description'>
-            {descriptionCart}
-          </StyledTypographyUrbanistBody>
-          <StyledButtonGetStarted className='cart-btn'>
-            <StyledTypographyUrbanistBody className='cart-btn-text'>
-              {btnText}
-            </StyledTypographyUrbanistBody>
-          </StyledButtonGetStarted>
-        </div>
-        <div className='right-side'>
-          <Image
-            src={image.src}
-            alt={titleCart}
-            width={128.59}
-            height={146.13}
-          />
-        </div>
-      </div>
-    </StyledOtherDocumentationSectionWrapper>
   )
 }
 
