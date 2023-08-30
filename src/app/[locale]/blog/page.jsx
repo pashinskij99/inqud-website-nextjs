@@ -1,9 +1,9 @@
-import { draftMode } from 'next/headers'
+// import { draftMode } from 'next/headers'
 import { performRequest } from '@/lib/datocms'
 import BlogsPage from '@/views/BlogsPage'
 
 async function Page({ searchParams }) {
-  const { isEnabled } = draftMode()
+  // const { isEnabled } = draftMode()
 
   const PRODUCTS_QUERY = `
     query Products {
@@ -22,12 +22,12 @@ async function Page({ searchParams }) {
   `
   const { allProducts } = await performRequest({
     query: PRODUCTS_QUERY,
-    includeDrafts: isEnabled,
+    // includeDrafts: isEnabled,
     revalidate: 10,
   })
   const { allIndustries } = await performRequest({
     query: INDUSTRIES_QUERY,
-    includeDrafts: isEnabled,
+    // includeDrafts: isEnabled,
     revalidate: 10,
   })
 
@@ -109,7 +109,7 @@ async function Page({ searchParams }) {
   const { _allBlogsMeta, allBlogs, allTags } = await performRequest({
     query: PAGE_CONTENT_QUERY,
     revalidate: 10,
-    includeDrafts: isEnabled,
+    // includeDrafts: isEnabled,
     variables: {
       first,
       skip,

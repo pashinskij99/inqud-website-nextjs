@@ -1,4 +1,4 @@
-import { draftMode } from 'next/headers'
+// import { draftMode } from 'next/headers'
 import { performRequest } from '@/lib/datocms'
 import BlogPage from '@/views/BlogPage'
 
@@ -108,24 +108,24 @@ query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId]) {
 }`
 
 export async function generateStaticParams() {
-  const { isEnabled } = draftMode()
+  // const { isEnabled } = draftMode()
 
   const { allBlogs } = await performRequest({
     query: PAGE_ALL_CONTENT_QUERY,
     revalidate: 10,
-    includeDrafts: isEnabled,
+    // includeDrafts: isEnabled,
   })
   return allBlogs.map((blog) => ({ slug: blog.id }))
 }
 
 export async function generateMetadata({ params }) {
-  const { isEnabled } = draftMode()
+  // const { isEnabled } = draftMode()
 
   const {
     blog: { seoMetaTag },
   } = await performRequest({
     query: PAGE_CONTENT_QUERY_SEO,
-    includeDrafts: isEnabled,
+    // includeDrafts: isEnabled,
     revalidate: 10,
     variables: { slug: params.slug },
   })
@@ -137,12 +137,12 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function page({ params }) {
-  const { isEnabled } = draftMode()
+  // const { isEnabled } = draftMode()
 
   const { blog } = await performRequest({
     query: PAGE_CONTENT_QUERY,
     revalidate: 10,
-    includeDrafts: isEnabled,
+    // includeDrafts: isEnabled,
     variables: {
       slug: params.slug,
     },
@@ -150,7 +150,7 @@ export default async function page({ params }) {
 
   const relatedData = await performRequest({
     query: PAGE_RELATED_CONTENT_QUERY,
-    includeDrafts: isEnabled,
+    // includeDrafts: isEnabled,
     revalidate: 10,
 
     variables: {
