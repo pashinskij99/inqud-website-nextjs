@@ -2,12 +2,12 @@
 import { performRequest } from '@/lib/datocms'
 import BlogPage from '@/views/BlogPage'
 
-const PAGE_ALL_CONTENT_QUERY = `
-query Blog {
-  allBlogs {
-    id
-  }
-}`
+// const PAGE_ALL_CONTENT_QUERY = `
+// query Blog {
+//   allBlogs {
+//     id
+//   }
+// }`
 
 const PAGE_CONTENT_QUERY = `
 query Blog($slug: ItemId) {
@@ -107,16 +107,16 @@ query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId]) {
     }
 }`
 
-export async function generateStaticParams() {
-  // const { isEnabled } = draftMode()
+// export async function generateStaticParams() {
+//   // const { isEnabled } = draftMode()
 
-  const { allBlogs } = await performRequest({
-    query: PAGE_ALL_CONTENT_QUERY,
-    revalidate: 0,
-    // includeDrafts: isEnabled,
-  })
-  return allBlogs.map((blog) => ({ slug: blog.id }))
-}
+//   const { allBlogs } = await performRequest({
+//     query: PAGE_ALL_CONTENT_QUERY,
+//     revalidate: 0,
+//     // includeDrafts: isEnabled,
+//   })
+//   return allBlogs.map((blog) => ({ slug: blog.id }))
+// }
 
 export async function generateMetadata({ params }) {
   // const { isEnabled } = draftMode()
