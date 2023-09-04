@@ -1,13 +1,13 @@
-import { createContext, useEffect, useMemo, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { render } from 'datocms-structured-text-to-html-string'
+import { createContext, useEffect, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { render } from 'datocms-structured-text-to-html-string';
 
-export const HelpCentreContext = createContext()
+export const HelpCentreContext = createContext();
 
 export function HelpCentreProvider({ children, data, searchValue }) {
-  const { tab } = useSelector((state) => state.activeTab)
-  const [browseByProductData, setBrowseByProductData] = useState([])
-  const [exploreByCategoryData, setExploreByCategoryData] = useState([])
+  const { tab } = useSelector((state) => state.activeTab);
+  const [browseByProductData, setBrowseByProductData] = useState([]);
+  const [exploreByCategoryData, setExploreByCategoryData] = useState([]);
 
   useEffect(() => {
     if (tab === 0) {
@@ -33,7 +33,7 @@ export function HelpCentreProvider({ children, data, searchValue }) {
               ),
             })),
           }))
-      )
+      );
       setExploreByCategoryData(
         data.allHelpCentres
           .filter(
@@ -56,7 +56,7 @@ export function HelpCentreProvider({ children, data, searchValue }) {
               ),
             })),
           }))
-      )
+      );
     } else {
       setBrowseByProductData(
         data.allHelpCentres
@@ -80,7 +80,7 @@ export function HelpCentreProvider({ children, data, searchValue }) {
               ),
             })),
           }))
-      )
+      );
       setExploreByCategoryData(
         data.allHelpCentres
           .filter(
@@ -103,9 +103,9 @@ export function HelpCentreProvider({ children, data, searchValue }) {
               ),
             })),
           }))
-      )
+      );
     }
-  }, [tab])
+  }, [tab]);
 
   const value = useMemo(
     () => ({
@@ -115,11 +115,11 @@ export function HelpCentreProvider({ children, data, searchValue }) {
       data: data.allHelpCentres,
     }),
     [browseByProductData, exploreByCategoryData, searchValue, data]
-  )
+  );
 
   return (
     <HelpCentreContext.Provider value={value}>
       {children}
     </HelpCentreContext.Provider>
-  )
+  );
 }

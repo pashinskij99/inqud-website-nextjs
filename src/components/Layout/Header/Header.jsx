@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import Logo from '../../../assets/icons/logo.svg';
 import LogoMobile from '../../../assets/icons/logo-header-mobile-without-text.svg';
 import { StyledHeaderWrapper } from './Header.styled';
@@ -15,20 +16,36 @@ import {
 } from '@/components/UI/Button/Button.styled';
 import HeaderMobileMenu from './HeaderMobileMenu';
 import HeaderTabs from './HeaderTabs';
-
-const navList = [
-  { id: 0, name: 'Company', href: '/company' },
-  { id: 1, name: 'Insights', href: '/blog' },
-  { id: 2, name: 'Help centre', href: '/help-centre' },
-];
-
-const signButton = [
-  { id: 0, name: 'Log in', className: 'signIn' },
-  { id: 1, name: 'Get started', className: 'signUp' },
-];
+import { keysForLocale } from '@/config/keysForLocale';
 
 export default function Header() {
   const [active, setActive] = useState(false);
+
+  const navListTranslate = useTranslations('header_items');
+  const signButtonsTranslate = useTranslations('header_buttons_text');
+
+  const navList = [
+    { id: 0, name: navListTranslate(keysForLocale.keys3[0]), href: '/company' },
+    { id: 1, name: navListTranslate(keysForLocale.keys3[1]), href: '/blog' },
+    {
+      id: 2,
+      name: navListTranslate(keysForLocale.keys3[2]),
+      href: '/help-centre',
+    },
+  ];
+
+  const signButton = [
+    {
+      id: 0,
+      name: signButtonsTranslate('login'),
+      className: 'signIn',
+    },
+    {
+      id: 1,
+      name: signButtonsTranslate('get_started'),
+      className: 'signUp',
+    },
+  ];
 
   const handleClickHamburger = () => {
     setActive((prevState) => !prevState);

@@ -19,7 +19,7 @@ import Close from '@/assets/icons/close.svg';
 import { SelectPrimary } from '../UI/Select';
 
 export function ModalSendRequest({ open, handleClose }) {
-  const t = useTranslations('home_page.your_needs_section.modal');
+  const t = useTranslations('home_page_your_needs_section_modal');
 
   const inputs = [
     {

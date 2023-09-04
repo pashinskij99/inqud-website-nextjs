@@ -1,9 +1,9 @@
-import { performRequest } from '@/lib/datocms'
-import DetailsSection from '@/sections/HelpCenterSections/DetailsSection'
+import { performRequest } from '@/lib/datocms';
+import DetailsSection from '@/sections/HelpCenterSections/DetailsSection';
 
 const HELP_CENTRE_PAGE = `
-  query MyQuery($itemId: ItemId) {
-    helpCentre(filter: {id: {eq: $itemId}}) {
+  query MyQuery($itemId: ItemId, $locale: SiteLocale) {
+    helpCentre(locale: $locale, filter: {id: {eq: $itemId}}) {
       content {
         id
         title
@@ -29,7 +29,7 @@ const HELP_CENTRE_PAGE = `
       }
     }
   }
-`
+`;
 
 const getData = async (id) => {
   try {
@@ -40,18 +40,18 @@ const getData = async (id) => {
       variables: {
         itemId: id,
       },
-    })
+    });
 
-    return helpCentreData
+    return helpCentreData;
   } catch (error) {
-    throw Error(error.message)
+    throw Error(error.message);
   }
-}
+};
 
 async function Page({ params, searchParams }) {
-  const helpCenterData = await getData(params.slug)
+  const helpCenterData = await getData(params.slug);
 
-  return <DetailsSection data={helpCenterData} type={searchParams?.type} />
+  return <DetailsSection data={helpCenterData} type={searchParams?.type} />;
 }
 
-export default Page
+export default Page;

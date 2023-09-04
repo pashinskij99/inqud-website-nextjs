@@ -1,9 +1,9 @@
-import { performRequest } from '@/lib/datocms'
-import CompanyPage from '@/views/CompanyPage'
+import { performRequest } from '@/lib/datocms';
+import CompanyPage from '@/views/CompanyPage';
 
 const COMPANY_PAGE_QUERY = `  
-query MyQuery {
-  aboutUsPage {
+query MyQuery($locale: SiteLocale) {
+  aboutUsPage(locale: $locale) {
     id
     screen1Description1
     screen1Description2
@@ -38,6 +38,7 @@ query MyQuery {
     screen3Title
     screen4Description
     screen4Title
+    buttonScreen4
     screen5Title
     screen5Features {
       title
@@ -49,7 +50,7 @@ query MyQuery {
       }
     }
   }
-  allTeams {
+  allTeams(locale: $locale) {
     profession
     social {
       title
@@ -65,23 +66,24 @@ query MyQuery {
     }
   }
 }
-`
+`;
 
-const getData = async (query) => {
+const getData = async (query, variables) => {
   try {
     const data = await performRequest({
       query,
       revalidate: 0,
-    })
+      variables,
+    });
 
-    return data
+    return data;
   } catch (error) {
-    return {}
+    return {};
   }
-}
+};
 
-export default async function Page() {
-  const data = await getData(COMPANY_PAGE_QUERY)
+export default async function Page({ params }) {
+  const data = await getData(COMPANY_PAGE_QUERY, { locale: params.locale });
 
-  return <CompanyPage data={data} />
+  return <CompanyPage data={data} />;
 }

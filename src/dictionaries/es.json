@@ -1,0 +1,92 @@
+{
+  "header_tabs": {
+    "item1": "Empresas",
+    "item2": "Personal"
+  },
+  "header_nav_dropdown_dropdown_title": {
+    "item1": "Productos"
+  },
+  "header_nav_dropdown_dropdown_items_title": {
+    "item1": "Empresas",
+    "item2": "Personal"
+  },
+  "header_nav_dropdown_dropdown_items_1_items": {
+    "item1": "Widget criptográfico",
+    "item2": "API",
+    "item3": "Tarjeta 2 crypto",
+    "item4": "Bolsa de criptomonedas",
+    "item5": "Pagos periódicos",
+    "item6": "Aceptar cripto"
+  },
+  "header_nav_dropdown_dropdown_items_2_items": {
+    "item1": "Cartera",
+    "item2": "Intercambio",
+    "item3": "Transferir dinero",
+    "item4": "Comprar criptomonedas con tarjeta",
+    "item5": "Mercado rosa"
+  },
+  "header_items": {
+    "item1": "Empresa",
+    "item2": "Perspectivas",
+    "item3": "Centro de ayuda"
+  },
+  "header_buttons_text": {
+    "login": "Conectarse",
+    "get_started": "Empezar"
+  },
+  "footer": {
+    "footer_description": "Initium Limited, que opera como Switchere, tiene su domicilio social en Flat 2A1-A7, Pahsang Industrial Building, 16 Sun On Street, Tuen Mun, N.T, Hong Kong.",
+    "footer_resources_title": "Recursos",
+    "footer_resources_items": {
+      "item1": "Confidencialidad",
+      "item2": "Política de cookies",
+      "item3": "Política AML / KYC",
+      "item4": "Condiciones de uso",
+      "item5": "Dossier de prensa"
+    },
+    "footer_legal_title": "Legal",
+    "footer_legal_items": {
+      "item1": "Documentación",
+      "item2": "Perspectivas",
+      "item3": "Help Center",
+      "item4": "Plataforma de lanzamiento",
+      "item5": "Póngase en contacto con nosotros"
+    },
+    "footer_email_title": "No se pierda las actualizaciones más importantes. Suscríbase ahora.",
+    "footer_email_button_text": "Suscríbase a",
+    "footer_email_description": "by submitting this form, you contirm that you agree to the storing and processing of your personal data",
+    "footer_all_rights_reserved": "© Inqud. 2023. Todos los derechos reservados."
+  },
+  "home_page_your_needs_section": {
+    "title": "Comprendemos sus necesidades",
+    "paragraph": "Respaldados por la experiencia del sector"
+  },
+  "home_page_your_needs_section_list_item_title": {
+    "item1": "Acepte pagos criptográficos globales",
+    "item2": "Opciones de pago a medida",
+    "item3": "Sistema de pago alternativo fiable"
+  },
+  "home_page_your_needs_section_list_item_description": {
+    "item1": "Simplifique su proceso de pago global aceptando criptomonedas de todo el mundo.",
+    "item2": "¿Necesita un método de pago o una divisa específicos para su empresa? Pregúntenos. Nos pondremos en contacto con usted.",
+    "item3": "Garantice transacciones ininterrumpidas con nuestro robusto sistema de pago de reserva, que ofrece una fiabilidad y seguridad sólidas como una roca."
+  },
+  "home_page_your_needs_section_list_item_button_text": "Añada su solicitud",
+  "home_page_your_needs_section_modal": {
+    "title": "Envíe su solicitud",
+    "description": "¡Cumplamos sus objetivos!",
+    "label_email": "Correo electrónico",
+    "label_message": "Mensaje",
+    "placeholder_message": "Introduzca su solicitud o pregunta...",
+    "button_text": "Enviar",
+    "footer_description": "al enviar este formulario, confirma que está de acuerdo con el almacenamiento y tratamiento de sus datos personales"
+  },
+  "home_page_crypto_widget_section": {
+    "comming_soon": "próximamente"
+  },
+  "blog_name_section": {
+    "title": "Perspectivas"
+  },
+  "404_page_sub_title": "Página no encontrada",
+  "404_page_button_text": "Volver a la página de inicio"
+}

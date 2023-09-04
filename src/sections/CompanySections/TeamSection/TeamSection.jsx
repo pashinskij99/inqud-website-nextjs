@@ -1,118 +1,35 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { useTranslations } from 'next-intl'
-import { useContext } from 'react'
+import Image from 'next/image';
+import Link from 'next/link';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { useContext } from 'react';
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH4,
-} from '@/components/UI/Typography/Typography.styled'
+} from '@/components/UI/Typography/Typography.styled';
 import {
   StyledTeamCartWrapper,
   StyledTeamSectionWrapper,
-} from './TeamSection.styled'
-// import image1 from '@/assets/images/company/team/image1.webp'
-// import image2 from '@/assets/images/company/team/image2.webp'
-// import image3 from '@/assets/images/company/team/image3.webp'
-// import image4 from '@/assets/images/company/team/image4.webp'
-// import Telegram from '@/assets/images/company/team/telegram.svg'
-// import Linkedin from '@/assets/images/company/team/linkedin.svg'
-import { StyledLoadMoreLarge } from '@/components/UI/Button/Button.styled'
-// import { keysForLocale } from '@/config/keysForLocale'
-import { PageContext } from '@/contexts/PageContext/PageContext'
+} from './TeamSection.styled';
+import { StyledLoadMoreLarge } from '@/components/UI/Button/Button.styled';
+import { PageContext } from '@/contexts/PageContext/PageContext';
 
 export default function TeamSection() {
-  const t = useTranslations('company_page.our_team_section')
-  // const tTitles = useTranslations('company_page.our_team_section.items_title')
-  // const tDescriptions = useTranslations(
-  //   'company_page.our_team_section.items_description'
-  // )
-
   const {
     dataPage: { aboutUsPage: data, allTeams: teamData },
-  } = useContext(PageContext)
-
-  // const grid = [
-  //   {
-  //     id: 0,
-  //     title: tTitles(keysForLocale.keys4[0]),
-  //     subTitle: tDescriptions(keysForLocale.keys4[0]),
-  //     socials: [
-  //       {
-  //         href: '#1',
-  //         icon: <Linkedin />,
-  //       },
-  //       {
-  //         href: '#2',
-  //         icon: <Telegram />,
-  //       },
-  //     ],
-  //     image: image1.src,
-  //   },
-  //   {
-  //     id: 1,
-  //     title: tTitles(keysForLocale.keys4[1]),
-  //     subTitle: tDescriptions(keysForLocale.keys4[1]),
-  //     socials: [
-  //       {
-  //         href: '#1',
-  //         icon: <Linkedin />,
-  //       },
-  //       {
-  //         href: '#2',
-  //         icon: <Telegram />,
-  //       },
-  //     ],
-  //     image: image2.src,
-  //   },
-  //   {
-  //     id: 2,
-  //     title: tTitles(keysForLocale.keys4[2]),
-  //     subTitle: tDescriptions(keysForLocale.keys4[2]),
-  //     socials: [
-  //       {
-  //         href: '#1',
-  //         icon: <Linkedin />,
-  //       },
-  //       {
-  //         href: '#2',
-  //         icon: <Telegram />,
-  //       },
-  //     ],
-  //     image: image3.src,
-  //   },
-  //   {
-  //     id: 3,
-  //     title: tTitles(keysForLocale.keys4[3]),
-  //     subTitle: tDescriptions(keysForLocale.keys4[3]),
-  //     socials: [
-  //       {
-  //         href: '#1',
-  //         icon: <Linkedin />,
-  //       },
-  //       {
-  //         href: '#2',
-  //         icon: <Telegram />,
-  //       },
-  //     ],
-  //     image: image4.src,
-  //   },
-  // ]
+  } = useContext(PageContext);
 
   return (
     <StyledTeamSectionWrapper>
-      <div className='container'>
-        <StyledTypographyUrbanistH2 className='title'>
-          {/* {t('title')} */}
+      <div className="container">
+        <StyledTypographyUrbanistH2 className="title">
           {data.screen4Title}
         </StyledTypographyUrbanistH2>
-        <StyledTypographyUrbanistBody className='description'>
-          {/* {t('description')} */}
+        <StyledTypographyUrbanistBody className="description">
           {data.screen4Description}
         </StyledTypographyUrbanistBody>
 
-        <ul className='team-grid'>
+        <ul className="team-grid">
           {teamData.map(({ id, image, social, profession, name }) => (
             <li key={id}>
               <Cart
@@ -126,15 +43,15 @@ export default function TeamSection() {
         </ul>
 
         <Swiper
-          slidesPerView='auto'
+          slidesPerView="auto"
           centeredSlides
           initialSlide={2}
           spaceBetween={8}
           updateOnWindowResize
-          className='swiper-team-grid'
+          className="swiper-team-grid"
         >
           {teamData.map(({ id, image, social, profession, name }) => (
-            <SwiperSlide className='swiper-team-grid-slide' key={id}>
+            <SwiperSlide className="swiper-team-grid-slide" key={id}>
               <Cart
                 image={image.url}
                 socials={social}
@@ -145,22 +62,22 @@ export default function TeamSection() {
           ))}
         </Swiper>
 
-        <StyledLoadMoreLarge className='more-btn'>
+        <StyledLoadMoreLarge className="more-btn">
           <StyledTypographyUrbanistBody>
-            +10 {t('button_text')}
+            +10 {data.buttonScreen4}
           </StyledTypographyUrbanistBody>
         </StyledLoadMoreLarge>
       </div>
     </StyledTeamSectionWrapper>
-  )
+  );
 }
 
 function Cart({ image, title, subTitle, socials }) {
   return (
     <StyledTeamCartWrapper>
-      <div className='image-wrapper'>
+      <div className="image-wrapper">
         <Image
-          className='team-grid-item-image'
+          className="team-grid-item-image"
           src={image}
           alt={title}
           width={320}
@@ -168,19 +85,19 @@ function Cart({ image, title, subTitle, socials }) {
         />
       </div>
 
-      <StyledTypographyUrbanistH4 className='team-grid-item-title'>
+      <StyledTypographyUrbanistH4 className="team-grid-item-title">
         {title}
       </StyledTypographyUrbanistH4>
-      <StyledTypographyUrbanistBody className='team-grid-item-subTitle'>
+      <StyledTypographyUrbanistBody className="team-grid-item-subTitle">
         {subTitle}
       </StyledTypographyUrbanistBody>
-      <div className='team-grid-social-list'>
+      <div className="team-grid-social-list">
         {socials.map(({ id, title, image }) => (
-          <Link className='team-grid-social-list-link' key={id} href={title}>
-            <Image src={image?.url} alt='' width={32} height={32} />
+          <Link className="team-grid-social-list-link" key={id} href={title}>
+            <Image src={image?.url} alt="" width={32} height={32} />
           </Link>
         ))}
       </div>
     </StyledTeamCartWrapper>
-  )
+  );
 }

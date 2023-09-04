@@ -1,0 +1,92 @@
+{
+  "header_tabs": {
+    "item1": "Бизнес",
+    "item2": "Персональный"
+  },
+  "header_nav_dropdown_dropdown_title": {
+    "item1": "Продукция"
+  },
+  "header_nav_dropdown_dropdown_items_title": {
+    "item1": "Бизнес",
+    "item2": "Персональный"
+  },
+  "header_nav_dropdown_dropdown_items_1_items": {
+    "item1": "Криптографический виджет",
+    "item2": "API",
+    "item3": "Карта 2 crypto",
+    "item4": "Криптовалютная биржа",
+    "item5": "Периодические платежи",
+    "item6": "Принимать криптовалюту"
+  },
+  "header_nav_dropdown_dropdown_items_2_items": {
+    "item1": "Бумажник",
+    "item2": "Обмен",
+    "item3": "Перевести деньги",
+    "item4": "Покупка криптовалюты с помощью карты",
+    "item5": "Розовый рынок"
+  },
+  "header_items": {
+    "item1": "Компания",
+    "item2": "Insights",
+    "item3": "Справочный центр"
+  },
+  "header_buttons_text": {
+    "login": "Войти в систему",
+    "get_started": "Приступить к работе"
+  },
+  "footer": {
+    "footer_description": "Компания Initium Limited, осуществляющая деятельность под названием Switchere, расположена по адресу: Flat 2A1-A7, Pahsang Industrial Building, 16 Sun On Street, Tuen Mun, N.T, Hong Kong.",
+    "footer_resources_title": "Ресурсы",
+    "footer_resources_items": {
+      "item1": "Уведомление о конфиденциальности",
+      "item2": "Политика в отношении файлов cookie",
+      "item3": "Политика AML / KYC",
+      "item4": "Условия использования",
+      "item5": "Пресс-кит"
+    },
+    "footer_legal_title": "Юридическая",
+    "footer_legal_items": {
+      "item1": "Документация",
+      "item2": "Insights",
+      "item3": "Центр помощи",
+      "item4": "Палуба для настила",
+      "item5": "Свяжитесь с нами"
+    },
+    "footer_email_title": "Не пропустите самые важные обновления. Подпишитесь сейчас!",
+    "footer_email_button_text": "Подписаться",
+    "footer_email_description": "отправляя эту форму, вы подтверждаете свое согласие на хранение и обработку ваших персональных данных",
+    "footer_all_rights_reserved": "© Inqud. 2023. Все права защищены."
+  },
+  "home_page_your_needs_section": {
+    "title": "Мы понимаем ваши потребности",
+    "paragraph": "Опираясь на отраслевой опыт"
+  },
+  "home_page_your_needs_section_list_item_title": {
+    "item1": "Прием глобальных криптовалютных платежей",
+    "item2": "Индивидуальные варианты оплаты",
+    "item3": "Надежная альтернативная платежная система"
+  },
+  "home_page_your_needs_section_list_item_description": {
+    "item1": "Упростите процесс глобальных платежей, принимая криптовалюты со всего мира.",
+    "item2": "Вам нужен конкретный способ оплаты или валюта для Вашего бизнеса? Просто спросите! Мы обязательно свяжемся с вами, чтобы решить эту задачу.",
+    "item3": "Обеспечить бесперебойное проведение операций позволяет наша надежная резервная платежная система, отличающаяся высокой надежностью и безопасностью."
+  },
+  "home_page_your_needs_section_list_item_button_text": "Добавить свой запрос",
+  "home_page_your_needs_section_modal": {
+    "title": "Отправить запрос",
+    "description": "Давайте достигнем ваших целей!",
+    "label_email": "Электронная почта",
+    "label_message": "Сообщение",
+    "placeholder_message": "Введите запрос или вопрос...",
+    "button_text": "Отправить",
+    "footer_description": "отправляя эту форму, вы подтверждаете свое согласие на хранение и обработку ваших персональных данных"
+  },
+  "home_page_crypto_widget_section": {
+    "comming_soon": "скоро будет"
+  },
+  "blog_name_section": {
+    "title": "Insights"
+  },
+  "404_page_sub_title": "Страница не найдена",
+  "404_page_button_text": "Назад к дому"
+}

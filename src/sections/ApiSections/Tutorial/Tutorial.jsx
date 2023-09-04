@@ -1,21 +1,23 @@
-import Image from 'next/image'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Scrollbar } from 'swiper/modules'
+import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Scrollbar } from 'swiper/modules';
+import { useContext } from 'react';
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH4,
-} from '@/components/UI/Typography/Typography.styled'
+} from '@/components/UI/Typography/Typography.styled';
 import {
   StyledTutorialCartPlayButtonWrapper,
   StyledTutorialCartWrapper,
   StyledTutorialWrapper,
-} from './Tutorial.styled'
-import image1 from '@/assets/images/api/tutorials/image1.webp'
-import image2 from '@/assets/images/api/tutorials/image2.webp'
-import image3 from '@/assets/images/api/tutorials/image3.webp'
-import Play from '@/assets/images/api/tutorials/play.svg'
-import { StyledLoadMoreLarge } from '@/components/UI/Button/Button.styled'
+} from './Tutorial.styled';
+import image1 from '@/assets/images/api/tutorials/image1.webp';
+import image2 from '@/assets/images/api/tutorials/image2.webp';
+import image3 from '@/assets/images/api/tutorials/image3.webp';
+import Play from '@/assets/images/api/tutorials/play.svg';
+import { StyledLoadMoreLarge } from '@/components/UI/Button/Button.styled';
+import { PageContext } from '@/contexts/PageContext/PageContext';
 
 const tutorials = [
   {
@@ -33,23 +35,27 @@ const tutorials = [
     title: 'Reduce transaction cost',
     image: image3.src,
   },
-]
+];
 
 export default function Tutorial() {
+  const {
+    dataPage: { apiPage: data },
+  } = useContext(PageContext);
+
   return (
-    <StyledTutorialWrapper className='tutorial'>
-      <div className='container'>
-        <StyledTypographyUrbanistH2 className='title'>
-          Tutorials
+    <StyledTutorialWrapper className="tutorial">
+      <div className="container">
+        <StyledTypographyUrbanistH2 className="title">
+          {data.screen9Title}
         </StyledTypographyUrbanistH2>
 
-        <div className='grid desktopAndLaptop'>
+        <div className="grid desktopAndLaptop">
           {tutorials.map(({ id, image, title }) => (
             <TutorialCart key={id} imageSrc={image} title={title} />
           ))}
         </div>
 
-        <div className='grid tabletAndMobile'>
+        <div className="grid tabletAndMobile">
           <Swiper
             scrollbar={{
               dragSize: 200 / 3,
@@ -74,30 +80,32 @@ export default function Tutorial() {
                 centeredSlides: false,
               },
             }}
-            className='grid-swiper'
+            className="grid-swiper"
           >
             {tutorials.map(({ id, image, title }) => (
-              <SwiperSlide className='grid-swiper-slide' key={id}>
+              <SwiperSlide className="grid-swiper-slide" key={id}>
                 <TutorialCart imageSrc={image} title={title} />
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
 
-        <StyledLoadMoreLarge className='load-more'>
-          <StyledTypographyUrbanistBody>Load more</StyledTypographyUrbanistBody>
+        <StyledLoadMoreLarge className="load-more">
+          <StyledTypographyUrbanistBody>
+            {data.screen9Button}
+          </StyledTypographyUrbanistBody>
         </StyledLoadMoreLarge>
       </div>
     </StyledTutorialWrapper>
-  )
+  );
 }
 
 function TutorialCart({ imageSrc, title }) {
   return (
     <StyledTutorialCartWrapper>
-      <div className='cart-image-wrapper'>
+      <div className="cart-image-wrapper">
         <Image
-          className='cart-image'
+          className="cart-image"
           src={imageSrc}
           alt={title}
           width={440}
@@ -105,20 +113,20 @@ function TutorialCart({ imageSrc, title }) {
         />
         <PlayButton />
       </div>
-      <StyledTypographyUrbanistH4 className='cart-title'>
+      <StyledTypographyUrbanistH4 className="cart-title">
         {title}
       </StyledTypographyUrbanistH4>
     </StyledTutorialCartWrapper>
-  )
+  );
 }
 
 function PlayButton() {
   return (
     <StyledTutorialCartPlayButtonWrapper>
-      <Play className='play-icon' />
-      <StyledTypographyUrbanistBody className='play-text'>
+      <Play className="play-icon" />
+      <StyledTypographyUrbanistBody className="play-text">
         Play
       </StyledTypographyUrbanistBody>
     </StyledTutorialCartPlayButtonWrapper>
-  )
+  );
 }

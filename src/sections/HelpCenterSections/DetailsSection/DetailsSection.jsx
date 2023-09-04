@@ -39,7 +39,6 @@ import { setBlogBreadcrumbs } from '@/store/features/breadcrumb/breadcrumbSlice'
 function DetailsSection({ data, type }) {
   const { tab } = useSelector((state) => state.activeTab);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(setBlogBreadcrumbs(data.helpCentre.mainTitle));
 

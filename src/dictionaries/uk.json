@@ -1,0 +1,92 @@
+{
+  "header_tabs": {
+    "item1": "Бізнес",
+    "item2": "Особисте"
+  },
+  "header_nav_dropdown_dropdown_title": {
+    "item1": "Продукти"
+  },
+  "header_nav_dropdown_dropdown_items_title": {
+    "item1": "Бізнес",
+    "item2": "Особисте"
+  },
+  "header_nav_dropdown_dropdown_items_1_items": {
+    "item1": "Крипто-віджет",
+    "item2": "API",
+    "item3": "Картка 2 криптовалюта",
+    "item4": "Обмін криптовалют",
+    "item5": "Періодичні платежі",
+    "item6": "Приймайте криптовалюту"
+  },
+  "header_nav_dropdown_dropdown_items_2_items": {
+    "item1": "Гаманець",
+    "item2": "Обмін",
+    "item3": "Переказати гроші",
+    "item4": "Купуйте криптовалюту за допомогою картки",
+    "item5": "Рожевий ринок"
+  },
+  "header_items": {
+    "item1": "Компанія",
+    "item2": "Інсайти",
+    "item3": "Довідковий центр"
+  },
+  "header_buttons_text": {
+    "login": "Увійдіть в систему",
+    "get_started": "Починайте"
+  },
+  "footer": {
+    "footer_description": "Інітіум Лімітед (Initium Limited), що веде бізнес під назвою Switchere, знаходиться за адресою: квартира 2A1-A7, промислова будівля Пахсанг, 16 Sun On Street, Tuen Mun, N.T., Hong Kong, Гонконг.",
+    "footer_resources_title": "Ресурси",
+    "footer_resources_items": {
+      "item1": "Повідомлення про конфіденційність",
+      "item2": "Політика щодо файлів cookie",
+      "item3": "Політика AML / KYC",
+      "item4": "Умови використання",
+      "item5": "Комплект для преси"
+    },
+    "footer_legal_title": "Юридичний",
+    "footer_legal_items": {
+      "item1": "Документація",
+      "item2": "Інсайти",
+      "item3": "Центр допомоги",
+      "item4": "Палуба для пітчингу",
+      "item5": "Зв'яжіться з нами"
+    },
+    "footer_email_title": "Не пропустіть найважливіші оновлення. Підпишіться зараз!",
+    "footer_email_button_text": "Підписатися",
+    "footer_email_description": "надсилаючи цю форму, ви підтверджуєте, що даєте згоду на зберігання та обробку ваших персональних даних",
+    "footer_all_rights_reserved": "© Inqud. 2023. Всі права захищені."
+  },
+  "home_page_your_needs_section": {
+    "title": "Ми розуміємо ваші потреби",
+    "paragraph": "За підтримки галузевої експертизи"
+  },
+  "home_page_your_needs_section_list_item_title": {
+    "item1": "Приймайте глобальні криптовалютні платежі",
+    "item2": "Індивідуальні варіанти оплати",
+    "item3": "Надійна альтернативна платіжна система"
+  },
+  "home_page_your_needs_section_list_item_description": {
+    "item1": "Спростіть свій глобальний платіжний процес, приймаючи криптовалюти з усього світу.",
+    "item2": "Потрібен конкретний спосіб оплати або валюта для вашого бізнесу? Просто запитайте! Ми зв'яжемося з вами, щоб зробити це можливим.",
+    "item3": "Забезпечте безперебійність транзакцій за допомогою нашої надійної резервної платіжної системи, що пропонує бездоганну надійність і безпеку."
+  },
+  "home_page_your_needs_section_list_item_button_text": "Додайте свій запит",
+  "home_page_your_needs_section_modal": {
+    "title": "Надішліть свій запит",
+    "description": "Досягнемо ваших цілей!",
+    "label_email": "Електронна пошта",
+    "label_message": "Повідомлення",
+    "placeholder_message": "Введіть свій запит або питання...",
+    "button_text": "Надіслати",
+    "footer_description": "надсилаючи цю форму, ви підтверджуєте, що даєте згоду на зберігання та обробку ваших персональних даних"
+  },
+  "home_page_crypto_widget_section": {
+    "comming_soon": "незабаром"
+  },
+  "blog_name_section": {
+    "title": "Інсайти"
+  },
+  "404_page_sub_title": "Сторінку не знайдено",
+  "404_page_button_text": "Додому"
+}

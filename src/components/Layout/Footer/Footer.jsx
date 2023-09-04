@@ -1,102 +1,110 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
+import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH5,
   StyledTypographyUrbanistSmallSpaces,
-} from '@/components/UI/Typography/Typography.styled'
-import { StyledFooter } from './Footer.styled'
-import Logo from '@/assets/icons/footer-logo.svg'
-import Twitter from '@/assets/icons/twitter.svg'
-import Facebook from '@/assets/icons/facebook.svg'
-import Linkedin from '@/assets/icons/linkedin.svg'
-import Star from '@/assets/icons/star.svg'
-import { InputText } from '@/components/UI/Input'
-import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
-
-const footerData = [
-  {
-    id: 0,
-    title: 'Resources',
-    items: [
-      { id: 0, text: 'Privacy Notice', href: '#' },
-      { id: 1, text: 'Cookie Policy', href: '#' },
-      { id: 2, text: 'AML / KYC Policy', href: '#' },
-      { id: 3, text: 'Terms of Use', href: '#' },
-      { id: 4, text: 'Press kit', href: '#' },
-    ],
-  },
-  {
-    id: 1,
-    title: 'Legal',
-    items: [
-      { id: 0, text: 'Documentations', href: '#' },
-      { id: 1, text: 'Insights', href: '/blog' },
-      { id: 2, text: 'Help Center', href: '/help-centre' },
-      { id: 3, text: 'Pitch deck', href: '#' },
-      { id: 4, text: 'Contact us', href: '#' },
-    ],
-  },
-]
-
-const social = [
-  { id: 0, icon: <Twitter />, href: '#' },
-  { id: 1, icon: <Facebook />, href: '#' },
-  { id: 2, icon: <Linkedin />, href: '#' },
-  { id: 3, icon: <Star />, href: '#' },
-]
+} from '@/components/UI/Typography/Typography.styled';
+import { StyledFooter } from './Footer.styled';
+import Logo from '@/assets/icons/footer-logo.svg';
+import Twitter from '@/assets/icons/twitter.svg';
+import Facebook from '@/assets/icons/facebook.svg';
+import Linkedin from '@/assets/icons/linkedin.svg';
+import Star from '@/assets/icons/star.svg';
+import { InputText } from '@/components/UI/Input';
+import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled';
+import { keysForLocale } from '@/config/keysForLocale';
 
 export default function Footer() {
+  const t = useTranslations('footer');
+  const tResources = useTranslations('footer.footer_resources_items');
+  const tLegal = useTranslations('footer.footer_legal_items');
+
+  const footerData = [
+    {
+      id: 0,
+      title: t('footer_resources_title'),
+      className: 'Resources',
+      items: [
+        { id: 0, text: tResources(keysForLocale.keys5[0]), href: '#' },
+        { id: 1, text: tResources(keysForLocale.keys5[1]), href: '#' },
+        { id: 2, text: tResources(keysForLocale.keys5[2]), href: '#' },
+        { id: 3, text: tResources(keysForLocale.keys5[3]), href: '#' },
+        { id: 4, text: tResources(keysForLocale.keys5[4]), href: '#' },
+      ],
+    },
+    {
+      id: 1,
+      title: t('footer_legal_title'),
+      className: 'Legal',
+      items: [
+        { id: 0, text: tLegal(keysForLocale.keys5[0]), href: '#' },
+        { id: 1, text: tLegal(keysForLocale.keys5[1]), href: '/blog' },
+        { id: 2, text: tLegal(keysForLocale.keys5[2]), href: '/help-centre' },
+        { id: 3, text: tLegal(keysForLocale.keys5[3]), href: '#' },
+        { id: 4, text: tLegal(keysForLocale.keys5[4]), href: '#' },
+      ],
+    },
+  ];
+
+  const social = [
+    { id: 0, icon: <Twitter />, href: '#' },
+    { id: 1, icon: <Facebook />, href: '#' },
+    { id: 2, icon: <Linkedin />, href: '#' },
+    { id: 3, icon: <Star />, href: '#' },
+  ];
+
   return (
     <StyledFooter>
-      <div className='footerSubscribeSectionMobile'>
-        <div className='container'>
-          <StyledTypographyUrbanistH5 className='footerSubscribeSectionTitle'>
-            Don&apos;t miss out on the most important updates. Subscribe now!
+      <div className="footerSubscribeSectionMobile">
+        <div className="container">
+          <StyledTypographyUrbanistH5 className="footerSubscribeSectionTitle">
+            {t('footer_email_title')}
           </StyledTypographyUrbanistH5>
 
-          <div className='footerSubscribeSectionInputWrapper'>
+          <div className="footerSubscribeSectionInputWrapper">
             <InputText
-              type='email'
-              placeholder='example@mail.com'
-              className='footerSubscribeSectionInput'
+              type="email"
+              placeholder="example@mail.com"
+              className="footerSubscribeSectionInput"
             />
-            <StyledButtonSecondary className='footerSubscribeSectionButton'>
-              Subscribe
+            <StyledButtonSecondary className="footerSubscribeSectionButton">
+              {t('footer_email_button_text')}
             </StyledButtonSecondary>
           </div>
 
-          <StyledTypographyUrbanistSmallSpaces className='footerSubscribeSectionDescription'>
-            by submitting this form, you contirm that you agree to the storing
-            and processing of your personal data
+          <StyledTypographyUrbanistSmallSpaces className="footerSubscribeSectionDescription">
+            {t('footer_email_description')}
           </StyledTypographyUrbanistSmallSpaces>
         </div>
       </div>
 
-      <div className='top'>
-        <div className='container'>
-          <div className='footerLogoSection'>
+      <div className="top">
+        <div className="container">
+          <div className="footerLogoSection">
             <Logo />
-            <StyledTypographyUrbanistBody className='footerLogoSectionText'>
-              Initium Limited, doing business as Switchere, is located at Flat
-              2A1-A7, Pahsang Industrial Building, 16 Sun On Street, Tuen Mun,
-              N.T, Hong Kong.
+            <StyledTypographyUrbanistBody className="footerLogoSectionText">
+              {t('footer_description')}
             </StyledTypographyUrbanistBody>
           </div>
-          {footerData.map(({ id, items, title }) => (
-            <div key={id} className={`footer${title}Section`}>
+          {footerData.map(({ id, items, className, title }) => (
+            <div key={id} className={`footer${className}Section`}>
               <StyledTypographyUrbanistH5
-                className={`footer${title}SectionTitle`}
+                className={`footer${className}SectionTitle`}
               >
                 {title}
               </StyledTypographyUrbanistH5>
-              <ul className={`footer${title}SectionList`}>
+              <ul className={`footer${className}SectionList`}>
                 {items.map(({ id: itemId, href, text }) => (
-                  <li className={`footer${title}SectionListItem`} key={itemId}>
+                  <li
+                    className={`footer${className}SectionListItem`}
+                    key={itemId}
+                  >
                     <Link href={href}>
                       <StyledTypographyUrbanistBody
-                        className={`footer${title}SectionListItemText`}
+                        className={`footer${className}SectionListItemText`}
                       >
                         {text}
                       </StyledTypographyUrbanistBody>
@@ -106,45 +114,44 @@ export default function Footer() {
               </ul>
             </div>
           ))}
-          <div className='footerSubscribeSection'>
-            <StyledTypographyUrbanistH5 className='footerSubscribeSectionTitle'>
-              Don&apos;t miss out on the most important updates. Subscribe now!
+          <div className="footerSubscribeSection">
+            <StyledTypographyUrbanistH5 className="footerSubscribeSectionTitle">
+              {t('footer_email_title')}
             </StyledTypographyUrbanistH5>
 
-            <div className='footerSubscribeSectionInputWrapper'>
+            <div className="footerSubscribeSectionInputWrapper">
               <InputText
-                type='email'
-                placeholder='example@mail.com'
-                className='footerSubscribeSectionInput'
+                type="email"
+                placeholder="example@mail.com"
+                className="footerSubscribeSectionInput"
               />
-              <StyledButtonSecondary className='footerSubscribeSectionButton'>
-                Subscribe
+              <StyledButtonSecondary className="footerSubscribeSectionButton">
+                {t('footer_email_button_text')}
               </StyledButtonSecondary>
             </div>
 
-            <StyledTypographyUrbanistSmallSpaces className='footerSubscribeSectionDescription'>
-              by submitting this form, you contirm that you agree to the storing
-              and processing of your personal data
+            <StyledTypographyUrbanistSmallSpaces className="footerSubscribeSectionDescription">
+              {t('footer_email_description')}
             </StyledTypographyUrbanistSmallSpaces>
           </div>
         </div>
       </div>
 
-      <div className='bottom'>
-        <div className='container'>
-          <ul className='footerSocialWrapper'>
+      <div className="bottom">
+        <div className="container">
+          <ul className="footerSocialWrapper">
             {social.map(({ id, href, icon }) => (
-              <Link className='footerSocialLink' key={id} href={href}>
+              <Link className="footerSocialLink" key={id} href={href}>
                 {icon}
               </Link>
             ))}
           </ul>
 
-          <StyledTypographyUrbanistBody className='footerSocialAllRights'>
-            © Inqud. 2023. All rights reserved.
+          <StyledTypographyUrbanistBody className="footerSocialAllRights">
+            {t('footer_all_rights_reserved')}
           </StyledTypographyUrbanistBody>
         </div>
       </div>
     </StyledFooter>
-  )
+  );
 }

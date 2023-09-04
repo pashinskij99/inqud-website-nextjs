@@ -1,17 +1,16 @@
-import Link from 'next/link'
-import clsx from 'clsx'
-import { useContext } from 'react'
-import { useTranslations } from 'next-intl'
-import { StyledBlogPagination } from '@/sections/BlogsSections/BlogsSection/BlogPagination/BlogPagination.styled'
+import Link from 'next/link';
+import clsx from 'clsx';
+import { useContext } from 'react';
+import { StyledBlogPagination } from '@/sections/BlogsSections/BlogsSection/BlogPagination/BlogPagination.styled';
 import {
   DOTS,
   usePagination,
-} from '@/sections/BlogsSections/BlogsSection/BlogPagination/usePagination'
-import { StyledTypographyUrbanistBody } from '@/components/UI/Typography/Typography.styled'
-import ArrowPrev from '@/assets/icons/arrow-prev.svg'
-import ArrowNext from '@/assets/icons/arrow-next.svg'
-import { BlogContext } from '@/contexts/BlogContext/BlogContext'
-import { ButtonLoadMoreLarge } from '@/components/UI/Button'
+} from '@/sections/BlogsSections/BlogsSection/BlogPagination/usePagination';
+import { StyledTypographyUrbanistBody } from '@/components/UI/Typography/Typography.styled';
+import ArrowPrev from '@/assets/icons/arrow-prev.svg';
+import ArrowNext from '@/assets/icons/arrow-next.svg';
+import { BlogContext } from '@/contexts/BlogContext/BlogContext';
+import { ButtonLoadMoreLarge } from '@/components/UI/Button';
 
 function BlogPagination({ page, total, pageSize }) {
   const paginationRange = usePagination({
@@ -19,15 +18,15 @@ function BlogPagination({ page, total, pageSize }) {
     totalCount: total,
     siblingCount: 1,
     pageSize,
-  })
+  });
 
-  const { pagination, searchParams } = useContext(BlogContext)
+  const { pagination, searchParams } = useContext(BlogContext);
 
   if (page === 0 || paginationRange.length < 2) {
-    return null
+    return null;
   }
 
-  const lastPage = paginationRange[paginationRange.length - 1]
+  const lastPage = paginationRange[paginationRange.length - 1];
 
   return (
     <>
@@ -46,19 +45,19 @@ function BlogPagination({ page, total, pageSize }) {
           >
             <li className={page === 1 ? 'events-none' : ''}>
               {/* <div className="prev"/> */}
-              <ArrowPrev className='prev' />
+              <ArrowPrev className="prev" />
             </li>
           </Link>
-          <div className='list-numbers'>
+          <div className="list-numbers">
             {paginationRange.map((pageNumber) => {
               if (pageNumber === DOTS) {
                 return (
-                  <li className='dots number' key={Math.random()}>
+                  <li className="dots number" key={Math.random()}>
                     <StyledTypographyUrbanistBody>
                       ...
                     </StyledTypographyUrbanistBody>
                   </li>
-                )
+                );
               }
 
               return (
@@ -81,7 +80,7 @@ function BlogPagination({ page, total, pageSize }) {
                     </StyledTypographyUrbanistBody>
                   </li>
                 </Link>
-              )
+              );
             })}
           </div>
           <Link
@@ -94,18 +93,17 @@ function BlogPagination({ page, total, pageSize }) {
             }}
           >
             <li className={page === lastPage ? 'events-none' : 'active'}>
-              <ArrowNext className='next' />
+              <ArrowNext className="next" />
             </li>
           </Link>
         </StyledBlogPagination>
       )}
     </>
-  )
+  );
 }
 
 function ButtonLoadMore({ lastPage, page }) {
-  const t = useTranslations('insights_page.blogs')
-  const { searchParams, pagination } = useContext(BlogContext)
+  const { searchParams, pagination, heroSectionData } = useContext(BlogContext);
 
   return lastPage === page ? null : (
     <>
@@ -125,7 +123,7 @@ function ButtonLoadMore({ lastPage, page }) {
                   }}
                   scroll={false}
                 >
-                  <ButtonLoadMoreLarge className='loadMoreButton'>
+                  <ButtonLoadMoreLarge className="loadMoreButton">
                     Load less
                   </ButtonLoadMoreLarge>
                 </Link>
@@ -143,15 +141,15 @@ function ButtonLoadMore({ lastPage, page }) {
               }}
               scroll={false}
             >
-              <ButtonLoadMoreLarge className='loadMoreButton'>
-                {t('button_text')}
+              <ButtonLoadMoreLarge className="loadMoreButton">
+                {heroSectionData.buttonLoadMore}
               </ButtonLoadMoreLarge>
             </Link>
           )}
         </>
       )}
     </>
-  )
+  );
 }
 
-export default BlogPagination
+export default BlogPagination;

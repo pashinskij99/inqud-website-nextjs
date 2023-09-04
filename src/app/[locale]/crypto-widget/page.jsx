@@ -1,144 +1,162 @@
-import { performRequest } from '@/lib/datocms'
-import CryptoWidget from '@/views/CryptoWidget'
+import { performRequest } from '@/lib/datocms';
+import CryptoWidget from '@/views/CryptoWidget';
 
 const CRYPTO_WIDGET = `
-query MyQuery {
-  cryptoWidgetPage {
-    buttonScreen10
-    buttonScreen1A
-    buttonScreen1B
-    buttonScreen6
-    description {
-      value
+  query MyQuery($locale: SiteLocale) {
+    homePage(locale: $locale){
+      faqButton
     }
-    id
-    image {
-      url
-    }
-    lead2Title
-    lead3Title
-    leadForm2Button
-    leadForm2Description {
-      value
-    }
-    leadForm3Description
-    leadForm3FooterText
-    leadForm3SubmitButton
-    screen2Content {
-      title
-      id
-      description
-      image {
-        url
+    cryptoWidgetPage(locale: $locale) {
+      buttonScreen10
+      buttonScreen1A
+      buttonScreen1B
+      buttonScreen6
+      description {
+        value
       }
-    }
-    screen3List {
-      id
-      list
-      listTitle
-    }
-    screen3Title
-    screen4Features {
-      id
-      description
-      cartId
-      image {
-        url
-      }
-      title
-    }
-    screen4Title
-    screen5Features {
-      title
-      description
-      cartId
       id
       image {
         url
       }
-    }
-    screen6Step {
-      cartId
-      id
-      time
+      lead2Title
+      lead3Title
+      leadForm2Button
+      leadForm2Description {
+        value
+      }
+      leadForm3Description
+      leadForm3MessagePlaceholder
+      leadForm3MessageLabel
+      leadForm3EmailLabel
+      leadForm3FooterText
+      leadForm3SubmitButton
+      screen2Content {
+        title
+        id
+        description
+        image {
+          url
+        }
+      }
+      screen3List {
+        id
+        list
+        listTitle
+      }
+      screen3Title
+      screen4Features {
+        id
+        description
+        cartId
+        image {
+          url
+        }
+        title
+      }
+      screen4Title
+      screen5Features {
+        title
+        description
+        cartId
+        id
+        image {
+          url
+        }
+      }
+      screen6Step {
+        cartId
+        id
+        time
+        title
+      }
+      screen6Title
+      screen7Title
+      subTitle
       title
     }
-    screen6Title
-    screen7Title
-    subTitle
-    title
-  }
-  supportedCurrency {
-    id
-    title
-    list {
+    apiPage(locale: $locale) {
+      screen9Button
+      screen9Title
+    }
+    supportedCurrency(locale: $locale) {
       id
-      supportedCurrenciesName
-      supportedCurrenciesImage {
+      title
+      list {
+        id
+        supportedCurrenciesName
+        supportedCurrenciesImage {
+          url
+        }
+      }
+    }
+    ourLandscape(locale: $locale) {
+      title
+      tabName2
+      tabName1
+      industriesList {
+        listTitle
+        list
+        id
+      }
+      id
+      description1
+      description2
+      coverageFeatures {
+        id
+        image {
+          url
+          height
+          width
+        }
+        title
+        description
+      }
+      coverageMap {
         url
       }
     }
-  }
-  feesYourBusiness {
-    title
-    id
-    cartButton
-    cartDescription
-    cartTitle
-    description
-    footerDescription {
-      value
-    }
-    table {
-      description
-      id
+    feesYourBusiness(locale: $locale) {
       title
-    }
-  }
-  ourLandscape {
-    title
-    tabName2
-    tabName1
-    industriesList {
-      listTitle
-      list
       id
-    }
-    id
-    description1
-    description2
-    coverageFeatures {
-      id
-      image {
-        url
-        height
-        width
+      cartButton
+      cartDescription
+      cartTitle
+      description
+      footerDescription {
+        value
       }
-      title
-      description
-    }
-    coverageMap {
-      url
+      tableHeader {
+        title
+        id
+        description
+      }
+      table {
+        description
+        id
+        title
+      }
     }
   }
-}
-`
+`;
 
-const getData = async (query) => {
+const getData = async (query, variables) => {
   try {
     const data = await performRequest({
       query,
       revalidate: 0,
-    })
+      variables,
+    });
 
-    return data
+    return data;
   } catch (error) {
-    return {}
+    return {};
   }
-}
+};
 
-export default async function page() {
-  const data = await getData(CRYPTO_WIDGET)
+export default async function page({ params }) {
+  const data = await getData(CRYPTO_WIDGET, {
+    locale: params.locale,
+  });
 
-  return <CryptoWidget data={data} />
+  return <CryptoWidget data={data} />;
 }
