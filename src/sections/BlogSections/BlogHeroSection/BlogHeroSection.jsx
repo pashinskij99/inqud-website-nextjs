@@ -14,7 +14,8 @@ import { getTimeForBlog } from '@/utils/getTimeForBlog';
 
 export default function BlogHeroSection() {
   const {
-    data: { mainTitle, _createdAt, timeToRead, heroSectionData },
+    data: { mainTitle, _createdAt, timeToRead },
+    heroSectionData,
   } = useContext(BlogContext);
 
   const { date } = getTimeForBlog(_createdAt);

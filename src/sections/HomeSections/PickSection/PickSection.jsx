@@ -177,25 +177,9 @@ export function PickList10Minutes({ data }) {
 
 export function PickApiSection({ className }) {
   const t = useTranslations('api_page.get_personalized_section');
-  // const tList = useTranslations('api_page.get_personalized_section.list_item')
-
-  // const listApiSection = [
-  //   { id: 2, text: tList(keysForLocale.keys3[0]), icon: <Dolar /> },
-
-  //   {
-  //     id: 1,
-  //     text: tList(keysForLocale.keys3[1]),
-  //     icon: <SpecificNeeds />,
-  //   },
-  //   {
-  //     id: 0,
-  //     text: tList(keysForLocale.keys3[2]),
-  //     icon: <Message />,
-  //   },
-  // ]
 
   const {
-    dataPage: { apiPage: data },
+    dataPage: { apiPage: data, pickLeadForm: leadFormData },
   } = useContext(PageContext);
 
   return (
@@ -215,17 +199,15 @@ export function PickApiSection({ className }) {
         <Pick />
 
         <StyledTypographyUrbanistBody className="pickPickDescription">
-          {t('pick_description')}
+          {leadFormData.pickDescription}
         </StyledTypographyUrbanistBody>
 
         <StyledButtonSecondaryLight className="pickPickButton pickPickButtonApi-1">
-          {/* {t('pick_button_text')} */}
-          {data.leadForm1Button}
+          {leadFormData.buttonText}
         </StyledButtonSecondaryLight>
 
         <StyledButtonSecondaryLight className="pickPickButton pickPickButtonApi-2">
-          {/* {t('pick_button_text')} */}
-          {data.leadForm1Button}
+          {leadFormData.buttonText}
         </StyledButtonSecondaryLight>
       </div>
     </StyledPickSectionSection>

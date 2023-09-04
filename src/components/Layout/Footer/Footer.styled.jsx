@@ -153,6 +153,7 @@ export const StyledFooter = styled.footer`
           margin-right: 0;
         `};
         ${responsive.sm`
+          max-width: 100%;
           margin-left: 0;
         `};
       }
@@ -168,6 +169,7 @@ export const StyledFooter = styled.footer`
           margin-right: 0px;
         `}
         ${responsive.sm`
+          max-width: 100%;
           margin-left: 0;
         `};
       }

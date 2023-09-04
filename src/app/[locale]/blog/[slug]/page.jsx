@@ -1,6 +1,6 @@
 // import { draftMode } from 'next/headers'
-import { performRequest } from '@/lib/datocms'
-import BlogPage from '@/views/BlogPage'
+import { performRequest } from '@/lib/datocms';
+import BlogPage from '@/views/BlogPage';
 
 // const PAGE_ALL_CONTENT_QUERY = `
 // query Blog {
@@ -10,8 +10,19 @@ import BlogPage from '@/views/BlogPage'
 // }`
 
 const PAGE_CONTENT_QUERY = `
-query Blog($slug: ItemId) {
-  blog(filter: {id: {eq: $slug}}) {
+query Blog($slug: ItemId, $locale: SiteLocale) {
+  blogHeroSection(locale: $locale) {
+    title
+    inputPlaceholder
+    id
+    description {
+      value
+    }
+    buttonBack
+    button
+    buttonLoadMore
+  }
+  blog(locale: $locale, filter: {id: {eq: $slug}}) {
     id
     nameAuthor
     industries {
@@ -75,23 +86,22 @@ query Blog($slug: ItemId) {
       id
     }
   }
-}`
+}`;
 
 const PAGE_CONTENT_QUERY_SEO = `
-query Blog($slug: ItemId) {
-  blog(filter: {id: {eq: $slug}}) {
+query Blog($slug: ItemId, $locale: SiteLocale) {
+  blog(locale: $locale, filter: {id: {eq: $slug}}) {
     slugPage
     seoMetaTag {
       description
       title
-      
     }
   }
-}`
+}`;
 
 const PAGE_RELATED_CONTENT_QUERY = `
-query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId]) {
-    allBlogs(orderBy: _createdAt_DESC, first: $first, filter: { id: {notIn: $blogId}, mainTag: {in: $tagId} }) {
+query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId], $locale: SiteLocale) {
+    allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: $first, filter: { id: {notIn: $blogId}, mainTag: {in: $tagId} }) {
         id
         mainTitle
         mainTag {
@@ -105,59 +115,50 @@ query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId]) {
           url
         }
     }
-}`
-
-// export async function generateStaticParams() {
-//   // const { isEnabled } = draftMode()
-
-//   const { allBlogs } = await performRequest({
-//     query: PAGE_ALL_CONTENT_QUERY,
-//     revalidate: 0,
-//     // includeDrafts: isEnabled,
-//   })
-//   return allBlogs.map((blog) => ({ slug: blog.id }))
-// }
+}`;
 
 export async function generateMetadata({ params }) {
-  // const { isEnabled } = draftMode()
-
   const {
     blog: { seoMetaTag },
   } = await performRequest({
     query: PAGE_CONTENT_QUERY_SEO,
-    // includeDrafts: isEnabled,
     revalidate: 0,
     variables: { slug: params.slug },
-  })
+    locale: params.locale,
+  });
 
   return {
     title: seoMetaTag.title,
     description: seoMetaTag.description,
-  }
+  };
 }
 
 export default async function page({ params }) {
-  // const { isEnabled } = draftMode()
-
-  const { blog } = await performRequest({
+  const { blog, blogHeroSection } = await performRequest({
     query: PAGE_CONTENT_QUERY,
     revalidate: 0,
-    // includeDrafts: isEnabled,
     variables: {
       slug: params.slug,
+      locale: params.locale,
     },
-  })
+  });
 
   const relatedData = await performRequest({
     query: PAGE_RELATED_CONTENT_QUERY,
-    // includeDrafts: isEnabled,
     revalidate: 0,
 
     variables: {
       tagId: blog.mainTag.id,
+      locale: params.locale,
       blogId: blog.id,
     },
-  })
+  });
 
-  return <BlogPage blog={blog} relatedData={relatedData} />
+  return (
+    <BlogPage
+      blog={blog}
+      blogHeroSection={blogHeroSection}
+      relatedData={relatedData}
+    />
+  );
 }

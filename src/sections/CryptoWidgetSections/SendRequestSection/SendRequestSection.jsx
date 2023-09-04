@@ -1,66 +1,63 @@
-import Image from 'next/image'
-import { useContext } from 'react'
+import Image from 'next/image';
+import { useContext } from 'react';
 import {
   StyledFormWrapper,
   StyledSendRequestSectionWrapper,
-} from './SendRequestSection.styled'
-import Message from '@/assets/icons/message.svg'
+} from './SendRequestSection.styled';
+import Message from '@/assets/icons/message.svg';
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH3,
   StyledTypographyUrbanistSmallSpaces,
-} from '@/components/UI/Typography/Typography.styled'
-import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
-import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
-import background from '@/assets/images/api/contact/background.webp'
-import { PageContext } from '@/contexts/PageContext/PageContext'
+} from '@/components/UI/Typography/Typography.styled';
+import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input';
+import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled';
+import background from '@/assets/images/api/contact/background.webp';
+import { PageContext } from '@/contexts/PageContext/PageContext';
 
 export default function SendRequestSection() {
   return (
     <StyledSendRequestSectionWrapper>
       <Image
-        className='background'
+        className="background"
         src={background.src}
-        alt='Get a personalized proposal'
+        alt="Get a personalized proposal"
         fill
       />
-      <div className='container'>
+      <div className="container">
         <Form />
       </div>
     </StyledSendRequestSectionWrapper>
-  )
+  );
 }
 
 function Form() {
+  const {
+    dataPage: { cryptoWidgetPage: data },
+  } = useContext(PageContext);
+
   const inputs = [
     {
       id: 0,
-      label: 'Email',
+      label: data.leadForm3EmailLabel,
       placeholder: 'example@mail.com',
       name: 'email',
       type: 'email',
     },
     {
       id: 1,
-      label: 'Message',
-      placeholder: 'Enter your request or question...',
+      label: data.leadForm3MessageLabel,
+      placeholder: data.leadForm3MessagePlaceholder,
+
       name: 'message',
       type: 'textarea',
     },
-  ]
-
-  const {
-    dataPage: { cryptoWidgetPage: data },
-  } = useContext(PageContext)
+  ];
 
   return (
     <StyledFormWrapper>
-      {/* <div className='container'> */}
-      <div className='formContainer'>
-        {/* <button className='closeButton' onClick={handleClose}>
-          <Close />
-        </button> */}
-        <div className='header'>
+      <div className="formContainer">
+        <div className="header">
           <Message />
           <StyledTypographyUrbanistH3>
             {data.lead3Title}
@@ -69,7 +66,7 @@ function Form() {
             {data.leadForm3Description}
           </StyledTypographyUrbanistBody>
         </div>
-        <div className='body'>
+        <div className="body">
           {inputs.map(({ id, name, label, placeholder, type }) =>
             type === 'textarea' ? (
               <TextAreaSendRequest
@@ -88,8 +85,8 @@ function Form() {
             )
           )}
         </div>
-        <div className='footer'>
-          <StyledButtonSecondary className='submit-btn'>
+        <div className="footer">
+          <StyledButtonSecondary className="submit-btn">
             {data.leadForm3SubmitButton}
           </StyledButtonSecondary>
           <StyledTypographyUrbanistSmallSpaces>
@@ -99,5 +96,5 @@ function Form() {
       </div>
       {/* </div> */}
     </StyledFormWrapper>
-  )
+  );
 }

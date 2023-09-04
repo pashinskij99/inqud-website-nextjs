@@ -86,7 +86,7 @@ export default function Footer() {
           <div className="footerLogoSection">
             <Logo />
             <StyledTypographyUrbanistBody className="footerLogoSectionText">
-              {t('footer_email_description')}
+              {t('footer_description')}
             </StyledTypographyUrbanistBody>
           </div>
           {footerData.map(({ id, items, className, title }) => (

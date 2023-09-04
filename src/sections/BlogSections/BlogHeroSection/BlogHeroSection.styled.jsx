@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import styled from '@emotion/styled';
+import { rem } from '@/utils/rem';
+import { responsive } from '@/utils/response';
 
 export const StyledBlogHeroSectionWrapper = styled.section`
   position: relative;
@@ -22,8 +22,7 @@ export const StyledBlogHeroSectionWrapper = styled.section`
   .arrowLeftBackground {
     position: absolute;
     left: 0;
-    top: 0;
-    bottom: 0;
+    bottom: 0px;
     margin: auto 0;
     z-index: 0;
     ${responsive.xxl`
@@ -33,11 +32,11 @@ export const StyledBlogHeroSectionWrapper = styled.section`
       display: none;
     `};
   }
+
   .arrowRightBackground {
     position: absolute;
     right: 0;
-    top: 0;
-    bottom: 0;
+    bottom: 0px;
     margin: auto 0;
     z-index: 0;
 
@@ -48,10 +47,12 @@ export const StyledBlogHeroSectionWrapper = styled.section`
       display: none;
     `};
   }
+
   .container {
     position: relative;
     z-index: 1;
   }
+
   .title {
     margin-bottom: ${rem(16)};
     font-size: 56px;
@@ -81,15 +82,18 @@ export const StyledBlogHeroSectionWrapper = styled.section`
       }
     `};
   }
+
   .date-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: ${rem(12)};
+
     p {
       color: rgba(81, 113, 133, 1);
     }
   }
+
   .button-back {
     position: absolute;
     top: 50%;
@@ -119,4 +123,4 @@ export const StyledBlogHeroSectionWrapper = styled.section`
       color: rgba(81, 113, 133, 1);
     }
   }
-`
+`;

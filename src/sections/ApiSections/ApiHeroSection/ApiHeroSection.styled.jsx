@@ -1,8 +1,9 @@
-import styled from '@emotion/styled'
-import { responsive } from '@/utils/response'
+import styled from '@emotion/styled';
+import { responsive } from '@/utils/response';
 
 export const StyledApiHeroSectionWrapper = styled.section`
   padding-top: 64px;
+
   ${responsive.sm`
     padding-top: 24px;
   `}
@@ -23,6 +24,7 @@ export const StyledApiHeroSectionWrapper = styled.section`
       row-gap: 40px;
     `}
   }
+
   .left-side {
     ${responsive.xl`
       text-align: center;
@@ -43,10 +45,12 @@ export const StyledApiHeroSectionWrapper = styled.section`
         margin-bottom: 15.5px;
       `}
     }
+
     .title {
       line-height: 70px;
       letter-spacing: -0.02em;
       margin-bottom: 40px;
+
       ${responsive.xxl`
         letter-spacing: -1.28px;
         margin-bottom: 24px;
@@ -58,12 +62,12 @@ export const StyledApiHeroSectionWrapper = styled.section`
         letter-spacing: -0em;
         margin-bottom: 16px;
       `}
-
       &.title-1 {
         ${responsive.xxl`
           display: none;
         `}
       }
+
       &.title-2 {
         display: none;
         ${responsive.xxl`
@@ -71,6 +75,7 @@ export const StyledApiHeroSectionWrapper = styled.section`
         `}
       }
     }
+
     .features {
       display: grid;
       grid-template-columns: repeat(2, auto);
@@ -78,6 +83,7 @@ export const StyledApiHeroSectionWrapper = styled.section`
       column-gap: 24px;
       row-gap: 16px;
       margin-bottom: 40px;
+
       ${responsive.xl`
         justify-content: center;      
       `}
@@ -89,6 +95,11 @@ export const StyledApiHeroSectionWrapper = styled.section`
         display: flex;
         align-items: center;
         column-gap: 8px;
+
+        svg {
+          flex-shrink: 0;
+        }
+
         p {
           font-weight: 500;
           line-height: 22px;
@@ -96,10 +107,12 @@ export const StyledApiHeroSectionWrapper = styled.section`
         }
       }
     }
+
     .buttonsWrapper {
       display: flex;
       column-gap: 16px;
       margin-bottom: 64px;
+
       ${responsive.xl`
         justify-content: center;      
       `}
@@ -108,12 +121,12 @@ export const StyledApiHeroSectionWrapper = styled.section`
         row-gap: 8px;
         margin-bottom: 41px;
       `}
-
       .getStarted {
         ${responsive.sm`
           padding-left: 0;
         `}
       }
+
       .ghostButton {
       }
     }
@@ -122,7 +135,6 @@ export const StyledApiHeroSectionWrapper = styled.section`
       ${responsive.xl`
         text-align: start
       `}
-
       .payment-descr {
         ${responsive.xl`
           line-height: 26px;
@@ -155,6 +167,7 @@ export const StyledApiHeroSectionWrapper = styled.section`
       display: flex;
       align-items: center;
       justify-content: center;
+
       ${responsive.xl`
         height: 464px;
         max-width: 400px;
@@ -164,7 +177,6 @@ export const StyledApiHeroSectionWrapper = styled.section`
       ${responsive.sm`
         height: 398.125px;
       `}
-
       img {
         ${responsive.xl`
           width: 375.143px;
@@ -178,4 +190,4 @@ export const StyledApiHeroSectionWrapper = styled.section`
       }
     }
   }
-`
+`;

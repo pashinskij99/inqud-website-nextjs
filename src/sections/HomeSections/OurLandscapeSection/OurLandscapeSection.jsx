@@ -4,7 +4,6 @@ import { useState, useContext } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Scrollbar } from 'swiper/modules';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -19,21 +18,11 @@ import {
 import Icon1 from '@/assets/images/our-landscape/1.svg';
 import Icon2 from '@/assets/images/our-landscape/2.svg';
 import Icon3 from '@/assets/images/our-landscape/3.svg';
-
-// import Coverage1 from '@/assets/images/our-landscape/coverage1.svg'
-// import Coverage2 from '@/assets/images/our-landscape/coverage2.svg'
-// import Coverage3 from '@/assets/images/our-landscape/coverage3.svg'
-// import Coverage5 from '@/assets/images/our-landscape/coverage5.svg'
-// import mapImage from '@/assets/images/our-landscape/map.webp'
 import { TabsComponent } from '@/components/TabsComponent/TabsComponent';
-// import { keysForLocale } from '@/config/keysForLocale';
 import { PageContext } from '@/contexts/PageContext/PageContext';
 
 export default function OurLandscapeSection() {
   const [active, setActive] = useState(0);
-
-  // const t = useTranslations('home_page.our_landscape')
-  // const tTabs = useTranslations('home_page.our_landscape.tabs');
 
   const {
     dataPage: { ourLandscape: data },
@@ -70,7 +59,6 @@ export default function OurLandscapeSection() {
     <StyledOurLandscapeSection className="our-landscape">
       <div className="container">
         <StyledTypographyUrbanistH2 className="ourLandscapeTitle">
-          {/* {t('title')} */}
           {data.title}
         </StyledTypographyUrbanistH2>
         <TabsComponent
@@ -87,40 +75,6 @@ export default function OurLandscapeSection() {
 }
 
 function CoverageTab() {
-  // const t = useTranslations('home_page.our_landscape')
-  // const tCoverageTitle = useTranslations(
-  //   'home_page.our_landscape.coverage_list_title'
-  // )
-  // const tCoverageSubTitle = useTranslations(
-  //   'home_page.our_landscape.coverage_list_sub_title'
-  // )
-
-  // const coverageList = [
-  //   {
-  //     id: 0,
-  //     name: tCoverageTitle(keysForLocale.keys3[0]),
-  //     description: tCoverageSubTitle(keysForLocale.keys3[0]),
-  //     icon: <Coverage1 className='coverage1' />,
-  //   },
-  //   {
-  //     id: 1,
-  //     name: tCoverageTitle(keysForLocale.keys3[1]),
-  //     description: tCoverageSubTitle(keysForLocale.keys3[1]),
-  //     icon: (
-  //       <>
-  //         <Coverage2 className='coverage2 desktop' />
-  //         <Coverage5 className='coverage5 mobile' />
-  //       </>
-  //     ),
-  //   },
-  //   {
-  //     id: 2,
-  //     name: tCoverageTitle(keysForLocale.keys3[2]),
-  //     description: tCoverageSubTitle(keysForLocale.keys3[2]),
-  //     icon: <Coverage3 className='coverage3' />,
-  //   },
-  // ]
-
   const {
     dataPage: { ourLandscape: data },
   } = useContext(PageContext);
@@ -129,7 +83,6 @@ function CoverageTab() {
     <StyledCoverageWrapper>
       <div className="headerWrapper">
         <StyledTypographyUrbanistH5 className="ourLandscapeDescription">
-          {/* {t('description_coverage')} */}
           {data.description2}
         </StyledTypographyUrbanistH5>
         <ul className="list desktop">
@@ -166,11 +119,6 @@ function CoverageTab() {
 }
 
 function IndustriesTab() {
-  const t = useTranslations('home_page.our_landscape');
-  // const tHight = useTranslations('home_page.our_landscape.hight_risk_items');
-  // const tMiddle = useTranslations('home_page.our_landscape.middle_risk_items');
-  // const tLow = useTranslations('home_page.our_landscape.low_risk_items');
-
   const {
     dataPage: { ourLandscape: data },
   } = useContext(PageContext);

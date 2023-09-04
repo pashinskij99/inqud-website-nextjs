@@ -28,7 +28,7 @@ export function BlogProvider({
       searchParams,
       pagination,
     }),
-    [data, relatedData, tags]
+    [data, relatedData, tags, heroSectionData]
   );
 
   return <BlogContext.Provider value={value}>{children}</BlogContext.Provider>;
