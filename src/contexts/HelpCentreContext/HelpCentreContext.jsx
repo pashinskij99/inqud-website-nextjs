@@ -9,8 +9,6 @@ export function HelpCentreProvider({ children, data, searchValue }) {
   const [browseByProductData, setBrowseByProductData] = useState([]);
   const [exploreByCategoryData, setExploreByCategoryData] = useState([]);
 
-  console.log(data);
-
   useEffect(() => {
     if (tab === 0) {
       setBrowseByProductData(

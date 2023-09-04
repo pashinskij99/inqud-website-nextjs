@@ -2,7 +2,6 @@
 
 import { useState, useContext } from 'react';
 import clsx from 'clsx';
-import { useTranslations } from 'next-intl';
 import { render } from 'datocms-structured-text-to-html-string';
 import { StructuredText } from 'react-datocms/structured-text';
 import {
@@ -18,20 +17,11 @@ import {
 } from '@/components/UI/Button/Button.styled';
 import BackCart from '@/assets/images/fee/cart-back.svg';
 import { FeeModal } from '@/components/Modal/Modal';
-import { keysForLocale } from '@/config/keysForLocale';
 import { PageContext } from '@/contexts/PageContext/PageContext';
 
 export default function FeesBusiness() {
   const [showModal, setShowModal] = useState(false);
   const [showMore, setShowMore] = useState(false);
-
-  // const t = useTranslations('home_page.fees_section')
-  const tHead = useTranslations('home_page.fees_section.tablet.head');
-  const tBodyName = useTranslations('home_page.fees_section.tablet.body_name');
-  const tBodyValue = useTranslations(
-    'home_page.fees_section.tablet.body_value'
-  );
-  // const tBodyDescription = useTranslations('home_page.fees_section.description')
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -47,11 +37,6 @@ export default function FeesBusiness() {
     dataPage: { feesYourBusiness: data },
   } = useContext(PageContext);
 
-  const tableData = {
-    head: [data.tableHeader[0].title, data.tableHeader[0].description],
-    body: data.table,
-  };
-
   return (
     <StyledFeesBusinessWrapper className="fees">
       <div className="container">
@@ -61,12 +46,10 @@ export default function FeesBusiness() {
             {data.title}
           </StyledTypographyUrbanistH2>
           <StyledTypographyUrbanistH2 className="title title-2">
-            {/* {t('title_mobile')} */}
             {data.title}
           </StyledTypographyUrbanistH2>
 
           <StyledTypographyUrbanistBody className="description">
-            {/* {t('paragraph')} */}
             {data.description}
           </StyledTypographyUrbanistBody>
         </div>
@@ -128,33 +111,19 @@ export default function FeesBusiness() {
             >
               {showMore ? 'Hide text' : 'Show more'}
             </StyledButtonLearnMore>
-
-            {/* <StyledTypographyUrbanistSmallSpaces className='description hide'> */}
-
-            {/* </StyledTypographyUrbanistSmallSpaces> */}
-            {/* <StyledTypographyUrbanistSmallSpaces className='description hide'>
-              {tBodyDescription(keysForLocale.keys2[1])}
-            </StyledTypographyUrbanistSmallSpaces> */}
           </div>
-          {/* 
-          <div className='description-wrapper'>
-            <StructuredText data={data.footerDescription} />
-          </div> */}
 
           <div className="cart">
             <div className="cart-left-side">
               <StyledTypographyUrbanistH4>
-                {/* {t('cart_title')} */}
                 {data.cartTitle}
               </StyledTypographyUrbanistH4>
             </div>
             <div className="cart-right-side">
               <StyledTypographyUrbanistBody>
-                {/* {t('cart_description')} */}
                 {data.cartDescription}
               </StyledTypographyUrbanistBody>
               <StyledButtonSecondaryLight onClick={handleShowModal}>
-                {/* {t('cart_button_text')} */}
                 {data.cartButton}
               </StyledButtonSecondaryLight>
             </div>
@@ -163,14 +132,7 @@ export default function FeesBusiness() {
         </div>
 
         <div className="description-wrapper">
-          {/* <StyledTypographyUrbanistSmallSpaces className='description'> */}
           <StructuredText data={data.footerDescription} />
-          {/* </StyledTypographyUrbanistSmallSpaces> */}
-          {/* <StyledTypographyUrbanistSmallSpaces className='description hide'>
-            If you notice any discrepancies between the displayed information
-            and reality, please let us know by info@inqud.com, and we will
-            update the information accordingly.
-          </StyledTypographyUrbanistSmallSpaces> */}
         </div>
       </div>
 
@@ -180,6 +142,5 @@ export default function FeesBusiness() {
 }
 
 function LearnMoreText({ endText, text, showMore }) {
-  // eslint-disable-next-line react/jsx-no-useless-fragment
   return <>{showMore ? text : text.substring(0, endText)}</>;
 }

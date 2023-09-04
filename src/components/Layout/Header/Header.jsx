@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import Logo from '../../../assets/icons/logo.svg';
 import LogoMobile from '../../../assets/icons/logo-header-mobile-without-text.svg';
 import { StyledHeaderWrapper } from './Header.styled';
