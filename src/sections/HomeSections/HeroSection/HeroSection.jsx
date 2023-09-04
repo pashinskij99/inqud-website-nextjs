@@ -24,6 +24,7 @@ import {
 import { ButtonGetStarted } from '@/components/UI/Button';
 
 import { PageContext } from '@/contexts/PageContext/PageContext';
+import { AnimatedGif } from '../../../components/AnimatedGif/AnimatedGif';
 
 export default function HeroSection() {
   const {
@@ -75,6 +76,13 @@ export default function HeroSection() {
         </div>
 
         <div className="rightSide">
+          {/* <AnimatedGif */}
+          {/*   width={595} */}
+          {/*   height={595} */}
+          {/*   gifUrl={data.heroImage.url} */}
+          {/*   alt={data.buttonScreen1GetStarted} */}
+          {/*   className="graphic" */}
+          {/* /> */}
           <Image
             width={595}
             height={595}
