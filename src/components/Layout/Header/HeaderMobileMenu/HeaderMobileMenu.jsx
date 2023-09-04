@@ -1,68 +1,54 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import clsx from 'clsx'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import Arrow from '@/assets/icons/arrow-down.svg'
+import { useState } from 'react';
+import clsx from 'clsx';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import Arrow from '@/assets/icons/arrow-down.svg';
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH5,
-} from '@/components/UI/Typography/Typography.styled'
+} from '@/components/UI/Typography/Typography.styled';
 import {
   StyledHeaderMobileMenu,
   StyledHeaderMobileMenuAccordion,
   StyledHeaderMobileMenuAccordionDetails,
   StyledHeaderMobileMenuAccordionSummary,
-} from './HeaderMobileMenu.styled'
-import { ButtonGetStarted } from '@/components/UI/Button'
-import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-
-const navList = [
-  { id: 0, name: 'Company', href: '/company' },
-  { id: 1, name: 'Insights', href: '/blog' },
-  { id: 2, name: 'Help centre', href: '/help-centre' },
-]
-
-const dropdownList = [
-  {
-    id: 0,
-    items: [
-      { id: 0, name: 'Business', href: '/business' },
-      { id: 1, name: 'Crypto widget', href: '/crypto-widget' },
-      { id: 2, name: 'API', href: '/api' },
-      { id: 3, name: 'Card 2 crypto', href: '/' },
-      { id: 4, name: 'Crypto exchange', href: '/' },
-      { id: 5, name: 'Recurring payments', href: '/' },
-      { id: 6, name: 'Accept crypto', href: '/' },
-    ],
-  },
-  {
-    id: 1,
-    items: [
-      { id: 0, name: 'Personal ', href: '/' },
-      { id: 1, name: 'Wallet', href: '/' },
-      { id: 2, name: 'Exchange', href: '/' },
-      { id: 3, name: 'Transfer money', href: '/' },
-      { id: 4, name: 'Buy crypto with card', href: '/' },
-      { id: 5, name: 'Pink market', href: '/' },
-    ],
-  },
-]
+} from './HeaderMobileMenu.styled';
+import { ButtonGetStarted } from '@/components/UI/Button';
+import { StyledButtonGhost } from '@/components/UI/Button/Button.styled';
+import { keysForLocale } from '@/config/keysForLocale';
 
 export default function HeaderMobileMenu({ active, handleClose }) {
-  const [expanded, setExpanded] = useState('')
+  const navListTranslate = useTranslations('header_items');
+  const signButtonsTranslate = useTranslations('header_buttons_text');
+  const dropdownListNameTranslate = useTranslations(
+    'header_nav_dropdown_dropdown_title'
+  );
+
+  const navList = [
+    { id: 0, name: navListTranslate(keysForLocale.keys3[0]), href: '/company' },
+    { id: 1, name: navListTranslate(keysForLocale.keys3[1]), href: '/blog' },
+    {
+      id: 2,
+      name: navListTranslate(keysForLocale.keys3[2]),
+      href: '/help-centre',
+    },
+  ];
+
+  const [expanded, setExpanded] = useState('');
 
   const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false)
-  }
+    setExpanded(newExpanded ? panel : false);
+  };
 
-  const { push } = useRouter()
+  const { push } = useRouter();
 
   const handleClickLink = (href) => {
-    push(href)
-    handleClose()
-  }
+    push(href);
+    handleClose();
+  };
 
   return (
     <StyledHeaderMobileMenu
@@ -71,11 +57,11 @@ export default function HeaderMobileMenu({ active, handleClose }) {
         ['hide']: !active,
       })}
     >
-      <div className='container'>
-        <div className='headerMobileMenuNav'>
+      <div className="container">
+        <div className="headerMobileMenuNav">
           <div>
             <AccordionComponent
-              title='Products'
+              title={dropdownListNameTranslate(keysForLocale.keys2[0])}
               handleChange={handleChange}
               expanded={expanded}
               handleClickLink={handleClickLink}
@@ -85,7 +71,7 @@ export default function HeaderMobileMenu({ active, handleClose }) {
           {navList.map(({ id, name, href }) => (
             <StyledTypographyUrbanistH5
               key={id}
-              className='headerMobileMenuNavTitle'
+              className="headerMobileMenuNavTitle"
               onClick={() => handleClickLink(href)}
             >
               {name}
@@ -93,15 +79,17 @@ export default function HeaderMobileMenu({ active, handleClose }) {
           ))}
         </div>
 
-        <div className='headerMobileMenuButtons'>
-          <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
-            <ButtonGetStarted>Get started</ButtonGetStarted>
+        <div className="headerMobileMenuButtons">
+          <Link target="_blank" href="https://cabinet.inqud.com/#/signup">
+            <ButtonGetStarted>
+              {signButtonsTranslate('get_started')}
+            </ButtonGetStarted>
           </Link>
-          <StyledButtonGhost>Log in</StyledButtonGhost>
+          <StyledButtonGhost>{signButtonsTranslate('login')}</StyledButtonGhost>
         </div>
       </div>
     </StyledHeaderMobileMenu>
-  )
+  );
 }
 
 function AccordionComponent({
@@ -110,6 +98,94 @@ function AccordionComponent({
   handleChange,
   handleClickLink,
 }) {
+  const dropdownListTitleTranslate = useTranslations(
+    'header_nav_dropdown_dropdown_items_title'
+  );
+  const dropdownList1Translate = useTranslations(
+    'header_nav_dropdown_dropdown_items_1_items'
+  );
+  const dropdownList2Translate = useTranslations(
+    'header_nav_dropdown_dropdown_items_2_items'
+  );
+
+  const dropdownList = [
+    {
+      id: 0,
+      items: [
+        {
+          id: 0,
+          name: dropdownListTitleTranslate(keysForLocale.keys6[0]),
+          href: '/business',
+        },
+        {
+          id: 1,
+          name: dropdownList1Translate(keysForLocale.keys6[0]),
+          href: '/crypto-widget',
+        },
+        {
+          id: 2,
+          name: dropdownList1Translate(keysForLocale.keys6[1]),
+          href: '/api',
+        },
+        {
+          id: 3,
+          name: dropdownList1Translate(keysForLocale.keys6[2]),
+          href: '/',
+        },
+        {
+          id: 4,
+          name: dropdownList1Translate(keysForLocale.keys6[3]),
+          href: '/',
+        },
+        {
+          id: 5,
+          name: dropdownList1Translate(keysForLocale.keys6[4]),
+          href: '/',
+        },
+        {
+          id: 6,
+          name: dropdownList1Translate(keysForLocale.keys6[5]),
+          href: '/',
+        },
+      ],
+    },
+    {
+      id: 1,
+      items: [
+        {
+          id: 0,
+          name: dropdownListTitleTranslate(keysForLocale.keys6[0]),
+          href: '/',
+        },
+        {
+          id: 1,
+          name: dropdownList2Translate(keysForLocale.keys6[0]),
+          href: '/',
+        },
+        {
+          id: 2,
+          name: dropdownList2Translate(keysForLocale.keys6[1]),
+          href: '/',
+        },
+        {
+          id: 3,
+          name: dropdownList2Translate(keysForLocale.keys6[2]),
+          href: '/',
+        },
+        {
+          id: 4,
+          name: dropdownList2Translate(keysForLocale.keys6[3]),
+          href: '/',
+        },
+        {
+          id: 5,
+          name: dropdownList2Translate(keysForLocale.keys6[4]),
+          href: '/',
+        },
+      ],
+    },
+  ];
+
   return (
     <StyledHeaderMobileMenuAccordion
       expanded={expanded === title}
@@ -119,18 +195,18 @@ function AccordionComponent({
         expanded={expanded === title}
         expandIcon={<Arrow />}
       >
-        <StyledTypographyUrbanistH5 className='headerMobileMenuAccordionTitle'>
+        <StyledTypographyUrbanistH5 className="headerMobileMenuAccordionTitle">
           {title}
         </StyledTypographyUrbanistH5>
       </StyledHeaderMobileMenuAccordionSummary>
       <StyledHeaderMobileMenuAccordionDetails expanded={expanded === title}>
         {dropdownList.map(({ id, items }) => (
-          <ul className='headerMobileMenuAccordionBodyList' key={id}>
+          <ul className="headerMobileMenuAccordionBodyList" key={id}>
             {items.map(({ id: itemId, name, href }) => (
               <StyledTypographyUrbanistBody
                 key={itemId}
                 onClick={() => handleClickLink(href)}
-                className='headerMobileMenuAccordionBodyText'
+                className="headerMobileMenuAccordionBodyText"
               >
                 {name}
               </StyledTypographyUrbanistBody>
@@ -139,5 +215,5 @@ function AccordionComponent({
         ))}
       </StyledHeaderMobileMenuAccordionDetails>
     </StyledHeaderMobileMenuAccordion>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-import { performRequest } from '@/lib/datocms'
-import HomePageWrapper from '@/views/HomePageWrapper'
+import { performRequest } from '@/lib/datocms';
+import HomePageWrapper from '@/views/HomePageWrapper';
 
 const HOME_PAGE_QUERY = `  
-  query MyQuery {
-    homeB2c {
+  query MyQuery($locale: SiteLocale) {
+    homeB2c(locale: $locale) {
       title
       subTitle
       screen5Title
@@ -60,7 +60,8 @@ const HOME_PAGE_QUERY = `
       buttonScreen5
       buttonScreen1
     }
-    homePage {
+    homePage(locale: $locale) {
+      faqButton
       buttonBlog
       buttonHelp
       buttonLead1Book
@@ -152,33 +153,33 @@ const HOME_PAGE_QUERY = `
       subTitle
       title
     }
-    ourLandscape {
+    ourLandscape(locale: $locale) {
       title
       tabName2
       tabName1
       industriesList {
-        listTitle
         list
+        listTitle
         id
       }
       id
-      description1
       description2
-      coverageFeatures {
-        id
-        image {
-          url
-          height
-          width
-        }
-        title
-        description
-      }
+      description1
       coverageMap {
         url
       }
+      coverageFeatures {
+        title
+        image {
+          width
+          height
+          url
+        }
+        id
+        description
+      }
     }
-    supportedCurrency {
+    supportedCurrency(locale: $locale) {
       id
       title
       list {
@@ -189,7 +190,7 @@ const HOME_PAGE_QUERY = `
         }
       }
     }
-    feesYourBusiness {
+    feesYourBusiness(locale: $locale) {
       title
       id
       cartButton
@@ -199,30 +200,42 @@ const HOME_PAGE_QUERY = `
       footerDescription {
         value
       }
+      tableHeader {
+        title
+        id
+        description
+      }
       table {
         description
         id
         title
       }
     }
+    pickLeadForm(locale: $locale) {
+      buttonText
+      pickDescription
+    }
   }
-`
+`;
 
-const getData = async (query) => {
+const getData = async (query, variables) => {
   try {
     const data = await performRequest({
       query,
       revalidate: 0,
-    })
+      variables,
+    });
 
-    return data
+    return data;
   } catch (error) {
-    return {}
+    return {};
   }
-}
+};
 
-export default async function Home() {
-  const data = await getData(HOME_PAGE_QUERY)
+export default async function Home({ params }) {
+  const data = await getData(HOME_PAGE_QUERY, {
+    locale: params.locale,
+  });
 
-  return <HomePageWrapper data={data} />
+  return <HomePageWrapper data={data} />;
 }

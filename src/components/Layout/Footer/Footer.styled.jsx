@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import styled from '@emotion/styled';
+import { rem } from '@/utils/rem';
+import { responsive } from '@/utils/response';
 
 export const StyledFooter = styled.footer`
   .footerSubscribeSectionMobile {
@@ -143,6 +143,7 @@ export const StyledFooter = styled.footer`
       }
 
       .footerLegalSection {
+        max-width: 150px;
         margin-left: 0;
         ${responsive.xxl`
           margin-right: 79px;
@@ -157,6 +158,7 @@ export const StyledFooter = styled.footer`
       }
 
       .footerResourcesSection {
+        max-width: 150px;
         margin-left: ${rem(55)};
         ${responsive.xxl`
           margin-right: 40px;
@@ -291,4 +293,4 @@ export const StyledFooter = styled.footer`
       }
     }
   }
-`
+`;

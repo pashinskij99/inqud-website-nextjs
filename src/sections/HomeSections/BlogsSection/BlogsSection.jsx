@@ -1,14 +1,16 @@
-import Link from 'next/link'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Scrollbar } from 'swiper/modules'
-import { useTranslations } from 'next-intl'
-import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
-import { StyledBlogsSection } from './BlogsSection.styled'
-import Image1 from '@/assets/images/blogs/image1.webp'
-import Image2 from '@/assets/images/blogs/image2.webp'
-import Image3 from '@/assets/images/blogs/image3.webp'
-import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import { BlogCart, BlogCart2 } from '@/components/BlogCart'
+import Link from 'next/link';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Scrollbar } from 'swiper/modules';
+import { useTranslations } from 'next-intl';
+import { useContext } from 'react';
+import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled';
+import { StyledBlogsSection } from './BlogsSection.styled';
+import Image1 from '@/assets/images/blogs/image1.webp';
+import Image2 from '@/assets/images/blogs/image2.webp';
+import Image3 from '@/assets/images/blogs/image3.webp';
+import { StyledButtonGhost } from '@/components/UI/Button/Button.styled';
+import { BlogCart, BlogCart2 } from '@/components/BlogCart';
+import { PageContext } from '@/contexts/PageContext/PageContext';
 
 const blogs = [
   {
@@ -35,28 +37,32 @@ const blogs = [
     time: '5 min read',
     imageSrc: Image3.src,
   },
-]
+];
 
 export default function BlogsSection() {
-  const t = useTranslations('home_page.insights_section')
+  const t = useTranslations('blog_name_section');
+
+  const {
+    dataPage: { homePage: data },
+  } = useContext(PageContext);
 
   return (
     <StyledBlogsSection>
-      <div className='container'>
-        <div className='blogsHeader'>
-          <StyledTypographyUrbanistH2 className='blogsHeaderTitle'>
+      <div className="container">
+        <div className="blogsHeader">
+          <StyledTypographyUrbanistH2 className="blogsHeaderTitle">
             {t('title')}
           </StyledTypographyUrbanistH2>
-          <Link href='/blog'>
-            <StyledButtonGhost className='blogsHeaderButton'>
-              {t('button_title')}
+          <Link href="/blog">
+            <StyledButtonGhost className="blogsHeaderButton">
+              {data.buttonBlog}
             </StyledButtonGhost>
           </Link>
         </div>
 
-        <div className='blogsGrid'>
+        <div className="blogsGrid">
           {blogs.map(({ id, date, imageSrc, subTitle, time, title }) => (
-            <Link href='/blog/1' key={id}>
+            <Link href="/blog/1" key={id}>
               <BlogCart
                 time={time}
                 title={title}
@@ -72,8 +78,8 @@ export default function BlogsSection() {
         {/* mobile */}
 
         <Swiper
-          className='blogsSwiper'
-          slidesPerView='auto'
+          className="blogsSwiper"
+          slidesPerView="auto"
           spaceBetween={24}
           updateOnWindowResize
           breakpoints={{
@@ -100,8 +106,8 @@ export default function BlogsSection() {
           modules={[Scrollbar]}
         >
           {blogs.map(({ id, date, imageSrc, subTitle, time, title }) => (
-            <SwiperSlide className='slide' key={id}>
-              <Link href='/blog/1'>
+            <SwiperSlide className="slide" key={id}>
+              <Link href="/blog/1">
                 <BlogCart2
                   date={date}
                   imageSrc={imageSrc}
@@ -113,12 +119,12 @@ export default function BlogsSection() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <Link href='/blog'>
-          <StyledButtonGhost className='blogsHeaderButtonMobile'>
+        <Link href="/blog">
+          <StyledButtonGhost className="blogsHeaderButtonMobile">
             Go to blog
           </StyledButtonGhost>
         </Link>
       </div>
     </StyledBlogsSection>
-  )
+  );
 }

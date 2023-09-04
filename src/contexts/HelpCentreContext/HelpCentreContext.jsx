@@ -1,125 +1,127 @@
-import { createContext, useEffect, useMemo, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { render } from 'datocms-structured-text-to-html-string'
+import { createContext, useEffect, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { render } from 'datocms-structured-text-to-html-string';
 
-export const HelpCentreContext = createContext()
+export const HelpCentreContext = createContext();
 
-export function HelpCentreProvider({
-  children,
-  browseByProduct,
-  exploreByCategory,
-  searchValue,
-}) {
-  const { tab } = useSelector((state) => state.activeTab)
-  const [browseByProductData, setBrowseByProductData] = useState([])
-  const [exploreByCategoryData, setExploreByCategoryData] = useState([])
+export function HelpCentreProvider({ children, data, searchValue }) {
+  const { tab } = useSelector((state) => state.activeTab);
+  const [browseByProductData, setBrowseByProductData] = useState([]);
+  const [exploreByCategoryData, setExploreByCategoryData] = useState([]);
+
+  console.log(data);
 
   useEffect(() => {
     if (tab === 0) {
       setBrowseByProductData(
-        browseByProduct.map(
-          ({ mainTitleBusiness, id, iconBusiness, contentBusiness }) => ({
-            title: mainTitleBusiness,
+        data.allHelpCentres
+          .filter(
+            ({ category, typeContent }) =>
+              typeContent.name === 'Business' &&
+              category.name === 'Browse by product'
+          )
+          .map(({ mainTitle, id, icon, content }) => ({
+            title: mainTitle,
             id,
-            icon: iconBusiness.url,
-            answers: contentBusiness.length,
-            listQuestions: contentBusiness.map(
-              ({ descriptions, title, id }) => ({
-                id,
-                type: 'product',
-                title,
-                descriptions: descriptions.map(({ description }) =>
-                  render(description)
-                    .replace(/(<([^>]+)>)/gi, '')
-                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
-                ),
-              })
-            ),
-          })
-        )
-      )
+            icon: icon.url,
+            answers: content.length,
+            listQuestions: content.map(({ descriptions, title, id }) => ({
+              id,
+              title,
+              descriptions: descriptions.map(({ description }) =>
+                render(description)
+                  .replace(/(<([^>]+)>)/gi, '')
+                  .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
+              ),
+            })),
+          }))
+      );
       setExploreByCategoryData(
-        exploreByCategory.map(
-          ({ mainTitleBusiness, id, iconBusiness, contentBusiness }) => ({
-            title: mainTitleBusiness,
+        data.allHelpCentres
+          .filter(
+            ({ category, typeContent }) =>
+              typeContent.name === 'Business' &&
+              category.name === 'Explore by category'
+          )
+          .map(({ mainTitle, id, icon, content }) => ({
+            title: mainTitle,
             id,
-            type: 'category',
-            icon: iconBusiness.url,
-            answers: contentBusiness.length,
-            listQuestions: contentBusiness.map(
-              ({ descriptions, title, id }) => ({
-                id,
-                title,
-                descriptions: descriptions.map(({ description }) =>
-                  render(description)
-                    .replace(/(<([^>]+)>)/gi, '')
-                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
-                ),
-              })
-            ),
-          })
-        )
-      )
+            icon: icon.url,
+            answers: content.length,
+            listQuestions: content.map(({ descriptions, title, id }) => ({
+              id,
+              title,
+              descriptions: descriptions.map(({ description }) =>
+                render(description)
+                  .replace(/(<([^>]+)>)/gi, '')
+                  .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
+              ),
+            })),
+          }))
+      );
     } else {
       setBrowseByProductData(
-        browseByProduct.map(
-          ({ mainTitlePersonal, id, iconPersonal, contentPersonal }) => ({
-            title: mainTitlePersonal,
+        data.allHelpCentres
+          .filter(
+            ({ category, typeContent }) =>
+              typeContent.name === 'Personal' &&
+              category.name === 'Browse by product'
+          )
+          .map(({ mainTitle, id, icon, content }) => ({
+            title: mainTitle,
             id,
-            type: 'product',
-            icon: iconPersonal.url,
-            answers: contentPersonal.length,
-            listQuestions: contentPersonal.map(
-              ({ descriptions, title, id }) => ({
-                id,
-                title,
-                descriptions: descriptions.map(({ description }) =>
-                  render(description)
-                    .replace(/(<([^>]+)>)/gi, '')
-                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
-                ),
-              })
-            ),
-          })
-        )
-      )
+            icon: icon.url,
+            answers: content.length,
+            listQuestions: content.map(({ descriptions, title, id }) => ({
+              id,
+              title,
+              descriptions: descriptions.map(({ description }) =>
+                render(description)
+                  .replace(/(<([^>]+)>)/gi, '')
+                  .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
+              ),
+            })),
+          }))
+      );
       setExploreByCategoryData(
-        exploreByCategory.map(
-          ({ mainTitlePersonal, id, iconPersonal, contentPersonal }) => ({
-            title: mainTitlePersonal,
+        data.allHelpCentres
+          .filter(
+            ({ category, typeContent }) =>
+              typeContent.name === 'Personal' &&
+              category.name === 'Explore by category'
+          )
+          .map(({ mainTitle, id, icon, content }) => ({
+            title: mainTitle,
             id,
-            type: 'category',
-            icon: iconPersonal.url,
-            answers: contentPersonal.length,
-            listQuestions: contentPersonal.map(
-              ({ descriptions, title, id }) => ({
-                id,
-                title,
-                descriptions: descriptions.map(({ description }) =>
-                  render(description)
-                    .replace(/(<([^>]+)>)/gi, '')
-                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
-                ),
-              })
-            ),
-          })
-        )
-      )
+            icon: icon.url,
+            answers: content.length,
+            listQuestions: content.map(({ descriptions, title, id }) => ({
+              id,
+              title,
+              descriptions: descriptions.map(({ description }) =>
+                render(description)
+                  .replace(/(<([^>]+)>)/gi, '')
+                  .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')
+              ),
+            })),
+          }))
+      );
     }
-  }, [tab])
+  }, [tab]);
 
   const value = useMemo(
     () => ({
       browseByProductData,
       exploreByCategoryData,
       searchValue,
+      data: data.allHelpCentres,
     }),
-    [browseByProductData, exploreByCategoryData, searchValue]
-  )
+    [browseByProductData, exploreByCategoryData, searchValue, data]
+  );
 
   return (
     <HelpCentreContext.Provider value={value}>
       {children}
     </HelpCentreContext.Provider>
-  )
+  );
 }

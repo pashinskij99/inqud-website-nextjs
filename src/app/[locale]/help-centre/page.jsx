@@ -1,88 +1,54 @@
-import { performRequest } from '@/lib/datocms'
-import { HelpCenterPageContent } from '@/views/HelpCenterPage/HelpCenterPage'
+import { performRequest } from '@/lib/datocms';
+import { HelpCenterPageContent } from '@/views/HelpCenterPage/HelpCenterPage';
 
 const HELP_CENTRE_QUERY = `
-  query MyQuery {
-    allHelpCentreBlockSeconds {
-      mainTitleBusiness
-      mainTitlePersonal
+  query MyQuery($locale: SiteLocale) {
+    allHelpCentres(locale: $locale) {
+      content {
+        id
+        title
+        descriptions {
+          description {
+            value
+          }
+          id
+        }
+      }
+      icon {
+        url
+      }
       id
-      iconPersonal {
-        url
-      }
-      iconBusiness {
-        url
-      }
-      contentPersonal {
+      mainTitle
+      category {
         id
-        title
-        descriptions {
-          id
-          description {
-            value
-          }
-        }
+        name
       }
-      contentBusiness {
+      typeContent {
+        name
         id
-        title
-        descriptions {
-          id
-          description {
-            value
-          }
-        }
-      }
-    }
-    allHelpCentreBlocks {
-      mainTitleBusiness
-      mainTitlePersonal
-      id
-      iconPersonal {
-        url
-      }
-      iconBusiness {
-        url
-      }
-      contentPersonal {
-        id
-        title
-        descriptions {
-          id
-          description {
-            value
-          }
-        }
-      }
-      contentBusiness {
-        id
-        title
-        descriptions {
-          id
-          description {
-            value
-          }
-        }
       }
     }
   }
-`
+`;
 
-const getData = async () => {
+const getData = async (query, variables) => {
   try {
     const helpCentreData = await performRequest({
-      query: HELP_CENTRE_QUERY,
+      query,
       revalidate: 0,
-    })
+      variables,
+    });
 
-    return helpCentreData
+    return helpCentreData;
   } catch (error) {
-    throw Error(error.message)
+    throw Error(error.message);
   }
-}
+};
 
-async function Page({ searchParams }) {
-  const data = await getData()
+async function Page({ searchParams, params }) {
+  const data = await getData(HELP_CENTRE_QUERY, {
+    locale: params.locale,
+  });
 
   return (
     <HelpCenterPageContent
@@ -90,7 +56,7 @@ async function Page({ searchParams }) {
       isSearch={!!searchParams.search}
       searchValue={searchParams.search || ''}
     />
-  )
+  );
 }
 
-export default Page
+export default Page;

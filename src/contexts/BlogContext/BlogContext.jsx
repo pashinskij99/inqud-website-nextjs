@@ -1,10 +1,11 @@
-import { createContext, useMemo } from 'react'
+import { createContext, useMemo } from 'react';
 
-export const BlogContext = createContext(null)
+export const BlogContext = createContext(null);
 
 export function BlogProvider({
   children,
   data = [],
+  heroSectionData,
   relatedData = {},
   searchParams,
   tags = {
@@ -23,11 +24,12 @@ export function BlogProvider({
       tags: tags.allTags,
       activeTags: tags.activeTags,
       relatedData: relatedData.allBlogs,
+      heroSectionData,
       searchParams,
       pagination,
     }),
     [data, relatedData, tags]
-  )
+  );
 
-  return <BlogContext.Provider value={value}>{children}</BlogContext.Provider>
+  return <BlogContext.Provider value={value}>{children}</BlogContext.Provider>;
 }

@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
-import { rem } from '@/utils/rem'
-import { responsive } from '@/utils/response'
+import styled from '@emotion/styled';
+import { rem } from '@/utils/rem';
+import { responsive } from '@/utils/response';
 
 export const StyledHeroSectionWrapper = styled.section`
   padding-top: ${rem(64)};
@@ -132,11 +132,13 @@ export const StyledHeroSectionWrapper = styled.section`
           svg {
             width: ${rem(21.333)};
             height: ${rem(21.333)};
+            flex-shrink: 0;
           }
 
           .features-title {
             font-weight: 500;
             color: rgba(45, 52, 57, 1);
+
             ${responsive.sm`
               line-height: 22px;
             `}
@@ -145,6 +147,7 @@ export const StyledHeroSectionWrapper = styled.section`
               display: none;
             `}
             }
+
             &.features-title-2 {
               display: none;
 
@@ -222,7 +225,7 @@ export const StyledHeroSectionWrapper = styled.section`
       transform: translateX(-100%);
     }
   }
-`
+`;
 
 export const StyledMobileGridWrapper = styled.div`
   display: none;
@@ -233,7 +236,7 @@ export const StyledMobileGridWrapper = styled.div`
   ${responsive.sm`
     display: grid;
   `}
-`
+`;
 
 export const StyledPaymentListWrapper = styled.div`
   .payment-descr {
@@ -296,7 +299,7 @@ export const StyledPaymentListWrapper = styled.div`
         }
 
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: 0;
@@ -308,7 +311,7 @@ export const StyledPaymentListWrapper = styled.div`
         }
 
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           top: 50%;
           left: 50%;
@@ -329,4 +332,4 @@ export const StyledPaymentListWrapper = styled.div`
       }
     }
   }
-`
+`;
