@@ -1,16 +1,28 @@
-import Image from 'next/image';
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
-export const StyledAnimatedGif = styled(Image)`
-  &.play {
-    animation: playAnimation 1s steps(24) infinite;
+export const StyledAnimatedGif = styled.div`
+  position: relative;
+
+  .img-1 {
+    &.pause {
+      animation: hideAnimation 0s forwards;
+    }
   }
-
-  &.pause {
-    animation-play-state: paused;
+  .img-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   @keyframes playAnimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes hideAnimation {
     from {
       opacity: 1;
     }
@@ -18,4 +30,4 @@ export const StyledAnimatedGif = styled(Image)`
       opacity: 0;
     }
   }
-`;
+`

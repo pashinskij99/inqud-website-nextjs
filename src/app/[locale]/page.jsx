@@ -1,5 +1,5 @@
-import { performRequest } from '@/lib/datocms';
-import HomePageWrapper from '@/views/HomePageWrapper';
+import { performRequest } from '@/lib/datocms'
+import HomePageWrapper from '@/views/HomePageWrapper'
 
 const HOME_PAGE_QUERY = `  
   query MyQuery($locale: SiteLocale) {
@@ -90,9 +90,6 @@ const HOME_PAGE_QUERY = `
         }
       }
       features
-      heroImage {
-        url
-      }
       id
       lead5Screen
       leadForm1List
@@ -152,6 +149,18 @@ const HOME_PAGE_QUERY = `
       screen6Title
       subTitle
       title
+      heroImage1Gif {
+        url
+      }
+      heroImage1Static {
+        url
+      }
+      heroImage2Gif {
+        url
+      }
+      heroImage2Static {
+        url
+      }
     }
     ourLandscape(locale: $locale) {
       title
@@ -216,7 +225,7 @@ const HOME_PAGE_QUERY = `
       pickDescription
     }
   }
-`;
+`
 
 const getData = async (query, variables) => {
   try {
@@ -224,18 +233,18 @@ const getData = async (query, variables) => {
       query,
       revalidate: 0,
       variables,
-    });
+    })
 
-    return data;
+    return data
   } catch (error) {
-    return {};
+    return {}
   }
-};
+}
 
 export default async function Home({ params }) {
   const data = await getData(HOME_PAGE_QUERY, {
     locale: params.locale,
-  });
+  })
 
-  return <HomePageWrapper data={data} />;
+  return <HomePageWrapper data={data} />
 }
