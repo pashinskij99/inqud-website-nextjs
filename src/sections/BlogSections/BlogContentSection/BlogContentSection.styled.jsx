@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
-import { urbanist } from '@/utils/font'
+import { nunito } from '@/utils/font'
 
 export const StyledBlogContentSectionWrapper = styled.section`
   padding-top: ${rem(39)};
@@ -201,7 +201,7 @@ export const StyledCenterSide = styled.div`
     }
 
     p {
-      ${urbanist.style};
+      ${nunito.style};
       font-size: 18px;
       font-weight: 400;
       line-height: 26px;

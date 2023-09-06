@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { IBM } from '@/utils/font'
+import { nunito } from '@/utils/font'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
@@ -293,7 +293,7 @@ export const StyledCryptoWidgetSection = styled.section`
             top: 0;
             right: ${rem(12)};
 
-            ${IBM.style}
+            ${nunito.style}
 
             font-size: ${rem(18)};
             font-weight: 400;

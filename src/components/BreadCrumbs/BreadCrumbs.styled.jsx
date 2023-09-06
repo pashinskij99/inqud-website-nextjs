@@ -1,12 +1,12 @@
 import styled from '@emotion/styled'
 import { Breadcrumbs } from '@mui/material'
 import { rem } from '@/utils/rem'
-import { urbanist } from '@/utils/font'
+import { nunito } from '@/utils/font'
 
 export const StyledBreadCrumbsWrapper = styled.div``
 export const StyledBreadcrumbs = styled(Breadcrumbs)`
   padding: ${rem(10)} 0;
-  ${urbanist.style}
+  ${nunito.style}
 
   .containerHeader {
   }

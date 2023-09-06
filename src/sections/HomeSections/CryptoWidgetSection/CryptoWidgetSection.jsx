@@ -42,14 +42,14 @@ export default function CryptoWidgetSection() {
               className='cryptoWidgetDesktop'
               height={600}
               timeRepeat={5000}
-              urlFirstVideo='/video/b2b_crypto_video.mp4'
+              urlFirstVideo='/video/b2b_crypto_video_web.webm'
               width={500}
             />
             <AnimatedVideoOnScroll
               className='cryptoWidgetMobileSmaller'
               height={600}
               timeRepeat={5000}
-              urlFirstVideo='/video/b2b_crypto_video_mobile.mp4'
+              urlFirstVideo='/video/b2b_crypto_video_web.webm'
               width={500}
             />
             {/* <Image
@@ -116,7 +116,7 @@ export default function CryptoWidgetSection() {
             className='graphic'
             height={600}
             timeRepeat={5000}
-            urlFirstVideo='/video/b2b_crypto_video.mp4'
+            urlFirstVideo='/video/b2b_crypto_video_web.webm'
             width={500}
           />
           {/* <Image

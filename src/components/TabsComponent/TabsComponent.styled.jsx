@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
-import { urbanist } from '@/utils/font'
+import { nunito } from '@/utils/font'
 
 export const StyledTabsComponentWrapper = styled.div`
   display: flex;
@@ -36,7 +36,7 @@ export const StyledTabsComponentWrapper = styled.div`
     color: rgba(81, 113, 133, 1);
     min-height: auto;
     height: 100%;
-    ${urbanist.style};
+    ${nunito.style};
     font-size: ${rem(18)};
     font-weight: 400;
     line-height: 1;

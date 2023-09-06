@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { urbanist } from '@/utils/font'
+import { nunito } from '@/utils/font'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
@@ -33,7 +33,7 @@ export const StyledInputTextWrapper = styled.div`
       font-size: ${rem(18)};
       font-weight: 400;
       line-height: ${rem(26)};
-      ${urbanist.style}
+      ${nunito.style}
 
       background-color: transparent;
       ${responsive.xl`
@@ -119,7 +119,7 @@ export const StyledInputSearchWrapper = styled.div`
     font-weight: 400;
     line-height: ${rem(26)};
 
-    ${urbanist.style}
+    ${nunito.style}
     &::placeholder {
       color: rgba(81, 113, 133, 0.6000000238418579);
       opacity: 1;
@@ -155,14 +155,14 @@ export const StyledInputSendRequestWrapper = styled(StyledInputSearchWrapper)`
     font-weight: 400;
     line-height: ${rem(26)};
 
-    ${urbanist.style}
+    ${nunito.style}
     &::placeholder {
       color: rgba(45, 52, 57, 0.6000000238418579);
       font-size: ${rem(18)};
       font-weight: 400;
       line-height: ${rem(26)};
       opacity: 1;
-      ${urbanist.style}
+      ${nunito.style}
     }
   }
 `
