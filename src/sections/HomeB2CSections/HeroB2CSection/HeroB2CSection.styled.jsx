@@ -132,7 +132,7 @@ export const StyledHeroB2CSectionWrapper = styled.section`
     display: flex;
     flex-shrink: 0;
 
-    svg {
+    .graphic {
       max-width: 595.008px;
       height: 594.109px;
       width: 100%;

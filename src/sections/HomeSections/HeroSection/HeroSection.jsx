@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 import Link from 'next/link'
-import { Fragment, useContext } from 'react'
+import { useContext } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
@@ -8,14 +9,13 @@ import {
   StyledMobileGridWrapper,
   StyledPaymentListWrapper,
 } from './HeroSection.styled'
-import Grid1 from '@/assets/images/hero/grid1.svg'
-import Grid2 from '@/assets/images/hero/grid2.svg'
-import Grid3 from '@/assets/images/hero/grid3.svg'
-import Grid4 from '@/assets/images/hero/grid4.svg'
-import Grid5 from '@/assets/images/hero/grid5.svg'
-import Grid6 from '@/assets/images/hero/grid6.svg'
+// import Grid1 from '@/assets/images/hero/grid1.svg'
+// import Grid2 from '@/assets/images/hero/grid2.svg'
+// import Grid3 from '@/assets/images/hero/grid3.svg'
+// import Grid4 from '@/assets/images/hero/grid4.svg'
+// import Grid5 from '@/assets/images/hero/grid5.svg'
+// import Grid6 from '@/assets/images/hero/grid6.svg'
 import Check from '@/assets/icons/check-green-background.svg'
-// import video from '@/assets/video/B2b.mp4'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -25,7 +25,7 @@ import {
 import { ButtonGetStarted } from '@/components/UI/Button'
 
 import { PageContext } from '@/contexts/PageContext/PageContext'
-// import { AnimatedGif } from '../../../components/AnimatedGif/AnimatedGif'
+import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
 
 export default function HeroSection() {
   const {
@@ -76,67 +76,37 @@ export default function HeroSection() {
           <PaymentList />
         </div>
 
-        {/* heroImage1Gif {
-          url
-        }
-        heroImage1Static {
-          url
-        }
-        heroImage2Gif {
-          url
-        }
-        heroImage2Static {
-          url
-        } */}
-
         <div className='rightSide'>
-          {/* <AnimatedGif
-            gifWidth={625}
-            imgWidth={620}
-            gitHeight={595}
-            imgHeight={600}
-            gifUrl={data.heroImage1Gif.url}
-            imgUrl={data.heroImage1Static.url}
-            alt={data.buttonScreen1GetStarted}
+          <AnimatedFirstScreenVideo
             className='graphic'
-          /> */}
-          {/* <img src={data.heroImage1Gif.url} alt='' /> */}
-
-          <video
-            autoPlay
-            muted
-            loop
-            style={{ width: '500px', height: '500px' }}
-          >
-            <source src='/video/B2b.mp4' type='video/mp4' />
-            <track
-              src='captions_en.vtt'
-              kind='captions'
-              srcLang='en'
-              label='english_captions'
-            />
-          </video>
+            height={595}
+            timeRepeat={5000}
+            urlFirstVideo='/video/video1.mp4'
+            urlSecondVideo='/video/video2.mp4'
+            width={595}
+          />
         </div>
       </div>
     </StyledHeroSectionWrapper>
   )
 }
 
-const gridItems = [
-  { id: 0, icon: <Grid1 /> },
-  { id: 1, icon: <Grid2 /> },
-  { id: 2, icon: <Grid3 /> },
-  { id: 3, icon: <Grid4 /> },
-  { id: 4, icon: <Grid5 /> },
-  { id: 5, icon: <Grid6 /> },
-]
+// const gridItems = [
+//   { id: 0, icon: <Grid1 /> },
+//   { id: 1, icon: <Grid2 /> },
+//   { id: 2, icon: <Grid3 /> },
+//   { id: 3, icon: <Grid4 /> },
+//   { id: 4, icon: <Grid5 /> },
+//   { id: 5, icon: <Grid6 /> },
+// ]
 
 function MobileGrid() {
   return (
     <StyledMobileGridWrapper>
-      {gridItems.map(({ id, icon }) => (
+      {/* {gridItems.map(({ id, icon }) => (
         <Fragment key={id}>{icon}</Fragment>
-      ))}
+      ))} */}
+      <video muted autoPlay src='/video/b2b_video_mobile.mp4' />
     </StyledMobileGridWrapper>
   )
 }

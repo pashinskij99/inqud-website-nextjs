@@ -11,8 +11,9 @@ import {
 } from './HeroB2CSection.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { PaymentList } from '@/sections/HomeSections/HeroSection/HeroSection'
-import Picture from '@/assets/images/homeB2C/hero/Picture.svg'
+// import Picture from '@/assets/images/homeB2C/hero/Picture.svg'
 import { PageContext } from '@/contexts/PageContext/PageContext'
+import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
 
 export function SubTitle({ className, children }) {
   return <StyledSubTitle className={className}>{children}</StyledSubTitle>
@@ -49,7 +50,15 @@ export default function HeroB2CSection() {
           <PaymentList />
         </div>
         <div className='right-side'>
-          <Picture />
+          {/* <Picture /> */}
+          <AnimatedFirstScreenVideo
+            className='graphic'
+            height={594}
+            timeRepeat={5000}
+            urlFirstVideo='/video/b2c_video1.mp4'
+            urlSecondVideo='/video/b2c_video2.mp4'
+            width={595}
+          />
         </div>
       </div>
     </StyledHeroB2CSectionWrapper>

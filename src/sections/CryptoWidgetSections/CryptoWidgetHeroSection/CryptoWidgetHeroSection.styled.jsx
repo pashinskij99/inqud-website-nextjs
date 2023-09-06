@@ -140,49 +140,10 @@ export const StyledCryptoWidgetHeroSectionWrapper = styled.section`
     ${responsive.sm`
       height: 351.669px;
     `}
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 560px;
-      height: 650px;
 
-      background: linear-gradient(
-          0deg,
-          rgba(255, 255, 255, 0.2) 0%,
-          rgba(255, 255, 255, 0.2) 100%
-        ),
-        conic-gradient(
-          from -66deg at 51.32% 46.84%,
-          #71bef6 0deg,
-          #ffc451 99.25197958946228deg,
-          #e1f664 212.1355676651001deg,
-          #ff9a61 282.0405435562134deg,
-          #cdacfe 360deg
-        );
-      border-radius: 30px;
-      z-index: -1;
-
-      ${responsive.xxl`
-        width: 525.58px;
-        height: 610.05px;
-      `}
-      ${responsive.xl`
-        width: 344.381591796875px;
-        height: 399.7286376953125px;
-        border-radius: 20px;
-      `}
-      ${responsive.sm`
-        width: 302.976px;
-        height: 351.669px;
-        flex-shrink: 0;
-      `}
-    }
-
-    img {
+    .graphic {
       width: 100%;
+      height: 100%;
       flex-shrink: 0;
       ${responsive.xxl`
         height: 537.25439453125px;

@@ -495,7 +495,7 @@ export const StyledCryptoWidgetSection = styled.section`
         display: none;
       `};
 
-      img {
+      .graphic {
         max-width: ${rem(500)};
         width: 100%;
       }

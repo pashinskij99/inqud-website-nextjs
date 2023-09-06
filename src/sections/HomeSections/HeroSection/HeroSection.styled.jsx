@@ -1,8 +1,24 @@
-import styled from '@emotion/styled';
-import { rem } from '@/utils/rem';
-import { responsive } from '@/utils/response';
+import styled from '@emotion/styled'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledHeroSectionWrapper = styled.section`
+  .video-1 {
+    position: relative;
+    z-index: 11;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    &.hide {
+      opacity: 0;
+    }
+  }
+  .video-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+  }
+
   padding-top: ${rem(64)};
   padding-bottom: ${rem(98)};
   overflow: hidden;
@@ -192,6 +208,7 @@ export const StyledHeroSectionWrapper = styled.section`
     }
 
     .rightSide {
+      position: relative;
       .graphic {
         width: 595px;
         height: 595px;
@@ -225,18 +242,22 @@ export const StyledHeroSectionWrapper = styled.section`
       transform: translateX(-100%);
     }
   }
-`;
+`
 
 export const StyledMobileGridWrapper = styled.div`
   display: none;
   gap: ${rem(8)};
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   width: fit-content;
   margin: 0 auto 24px;
+  .video {
+    width: 100%;
+    margin: 0 auto 24px;
+  }
   ${responsive.sm`
     display: grid;
   `}
-`;
+`
 
 export const StyledPaymentListWrapper = styled.div`
   .payment-descr {
@@ -299,7 +320,7 @@ export const StyledPaymentListWrapper = styled.div`
         }
 
         &::before {
-          content: "";
+          content: '';
           position: absolute;
           top: 0;
           left: 0;
@@ -311,7 +332,7 @@ export const StyledPaymentListWrapper = styled.div`
         }
 
         &::after {
-          content: "";
+          content: '';
           position: absolute;
           top: 50%;
           left: 50%;
@@ -332,4 +353,4 @@ export const StyledPaymentListWrapper = styled.div`
       }
     }
   }
-`;
+`
