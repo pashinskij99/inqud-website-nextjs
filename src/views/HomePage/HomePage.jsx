@@ -28,7 +28,6 @@ export default function HomePage() {
   return (
     <StyledHomeWrapper>
       <HeroSection />
-
       <YourNeedsSection />
       <CryptoWidgetSection />
       <SmoothAPISection />

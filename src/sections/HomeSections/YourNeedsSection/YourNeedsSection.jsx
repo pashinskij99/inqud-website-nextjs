@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Scrollbar } from 'swiper/modules';
-import { useState, Fragment, useContext } from 'react';
+import { Fragment, useContext, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import {
   StyledTypographyUrbanistH1,
@@ -23,6 +23,7 @@ import { CartRequirement } from '@/components/CartRequirement';
 import { ModalSendRequest } from '@/components/Modal';
 import { keysForLocale } from '@/config/keysForLocale';
 import { PageContext } from '@/contexts/PageContext/PageContext';
+import { createContact } from '@/lib/activeCampaign';
 
 export default function YourNeedsSection() {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false);
@@ -42,6 +43,21 @@ export default function YourNeedsSection() {
   const {
     dataPage: { homePage: data },
   } = useContext(PageContext);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const contact = {};
+    const formData = new FormData(event.target);
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [key, value] of formData.entries()) {
+      contact[key] = value;
+    }
+    console.log(JSON.stringify({ contact }));
+    createContact(JSON.stringify({ contact })).then((res) => {
+      console.log(res);
+    });
+  };
 
   const list = [
     {
@@ -150,7 +166,11 @@ export default function YourNeedsSection() {
         </Swiper>
       </div>
 
-      <ModalSendRequest handleClose={handleClose} open={openModalSendRequest} />
+      <ModalSendRequest
+        handleSubmit={handleSubmit}
+        handleClose={handleClose}
+        open={openModalSendRequest}
+      />
     </YourNeedsSectionWrapper>
   );
 }
@@ -161,7 +181,7 @@ const coinsList = [
   { id: 0, icon: <Coins1 /> },
   { id: 1, icon: <Coins2 /> },
   { id: 2, icon: <Coins3 /> },
-];
+]
 
 function CoinsList() {
   return (
@@ -170,5 +190,5 @@ function CoinsList() {
         <Fragment key={id}>{icon}</Fragment>
       ))}
     </StyledCoinsListWrapper>
-  );
+  )
 }

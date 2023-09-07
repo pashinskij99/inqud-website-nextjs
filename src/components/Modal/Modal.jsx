@@ -18,7 +18,7 @@ import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled';
 import Close from '@/assets/icons/close.svg';
 import { SelectPrimary } from '../UI/Select';
 
-export function ModalSendRequest({ open, handleClose }) {
+export function ModalSendRequest({ open, handleClose, handleSubmit }) {
   const t = useTranslations('home_page_your_needs_section_modal');
 
   const inputs = [
@@ -40,7 +40,7 @@ export function ModalSendRequest({ open, handleClose }) {
 
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
-      <div className="modalContainer">
+      <form onSubmit={handleSubmit} className="modalContainer">
         <button className="closeButton" onClick={handleClose}>
           <Close />
         </button>
@@ -76,7 +76,7 @@ export function ModalSendRequest({ open, handleClose }) {
             {t('footer_description')}
           </StyledTypographyUrbanistSmallSpaces>
         </div>
-      </div>
+      </form>
     </StyledModalSendRequestWrapper>
   );
 }
