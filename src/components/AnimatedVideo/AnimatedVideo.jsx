@@ -2,7 +2,9 @@ import clsx from 'clsx'
 import { useEffect, useRef, useState } from 'react'
 
 import { InView } from 'react-intersection-observer'
+import Image from 'next/image'
 import {
+  StyledAnimatedGifWrapper,
   StyledAnimatedVideo,
   StyledAnimatedVideoWrapper,
 } from './AnimatedVideo.styled'
@@ -206,4 +208,73 @@ function AnimatedVideoOnScroll({
   )
 }
 
-export { AnimatedFirstScreenVideo, AnimatedOneVideo, AnimatedVideoOnScroll }
+function Animated2Gif({
+  className,
+  urlFirstVideo,
+  urlSecondVideo,
+  width,
+  height,
+  timeRepeat,
+}) {
+  const [gif1Ended, setGif1Ended] = useState(false)
+  const [gif2, setGif2] = useState(urlFirstVideo)
+  const [gif2Ended, setGif2Ended] = useState(true)
+
+  const reloadGif = ({ url, setGif }) => {
+    setGif('')
+    setTimeout(() => {
+      setGif(url)
+    }, 0)
+  }
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setGif1Ended(true)
+      setGif2Ended(false)
+    }, timeRepeat)
+
+    return () => {
+      if (timer) {
+        clearTimeout(timer)
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (gif2Ended) {
+      reloadGif({
+        setGif: setGif2,
+        url: urlSecondVideo,
+      })
+    }
+    return () => {}
+  }, [gif2Ended])
+
+  return (
+    <StyledAnimatedGifWrapper>
+      <Image
+        className={clsx('image image-1', className, {
+          ['hide']: gif1Ended,
+        })}
+        src={urlFirstVideo}
+        alt='gif'
+        width={width}
+        height={height}
+      />
+      <Image
+        className={clsx('image image-2', className)}
+        src={gif2}
+        alt='gif'
+        width={width}
+        height={height}
+      />
+    </StyledAnimatedGifWrapper>
+  )
+}
+
+export {
+  AnimatedFirstScreenVideo,
+  AnimatedOneVideo,
+  AnimatedVideoOnScroll,
+  Animated2Gif,
+}

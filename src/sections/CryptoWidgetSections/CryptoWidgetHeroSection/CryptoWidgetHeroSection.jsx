@@ -47,7 +47,7 @@ export default function CryptoWidgetHeroSection() {
             className='graphic'
             height={650.44}
             timeRepeat={10000}
-            urlFirstVideo='/video/crypto_widget_video.mp4'
+            urlFirstVideo='/video/400.mp4'
             width={633.97}
           />
         </div>

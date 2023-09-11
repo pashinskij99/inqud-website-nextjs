@@ -23,3 +23,22 @@ export const StyledAnimatedVideo = styled.video`
     opacity: 0;
   }
 `
+
+export const StyledAnimatedGifWrapper = styled.div`
+  position: relative;
+  .image {
+    &.hide {
+      opacity: 0;
+    }
+  }
+  .image-1 {
+    position: relative;
+    z-index: 11;
+  }
+  .image-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+`
