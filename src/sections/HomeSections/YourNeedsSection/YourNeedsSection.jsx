@@ -23,7 +23,6 @@ import { CartRequirement } from '@/components/CartRequirement';
 import { ModalSendRequest } from '@/components/Modal';
 import { keysForLocale } from '@/config/keysForLocale';
 import { PageContext } from '@/contexts/PageContext/PageContext';
-import { createContact } from '@/lib/activeCampaign';
 
 export default function YourNeedsSection() {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false);
@@ -44,7 +43,7 @@ export default function YourNeedsSection() {
     dataPage: { homePage: data },
   } = useContext(PageContext);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const contact = {};
     const formData = new FormData(event.target);
@@ -53,9 +52,13 @@ export default function YourNeedsSection() {
     for (const [key, value] of formData.entries()) {
       contact[key] = value;
     }
-    console.log(JSON.stringify({ contact }));
-    createContact(JSON.stringify({ contact })).then((res) => {
-      console.log(res);
+
+    await fetch('/api/create-contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ contact, automationId: 2 }),
     });
   };
 

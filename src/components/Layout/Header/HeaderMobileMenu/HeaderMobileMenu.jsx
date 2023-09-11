@@ -125,7 +125,7 @@ function AccordionComponent({
         {
           id: 2,
           name: dropdownList1Translate(keysForLocale.keys6[1]),
-          href: '/api',
+          href: '/company-api',
         },
         {
           id: 3,

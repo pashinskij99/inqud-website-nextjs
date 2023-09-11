@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useContext } from 'react';
+import { useContext, useState } from 'react';
 import clsx from 'clsx';
 import { render } from 'datocms-structured-text-to-html-string';
 import { StructuredText } from 'react-datocms/structured-text';

@@ -1,5 +1,5 @@
-import { performRequest } from '@/lib/datocms'
-import HomePageWrapper from '@/views/HomePageWrapper'
+import { performRequest } from '@/lib/datocms';
+import HomePageWrapper from '@/views/HomePageWrapper';
 
 const HOME_PAGE_QUERY = `  
   query MyQuery($locale: SiteLocale) {
@@ -161,6 +161,12 @@ const HOME_PAGE_QUERY = `
       heroImage2Static {
         url
       }
+      lead5ButtonText
+      lead5Description
+      lead5FooterDescription {
+        value
+      }
+      lead5Title
     }
     ourLandscape(locale: $locale) {
       title
@@ -187,6 +193,22 @@ const HOME_PAGE_QUERY = `
         id
         description
       }
+    }
+    cryptoLeadForm(locale: $locale) {
+      buttonText
+      description
+      footerDescription {
+        value
+      }
+      id
+      labelCompany
+      labelIndustry
+      labelMessage
+      labelWebsite
+      placeholderMessage
+      tabs
+      title
+      whatsappPlaceholder
     }
     supportedCurrency(locale: $locale) {
       id
@@ -225,7 +247,7 @@ const HOME_PAGE_QUERY = `
       pickDescription
     }
   }
-`
+`;
 
 const getData = async (query, variables) => {
   try {

@@ -1,7 +1,8 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useContext, useState } from 'react';
 import clsx from 'clsx';
 import { DialogContent } from '@mui/material';
 import { useTranslations } from 'next-intl';
+import { StructuredText } from 'react-datocms/structured-text';
 import {
   StyledFeeModalWrapper,
   StyledModalSendRequestWrapper,
@@ -17,6 +18,7 @@ import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input';
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled';
 import Close from '@/assets/icons/close.svg';
 import { SelectPrimary } from '../UI/Select';
+import { PageContext } from '@/contexts/PageContext/PageContext';
 
 export function ModalSendRequest({ open, handleClose, handleSubmit }) {
   const t = useTranslations('home_page_your_needs_section_modal');
@@ -82,41 +84,42 @@ export function ModalSendRequest({ open, handleClose, handleSubmit }) {
 }
 
 export function ModalSubmitEmail({ open, handleClose }) {
-  const t = useTranslations('home_page.crypto_card2_section.modal');
-  const t2 = useTranslations('home_page.your_needs_section.modal');
+  const {
+    dataPage: { homePage: data },
+  } = useContext(PageContext);
 
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
-      <div className="modalContainer">
-        <button className="closeButton" onClick={handleClose}>
+      <div className='modalContainer'>
+        <button className='closeButton' onClick={handleClose}>
           <Close />
         </button>
-        <div className="header">
+        <div className='header'>
           <Message />
-          <StyledTypographyUrbanistH3>{t('title')}</StyledTypographyUrbanistH3>
+          <StyledTypographyUrbanistH3>{data.lead5Title}</StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistBody>
-            {t('description')}
+            {data.lead5Description}
           </StyledTypographyUrbanistBody>
         </div>
-        <div className="body">
+        <div className='body'>
           <InputSendRequest
-            name="email"
-            label=""
-            placeholder="example@mail.com"
+            name='email'
+            label=''
+            placeholder='example@mail.com'
           />
         </div>
-        <div className="footer">
-          <StyledButtonSecondary>{t2('button_text')}</StyledButtonSecondary>
+        <div className='footer'>
+          <StyledButtonSecondary>{data.lead5ButtonText}</StyledButtonSecondary>
           <StyledTypographyUrbanistSmallSpaces>
-            {t2('footer_description')}
+            <StructuredText data={data.lead5FooterDescription} />
           </StyledTypographyUrbanistSmallSpaces>
         </div>
       </div>
     </StyledModalSendRequestWrapper>
-  );
+  )
 }
 
-const industryList = ['Fintech1', 'Fintech2', 'Fintech3'];
+const industryList = ['Fintech1', 'Fintech2', 'Fintech3']
 
 const getInput = ({
   name,
@@ -135,7 +138,7 @@ const getInput = ({
           name={name}
           placeholder={placeholder}
         />
-      );
+      )
     case 'textarea':
       return (
         <TextAreaSendRequest
@@ -143,7 +146,7 @@ const getInput = ({
           label={label}
           placeholder={placeholder}
         />
-      );
+      )
     case 'select':
       return (
         <SelectPrimary
@@ -154,83 +157,87 @@ const getInput = ({
           activeItem={industry}
           listItems={industryList}
         />
-      );
+      )
     default:
-      return null;
+      return null
   }
-};
-
-const tabs = ['Email', 'Phone', 'Whatsapp'];
+}
 
 const getTabContent = (tab) => {
   switch (tab) {
     case 'Email':
       return (
         <InputSendRequest
-          classNameWrapper="tabInput"
-          name="email"
-          placeholder="example@mail.com"
-          type="email"
-          label="Email"
+          classNameWrapper='tabInput'
+          name='email'
+          placeholder='example@mail.com'
+          type='email'
+          label='Email'
         />
-      );
+      )
     case 'Phone':
       return (
         <InputSendRequest
-          classNameWrapper="tabInput"
-          name="phone"
-          placeholder="+38067XXXXXXX"
-          type="text"
-          label="Phone"
+          classNameWrapper='tabInput'
+          name='phone'
+          placeholder='+38067XXXXXXX'
+          type='text'
+          label='Phone'
         />
-      );
+      )
     case 'Whatsapp':
       return (
         <InputSendRequest
-          classNameWrapper="tabInput"
-          name="whatsapp"
-          placeholder="whatsapp username"
-          type="text"
-          label="Whatsapp"
+          classNameWrapper='tabInput'
+          name='whatsapp'
+          placeholder='whatsapp username'
+          type='text'
+          label='Whatsapp'
         />
-      );
+      )
     default:
-      return null;
+      return null
   }
-};
+}
 
 export function FeeModal({ open, handleClose }) {
-  const [activeTab, setActiveTab] = useState(tabs[0]);
-  const [industry, setIndustry] = useState('');
+  const {
+    dataPage: { cryptoLeadForm: leadData },
+  } = useContext(PageContext);
+
+  const [industry, setIndustry] = useState('')
+  const tabs = [leadData.tabs[0], leadData.tabs[1], leadData.tabs[2]]
+  const [activeTab, setActiveTab] = useState(tabs[0])
+
 
   const handleChange = (event) => {
-    setIndustry(event.target.value);
-  };
+    setIndustry(event.target.value)
+  }
 
   const handleTab = (nameTab) => {
-    setActiveTab(nameTab);
-  };
+    setActiveTab(nameTab)
+  }
 
   const feeInputs = [
     {
       id: 0,
       name: 'company',
       type: 'text',
-      label: 'Company name',
+      label: leadData.labelCompany,
       placeholder: 'inqud',
     },
     {
       id: 1,
       name: 'website',
       type: 'text',
-      label: 'Website',
+      label: leadData.labelWebsite,
       placeholder: 'www.inqud.com',
     },
     {
       id: 2,
       name: 'industry',
       type: 'select',
-      label: 'Industry',
+      label: leadData.labelIndustry,
       placeholder: 'Fintech',
       handleChange,
       industry,
@@ -239,75 +246,23 @@ export function FeeModal({ open, handleClose }) {
       id: 3,
       name: 'message',
       type: 'textarea',
-      label: 'Message (optional)',
+      label: leadData.labelMessage,
       placeholder:
-        'Feel free to provide any additional information or details here.',
+        leadData.title.placeholderMessage,
     },
-  ];
+  ]
 
   return (
-    <StyledFeeModalWrapper scroll="body" open={open} onClose={handleClose}>
+    <StyledFeeModalWrapper scroll='body' open={open} onClose={handleClose}>
       <DialogContent>
         {/* <DialogContentText tabIndex={-1}> */}
-        <div className="modalContainer">
-          <button className="closeButton" onClick={handleClose}>
-            <Close />
-          </button>
-          <div className="header">
-            <StyledTypographyUrbanistH4>
-              Please provide the details for preparing a special offer
-            </StyledTypographyUrbanistH4>
-          </div>
-          <div className="body">
-            <div className="input-wrapper">
-              {feeInputs.map(({ ...args }) => (
-                <Fragment key={args.id}>{getInput({ ...args })}</Fragment>
-              ))}
-            </div>
-
-            <StyledTypographyUrbanistBody className="description">
-              Share your preferred communication method for a better experience.
-            </StyledTypographyUrbanistBody>
-
-            <div className="tabs">
-              {tabs.map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => handleTab(tab)}
-                  className={clsx({
-                    ['active']: activeTab === tab,
-                  })}
-                >
-                  <StyledTypographyUrbanistBody>
-                    {tab}
-                  </StyledTypographyUrbanistBody>
-                </button>
-              ))}
-            </div>
-            <div className="tab-content">{getTabContent(activeTab)}</div>
-          </div>
-          <div className="footer">
-            <button className="submit-btn">
-              <StyledTypographyUrbanistBody>
-                Get a special offer
-              </StyledTypographyUrbanistBody>
-            </button>
-
-            <StyledTypographyUrbanistSmallSpaces className="description">
-              by submitting this form, you contirm that you agree to the storing
-              and processing of your personal data
-            </StyledTypographyUrbanistSmallSpaces>
-          </div>
-        </div>
-      </DialogContent>
-      {/* <DialogContent>
         <div className='modalContainer'>
           <button className='closeButton' onClick={handleClose}>
             <Close />
           </button>
           <div className='header'>
             <StyledTypographyUrbanistH4>
-              Please provide the details for preparing a special offer
+              {leadData.title}
             </StyledTypographyUrbanistH4>
           </div>
           <div className='body'>
@@ -318,7 +273,7 @@ export function FeeModal({ open, handleClose }) {
             </div>
 
             <StyledTypographyUrbanistBody className='description'>
-              Share your preferred communication method for a better experience.
+              {leadData.description}
             </StyledTypographyUrbanistBody>
 
             <div className='tabs'>
@@ -341,17 +296,16 @@ export function FeeModal({ open, handleClose }) {
           <div className='footer'>
             <button className='submit-btn'>
               <StyledTypographyUrbanistBody>
-                Get a special offer
+                {leadData.buttonText}
               </StyledTypographyUrbanistBody>
             </button>
 
             <StyledTypographyUrbanistSmallSpaces className='description'>
-              by submitting this form, you contirm that you agree to the storing
-              and processing of your personal data
+              <StructuredText data={leadData.footerDescription} />
             </StyledTypographyUrbanistSmallSpaces>
           </div>
         </div>
-      </DialogContent> */}
+      </DialogContent>
     </StyledFeeModalWrapper>
-  );
+  )
 }
