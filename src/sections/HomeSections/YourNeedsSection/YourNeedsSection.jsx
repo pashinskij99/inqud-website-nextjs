@@ -23,6 +23,7 @@ import { CartRequirement } from '@/components/CartRequirement';
 import { ModalSendRequest } from '@/components/Modal';
 import { keysForLocale } from '@/config/keysForLocale';
 import { PageContext } from '@/contexts/PageContext/PageContext';
+import {submitForFormActiveCampaign} from '@/lib/activeCampaign';
 
 export default function YourNeedsSection() {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false);
@@ -35,6 +36,7 @@ export default function YourNeedsSection() {
   const handleOpen = () => {
     setOpenModalSendRequest(true);
   };
+
   const handleClose = () => {
     setOpenModalSendRequest(false);
   };
@@ -45,21 +47,7 @@ export default function YourNeedsSection() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const contact = {};
-    const formData = new FormData(event.target);
-
-    // eslint-disable-next-line no-restricted-syntax
-    for (const [key, value] of formData.entries()) {
-      contact[key] = value;
-    }
-
-    await fetch('/api/create-contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ contact, automationId: 2 }),
-    });
+    await submitForFormActiveCampaign(event, '/api/create-contact', 2)
   };
 
   const list = [

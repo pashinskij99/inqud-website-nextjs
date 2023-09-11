@@ -12,6 +12,7 @@ import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled
 import { ModalSubmitEmail } from '@/components/Modal';
 import { ButtonGhostCrypto } from '@/components/UI/Button';
 import { PageContext } from '@/contexts/PageContext/PageContext';
+import {submitForFormActiveCampaign} from '@/lib/activeCampaign';
 
 export default function CryptoWidget2Section() {
   const [open, setOpen] = useState(false);
@@ -24,6 +25,11 @@ export default function CryptoWidget2Section() {
     setOpen(true);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    await submitForFormActiveCampaign(event, '/api/create-contact', 4)
+  }
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -33,11 +39,9 @@ export default function CryptoWidget2Section() {
       <div className="container">
         <div className="leftSide">
           <StyledTypographyIBMH5 className="crypto2SubTitle">
-            {/* {t('sub_title')} */}
             {data.screen5SubTitle}
           </StyledTypographyIBMH5>
           <StyledTypographyUrbanistH2 className="crypto2Title">
-            {/* {t('title')} */}
             {data.screen5Title}
           </StyledTypographyUrbanistH2>
 
@@ -50,12 +54,10 @@ export default function CryptoWidget2Section() {
           />
 
           <StyledTypographyUrbanistBody className="crypto2Description crypto2Description-desktop">
-            {/* {t('paragraph')} */}
             {data.screen5Description}
           </StyledTypographyUrbanistBody>
 
           <StyledTypographyUrbanistH5 className="crypto2Description crypto2Description-mobile">
-            {/* {t('paragraph_mobile')} */}
             {data.screen5Description}
           </StyledTypographyUrbanistH5>
 
@@ -82,12 +84,10 @@ export default function CryptoWidget2Section() {
 
           <div className="crypto2Footer">
             <StyledTypographyUrbanistH5 className="crypto2FooterTitle">
-              {/* {t('alert_title')} */}
               {data.lead5Screen}
             </StyledTypographyUrbanistH5>
             <div className="crypto2FooterButtons">
               <ButtonGhostCrypto className="crypto2FooterButtonCrypto">
-                {/* Q4 2023 */}
                 {data.buttonLead2A}
               </ButtonGhostCrypto>
               <ButtonGhostCrypto className="crypto2FooterButtonCryptoCalendar">
@@ -97,7 +97,6 @@ export default function CryptoWidget2Section() {
                   width={18}
                   height={18}
                 />
-                {/* <Calendar /> */}
               </ButtonGhostCrypto>
             </div>
 
@@ -106,14 +105,12 @@ export default function CryptoWidget2Section() {
               className="crypto2FooterApplyButton"
             >
               {data.buttonLead2C}
-              {/* {t('alert_button_text')} */}
             </StyledButtonSecondaryLight>
 
-            <ModalSubmitEmail open={open} handleClose={handleClose} />
+            <ModalSubmitEmail handleSubmit={handleSubmit} open={open} handleClose={handleClose} />
           </div>
         </div>
         <div className="rightSide">
-          {/* <Widget /> */}
           <Image
             src={data.screen5Image.url}
             alt={data.screen5Title}

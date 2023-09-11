@@ -9,12 +9,6 @@ import {
   StyledMobileGridWrapper,
   StyledPaymentListWrapper,
 } from './HeroSection.styled'
-// import Grid1 from '@/assets/images/hero/grid1.svg'
-// import Grid2 from '@/assets/images/hero/grid2.svg'
-// import Grid3 from '@/assets/images/hero/grid3.svg'
-// import Grid4 from '@/assets/images/hero/grid4.svg'
-// import Grid5 from '@/assets/images/hero/grid5.svg'
-// import Grid6 from '@/assets/images/hero/grid6.svg'
 import Check from '@/assets/icons/check-green-background.svg'
 import {
   StyledTypographyIBMH5,
@@ -81,8 +75,8 @@ export default function HeroSection() {
             className='graphic'
             height={595}
             timeRepeat={5000}
-            urlFirstVideo='/video/video1.mp4'
-            urlSecondVideo='/video/video2.mp4'
+            urlFirstVideo='/video/video1.webm'
+            urlSecondVideo='/video/video2.webm'
             width={595}
           />
         </div>
@@ -91,22 +85,10 @@ export default function HeroSection() {
   )
 }
 
-// const gridItems = [
-//   { id: 0, icon: <Grid1 /> },
-//   { id: 1, icon: <Grid2 /> },
-//   { id: 2, icon: <Grid3 /> },
-//   { id: 3, icon: <Grid4 /> },
-//   { id: 4, icon: <Grid5 /> },
-//   { id: 5, icon: <Grid6 /> },
-// ]
-
 function MobileGrid() {
   return (
     <StyledMobileGridWrapper>
-      {/* {gridItems.map(({ id, icon }) => (
-        <Fragment key={id}>{icon}</Fragment>
-      ))} */}
-      <video muted autoPlay src='/video/b2b_video_mobile.mp4' />
+      <video controls={false} playsInline preload='auto' muted autoPlay src='/video/b2b_video_mobile.mp4' />
     </StyledMobileGridWrapper>
   )
 }

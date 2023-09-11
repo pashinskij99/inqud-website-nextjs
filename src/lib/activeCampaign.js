@@ -1,39 +1,17 @@
-import axios from 'axios'
+export const submitForFormActiveCampaign = async (event, apiLink, automationId) => {
+  const contact = {};
+  const formData = new FormData(event.target);
 
-// const apiKey = process.env.NEXT_PUBLIC_ACTIVECAMPAIGN_API_KEY;
-const apiKey = process.env.NEXT_PUBLIC_ACTIVECAMPAIGN_API_KEY
-const apiUrl = process.env.NEXT_PUBLIC_ACTIVECAMPAIGN_API_URL
-
-export const activeCampaignApi = axios.create({
-  baseURL: apiUrl,
-  headers: {
-    'Api-Token': apiKey,
-    'Content-Type': 'application/json',
-  },
-})
-
-export const createContact = async (contactData) => {
-  try {
-    const response = await activeCampaignApi.post(
-      '/api/3/contacts',
-      contactData
-    )
-    return response.data
-  } catch (error) {
-    return null
+  // eslint-disable-next-line no-restricted-syntax
+  for (const [key, value] of formData.entries()) {
+    contact[key] = value;
   }
-}
 
-export const addTagToContact = async (contactId, tagId) => {
-  try {
-    const response = await activeCampaignApi.post('/api/3/contactTags', {
-      contactTag: {
-        contact: contactId,
-        tag: tagId,
-      },
-    })
-    return response.data
-  } catch (error) {
-    throw new Error(error)
-  }
+  await fetch(apiLink, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ contact, automationId }),
+  });
 }

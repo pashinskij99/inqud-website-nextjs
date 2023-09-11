@@ -28,13 +28,14 @@ function AnimatedFirstScreenVideo({
   }
 
   useEffect(() => {
-    videoRef1.current.play()
     let timer
 
     if (firstVideoIsEnd) {
       timer = setTimeout(() => {
         videoRef2.current.play()
       }, timeRepeat)
+    } else {
+      videoRef1.current.play()
     }
 
     return () => {
@@ -65,6 +66,9 @@ function AnimatedFirstScreenVideo({
       <StyledAnimatedVideo
         autoPlay
         muted
+        controls={false}
+        playsInline
+        preload='auto'
         ref={videoRef1}
         onEnded={handleEnd}
         width={width}
@@ -82,7 +86,7 @@ function AnimatedFirstScreenVideo({
         onEnded={handleEnd2}
         src={urlSecondVideo}
         className={clsx('video-2', className, {
-          ['hide']: !firstVideoIsEnd,
+          // ['hide']: !firstVideoIsEnd,
         })}
       />
     </StyledAnimatedVideoWrapper>

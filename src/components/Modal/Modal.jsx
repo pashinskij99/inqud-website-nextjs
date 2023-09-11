@@ -83,14 +83,14 @@ export function ModalSendRequest({ open, handleClose, handleSubmit }) {
   );
 }
 
-export function ModalSubmitEmail({ open, handleClose }) {
+export function ModalSubmitEmail({ open, handleClose, handleSubmit }) {
   const {
     dataPage: { homePage: data },
   } = useContext(PageContext);
 
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
-      <div className='modalContainer'>
+      <form onSubmit={handleSubmit} className='modalContainer'>
         <button className='closeButton' onClick={handleClose}>
           <Close />
         </button>
@@ -114,7 +114,7 @@ export function ModalSubmitEmail({ open, handleClose }) {
             <StructuredText data={data.lead5FooterDescription} />
           </StyledTypographyUrbanistSmallSpaces>
         </div>
-      </div>
+      </form>
     </StyledModalSendRequestWrapper>
   )
 }

@@ -4,7 +4,7 @@ export const StyledAnimatedVideoWrapper = styled.div`
   position: relative;
   .video-1 {
     position: relative;
-    z-index: 1;
+    z-index: 2;
   }
   .video-2 {
     position: absolute;
@@ -16,7 +16,10 @@ export const StyledAnimatedVideoWrapper = styled.div`
 
 export const StyledAnimatedVideo = styled.video`
   opacity: 1;
+  transition: opacity 0.1s ease;
   &.hide {
+    //visibility: hidden;
+    //display: none;
     opacity: 0;
   }
 `
