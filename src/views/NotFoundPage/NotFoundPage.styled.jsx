@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { IBM } from '@/utils/font'
+import { nunito } from '@/utils/font'
 import { responsive } from '@/utils/response'
 
 export const StyledNotFoundPageWrapper = styled.section`
@@ -48,7 +48,7 @@ export const StyledNotFoundPageWrapper = styled.section`
   }
   .sub-title {
     color: var(--independent-grey, #517185);
-    ${IBM.style};
+    ${nunito.style};
     font-size: 40px;
     font-weight: 400;
     line-height: 50px;

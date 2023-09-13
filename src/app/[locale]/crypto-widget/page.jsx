@@ -74,6 +74,22 @@ const CRYPTO_WIDGET = `
       subTitle
       title
     }
+    cryptoLeadForm(locale: $locale) {
+      buttonText
+      description
+      footerDescription {
+        value
+      }
+      id
+      labelCompany
+      labelIndustry
+      labelMessage
+      labelWebsite
+      placeholderMessage
+      tabs
+      title
+      whatsappPlaceholder
+    }
     apiPage(locale: $locale) {
       screen9Button
       screen9Title

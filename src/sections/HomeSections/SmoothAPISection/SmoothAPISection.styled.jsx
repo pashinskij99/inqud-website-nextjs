@@ -32,7 +32,7 @@ export const StyledSmoothAPISection = styled.section`
         justify-content: center;
         align-items: center;
       `}
-      svg {
+      .graphic {
         width: 416.4502258300781px;
         height: 600px;
         transform: translateX(132px);
@@ -110,6 +110,7 @@ export const StyledSmoothAPISection = styled.section`
           margin: 0 auto ${rem(40)};
         `};
         ${responsive.sm`
+          width: 100%;
           max-width: 100%;
           margin-bottom: ${rem(28)};
           height: fit-content;

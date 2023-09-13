@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { IBM } from '@/utils/font'
+import { nunito } from '@/utils/font'
 import { responsive } from '@/utils/response'
 
 export const StyledHowToStartsB2CSectionWrapper = styled.section`
@@ -110,7 +110,7 @@ export const StyledStepCartWrapper = styled.div`
       margin-bottom: 16px;
     `}
     .step-cart-id {
-      ${IBM.style};
+      ${nunito.style};
       color: #077453;
       font-size: 40px;
       font-weight: 400;

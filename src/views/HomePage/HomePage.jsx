@@ -14,8 +14,9 @@ import BlogsSection from '@/sections/HomeSections/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
 import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
+import PageProvider from '@/contexts/PageContext/PageContext'
 
-export default function HomePage() {
+export default function HomePage({ data }) {
   const { setIsNotFound } = useContext(NotFoundContext)
 
   useEffect(() => {
@@ -26,19 +27,21 @@ export default function HomePage() {
     }
   }, [])
   return (
-    <StyledHomeWrapper>
-      <HeroSection />
-      <YourNeedsSection />
-      <CryptoWidgetSection />
-      <SmoothAPISection />
-      <PickSection className='pickSection' variant='dontLose' />
-      <CryptoWidget2Section />
-      <ReasonsToTeamUp />
-      <FeesBusiness />
-      <OurLandscapeSection />
-      <PickSection className='pickSection2' />
-      <BlogsSection />
-      <QuestionsSection />
-    </StyledHomeWrapper>
+    <PageProvider dataPage={data}>
+      <StyledHomeWrapper>
+        <HeroSection />
+        <YourNeedsSection />
+        <CryptoWidgetSection />
+        <SmoothAPISection />
+        <PickSection className='pickSection' variant='dontLose' />
+        <CryptoWidget2Section />
+        <ReasonsToTeamUp />
+        <FeesBusiness />
+        <OurLandscapeSection />
+        <PickSection className='pickSection2' />
+        <BlogsSection />
+        <QuestionsSection />
+      </StyledHomeWrapper>
+    </PageProvider>
   )
 }

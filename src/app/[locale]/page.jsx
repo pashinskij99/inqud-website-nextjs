@@ -1,65 +1,8 @@
-import { performRequest } from '@/lib/datocms';
-import HomePageWrapper from '@/views/HomePageWrapper';
+import { performRequest } from '@/lib/datocms'
+import HomePage from '@/views/HomePage'
 
 const HOME_PAGE_QUERY = `  
   query MyQuery($locale: SiteLocale) {
-    homeB2c(locale: $locale) {
-      title
-      subTitle
-      screen5Title
-      screen5Step {
-        id
-        image {
-          url
-        }
-        time
-        title
-      }
-      screen5Description
-      screen4Title
-      screen4Step {
-        id
-        time
-        title
-        description
-        cartId
-      }
-      screen3Title
-      screen3Feature {
-        title
-        image {
-          url
-        }
-        id
-        feature {
-          description
-          id
-          image {
-            url
-          }
-          title
-        }
-        description
-        button
-      }
-      screen2Content {
-        title
-        id
-        description
-        image {
-          url
-        }
-      }
-      image {
-        url
-      }
-      id
-      description {
-        value
-      }
-      buttonScreen5
-      buttonScreen1
-    }
     homePage(locale: $locale) {
       faqButton
       buttonBlog
@@ -90,9 +33,6 @@ const HOME_PAGE_QUERY = `
         }
       }
       features
-      heroImage {
-        url
-      }
       id
       lead5Screen
       leadForm1List
@@ -152,6 +92,24 @@ const HOME_PAGE_QUERY = `
       screen6Title
       subTitle
       title
+      heroImage1Gif {
+        url
+      }
+      heroImage1Static {
+        url
+      }
+      heroImage2Gif {
+        url
+      }
+      heroImage2Static {
+        url
+      }
+      lead5ButtonText
+      lead5Description
+      lead5FooterDescription {
+        value
+      }
+      lead5Title
     }
     ourLandscape(locale: $locale) {
       title
@@ -178,6 +136,22 @@ const HOME_PAGE_QUERY = `
         id
         description
       }
+    }
+    cryptoLeadForm(locale: $locale) {
+      buttonText
+      description
+      footerDescription {
+        value
+      }
+      id
+      labelCompany
+      labelIndustry
+      labelMessage
+      labelWebsite
+      placeholderMessage
+      tabs
+      title
+      whatsappPlaceholder
     }
     supportedCurrency(locale: $locale) {
       id
@@ -216,7 +190,7 @@ const HOME_PAGE_QUERY = `
       pickDescription
     }
   }
-`;
+`
 
 const getData = async (query, variables) => {
   try {
@@ -224,18 +198,18 @@ const getData = async (query, variables) => {
       query,
       revalidate: 0,
       variables,
-    });
+    })
 
-    return data;
+    return data
   } catch (error) {
-    return {};
+    return {}
   }
-};
+}
 
 export default async function Home({ params }) {
   const data = await getData(HOME_PAGE_QUERY, {
     locale: params.locale,
-  });
+  })
 
-  return <HomePageWrapper data={data} />;
+  return <HomePage data={data} />
 }

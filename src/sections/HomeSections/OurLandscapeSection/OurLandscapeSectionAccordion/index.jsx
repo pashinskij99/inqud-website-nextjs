@@ -1,3 +1,0 @@
-import OurLandscapeSectionAccordion from './OurLandscapeSectionAccordion'
-
-export default OurLandscapeSectionAccordion

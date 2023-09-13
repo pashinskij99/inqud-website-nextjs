@@ -10,8 +10,9 @@ import PassKYCB2CSection from '@/sections/HomeB2CSections/PassKYCB2CSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import BlogsSection from '@/sections/HomeSections/BlogsSection'
 import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
+import PageProvider from '@/contexts/PageContext/PageContext'
 
-export default function HomeB2CPage() {
+export default function HomeB2CPage({ data }) {
   const { setIsNotFound } = useContext(NotFoundContext)
 
   useEffect(() => {
@@ -23,14 +24,16 @@ export default function HomeB2CPage() {
   }, [])
 
   return (
-    <StyledHomeB2CPageWrapper>
-      <HeroB2CSection />
-      <FeaturesB2CSection />
-      <ProductLineB2CSection />
-      <HowToStartsB2CSection />
-      <PassKYCB2CSection />
-      <BlogsSection />
-      <QuestionsSection />
-    </StyledHomeB2CPageWrapper>
+    <PageProvider dataPage={data}>
+      <StyledHomeB2CPageWrapper>
+        <HeroB2CSection />
+        <FeaturesB2CSection />
+        <ProductLineB2CSection />
+        <HowToStartsB2CSection />
+        <PassKYCB2CSection />
+        <BlogsSection />
+        <QuestionsSection />
+      </StyledHomeB2CPageWrapper>
+    </PageProvider>
   )
 }

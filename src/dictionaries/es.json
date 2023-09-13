@@ -88,5 +88,10 @@
     "title": "Perspectivas"
   },
   "404_page_sub_title": "Página no encontrada",
-  "404_page_button_text": "Volver a la página de inicio"
+  "404_page_button_text": "Volver a la página de inicio",
+  "modern_slavery_statement": {
+    "paragraph1": "En Inqud, nuestros valores nos impulsan a establecer altos estándares éticos en el sector de las criptomonedas. Defender la justicia, la ética y la transparencia es fundamental para nuestra misión.",
+    "paragraph2": "Estamos dedicados a erradicar los riesgos de la esclavitud moderna y la trata de personas en nuestras cadenas de suministro y actividades comerciales. Respaldamos plenamente la Ley de Esclavitud Moderna de 2015 y creemos que las organizaciones, especialmente en las finanzas, deben abordar estas cuestiones de manera proactiva.",
+    "paragraph3": "Lea la declaración completa haciendo clic a continuación"
+  }
 }

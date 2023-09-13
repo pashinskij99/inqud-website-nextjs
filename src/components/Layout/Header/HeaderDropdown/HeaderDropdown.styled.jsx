@@ -66,7 +66,8 @@ export const StyledHeaderDropdownWrapper = styled.div`
     border-radius: ${rem(16)};
     background: #fff;
     display: flex;
-    gap: ${rem(32)};
+    /* gap: ${rem(32)}; */
+    gap: 0;
     outline: 2px solid rgba(244, 245, 250, 1);
 
     &.show {

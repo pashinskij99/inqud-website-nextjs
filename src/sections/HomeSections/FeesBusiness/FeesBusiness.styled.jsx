@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
-import { urbanist } from '@/utils/font'
+import { nunito } from '@/utils/font'
 
 export const StyledFeesBusinessWrapper = styled.section`
   --left-side-max-width: 680px;
@@ -419,7 +419,7 @@ export const StyledFeesBusinessWrapper = styled.section`
       font-size: ${rem(14)};
       font-weight: 700;
       line-height: ${rem(18)};
-      ${urbanist.style};
+      ${nunito.style};
       ${responsive.sm`
         display: block;
       `}

@@ -1,13 +1,16 @@
 import styled from '@emotion/styled'
-import { IBM } from '@/utils/font'
+import { nunito } from '@/utils/font'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
 export const StyledCryptoWidgetSection = styled.section`
-  background: var(--ambitious-green, #077453);
+  background: var(--ambitious-green, rgb(7, 116, 83));
   padding-top: 200px;
   padding-bottom: 200px;
   overflow-x: hidden;
+  &::selection {
+    background: var(--ambitious-green, rgb(7, 116, 83));
+  }
 
   ${responsive.xxl`
     padding-top: 200px;
@@ -293,7 +296,7 @@ export const StyledCryptoWidgetSection = styled.section`
             top: 0;
             right: ${rem(12)};
 
-            ${IBM.style}
+            ${nunito.style}
 
             font-size: ${rem(18)};
             font-weight: 400;
@@ -495,7 +498,7 @@ export const StyledCryptoWidgetSection = styled.section`
         display: none;
       `};
 
-      img {
+      .graphic {
         max-width: ${rem(500)};
         width: 100%;
       }

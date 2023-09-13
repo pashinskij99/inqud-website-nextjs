@@ -1,13 +1,5 @@
-// import { draftMode } from 'next/headers'
-import { performRequest } from '@/lib/datocms';
-import BlogPage from '@/views/BlogPage';
-
-// const PAGE_ALL_CONTENT_QUERY = `
-// query Blog {
-//   allBlogs {
-//     id
-//   }
-// }`
+import { performRequest } from '@/lib/datocms'
+import BlogPage from '@/views/BlogPage'
 
 const PAGE_CONTENT_QUERY = `
 query Blog($slug: ItemId, $locale: SiteLocale) {
@@ -86,7 +78,7 @@ query Blog($slug: ItemId, $locale: SiteLocale) {
       id
     }
   }
-}`;
+}`
 
 const PAGE_CONTENT_QUERY_SEO = `
 query Blog($slug: ItemId, $locale: SiteLocale) {
@@ -97,7 +89,7 @@ query Blog($slug: ItemId, $locale: SiteLocale) {
       title
     }
   }
-}`;
+}`
 
 const PAGE_RELATED_CONTENT_QUERY = `
 query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId], $locale: SiteLocale) {
@@ -115,7 +107,7 @@ query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId], $locale: Si
           url
         }
     }
-}`;
+}`
 
 export async function generateMetadata({ params }) {
   const {
@@ -125,12 +117,12 @@ export async function generateMetadata({ params }) {
     revalidate: 0,
     variables: { slug: params.slug },
     locale: params.locale,
-  });
+  })
 
   return {
     title: seoMetaTag.title,
     description: seoMetaTag.description,
-  };
+  }
 }
 
 export default async function page({ params }) {
@@ -141,7 +133,7 @@ export default async function page({ params }) {
       slug: params.slug,
       locale: params.locale,
     },
-  });
+  })
 
   const relatedData = await performRequest({
     query: PAGE_RELATED_CONTENT_QUERY,
@@ -152,7 +144,7 @@ export default async function page({ params }) {
       locale: params.locale,
       blogId: blog.id,
     },
-  });
+  })
 
   return (
     <BlogPage
@@ -160,5 +152,5 @@ export default async function page({ params }) {
       blogHeroSection={blogHeroSection}
       relatedData={relatedData}
     />
-  );
+  )
 }

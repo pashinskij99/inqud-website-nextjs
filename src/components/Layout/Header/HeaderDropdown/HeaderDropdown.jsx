@@ -1,26 +1,26 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import clsx from 'clsx';
-import Link from 'next/link';
-import { useTranslations } from 'next-intl';
-import ArrowDown from '@/assets/icons/arrow-down.svg';
-import { StyledHeaderDropdownWrapper } from './HeaderDropdown.styled';
-import { keysForLocale } from '@/config/keysForLocale';
+import { useState } from 'react'
+import clsx from 'clsx'
+import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import ArrowDown from '@/assets/icons/arrow-down.svg'
+import { StyledHeaderDropdownWrapper } from './HeaderDropdown.styled'
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function HeaderDropdown() {
   const dropdownListNameTranslate = useTranslations(
     'header_nav_dropdown_dropdown_title'
-  );
+  )
   const dropdownListTitleTranslate = useTranslations(
     'header_nav_dropdown_dropdown_items_title'
-  );
+  )
   const dropdownList1Translate = useTranslations(
     'header_nav_dropdown_dropdown_items_1_items'
-  );
-  const dropdownList2Translate = useTranslations(
-    'header_nav_dropdown_dropdown_items_2_items'
-  );
+  )
+  // const dropdownList2Translate = useTranslations(
+  //   'header_nav_dropdown_dropdown_items_2_items'
+  // )
 
   const dropdownList = [
     {
@@ -41,73 +41,73 @@ export default function HeaderDropdown() {
           name: dropdownList1Translate(keysForLocale.keys6[1]),
           href: '/company-api',
         },
-        {
-          id: 3,
-          name: dropdownList1Translate(keysForLocale.keys6[2]),
-          href: '/',
-        },
-        {
-          id: 4,
-          name: dropdownList1Translate(keysForLocale.keys6[3]),
-          href: '/',
-        },
-        {
-          id: 5,
-          name: dropdownList1Translate(keysForLocale.keys6[4]),
-          href: '/',
-        },
-        {
-          id: 6,
-          name: dropdownList1Translate(keysForLocale.keys6[5]),
-          href: '/',
-        },
+        // {
+        //   id: 3,
+        //   name: dropdownList1Translate(keysForLocale.keys6[2]),
+        //   href: '/',
+        // },
+        // {
+        //   id: 4,
+        //   name: dropdownList1Translate(keysForLocale.keys6[3]),
+        //   href: '/',
+        // },
+        // {
+        //   id: 5,
+        //   name: dropdownList1Translate(keysForLocale.keys6[4]),
+        //   href: '/',
+        // },
+        // {
+        //   id: 6,
+        //   name: dropdownList1Translate(keysForLocale.keys6[5]),
+        //   href: '/',
+        // },
       ],
     },
     {
       id: 1,
       items: [
-        {
-          id: 0,
-          name: dropdownListTitleTranslate(keysForLocale.keys6[0]),
-          href: '/',
-        },
-        {
-          id: 1,
-          name: dropdownList2Translate(keysForLocale.keys6[0]),
-          href: '/',
-        },
-        {
-          id: 2,
-          name: dropdownList2Translate(keysForLocale.keys6[1]),
-          href: '/',
-        },
-        {
-          id: 3,
-          name: dropdownList2Translate(keysForLocale.keys6[2]),
-          href: '/',
-        },
-        {
-          id: 4,
-          name: dropdownList2Translate(keysForLocale.keys6[3]),
-          href: '/',
-        },
-        {
-          id: 5,
-          name: dropdownList2Translate(keysForLocale.keys6[4]),
-          href: '/',
-        },
+        // {
+        //   id: 0,
+        //   name: dropdownListTitleTranslate(keysForLocale.keys6[1]),
+        //   href: '/',
+        // },
+        // {
+        //   id: 1,
+        //   name: dropdownList2Translate(keysForLocale.keys6[0]),
+        //   href: '/',
+        // },
+        // {
+        //   id: 2,
+        //   name: dropdownList2Translate(keysForLocale.keys6[1]),
+        //   href: '/',
+        // },
+        // {
+        //   id: 3,
+        //   name: dropdownList2Translate(keysForLocale.keys6[2]),
+        //   href: '/',
+        // },
+        // {
+        //   id: 4,
+        //   name: dropdownList2Translate(keysForLocale.keys6[3]),
+        //   href: '/',
+        // },
+        // {
+        //   id: 5,
+        //   name: dropdownList2Translate(keysForLocale.keys6[4]),
+        //   href: '/',
+        // },
       ],
     },
-  ];
+  ]
 
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false)
   const handleClick = () => {
-    setActive((prev) => !prev);
-  };
+    setActive((prev) => !prev)
+  }
 
   const handleClose = () => {
-    setActive(false);
-  };
+    setActive(false)
+  }
 
   return (
     <StyledHeaderDropdownWrapper
@@ -128,7 +128,7 @@ export default function HeaderDropdown() {
           ['show']: active,
         })}
       >
-        <div className="trigger" />
+        <div className='trigger' />
 
         <div
           className={clsx('dropdown-menu', {
@@ -150,5 +150,5 @@ export default function HeaderDropdown() {
         </div>
       </div>
     </StyledHeaderDropdownWrapper>
-  );
+  )
 }

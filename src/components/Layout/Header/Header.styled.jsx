@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
+import { nunito } from '@/utils/font'
 
 export const StyledHeaderWrapper = styled.header`
   height: var(--header-height);
@@ -68,44 +69,34 @@ export const StyledHeaderWrapper = styled.header`
       `};
     }
 
-    .tabs {
-      ${responsive.xl`
-        margin: 0 auto;
-      `};
-      @media (max-width: 576px) {
-        display: ${(props) => (props.active ? 'none' : 'flex')};
-      }
+    .button-link-wrapper {
       display: flex;
-      align-items: center;
-      gap: ${rem(2)};
-
-      .secondaryButton {
-        height: ${rem(40)};
+      .button-link {
+        display: flex;
+        align-items: center;
         border-radius: ${rem(72)};
-        outline: ${rem(1)} solid transparent;
+        padding: ${rem(7)} ${rem(14.5)} !important;
         background: transparent;
-
-        transition: 0.3s ease-in-out;
-
-        p {
-          color: var(--independent-grey, #517185);
-          font-weight: 400;
-          ${responsive.sm`
-            font-size: 14px;
-          `};
-        }
-      }
-
-      .activeButton {
+        color: rgba(81, 113, 133, 1);
+        min-height: auto;
+        height: 100%;
+        ${nunito.style};
+        font-size: ${rem(18)};
+        font-weight: 400;
+        line-height: 1;
+        text-transform: capitalize;
         height: ${rem(40)};
-      }
 
-      button {
-        padding: 0 ${rem(14)};
+        &.business-link {
+          outline: 1px solid #07745333;
+          font-weight: 700;
+          color: var(--independent-grey, #517185);
+        }
+
         ${responsive.sm`
-          height: ${rem(33)}!important;
-          font-size: 14px;
-        `};
+      flex: 1;
+      padding: ${rem(6)} ${rem(16)} ${rem(7)} ${rem(16)};
+    `};
       }
     }
   }

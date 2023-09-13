@@ -6,6 +6,22 @@ const API_QUERY = `
     homePage(locale: $locale){
       faqButton
     }
+    cryptoLeadForm(locale: $locale) {
+      buttonText
+      description
+      footerDescription {
+        value
+      }
+      id
+      labelCompany
+      labelIndustry
+      labelMessage
+      labelWebsite
+      placeholderMessage
+      tabs
+      title
+      whatsappPlaceholder
+    }
     apiPage(locale: $locale) {
       buttonScreen1A
       buttonScreen1B

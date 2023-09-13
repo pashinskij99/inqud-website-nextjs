@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { responsive } from '@/utils/response'
-import { urbanist } from '@/utils/font'
+import { nunito } from '@/utils/font'
 
 export const StyledCryptoWidgetHeroSectionWrapper = styled.section`
   padding-top: 64px;
@@ -61,7 +61,7 @@ export const StyledCryptoWidgetHeroSectionWrapper = styled.section`
       line-height: 24px;
       letter-spacing: 0em;
       color: rgba(81, 113, 133, 1);
-      font-family: ${urbanist.style};
+      font-family: ${nunito.style};
       font-size: 18px;
       font-weight: 400;
       line-height: 24px;
@@ -137,52 +137,11 @@ export const StyledCryptoWidgetHeroSectionWrapper = styled.section`
       height: 399.73px;
       justify-content: center;
     `}
-    ${responsive.sm`
-      height: 351.669px;
-    `}
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 560px;
-      height: 650px;
+   
 
-      background: linear-gradient(
-          0deg,
-          rgba(255, 255, 255, 0.2) 0%,
-          rgba(255, 255, 255, 0.2) 100%
-        ),
-        conic-gradient(
-          from -66deg at 51.32% 46.84%,
-          #71bef6 0deg,
-          #ffc451 99.25197958946228deg,
-          #e1f664 212.1355676651001deg,
-          #ff9a61 282.0405435562134deg,
-          #cdacfe 360deg
-        );
-      border-radius: 30px;
-      z-index: -1;
-
-      ${responsive.xxl`
-        width: 525.58px;
-        height: 610.05px;
-      `}
-      ${responsive.xl`
-        width: 344.381591796875px;
-        height: 399.7286376953125px;
-        border-radius: 20px;
-      `}
-      ${responsive.sm`
-        width: 302.976px;
-        height: 351.669px;
-        flex-shrink: 0;
-      `}
-    }
-
-    img {
+    .graphic {
       width: 100%;
+      height: 100%;
       flex-shrink: 0;
       ${responsive.xxl`
         height: 537.25439453125px;
@@ -193,7 +152,7 @@ export const StyledCryptoWidgetHeroSectionWrapper = styled.section`
       `}
       ${responsive.sm`
         width: 360.999px;
-        height: 309.707px;
+        height: 357.707px;
       `}
     }
   }
