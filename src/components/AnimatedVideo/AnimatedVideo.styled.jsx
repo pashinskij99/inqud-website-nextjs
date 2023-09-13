@@ -28,6 +28,9 @@ export const StyledAnimatedGifWrapper = styled.div`
   position: relative;
   .image {
     &.hide {
+      opacity: 0;
+    }
+    &.hide-display {
       display: none;
     }
   }

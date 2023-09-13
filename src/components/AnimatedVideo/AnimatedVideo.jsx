@@ -328,7 +328,7 @@ function Animated2GifOnView({
         />
         <Image
           className={clsx('image image-2', className, {
-            ['hide']: !gif2,
+            ['hide-display']: !gif2,
           })}
           src={gif2}
           alt='gif2'
