@@ -53,6 +53,7 @@ export default function SmoothAPISection() {
               height={232.88}
               timeRepeat={5000}
               urlSecondVideo='/video/b2b_api_mobile.gif'
+              urlFirstVideo='/video/1_600.gif'
               timeSecondAnimate={5000}
               width={343}
             />

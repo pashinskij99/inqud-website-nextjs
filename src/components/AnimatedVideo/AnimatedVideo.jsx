@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { InView } from 'react-intersection-observer'
 import Image from 'next/image'
 import {
+  // ImageGifBlock,
   StyledAnimatedGifWrapper,
   StyledAnimatedVideo,
   StyledAnimatedVideoWrapper,
@@ -281,6 +282,7 @@ function Animated2Gif({
 function Animated2GifOnView({
   className,
   urlSecondVideo,
+  // urlFirstVideo,
   width,
   height,
   timeRepeat,
@@ -318,7 +320,23 @@ function Animated2GifOnView({
         setVideoInView(inView)
       }}
     >
-      <StyledAnimatedGifWrapper>
+      <StyledAnimatedGifWrapper gif1={urlSecondVideo} gif2={urlSecondVideo}>
+        {/* <ImageGifBlock
+          className={clsx('image image-1 hide', className)}
+          src={urlSecondVideo}
+          alt='gif1'
+          width={width}
+          height={height}
+        />
+        <ImageGifBlock
+          className={clsx('image image-2', className, {
+            ['hide-display']: !gif2,
+          })}
+          src={gif2}
+          alt='gif2'
+          width={width}
+          height={height}
+        /> */}
         <Image
           className={clsx('image image-1 hide', className)}
           src={urlSecondVideo}
@@ -335,6 +353,8 @@ function Animated2GifOnView({
           width={width}
           height={height}
         />
+        {/* <button onClick={() => setGif2(urlSecondVideo)}>Change 1</button>
+        <button onClick={() => setGif2(`${urlFirstVideo}1`)}>Change 2</button> */}
       </StyledAnimatedGifWrapper>
     </InView>
   )
