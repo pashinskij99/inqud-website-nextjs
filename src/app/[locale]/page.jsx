@@ -211,5 +211,7 @@ export default async function Home({ params }) {
     locale: params.locale,
   })
 
+  console.log(data)
+
   return <HomePage data={data} />
 }

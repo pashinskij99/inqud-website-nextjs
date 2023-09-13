@@ -1,21 +1,21 @@
 // import { buildClient } from '@datocms/cma-client-node';
-import { cache } from 'react';
+import { cache } from 'react'
 
 const dedupedFetch = cache(async (serializedInit) => {
-  const endPoint = 'https://graphql.datocms.com';
+  const endPoint = 'https://graphql.datocms.com'
   // const endPoint = 'https://graphql.datocms.com'
 
-  const response = await fetch(endPoint, JSON.parse(serializedInit));
-  const responseBody = await response.json();
+  const response = await fetch(endPoint, JSON.parse(serializedInit))
+  const responseBody = await response.json()
   if (!response.ok) {
     throw new Error(
       `${response.status} ${response.statusText}: ${JSON.stringify(
         responseBody
       )}`
-    );
+    )
   }
-  return responseBody;
-});
+  return responseBody
+})
 
 export async function performRequest({
   query,
@@ -46,6 +46,6 @@ export async function performRequest({
       next: { revalidate },
     }),
     includeDrafts
-  );
-  return data;
+  )
+  return data
 }
