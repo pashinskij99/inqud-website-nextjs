@@ -4,7 +4,7 @@ import CompanyHeroSection from '@/sections/CompanySections/CompanyHeroSection/Co
 import { StyledCompanyPageWrapper } from './CompanyPage.styled'
 import CoreSection from '@/sections/CompanySections/CoreSection'
 import LandscapeSection from '@/sections/CompanySections/LandscapeSection/LandscapeSection'
-import TeamSection from '@/sections/CompanySections/TeamSection'
+// import TeamSection from '@/sections/CompanySections/TeamSection'
 import FeaturesSection from '@/sections/CompanySections/FeaturesSection'
 import PageProvider from '@/contexts/PageContext/PageContext'
 
