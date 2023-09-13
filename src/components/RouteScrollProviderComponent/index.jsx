@@ -1,0 +1,3 @@
+import RouteScrollProviderComponent from './RouteScrollProviderComponent'
+
+export default RouteScrollProviderComponent

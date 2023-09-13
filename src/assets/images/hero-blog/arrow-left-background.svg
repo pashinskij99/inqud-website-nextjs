@@ -1,0 +1,10 @@
+<svg width="724" height="360" viewBox="0 0 724 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.1">
+<rect x="364" y="360" width="360" height="360" rx="32" transform="rotate(-90 364 360)" fill="#BFFFC8"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M504 360C504 282.68 441.32 220 364 220L364 140C485.503 140 584 238.497 584 360L504 360Z" fill="#077453"/>
+</g>
+<g opacity="0.1">
+<rect width="360" height="360" rx="32" transform="matrix(-1.19249e-08 1 1 1.19249e-08 0 0)" fill="#BFFFC8"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M169.714 220L360 220L360 140L169.714 140C201.127 101.962 220 53.1852 220 2.62347e-06L140 1.66948e-06C140 77.2978 77.3556 139.964 0.0660711 140C0.0440492 140 0.0220261 140 1.82743e-06 140L-2.62347e-06 220C0.0172107 220 0.0344233 220 0.0516352 220C77.3478 220.028 140 282.697 140 360L220 360C220 306.815 201.127 258.038 169.714 220Z" fill="#077453"/>
+</g>
+</svg>

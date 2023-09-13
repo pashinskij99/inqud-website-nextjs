@@ -1,14 +1,10 @@
 import React from 'react'
 import MainSection from '@/sections/AmlCftPolicyUabSections/MainSection'
 
-
-
-
-
-function AmlCftPolicyUabPage({data}) {
+function AmlCftPolicyUabPage({ data }) {
   return (
     <div>
-        <MainSection data={data}/>
+      <MainSection data={data} />
     </div>
   )
 }

@@ -1,0 +1,10 @@
+<svg width="724" height="360" viewBox="0 0 724 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.1">
+<rect width="360" height="360" rx="32" transform="matrix(1.19249e-08 -1 -1 -1.19249e-08 360 360)" fill="#BFFFC8"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M220 360C220 282.68 282.68 220 360 220L360 140C238.497 140 140 238.497 140 360L220 360Z" fill="#077453"/>
+</g>
+<g opacity="0.1">
+<rect width="360" height="360" rx="32" transform="matrix(1 0 0 -1 364 360)" fill="#BFFFC8"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M724 140L364 140L364 220L724 220L724 140Z" fill="#077453"/>
+</g>
+</svg>
