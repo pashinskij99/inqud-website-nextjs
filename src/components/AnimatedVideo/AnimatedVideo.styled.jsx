@@ -26,6 +26,9 @@ export const StyledAnimatedVideo = styled.video`
 
 export const StyledAnimatedGifWrapper = styled.div`
   position: relative;
+  .content {
+    display: contents;
+  }
   .image {
     &.hide {
       opacity: 0;

@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { useEffect, useRef, useState } from 'react'
+import GifPlayer from 'react-gif-player'
 
 import { InView } from 'react-intersection-observer'
 import Image from 'next/image'
@@ -9,6 +10,7 @@ import {
   StyledAnimatedVideo,
   StyledAnimatedVideoWrapper,
 } from './AnimatedVideo.styled'
+import { useReducer } from 'react'
 
 function AnimatedFirstScreenVideo({
   className,
@@ -282,27 +284,36 @@ function Animated2Gif({
 function Animated2GifOnView({
   className,
   urlSecondVideo,
-  // urlFirstVideo,
+  urlFirstVideo,
   width,
   height,
   timeRepeat,
   timeSecondAnimate,
 }) {
-  const [gif2, setGif2] = useState('')
-  const [videoInView, setVideoInView] = useState()
-
-  const reloadGif = () => {
-    setGif2('')
-    setTimeout(() => {
-      setGif2(urlSecondVideo)
-    }, 10)
-  }
+  const [videoInView, setVideoInView] = useState(false)
+  const element = useRef()
+  const element2 = useRef()
+  const pauseFirstGif = useRef()
+  const pauseSecondGif = useRef()
+  const intervalId = useRef()
+  const timer1 = useRef()
+  const timer2 = useRef()
 
   useEffect(() => {
-    let intervalId = null
     if (videoInView) {
-      reloadGif()
-      intervalId = setInterval(reloadGif, timeRepeat + timeSecondAnimate)
+      element2.current.firstChild.firstChild.click()
+      timer1.current = setTimeout(() => {
+        pauseSecondGif.current()
+      }, timeSecondAnimate + 2000)
+
+      intervalId.current = setInterval(() => {
+        timer2.current = setTimeout(() => {
+          pauseSecondGif.current()
+        }, timeSecondAnimate + 2000)
+        element2.current.firstChild.firstChild.click()
+      }, timeRepeat + timeSecondAnimate)
+    } else {
+      pauseSecondGif.current()
     }
 
     return () => {
@@ -310,7 +321,15 @@ function Animated2GifOnView({
         clearInterval(intervalId)
       }
     }
-  }, [gif2, videoInView])
+  }, [intervalId, timer1, timer2, videoInView])
+
+  useEffect(() => {
+    if (!videoInView) {
+      clearInterval(intervalId.current)
+      clearTimeout(timer1.current)
+      clearTimeout(timer2.current)
+    }
+  }, [videoInView])
 
   return (
     <InView
@@ -321,40 +340,30 @@ function Animated2GifOnView({
       }}
     >
       <StyledAnimatedGifWrapper gif1={urlSecondVideo} gif2={urlSecondVideo}>
-        {/* <ImageGifBlock
-          className={clsx('image image-1 hide', className)}
-          src={urlSecondVideo}
-          alt='gif1'
-          width={width}
-          height={height}
-        />
-        <ImageGifBlock
-          className={clsx('image image-2', className, {
-            ['hide-display']: !gif2,
-          })}
-          src={gif2}
-          alt='gif2'
-          width={width}
-          height={height}
-        /> */}
-        <Image
-          className={clsx('image image-1 hide', className)}
-          src={urlSecondVideo}
-          alt='gif1'
-          width={width}
-          height={height}
-        />
-        <Image
-          className={clsx('image image-2', className, {
-            ['hide-display']: !gif2,
-          })}
-          src={gif2}
-          alt='gif2'
-          width={width}
-          height={height}
-        />
-        {/* <button onClick={() => setGif2(urlSecondVideo)}>Change 1</button>
-        <button onClick={() => setGif2(`${urlFirstVideo}1`)}>Change 2</button> */}
+        <div ref={element} className='content'>
+          <GifPlayer
+            className={clsx('image image-1 hide', className)}
+            autoplay={false}
+            gif={urlSecondVideo}
+            width={width}
+            height={height}
+            pauseRef={(pause) => {
+              pauseFirstGif.current = pause
+            }}
+          />
+        </div>
+        <div ref={element2} className='content'>
+          <GifPlayer
+            className={clsx('image image-2', className)}
+            autoplay={false}
+            gif={urlSecondVideo}
+            width={width}
+            height={height}
+            pauseRef={(pause) => {
+              pauseSecondGif.current = pause
+            }}
+          />
+        </div>
       </StyledAnimatedGifWrapper>
     </InView>
   )
