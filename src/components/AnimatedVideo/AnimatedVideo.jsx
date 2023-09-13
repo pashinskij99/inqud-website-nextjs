@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState } from "react";
-import clsx from "clsx";
-import GifPlayer from "react-gif-player";
-import Image from "next/image";
-import { InView } from "react-intersection-observer";
+import { useEffect, useRef, useState } from 'react'
+import clsx from 'clsx'
+import GifPlayer from 'react-gif-player'
+import Image from 'next/image'
+import { InView } from 'react-intersection-observer'
 import {
   StyledAnimatedGifWrapper,
   StyledAnimatedVideo,
   StyledAnimatedVideoWrapper,
-} from "./AnimatedVideo.styled";
+} from './AnimatedVideo.styled'
 
 function AnimatedFirstScreenVideo({
   className,
@@ -17,51 +17,51 @@ function AnimatedFirstScreenVideo({
   height,
   timeRepeat,
 }) {
-  const [firstVideoIsEnd, setFirstVideoIsEnd] = useState(false);
-  const [secondVideoIsEnd, setSecondVideoIsEnd] = useState(false);
-  const videoRef1 = useRef(null);
-  const videoRef2 = useRef(null);
+  const [firstVideoIsEnd, setFirstVideoIsEnd] = useState(false)
+  const [secondVideoIsEnd, setSecondVideoIsEnd] = useState(false)
+  const videoRef1 = useRef(null)
+  const videoRef2 = useRef(null)
 
   const handleEnd = () => {
-    setFirstVideoIsEnd(true);
-  };
+    setFirstVideoIsEnd(true)
+  }
   const handleEnd2 = () => {
-    setSecondVideoIsEnd(true);
-  };
+    setSecondVideoIsEnd(true)
+  }
 
   useEffect(() => {
-    let timer;
+    let timer
 
     if (firstVideoIsEnd) {
       timer = setTimeout(() => {
-        videoRef2.current.play();
-      }, timeRepeat);
+        videoRef2.current.play()
+      }, timeRepeat)
     } else {
-      videoRef1.current.play();
+      videoRef1.current.play()
     }
 
     return () => {
       if (timer) {
-        clearInterval(timer);
+        clearInterval(timer)
       }
-    };
-  }, [firstVideoIsEnd]);
+    }
+  }, [firstVideoIsEnd])
 
   useEffect(() => {
-    let timer;
+    let timer
     if (secondVideoIsEnd) {
       timer = setTimeout(() => {
-        videoRef2.current.play();
-        setSecondVideoIsEnd(false);
-      }, timeRepeat);
+        videoRef2.current.play()
+        setSecondVideoIsEnd(false)
+      }, timeRepeat)
     }
 
     return () => {
       if (timer) {
-        clearInterval(timer);
+        clearInterval(timer)
       }
-    };
-  }, [secondVideoIsEnd]);
+    }
+  }, [secondVideoIsEnd])
 
   return (
     <StyledAnimatedVideoWrapper>
@@ -70,14 +70,14 @@ function AnimatedFirstScreenVideo({
         muted
         controls={false}
         playsInline
-        preload="auto"
+        preload='auto'
         ref={videoRef1}
         onEnded={handleEnd}
         width={width}
         height={height}
         src={urlFirstVideo}
-        className={clsx("video-1", className, {
-          ["hide"]: firstVideoIsEnd,
+        className={clsx('video-1', className, {
+          ['hide']: firstVideoIsEnd,
         })}
       />
       <StyledAnimatedVideo
@@ -87,12 +87,12 @@ function AnimatedFirstScreenVideo({
         ref={videoRef2}
         onEnded={handleEnd2}
         src={urlSecondVideo}
-        className={clsx("video-2", className, {
+        className={clsx('video-2', className, {
           // ['hide']: !firstVideoIsEnd,
         })}
       />
     </StyledAnimatedVideoWrapper>
-  );
+  )
 }
 
 function AnimatedOneVideo({

@@ -17,8 +17,8 @@
       "prettier/prettier": [
         "off",
         {
-          // "singleQuote": true,
-          // "semi": false
+//           "singleQuote": true,
+//           "semi": false
         }
       ],
       "quotes": [2, "single", "avoid-escape"],
