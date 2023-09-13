@@ -5,4 +5,6 @@ export const keysForLocale = {
   keys5: ['item1', 'item2', 'item3', 'item4', 'item5'],
   keys6: ['item1', 'item2', 'item3', 'item4', 'item5', 'item6'],
   keys7: ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7'],
+  keys8: ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8'],
+  keys9: ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9'],
 }

@@ -33,7 +33,6 @@ export const StyledAnimatedGifWrapper = styled.div`
   }
   .image-1 {
     position: relative;
-    z-index: 11;
   }
   .image-2 {
     position: absolute;

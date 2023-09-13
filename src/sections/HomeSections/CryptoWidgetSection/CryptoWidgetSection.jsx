@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { useContext } from 'react'
 import Image from 'next/image'
+import { useWindowSize } from '@uidotdev/usehooks'
 import { StyledCryptoWidgetSection } from './CryptoWidgetSection.styled'
 import {
   StyledTypographyIBMH5,
@@ -15,6 +16,9 @@ import Check from '@/assets/icons/check-green-background.svg'
 import Loading from '@/assets/icons/loading.svg'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
+import { responseBreakPoint } from '@/utils/response'
+import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
+// import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 
 export default function CryptoWidgetSection() {
   const t = useTranslations('home_page_crypto_widget_section')
@@ -22,6 +26,8 @@ export default function CryptoWidgetSection() {
   const {
     dataPage: { homePage: data },
   } = useContext(PageContext)
+
+  const size = useWindowSize()
 
   return (
     <StyledCryptoWidgetSection>
@@ -38,34 +44,27 @@ export default function CryptoWidgetSection() {
           </StyledTypographyUrbanistH2>
 
           <div className='cryptoWidgetMobileWrapper'>
-            <AnimatedVideoOnScroll
-              className='cryptoWidgetDesktop'
-              height={600}
-              timeRepeat={5000}
-              urlFirstVideo='/video/b2b_crypto_video_web.webm'
-              width={500}
-            />
-            <AnimatedVideoOnScroll
-              className='cryptoWidgetMobileSmaller'
-              height={600}
-              timeRepeat={5000}
-              urlFirstVideo='/video/b2b_crypto_video_web.webm'
-              width={500}
-            />
-            {/* <Image
-              src={data.screen3Image.url}
-              alt={data.screen3Title}
-              width={500}
-              height={600}
-              className='cryptoWidgetDesktop'
-            />
-            <Image
-              src={data.screen3Image.url}
-              alt={data.screen3Title}
-              width={500}
-              height={600}
-              className='cryptoWidgetMobileSmaller'
-            /> */}
+            {size.width > responseBreakPoint.mobile &&
+            size.width < responseBreakPoint.desktop ? (
+              <AnimatedVideoOnScroll
+                className='cryptoWidgetDesktop'
+                height={600}
+                timeRepeat={5000}
+                urlFirstVideo='/video/b2b_crypto_video_web.webm'
+                width={500}
+              />
+            ) : null}
+
+            {size.width <= responseBreakPoint.mobile ? (
+              <Animated2GifOnView
+                className='cryptoWidgetMobileSmaller'
+                height={600}
+                timeRepeat={5000}
+                urlSecondVideo='/video/b2b_crypto_widget_mobile.gif'
+                timeSecondAnimate={5000}
+                width={500}
+              />
+            ) : null}
           </div>
 
           <StyledTypographyUrbanistBody className='cryptoDescription'>

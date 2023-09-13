@@ -215,23 +215,18 @@ function Animated2Gif({
   width,
   height,
   timeRepeat,
+  timeFirstAnimate,
+  timeSecondAnimate,
 }) {
-  const [gif1Ended, setGif1Ended] = useState(false)
-  const [gif2, setGif2] = useState(urlFirstVideo)
+  const [gif2, setGif2] = useState('')
   const [gif2Ended, setGif2Ended] = useState(true)
-
-  const reloadGif = ({ url, setGif }) => {
-    setGif('')
-    setTimeout(() => {
-      setGif(url)
-    }, 0)
-  }
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setGif1Ended(true)
-      setGif2Ended(false)
-    }, timeRepeat)
+      setTimeout(() => {
+        setGif2Ended(false)
+      }, 6000)
+    }, timeFirstAnimate)
 
     return () => {
       if (timer) {
@@ -240,29 +235,40 @@ function Animated2Gif({
     }
   }, [])
 
+  const reloadGif = () => {
+    setGif2('')
+    setTimeout(() => {
+      setGif2(urlSecondVideo)
+    }, 10)
+  }
+
   useEffect(() => {
-    if (gif2Ended) {
-      reloadGif({
-        setGif: setGif2,
-        url: urlSecondVideo,
-      })
+    let intervalId = null
+    if (!gif2Ended) {
+      reloadGif()
+      intervalId = setInterval(reloadGif, timeRepeat + timeSecondAnimate)
     }
-    return () => {}
-  }, [gif2Ended])
+
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId)
+      }
+    }
+  }, [gif2Ended, gif2])
 
   return (
     <StyledAnimatedGifWrapper>
       <Image
-        className={clsx('image image-1', className, {
-          ['hide']: gif1Ended,
-        })}
+        className={clsx('image image-1', className)}
         src={urlFirstVideo}
         alt='gif'
         width={width}
         height={height}
       />
       <Image
-        className={clsx('image image-2', className)}
+        className={clsx('image image-2', className, {
+          ['hide']: !gif2,
+        })}
         src={gif2}
         alt='gif'
         width={width}
@@ -272,9 +278,72 @@ function Animated2Gif({
   )
 }
 
+function Animated2GifOnView({
+  className,
+  urlSecondVideo,
+  width,
+  height,
+  timeRepeat,
+  timeSecondAnimate,
+}) {
+  const [gif2, setGif2] = useState('')
+  const [videoInView, setVideoInView] = useState()
+
+  const reloadGif = () => {
+    setGif2('')
+    setTimeout(() => {
+      setGif2(urlSecondVideo)
+    }, 10)
+  }
+
+  useEffect(() => {
+    let intervalId = null
+    if (videoInView) {
+      reloadGif()
+      intervalId = setInterval(reloadGif, timeRepeat + timeSecondAnimate)
+    }
+
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId)
+      }
+    }
+  }, [gif2, videoInView])
+
+  return (
+    <InView
+      as='div'
+      rootMargin='-30% 0px -30% 0px'
+      onChange={(inView) => {
+        setVideoInView(inView)
+      }}
+    >
+      <StyledAnimatedGifWrapper>
+        <Image
+          className={clsx('image image-1 hide', className)}
+          src={urlSecondVideo}
+          alt='gif'
+          width={width}
+          height={height}
+        />
+        <Image
+          className={clsx('image image-2', className, {
+            ['hide']: !gif2,
+          })}
+          src={gif2}
+          alt='gif'
+          width={width}
+          height={height}
+        />
+      </StyledAnimatedGifWrapper>
+    </InView>
+  )
+}
+
 export {
   AnimatedFirstScreenVideo,
   AnimatedOneVideo,
   AnimatedVideoOnScroll,
   Animated2Gif,
+  Animated2GifOnView,
 }

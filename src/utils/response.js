@@ -38,4 +38,8 @@ export const responsive = {
   `,
 }
 
-
+export const responseBreakPoint = {
+  mobile: 767,
+  tablet: 1279,
+  desktop: 1280,
+}

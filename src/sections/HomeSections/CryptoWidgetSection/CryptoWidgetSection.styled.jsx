@@ -4,10 +4,13 @@ import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
 export const StyledCryptoWidgetSection = styled.section`
-  background: var(--ambitious-green, #077453);
+  background: var(--ambitious-green, rgb(7, 116, 83));
   padding-top: 200px;
   padding-bottom: 200px;
   overflow-x: hidden;
+  &::selection {
+    background: var(--ambitious-green, rgb(7, 116, 83));
+  }
 
   ${responsive.xxl`
     padding-top: 200px;

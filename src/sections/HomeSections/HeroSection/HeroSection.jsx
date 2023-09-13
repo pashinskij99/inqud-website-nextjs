@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useContext } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
+import { useWindowSize } from '@uidotdev/usehooks'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import {
   StyledHeroSectionWrapper,
@@ -20,17 +21,21 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
+import { responseBreakPoint } from '@/utils/response'
 
 export default function HeroSection() {
   const {
     dataPage: { homePage: data },
   } = useContext(PageContext)
 
+  const size = useWindowSize()
+
   return (
     <StyledHeroSectionWrapper>
       <div className='container'>
         <div className='leftSide'>
-          <MobileGrid />
+          {size.width <= responseBreakPoint.mobile ? <MobileGrid /> : null}
+
           <StyledTypographyIBMH5 className='subTitle'>
             {data.subTitle}
           </StyledTypographyIBMH5>
@@ -71,14 +76,16 @@ export default function HeroSection() {
         </div>
 
         <div className='rightSide'>
-          <AnimatedFirstScreenVideo
-            className='graphic'
-            height={595}
-            timeRepeat={5000}
-            urlFirstVideo='/video/video1.webm'
-            urlSecondVideo='/video/video2.webm'
-            width={595}
-          />
+          {size.width >= responseBreakPoint.mobile ? (
+            <AnimatedFirstScreenVideo
+              className='graphic'
+              height={595}
+              timeRepeat={5000}
+              urlFirstVideo='/video/video1.webm'
+              urlSecondVideo='/video/video2.webm'
+              width={595}
+            />
+          ) : null}
         </div>
       </div>
     </StyledHeroSectionWrapper>
@@ -88,7 +95,16 @@ export default function HeroSection() {
 function MobileGrid() {
   return (
     <StyledMobileGridWrapper>
-      <video controls={false} playsInline preload='auto' muted autoPlay src='/video/b2b_video_mobile.mp4' />
+      <Image
+        controls={false}
+        playsInline
+        preload='auto'
+        muted
+        autoPlay
+        src='/video/b2b_hero_mobile.gif'
+        width={343}
+        height={152}
+      />
     </StyledMobileGridWrapper>
   )
 }

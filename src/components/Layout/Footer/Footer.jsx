@@ -28,11 +28,11 @@ export default function Footer() {
       title: t('footer_resources_title'),
       className: 'Resources',
       items: [
-        { id: 0, text: tResources(keysForLocale.keys5[0]), href: '#' },
-        { id: 1, text: tResources(keysForLocale.keys5[1]), href: '#' },
-        { id: 2, text: tResources(keysForLocale.keys5[2]), href: '#' },
-        { id: 3, text: tResources(keysForLocale.keys5[3]), href: '#' },
-        { id: 4, text: tResources(keysForLocale.keys5[4]), href: '#' },
+        { id: 0, text: tResources(keysForLocale.keys5[0]), href: '/privacy-notice' },
+        { id: 1, text: tResources(keysForLocale.keys5[1]), href: '/cookie-policy' },
+        { id: 2, text: tResources(keysForLocale.keys5[2]), href: '/aml-cft-policy-uab' },
+        { id: 3, text: tResources(keysForLocale.keys5[3]), href: '/modern-slavery-statement' },
+        // { id: 4, text: tResources(keysForLocale.keys5[4]), href: '#' },
       ],
     },
     {

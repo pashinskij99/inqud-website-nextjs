@@ -137,9 +137,7 @@ export const StyledCryptoWidgetHeroSectionWrapper = styled.section`
       height: 399.73px;
       justify-content: center;
     `}
-    ${responsive.sm`
-      height: 351.669px;
-    `}
+   
 
     .graphic {
       width: 100%;
@@ -154,7 +152,7 @@ export const StyledCryptoWidgetHeroSectionWrapper = styled.section`
       `}
       ${responsive.sm`
         width: 360.999px;
-        height: 309.707px;
+        height: 357.707px;
       `}
     }
   }

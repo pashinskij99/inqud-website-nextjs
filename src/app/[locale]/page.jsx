@@ -1,65 +1,8 @@
-import { performRequest } from '@/lib/datocms';
-import HomePageWrapper from '@/views/HomePageWrapper';
+import { performRequest } from '@/lib/datocms'
+import HomePage from '@/views/HomePage'
 
 const HOME_PAGE_QUERY = `  
   query MyQuery($locale: SiteLocale) {
-    homeB2c(locale: $locale) {
-      title
-      subTitle
-      screen5Title
-      screen5Step {
-        id
-        image {
-          url
-        }
-        time
-        title
-      }
-      screen5Description
-      screen4Title
-      screen4Step {
-        id
-        time
-        title
-        description
-        cartId
-      }
-      screen3Title
-      screen3Feature {
-        title
-        image {
-          url
-        }
-        id
-        feature {
-          description
-          id
-          image {
-            url
-          }
-          title
-        }
-        description
-        button
-      }
-      screen2Content {
-        title
-        id
-        description
-        image {
-          url
-        }
-      }
-      image {
-        url
-      }
-      id
-      description {
-        value
-      }
-      buttonScreen5
-      buttonScreen1
-    }
     homePage(locale: $locale) {
       faqButton
       buttonBlog
@@ -247,7 +190,7 @@ const HOME_PAGE_QUERY = `
       pickDescription
     }
   }
-`;
+`
 
 const getData = async (query, variables) => {
   try {
@@ -268,5 +211,5 @@ export default async function Home({ params }) {
     locale: params.locale,
   })
 
-  return <HomePageWrapper data={data} />
+  return <HomePage data={data} />
 }
