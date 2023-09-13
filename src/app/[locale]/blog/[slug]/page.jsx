@@ -26,17 +26,12 @@ query Blog($slug: ItemId, $locale: SiteLocale) {
       product
     }
     professionAuthor
-    slugPage
     titlesForNavigation
     timeToRead
     _createdAt
     seoMetaTag {
       description
       title
-      twitterCard
-      image {
-        url
-      }
     }
     mainTitle
     mainTag {
@@ -83,7 +78,6 @@ query Blog($slug: ItemId, $locale: SiteLocale) {
 const PAGE_CONTENT_QUERY_SEO = `
 query Blog($slug: ItemId, $locale: SiteLocale) {
   blog(locale: $locale, filter: {id: {eq: $slug}}) {
-    slugPage
     seoMetaTag {
       description
       title
@@ -100,7 +94,6 @@ query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId], $locale: Si
           tag
           id
         }
-        slugPage
         timeToRead
         _createdAt
         mainImage {
@@ -110,18 +103,22 @@ query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId], $locale: Si
 }`
 
 export async function generateMetadata({ params }) {
-  const {
-    blog: { seoMetaTag },
-  } = await performRequest({
-    query: PAGE_CONTENT_QUERY_SEO,
-    revalidate: 0,
-    variables: { slug: params.slug },
-    locale: params.locale,
-  })
+  try {
+    const {
+      blog: { seoMetaTag },
+    } = await performRequest({
+      query: PAGE_CONTENT_QUERY_SEO,
+      revalidate: 0,
+      variables: { slug: params.slug },
+      locale: params.locale,
+    })
 
-  return {
-    title: seoMetaTag.title,
-    description: seoMetaTag.description,
+    return {
+      title: seoMetaTag.title,
+      description: seoMetaTag.description,
+    }
+  } catch (e) {
+    return {}
   }
 }
 

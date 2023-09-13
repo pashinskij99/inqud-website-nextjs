@@ -15,7 +15,7 @@ export default function CompanyPage({ data }) {
         <CompanyHeroSection />
         <CoreSection />
         <LandscapeSection />
-        <TeamSection />
+        {/* <TeamSection /> */}
         <FeaturesSection />
       </StyledCompanyPageWrapper>
     </PageProvider>

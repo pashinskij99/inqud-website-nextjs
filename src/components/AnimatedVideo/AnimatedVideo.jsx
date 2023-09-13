@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import GifPlayer from 'react-gif-player'
-import Image from 'next/image'
 import { InView } from 'react-intersection-observer'
 import {
   StyledAnimatedGifWrapper,
@@ -218,15 +217,20 @@ function Animated2Gif({
   timeFirstAnimate,
   timeSecondAnimate,
 }) {
-  const [gif2, setGif2] = useState('')
   const [gif2Ended, setGif2Ended] = useState(true)
+  const element = useRef()
+  const element2 = useRef()
+  const pauseFirstGif = useRef()
+  const pauseSecondGif = useRef()
+  const timer1 = useRef()
+  const timer2 = useRef()
 
   useEffect(() => {
+    element.current.firstChild.firstChild.click()
+
     const timer = setTimeout(() => {
-      setTimeout(() => {
-        setGif2Ended(false)
-      }, 6000)
-    }, timeFirstAnimate)
+      setGif2Ended(false)
+    }, timeFirstAnimate + timeRepeat)
 
     return () => {
       if (timer) {
@@ -235,18 +239,20 @@ function Animated2Gif({
     }
   }, [])
 
-  const reloadGif = () => {
-    setGif2('')
-    setTimeout(() => {
-      setGif2(urlSecondVideo)
-    }, 10)
-  }
-
   useEffect(() => {
     let intervalId = null
     if (!gif2Ended) {
-      reloadGif()
-      intervalId = setInterval(reloadGif, timeRepeat + timeSecondAnimate)
+      element2.current.firstChild.firstChild.click()
+      timer1.current = setTimeout(() => {
+        pauseSecondGif.current()
+      }, timeSecondAnimate + 2000)
+
+      intervalId = setInterval(() => {
+        timer2.current = setTimeout(() => {
+          pauseSecondGif.current()
+        }, timeSecondAnimate + 2000)
+        element2.current.firstChild.firstChild.click()
+      }, timeRepeat + timeSecondAnimate)
     }
 
     return () => {
@@ -254,26 +260,36 @@ function Animated2Gif({
         clearInterval(intervalId)
       }
     }
-  }, [gif2Ended, gif2])
+  }, [gif2Ended])
 
   return (
     <StyledAnimatedGifWrapper>
-      <Image
-        className={clsx('image image-1', className)}
-        src={urlFirstVideo}
-        alt='gif'
-        width={width}
-        height={height}
-      />
-      <Image
-        className={clsx('image image-2', className, {
-          ['hide']: !gif2,
-        })}
-        src={gif2}
-        alt='gif'
-        width={width}
-        height={height}
-      />
+      <div ref={element} className='content'>
+        <GifPlayer
+          className={clsx('image image-1', className)}
+          autoplay={false}
+          gif={urlFirstVideo}
+          width={width}
+          height={height}
+          pauseRef={(pause) => {
+            pauseFirstGif.current = pause
+          }}
+        />
+      </div>
+      <div ref={element2} className='content'>
+        <GifPlayer
+          className={clsx('image image-2', className, {
+            ['hide']: gif2Ended,
+          })}
+          autoplay={false}
+          gif={urlSecondVideo}
+          width={width}
+          height={height}
+          pauseRef={(pause) => {
+            pauseSecondGif.current = pause
+          }}
+        />
+      </div>
     </StyledAnimatedGifWrapper>
   )
 }

@@ -70,7 +70,8 @@ export const StyledHeaderWrapper = styled.header`
     }
 
     .button-link-wrapper {
-      display: flex;
+      margin: 0 auto;
+      display: ${({ active }) => (active ? 'none' : 'flex')};
       .button-link {
         display: flex;
         align-items: center;
@@ -86,17 +87,21 @@ export const StyledHeaderWrapper = styled.header`
         line-height: 1;
         text-transform: capitalize;
         height: ${rem(40)};
+        ${responsive.sm`
+          height: 33px;
+          font-size: ${rem(14)};
+        `}
 
         &.business-link {
-          outline: 1px solid #07745333;
+          border: 1px solid #07745333;
           font-weight: 700;
           color: var(--independent-grey, #517185);
         }
 
         ${responsive.sm`
-      flex: 1;
-      padding: ${rem(6)} ${rem(16)} ${rem(7)} ${rem(16)};
-    `};
+          flex: 1;
+          padding: ${rem(6)} ${rem(16)} ${rem(7)} ${rem(16)};
+        `};
       }
     }
   }

@@ -55,13 +55,13 @@ function LeftSide() {
         {titlesForNavigation.map((title) => (
           <li
             className={clsx('list-item', {
-              ['active']: activeHeader === title,
+              ['active']: activeHeader === title.trim(),
             })}
           >
             <LinkAnchor to={title} offset={-100} spy smooth duration={500}>
               <StyledTypographyUrbanistBody
                 className={clsx('title', {
-                  ['active']: activeHeader === title,
+                  ['active']: activeHeader === title.trim(),
                 })}
               >
                 {title}
@@ -109,7 +109,9 @@ function CenterSide() {
                 as='div'
                 id={title}
                 rootMargin='-30% 0px -70% 0px'
-                onChange={(inView) => (inView ? setActiveHeader(title) : null)}
+                onChange={(inView) =>
+                  inView ? setActiveHeader(title.trim()) : null
+                }
               >
                 <Content
                   key={id}
@@ -219,7 +221,7 @@ function RightSide() {
       id: 3,
       title: 'Author',
       description: [nameAuthor, professionAuthor],
-      imageSrc: authorImage.url,
+      imageSrc: authorImage?.url,
     },
   ]
 

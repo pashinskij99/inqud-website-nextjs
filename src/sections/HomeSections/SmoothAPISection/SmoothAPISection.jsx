@@ -109,7 +109,7 @@ export default function SmoothAPISection() {
                 {data.buttonScreen4GetStarted}
               </ButtonGetStarted>
             </Link>
-            <Link target='_blank' href='/company-api'>
+            <Link href='/company-api'>
               <StyledButtonGhost className='smoothAPIButtonGhost'>
                 {data.buttonScreen4LearnMore}
               </StyledButtonGhost>

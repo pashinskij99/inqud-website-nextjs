@@ -1,5 +1,6 @@
 import Image from 'next/image'
 // import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 import { useContext } from 'react'
 import {
   StyledTypographyUrbanistBody,
@@ -194,7 +195,11 @@ function StepCart({ image, title, time, button }) {
         {title}
       </StyledTypographyUrbanistH4>
       {!time && button ? (
-        <ButtonLearnMore className='step-cart-button'>{button}</ButtonLearnMore>
+        <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
+          <ButtonLearnMore className='step-cart-button'>
+            {button}
+          </ButtonLearnMore>
+        </Link>
       ) : (
         <div className='step-cart-time-wrapper'>
           <TimeIcon />

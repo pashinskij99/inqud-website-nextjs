@@ -149,6 +149,8 @@ export const StyledHeroB2CSectionWrapper = styled.section`
 `
 
 export const StyledSubTitle = styled(StyledTypographyIBMH5)`
+  font-size: ${rem(24)};
+
   color: #517185;
   border-radius: 32px;
   background: conic-gradient(
@@ -168,7 +170,6 @@ export const StyledSubTitle = styled(StyledTypographyIBMH5)`
   align-items: center;
 
   ${responsive.sm`
-    font-size: ${rem(24)};
     padding: ${rem(5)} ${rem(16)};
   `};
 `

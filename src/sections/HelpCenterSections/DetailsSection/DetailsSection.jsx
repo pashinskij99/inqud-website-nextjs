@@ -1,11 +1,12 @@
-'use client';
+'use client'
 
-import clsx from 'clsx';
-import { useContext, useEffect, useState } from 'react';
-import { InView } from 'react-intersection-observer';
-import { Element, Link } from 'react-scroll';
-import { StructuredText } from 'react-datocms/structured-text';
-import { useDispatch, useSelector } from 'react-redux';
+import clsx from 'clsx'
+import { useContext, useEffect, useState } from 'react'
+import { InView } from 'react-intersection-observer'
+import { Element, Link } from 'react-scroll'
+import NextLink from 'next/link'
+import { StructuredText } from 'react-datocms/structured-text'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   StyledCenterSideWrapper,
   StyledContentItemAccordion,
@@ -14,38 +15,38 @@ import {
   StyledLeftSideWrapper,
   StyledPersonalSectionWrapper,
   StyledRightSideWrapper,
-} from '@/sections/HelpCenterSections/DetailsSection/DetailsSection.styled';
+} from '@/sections/HelpCenterSections/DetailsSection/DetailsSection.styled'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH4,
   StyledTypographyUrbanistH5,
-} from '@/components/UI/Typography/Typography.styled';
-import DislikeIcon from '@/assets/images/help-center/dislike.svg';
-import LikeIcon from '@/assets/images/help-center/like.svg';
-import MessageIcon from '@/assets/images/help-center/message.svg';
-import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled';
-import Plus from '@/assets/icons/plus.svg';
-import Minus from '@/assets/icons/minus.svg';
+} from '@/components/UI/Typography/Typography.styled'
+import DislikeIcon from '@/assets/images/help-center/dislike.svg'
+import LikeIcon from '@/assets/images/help-center/like.svg'
+import MessageIcon from '@/assets/images/help-center/message.svg'
+import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
+import Plus from '@/assets/icons/plus.svg'
+import Minus from '@/assets/icons/minus.svg'
 import {
   ArticleContext,
   ArticleProvider,
-} from '@/contexts/ArticleContext/ArticleContext';
+} from '@/contexts/ArticleContext/ArticleContext'
 import {
   HelpCentreDetailsContext,
   HelpCentreDetailsProvider,
-} from '@/contexts/HelpCentreDetailsContext/HelpCentreDetailsContext';
-import { setBlogBreadcrumbs } from '@/store/features/breadcrumb/breadcrumbSlice';
+} from '@/contexts/HelpCentreDetailsContext/HelpCentreDetailsContext'
+import { setBlogBreadcrumbs } from '@/store/features/breadcrumb/breadcrumbSlice'
 
 function DetailsSection({ data, type }) {
-  const { tab } = useSelector((state) => state.activeTab);
-  const dispatch = useDispatch();
+  const { tab } = useSelector((state) => state.activeTab)
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(setBlogBreadcrumbs(data.helpCentre.mainTitle));
+    dispatch(setBlogBreadcrumbs(data.helpCentre.mainTitle))
 
     return () => {
-      dispatch(setBlogBreadcrumbs(''));
-    };
-  }, [tab, data]);
+      dispatch(setBlogBreadcrumbs(''))
+    }
+  }, [tab, data])
 
   return (
     <HelpCentreDetailsProvider data={data} type={type}>
@@ -53,31 +54,31 @@ function DetailsSection({ data, type }) {
         <DetailsSectionInner />
       </ArticleProvider>
     </HelpCentreDetailsProvider>
-  );
+  )
 }
 
 function DetailsSectionInner() {
-  const [expanded, setExpanded] = useState('');
-  const { activeHeader, setActiveHeader } = useContext(ArticleContext);
-  const { data } = useContext(HelpCentreDetailsContext);
+  const [expanded, setExpanded] = useState('')
+  const { activeHeader, setActiveHeader } = useContext(ArticleContext)
+  const { data } = useContext(HelpCentreDetailsContext)
   const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
-  };
+    setExpanded(newExpanded ? panel : false)
+  }
 
   useEffect(() => {
     if (data.content) {
-      setActiveHeader(data.content[0].title);
+      setActiveHeader(data.content[0].title)
     }
-  }, [data]);
+  }, [data])
 
   return (
     <StyledPersonalSectionWrapper>
-      <div className="container">
+      <div className='container'>
         <StyledLeftSideWrapper>
-          <StyledTypographyUrbanistH5 className="title">
+          <StyledTypographyUrbanistH5 className='title'>
             {data.mainTitle}
           </StyledTypographyUrbanistH5>
-          <ul className="list">
+          <ul className='list'>
             {data?.content?.map(({ id, title }) => (
               <li
                 key={id}
@@ -110,64 +111,69 @@ function DetailsSectionInner() {
           ))}
         </StyledCenterSideWrapper>
         <StyledRightSideWrapper>
-          <div className="cart">
-            <div className="cart-left-side">
+          <div className='cart'>
+            <div className='cart-left-side'>
               <MessageIcon />
             </div>
-            <div className="cart-right-side">
-              <StyledTypographyUrbanistBody className="cart-title">
+            <div className='cart-right-side'>
+              <StyledTypographyUrbanistBody className='cart-title'>
                 Didn’t get an answers?
               </StyledTypographyUrbanistBody>
 
-              <StyledButtonLearnMore className="cart-button">
-                <StyledTypographyUrbanistBody className="cart-button-text">
-                  Contact us
-                </StyledTypographyUrbanistBody>
+              <StyledButtonLearnMore className='cart-button'>
+                <NextLink
+                  href='https://www.figma.com/file/g8vmnkHQy5n7SDAks9S0v6/inqud?type=design&node-id=2377-117526&mode=design&t=6yq52EWlUoti5nLT-4'
+                  target='_blank'
+                >
+                  <StyledTypographyUrbanistBody className='cart-button-text'>
+                    Contact us
+                  </StyledTypographyUrbanistBody>
+                </NextLink>
               </StyledButtonLearnMore>
             </div>
           </div>
         </StyledRightSideWrapper>
       </div>
     </StyledPersonalSectionWrapper>
-  );
+  )
 }
 
 function Content({ title, description, expanded, handleChange }) {
-  const { setActiveHeader } = useContext(ArticleContext);
+  const { setActiveHeader } = useContext(ArticleContext)
 
   return (
     <>
-      <Element className="content content-1" name={title}>
+      <Element className='content content-1' name={title}>
         <InView
           threshold={0}
-          as="div"
+          as='div'
           id={title}
-          rootMargin="-30% 0px -70% 0px"
+          rootMargin='-30% 0px -70% 0px'
           onChange={(inView) => (inView ? setActiveHeader(title) : null)}
         >
-          <div className="">
-            <StyledTypographyUrbanistH4 className="content-title">
+          <div className=''>
+            <StyledTypographyUrbanistH4 className='content-title'>
               {title}
             </StyledTypographyUrbanistH4>
-            <div className="content-description-wrapper">
+            <div className='content-description-wrapper'>
               {description.map(({ description, id }) => (
                 // eslint-disable-next-line no-undef, react/no-array-index-key
                 <StyledTypographyUrbanistBody
                   // eslint-disable-next-line react/no-array-index-key
                   key={id}
-                  className="content-description"
+                  className='content-description'
                 >
                   <StructuredText key={id} data={description} />
                 </StyledTypographyUrbanistBody>
               ))}
             </div>
 
-            <div className="content-footer">
-              <StyledTypographyUrbanistBody className="content-footer-text">
+            <div className='content-footer'>
+              <StyledTypographyUrbanistBody className='content-footer-text'>
                 Did this answer your question?
               </StyledTypographyUrbanistBody>
 
-              <div className="likeOrDislike">
+              <div className='likeOrDislike'>
                 <DislikeIcon />
                 <LikeIcon />
               </div>
@@ -175,7 +181,7 @@ function Content({ title, description, expanded, handleChange }) {
           </div>
         </InView>
       </Element>
-      <div className="content content-2">
+      <div className='content content-2'>
         <ContentAccordionItem
           title={title}
           description={description}
@@ -184,7 +190,7 @@ function Content({ title, description, expanded, handleChange }) {
         />
       </div>
     </>
-  );
+  )
 }
 
 function ContentAccordionItem({ title, expanded, description, handleChange }) {
@@ -197,29 +203,29 @@ function ContentAccordionItem({ title, expanded, description, handleChange }) {
         expanded={expanded === title}
         expandIcon={expanded === title ? <Minus /> : <Plus />}
       >
-        <StyledTypographyUrbanistH5 className="questionsAccordionTitle">
+        <StyledTypographyUrbanistH5 className='questionsAccordionTitle'>
           {title}
         </StyledTypographyUrbanistH5>
       </StyledContentItemAccordionSummary>
       <StyledContentItemAccordionDetails expanded={expanded === title}>
-        <StyledTypographyUrbanistBody className="questionsAccordionBodyText">
+        <StyledTypographyUrbanistBody className='questionsAccordionBodyText'>
           {description.map(({ description }) => (
             <StructuredText data={description} />
           ))}
         </StyledTypographyUrbanistBody>
-        <div className="content-footer">
-          <StyledTypographyUrbanistBody className="content-footer-text">
+        <div className='content-footer'>
+          <StyledTypographyUrbanistBody className='content-footer-text'>
             Did this answer your question?
           </StyledTypographyUrbanistBody>
 
-          <div className="likeOrDislike">
+          <div className='likeOrDislike'>
             <DislikeIcon />
             <LikeIcon />
           </div>
         </div>
       </StyledContentItemAccordionDetails>
     </StyledContentItemAccordion>
-  );
+  )
 }
 
-export default DetailsSection;
+export default DetailsSection

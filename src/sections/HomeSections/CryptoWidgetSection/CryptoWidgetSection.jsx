@@ -103,10 +103,11 @@ export default function CryptoWidgetSection() {
                 {data.buttonScreen3GetStarted}
               </ButtonGetStartedLight>
             </Link>
-
-            <StyledButtonGhost className='cryptoButtonGhost'>
-              {data.buttonScreen3LearnMore}
-            </StyledButtonGhost>
+            <Link href='/crypto-widget'>
+              <StyledButtonGhost className='cryptoButtonGhost'>
+                {data.buttonScreen3LearnMore}
+              </StyledButtonGhost>
+            </Link>
           </div>
         </div>
 

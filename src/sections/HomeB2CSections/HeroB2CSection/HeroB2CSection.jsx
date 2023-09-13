@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import Link from 'next/link'
 import { StructuredText } from 'react-datocms/structured-text'
 import { useWindowSize } from '@uidotdev/usehooks'
 import {
@@ -42,10 +43,11 @@ export default function HeroB2CSection() {
             <StyledTypographyUrbanistH5 className='description'>
               <StructuredText data={data.description} />
             </StyledTypographyUrbanistH5>
-
-            <ButtonGetStarted className='get-started-btn'>
-              {data.buttonScreen1}
-            </ButtonGetStarted>
+            <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
+              <ButtonGetStarted className='get-started-btn'>
+                {data.buttonScreen1}
+              </ButtonGetStarted>
+            </Link>
           </div>
 
           <PaymentList />

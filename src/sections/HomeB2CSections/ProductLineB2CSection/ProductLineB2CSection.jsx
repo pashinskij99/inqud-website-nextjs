@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useContext } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 // import { useTranslations } from 'next-intl'
 import {
@@ -284,9 +285,11 @@ function TabContent({ title, description, grid, picture, button }) {
             ))}
           </div>
 
-          <ButtonGetStarted className='content-grid-item-button'>
-            {button}
-          </ButtonGetStarted>
+          <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
+            <ButtonGetStarted className='content-grid-item-button'>
+              {button}
+            </ButtonGetStarted>
+          </Link>
         </div>
         <div className='right-side'>
           <div className='image-wrapper'>

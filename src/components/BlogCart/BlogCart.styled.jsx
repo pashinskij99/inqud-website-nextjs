@@ -68,6 +68,7 @@ export const StyledBlogCartWrapper = styled.div`
   }
 
   .subTitle {
+    font-size: 18px;
     text-overflow: ellipsis;
     overflow: hidden;
     width: auto;
@@ -81,7 +82,6 @@ export const StyledBlogCartWrapper = styled.div`
     margin-bottom: ${rem(16)};
     line-height: 1;
     ${responsive.xs`
-      font-size: ${rem(14)};
       padding: ${rem(8)} ${rem(12)} ${rem(7)} ${rem(12)};
       margin: 0 auto ${rem(12)};
     `}
