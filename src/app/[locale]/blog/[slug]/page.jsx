@@ -26,7 +26,6 @@ query Blog($slug: ItemId, $locale: SiteLocale) {
       product
     }
     professionAuthor
-    slugPage
     titlesForNavigation
     timeToRead
     _createdAt

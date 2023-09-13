@@ -1,5 +1,5 @@
-import { performRequest } from '@/lib/datocms';
-import BlogsPage from '@/views/BlogsPage';
+import { performRequest } from '@/lib/datocms'
+import BlogsPage from '@/views/BlogsPage'
 
 async function Page({ searchParams, params }) {
   const PRODUCTS_QUERY = `
@@ -8,7 +8,7 @@ async function Page({ searchParams, params }) {
         id
       }
     }
-  `;
+  `
 
   const INDUSTRIES_QUERY = `
     query Industries {
@@ -16,25 +16,25 @@ async function Page({ searchParams, params }) {
         id
       }
     }
-  `;
+  `
   const { allProducts } = await performRequest({
     query: PRODUCTS_QUERY,
     revalidate: 0,
     variables: {
       locale: params.locale,
     },
-  });
+  })
   const { allIndustries } = await performRequest({
     query: INDUSTRIES_QUERY,
     revalidate: 0,
     variables: {
       locale: params.locale,
     },
-  });
+  })
 
-  const idAllProducts = allProducts.map(({ id }) => id);
-  const idAllIndustries = allIndustries.map(({ id }) => id);
-  const tagIdArray = searchParams.tag ? searchParams.tag.split(',') : [];
+  const idAllProducts = allProducts.map(({ id }) => id)
+  const idAllIndustries = allIndustries.map(({ id }) => id)
+  const tagIdArray = searchParams.tag ? searchParams.tag.split(',') : []
 
   const PAGE_CONTENT_QUERY = `
   query Blog($first: IntType = 6, $skip: IntType = 0, $locale: SiteLocale) {
@@ -82,7 +82,6 @@ async function Page({ searchParams, params }) {
           tag
           id
         }
-        slugPage
         _createdAt
         timeToRead
         mainImage {
@@ -115,10 +114,10 @@ async function Page({ searchParams, params }) {
       id
       tag
     }
-  }`;
+  }`
 
-  const first = searchParams.first ? +searchParams.first : 12;
-  const skip = searchParams.skip ? +searchParams.skip : 0;
+  const first = searchParams.first ? +searchParams.first : 12
+  const skip = searchParams.skip ? +searchParams.skip : 0
   const { _allBlogsMeta, allBlogs, allTags, blogHeroSection } =
     await performRequest({
       query: PAGE_CONTENT_QUERY,
@@ -132,18 +131,18 @@ async function Page({ searchParams, params }) {
         industryId: idAllIndustries.length > 0 ? idAllIndustries : '',
         tagId: tagIdArray.length > 0 ? tagIdArray : '',
       },
-    });
+    })
 
   const tags = {
     allTags,
     activeTags: searchParams.tag ? searchParams.tag.split(',') : [],
-  };
+  }
 
   const pagination = {
     first,
     skip,
     count: _allBlogsMeta.count,
-  };
+  }
 
   return (
     <BlogsPage
@@ -153,7 +152,7 @@ async function Page({ searchParams, params }) {
       tags={tags}
       pagination={pagination}
     />
-  );
+  )
 }
 
-export default Page;
+export default Page

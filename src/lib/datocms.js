@@ -2,7 +2,7 @@
 import { cache } from 'react'
 
 const dedupedFetch = cache(async (serializedInit) => {
-  const endPoint = 'https://graphql.datocms.com'
+  const endPoint = 'https://graphql.datocms.com/preview'
   // const endPoint = 'https://graphql.datocms.com'
 
   const response = await fetch(endPoint, JSON.parse(serializedInit))
