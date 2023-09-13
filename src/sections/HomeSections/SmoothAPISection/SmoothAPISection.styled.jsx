@@ -110,6 +110,7 @@ export const StyledSmoothAPISection = styled.section`
           margin: 0 auto ${rem(40)};
         `};
         ${responsive.sm`
+          width: 100%;
           max-width: 100%;
           margin-bottom: ${rem(28)};
           height: fit-content;

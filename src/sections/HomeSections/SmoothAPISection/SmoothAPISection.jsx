@@ -28,16 +28,6 @@ export default function SmoothAPISection() {
     <StyledSmoothAPISection>
       <div className='container'>
         <div className='leftSide'>
-          {size.width <= responseBreakPoint.mobile ? (
-            <Animated2GifOnView
-              className='graphic'
-              height={600}
-              timeRepeat={5000}
-              urlSecondVideo='/video/b2b_api_mobile.gif'
-              timeSecondAnimate={5000}
-              width={500}
-            />
-          ) : null}
           {size.width > responseBreakPoint.tablet ? (
             <AnimatedVideoOnScroll
               className='graphic'
@@ -57,13 +47,27 @@ export default function SmoothAPISection() {
             {data.screen4Title}
           </StyledTypographyUrbanistH2>
 
-          <AnimatedVideoOnScroll
-            className='smoothAPIImageTablet'
-            height={600}
-            timeRepeat={5000}
-            urlFirstVideo='/video/b2b_api_video_tablet.mp4'
-            width={416.45}
-          />
+          {size.width <= responseBreakPoint.mobile ? (
+            <Animated2GifOnView
+              className='smoothAPIImageTablet'
+              height={232.88}
+              timeRepeat={5000}
+              urlSecondVideo='/video/b2b_api_mobile.gif'
+              timeSecondAnimate={5000}
+              width={343}
+            />
+          ) : null}
+
+          {size.width > responseBreakPoint.mobile &&
+          size.width < responseBreakPoint.desktop ? (
+            <AnimatedVideoOnScroll
+              className='smoothAPIImageTablet'
+              height={600}
+              timeRepeat={5000}
+              urlFirstVideo='/video/b2b_api_video_tablet.mp4'
+              width={416.45}
+            />
+          ) : null}
 
           <StyledTypographyUrbanistBody className='smoothAPIDescription desktop'>
             {data.screen4Description}

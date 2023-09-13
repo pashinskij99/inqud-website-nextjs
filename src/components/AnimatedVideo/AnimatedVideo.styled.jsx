@@ -28,7 +28,7 @@ export const StyledAnimatedGifWrapper = styled.div`
   position: relative;
   .image {
     &.hide {
-      opacity: 0;
+      display: none;
     }
   }
   .image-1 {
