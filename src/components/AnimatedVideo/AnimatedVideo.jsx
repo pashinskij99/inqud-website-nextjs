@@ -322,7 +322,7 @@ function Animated2GifOnView({
         <Image
           className={clsx('image image-1 hide', className)}
           src={urlSecondVideo}
-          alt='gif'
+          alt='gif1'
           width={width}
           height={height}
         />
@@ -331,7 +331,7 @@ function Animated2GifOnView({
             ['hide']: !gif2,
           })}
           src={gif2}
-          alt='gif'
+          alt='gif2'
           width={width}
           height={height}
         />
