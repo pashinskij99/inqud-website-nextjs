@@ -47,8 +47,3 @@ export const StyledAnimatedGifWrapper = styled.div`
     z-index: 1;
   }
 `
-
-export const ImageGifBlock = styled.div`
-  background-image: ${({ src }) => `url(${src})`};
-  height: 200px !important;
-`

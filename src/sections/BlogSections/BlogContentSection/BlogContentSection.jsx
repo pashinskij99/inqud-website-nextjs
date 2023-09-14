@@ -1,10 +1,15 @@
-import Link from 'next/link'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { Fragment, useContext, useEffect } from 'react'
 import { Element, Link as LinkAnchor } from 'react-scroll'
 import { InView } from 'react-intersection-observer'
 import { StructuredText } from 'react-datocms/structured-text'
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+} from 'next-share'
+import { usePathname } from 'next/navigation'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH4,
@@ -17,11 +22,12 @@ import {
   StyledLeftSide,
   StyledRightSide,
 } from './BlogContentSection.styled'
-import Linkedin from '@/assets/icons/linkedin.svg'
-import Twitter from '@/assets/icons/twitter.svg'
 import Facebook from '@/assets/icons/facebook.svg'
+import Twitter from '@/assets/icons/twitter.svg'
+import Linkedin from '@/assets/icons/linkedin.svg'
 import { BlogContext } from '@/contexts/BlogContext/BlogContext'
 import { ArticleContext } from '@/contexts/ArticleContext/ArticleContext'
+import { getURL } from '@/utils/getUrl'
 
 export default function BlogContentSection() {
   return (
@@ -35,14 +41,9 @@ export default function BlogContentSection() {
   )
 }
 
-const share = [
-  { id: 0, icon: <Facebook />, href: '#' },
-  { id: 1, icon: <Twitter />, href: '#' },
-  { id: 2, icon: <Linkedin />, href: '#' },
-]
-
 function LeftSide() {
   const { activeHeader } = useContext(ArticleContext)
+  const pathname = usePathname()
 
   const {
     data: { titlesForNavigation },
@@ -58,7 +59,13 @@ function LeftSide() {
               ['active']: activeHeader === title.trim(),
             })}
           >
-            <LinkAnchor to={title} offset={-100} spy smooth duration={500}>
+            <LinkAnchor
+              to={title.trim()}
+              offset={-100}
+              spy
+              smooth
+              duration={500}
+            >
               <StyledTypographyUrbanistBody
                 className={clsx('title', {
                   ['active']: activeHeader === title.trim(),
@@ -77,11 +84,15 @@ function LeftSide() {
         </StyledTypographyUrbanistBody>
 
         <ul className='share'>
-          {share.map(({ id, icon, href }) => (
-            <li key={id}>
-              <Link href={href}>{icon}</Link>
-            </li>
-          ))}
+          <FacebookShareButton url={getURL(pathname)}>
+            <Facebook />
+          </FacebookShareButton>
+          <LinkedinShareButton url={getURL(pathname)}>
+            <Linkedin />
+          </LinkedinShareButton>
+          <TwitterShareButton url={getURL(pathname)}>
+            <Twitter />
+          </TwitterShareButton>
         </ul>
       </div>
     </StyledLeftSide>
@@ -103,7 +114,7 @@ function CenterSide() {
       {bodyContent.map(
         ({ descriptions, descriptions2, id, selectedText, title, image }) =>
           title ? (
-            <Element className='content-section' name={title}>
+            <Element className='content-section' name={title.trim()}>
               <InView
                 threshold={0}
                 as='div'
@@ -252,12 +263,17 @@ function CartInfo({ title, description, imageSrc = '' }) {
 
         {isAuthor ? (
           <div className='description-wrapper'>
-            {description.map((item, i) => (
-              <StyledTypographyUrbanistBody key={item} className='description'>
-                {item}
-                {description.length - 1 !== i && ', '}
-              </StyledTypographyUrbanistBody>
-            ))}
+            <StyledTypographyUrbanistBody className='description'>
+              {description[0]}
+            </StyledTypographyUrbanistBody>
+
+            <StyledTypographyUrbanistBody className='description'>
+              {description.length > 1 ? <>,&nbsp;</> : null}
+            </StyledTypographyUrbanistBody>
+
+            <StyledTypographyUrbanistBody className='description'>
+              {description[1]}
+            </StyledTypographyUrbanistBody>
           </div>
         ) : (
           <StyledTypographyUrbanistBody className='description'>

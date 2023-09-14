@@ -1,5 +1,5 @@
-import HelpCenterPage from '@/views/HelpCenterPage';
-import { performRequest } from '@/lib/datocms';
+import HelpCenterPage from '@/views/HelpCenterPage'
+import { performRequest } from '@/lib/datocms'
 
 const HELP_CENTRE_QUERY = `
   query MyQuery($locale: SiteLocale) {
@@ -11,30 +11,28 @@ const HELP_CENTRE_QUERY = `
       backButton
     }
   }
-`;
+`
 
 const getData = async (variables) => {
   try {
-    const helpCentreData = await performRequest({
+    return await performRequest({
       query: HELP_CENTRE_QUERY,
       revalidate: 0,
       variables,
-    });
-
-    return helpCentreData;
+    })
   } catch (error) {
-    throw Error(error.message);
+    throw Error(error.message)
   }
-};
+}
 
 export default async function layout({ children, params }) {
-  const data = await getData({ locale: params.locale });
-  const page = '';
+  const data = await getData({ locale: params.locale })
+  const page = ''
   return (
-    <main className="layout">
+    <main className='layout'>
       <HelpCenterPage data={data} page={page}>
         {children}
       </HelpCenterPage>
     </main>
-  );
+  )
 }

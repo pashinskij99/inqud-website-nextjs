@@ -1,13 +1,20 @@
-'use client';
+'use client'
 
-// import { useEffect } from 'react'
-// import { useRouterScroll } from '@moxy/next-router-scroll'
-import { StyledBlogsPageWrapper } from '@/views/BlogsPage/BlogsPage.styled';
-import BlogsSection from '@/sections/BlogsSections/BlogsSection';
-import BlogsPageMainSection from '@/sections/BlogsSections/BlogsPageMainSection';
-import { BlogProvider } from '@/contexts/BlogContext/BlogContext';
+import { useLayoutEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { StyledBlogsPageWrapper } from '@/views/BlogsPage/BlogsPage.styled'
+import BlogsSection from '@/sections/BlogsSections/BlogsSection'
+import BlogsPageMainSection from '@/sections/BlogsSections/BlogsPageMainSection'
+import { BlogProvider } from '@/contexts/BlogContext/BlogContext'
 
 function BlogsPage({ data, tags, searchParams, pagination, heroSectionData }) {
+  const router = useRouter()
+
+  useLayoutEffect(
+    () => router.replace('/blog', undefined, { shallow: true }),
+    []
+  )
+
   return (
     <BlogProvider
       searchParams={searchParams}
@@ -22,7 +29,7 @@ function BlogsPage({ data, tags, searchParams, pagination, heroSectionData }) {
         <BlogsSection />
       </StyledBlogsPageWrapper>
     </BlogProvider>
-  );
+  )
 }
 
-export default BlogsPage;
+export default BlogsPage

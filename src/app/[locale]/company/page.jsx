@@ -1,5 +1,5 @@
-import { performRequest } from '@/lib/datocms';
-import CompanyPage from '@/views/CompanyPage';
+import { performRequest } from '@/lib/datocms'
+import CompanyPage from '@/views/CompanyPage'
 
 const COMPANY_PAGE_QUERY = `  
 query MyQuery($locale: SiteLocale) {
@@ -66,24 +66,22 @@ query MyQuery($locale: SiteLocale) {
     }
   }
 }
-`;
+`
 
 const getData = async (query, variables) => {
   try {
-    const data = await performRequest({
+    return await performRequest({
       query,
       revalidate: 0,
       variables,
-    });
-
-    return data;
+    })
   } catch (error) {
-    return {};
+    return {}
   }
-};
+}
 
 export default async function Page({ params }) {
-  const data = await getData(COMPANY_PAGE_QUERY, { locale: params.locale });
+  const data = await getData(COMPANY_PAGE_QUERY, { locale: params.locale })
 
-  return <CompanyPage data={data} />;
+  return <CompanyPage data={data} />
 }

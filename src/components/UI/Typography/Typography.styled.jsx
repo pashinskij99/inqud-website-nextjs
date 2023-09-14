@@ -3,21 +3,6 @@ import { nunito } from '@/utils/font'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
-export const StyledTypographyUrbanistDisplay = styled.p`
-  color: var(--directness-black, #2d3439);
-
-  ${nunito.style}
-  font-size: ${rem(80)};
-  font-weight: 400;
-  line-height: ${rem(90)};
-  letter-spacing: -${rem(1.6)};
-
-  ${responsive.xs`
-    font-size: ${rem(64)};
-    line-height: ${rem(74)};
-  `}
-`
-
 export const StyledTypographyUrbanistH1 = styled.h1`
   color: var(--directness-black, #2d3439);
 

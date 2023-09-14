@@ -194,13 +194,11 @@ const HOME_PAGE_QUERY = `
 
 const getData = async (query, variables) => {
   try {
-    const data = await performRequest({
+    return await performRequest({
       query,
       revalidate: 0,
       variables,
     })
-
-    return data
   } catch (error) {
     return {}
   }
