@@ -22,6 +22,7 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
+import gif from '@/assets/gif/b2b_hero_mobile.gif'
 
 export default function HeroSection() {
   const {
@@ -101,7 +102,7 @@ function MobileGrid() {
         preload='auto'
         muted
         autoPlay
-        src='/video/b2b_hero_mobile.gif'
+        src={gif}
         width={343}
         height={152}
       />

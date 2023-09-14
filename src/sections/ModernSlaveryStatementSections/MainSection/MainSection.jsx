@@ -20,8 +20,9 @@ function MainSection() {
         <StyledTypographyUrbanistBody>
           {t('paragraph3')}
         </StyledTypographyUrbanistBody>
+        {/* eslint-disable-next-line camelcase */}
         <a
-          href='https://drive.google.com/file/d/1q9ELmq4FIGKUVJdjNeYQndQJffXajNJH/view?usp=drive_link'
+          href='/file/modern_slavery_file.pdf'
           target='_blank'
           rel='noreferrer'
         >

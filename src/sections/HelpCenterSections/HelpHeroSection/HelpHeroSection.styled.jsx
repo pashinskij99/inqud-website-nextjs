@@ -149,6 +149,13 @@ export const StyledHelpHeroSectionWrapper = styled.section`
     }
   }
 
+  .tabs-wrapper {
+    display: contents;
+    &.hide {
+      visibility: hidden;
+    }
+  }
+
   .tabs {
     align-items: baseline;
     transform: translateX(-14.5px);

@@ -1,27 +1,30 @@
-import { Fragment, useContext, useState } from 'react';
-import clsx from 'clsx';
-import { DialogContent } from '@mui/material';
-import { useTranslations } from 'next-intl';
-import { StructuredText } from 'react-datocms/structured-text';
+import { Fragment, useContext, useState } from 'react'
+import clsx from 'clsx'
+import { DialogContent } from '@mui/material'
+import { useTranslations } from 'next-intl'
+import { StructuredText } from 'react-datocms/structured-text'
+import Image from 'next/image'
 import {
   StyledFeeModalWrapper,
+  StyledModalGetPersonalizedFormWrapper,
   StyledModalSendRequestWrapper,
-} from '@/components/Modal/Modal.styled';
-import Message from '@/assets/icons/message.svg';
+} from '@/components/Modal/Modal.styled'
+import Message from '@/assets/icons/message.svg'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH3,
   StyledTypographyUrbanistH4,
   StyledTypographyUrbanistSmallSpaces,
-} from '@/components/UI/Typography/Typography.styled';
-import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input';
-import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled';
-import Close from '@/assets/icons/close.svg';
-import { SelectPrimary } from '../UI/Select';
-import { PageContext } from '@/contexts/PageContext/PageContext';
+} from '@/components/UI/Typography/Typography.styled'
+import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
+import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
+import Close from '@/assets/icons/close.svg'
+import { SelectPrimary } from '../UI/Select'
+import { PageContext } from '@/contexts/PageContext/PageContext'
+import { GetPersonalizedForm } from '@/sections/ApiSections/Contact/Contact'
 
 export function ModalSendRequest({ open, handleClose, handleSubmit }) {
-  const t = useTranslations('home_page_your_needs_section_modal');
+  const t = useTranslations('home_page_your_needs_section_modal')
 
   const inputs = [
     {
@@ -38,22 +41,22 @@ export function ModalSendRequest({ open, handleClose, handleSubmit }) {
       name: 'message',
       type: 'textarea',
     },
-  ];
+  ]
 
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
-      <form onSubmit={handleSubmit} className="modalContainer">
-        <button className="closeButton" onClick={handleClose}>
+      <form onSubmit={handleSubmit} className='modalContainer'>
+        <button className='closeButton' onClick={handleClose}>
           <Close />
         </button>
-        <div className="header">
+        <div className='header'>
           <Message />
           <StyledTypographyUrbanistH3>{t('title')}</StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistBody>
             {t('description')}
           </StyledTypographyUrbanistBody>
         </div>
-        <div className="body">
+        <div className='body'>
           {inputs.map(({ id, name, label, placeholder, type }) =>
             type === 'textarea' ? (
               <TextAreaSendRequest
@@ -72,7 +75,7 @@ export function ModalSendRequest({ open, handleClose, handleSubmit }) {
             )
           )}
         </div>
-        <div className="footer">
+        <div className='footer'>
           <StyledButtonSecondary>{t('button_text')}</StyledButtonSecondary>
           <StyledTypographyUrbanistSmallSpaces>
             {t('footer_description')}
@@ -80,13 +83,13 @@ export function ModalSendRequest({ open, handleClose, handleSubmit }) {
         </div>
       </form>
     </StyledModalSendRequestWrapper>
-  );
+  )
 }
 
 export function ModalSubmitEmail({ open, handleClose, handleSubmit }) {
   const {
     dataPage: { homePage: data },
-  } = useContext(PageContext);
+  } = useContext(PageContext)
 
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
@@ -96,7 +99,9 @@ export function ModalSubmitEmail({ open, handleClose, handleSubmit }) {
         </button>
         <div className='header'>
           <Message />
-          <StyledTypographyUrbanistH3>{data.lead5Title}</StyledTypographyUrbanistH3>
+          <StyledTypographyUrbanistH3>
+            {data.lead5Title}
+          </StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistBody>
             {data.lead5Description}
           </StyledTypographyUrbanistBody>
@@ -200,15 +205,34 @@ const getTabContent = (tab) => {
   }
 }
 
+export function GetPersonalizedModal({ open, handleClose, data }) {
+  return (
+    <StyledModalGetPersonalizedFormWrapper open={open} onClose={handleClose}>
+      <GetPersonalizedForm
+        className='modalContainer'
+        data={data}
+        /* eslint-disable-next-line react/no-unstable-nested-components */
+        prop1={({ id, image, title }) => (
+          <li key={id}>
+            <Image src={image.url} alt='' width={48} height={48} />
+            <StyledTypographyUrbanistBody className='grid-title'>
+              {title}
+            </StyledTypographyUrbanistBody>
+          </li>
+        )}
+      />
+    </StyledModalGetPersonalizedFormWrapper>
+  )
+}
+
 export function FeeModal({ open, handleClose }) {
   const {
     dataPage: { cryptoLeadForm: leadData },
-  } = useContext(PageContext);
+  } = useContext(PageContext)
 
   const [industry, setIndustry] = useState('')
   const tabs = [leadData.tabs[0], leadData.tabs[1], leadData.tabs[2]]
   const [activeTab, setActiveTab] = useState(tabs[0])
-
 
   const handleChange = (event) => {
     setIndustry(event.target.value)
@@ -247,8 +271,7 @@ export function FeeModal({ open, handleClose }) {
       name: 'message',
       type: 'textarea',
       label: leadData.labelMessage,
-      placeholder:
-        leadData.title.placeholderMessage,
+      placeholder: leadData.title.placeholderMessage,
     },
   ]
 

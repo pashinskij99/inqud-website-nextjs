@@ -1,22 +1,15 @@
 import Image from 'next/image'
-// import { useTranslations } from 'next-intl'
 import { useContext } from 'react'
+import Link from 'next/link'
 import { StyledDevelopGuideWrapper } from './DevelopGuide.styled'
-// import image from '../../../assets/images/api/develop-guide/image.webp'
 import {
   StyledTypographyUrbanistH3,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
-// import { keysForLocale } from '@/config/keysForLocale'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export default function DevelopGuide() {
-  // const t = useTranslations('api_page.simplified_developer_section')
-  // const tButtonsGetStarted = useTranslations(
-  //   'api_page.instant_fee_section.button_get_started'
-  // )
-
   const {
     dataPage: { apiPage: data },
   } = useContext(PageContext)
@@ -36,22 +29,21 @@ export default function DevelopGuide() {
         </div>
         <div className='right-side'>
           <StyledTypographyUrbanistH3 className='title'>
-            {/* {t('title')} */}
             {data.screen5Title}
           </StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistH5 className='description'>
-            {/* {t('description')} */}
             {data.screen5Description}
           </StyledTypographyUrbanistH5>
-
-          <ButtonGetStarted className='get-started-button get-started-button-1'>
-            {/* {t('button_text_get_started')} */}
-            {data.buttonScreen5}
-          </ButtonGetStarted>
-          <ButtonGetStarted className='get-started-button get-started-button-2'>
-            {/* {tButtonsGetStarted(keysForLocale.keys2[0])} */}
-            {data.buttonScreen5}
-          </ButtonGetStarted>
+          <Link target='_blank' href='https://docs.inqud.com/'>
+            <ButtonGetStarted className='get-started-button get-started-button-1'>
+              {data.buttonScreen5}
+            </ButtonGetStarted>
+          </Link>
+          <Link target='_blank' href='https://docs.inqud.com/'>
+            <ButtonGetStarted className='get-started-button get-started-button-2'>
+              {data.buttonScreen5}
+            </ButtonGetStarted>
+          </Link>
         </div>
       </div>
     </StyledDevelopGuideWrapper>

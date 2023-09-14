@@ -26,14 +26,16 @@ export const StyledCryptoWidgetWrapper = styled.main`
   }
 
   .tutorial {
+    padding-top: 0px;
+
     ${responsive.xxl`
-      padding-top: 191px;
+      padding-top: 0px;
     `}
     ${responsive.xl`
-      padding-top: 120px;
+      padding-top: 0px;
     `}
     ${responsive.sm`
-      padding-top: 96px;
+      padding-top: 0px;
     `}
   }
 

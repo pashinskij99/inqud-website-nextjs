@@ -1,3 +1,7 @@
-import {ModalSendRequest, ModalSubmitEmail} from '@/components/Modal/Modal';
+import {
+  GetPersonalizedModal,
+  ModalSendRequest,
+  ModalSubmitEmail,
+} from '@/components/Modal/Modal'
 
-export {ModalSendRequest, ModalSubmitEmail}
+export { ModalSendRequest, ModalSubmitEmail, GetPersonalizedModal }

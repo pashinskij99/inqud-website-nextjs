@@ -7,6 +7,7 @@ import { Element, Link } from 'react-scroll'
 import NextLink from 'next/link'
 import { StructuredText } from 'react-datocms/structured-text'
 import { useDispatch, useSelector } from 'react-redux'
+import { useSearchParams } from 'next/navigation'
 import {
   StyledCenterSideWrapper,
   StyledContentItemAccordion,
@@ -36,9 +37,11 @@ import {
   HelpCentreDetailsProvider,
 } from '@/contexts/HelpCentreDetailsContext/HelpCentreDetailsContext'
 import { setBlogBreadcrumbs } from '@/store/features/breadcrumb/breadcrumbSlice'
+import { SearchResultDetailsSection } from '@/sections/HelpCenterSections/SearchResultSection'
 
 function DetailsSection({ data, type }) {
   const { tab } = useSelector((state) => state.activeTab)
+  const searchParams = useSearchParams()
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(setBlogBreadcrumbs(data.helpCentre.mainTitle))
@@ -47,11 +50,11 @@ function DetailsSection({ data, type }) {
       dispatch(setBlogBreadcrumbs(''))
     }
   }, [tab, data])
-
+  const searchIn = searchParams.get('searchIn')
   return (
-    <HelpCentreDetailsProvider data={data} type={type}>
+    <HelpCentreDetailsProvider searchIn={searchIn} data={data} type={type}>
       <ArticleProvider>
-        <DetailsSectionInner />
+        {searchIn ? <SearchResultDetailsSection /> : <DetailsSectionInner />}
       </ArticleProvider>
     </HelpCentreDetailsProvider>
   )

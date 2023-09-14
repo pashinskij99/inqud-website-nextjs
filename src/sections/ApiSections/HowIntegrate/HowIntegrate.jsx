@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { useContext } from 'react'
+import Link from 'next/link'
 import {
   StyledHowIntegrateWrapper,
   StyledStepCartHowIntegrateWrapper,
@@ -110,10 +111,11 @@ export default function minHowIntegrate() {
             )
           )}
         </div>
-
-        <ButtonGetStarted className='get-started-button'>
-          {data.screen3Button}
-        </ButtonGetStarted>
+        <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
+          <ButtonGetStarted className='get-started-button'>
+            {data.screen3Button}
+          </ButtonGetStarted>
+        </Link>
       </div>
     </StyledHowIntegrateWrapper>
   )

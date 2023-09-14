@@ -19,6 +19,7 @@ import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
 import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 // import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
+import gif from '@/assets/gif/b2b_crypto_widget_mobile.gif'
 
 export default function CryptoWidgetSection() {
   const t = useTranslations('home_page_crypto_widget_section')
@@ -60,7 +61,7 @@ export default function CryptoWidgetSection() {
                 className='cryptoWidgetMobileSmaller'
                 height={600}
                 timeRepeat={5000}
-                urlSecondVideo='/video/b2b_crypto_widget_mobile.gif'
+                urlSecondVideo={gif.src}
                 timeSecondAnimate={5000}
                 width={500}
               />

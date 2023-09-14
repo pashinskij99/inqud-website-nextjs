@@ -1,3 +1,6 @@
-import SearchResultSection from './SearchResultSection'
+import {
+  SearchResultDetailsSection,
+  SearchResultSection,
+} from './SearchResultSection'
 
-export default SearchResultSection
+export { SearchResultSection, SearchResultDetailsSection }
