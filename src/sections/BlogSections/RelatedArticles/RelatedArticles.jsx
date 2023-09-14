@@ -27,20 +27,13 @@ export default function RelatedArticles() {
 
         <div className='relatedBlogsGrid blogsGrid'>
           {relatedData.map(
-            ({
-              id,
-              _createdAt,
-              mainImage: { url },
-              timeToRead,
-              mainTag,
-              mainTitle,
-            }) => (
+            ({ id, _createdAt, mainImage, timeToRead, mainTag, mainTitle }) => (
               <Link href={`/blog/${id}`}>
                 <BlogCart
                   time={timeToRead}
                   title={mainTitle}
                   date={_createdAt}
-                  imageSrc={url}
+                  imageSrc={mainImage?.url || ''}
                   subTitle={mainTag?.tag}
                   key={id}
                 />
@@ -87,7 +80,7 @@ export default function RelatedArticles() {
             ({
               id,
               _createdAt,
-              mainImage: { url },
+              mainImage,
               timeToRead,
               mainTag,
               mainTitle,
@@ -99,7 +92,7 @@ export default function RelatedArticles() {
                     time={timeToRead}
                     title={mainTitle}
                     date={_createdAt}
-                    imageSrc={url}
+                    imageSrc={mainImage?.url || ''}
                     subTitle={mainTag?.tag}
                   />
                 </Link>
