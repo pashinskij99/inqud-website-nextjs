@@ -95,7 +95,8 @@ export const StyledHeaderWrapper = styled.header`
         &.business-link {
           border: 1px solid #07745333;
           font-weight: 700;
-          color: var(--independent-grey, #517185);
+
+          color: #077453;
         }
 
         ${responsive.sm`
