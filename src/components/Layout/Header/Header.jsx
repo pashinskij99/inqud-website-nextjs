@@ -9,13 +9,13 @@ import Logo from '../../../assets/icons/logo.svg'
 import LogoMobile from '../../../assets/icons/logo-header-mobile-without-text.svg'
 import { StyledHeaderWrapper } from './Header.styled'
 import HeaderDropdown from './HeaderDropdown'
-import HeaderLanguageSelect from './HeaderLanguageSelect'
 import {
   StyledButtonGhost,
   StyledButtonSecondary,
 } from '@/components/UI/Button/Button.styled'
 import HeaderMobileMenu from './HeaderMobileMenu'
 import { keysForLocale } from '@/config/keysForLocale'
+import HeaderLanguageSelect from '@/components/Layout/Header/HeaderLanguageSelect'
 
 export default function Header() {
   const [active, setActive] = useState(false)
