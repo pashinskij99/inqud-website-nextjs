@@ -5,6 +5,7 @@ import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
 import { useWindowSize } from '@uidotdev/usehooks'
 import { PopupModal, useCalendlyEventListener } from 'react-calendly'
+import GifPlayer from 'react-gif-player'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import {
   StyledHeroSectionWrapper,
@@ -119,10 +120,12 @@ export default function HeroSection() {
 function MobileGrid() {
   return (
     <StyledMobileGridWrapper>
-      <Image
+      <GifPlayer
         priority
         loading='eager'
-        src='/video/b2b_hero_mobile.gif'
+        autoplay
+        still='/video/b2b_hero_mobile.webp'
+        gif='/video/b2b_hero_mobile.gif'
         alt='animation'
         width={343}
         height={152}
