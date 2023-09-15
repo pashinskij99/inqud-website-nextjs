@@ -6,6 +6,19 @@ query MyQuery($locale: SiteLocale) {
   homePage(locale: $locale) {
     buttonBlog
   }
+  allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: 3) {
+    id
+    mainTitle
+    mainTag {
+      tag
+      id
+    }
+    timeToRead
+    _createdAt
+    mainImage {
+      url
+    }
+  }
 
   homeB2c(locale: $locale) {
     title
