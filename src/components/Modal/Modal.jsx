@@ -23,7 +23,14 @@ import { SelectPrimary } from '../UI/Select'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { GetPersonalizedForm } from '@/sections/ApiSections/Contact/Contact'
 
-export function ModalSendRequest({ open, handleClose, handleSubmit }) {
+export function ModalSendRequest({
+  open,
+  handleClose,
+  handleSubmit,
+  onSubmit,
+  errors,
+  register,
+}) {
   const t = useTranslations('home_page_your_needs_section_modal')
 
   const inputs = [
@@ -45,7 +52,7 @@ export function ModalSendRequest({ open, handleClose, handleSubmit }) {
 
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
-      <form onSubmit={handleSubmit} className='modalContainer'>
+      <form onSubmit={handleSubmit(onSubmit)} className='modalContainer'>
         <button className='closeButton' onClick={handleClose}>
           <Close />
         </button>
@@ -60,14 +67,18 @@ export function ModalSendRequest({ open, handleClose, handleSubmit }) {
           {inputs.map(({ id, name, label, placeholder, type }) =>
             type === 'textarea' ? (
               <TextAreaSendRequest
+                register={register}
                 key={id}
+                helperTextBottom={errors.message?.message}
                 name={name}
                 label={label}
                 placeholder={placeholder}
               />
             ) : (
               <InputSendRequest
+                register={register}
                 key={id}
+                helperTextBottom={errors.email?.message}
                 name={name}
                 label={label}
                 placeholder={placeholder}
@@ -76,7 +87,9 @@ export function ModalSendRequest({ open, handleClose, handleSubmit }) {
           )}
         </div>
         <div className='footer'>
-          <StyledButtonSecondary>{t('button_text')}</StyledButtonSecondary>
+          <StyledButtonSecondary type='submit'>
+            {t('button_text')}
+          </StyledButtonSecondary>
           <StyledTypographyUrbanistSmallSpaces>
             {t('footer_description')}
           </StyledTypographyUrbanistSmallSpaces>
@@ -86,14 +99,21 @@ export function ModalSendRequest({ open, handleClose, handleSubmit }) {
   )
 }
 
-export function ModalSubmitEmail({ open, handleClose, handleSubmit }) {
+export function ModalSubmitEmail({
+  open,
+  handleClose,
+  errors,
+  handleSubmit,
+  onSubmit,
+  register,
+}) {
   const {
     dataPage: { homePage: data },
   } = useContext(PageContext)
 
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
-      <form onSubmit={handleSubmit} className='modalContainer'>
+      <form onSubmit={handleSubmit(onSubmit)} className='modalContainer'>
         <button className='closeButton' onClick={handleClose}>
           <Close />
         </button>
@@ -108,13 +128,17 @@ export function ModalSubmitEmail({ open, handleClose, handleSubmit }) {
         </div>
         <div className='body'>
           <InputSendRequest
+            register={register}
             name='email'
+            helperTextBottom={errors.email?.message}
             label=''
             placeholder='example@mail.com'
           />
         </div>
         <div className='footer'>
-          <StyledButtonSecondary>{data.lead5ButtonText}</StyledButtonSecondary>
+          <StyledButtonSecondary type='submit'>
+            {data.lead5ButtonText}
+          </StyledButtonSecondary>
           <StyledTypographyUrbanistSmallSpaces>
             <StructuredText data={data.lead5FooterDescription} />
           </StyledTypographyUrbanistSmallSpaces>
@@ -133,11 +157,16 @@ const getInput = ({
   placeholder,
   handleChange,
   industry,
+  errors,
+  register,
+  control,
 }) => {
   switch (type) {
     case 'text':
       return (
         <InputSendRequest
+          helperTextBottom={errors[name]?.message}
+          register={register}
           label={label}
           type={type}
           name={name}
@@ -147,6 +176,8 @@ const getInput = ({
     case 'textarea':
       return (
         <TextAreaSendRequest
+          helperTextBottom={errors[name]?.message}
+          register={register}
           name={name}
           label={label}
           placeholder={placeholder}
@@ -155,8 +186,11 @@ const getInput = ({
     case 'select':
       return (
         <SelectPrimary
+          helperTextBottom={errors[name]?.message}
+          register={register}
           name={name}
           label={label}
+          control={control}
           placeholder={placeholder}
           handleChange={handleChange}
           activeItem={industry}
@@ -168,49 +202,24 @@ const getInput = ({
   }
 }
 
-const getTabContent = (tab) => {
-  switch (tab) {
-    case 'Email':
-      return (
-        <InputSendRequest
-          classNameWrapper='tabInput'
-          name='email'
-          placeholder='example@mail.com'
-          type='email'
-          label='Email'
-        />
-      )
-    case 'Phone':
-      return (
-        <InputSendRequest
-          classNameWrapper='tabInput'
-          name='phone'
-          placeholder='+38067XXXXXXX'
-          type='text'
-          label='Phone'
-        />
-      )
-    case 'Whatsapp':
-      return (
-        <InputSendRequest
-          classNameWrapper='tabInput'
-          name='whatsapp'
-          placeholder='whatsapp username'
-          type='text'
-          label='Whatsapp'
-        />
-      )
-    default:
-      return null
-  }
-}
-
-export function GetPersonalizedModal({ open, handleClose, data }) {
+export function GetPersonalizedModal({
+  open,
+  handleClose,
+  data,
+  errors,
+  handleSubmit,
+  onSubmit,
+  register,
+}) {
   return (
     <StyledModalGetPersonalizedFormWrapper open={open} onClose={handleClose}>
       <GetPersonalizedForm
+        errors={errors}
         className='modalContainer'
         data={data}
+        handleSubmit={handleSubmit}
+        onSubmit={onSubmit}
+        register={register}
         /* eslint-disable-next-line react/no-unstable-nested-components */
         prop1={({ id, image, title }) => (
           <li key={id}>
@@ -225,7 +234,18 @@ export function GetPersonalizedModal({ open, handleClose, data }) {
   )
 }
 
-export function FeeModal({ open, handleClose }) {
+export function FeeModal({
+  open,
+  lastError,
+  clearLastError,
+  handleClose,
+  errors,
+  register,
+  handleSubmit,
+  onSubmit,
+  control,
+  setValue,
+}) {
   const {
     dataPage: { cryptoLeadForm: leadData },
   } = useContext(PageContext)
@@ -240,15 +260,19 @@ export function FeeModal({ open, handleClose }) {
 
   const handleTab = (nameTab) => {
     setActiveTab(nameTab)
+    setValue(nameTab.toLowerCase(), '')
+    clearLastError()
   }
 
   const feeInputs = [
     {
       id: 0,
-      name: 'company',
+      name: 'company_name',
       type: 'text',
       label: leadData.labelCompany,
       placeholder: 'inqud',
+      errors,
+      register,
     },
     {
       id: 1,
@@ -256,6 +280,8 @@ export function FeeModal({ open, handleClose }) {
       type: 'text',
       label: leadData.labelWebsite,
       placeholder: 'www.inqud.com',
+      errors,
+      register,
     },
     {
       id: 2,
@@ -265,6 +291,9 @@ export function FeeModal({ open, handleClose }) {
       placeholder: 'Fintech',
       handleChange,
       industry,
+      errors,
+      register,
+      control,
     },
     {
       id: 3,
@@ -272,14 +301,59 @@ export function FeeModal({ open, handleClose }) {
       type: 'textarea',
       label: leadData.labelMessage,
       placeholder: leadData.title.placeholderMessage,
+      errors,
+      register,
     },
   ]
+
+  // const getTabContent = (tab) => {
+  //   switch (tab) {
+  //     case 'Email':
+  //       return (
+  //         <InputSendRequest
+  //           errors={errors}
+  //           register={register}
+  //           classNameWrapper='tabInput'
+  //           name='email'
+  //           placeholder='example@mail.com'
+  //           type='email'
+  //           label='Email'
+  //         />
+  //       )
+  //     case 'Phone':
+  //       return (
+  //         <InputSendRequest
+  //           errors={errors}
+  //           register={register}
+  //           classNameWrapper='tabInput'
+  //           name='phone'
+  //           placeholder='+38067XXXXXXX'
+  //           type='text'
+  //           label='Phone'
+  //         />
+  //       )
+  //     case 'Whatsapp':
+  //       return (
+  //         <InputSendRequest
+  //           helperTextBottom={errors.whatsapp?.message}
+  //           register={register}
+  //           classNameWrapper='tabInput'
+  //           name='whatsapp'
+  //           placeholder='whatsapp username'
+  //           type='text'
+  //           label='Whatsapp'
+  //         />
+  //       )
+  //     default:
+  //       return null
+  //   }
+  // }
 
   return (
     <StyledFeeModalWrapper scroll='body' open={open} onClose={handleClose}>
       <DialogContent>
         {/* <DialogContentText tabIndex={-1}> */}
-        <div className='modalContainer'>
+        <form onSubmit={handleSubmit(onSubmit)} className='modalContainer'>
           <button className='closeButton' onClick={handleClose}>
             <Close />
           </button>
@@ -303,6 +377,7 @@ export function FeeModal({ open, handleClose }) {
               {tabs.map((tab) => (
                 <button
                   key={tab}
+                  type='button'
                   onClick={() => handleTab(tab)}
                   className={clsx({
                     ['active']: activeTab === tab,
@@ -314,7 +389,45 @@ export function FeeModal({ open, handleClose }) {
                 </button>
               ))}
             </div>
-            <div className='tab-content'>{getTabContent(activeTab)}</div>
+            <div className='tab-content'>
+              {/* {getTabContent(activeTab)} */}
+              <InputSendRequest
+                helperTextBottom={lastError}
+                register={register}
+                classNameWrapper={clsx('tabInput', {
+                  ['hide']: activeTab !== 'Email',
+                })}
+                onChange={() => clearLastError()}
+                name='email'
+                placeholder='example@mail.com'
+                type='email'
+                label='Email'
+              />
+              <InputSendRequest
+                helperTextBottom={lastError}
+                register={register}
+                classNameWrapper={clsx('tabInput', {
+                  ['hide']: activeTab !== 'Phone',
+                })}
+                onChange={() => clearLastError()}
+                name='phone'
+                placeholder='+38067XXXXXXX'
+                type='text'
+                label='Phone'
+              />
+              <InputSendRequest
+                helperTextBottom={lastError}
+                register={register}
+                classNameWrapper={clsx('tabInput', {
+                  ['hide']: activeTab !== 'Whatsapp',
+                })}
+                onChange={() => clearLastError()}
+                name='whatsapp'
+                placeholder='whatsapp username'
+                type='text'
+                label='Whatsapp'
+              />
+            </div>
           </div>
           <div className='footer'>
             <button className='submit-btn'>
@@ -327,7 +440,7 @@ export function FeeModal({ open, handleClose }) {
               <StructuredText data={leadData.footerDescription} />
             </StyledTypographyUrbanistSmallSpaces>
           </div>
-        </div>
+        </form>
       </DialogContent>
     </StyledFeeModalWrapper>
   )

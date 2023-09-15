@@ -11,6 +11,16 @@ export const StyledSelectWrapper = styled.div`
     margin-left: ${rem(16)};
     line-height: 1;
   }
+
+  .inputTextHelperTextBottom {
+    margin-left: ${rem(16)};
+    text-align: start;
+    color: rgba(45, 52, 57, 0.6000000238418579);
+
+    &.error {
+      color: rgba(244, 92, 59, 1);
+    }
+  }
 `
 
 export const StyledSelect = styled(Select)`

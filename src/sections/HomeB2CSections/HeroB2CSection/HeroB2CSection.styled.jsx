@@ -149,7 +149,7 @@ export const StyledHeroB2CSectionWrapper = styled.section`
 `
 
 export const StyledSubTitle = styled(StyledTypographyIBMH5)`
-  font-size: ${rem(24)};
+  font-size: 18px;
 
   color: #517185;
   border-radius: 32px;

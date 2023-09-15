@@ -189,7 +189,25 @@ const HOME_PAGE_QUERY = `
       buttonText
       pickDescription
     }
+    allIndustries {
+      industry
+      id
+    }
+    allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: 3) {
+      id
+      mainTitle
+      mainTag {
+        tag
+        id
+      }
+      timeToRead
+      _createdAt
+      mainImage {
+        url
+      }
+    }
   }
+  
 `
 
 const getData = async (query, variables) => {
@@ -208,8 +226,6 @@ export default async function Home({ params }) {
   const data = await getData(HOME_PAGE_QUERY, {
     locale: params.locale,
   })
-
-  // console.log(data)
 
   return <HomePage data={data} />
 }

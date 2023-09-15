@@ -1,54 +1,72 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Scrollbar } from 'swiper/modules';
-import { Fragment, useContext, useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Scrollbar } from 'swiper/modules'
+import { Fragment, useContext, useState } from 'react'
+import { useTranslations } from 'next-intl'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
-} from '@/components/UI/Typography/Typography.styled';
+} from '@/components/UI/Typography/Typography.styled'
 import {
   StyledCoinsListWrapper,
   YourNeedsSectionWrapper,
-} from './YourNeedsSection.styled';
-import Image1 from '@/assets/images/your-needs/image1.png';
-import Image2 from '@/assets/images/your-needs/image2.png';
-import Image3 from '@/assets/images/your-needs/image3.png';
-import Coins1 from '@/assets/images/your-needs/Coins1.svg';
-import Coins2 from '@/assets/images/your-needs/Coins2.svg';
-import Coins3 from '@/assets/images/your-needs/Coins3.svg';
-import Coins4 from '@/assets/images/your-needs/Coins4.svg';
-import Coins5 from '@/assets/images/your-needs/Coins5.svg';
-import { CartRequirement } from '@/components/CartRequirement';
-import { ModalSendRequest } from '@/components/Modal';
-import { keysForLocale } from '@/config/keysForLocale';
-import { PageContext } from '@/contexts/PageContext/PageContext';
-import {submitForFormActiveCampaign} from '@/lib/activeCampaign';
+} from './YourNeedsSection.styled'
+import Image1 from '@/assets/images/your-needs/image1.png'
+import Image2 from '@/assets/images/your-needs/image2.png'
+import Image3 from '@/assets/images/your-needs/image3.png'
+import Coins1 from '@/assets/images/your-needs/Coins1.svg'
+import Coins2 from '@/assets/images/your-needs/Coins2.svg'
+import Coins3 from '@/assets/images/your-needs/Coins3.svg'
+import Coins4 from '@/assets/images/your-needs/Coins4.svg'
+import Coins5 from '@/assets/images/your-needs/Coins5.svg'
+import { CartRequirement } from '@/components/CartRequirement'
+import { ModalSendRequest } from '@/components/Modal'
+import { keysForLocale } from '@/config/keysForLocale'
+import { PageContext } from '@/contexts/PageContext/PageContext'
+import { createBlog } from '@/lib/datocms'
+import { userSchema2 } from '@/utils/userSchema'
 
 export default function YourNeedsSection() {
-  const [openModalSendRequest, setOpenModalSendRequest] = useState(false);
-  const t = useTranslations('home_page_your_needs_section');
-  const tList = useTranslations('home_page_your_needs_section_list_item_title');
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm({
+    defaultValues: {
+      email: '',
+      message: '',
+    },
+    resolver: yupResolver(userSchema2),
+  })
+
+  const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
+  const t = useTranslations('home_page_your_needs_section')
+  const tList = useTranslations('home_page_your_needs_section_list_item_title')
   const tList2 = useTranslations(
     'home_page_your_needs_section_list_item_description'
-  );
+  )
 
   const handleOpen = () => {
-    setOpenModalSendRequest(true);
-  };
+    setOpenModalSendRequest(true)
+  }
 
   const handleClose = () => {
-    setOpenModalSendRequest(false);
-  };
+    setOpenModalSendRequest(false)
+  }
 
   const {
     dataPage: { homePage: data },
-  } = useContext(PageContext);
+  } = useContext(PageContext)
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    await submitForFormActiveCampaign(event, '/api/create-contact', 2)
-  };
+  const onSubmit = async (data) => {
+    await createBlog({ data, modelId: '2537177' })
+
+    handleClose()
+    reset()
+  }
 
   const list = [
     {
@@ -72,32 +90,32 @@ export default function YourNeedsSection() {
       description: tList2(keysForLocale.keys3[2]),
       image: Image3.src,
     },
-  ];
+  ]
 
   return (
     <YourNeedsSectionWrapper>
-      <div className="container">
-        <StyledTypographyUrbanistH2 className="title title-desktop">
+      <div className='container'>
+        <StyledTypographyUrbanistH2 className='title title-desktop'>
           {t('title')}
         </StyledTypographyUrbanistH2>
-        <StyledTypographyUrbanistH1 className="title title-mobile">
+        <StyledTypographyUrbanistH1 className='title title-mobile'>
           {t('title')}
         </StyledTypographyUrbanistH1>
 
         <CoinsList />
 
-        <StyledTypographyUrbanistH5 className="subTitle subTitle-desktop">
+        <StyledTypographyUrbanistH5 className='subTitle subTitle-desktop'>
           {t('paragraph')}
         </StyledTypographyUrbanistH5>
 
-        <div className="listRequirements">
+        <div className='listRequirements'>
           {list.map(
             ({ id, buttonText, description, image, title, handleClick }) => (
               <CartRequirement
                 key={id}
                 buttonText={buttonText}
                 description={description}
-                href="#"
+                href='#'
                 handleClick={handleClick}
                 imageSrc={image}
                 title={title}
@@ -107,8 +125,8 @@ export default function YourNeedsSection() {
         </div>
 
         <Swiper
-          className="listRequirementsSwiper"
-          slidesPerView="auto"
+          className='listRequirementsSwiper'
+          slidesPerView='auto'
           centeredSlides
           initialSlide={1}
           updateOnWindowResize
@@ -143,11 +161,11 @@ export default function YourNeedsSection() {
           modules={[Scrollbar]}
         >
           {list.map(({ id, description, image, title, handleClick }) => (
-            <SwiperSlide className="listRequirementsSwiperItems" key={id}>
+            <SwiperSlide className='listRequirementsSwiperItems' key={id}>
               <CartRequirement
                 buttonText={id === 1 && data.buttonScreen2}
                 description={description}
-                href="#"
+                href='#'
                 handleClick={handleClick}
                 imageSrc={image}
                 title={title}
@@ -159,11 +177,14 @@ export default function YourNeedsSection() {
 
       <ModalSendRequest
         handleSubmit={handleSubmit}
+        onSubmit={onSubmit}
+        register={register}
         handleClose={handleClose}
+        errors={errors}
         open={openModalSendRequest}
       />
     </YourNeedsSectionWrapper>
-  );
+  )
 }
 
 const coinsList = [

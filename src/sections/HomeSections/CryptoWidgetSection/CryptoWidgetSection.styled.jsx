@@ -61,6 +61,7 @@ export const StyledCryptoWidgetSection = styled.section`
       border-radius: ${rem(50)};
       background: var(--exciting-lime, #bfffc8);
       color: #077453;
+      font-size: 18px;
       margin-bottom: 10px;
       line-height: 1;
       padding: ${rem(7)} ${rem(16)};

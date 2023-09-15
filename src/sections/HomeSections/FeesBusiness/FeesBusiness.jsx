@@ -1,60 +1,126 @@
-'use client';
+'use client'
 
-import { useContext, useState } from 'react';
-import clsx from 'clsx';
-import { render } from 'datocms-structured-text-to-html-string';
-import { StructuredText } from 'react-datocms/structured-text';
+import { useContext, useState } from 'react'
+import clsx from 'clsx'
+import { render } from 'datocms-structured-text-to-html-string'
+import { StructuredText } from 'react-datocms/structured-text'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH4,
   StyledTypographyUrbanistSmallSpaces,
-} from '@/components/UI/Typography/Typography.styled';
-import { StyledFeesBusinessWrapper } from './FeesBusiness.styled';
+} from '@/components/UI/Typography/Typography.styled'
+import { StyledFeesBusinessWrapper } from './FeesBusiness.styled'
 import {
   StyledButtonLearnMore,
   StyledButtonSecondaryLight,
-} from '@/components/UI/Button/Button.styled';
-import BackCart from '@/assets/images/fee/cart-back.svg';
-import { FeeModal } from '@/components/Modal/Modal';
-import { PageContext } from '@/contexts/PageContext/PageContext';
+} from '@/components/UI/Button/Button.styled'
+import BackCart from '@/assets/images/fee/cart-back.svg'
+import { FeeModal } from '@/components/Modal/Modal'
+import { PageContext } from '@/contexts/PageContext/PageContext'
+import { emailRegExp, phoneRegExp, userSchema8 } from '@/utils/userSchema'
+import { createBlog } from '@/lib/datocms'
 
-export default function FeesBusiness() {
-  const [showModal, setShowModal] = useState(false);
-  const [showMore, setShowMore] = useState(false);
+const checkValue = (key, value) => {
+  switch (key) {
+    case 'email':
+      return value.toLowerCase().match(emailRegExp)
+        ? 'valid'
+        : 'Email number is not valid'
+    case 'phone':
+      return value.toLowerCase().match(phoneRegExp)
+        ? 'valid'
+        : 'Phone number is not valid'
+    case 'whatsapp':
+      return value.toLowerCase().length >= 4
+        ? 'valid'
+        : 'Whatsapp username must be at least 4 characters'
+    default:
+      return null
+  }
+}
+
+const validateLastValues = (obj) => {
+  let result
+
+  Object.entries(obj).forEach(([key, value]) => {
+    if (value) {
+      result = checkValue(key, value)
+    }
+  })
+
+  return result || 'one of these fields must be filled'
+}
+
+export default function FeesBusiness({ modelId }) {
+  const [showModal, setShowModal] = useState(false)
+  const [showMore, setShowMore] = useState(false)
 
   const handleShowModal = () => {
-    setShowModal(true);
-  };
+    setShowModal(true)
+  }
 
   const handleHideModal = () => {
-    setShowModal(false);
-  };
+    setShowModal(false)
+  }
 
-  const hadleShowMore = () => setShowMore((prevState) => !prevState);
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+    setValue,
+    control,
+  } = useForm({
+    resolver: yupResolver(userSchema8),
+  })
+  const [lastError, setLastError] = useState('')
+  const clearLastError = () => {
+    setLastError('')
+  }
+
+  const onSubmit = async (data) => {
+    const resultCheck = validateLastValues({
+      email: data.email,
+      phone: data.phone,
+      whatsapp: data.whatsapp,
+    })
+    if (resultCheck === 'valid') {
+      await createBlog({ data, modelId })
+
+      handleHideModal()
+      reset()
+    } else {
+      setLastError(resultCheck)
+    }
+  }
+
+  const hadleShowMore = () => setShowMore((prevState) => !prevState)
 
   const {
     dataPage: { feesYourBusiness: data },
-  } = useContext(PageContext);
+  } = useContext(PageContext)
 
   return (
-    <StyledFeesBusinessWrapper className="fees">
-      <div className="container">
-        <div className="title-wrapper">
-          <StyledTypographyUrbanistH2 className="title title-1">
+    <StyledFeesBusinessWrapper className='fees'>
+      <div className='container'>
+        <div className='title-wrapper'>
+          <StyledTypographyUrbanistH2 className='title title-1'>
             {/* {t('title')} */}
             {data.title}
           </StyledTypographyUrbanistH2>
-          <StyledTypographyUrbanistH2 className="title title-2">
+          <StyledTypographyUrbanistH2 className='title title-2'>
             {data.title}
           </StyledTypographyUrbanistH2>
 
-          <StyledTypographyUrbanistBody className="description">
+          <StyledTypographyUrbanistBody className='description'>
             {data.description}
           </StyledTypographyUrbanistBody>
         </div>
 
-        <div className="content-wrapper">
+        <div className='content-wrapper'>
           <table>
             <thead>
               {data.tableHeader.map(({ description, id, title }) => (
@@ -90,7 +156,7 @@ export default function FeesBusiness() {
             </tbody>
           </table>
 
-          <div className="description-wrapper tablet">
+          <div className='description-wrapper tablet'>
             <StyledTypographyUrbanistSmallSpaces
               className={clsx('description', {
                 ['learnMore']: !showMore,
@@ -107,19 +173,19 @@ export default function FeesBusiness() {
 
             <StyledButtonLearnMore
               onClick={hadleShowMore}
-              className="learnMoreButton"
+              className='learnMoreButton'
             >
               {showMore ? 'Hide text' : 'Show more'}
             </StyledButtonLearnMore>
           </div>
 
-          <div className="cart">
-            <div className="cart-left-side">
+          <div className='cart'>
+            <div className='cart-left-side'>
               <StyledTypographyUrbanistH4>
                 {data.cartTitle}
               </StyledTypographyUrbanistH4>
             </div>
-            <div className="cart-right-side">
+            <div className='cart-right-side'>
               <StyledTypographyUrbanistBody>
                 {data.cartDescription}
               </StyledTypographyUrbanistBody>
@@ -127,20 +193,31 @@ export default function FeesBusiness() {
                 {data.cartButton}
               </StyledButtonSecondaryLight>
             </div>
-            <BackCart className="cart-back" />
+            <BackCart className='cart-back' />
           </div>
         </div>
 
-        <div className="description-wrapper">
+        <div className='description-wrapper'>
           <StructuredText data={data.footerDescription} />
         </div>
       </div>
 
-      <FeeModal open={showModal} handleClose={handleHideModal} />
+      <FeeModal
+        lastError={lastError}
+        clearLastError={clearLastError}
+        setValue={setValue}
+        control={control}
+        open={showModal}
+        handleClose={handleHideModal}
+        errors={errors}
+        register={register}
+        onSubmit={onSubmit}
+        handleSubmit={handleSubmit}
+      />
     </StyledFeesBusinessWrapper>
-  );
+  )
 }
 
 function LearnMoreText({ endText, text, showMore }) {
-  return <>{showMore ? text : text.substring(0, endText)}</>;
+  return <>{showMore ? text : text.substring(0, endText)}</>
 }

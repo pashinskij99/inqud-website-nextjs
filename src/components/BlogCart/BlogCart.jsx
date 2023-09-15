@@ -56,6 +56,11 @@ export function BlogCart({ imageSrc, date, time, subTitle, title }) {
 }
 
 export function BlogCart2({ imageSrc, date, time, subTitle, title }) {
+  const [currentDate, setCurrentDate] = useState({})
+
+  useEffect(() => {
+    setCurrentDate(getTimeForBlog(date))
+  }, [date])
   return (
     <StyledBlogCartWrapper2 className='cart'>
       <Image
@@ -75,7 +80,7 @@ export function BlogCart2({ imageSrc, date, time, subTitle, title }) {
 
       <div className='footer'>
         <StyledTypographyUrbanistBody className='date'>
-          {date}
+          {currentDate.date}
         </StyledTypographyUrbanistBody>
         <Dot />
         <StyledTypographyUrbanistBody className='time'>

@@ -4,10 +4,11 @@ import clsx from 'clsx'
 import { useContext, useEffect, useState } from 'react'
 import { InView } from 'react-intersection-observer'
 import { Element, Link } from 'react-scroll'
-import NextLink from 'next/link'
 import { StructuredText } from 'react-datocms/structured-text'
 import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'next/navigation'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
 import {
   StyledCenterSideWrapper,
   StyledContentItemAccordion,
@@ -22,8 +23,8 @@ import {
   StyledTypographyUrbanistH4,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-import DislikeIcon from '@/assets/images/help-center/dislike.svg'
-import LikeIcon from '@/assets/images/help-center/like.svg'
+// import DislikeIcon from '@/assets/images/help-center/dislike.svg'
+// import LikeIcon from '@/assets/images/help-center/like.svg'
 import MessageIcon from '@/assets/images/help-center/message.svg'
 import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
 import Plus from '@/assets/icons/plus.svg'
@@ -38,6 +39,9 @@ import {
 } from '@/contexts/HelpCentreDetailsContext/HelpCentreDetailsContext'
 import { setBlogBreadcrumbs } from '@/store/features/breadcrumb/breadcrumbSlice'
 import { SearchResultDetailsSection } from '@/sections/HelpCenterSections/SearchResultSection'
+import { userSchema2 } from '@/utils/userSchema'
+import { ModalSendRequest } from '@/components/Modal'
+import { createBlog } from '@/lib/datocms'
 
 function DetailsSection({ data, type }) {
   const { tab } = useSelector((state) => state.activeTab)
@@ -61,6 +65,21 @@ function DetailsSection({ data, type }) {
 }
 
 function DetailsSectionInner() {
+  const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm({
+    defaultValues: {
+      email: '',
+      message: '',
+    },
+    resolver: yupResolver(userSchema2),
+  })
+
   const [expanded, setExpanded] = useState('')
   const { activeHeader, setActiveHeader } = useContext(ArticleContext)
   const { data } = useContext(HelpCentreDetailsContext)
@@ -73,6 +92,21 @@ function DetailsSectionInner() {
       setActiveHeader(data.content[0].title)
     }
   }, [data])
+
+  const handleOpen = () => {
+    setOpenModalSendRequest(true)
+  }
+
+  const handleClose = () => {
+    setOpenModalSendRequest(false)
+  }
+
+  const onSubmit = async (data) => {
+    await createBlog({ data, modelId: '2537177' })
+
+    handleClose()
+    reset()
+  }
 
   return (
     <StyledPersonalSectionWrapper>
@@ -123,16 +157,22 @@ function DetailsSectionInner() {
                 Didn’t get an answers?
               </StyledTypographyUrbanistBody>
 
-              <StyledButtonLearnMore className='cart-button'>
-                <NextLink
-                  href='https://www.figma.com/file/g8vmnkHQy5n7SDAks9S0v6/inqud?type=design&node-id=2377-117526&mode=design&t=6yq52EWlUoti5nLT-4'
-                  target='_blank'
-                >
-                  <StyledTypographyUrbanistBody className='cart-button-text'>
-                    Contact us
-                  </StyledTypographyUrbanistBody>
-                </NextLink>
+              <StyledButtonLearnMore
+                onClick={handleOpen}
+                className='cart-button'
+              >
+                <StyledTypographyUrbanistBody className='cart-button-text'>
+                  Contact us
+                </StyledTypographyUrbanistBody>
               </StyledButtonLearnMore>
+              <ModalSendRequest
+                handleSubmit={handleSubmit}
+                onSubmit={onSubmit}
+                register={register}
+                handleClose={handleClose}
+                errors={errors}
+                open={openModalSendRequest}
+              />
             </div>
           </div>
         </StyledRightSideWrapper>
@@ -171,7 +211,7 @@ function Content({ title, description, expanded, handleChange }) {
               ))}
             </div>
 
-            <div className='content-footer'>
+            {/* <div className='content-footer'>
               <StyledTypographyUrbanistBody className='content-footer-text'>
                 Did this answer your question?
               </StyledTypographyUrbanistBody>
@@ -180,7 +220,7 @@ function Content({ title, description, expanded, handleChange }) {
                 <DislikeIcon />
                 <LikeIcon />
               </div>
-            </div>
+            </div> */}
           </div>
         </InView>
       </Element>
@@ -216,7 +256,7 @@ function ContentAccordionItem({ title, expanded, description, handleChange }) {
             <StructuredText data={description} />
           ))}
         </StyledTypographyUrbanistBody>
-        <div className='content-footer'>
+        {/* <div className='content-footer'>
           <StyledTypographyUrbanistBody className='content-footer-text'>
             Did this answer your question?
           </StyledTypographyUrbanistBody>
@@ -225,7 +265,7 @@ function ContentAccordionItem({ title, expanded, description, handleChange }) {
             <DislikeIcon />
             <LikeIcon />
           </div>
-        </div>
+        </div> */}
       </StyledContentItemAccordionDetails>
     </StyledContentItemAccordion>
   )

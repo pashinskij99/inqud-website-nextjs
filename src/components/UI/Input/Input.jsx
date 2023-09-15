@@ -31,7 +31,7 @@ export function InputText(props) {
         />
         <ErrorInput />
       </div>
-      <StyledTypographyUrbanistSmallSpaces className='inputTextHelperTextBottom'>
+      <StyledTypographyUrbanistSmallSpaces className='inputTextHelperTextBottom error'>
         {helperTextBottom}
       </StyledTypographyUrbanistSmallSpaces>
     </StyledInputTextWrapper>
@@ -65,25 +65,31 @@ export function InputSearch(props) {
 }
 
 export function InputSendRequest(props) {
-  const { classNameWrapper, label } = props
+  const { classNameWrapper, label, helperTextBottom, register, name } = props
   return (
     <StyledInputSendRequestWrapper className={classNameWrapper}>
       <StyledTypographyUrbanistSmallSpaces className='label'>
         {label}
       </StyledTypographyUrbanistSmallSpaces>
-      <input className='input' {...props} />
+      <input className='input' {...register(name)} {...props} />
+      <StyledTypographyUrbanistSmallSpaces className='inputTextHelperTextBottom error'>
+        {helperTextBottom}
+      </StyledTypographyUrbanistSmallSpaces>
     </StyledInputSendRequestWrapper>
   )
 }
 
 export function TextAreaSendRequest(props) {
-  const { classNameWrapper, label } = props
+  const { classNameWrapper, label, helperTextBottom, register, name } = props
   return (
     <StyledTextAreaSendRequest className={classNameWrapper}>
       <StyledTypographyUrbanistSmallSpaces className='label'>
         {label}
       </StyledTypographyUrbanistSmallSpaces>
-      <textarea className='input' {...props} />
+      <textarea className='input' {...register(name)} {...props} />
+      <StyledTypographyUrbanistSmallSpaces className='inputTextHelperTextBottom error'>
+        {helperTextBottom}
+      </StyledTypographyUrbanistSmallSpaces>
     </StyledTextAreaSendRequest>
   )
 }

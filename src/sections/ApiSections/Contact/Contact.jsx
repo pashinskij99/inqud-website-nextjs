@@ -2,6 +2,8 @@ import Image from 'next/image'
 import { useContext } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
 import clsx from 'clsx'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH4,
@@ -12,10 +14,20 @@ import background from '@/assets/images/api/contact/background.webp'
 import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
+import { userSchema2 } from '@/utils/userSchema'
+import { createBlog } from '@/lib/datocms'
 
-export function GetPersonalizedForm({ data, prop1, className }) {
+export function GetPersonalizedForm({
+  data,
+  handleSubmit,
+  onSubmit,
+  errors,
+  register,
+  prop1,
+  className,
+}) {
   return (
-    <form className={clsx('form', className)}>
+    <form onSubmit={handleSubmit(onSubmit)} className={clsx('form', className)}>
       <StyledTypographyUrbanistH4 className='title'>
         <StructuredText data={data.leadForm3Title} />
       </StyledTypographyUrbanistH4>
@@ -23,11 +35,18 @@ export function GetPersonalizedForm({ data, prop1, className }) {
       <ul className='grid'>{data.leadForm3Features.map(prop1)}</ul>
 
       <InputSendRequest
-        className='input'
+        name='email'
+        helperTextBottom={errors.email?.message}
+        register={register}
+        classNameWrapper='input-wrapper'
+        // className='input'
         label={data.leadForm3EmailLable}
         placeholder='example@mail.com'
       />
       <TextAreaSendRequest
+        name='message'
+        helperTextBottom={errors.message?.message}
+        register={register}
         classNameWrapper='textarea'
         label={data.leadForm3MessageLable}
         placeholder={data.leadForm3MessagePlaceholder}
@@ -52,6 +71,21 @@ export default function Contact() {
     dataPage: { apiPage: data },
   } = useContext(PageContext)
 
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm({
+    resolver: yupResolver(userSchema2),
+  })
+
+  const onSubmit = async (data) => {
+    await createBlog({ data, modelId: '2540348' })
+
+    reset()
+  }
+
   return (
     <StyledContactWrapper>
       <Image
@@ -62,6 +96,10 @@ export default function Contact() {
       />
       <div className='container'>
         <GetPersonalizedForm
+          handleSubmit={handleSubmit}
+          onSubmit={onSubmit}
+          errors={errors}
+          register={register}
           data={data}
           /* eslint-disable-next-line react/no-unstable-nested-components */
           prop1={({ id, image, title }) => (

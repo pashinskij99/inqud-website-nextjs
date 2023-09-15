@@ -12,7 +12,6 @@ export const useFilter = ({ data = [], searchValue }) => {
 
         for (let j = 0; j < element.content.length; j++) {
           const elementInner = element.content[j]
-          console.log(elementInner)
           if (
             elementInner.title
               .toLowerCase()
@@ -22,7 +21,6 @@ export const useFilter = ({ data = [], searchValue }) => {
             break
           }
 
-          console.log({ descriptions: elementInner.descriptions })
           // eslint-disable-next-line no-restricted-syntax, no-labels
           for (let k = 0; k < elementInner.descriptions.length; k++) {
             const description = render(elementInner.descriptions[k].description)
@@ -39,24 +37,6 @@ export const useFilter = ({ data = [], searchValue }) => {
               })
               break
             }
-
-            // const splitedString = description.split('.')
-            //
-            // for (let l = 0; l < splitedString.length; l++) {
-            //   const sentence = splitedString[l]
-            //
-            //   if (
-            //     sentence.toLowerCase().indexOf(searchValue.toLowerCase()) > -1
-            //   ) {
-            //     newArray.push({
-            //       ...element,
-            //       description: sentence,
-            //       is: 'description',
-            //     })
-            //     // eslint-disable-next-line no-labels
-            //     break third
-            //   }
-            // }
           }
         }
       }

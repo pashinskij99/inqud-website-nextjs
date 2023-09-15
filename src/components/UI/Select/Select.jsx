@@ -1,3 +1,5 @@
+import { Controller } from 'react-hook-form'
+import { useContext } from 'react'
 import {
   StyledMenuItem,
   StyledSelect,
@@ -8,39 +10,55 @@ import {
   StyledTypographyUrbanistSmallSpaces,
 } from '../Typography/Typography.styled'
 import Arrow from '@/assets/icons/arrow-down-select.svg'
+import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export function SelectPrimary({
   name,
   label,
   placeholder,
-  listItems,
-  activeItem,
-  handleChange,
+  helperTextBottom,
+  control,
 }) {
+  const {
+    dataPage: { allIndustries: industries },
+  } = useContext(PageContext)
   return (
     <StyledSelectWrapper>
       <StyledTypographyUrbanistSmallSpaces className='label'>
         {label}
       </StyledTypographyUrbanistSmallSpaces>
-      <StyledSelect
-        IconComponent={Arrow}
-        value={activeItem}
-        onChange={handleChange}
+      <Controller
         name={name}
-        placeholder={placeholder}
-        displayEmpty
-      >
-        <StyledMenuItem value=''>
-          <StyledTypographyUrbanistBody className='placeholder'>
-            {placeholder}
-          </StyledTypographyUrbanistBody>
-        </StyledMenuItem>
-        {listItems.map((item) => (
-          <StyledMenuItem key={item} value={item}>
-            <StyledTypographyUrbanistBody>{item}</StyledTypographyUrbanistBody>
-          </StyledMenuItem>
-        ))}
-      </StyledSelect>
+        control={control}
+        render={({ field: { onChange, value, name } }) => (
+          <StyledSelect
+            IconComponent={Arrow}
+            value={value}
+            onChange={(event) => {
+              onChange(event.target.value)
+            }}
+            name={name}
+            placeholder={placeholder}
+            displayEmpty
+          >
+            <StyledMenuItem value=''>
+              <StyledTypographyUrbanistBody className='placeholder'>
+                {placeholder}
+              </StyledTypographyUrbanistBody>
+            </StyledMenuItem>
+            {industries.map(({ industry, id }) => (
+              <StyledMenuItem key={id} value={industry}>
+                <StyledTypographyUrbanistBody>
+                  {industry}
+                </StyledTypographyUrbanistBody>
+              </StyledMenuItem>
+            ))}
+          </StyledSelect>
+        )}
+      />
+      <StyledTypographyUrbanistSmallSpaces className='inputTextHelperTextBottom error'>
+        {helperTextBottom}
+      </StyledTypographyUrbanistSmallSpaces>
     </StyledSelectWrapper>
   )
 }

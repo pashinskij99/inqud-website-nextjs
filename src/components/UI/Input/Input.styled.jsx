@@ -64,7 +64,7 @@ export const StyledInputTextWrapper = styled.div`
   .inputTextHelperTextBottom {
     color: rgba(45, 52, 57, 0.6000000238418579);
 
-    .error {
+    &.error {
       color: rgba(244, 92, 59, 1);
     }
   }
@@ -165,6 +165,14 @@ export const StyledInputSendRequestWrapper = styled(StyledInputSearchWrapper)`
       ${nunito.style}
     }
   }
+  .inputTextHelperTextBottom {
+    margin-left: ${rem(16)};
+    text-align: start;
+    color: rgba(45, 52, 57, 0.6000000238418579);
+    &.error {
+      color: rgba(244, 92, 59, 1) !important;
+    }
+  }
 `
 
 export const StyledTextAreaSendRequest = styled(StyledInputSendRequestWrapper)`
@@ -179,6 +187,16 @@ export const StyledTextAreaSendRequest = styled(StyledInputSendRequestWrapper)`
 
     &:focus {
       border-color: rgba(7, 116, 83, 1);
+    }
+  }
+
+  .inputTextHelperTextBottom {
+    color: rgba(45, 52, 57, 0.6000000238418579);
+    text-align: start;
+    margin-left: ${rem(16)};
+
+    &.error {
+      color: rgba(244, 92, 59, 1);
     }
   }
 `

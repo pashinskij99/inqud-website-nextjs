@@ -41,6 +41,7 @@ export const StyledCryptoWidget2Section = styled.section`
         max-width: 100%;
       `}
       .crypto2SubTitle {
+        font-size: 18px;
         border-radius: ${rem(50)};
         background: var(--clarity-white, #fff);
         color: var(--ambitious-green, #077453);

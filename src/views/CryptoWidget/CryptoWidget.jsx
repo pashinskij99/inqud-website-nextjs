@@ -1,7 +1,6 @@
 'use client'
 
 import { StyledCryptoWidgetWrapper } from './CryptoWidget.styled'
-
 import CryptoWidgetHeroSection from '@/sections/CryptoWidgetSections/CryptoWidgetHeroSection'
 import CryptoWidgetFlexibility from '@/sections/CryptoWidgetSections/CryptoWidgetFlexibility'
 import CryptoBusinessSection from '@/sections/CryptoWidgetSections/CryptoBusinessSection'
@@ -23,7 +22,7 @@ export default function CryptoWidget({ data }) {
         <CryptoWidgetFlexibility />
         <CryptoBusinessSection />
         <CryptoWidgetFeatures />
-        <FeesBusiness />
+        <FeesBusiness modelId='2540254' />
         <HowIntegrateCryptoSection />
         <SafetyReliability />
         <OurLandscapeSection />

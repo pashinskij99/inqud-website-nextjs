@@ -1,5 +1,5 @@
-import { performRequest } from '@/lib/datocms';
-import CryptoWidget from '@/views/CryptoWidget';
+import { performRequest } from '@/lib/datocms'
+import CryptoWidget from '@/views/CryptoWidget'
 
 const CRYPTO_WIDGET = `
   query MyQuery($locale: SiteLocale) {
@@ -131,6 +131,10 @@ const CRYPTO_WIDGET = `
         url
       }
     }
+    allIndustries {
+      industry
+      id
+    }
     feesYourBusiness(locale: $locale) {
       title
       id
@@ -153,7 +157,7 @@ const CRYPTO_WIDGET = `
       }
     }
   }
-`;
+`
 
 const getData = async (query, variables) => {
   try {
@@ -161,18 +165,18 @@ const getData = async (query, variables) => {
       query,
       revalidate: 0,
       variables,
-    });
+    })
 
-    return data;
+    return data
   } catch (error) {
-    return {};
+    return {}
   }
-};
+}
 
 export default async function page({ params }) {
   const data = await getData(CRYPTO_WIDGET, {
     locale: params.locale,
-  });
+  })
 
-  return <CryptoWidget data={data} />;
+  return <CryptoWidget data={data} />
 }

@@ -85,7 +85,7 @@ export const StyledContactWrapper = styled.section`
     }
   }
 
-  .input {
+  .input-wrapper {
     margin-bottom: 22px;
     p {
       color: rgba(45, 52, 57, 1);

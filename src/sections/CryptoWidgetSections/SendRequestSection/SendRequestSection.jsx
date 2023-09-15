@@ -1,40 +1,63 @@
-import Image from 'next/image';
-import { useContext } from 'react';
+import Image from 'next/image'
+import { useContext } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
 import {
   StyledFormWrapper,
   StyledSendRequestSectionWrapper,
-} from './SendRequestSection.styled';
-import Message from '@/assets/icons/message.svg';
+} from './SendRequestSection.styled'
+import Message from '@/assets/icons/message.svg'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH3,
   StyledTypographyUrbanistSmallSpaces,
-} from '@/components/UI/Typography/Typography.styled';
-import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input';
-import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled';
-import background from '@/assets/images/api/contact/background.webp';
-import { PageContext } from '@/contexts/PageContext/PageContext';
+} from '@/components/UI/Typography/Typography.styled'
+import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
+import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
+import background from '@/assets/images/api/contact/background.webp'
+import { PageContext } from '@/contexts/PageContext/PageContext'
+import { userSchema2 } from '@/utils/userSchema'
+import { createBlog } from '@/lib/datocms'
 
 export default function SendRequestSection() {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm({
+    resolver: yupResolver(userSchema2),
+  })
+
+  const onSubmit = async (data) => {
+    await createBlog({ data, modelId: '2540255' })
+    reset()
+  }
+
   return (
     <StyledSendRequestSectionWrapper>
       <Image
-        className="background"
+        className='background'
         src={background.src}
-        alt="Get a personalized proposal"
+        alt='Get a personalized proposal'
         fill
       />
-      <div className="container">
-        <Form />
+      <div className='container'>
+        <Form
+          register={register}
+          handleSubmit={handleSubmit}
+          errors={errors}
+          onSubmit={onSubmit}
+        />
       </div>
     </StyledSendRequestSectionWrapper>
-  );
+  )
 }
 
-function Form() {
+function Form({ register, handleSubmit, errors, onSubmit }) {
   const {
     dataPage: { cryptoWidgetPage: data },
-  } = useContext(PageContext);
+  } = useContext(PageContext)
 
   const inputs = [
     {
@@ -48,16 +71,15 @@ function Form() {
       id: 1,
       label: data.leadForm3MessageLabel,
       placeholder: data.leadForm3MessagePlaceholder,
-
       name: 'message',
       type: 'textarea',
     },
-  ];
+  ]
 
   return (
     <StyledFormWrapper>
-      <div className="formContainer">
-        <div className="header">
+      <form onSubmit={handleSubmit(onSubmit)} className='formContainer'>
+        <div className='header'>
           <Message />
           <StyledTypographyUrbanistH3>
             {data.lead3Title}
@@ -66,11 +88,13 @@ function Form() {
             {data.leadForm3Description}
           </StyledTypographyUrbanistBody>
         </div>
-        <div className="body">
+        <div className='body'>
           {inputs.map(({ id, name, label, placeholder, type }) =>
             type === 'textarea' ? (
               <TextAreaSendRequest
                 key={id}
+                helperTextBottom={errors[name]?.message}
+                register={register}
                 name={name}
                 label={label}
                 placeholder={placeholder}
@@ -78,6 +102,8 @@ function Form() {
             ) : (
               <InputSendRequest
                 key={id}
+                helperTextBottom={errors[name]?.message}
+                register={register}
                 name={name}
                 label={label}
                 placeholder={placeholder}
@@ -85,16 +111,16 @@ function Form() {
             )
           )}
         </div>
-        <div className="footer">
-          <StyledButtonSecondary className="submit-btn">
+        <div className='footer'>
+          <StyledButtonSecondary className='submit-btn'>
             {data.leadForm3SubmitButton}
           </StyledButtonSecondary>
           <StyledTypographyUrbanistSmallSpaces>
             {data.leadForm3FooterText}
           </StyledTypographyUrbanistSmallSpaces>
         </div>
-      </div>
+      </form>
       {/* </div> */}
     </StyledFormWrapper>
-  );
+  )
 }

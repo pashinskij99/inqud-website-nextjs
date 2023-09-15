@@ -2,6 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { useContext, useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
 import { StyledApiHeroSectionWrapper } from './ApiHeroSection.styled'
 import {
@@ -14,17 +16,33 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { GetPersonalizedModal } from '@/components/Modal'
+import { userSchema2 } from '@/utils/userSchema'
+import { createBlog } from '@/lib/datocms'
 
 export default function ApiHeroSection() {
   const t = useTranslations('api_page.hero_section')
   const [showModal, setShowModal] = useState(false)
-
   const handleShowModal = () => {
     setShowModal(true)
   }
 
   const handleHideModal = () => {
     setShowModal(false)
+  }
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm({
+    resolver: yupResolver(userSchema2),
+  })
+
+  const onSubmit = async (data) => {
+    await createBlog({ data, modelId: '2540346' })
+
+    handleHideModal()
+    reset()
   }
 
   const {
@@ -68,6 +86,10 @@ export default function ApiHeroSection() {
               {data.buttonScreen1B}
             </StyledButtonGhost>
             <GetPersonalizedModal
+              handleSubmit={handleSubmit}
+              onSubmit={onSubmit}
+              register={register}
+              errors={errors}
               data={data}
               handleClose={handleHideModal}
               open={showModal}

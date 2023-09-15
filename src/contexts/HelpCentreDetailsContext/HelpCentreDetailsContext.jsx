@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 export const HelpCentreDetailsContext = createContext(null)
 
 export function HelpCentreDetailsProvider({ children, data, type, searchIn }) {
-  console.log(data)
   const [currentData, setCurrentData] = useState({})
   const { tab } = useSelector((state) => state.activeTab)
 

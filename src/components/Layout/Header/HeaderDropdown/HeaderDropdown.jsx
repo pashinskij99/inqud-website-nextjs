@@ -39,7 +39,7 @@ export default function HeaderDropdown() {
         {
           id: 2,
           name: dropdownList1Translate(keysForLocale.keys6[1]),
-          href: '/company-api',
+          href: '/inqud-api',
         },
         // {
         //   id: 3,

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import {Accordion, AccordionDetails, AccordionSummary} from '@mui/material'
-import {rem} from '@/utils/rem'
-import {responsive} from '@/utils/response'
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledHeaderMobileMenu = styled.div`
   left: 0;
@@ -118,10 +118,11 @@ export const StyledHeaderMobileMenuAccordion = styled((props) => (
   margin: '0 auto',
   borderRadius: rem(16),
   borderBottom: 'none',
-  overflow: 'hidden',
+  // overflow: 'hidden',
   '& .MuiCollapse-root.MuiCollapse-vertical': {
-    overflow: 'visible!important',
-    visibility: 'visible!important',
+    // overflow: 'visible!important',
+    // visibility: 'visible!important',
+    overflow: 'hidden',
   },
   '&:before': {
     display: 'none',
@@ -135,13 +136,13 @@ export const StyledHeaderMobileMenuAccordion = styled((props) => (
   '.css-yw020d-MuiAccordionSummary-expandIconWrapper, .MuiAccordionSummary-expandIconWrapper.css-1fx8m19':
     {
       position: 'absolute',
-      right: '8px',
+      right: '-18px',
       top: 0,
       bottom: 0,
       margin: 'auto 0',
       height: 'fit-content',
       '@media(max-width: 767px)': {
-        right: '18px',
+        right: '-8px',
       },
       svg: {
         width: '14px',

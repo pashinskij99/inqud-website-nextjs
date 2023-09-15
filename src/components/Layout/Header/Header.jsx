@@ -98,10 +98,20 @@ export default function Header() {
           </Link>
 
           <div className='button-link-wrapper'>
-            <Link href='/' className='button-link business-link'>
+            <Link
+              href='/'
+              className={clsx('button-link', {
+                ['business-link']: pathname !== '/personal',
+              })}
+            >
               {tabsTranslate(keysForLocale.keys3[0])}
             </Link>
-            <Link className='button-link personal-link' href='/personal'>
+            <Link
+              className={clsx('button-link personal-link', {
+                ['business-link']: pathname === '/personal',
+              })}
+              href='/personal'
+            >
               {tabsTranslate(keysForLocale.keys3[1])}
             </Link>
           </div>

@@ -54,6 +54,7 @@ export const StyledHeroSectionWrapper = styled.section`
     .leftSide {
       .subTitle {
         color: #517185;
+        font-size: 18px;
         border-radius: ${rem(50)};
         background: var(--independent-grey-dt-20, rgba(129, 158, 176, 0.2));
         width: fit-content;

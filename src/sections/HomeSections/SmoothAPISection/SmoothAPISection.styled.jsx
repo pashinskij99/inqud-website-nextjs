@@ -57,6 +57,7 @@ export const StyledSmoothAPISection = styled.section`
         max-width: 100%;
       `}
       .smoothAPISubTitle {
+        font-size: 18px;
         border-radius: ${rem(50)};
         background: var(--independent-grey-dt-20, rgba(129, 158, 176, 0.2));
         color: #517185;

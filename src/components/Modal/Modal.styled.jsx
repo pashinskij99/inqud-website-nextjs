@@ -155,7 +155,7 @@ export const StyledModalGetPersonalizedFormWrapper = styled(Modal)`
     }
   }
 
-  .input {
+  .input-wrapper {
     margin-bottom: 22px;
     p {
       color: rgba(45, 52, 57, 1);
@@ -305,10 +305,12 @@ export const StyledFeeModalWrapper = styled(Dialog)`
 
       .tab-content {
         margin-bottom: ${rem(32)};
-
+        .hide {
+          display: none;
+        }
         .tabInput {
           p {
-            color: rgba(45, 52, 57, 1) !important;
+            color: rgba(45, 52, 57, 1);
           }
         }
       }

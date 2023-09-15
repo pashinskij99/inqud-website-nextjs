@@ -36,7 +36,7 @@ export default function HomePage({ data }) {
         <PickSection className='pickSection' variant='dontLose' />
         <CryptoWidget2Section />
         <ReasonsToTeamUp />
-        <FeesBusiness />
+        <FeesBusiness modelId='2540165' />
         <OurLandscapeSection />
         <PickSection className='pickSection2' />
         <BlogsSection />

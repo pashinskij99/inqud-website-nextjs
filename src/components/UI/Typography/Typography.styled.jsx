@@ -114,7 +114,7 @@ export const StyledTypographyIBMH5 = styled.h5`
   ${nunito.style};
   color: #272727;
 
-  font-size: ${rem(24)};
+  font-size: 18px;
   font-weight: 400;
   line-height: ${rem(30)};
   letter-spacing: ${rem(2.4)};

@@ -1,5 +1,5 @@
-import { performRequest } from '@/lib/datocms';
-import ApiPage from '@/views/ApiPage';
+import { performRequest } from '@/lib/datocms'
+import ApiPage from '@/views/ApiPage'
 
 const API_QUERY = `
   query MyQuery($locale: SiteLocale) {
@@ -160,8 +160,12 @@ const API_QUERY = `
       buttonText
       pickDescription
     }
+    allIndustries {
+      industry
+      id
+    }
   }
-`;
+`
 
 const getData = async (query, variables) => {
   try {
@@ -169,18 +173,18 @@ const getData = async (query, variables) => {
       query,
       revalidate: 0,
       variables,
-    });
+    })
 
-    return data;
+    return data
   } catch (error) {
-    return {};
+    return {}
   }
-};
+}
 
 export default async function page({ params }) {
   const data = await getData(API_QUERY, {
     locale: params.locale,
-  });
+  })
 
-  return <ApiPage data={data} />;
+  return <ApiPage data={data} />
 }
