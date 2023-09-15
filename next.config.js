@@ -60,8 +60,6 @@ const nextConfig = {
       ],
     })
 
-    config.resolve.fallback = { fs: false }
-
     // // eslint-disable-next-line no-param-reassign
     // config.resolve.fallback = { fs: false }
 
