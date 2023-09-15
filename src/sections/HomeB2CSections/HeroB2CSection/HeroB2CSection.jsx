@@ -53,7 +53,7 @@ export default function HeroB2CSection() {
           <PaymentList />
         </div>
         <div className='right-side'>
-          {size.width <= responseBreakPoint.mobile ? (
+          {size.width && size.width <= responseBreakPoint.mobile ? (
             <Animated2Gif
               className='graphic'
               height={594}
@@ -64,7 +64,8 @@ export default function HeroB2CSection() {
               urlSecondVideo='/video/b2c_video2.gif'
               width={595}
             />
-          ) : (
+          ) : null}
+          {size.width && size.width > responseBreakPoint.mobile ? (
             <AnimatedFirstScreenVideo
               className='graphic'
               height={594}
@@ -73,7 +74,7 @@ export default function HeroB2CSection() {
               urlSecondVideo='/video/b2c_video2.webm'
               width={595}
             />
-          )}
+          ) : null}
         </div>
       </div>
     </StyledHeroB2CSectionWrapper>

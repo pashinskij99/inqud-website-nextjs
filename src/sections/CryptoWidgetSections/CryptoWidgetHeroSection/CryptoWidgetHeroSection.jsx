@@ -48,7 +48,7 @@ export default function CryptoWidgetHeroSection() {
         </div>
 
         <div className='right-side'>
-          {size.width > responseBreakPoint.mobile ? (
+          {size.width && size.width > responseBreakPoint.mobile ? (
             <AnimatedOneVideo
               className='graphic'
               height={650.44}
@@ -57,7 +57,7 @@ export default function CryptoWidgetHeroSection() {
               width={633.97}
             />
           ) : null}
-          {size.width <= responseBreakPoint.mobile ? (
+          {size.width && size.width <= responseBreakPoint.mobile ? (
             <Animated2Gif
               className='graphic'
               height={357}

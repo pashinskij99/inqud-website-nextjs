@@ -23,7 +23,7 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
-import gif from '@/assets/gif/b2b_hero_mobile.gif'
+// import gif from '@/assets/gif/b2b_hero_mobile.gif'
 
 export default function HeroSection() {
   const {
@@ -119,7 +119,14 @@ export default function HeroSection() {
 function MobileGrid() {
   return (
     <StyledMobileGridWrapper>
-      <Image src={gif} alt='animation' width={343} height={152} />
+      <Image
+        priority
+        loading='eager'
+        src='/video/b2b_hero_mobile.gif'
+        alt='animation'
+        width={343}
+        height={152}
+      />
     </StyledMobileGridWrapper>
   )
 }

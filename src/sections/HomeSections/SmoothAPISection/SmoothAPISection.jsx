@@ -28,7 +28,7 @@ export default function SmoothAPISection() {
     <StyledSmoothAPISection>
       <div className='container'>
         <div className='leftSide'>
-          {size.width > responseBreakPoint.tablet ? (
+          {size.width && size.width > responseBreakPoint.tablet ? (
             <AnimatedVideoOnScroll
               className='graphic'
               height={600}
@@ -47,19 +47,20 @@ export default function SmoothAPISection() {
             {data.screen4Title}
           </StyledTypographyUrbanistH2>
 
-          {size.width <= responseBreakPoint.mobile ? (
+          {size.width && size.width <= responseBreakPoint.mobile ? (
             <Animated2GifOnView
               className='smoothAPIImageTablet'
               height={232.88}
               timeRepeat={5000}
+              stillSecondVideo='/video/b2b_api_mobile.webp'
               urlSecondVideo='/video/b2b_api_mobile.gif'
-              urlFirstVideo='/video/1_600.gif'
               timeSecondAnimate={5000}
               width={343}
             />
           ) : null}
 
-          {size.width > responseBreakPoint.mobile &&
+          {size.width &&
+          size.width > responseBreakPoint.mobile &&
           size.width < responseBreakPoint.desktop ? (
             <AnimatedVideoOnScroll
               className='smoothAPIImageTablet'
