@@ -5,6 +5,8 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
+import { useWindowSize } from '@uidotdev/usehooks'
+import dynamic from 'next/dynamic'
 import Logo from '../../../assets/icons/logo.svg'
 import LogoMobile from '../../../assets/icons/logo-header-mobile-without-text.svg'
 import { StyledHeaderWrapper } from './Header.styled'
@@ -13,9 +15,13 @@ import {
   StyledButtonGhost,
   StyledButtonSecondary,
 } from '@/components/UI/Button/Button.styled'
-import HeaderMobileMenu from './HeaderMobileMenu'
 import { keysForLocale } from '@/config/keysForLocale'
 import HeaderLanguageSelect from '@/components/Layout/Header/HeaderLanguageSelect'
+import { responseBreakPoint } from '@/utils/response'
+
+const DynamicHeader = dynamic(() => import('./HeaderMobileMenu'), {
+  ssr: false,
+})
 
 export default function Header() {
   const [active, setActive] = useState(false)
@@ -83,6 +89,8 @@ export default function Header() {
   }, [active])
 
   const pathname = usePathname()
+
+  const size = useWindowSize()
 
   return (
     <StyledHeaderWrapper
@@ -170,7 +178,9 @@ export default function Header() {
           </div>
         </div>
 
-        <HeaderMobileMenu active={active} handleClose={handleClose} />
+        {size.width && size.width < responseBreakPoint.desktop ? (
+          <DynamicHeader active={active} handleClose={handleClose} />
+        ) : null}
       </div>
     </StyledHeaderWrapper>
   )

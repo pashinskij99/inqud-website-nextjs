@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
-import { rem } from '@/utils/rem';
-import { responsive } from '@/utils/response';
+import styled from '@emotion/styled'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const YourNeedsSectionWrapper = styled.section`
   text-align: center;
@@ -25,18 +25,10 @@ export const YourNeedsSectionWrapper = styled.section`
     margin-bottom: 16px;
     line-height: 62px;
 
-    .br-tablet {
-      display: none;
-    }
-
     &.title-desktop {
     }
 
     &.title-mobile {
-      display: none;
-    }
-
-    .br-mobile {
       display: none;
     }
 
@@ -48,15 +40,8 @@ export const YourNeedsSectionWrapper = styled.section`
       line-height: 46px;
       margin-bottom: ${rem(32)};
       letter-spacing: 0.2px;
-      .br-mobile {
-        display: block;
-      }
 
       &.title-desktop {
-        display: none;
-      }
-
-      .br-tablet {
         display: none;
       }
 
@@ -236,7 +221,7 @@ export const YourNeedsSectionWrapper = styled.section`
       display: block;
     `};
   }
-`;
+`
 
 export const StyledCoinsListWrapper = styled.div`
   display: none;
@@ -248,4 +233,4 @@ export const StyledCoinsListWrapper = styled.div`
     display: flex;
     column-gap: ${rem(15)};
   `}
-`;
+`

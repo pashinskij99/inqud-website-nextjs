@@ -4,8 +4,9 @@ import { useContext, useState } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
 import { useWindowSize } from '@uidotdev/usehooks'
-import { PopupModal, useCalendlyEventListener } from 'react-calendly'
+import { useCalendlyEventListener } from 'react-calendly'
 import GifPlayer from 'react-gif-player'
+import dynamic from 'next/dynamic'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import {
   StyledHeroSectionWrapper,
@@ -24,7 +25,13 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
-// import gif from '@/assets/gif/b2b_hero_mobile.gif'
+
+const DynamicModalCalendaly = dynamic(
+  () => import('react-calendly').then((mod) => mod.PopupModal),
+  {
+    ssr: false,
+  }
+)
 
 export default function HeroSection() {
   const {
@@ -89,7 +96,7 @@ export default function HeroSection() {
             >
               {data.buttonScreen1ContactSales}
             </StyledButtonGhost>
-            <PopupModal
+            <DynamicModalCalendaly
               onModalClose={handleCloseCalendlyModal}
               open={calendlyModal}
               rootElement={document.getElementById('calendly-model-wrapper')}

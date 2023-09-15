@@ -5,6 +5,8 @@ import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { toast } from 'react-toastify'
+import { useWindowSize } from '@uidotdev/usehooks'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH2,
@@ -23,11 +25,19 @@ import Coins3 from '@/assets/images/your-needs/Coins3.svg'
 import Coins4 from '@/assets/images/your-needs/Coins4.svg'
 import Coins5 from '@/assets/images/your-needs/Coins5.svg'
 import { CartRequirement } from '@/components/CartRequirement'
-import { ModalSendRequest } from '@/components/Modal'
+// import { ModalSendRequest } from '@/components/Modal'
 import { keysForLocale } from '@/config/keysForLocale'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { createBlog } from '@/lib/datocms'
 import { userSchema2 } from '@/utils/userSchema'
+import { responseBreakPoint } from '@/utils/response'
+
+const DynamicModalSendRequest = dynamic(
+  () => import('@/components/Modal').then((mod) => mod.ModalSendRequest),
+  {
+    ssr: false,
+  }
+)
 
 export default function YourNeedsSection() {
   const {
@@ -96,15 +106,22 @@ export default function YourNeedsSection() {
     },
   ]
 
+  const size = useWindowSize()
+
   return (
     <YourNeedsSectionWrapper>
       <div className='container'>
-        <StyledTypographyUrbanistH2 className='title title-desktop'>
-          {t('title')}
-        </StyledTypographyUrbanistH2>
-        <StyledTypographyUrbanistH1 className='title title-mobile'>
-          {t('title')}
-        </StyledTypographyUrbanistH1>
+        {size.width && size.width > responseBreakPoint.mobile ? (
+          <StyledTypographyUrbanistH2 className='title title-desktop'>
+            {t('title')}
+          </StyledTypographyUrbanistH2>
+        ) : null}
+
+        {size.width && size.width <= responseBreakPoint.mobile ? (
+          <StyledTypographyUrbanistH1 className='title title-mobile'>
+            {t('title')}
+          </StyledTypographyUrbanistH1>
+        ) : null}
 
         <CoinsList />
 
@@ -112,74 +129,78 @@ export default function YourNeedsSection() {
           {t('paragraph')}
         </StyledTypographyUrbanistH5>
 
-        <div className='listRequirements'>
-          {list.map(
-            ({ id, buttonText, description, image, title, handleClick }) => (
-              <CartRequirement
-                key={id}
-                buttonText={buttonText}
-                description={description}
-                href='#'
-                handleClick={handleClick}
-                imageSrc={image}
-                title={title}
-              />
-            )
-          )}
-        </div>
+        {size.width && size.width > responseBreakPoint.mobile ? (
+          <div className='listRequirements'>
+            {list.map(
+              ({ id, buttonText, description, image, title, handleClick }) => (
+                <CartRequirement
+                  key={id}
+                  buttonText={buttonText}
+                  description={description}
+                  href='#'
+                  handleClick={handleClick}
+                  imageSrc={image}
+                  title={title}
+                />
+              )
+            )}
+          </div>
+        ) : null}
 
-        <Swiper
-          className='listRequirementsSwiper'
-          slidesPerView='auto'
-          centeredSlides
-          initialSlide={1}
-          updateOnWindowResize
-          scrollbar={{
-            dragSize: 200 / 3,
-            horizontalClass: 'listRequirementsSwiperScollbar',
-            hide: true,
-          }}
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-              spaceBetween: 8,
-              centeredSlides: true,
-              loop: true,
-              initialSlide: '1',
-            },
-            500: {
-              slidesPerView: 'auto',
-              spaceBetween: 8,
-              initialSlide: '0',
-              loop: false,
-              centeredSlides: false,
-            },
-            767: {
-              slidesPerView: 'auto',
-              loop: false,
-              centeredSlides: false,
-              initialSlide: '0',
-              spaceBetween: 24,
-            },
-          }}
-          modules={[Scrollbar]}
-        >
-          {list.map(({ id, description, image, title, handleClick }) => (
-            <SwiperSlide className='listRequirementsSwiperItems' key={id}>
-              <CartRequirement
-                buttonText={id === 1 && data.buttonScreen2}
-                description={description}
-                href='#'
-                handleClick={handleClick}
-                imageSrc={image}
-                title={title}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {size.width && size.width <= responseBreakPoint.mobile ? (
+          <Swiper
+            className='listRequirementsSwiper'
+            slidesPerView='auto'
+            centeredSlides
+            initialSlide={1}
+            updateOnWindowResize
+            scrollbar={{
+              dragSize: 200 / 3,
+              horizontalClass: 'listRequirementsSwiperScollbar',
+              hide: true,
+            }}
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 8,
+                centeredSlides: true,
+                loop: true,
+                initialSlide: '1',
+              },
+              500: {
+                slidesPerView: 'auto',
+                spaceBetween: 8,
+                initialSlide: '0',
+                loop: false,
+                centeredSlides: false,
+              },
+              767: {
+                slidesPerView: 'auto',
+                loop: false,
+                centeredSlides: false,
+                initialSlide: '0',
+                spaceBetween: 24,
+              },
+            }}
+            modules={[Scrollbar]}
+          >
+            {list.map(({ id, description, image, title, handleClick }) => (
+              <SwiperSlide className='listRequirementsSwiperItems' key={id}>
+                <CartRequirement
+                  buttonText={id === 1 && data.buttonScreen2}
+                  description={description}
+                  href='#'
+                  handleClick={handleClick}
+                  imageSrc={image}
+                  title={title}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : null}
       </div>
 
-      <ModalSendRequest
+      <DynamicModalSendRequest
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}
         register={register}

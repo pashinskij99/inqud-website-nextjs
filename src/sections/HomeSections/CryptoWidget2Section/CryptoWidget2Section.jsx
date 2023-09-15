@@ -4,6 +4,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
+import { useWindowSize } from '@uidotdev/usehooks'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -13,11 +15,18 @@ import {
 import { StyledCryptoWidget2Section } from './CryptoWidget2Section.styled'
 import Check from '@/assets/icons/check-dark.svg'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
-import { ModalSubmitEmail } from '@/components/Modal'
 import { ButtonGhostCrypto } from '@/components/UI/Button'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { createBlog } from '@/lib/datocms'
 import { userSchema1 } from '@/utils/userSchema'
+import { responseBreakPoint } from '@/utils/response'
+
+const DynamicModalSubmitEmail = dynamic(
+  () => import('@/components/Modal').then((mod) => mod.ModalSubmitEmail),
+  {
+    ssr: false,
+  }
+)
 
 export default function CryptoWidget2Section() {
   const [open, setOpen] = useState(false)
@@ -54,6 +63,8 @@ export default function CryptoWidget2Section() {
     reset()
   }
 
+  const size = useWindowSize()
+
   return (
     <StyledCryptoWidget2Section>
       <div className='container'>
@@ -73,13 +84,17 @@ export default function CryptoWidget2Section() {
             alt='widget'
           />
 
-          <StyledTypographyUrbanistBody className='crypto2Description crypto2Description-desktop'>
-            {data.screen5Description}
-          </StyledTypographyUrbanistBody>
+          {size.width && size.width <= responseBreakPoint.mobile ? (
+            <StyledTypographyUrbanistH5 className='crypto2Description crypto2Description-mobile'>
+              {data.screen5Description}
+            </StyledTypographyUrbanistH5>
+          ) : null}
 
-          <StyledTypographyUrbanistH5 className='crypto2Description crypto2Description-mobile'>
-            {data.screen5Description}
-          </StyledTypographyUrbanistH5>
+          {size.width && size.width > responseBreakPoint.mobile ? (
+            <StyledTypographyUrbanistBody className='crypto2Description crypto2Description-desktop'>
+              {data.screen5Description}
+            </StyledTypographyUrbanistBody>
+          ) : null}
 
           <ul className='crypto2Grid'>
             {data.screen5Features.map(
@@ -127,7 +142,7 @@ export default function CryptoWidget2Section() {
               {data.buttonLead2C}
             </StyledButtonSecondaryLight>
 
-            <ModalSubmitEmail
+            <DynamicModalSubmitEmail
               errors={errors}
               onSubmit={onSubmit}
               register={register}

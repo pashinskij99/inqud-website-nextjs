@@ -71,17 +71,23 @@ export default function SmoothAPISection() {
             />
           ) : null}
 
-          <StyledTypographyUrbanistBody className='smoothAPIDescription desktop'>
-            {data.screen4Description}
-          </StyledTypographyUrbanistBody>
-
-          <StyledTypographyUrbanistH5 className='smoothAPIDescription tablet'>
-            {data.screen4Description}
-          </StyledTypographyUrbanistH5>
-
-          <StyledTypographyUrbanistH5 className='smoothAPIDescriptionMobile'>
-            {data.screen4Description}
-          </StyledTypographyUrbanistH5>
+          {size.width && size.width <= responseBreakPoint.mobile ? (
+            <StyledTypographyUrbanistH5 className='smoothAPIDescriptionMobile'>
+              {data.screen4Description}
+            </StyledTypographyUrbanistH5>
+          ) : null}
+          {size.width &&
+          size.width > responseBreakPoint.mobile &&
+          size.width < responseBreakPoint.desktop ? (
+            <StyledTypographyUrbanistH5 className='smoothAPIDescription tablet'>
+              {data.screen4Description}
+            </StyledTypographyUrbanistH5>
+          ) : null}
+          {size.width && size.width >= responseBreakPoint.desktop ? (
+            <StyledTypographyUrbanistBody className='smoothAPIDescription desktop'>
+              {data.screen4Description}
+            </StyledTypographyUrbanistBody>
+          ) : null}
 
           <ul className='smoothAPIGrid'>
             {data.screen4Features.map(

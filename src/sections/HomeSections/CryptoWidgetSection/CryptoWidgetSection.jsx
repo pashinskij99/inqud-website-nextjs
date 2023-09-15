@@ -34,12 +34,17 @@ export default function CryptoWidgetSection() {
     <StyledCryptoWidgetSection>
       <div className='container'>
         <div className='leftSide'>
-          <StyledTypographyIBMH5 className='cryptoSubTitle cryptoSubTitle-desktop'>
-            {data.screen3SubTitle}
-          </StyledTypographyIBMH5>
-          <StyledTypographyIBMH5 className='cryptoSubTitle cryptoSubTitle-mobile'>
-            {data.screen3SubTitle}
-          </StyledTypographyIBMH5>
+          {size.width && size.width <= responseBreakPoint.mobile ? (
+            <StyledTypographyIBMH5 className='cryptoSubTitle cryptoSubTitle-mobile'>
+              {data.screen3SubTitle}
+            </StyledTypographyIBMH5>
+          ) : null}
+          {size.width && size.width > responseBreakPoint.mobile ? (
+            <StyledTypographyIBMH5 className='cryptoSubTitle cryptoSubTitle-desktop'>
+              {data.screen3SubTitle}
+            </StyledTypographyIBMH5>
+          ) : null}
+
           <StyledTypographyUrbanistH2 className='cryptoTitle'>
             {data.screen3Title}
           </StyledTypographyUrbanistH2>
@@ -69,13 +74,16 @@ export default function CryptoWidgetSection() {
             ) : null}
           </div>
 
-          <StyledTypographyUrbanistBody className='cryptoDescription'>
-            {data.screen3Description}
-          </StyledTypographyUrbanistBody>
-
-          <StyledTypographyUrbanistH5 className='cryptoDescriptionMobile'>
-            {data.screen3Description}
-          </StyledTypographyUrbanistH5>
+          {size.width && size.width <= responseBreakPoint.mobile ? (
+            <StyledTypographyUrbanistH5 className='cryptoDescriptionMobile'>
+              {data.screen3Description}
+            </StyledTypographyUrbanistH5>
+          ) : null}
+          {size.width && size.width > responseBreakPoint.mobile ? (
+            <StyledTypographyUrbanistBody className='cryptoDescription'>
+              {data.screen3Description}
+            </StyledTypographyUrbanistBody>
+          ) : null}
 
           <ul className='cryptoGrid'>
             {data.feature.map(({ description, id, image: { url }, title }) => (
