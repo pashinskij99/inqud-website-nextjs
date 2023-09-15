@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import { useContext, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
 import { StyledApiHeroSectionWrapper } from './ApiHeroSection.styled'
 import {
@@ -39,7 +40,10 @@ export default function ApiHeroSection() {
   })
 
   const onSubmit = async (data) => {
-    await createBlog({ data, modelId: '2540346' })
+    await toast.promise(createBlog({ data, modelId: '2540346' }), {
+      pending: 'Sending data',
+      success: 'Data sent',
+    })
 
     handleHideModal()
     reset()

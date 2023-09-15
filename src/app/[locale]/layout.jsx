@@ -6,6 +6,7 @@ import { nunito } from '@/utils/font'
 
 import 'swiper/css'
 import 'swiper/css/scrollbar'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default async function RootLayout({ children, params: { locale } }) {
   let messages
@@ -27,6 +28,7 @@ export default async function RootLayout({ children, params: { locale } }) {
       <body className={nunito.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LayoutComponent>{children}</LayoutComponent>
+          <div id='calendly-model-wrapper' />
         </NextIntlClientProvider>
       </body>
     </html>

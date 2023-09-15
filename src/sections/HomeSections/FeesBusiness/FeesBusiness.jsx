@@ -6,6 +6,7 @@ import { render } from 'datocms-structured-text-to-html-string'
 import { StructuredText } from 'react-datocms/structured-text'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -88,7 +89,10 @@ export default function FeesBusiness({ modelId }) {
       whatsapp: data.whatsapp,
     })
     if (resultCheck === 'valid') {
-      await createBlog({ data, modelId })
+      await toast.promise(createBlog({ data, modelId }), {
+        pending: 'Sending data',
+        success: 'Data sent',
+      })
 
       handleHideModal()
       reset()

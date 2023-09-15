@@ -9,7 +9,6 @@ import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
 import HowIntegrateCryptoSection from '@/sections/CryptoWidgetSections/HowIntegrateCryptoSection'
 import SafetyReliability from '@/sections/CryptoWidgetSections/SafetyReliability'
 import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
-import Tutorial from '@/sections/ApiSections/Tutorial'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import SendRequestSection from '@/sections/CryptoWidgetSections/SendRequestSection'
 import PageProvider from '@/contexts/PageContext/PageContext'
@@ -27,7 +26,7 @@ export default function CryptoWidget({ data }) {
         <SafetyReliability />
         <OurLandscapeSection />
         {/* <ConnectCryptoSection /> */}
-        <Tutorial />
+        {/* <Tutorial /> */}
         <QuestionsSection />
         <SendRequestSection />
       </StyledCryptoWidgetWrapper>

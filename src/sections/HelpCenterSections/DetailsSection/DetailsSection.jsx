@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useSearchParams } from 'next/navigation'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 import {
   StyledCenterSideWrapper,
   StyledContentItemAccordion,
@@ -102,7 +103,10 @@ function DetailsSectionInner() {
   }
 
   const onSubmit = async (data) => {
-    await createBlog({ data, modelId: '2537177' })
+    await toast.promise(createBlog({ data, modelId: '2537177' }), {
+      pending: 'Sending data',
+      success: 'Data sent',
+    })
 
     handleClose()
     reset()

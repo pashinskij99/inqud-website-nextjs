@@ -266,6 +266,7 @@ function Animated2Gif({
     <StyledAnimatedGifWrapper>
       <div ref={element} className='content'>
         <GifPlayer
+          loading='lazy'
           className={clsx('image image-1', className)}
           autoplay={false}
           gif={urlFirstVideo}
@@ -278,6 +279,7 @@ function Animated2Gif({
       </div>
       <div ref={element2} className='content'>
         <GifPlayer
+          loading='lazy'
           className={clsx('image image-2', className, {
             ['hide']: gif2Ended,
           })}
@@ -297,6 +299,7 @@ function Animated2Gif({
 function Animated2GifOnView({
   className,
   urlSecondVideo,
+  stillSecondVideo,
   width,
   height,
   timeRepeat,
@@ -354,9 +357,11 @@ function Animated2GifOnView({
       <StyledAnimatedGifWrapper gif1={urlSecondVideo} gif2={urlSecondVideo}>
         <div ref={element} className='content'>
           <GifPlayer
+            loading='lazy'
             className={clsx('image image-1 hide', className)}
             autoplay={false}
             gif={urlSecondVideo}
+            still={stillSecondVideo || urlSecondVideo}
             width={width}
             height={height}
             pauseRef={(pause) => {
@@ -366,6 +371,7 @@ function Animated2GifOnView({
         </div>
         <div ref={element2} className='content'>
           <GifPlayer
+            loading='lazy'
             className={clsx('image image-2', className)}
             autoplay={false}
             gif={urlSecondVideo}

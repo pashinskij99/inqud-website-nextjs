@@ -40,17 +40,17 @@ export const StyledCryptoWidgetWrapper = styled.main`
   }
 
   .faq {
-    padding-bottom: 111px;
+    padding-bottom: 0px;
     ${responsive.xxl`
-      padding-top: 204px; 
+      padding-top: 0px; 
       padding-bottom: 202px;
     `}
     ${responsive.xl`
-      padding-top: 78px; 
+      padding-top: 0; 
       padding-bottom: 122px;
     `}
     ${responsive.sm`
-      padding-top: 38px; 
+      padding-top: 0px; 
       padding-bottom: 0px;
     `}
   }

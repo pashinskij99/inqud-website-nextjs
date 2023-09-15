@@ -4,6 +4,7 @@ import { Fragment, useContext, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { toast } from 'react-toastify'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH2,
@@ -62,7 +63,10 @@ export default function YourNeedsSection() {
   } = useContext(PageContext)
 
   const onSubmit = async (data) => {
-    await createBlog({ data, modelId: '2537177' })
+    await toast.promise(createBlog({ data, modelId: '2537177' }), {
+      pending: 'Sending data',
+      success: 'Data sent',
+    })
 
     handleClose()
     reset()

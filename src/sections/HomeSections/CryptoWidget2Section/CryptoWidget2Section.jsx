@@ -3,6 +3,7 @@ import { useContext, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -44,7 +45,10 @@ export default function CryptoWidget2Section() {
   }
 
   const onSubmit = async (data) => {
-    await createBlog({ data, modelId: '2537957' })
+    await toast.promise(createBlog({ data, modelId: '2537957' }), {
+      pending: 'Sending data',
+      success: 'Data sent',
+    })
 
     handleClose()
     reset()

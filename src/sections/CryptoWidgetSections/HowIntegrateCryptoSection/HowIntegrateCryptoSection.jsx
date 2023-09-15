@@ -1,5 +1,7 @@
-// import { useTranslations } from 'next-intl'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { toast } from 'react-toastify'
 import { StyledHowIntegrateCryptoSectionWrapper } from './HowIntegrateCryptoSection.styled'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import arrowImage from '@/assets/images/homeB2C/how-to-start/arrow.png'
@@ -9,22 +11,48 @@ import Icon2 from '@/assets/images/api/how-integrate/num2-min.svg'
 import Icon3 from '@/assets/images/api/how-integrate/num3-min.svg'
 import Icon4 from '@/assets/images/api/how-integrate/num4-min.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
-// import { keysForLocale } from '@/config/keysForLocale'
 import { StepContent } from '@/sections/ApiSections/HowIntegrate/HowIntegrate'
 import { PageContext } from '@/contexts/PageContext/PageContext'
+import { ModalSendRequest } from '@/components/Modal'
+import { userSchema2 } from '@/utils/userSchema'
+import { createBlog } from '@/lib/datocms'
 
 export default function HowIntegrateCryptoSection() {
-  // const t = useTranslations('crypto_centre_page.how_integrate_section')
-  // const tTitles = useTranslations(
-  //   'crypto_centre_page.how_integrate_section.items_title'
-  // )
-  // const tTimes = useTranslations(
-  //   'crypto_centre_page.how_integrate_section.items_time'
-  // )
-
+  const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
   const {
     dataPage: { cryptoWidgetPage: data },
   } = useContext(PageContext)
+
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm({
+    defaultValues: {
+      email: '',
+      message: '',
+    },
+    resolver: yupResolver(userSchema2),
+  })
+
+  const handleOpen = () => {
+    setOpenModalSendRequest(true)
+  }
+
+  const handleClose = () => {
+    setOpenModalSendRequest(false)
+  }
+
+  const onSubmit = async (data) => {
+    await toast.promise(createBlog({ data, modelId: '2543028' }), {
+      pending: 'Sending data',
+      success: 'Data sent',
+    })
+
+    handleClose()
+    reset()
+  }
 
   const stepsContent = [
     {
@@ -72,7 +100,6 @@ export default function HowIntegrateCryptoSection() {
     <StyledHowIntegrateCryptoSectionWrapper>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='title'>
-          {/* {t('title')} */}
           {data.screen6Title}
         </StyledTypographyUrbanistH2>
 
@@ -111,10 +138,18 @@ export default function HowIntegrateCryptoSection() {
           )}
         </div>
 
-        <ButtonGetStarted className='get-started-button'>
-          {/* {t('button_text')} */}
+        <ButtonGetStarted onClick={handleOpen} className='get-started-button'>
           {data.buttonScreen6}
         </ButtonGetStarted>
+
+        <ModalSendRequest
+          handleSubmit={handleSubmit}
+          onSubmit={onSubmit}
+          register={register}
+          handleClose={handleClose}
+          errors={errors}
+          open={openModalSendRequest}
+        />
       </div>
     </StyledHowIntegrateCryptoSectionWrapper>
   )

@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import Link from 'next/link'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
 import { useWindowSize } from '@uidotdev/usehooks'
+import { PopupModal, useCalendlyEventListener } from 'react-calendly'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import {
   StyledHeroSectionWrapper,
@@ -28,6 +29,18 @@ export default function HeroSection() {
   const {
     dataPage: { homePage: data },
   } = useContext(PageContext)
+  const [calendlyModal, setCalendlyModal] = useState(false)
+
+  useCalendlyEventListener({
+    onEventScheduled: (e) => console.log(e),
+  })
+
+  const handleOpenCalendlyModal = () => {
+    setCalendlyModal(true)
+  }
+  const handleCloseCalendlyModal = () => {
+    setCalendlyModal(false)
+  }
 
   const size = useWindowSize()
 
@@ -35,7 +48,9 @@ export default function HeroSection() {
     <StyledHeroSectionWrapper>
       <div className='container'>
         <div className='leftSide'>
-          {size.width <= responseBreakPoint.mobile ? <MobileGrid /> : null}
+          {size.width && size.width <= responseBreakPoint.mobile ? (
+            <MobileGrid />
+          ) : null}
 
           <StyledTypographyIBMH5 className='subTitle'>
             {data.subTitle}
@@ -67,17 +82,25 @@ export default function HeroSection() {
                 {data.buttonScreen1GetStarted}
               </ButtonGetStarted>
             </Link>
-
-            <StyledButtonGhost className='ghostButton'>
+            <StyledButtonGhost
+              onClick={handleOpenCalendlyModal}
+              className='ghostButton'
+            >
               {data.buttonScreen1ContactSales}
             </StyledButtonGhost>
+            <PopupModal
+              onModalClose={handleCloseCalendlyModal}
+              open={calendlyModal}
+              rootElement={document.getElementById('calendly-model-wrapper')}
+              url='https://calendly.com/inqud_team/call-with-inqud'
+            />
           </div>
 
           <PaymentList />
         </div>
 
         <div className='rightSide'>
-          {size.width >= responseBreakPoint.mobile ? (
+          {size.width && size.width >= responseBreakPoint.mobile ? (
             <AnimatedFirstScreenVideo
               className='graphic'
               height={595}
@@ -96,16 +119,7 @@ export default function HeroSection() {
 function MobileGrid() {
   return (
     <StyledMobileGridWrapper>
-      <Image
-        controls={false}
-        playsInline
-        preload='auto'
-        muted
-        autoPlay
-        src={gif}
-        width={343}
-        height={152}
-      />
+      <Image src={gif} alt='animation' width={343} height={152} />
     </StyledMobileGridWrapper>
   )
 }
