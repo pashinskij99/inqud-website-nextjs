@@ -5,39 +5,39 @@ import { useTranslations } from 'next-intl'
 import { useContext } from 'react'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import { StyledBlogsSection } from './BlogsSection.styled'
-import Image1 from '@/assets/images/blogs/image1.webp'
-import Image2 from '@/assets/images/blogs/image2.webp'
-import Image3 from '@/assets/images/blogs/image3.webp'
+// import Image1 from '@/assets/images/blogs/image1.webp'
+// import Image2 from '@/assets/images/blogs/image2.webp'
+// import Image3 from '@/assets/images/blogs/image3.webp'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { BlogCart, BlogCart2 } from '@/components/BlogCart'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 
-const blogs = [
-  {
-    id: 0,
-    subTitle: 'cryptocurrency',
-    title: 'Understanding Blockchain Technology',
-    date: 'June 21, 2023',
-    time: '5 min read',
-    imageSrc: Image1.src,
-  },
-  {
-    id: 1,
-    subTitle: 'cryptocurrency',
-    title: 'How to Sell Cryptocurrencies on Our Platform',
-    date: 'June 21, 2023',
-    time: '5 min read',
-    imageSrc: Image2.src,
-  },
-  {
-    id: 2,
-    subTitle: 'cryptocurrency',
-    title: 'Exploring the Most Promising Cryptocurrencies of 2023',
-    date: 'June 21, 2023',
-    time: '5 min read',
-    imageSrc: Image3.src,
-  },
-]
+// const blogs = [
+//   {
+//     id: 0,
+//     subTitle: 'cryptocurrency',
+//     title: 'Understanding Blockchain Technology',
+//     date: 'June 21, 2023',
+//     time: '5 min read',
+//     imageSrc: Image1.src,
+//   },
+//   {
+//     id: 1,
+//     subTitle: 'cryptocurrency',
+//     title: 'How to Sell Cryptocurrencies on Our Platform',
+//     date: 'June 21, 2023',
+//     time: '5 min read',
+//     imageSrc: Image2.src,
+//   },
+//   {
+//     id: 2,
+//     subTitle: 'cryptocurrency',
+//     title: 'Exploring the Most Promising Cryptocurrencies of 2023',
+//     date: 'June 21, 2023',
+//     time: '5 min read',
+//     imageSrc: Image3.src,
+//   },
+// ]
 
 export default function BlogsSection() {
   const t = useTranslations('blog_name_section')
