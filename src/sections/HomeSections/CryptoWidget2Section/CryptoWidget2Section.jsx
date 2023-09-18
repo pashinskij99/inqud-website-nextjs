@@ -85,7 +85,7 @@ export default function CryptoWidget2Section() {
               width={500}
               height={500}
               timeRepeat={5000}
-              urlFirstVideo='/video/b2b_cart2crypto.mp4'
+              urlFirstVideo='/video/b2b_cart2crypto.webm'
             />
           ) : null}
           {size.width && size.width <= responseBreakPoint.mobile ? (
@@ -182,7 +182,7 @@ export default function CryptoWidget2Section() {
               width={500}
               height={500}
               timeRepeat={5000}
-              urlFirstVideo='/video/b2b_cart2crypto.mp4'
+              urlFirstVideo='/video/b2b_cart2crypto.webm'
             />
           ) : null}
           {/* <Image
