@@ -4,6 +4,16 @@ import HomePage from '@/views/HomePage'
 const HOME_PAGE_QUERY = `  
   query MyQuery($locale: SiteLocale) {
     homePage(locale: $locale) {
+      faqMainTitle
+      faqMainTitleMobile
+      faqDescription
+      faqContent {
+        description
+        id
+        title
+      }
+      faqButtonTextMobile
+      faqButtonText
       faqButton
       buttonBlog
       buttonHelp

@@ -20,6 +20,8 @@ import { PageContext } from '@/contexts/PageContext/PageContext'
 import { createBlog } from '@/lib/datocms'
 import { userSchema1 } from '@/utils/userSchema'
 import { responseBreakPoint } from '@/utils/response'
+import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
+import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 
 const DynamicModalSubmitEmail = dynamic(
   () => import('@/components/Modal').then((mod) => mod.ModalSubmitEmail),
@@ -75,14 +77,35 @@ export default function CryptoWidget2Section() {
           <StyledTypographyUrbanistH2 className='crypto2Title'>
             {data.screen5Title}
           </StyledTypographyUrbanistH2>
-
-          <Image
+          {size.width &&
+          size.width <= responseBreakPoint.tablet &&
+          size.width > responseBreakPoint.mobile ? (
+            <AnimatedVideoOnScroll
+              className='crypto2WidgetTablet'
+              width={500}
+              height={500}
+              timeRepeat={5000}
+              urlFirstVideo='/video/b2b_cart2crypto.mp4'
+            />
+          ) : null}
+          {size.width && size.width <= responseBreakPoint.mobile ? (
+            <Animated2GifOnView
+              className='crypto2WidgetTablet'
+              width={500}
+              height={500}
+              timeRepeat={5000}
+              stillSecondVideo='/video/b2b_cart2crypto.webp'
+              urlSecondVideo='/video/b2b_cart2crypto.gif'
+              timeSecondAnimate={5000}
+            />
+          ) : null}
+          {/* <Image
             className='crypto2WidgetTablet'
             src={data.screen5Image.url}
             width={500}
             height={500}
             alt='widget'
-          />
+          /> */}
 
           {size.width && size.width <= responseBreakPoint.mobile ? (
             <StyledTypographyUrbanistH5 className='crypto2Description crypto2Description-mobile'>
@@ -153,12 +176,21 @@ export default function CryptoWidget2Section() {
           </div>
         </div>
         <div className='rightSide'>
-          <Image
+          {size.width && size.width >= responseBreakPoint.desktop ? (
+            <AnimatedVideoOnScroll
+              className='graphic'
+              width={500}
+              height={500}
+              timeRepeat={5000}
+              urlFirstVideo='/video/b2b_cart2crypto.mp4'
+            />
+          ) : null}
+          {/* <Image
             src={data.screen5Image.url}
             alt={data.screen5Title}
             width={500}
             height={500}
-          />
+          /> */}
         </div>
       </div>
     </StyledCryptoWidget2Section>

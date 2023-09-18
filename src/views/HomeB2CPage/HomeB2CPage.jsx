@@ -24,7 +24,7 @@ export default function HomeB2CPage({ data }) {
   }, [])
 
   return (
-    <PageProvider dataPage={data}>
+    <PageProvider dataPage={data} nameCMSPage='homeB2c'>
       <StyledHomeB2CPageWrapper>
         <HeroB2CSection />
         <FeaturesB2CSection />

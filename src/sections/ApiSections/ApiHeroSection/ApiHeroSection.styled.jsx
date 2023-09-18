@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { responsive } from '@/utils/response';
+import styled from '@emotion/styled'
+import { responsive } from '@/utils/response'
 
 export const StyledApiHeroSectionWrapper = styled.section`
   padding-top: 64px;
@@ -149,6 +149,19 @@ export const StyledApiHeroSectionWrapper = styled.section`
       order: 1;
     `}
     .cart {
+      height: 650px;
+      display: block;
+      ${responsive.xl`
+        height: 464px;
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+      `}
+      ${responsive.sm`
+        height: 398.125px;
+      `}
+    }
+    /* .cart {
       background: conic-gradient(
           from -66.33deg at 51.32% 46.84%,
           #71bef6 0deg,
@@ -188,6 +201,6 @@ export const StyledApiHeroSectionWrapper = styled.section`
           height: 310.9px;
         `}
       }
-    }
+    } */
   }
-`;
+`

@@ -21,6 +21,16 @@ query MyQuery($locale: SiteLocale) {
   }
 
   homeB2c(locale: $locale) {
+    faqMainTitle
+    faqMainTitleMobile
+    faqDescription
+    faqContent {
+      description
+      id
+      title
+    }
+    faqButtonText
+    faqButtonTextMobile
     title
     subTitle
     screen5Title

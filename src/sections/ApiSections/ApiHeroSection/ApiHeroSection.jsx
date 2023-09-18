@@ -1,10 +1,9 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import { useTranslations } from 'next-intl'
 import { useContext, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
+import { useWindowSize } from '@uidotdev/usehooks'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
 import { StyledApiHeroSectionWrapper } from './ApiHeroSection.styled'
 import {
@@ -19,9 +18,11 @@ import { PageContext } from '@/contexts/PageContext/PageContext'
 import { GetPersonalizedModal } from '@/components/Modal'
 import { userSchema2 } from '@/utils/userSchema'
 import { createBlog } from '@/lib/datocms'
+import { AnimatedOneVideo } from '@/components/AnimatedVideo'
+import { responseBreakPoint } from '@/utils/response'
+import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
 
 export default function ApiHeroSection() {
-  const t = useTranslations('api_page.hero_section')
   const [showModal, setShowModal] = useState(false)
   const handleShowModal = () => {
     setShowModal(true)
@@ -52,6 +53,8 @@ export default function ApiHeroSection() {
   const {
     dataPage: { apiPage: data },
   } = useContext(PageContext)
+
+  const size = useWindowSize()
 
   return (
     <StyledApiHeroSectionWrapper>
@@ -103,14 +106,29 @@ export default function ApiHeroSection() {
           <PaymentList />
         </div>
         <div className='right-side'>
-          <div className='cart'>
-            <Image
-              src={data.image.url}
+          {size.width && size.width > responseBreakPoint.mobile ? (
+            <AnimatedOneVideo
+              className='cart'
               width={500}
               height={488}
-              alt={t('title')}
+              timeRepeat={10000}
+              urlFirstVideo='/video/api_page_hero.mp4'
             />
-          </div>
+          ) : null}
+          {size.width && size.width <= responseBreakPoint.mobile ? (
+            <Animated2Gif
+              className='cart'
+              width={500}
+              height={488}
+              timeRepeat={5000}
+              timeFirstAnimate={10000}
+              urlFirstVideo='/video/api_page_hero.gif'
+              stillFirstVideo='/video/api_page_hero.webp'
+              urlSecondVideo='/video/api_page_hero.gif'
+              stillSecondVideo='/video/api_page_hero.webp'
+              timeSecondAnimate={10000}
+            />
+          ) : null}
         </div>
       </div>
     </StyledApiHeroSectionWrapper>

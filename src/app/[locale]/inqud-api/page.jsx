@@ -23,6 +23,16 @@ const API_QUERY = `
       whatsappPlaceholder
     }
     apiPage(locale: $locale) {
+      faqMainTitle
+      faqMainTitleMobile
+      faqDescription
+      faqContent {
+        description
+        id
+        title
+      }
+      faqButtonTextMobile
+      faqButtonText
       buttonScreen1A
       buttonScreen1B
       buttonScreen4A

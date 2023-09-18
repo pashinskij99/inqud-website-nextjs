@@ -211,6 +211,8 @@ function Animated2Gif({
   className,
   urlFirstVideo,
   urlSecondVideo,
+  stillFirstVideo,
+  stillSecondVideo,
   width,
   height,
   timeRepeat,
@@ -270,6 +272,7 @@ function Animated2Gif({
           className={clsx('image image-1', className)}
           autoplay={false}
           gif={urlFirstVideo}
+          still={stillFirstVideo || urlFirstVideo}
           width={width}
           height={height}
           pauseRef={(pause) => {
@@ -285,6 +288,7 @@ function Animated2Gif({
           })}
           autoplay={false}
           gif={urlSecondVideo}
+          still={stillSecondVideo || urlSecondVideo}
           width={width}
           height={height}
           pauseRef={(pause) => {

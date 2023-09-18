@@ -7,6 +7,15 @@ const CRYPTO_WIDGET = `
       faqButton
     }
     cryptoWidgetPage(locale: $locale) {
+      faqMainTitle
+      faqMainTitleMobile
+      faqDescription
+      faqContent {
+        description
+        id
+        title
+      }
+      faqButtonTextMobile
       buttonScreen10
       buttonScreen1A
       buttonScreen1B

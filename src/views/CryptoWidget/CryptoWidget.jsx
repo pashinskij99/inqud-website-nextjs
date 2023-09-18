@@ -15,7 +15,7 @@ import PageProvider from '@/contexts/PageContext/PageContext'
 
 export default function CryptoWidget({ data }) {
   return (
-    <PageProvider dataPage={data}>
+    <PageProvider dataPage={data} nameCMSPage='cryptoWidgetPage'>
       <StyledCryptoWidgetWrapper>
         <CryptoWidgetHeroSection />
         <CryptoWidgetFlexibility />

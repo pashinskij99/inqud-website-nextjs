@@ -40,6 +40,18 @@ export const StyledCryptoWidget2Section = styled.section`
       ${responsive.xl`
         max-width: 100%;
       `}
+      .content:nth-of-type(2) {
+        display: block;
+        margin: 0 auto;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        img {
+          right: 0;
+        }
+      }
       .crypto2SubTitle {
         font-size: 18px;
         border-radius: ${rem(50)};
@@ -369,7 +381,7 @@ export const StyledCryptoWidget2Section = styled.section`
       justify-content: center;
       flex: 1;
 
-      img {
+      .graphic {
         width: 500px;
         height: 500px;
       }

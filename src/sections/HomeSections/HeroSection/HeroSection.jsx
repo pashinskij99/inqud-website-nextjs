@@ -4,7 +4,7 @@ import { useContext, useState } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
 import { useWindowSize } from '@uidotdev/usehooks'
-import { useCalendlyEventListener } from 'react-calendly'
+// import { useCalendlyEventListener } from 'react-calendly'
 import GifPlayer from 'react-gif-player'
 import dynamic from 'next/dynamic'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
@@ -39,9 +39,9 @@ export default function HeroSection() {
   } = useContext(PageContext)
   const [calendlyModal, setCalendlyModal] = useState(false)
 
-  useCalendlyEventListener({
-    onEventScheduled: (e) => console.log(e),
-  })
+  // useCalendlyEventListener({
+  //   onEventScheduled: (e) => console.log(e),
+  // })
 
   const handleOpenCalendlyModal = () => {
     setCalendlyModal(true)

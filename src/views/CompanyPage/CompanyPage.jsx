@@ -10,7 +10,7 @@ import PageProvider from '@/contexts/PageContext/PageContext'
 
 export default function CompanyPage({ data }) {
   return (
-    <PageProvider dataPage={data}>
+    <PageProvider dataPage={data} nameCMSPage='aboutUsPage'>
       <StyledCompanyPageWrapper>
         <CompanyHeroSection />
         <CoreSection />

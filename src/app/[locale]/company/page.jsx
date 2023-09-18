@@ -4,6 +4,16 @@ import CompanyPage from '@/views/CompanyPage'
 const COMPANY_PAGE_QUERY = `  
 query MyQuery($locale: SiteLocale) {
   aboutUsPage(locale: $locale) {
+    faqMainTitle
+    faqMainTitleMobile
+    faqDescription
+    faqContent {
+      description
+      id
+      title
+    }
+    faqButtonText
+    faqButtonTextMobile
     id
     screen1Description1
     screen1Description2

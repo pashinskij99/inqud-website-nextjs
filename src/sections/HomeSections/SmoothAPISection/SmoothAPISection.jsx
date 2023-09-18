@@ -28,7 +28,7 @@ export default function SmoothAPISection() {
     <StyledSmoothAPISection>
       <div className='container'>
         <div className='leftSide'>
-          {size.width && size.width > responseBreakPoint.tablet ? (
+          {size.width && size.width >= responseBreakPoint.tablet ? (
             <AnimatedVideoOnScroll
               className='graphic'
               height={600}
