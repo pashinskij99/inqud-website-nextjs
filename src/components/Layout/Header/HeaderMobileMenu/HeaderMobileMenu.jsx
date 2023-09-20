@@ -81,11 +81,15 @@ export default function HeaderMobileMenu({ active, handleClose }) {
 
         <div className='headerMobileMenuButtons'>
           <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
-            <ButtonGetStarted>
+            <ButtonGetStarted onClick={handleClose}>
               {signButtonsTranslate('get_started')}
             </ButtonGetStarted>
           </Link>
-          <StyledButtonGhost>{signButtonsTranslate('login')}</StyledButtonGhost>
+          <Link target='_blank' href='https://cabinet.inqud.com/#/login'>
+            <StyledButtonGhost onClick={handleClose}>
+              {signButtonsTranslate('login')}
+            </StyledButtonGhost>
+          </Link>
         </div>
       </div>
     </StyledHeaderMobileMenu>

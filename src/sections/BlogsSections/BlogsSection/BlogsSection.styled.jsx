@@ -11,6 +11,13 @@ export const StyledBlogsSectionWrapper = styled.section`
   .blog-category-navigation-wrapper {
     display: block;
   }
+  .loader-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+
+    justify-content: center;
+  }
   .blog-grid {
     padding: ${rem(66)} 0 ${rem(52)};
     display: grid;
@@ -18,6 +25,7 @@ export const StyledBlogsSectionWrapper = styled.section`
     justify-content: space-between;
     column-gap: 40px;
     row-gap: 44px;
+    justify-items: center;
     ${responsive.xxl`
       padding: ${rem(56)} 0 ${rem(52)};
       column-gap: 24px;
@@ -40,6 +48,12 @@ export const StyledBlogsSectionWrapper = styled.section`
       display: contents;
       .cart {
         ${responsive.xxl`
+          max-width: 389px;
+        `}
+        ${responsive.xl`
+          max-width: 100%;
+        `}
+        ${responsive.sm`
           max-width: 389px;
         `}
 

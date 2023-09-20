@@ -1,5 +1,6 @@
 import { render } from 'datocms-structured-text-to-html-string'
 import { useEffect, useState } from 'react'
+import { helpCentreLinkTransform } from '@/utils/helpCentreLinkTransform'
 
 export const useFilter = ({ data = [], searchValue }) => {
   const [filteredValue, setFilteredValue] = useState([])
@@ -17,7 +18,11 @@ export const useFilter = ({ data = [], searchValue }) => {
               .toLowerCase()
               .indexOf(searchValue.toLowerCase()) > -1
           ) {
-            newArray.push({ ...elementInner, id: element.id, is: 'title' })
+            newArray.push({
+              ...elementInner,
+              id: helpCentreLinkTransform(element.mainTitle),
+              is: 'title',
+            })
             break
           }
 
@@ -31,7 +36,7 @@ export const useFilter = ({ data = [], searchValue }) => {
             ) {
               newArray.push({
                 ...elementInner,
-                id: element.id,
+                id: helpCentreLinkTransform(element.mainTitle),
                 description,
                 is: 'description',
               })

@@ -6,7 +6,6 @@ import { InView } from 'react-intersection-observer'
 import { Element, Link } from 'react-scroll'
 import { StructuredText } from 'react-datocms/structured-text'
 import { useDispatch, useSelector } from 'react-redux'
-import { useSearchParams } from 'next/navigation'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
@@ -24,8 +23,6 @@ import {
   StyledTypographyUrbanistH4,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-// import DislikeIcon from '@/assets/images/help-center/dislike.svg'
-// import LikeIcon from '@/assets/images/help-center/like.svg'
 import MessageIcon from '@/assets/images/help-center/message.svg'
 import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
 import Plus from '@/assets/icons/plus.svg'
@@ -43,23 +40,35 @@ import { SearchResultDetailsSection } from '@/sections/HelpCenterSections/Search
 import { userSchema2 } from '@/utils/userSchema'
 import { ModalSendRequest } from '@/components/Modal'
 import { createBlog } from '@/lib/datocms'
+import { fetchHelpCentreDetailsData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
+import Loader from '@/components/Loader'
 
-function DetailsSection({ data, type }) {
+function DetailsSection({ params }) {
   const { tab } = useSelector((state) => state.activeTab)
-  const searchParams = useSearchParams()
   const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(setBlogBreadcrumbs(data.helpCentre.mainTitle))
+  const { loading, helpCentreDetailsData, isSearch } = useSelector(
+    (state) => state.helpCentre
+  )
 
+  useEffect(() => {
+    dispatch(fetchHelpCentreDetailsData({ params }))
     return () => {
       dispatch(setBlogBreadcrumbs(''))
     }
-  }, [tab, data])
-  const searchIn = searchParams.get('searchIn')
+  }, [tab])
+
+  if (loading) {
+    return (
+      <div className='loader-wrapper'>
+        <Loader />
+      </div>
+    )
+  }
+
   return (
-    <HelpCentreDetailsProvider searchIn={searchIn} data={data} type={type}>
+    <HelpCentreDetailsProvider data={helpCentreDetailsData}>
       <ArticleProvider>
-        {searchIn ? <SearchResultDetailsSection /> : <DetailsSectionInner />}
+        {isSearch ? <SearchResultDetailsSection /> : <DetailsSectionInner />}
       </ArticleProvider>
     </HelpCentreDetailsProvider>
   )

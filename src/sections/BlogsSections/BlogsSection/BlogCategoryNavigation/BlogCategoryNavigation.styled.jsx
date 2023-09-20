@@ -21,12 +21,6 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
   }
 
   .container {
-    //width: 100%;
-    //display: flex;
-    //align-items: center;
-    //gap: 8px;
-    //padding: 23px 0;
-    //overflow-x: auto;
   }
 
   .list-wrapper {
@@ -79,7 +73,7 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
         h5 {
           color: rgba(81, 113, 133, 1);
           @media (max-width: 576px) {
-            font-size: ${rem(24)};
+            font-size: 18px;
           }
         }
       }

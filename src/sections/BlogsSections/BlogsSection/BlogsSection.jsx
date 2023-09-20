@@ -21,21 +21,10 @@ function BlogsSection() {
       >
         <div className='container'>
           {loading ? (
-            // <Element name='blog' className='blog-category-navigation-wrapper'>
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                height: '100vh',
-
-                justifyContent: 'center',
-                // paddingTop: '6rem',
-              }}
-            >
+            <div className='loader-wrapper'>
               <Loader />
             </div>
           ) : (
-            // </Element>
             <>
               {blogs.length ? (
                 <ul className='blog-grid'>

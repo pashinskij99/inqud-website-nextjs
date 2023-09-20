@@ -4,7 +4,7 @@ import { render } from 'datocms-structured-text-to-html-string'
 
 export const HelpCentreContext = createContext()
 
-export function HelpCentreProvider({ children, data, searchValue }) {
+export function HelpCentreProvider({ children, data }) {
   const { tab } = useSelector((state) => state.activeTab)
   const [browseByProductData, setBrowseByProductData] = useState([])
   const [exploreByCategoryData, setExploreByCategoryData] = useState([])
@@ -12,7 +12,7 @@ export function HelpCentreProvider({ children, data, searchValue }) {
   useEffect(() => {
     if (tab === 0) {
       setBrowseByProductData(
-        data.allHelpCentres
+        data
           .filter(
             ({ category, typeContent }) =>
               typeContent.name === 'Business' &&
@@ -35,7 +35,7 @@ export function HelpCentreProvider({ children, data, searchValue }) {
           }))
       )
       setExploreByCategoryData(
-        data.allHelpCentres
+        data
           .filter(
             ({ category, typeContent }) =>
               typeContent.name === 'Business' &&
@@ -59,7 +59,7 @@ export function HelpCentreProvider({ children, data, searchValue }) {
       )
     } else {
       setBrowseByProductData(
-        data.allHelpCentres
+        data
           .filter(
             ({ category, typeContent }) =>
               typeContent.name === 'Personal' &&
@@ -82,7 +82,7 @@ export function HelpCentreProvider({ children, data, searchValue }) {
           }))
       )
       setExploreByCategoryData(
-        data.allHelpCentres
+        data
           .filter(
             ({ category, typeContent }) =>
               typeContent.name === 'Personal' &&
@@ -111,10 +111,9 @@ export function HelpCentreProvider({ children, data, searchValue }) {
     () => ({
       browseByProductData,
       exploreByCategoryData,
-      searchValue,
-      data: data.allHelpCentres,
+      data,
     }),
-    [browseByProductData, exploreByCategoryData, searchValue, data]
+    [browseByProductData, exploreByCategoryData, data]
   )
 
   return (

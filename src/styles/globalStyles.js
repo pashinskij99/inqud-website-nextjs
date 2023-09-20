@@ -57,22 +57,22 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .container {
-    max-width: ${rem(1400)};
+    max-width: 1400px;
     margin: 0 auto;
 
     @media (max-width: 1536px) {
-      max-width: ${rem(1216)};
+      max-width: 1216px;
     }
     @media (max-width: 1279px) {
       max-width: 767px;
     }
     @media (max-width: 1024px) {
       max-width: 767px;
-      padding: 0 ${rem(40)};
+      padding: 0 40px;
     }
     @media (max-width: 767px) {
       max-width: 100%;
-      padding: 0 ${rem(16)};
+      padding: 0 16px;
     }
   }
 
@@ -85,6 +85,16 @@ const GlobalStyle = createGlobalStyle`
 
   .no-scroll {
     overflow: hidden !important;
+  }
+  .events-none {
+    pointer-events: none;
+    touch-action: none;
+  }
+  .loader-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
   }
 `
 

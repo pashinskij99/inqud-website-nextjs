@@ -18,6 +18,7 @@ import {
   StyledButtonLearnMore,
 } from '@/components/UI/Button/Button.styled'
 import { HelpCentreContext } from '@/contexts/HelpCentreContext/HelpCentreContext'
+import { helpCentreLinkTransform } from '@/utils/helpCentreLinkTransform'
 
 function MainSection() {
   const { browseByProductData, exploreByCategoryData } =
@@ -61,6 +62,7 @@ function SubSection({ title, grid }) {
   )
 }
 
+// eslint-disable-next-line no-unused-vars
 function Cart({ id, icon, titleCart, listQuestions, answers }) {
   return (
     <li className='cart'>
@@ -74,7 +76,7 @@ function Cart({ id, icon, titleCart, listQuestions, answers }) {
         {listQuestions.map(
           ({ id: key, title }, i) =>
             i <= 2 && (
-              <Link href={`/help-centre/${id}`}>
+              <Link href={`/help-centre/${helpCentreLinkTransform(titleCart)}`}>
                 <StyledTypographyUrbanistBody
                   key={key}
                   className='cart-question'
@@ -86,7 +88,7 @@ function Cart({ id, icon, titleCart, listQuestions, answers }) {
         )}
       </div>
       <div className='cart-footer'>
-        <Link href={`/help-centre/${id}`}>
+        <Link href={`/help-centre/${helpCentreLinkTransform(titleCart)}`}>
           <StyledButtonLearnMore className='cart-btn-view'>
             View all
           </StyledButtonLearnMore>

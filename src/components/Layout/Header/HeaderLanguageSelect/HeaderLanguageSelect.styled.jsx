@@ -27,6 +27,8 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
     }
 
     .planet {
+      pointer-events: none;
+      touch-action: none;
       ${responsive.xs`
         width: ${rem(32)};
         height: ${rem(32)};
@@ -55,6 +57,7 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
   }
 
   .select {
+    top: 20px;
     position: absolute;
     transform: translateX(-25%);
     height: 100%;

@@ -3,10 +3,12 @@ import clsx from 'clsx'
 import { useRouter } from 'next-intl/client'
 import { useLocale } from 'next-intl'
 import { usePathname } from 'next/navigation'
+import { useWindowSize } from '@uidotdev/usehooks'
 import { StyledHeaderLanguageSelectWrapper } from './HeaderLanguageSelect.styled'
 import Planet from '@/assets/icons/planet.svg'
 import Check from '@/assets/icons/check.svg'
 import Arrow from '@/assets/icons/arrow-down.svg'
+import { responseBreakPoint } from '@/utils/response'
 
 const languages = [
   { id: 0, name: 'English (US)', value: 'EN', locale: 'en' },
@@ -35,11 +37,26 @@ export default function HeaderLanguageSelect({ className }) {
     handleClose()
   }
 
+  const size = useWindowSize()
+
   return (
     <StyledHeaderLanguageSelectWrapper
-      onMouseEnter={handleClick}
-      onMouseLeave={handleClose}
-      onClick={handleClick}
+      onMouseEnter={
+        size.width && size.width > responseBreakPoint.mobile
+          ? handleClick
+          : () => {}
+      }
+      onMouseLeave={
+        size.width && size.width > responseBreakPoint.mobile
+          ? handleClose
+          : () => {}
+      }
+      onClick={
+        size.width && size.width > responseBreakPoint.mobile
+          ? handleClick
+          : () => {}
+      }
+      onTouchStart={handleClick}
       className={className}
     >
       <button

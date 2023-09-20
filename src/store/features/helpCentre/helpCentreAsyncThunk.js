@@ -1,0 +1,37 @@
+import { createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
+import { setBlogBreadcrumbs } from '../breadcrumb/breadcrumbSlice'
+
+export const fetchHelpCentreData = createAsyncThunk(
+  'helpCentre/fetchHelpCentreData',
+  async (searchData) => {
+    try {
+      const response = await axios.post('/api/get-help-centre-data', searchData)
+
+      const data = await response.data
+      return data
+    } catch (error) {
+      console.log(error)
+      return {}
+    }
+  }
+)
+
+export const fetchHelpCentreDetailsData = createAsyncThunk(
+  'helpCentre/fetchHelpCentreDetailsData',
+  async (searchData, { dispatch }) => {
+    try {
+      const response = await axios.post(
+        '/api/get-help-centre-details-data',
+        searchData
+      )
+
+      const { data } = await response.data
+      dispatch(setBlogBreadcrumbs(data.helpCentre.mainTitle))
+      return data
+    } catch (error) {
+      console.log(error)
+      return {}
+    }
+  }
+)

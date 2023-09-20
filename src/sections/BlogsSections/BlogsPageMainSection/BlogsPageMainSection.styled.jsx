@@ -41,8 +41,8 @@ export const StyledBlogsPageMainSection = styled.section`
   .blogsPageSearchWrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: ${rem(464)};
+    justify-content: center;
+    max-width: 100%;
     column-gap: ${rem(16)};
     margin: 0 auto;
     ${responsive.sm`
@@ -55,6 +55,8 @@ export const StyledBlogsPageMainSection = styled.section`
 
     .inputWrapper {
       flex: 1;
+      max-width: 351px;
+
       ${responsive.sm`
         flex: auto;
         max-width: 100%;
@@ -72,6 +74,7 @@ export const StyledBlogsPageMainSection = styled.section`
       height: ${rem(48)};
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
     }
 

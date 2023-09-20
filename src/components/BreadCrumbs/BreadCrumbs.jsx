@@ -41,15 +41,12 @@ function BreadCrumbs() {
       // for blog details page
       default:
         // eslint-disable-next-line no-nested-ternary
-        return breadcrumb.blog
-          ? breadcrumb.blog
-          : page.split('-').length === 1
-          ? page
-          : null
-      // : page
-      // .split('-')
-      // .map((word) => capitalize(word))
-      // .join(' ')
+        // return breadcrumb.blog
+        //   ? breadcrumb.blog
+        //   : page.split('-').length === 1
+        //   ? page
+        //   : null
+        return breadcrumb.blog || ''
     }
   }
 

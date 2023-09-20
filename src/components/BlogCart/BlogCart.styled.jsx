@@ -45,25 +45,24 @@ export const StyledBlogCartWrapper = styled.div`
   }
 
   .image {
-    max-width: ${rem(440)};
-    height: ${rem(250)};
+    /* max-width: ${rem(440)}; */
+    /* height: ${rem(250)}; */
     transition: transform 0.3s ease-in-out;
     width: 100%;
+    height: 250px;
+    max-width: 100%;
 
     ${responsive.xxl`
-      max-width: ${rem(389)};
       height: ${rem(221)};
     `};
 
     ${responsive.xl`
-      max-width: ${rem(332)};
       height: ${rem(189)};
     `};
 
     ${responsive.sm`
       max-width: 100%;
       height: auto;
-      object-fit: contain;
     `};
   }
 

@@ -276,6 +276,7 @@ export const StyledCryptoWidget2Section = styled.section`
           display: grid;
           grid-template-columns: 1fr;
           text-align: center;
+          min-width: 100%;
           justify-items: center;
           padding: ${rem(34)} ${rem(24)} ${rem(31)};
         `};

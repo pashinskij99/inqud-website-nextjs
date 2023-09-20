@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import Link from 'next/link'
-import { useContext, useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
+import { useDispatch, useSelector } from 'react-redux'
 import { StyledHelpHeroSectionWrapper } from '@/sections/HelpCenterSections/HelpHeroSection/HelpHeroSection.styled'
 import {
   StyledTypographyUrbanistBody,
@@ -11,23 +10,25 @@ import { InputSearch } from '@/components/UI/Input'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import HeaderTabs from '@/components/Layout/Header/HeaderTabs'
 import BackIcon from '@/assets/icons/arrow-back.svg'
-import { HelpCentreContext } from '@/contexts/HelpCentreContext/HelpCentreContext'
+import {
+  setIsSearch,
+  setSearchValue,
+} from '@/store/features/helpCentre/helpCentreSlice'
 
 function HelpHeroSection({ page, data }) {
-  const helpCentreData = useContext(HelpCentreContext)
-  const [searchValue, setSearchValue] = useState(
-    helpCentreData?.searchValue || ''
-  )
-  const router = useRouter()
-  const params = useParams()
-
+  const dispatch = useDispatch()
+  const { searchValue } = useSelector((state) => state.helpCentre)
   const handleChange = (value) => {
-    setSearchValue(value)
+    dispatch(setSearchValue(value))
   }
 
   const handleClear = () => {
-    setSearchValue('')
-    router.replace('/help-centre', undefined, { shallow: true })
+    dispatch(setSearchValue(''))
+    dispatch(setIsSearch(false))
+  }
+
+  const handleSearch = () => {
+    dispatch(setIsSearch(true))
   }
 
   return (
@@ -63,33 +64,15 @@ function HelpHeroSection({ page, data }) {
             handleChange={handleChange}
             handleClear={handleClear}
           />
-          {page === 'main' ? (
-            <Link
-              href={{
-                pathname: '/help-centre',
-                query: {
-                  search: searchValue,
-                },
-              }}
-            >
-              <StyledButtonSecondaryLight className='search-btn'>
-                {data.helpCentreHero.button}
-              </StyledButtonSecondaryLight>
-            </Link>
-          ) : (
-            <Link
-              href={{
-                pathname: `/help-centre/${params.slug}`,
-                query: {
-                  searchIn: searchValue,
-                },
-              }}
-            >
-              <StyledButtonSecondaryLight className='search-btn'>
-                {data.helpCentreHero.button}
-              </StyledButtonSecondaryLight>
-            </Link>
-          )}
+          <StyledButtonSecondaryLight
+            type='button'
+            className={clsx('search-btn', {
+              ['events-none']: !searchValue,
+            })}
+            onClick={handleSearch}
+          >
+            {data.helpCentreHero.button}
+          </StyledButtonSecondaryLight>
         </form>
 
         <div

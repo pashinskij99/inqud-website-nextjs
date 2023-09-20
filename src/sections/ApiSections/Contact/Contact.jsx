@@ -5,6 +5,7 @@ import clsx from 'clsx'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
+import Close from '@/assets/icons/close.svg'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH4,
@@ -26,9 +27,16 @@ export function GetPersonalizedForm({
   register,
   prop1,
   className,
+  isModal = false,
+  handleClose,
 }) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={clsx('form', className)}>
+      {isModal ? (
+        <button className='closeButton' onClick={handleClose}>
+          <Close />
+        </button>
+      ) : null}
       <StyledTypographyUrbanistH4 className='title'>
         <StructuredText data={data.leadForm3Title} />
       </StyledTypographyUrbanistH4>

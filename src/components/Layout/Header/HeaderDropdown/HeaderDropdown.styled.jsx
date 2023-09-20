@@ -60,7 +60,7 @@ export const StyledHeaderDropdownWrapper = styled.div`
   }
 
   .dropdown-menu {
-    margin-top: ${rem(50)};
+    margin-top: ${rem(29)};
     left: 50%;
     padding: ${rem(24)} ${rem(24)};
     border-radius: ${rem(16)};

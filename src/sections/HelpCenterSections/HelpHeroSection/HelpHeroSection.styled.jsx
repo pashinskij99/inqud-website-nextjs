@@ -109,12 +109,12 @@ export const StyledHelpHeroSectionWrapper = styled.section`
     display: flex;
     align-items: center;
     column-gap: 16px;
-    max-width: 541px;
-    width: 100%;
+    max-width: 100%;
+    width: fit-content;
     margin: 0 auto 24px;
 
     ${responsive.xl`
-      max-width: 464px;
+      max-width: 100%;
       margin: 0 auto 26px;
     `}
     ${responsive.sm`
@@ -125,6 +125,11 @@ export const StyledHelpHeroSectionWrapper = styled.section`
     `}
     .input-wrapper {
       width: 100%;
+      max-width: 343px;
+      input {
+        width: 343px;
+        max-width: 343px;
+      }
 
       &.input-wrapper-1 {
         ${responsive.xl`

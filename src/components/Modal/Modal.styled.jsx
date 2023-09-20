@@ -21,8 +21,9 @@ export const StyledModalSendRequestWrapper = styled(Modal)`
       outline: none;
     }
 
-    ${responsive.xs`
-      max-width: 100%;
+    ${responsive.sm`
+      width: 95%;
+      padding: 56px 16px;
     `}
   }
 
@@ -90,9 +91,10 @@ export const StyledModalGetPersonalizedFormWrapper = styled(Modal)`
       outline: none;
     }
 
-    ${responsive.xs`
+    /* ${responsive.sm`
+    padding: 2.5rem 0.625rem;
       max-width: 100%;
-    `}
+    `} */
   }
   .form {
     border-radius: 30px;
@@ -102,8 +104,18 @@ export const StyledModalGetPersonalizedFormWrapper = styled(Modal)`
     width: 100%;
     text-align: start;
     ${responsive.sm`
-      padding: 0px;
+      width: 95%;
+      padding: 56px 16px;
     `}
+
+    .closeButton {
+      position: absolute;
+      right: ${rem(16)};
+      top: ${rem(16)};
+
+      svg {
+      }
+    }
   }
   .title {
     color: var(--directness-black, #2d3439);
@@ -224,6 +236,10 @@ export const StyledFeeModalWrapper = styled(Dialog)`
   .css-wpa0th {
     background-color: transparent;
     box-shadow: none;
+    ${responsive.sm`
+      margin: 32px auto;
+      max-width: 95%!important;
+    `}
   }
 
   .modalContainer {
@@ -241,9 +257,10 @@ export const StyledFeeModalWrapper = styled(Dialog)`
       outline: none;
     }
 
-    ${responsive.xs`
-      padding: ${rem(40)} ${rem(10)};
-    `};
+    ${responsive.sm`
+      margin: 0;
+      padding: 56px 16px;
+    `}
 
     .closeButton {
       position: absolute;

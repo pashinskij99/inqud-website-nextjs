@@ -199,7 +199,12 @@ export default function Footer() {
         <div className='container'>
           <ul className='footerSocialWrapper'>
             {social.map(({ id, href, icon }) => (
-              <Link className='footerSocialLink' key={id} href={href}>
+              <Link
+                target='_blank'
+                className='footerSocialLink'
+                key={id}
+                href={href}
+              >
                 {icon}
               </Link>
             ))}

@@ -1,8 +1,9 @@
 'use client'
 
-import { Fragment, useContext, useMemo } from 'react'
+import { Fragment, useMemo } from 'react'
 import Link from 'next/link'
 import { render } from 'datocms-structured-text-to-html-string'
+import { useSelector } from 'react-redux'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH3,
@@ -14,14 +15,14 @@ import {
   StyledSearchResultSectionWrapper,
 } from './SearchResultSection.styled'
 import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
-import { HelpCentreContext } from '@/contexts/HelpCentreContext/HelpCentreContext'
 import { useFilter } from '@/app/[locale]/help-centre/useFilter'
 import { getHighlightedText } from '@/utils/getHighlightedText'
-import { HelpCentreDetailsContext } from '@/contexts/HelpCentreDetailsContext/HelpCentreDetailsContext'
 
 export function SearchResultSection() {
-  const { data, searchValue } = useContext(HelpCentreContext)
-  const newArray = useMemo(() => [...data], [data])
+  const { helpCentreData, searchValue } = useSelector(
+    (state) => state.helpCentre
+  )
+  const newArray = useMemo(() => [...helpCentreData], [helpCentreData])
 
   const { filteredValue } = useFilter({
     data: newArray,
@@ -60,21 +61,66 @@ export function SearchResultSection() {
   )
 }
 
-export function SearchResultDetailsSection() {
-  const { searchIn, fullData } = useContext(HelpCentreDetailsContext)
+function Cart({ id, title, is, description, descriptions }) {
+  const { searchValue } = useSelector((state) => state.helpCentre)
 
-  const newArray = useMemo(() => [...[fullData]], [fullData])
+  return (
+    <StyledSearchCartWrapper>
+      <div className='cart-text-wrapper'>
+        <StyledTypographyUrbanistH5 className='cart-title'>
+          {title}
+        </StyledTypographyUrbanistH5>
+        {is !== 'description' ? (
+          <>
+            {descriptions.map(({ description }, i) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <Fragment key={i}>
+                <StyledTypographyUrbanistBody className='cart-description'>
+                  {render(description)
+                    .replace(/(<([^>]+)>)/gi, '')
+                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')}
+                </StyledTypographyUrbanistBody>
+                <br />
+              </Fragment>
+            ))}
+          </>
+        ) : (
+          <>{getHighlightedText(description, searchValue)}</>
+        )}
+      </div>
+
+      <StyledButtonLearnMore className='cart-btn'>
+        <Link href={`/help-centre/${id}`}>
+          <StyledTypographyUrbanistBody className='cart-btn-text'>
+            Learn more
+          </StyledTypographyUrbanistBody>
+        </Link>
+      </StyledButtonLearnMore>
+    </StyledSearchCartWrapper>
+  )
+}
+
+export function SearchResultDetailsSection() {
+  // const { searchIn, fullData } = useContext(HelpCentreDetailsContext)
+  const { helpCentreDetailsData, searchValue } = useSelector(
+    (state) => state.helpCentre
+  )
+
+  const newArray = useMemo(
+    () => [...[helpCentreDetailsData]],
+    [helpCentreDetailsData]
+  )
 
   const { filteredValue } = useFilter({
     data: newArray,
-    searchValue: searchIn,
+    searchValue,
   })
 
   return (
     <StyledSearchResultSectionWrapper>
       <div className='container'>
         <StyledTypographyUrbanistH3 className='title'>
-          Search results for: <span className='search-text'>{searchIn}</span>
+          Search results for: <span className='search-text'>{searchValue}</span>
         </StyledTypographyUrbanistH3>
         <div className='list-search-result'>
           {/* eslint-disable-next-line no-use-before-define */}
@@ -103,46 +149,7 @@ export function SearchResultDetailsSection() {
 }
 
 function CartForDetails({ id, title, is, description, descriptions }) {
-  const { searchIn } = useContext(HelpCentreDetailsContext)
-  return (
-    <StyledSearchCartWrapper>
-      <div className='cart-text-wrapper'>
-        <StyledTypographyUrbanistH5 className='cart-title'>
-          {title}
-        </StyledTypographyUrbanistH5>
-        {is !== 'description' ? (
-          <>
-            {descriptions.map(({ description }, i) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <Fragment key={i}>
-                <StyledTypographyUrbanistBody className='cart-description'>
-                  {render(description)
-                    .replace(/(<([^>]+)>)/gi, '')
-                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')}
-                </StyledTypographyUrbanistBody>
-                <br />
-              </Fragment>
-            ))}
-          </>
-        ) : (
-          <>{getHighlightedText(description, searchIn)}</>
-        )}
-      </div>
-
-      <StyledButtonLearnMore className='cart-btn'>
-        <Link href={`/help-centre/${id}`}>
-          <StyledTypographyUrbanistBody className='cart-btn-text'>
-            Learn more
-          </StyledTypographyUrbanistBody>
-        </Link>
-      </StyledButtonLearnMore>
-    </StyledSearchCartWrapper>
-  )
-}
-
-function Cart({ id, title, is, description, descriptions }) {
-  const { searchValue } = useContext(HelpCentreContext)
-
+  const { searchValue } = useSelector((state) => state.helpCentre)
   return (
     <StyledSearchCartWrapper>
       <div className='cart-text-wrapper'>

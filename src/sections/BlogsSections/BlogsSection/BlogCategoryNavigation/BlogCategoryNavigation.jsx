@@ -94,9 +94,7 @@ function BlogCategoryNavigation() {
   const handleActiveTag = (tag) => {
     dispatch(setActiveTag(tag))
     const currentActiveTags = [...activeTags].concat([tag])
-    console.log(currentActiveTags)
 
-    // console.log({ tags1: [...activeTags].concat([tag.id]), tags2: activeTags })
     handleFetchBlog({ activeTags: currentActiveTags })
   }
   const handleRemoveTag = (tag) => {
@@ -104,7 +102,6 @@ function BlogCategoryNavigation() {
     const currentActiveTags = [...activeTags].filter(
       (currentTag) => currentTag.id !== tag.id
     )
-    console.log(currentActiveTags)
     handleFetchBlog({ activeTags: currentActiveTags })
   }
 

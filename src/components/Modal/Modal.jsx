@@ -214,7 +214,10 @@ export function GetPersonalizedModal({
   return (
     <StyledModalGetPersonalizedFormWrapper open={open} onClose={handleClose}>
       <GetPersonalizedForm
+        isModal
+        handleClose={handleClose}
         errors={errors}
+        onClose={handleClose}
         className='modalContainer'
         data={data}
         handleSubmit={handleSubmit}

@@ -133,6 +133,8 @@ export const StyledHeaderMobileMenuAccordion = styled((props) => (
   '.css-1jfjrob-MuiButtonBase-root-MuiAccordionSummary-root, .css-1df0xmt': {
     minHeight: 'auto',
   },
+  cursor: 'pointer',
+
   '.css-yw020d-MuiAccordionSummary-expandIconWrapper, .MuiAccordionSummary-expandIconWrapper.css-1fx8m19':
     {
       position: 'absolute',

@@ -46,10 +46,14 @@ export function BlogCart({ imageSrc, date, time, subTitle, title }) {
         <StyledTypographyUrbanistBody className='date'>
           {currentDate.date}
         </StyledTypographyUrbanistBody>
-        <Dot />
-        <StyledTypographyUrbanistBody className='time'>
-          {time} read
-        </StyledTypographyUrbanistBody>
+        {time ? (
+          <>
+            <Dot />
+            <StyledTypographyUrbanistBody className='time'>
+              {time} read
+            </StyledTypographyUrbanistBody>
+          </>
+        ) : null}
       </div>
     </StyledBlogCartWrapper>
   )

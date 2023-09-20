@@ -1,53 +1,24 @@
 import { createContext, useEffect, useMemo, useState } from 'react'
-import { useSelector } from 'react-redux'
 
 export const HelpCentreDetailsContext = createContext(null)
 
-export function HelpCentreDetailsProvider({ children, data, type, searchIn }) {
+export function HelpCentreDetailsProvider({ children, data }) {
   const [currentData, setCurrentData] = useState({})
-  const { tab } = useSelector((state) => state.activeTab)
-
   useEffect(() => {
-    if (type === 'product') {
-      if (tab === 0) {
-        setCurrentData({
-          content: data.helpCentre.content,
-          icon: data.helpCentre.icon.url,
-          id: data.helpCentre.id,
-          mainTitle: data.helpCentre.mainTitle,
-        })
-      } else {
-        setCurrentData({
-          content: data.helpCentre.content,
-          icon: data.helpCentre.icon.url,
-          id: data.helpCentre.id,
-          mainTitle: data.helpCentre.mainTitle,
-        })
-      }
-    } else if (tab === 0) {
-      setCurrentData({
-        content: data.helpCentre.content,
-        icon: data.helpCentre.icon.url,
-        id: data.helpCentre.id,
-        mainTitle: data.helpCentre.mainTitle,
-      })
-    } else {
-      setCurrentData({
-        content: data.helpCentre.content,
-        icon: data.helpCentre.icon.url,
-        id: data.helpCentre.id,
-        mainTitle: data.helpCentre.mainTitle,
-      })
-    }
-  }, [data, type, tab])
+    setCurrentData({
+      content: data.content,
+      icon: data.icon?.url,
+      id: data.id,
+      mainTitle: data.mainTitle,
+    })
+  }, [data])
 
   const value = useMemo(
     () => ({
       data: currentData,
-      searchIn,
-      fullData: data.helpCentre,
+      fullData: data,
     }),
-    [currentData, searchIn, data]
+    [currentData, data]
   )
 
   return (
