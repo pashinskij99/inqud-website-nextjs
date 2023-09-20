@@ -10,6 +10,7 @@ import { HelpCentreProvider } from '@/contexts/HelpCentreContext/HelpCentreConte
 import { SearchResultSection } from '@/sections/HelpCenterSections/SearchResultSection'
 import { fetchHelpCentreData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
 import Loader from '@/components/Loader'
+import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 
 function HelpCenterPage({ children, data }) {
   const path = usePathname()
@@ -33,7 +34,12 @@ export function HelpCenterPageContent({ params }) {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    dispatch(setIsSearch(false))
     dispatch(fetchHelpCentreData({ params }))
+
+    return () => {
+      dispatch(setIsSearch(false))
+    }
   }, [])
 
   // if (!helpCentreData.length) return null

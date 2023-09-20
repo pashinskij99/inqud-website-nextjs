@@ -42,6 +42,7 @@ import { ModalSendRequest } from '@/components/Modal'
 import { createBlog } from '@/lib/datocms'
 import { fetchHelpCentreDetailsData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
 import Loader from '@/components/Loader'
+import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 
 function DetailsSection({ params }) {
   const { tab } = useSelector((state) => state.activeTab)
@@ -51,8 +52,10 @@ function DetailsSection({ params }) {
   )
 
   useEffect(() => {
+    dispatch(setIsSearch(false))
     dispatch(fetchHelpCentreDetailsData({ params }))
     return () => {
+      dispatch(setIsSearch(false))
       dispatch(setBlogBreadcrumbs(''))
     }
   }, [tab])
