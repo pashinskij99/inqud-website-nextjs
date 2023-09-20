@@ -8,6 +8,9 @@ export const StyledBlogsSectionWrapper = styled.section`
   ${responsive.xl`
     padding-bottom: ${rem(96)};
   `}
+  .blog-category-navigation-wrapper {
+    display: block;
+  }
   .blog-grid {
     padding: ${rem(66)} 0 ${rem(52)};
     display: grid;

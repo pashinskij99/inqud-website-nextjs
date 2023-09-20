@@ -264,6 +264,8 @@ export const StyledCryptoWidget2Section = styled.section`
         background: var(--independent-grey, #517185);
         padding: ${rem(25)} ${rem(32)};
         width: 100%;
+        min-width: max-content;
+        position: relative;
         ${responsive.xxl`
           padding: ${rem(27)} ${rem(24)};
         `};
@@ -335,6 +337,12 @@ export const StyledCryptoWidget2Section = styled.section`
               font-size: ${rem(24)};
             }
           `};
+          &:hover {
+            background-color: transparent;
+            h5 {
+              color: #bfffc8;
+            }
+          }
         }
 
         .crypto2FooterButtonCryptoCalendar {
@@ -352,16 +360,7 @@ export const StyledCryptoWidget2Section = styled.section`
             margin-right: 0;
           `}
           &:hover {
-            path,
-            rect {
-              fill: #077453;
-            }
-
-            path {
-              &:first-of-type {
-                fill: #bfffc8;
-              }
-            }
+            background-color: transparent;
           }
         }
 

@@ -1,35 +1,24 @@
-import { createContext, useMemo } from 'react';
+import { createContext, useMemo } from 'react'
 
-export const BlogContext = createContext(null);
+export const BlogContext = createContext(null)
 
 export function BlogProvider({
   children,
-  data = [],
-  heroSectionData,
+  blogDetails = {},
+  heroSectionData = null,
   relatedData = {},
-  searchParams,
-  tags = {
-    allTags: [],
-    activeTags: [],
-  },
-  pagination = {
-    first: 6,
-    skip: 0,
-    count: 0,
-  },
+  params,
 }) {
   const value = useMemo(
     () => ({
-      data,
-      tags: tags.allTags,
-      activeTags: tags.activeTags,
+      data: [],
       relatedData: relatedData.allBlogs,
       heroSectionData,
-      searchParams,
-      pagination,
+      blogDetails,
+      params,
     }),
-    [data, relatedData, tags, heroSectionData]
-  );
+    [relatedData, blogDetails, heroSectionData, params]
+  )
 
-  return <BlogContext.Provider value={value}>{children}</BlogContext.Provider>;
+  return <BlogContext.Provider value={value}>{children}</BlogContext.Provider>
 }

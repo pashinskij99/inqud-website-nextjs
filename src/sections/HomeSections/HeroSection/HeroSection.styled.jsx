@@ -261,6 +261,11 @@ export const StyledMobileGridWrapper = styled.div`
 `
 
 export const StyledPaymentListWrapper = styled.div`
+  overflow-x: hidden;
+  width: 597px;
+  ${responsive.xl`
+    width: 100%; 
+  `}
   .payment-descr {
     color: rgba(81, 113, 133, 0.800000011920929);
     margin-bottom: ${rem(24)};
@@ -272,14 +277,23 @@ export const StyledPaymentListWrapper = styled.div`
             margin-bottom: ${rem(16)};
           `};
   }
-
+  .payment-list-wrapper {
+    display: flex;
+    align-items: center;
+  }
   .payment-list {
     display: flex;
     align-items: center;
     gap: ${rem(32)};
-    overflow: auto;
-    -ms-overflow-style: none; /* Internet Explorer 10+ */
-    scrollbar-width: none; /* Firefox */
+    padding-left: 2.0625rem;
+    /* overflow: auto; */
+    animation: scrollText 10s infinite linear;
+    /* -ms-overflow-style: none; Internet Explorer 10+ */
+    /* scrollbar-width: none; Firefox */
+
+    /* &.payment-list-2 {
+      padding-left: 2.0625rem;
+    } */
 
     ${responsive.xxl`
             gap: ${rem(33)};
@@ -352,6 +366,15 @@ export const StyledPaymentListWrapper = styled.div`
                 font-size: 24px;
               `}
       }
+    }
+  }
+
+  @keyframes scrollText {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
     }
   }
 `

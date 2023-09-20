@@ -46,7 +46,7 @@ function LeftSide() {
   const pathname = usePathname()
 
   const {
-    data: { titlesForNavigation },
+    blogDetails: { titlesForNavigation },
   } = useContext(BlogContext)
 
   return (
@@ -102,7 +102,7 @@ function LeftSide() {
 function CenterSide() {
   const { setActiveHeader } = useContext(ArticleContext)
   const {
-    data: { bodyContent, titlesForNavigation },
+    blogDetails: { bodyContent, titlesForNavigation },
   } = useContext(BlogContext)
 
   useEffect(() => {
@@ -198,7 +198,7 @@ function RightSide() {
   const { setActiveHeader } = useContext(ArticleContext)
 
   const {
-    data: {
+    blogDetails: {
       industries,
       products,
       tags,

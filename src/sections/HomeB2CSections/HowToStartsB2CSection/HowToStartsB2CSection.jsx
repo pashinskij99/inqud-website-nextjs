@@ -169,7 +169,7 @@ function StepCart({ id, title, description, time, button }) {
         <ButtonLearnMore className='step-cart-button'>{button}</ButtonLearnMore>
       ) : (
         <div className='step-cart-time-wrapper'>
-          <TimeIcon />
+          <TimeIcon className='step-cart-time-icon' />
           <StyledTypographyUrbanistBody className='step-cart-time'>
             {time}
           </StyledTypographyUrbanistBody>

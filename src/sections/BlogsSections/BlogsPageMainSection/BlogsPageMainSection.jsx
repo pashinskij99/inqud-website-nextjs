@@ -1,7 +1,6 @@
-import { useContext, useState } from 'react'
-import Link from 'next/link'
+import { useContext } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
-import { useRouter } from 'next/navigation'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
@@ -10,22 +9,55 @@ import { InputSearch } from '@/components/UI/Input/Input'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import { StyledBlogsPageMainSection } from '@/sections/BlogsSections/BlogsPageMainSection/BlogsPageMainSection.styled'
 import { BlogContext } from '@/contexts/BlogContext/BlogContext'
+import { fetchBlogs } from '@/store/features/blog/blogAsyncThunk'
+import {
+  resetBlogsState,
+  setIsLoadingRule,
+  setSearchValue,
+} from '@/store/features/blog/blogSlice'
+import Loader from '@/components/Loader'
 
 function BlogsPageMainSection() {
-  const { searchParams } = useContext(BlogContext)
-  const [searchValue, setSearchValue] = useState(searchParams.search || '')
-  const { heroSectionData } = useContext(BlogContext)
-
-  const router = useRouter()
-
+  const { heroSectionData, params } = useContext(BlogContext)
+  const { searchValue, pagination, activeTags, isLoading } = useSelector(
+    (state) => state.blog
+  )
+  const dispatch = useDispatch()
   const handleChange = (event) => {
-    setSearchValue(event.target.value)
+    dispatch(setSearchValue(event.target.value))
   }
 
   const handleClear = () => {
     setSearchValue('')
-    router.replace('/blog', undefined, { shallow: true })
+    dispatch(resetBlogsState())
+    // dispatch(setIsLoadingRule(false))
+    dispatch(
+      fetchBlogs({
+        params,
+        paginationParams: {
+          first: 12,
+          skip: 0,
+          count: 0,
+        },
+        tags: [],
+        searchValue: '',
+      })
+    )
   }
+
+  const handleClick = () => {
+    dispatch(setIsLoadingRule(false))
+    dispatch(
+      fetchBlogs({
+        params,
+        paginationParams: pagination,
+        tags: activeTags,
+        searchValue,
+      })
+    )
+  }
+
+  if (!heroSectionData) return null
 
   return (
     <StyledBlogsPageMainSection className='blogsPageMainSection'>
@@ -45,20 +77,15 @@ function BlogsPageMainSection() {
             placeholder={heroSectionData.inputPlaceholder}
             handleClear={handleClear}
           />
-          <Link
-            href={{
-              query: {
-                ...searchParams,
-                search: searchValue,
-                skip: 0,
-              },
-            }}
-            scroll={false}
+
+          <StyledButtonSecondaryLight
+            onClick={handleClick}
+            type='button'
+            className='blogsPageSearchButton'
           >
-            <StyledButtonSecondaryLight className='blogsPageSearchButton'>
-              {heroSectionData.button}
-            </StyledButtonSecondaryLight>
-          </Link>
+            {heroSectionData.button}
+            {!isLoading ? <Loader className='loader' /> : null}
+          </StyledButtonSecondaryLight>
         </form>
       </div>
     </StyledBlogsPageMainSection>

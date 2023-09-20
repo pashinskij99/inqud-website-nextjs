@@ -3,6 +3,7 @@ import currentPageTabReducer from '@/store/features/currentPageTab/currentPageTa
 import searchReducer from '@/store/features/search/searchSlice'
 import langReducer from '@/store/features/lang/langSlice'
 import breadcrumbReducer from '@/store/features/breadcrumb/breadcrumbSlice'
+import blogReducer from '@/store/features/blog/blogSlice'
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     search: searchReducer,
     lang: langReducer,
     breadcrumb: breadcrumbReducer,
+    blog: blogReducer,
   },
   devTools: process.env.NODE_ENV !== 'production',
   // middleware: (getDefaultMiddleware) =>

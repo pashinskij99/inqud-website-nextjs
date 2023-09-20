@@ -70,6 +70,14 @@ export const StyledBlogsPageMainSection = styled.section`
 
     .blogsPageSearchButton {
       height: ${rem(48)};
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .loader {
+      height: 25px;
+      width: 25px;
     }
   }
 `

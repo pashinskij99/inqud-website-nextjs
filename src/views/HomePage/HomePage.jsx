@@ -32,6 +32,7 @@ export default function HomePage({ data }) {
         <HeroSection />
         <YourNeedsSection />
         <CryptoWidgetSection />
+
         <SmoothAPISection />
         <PickSection className='pickSection' variant='dontLose' />
         <CryptoWidget2Section />

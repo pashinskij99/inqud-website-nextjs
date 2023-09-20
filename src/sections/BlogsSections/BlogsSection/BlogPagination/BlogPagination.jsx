@@ -1,109 +1,158 @@
-import Link from 'next/link';
-import clsx from 'clsx';
-import { useContext } from 'react';
-import { StyledBlogPagination } from '@/sections/BlogsSections/BlogsSection/BlogPagination/BlogPagination.styled';
+import clsx from 'clsx'
+import { useContext } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { scroller } from 'react-scroll'
+import { StyledBlogPagination } from '@/sections/BlogsSections/BlogsSection/BlogPagination/BlogPagination.styled'
 import {
   DOTS,
   usePagination,
-} from '@/sections/BlogsSections/BlogsSection/BlogPagination/usePagination';
-import { StyledTypographyUrbanistBody } from '@/components/UI/Typography/Typography.styled';
-import ArrowPrev from '@/assets/icons/arrow-prev.svg';
-import ArrowNext from '@/assets/icons/arrow-next.svg';
-import { BlogContext } from '@/contexts/BlogContext/BlogContext';
-import { ButtonLoadMoreLarge } from '@/components/UI/Button';
+} from '@/sections/BlogsSections/BlogsSection/BlogPagination/usePagination'
+import { StyledTypographyUrbanistBody } from '@/components/UI/Typography/Typography.styled'
+import ArrowPrev from '@/assets/icons/arrow-prev.svg'
+import ArrowNext from '@/assets/icons/arrow-next.svg'
+import { BlogContext } from '@/contexts/BlogContext/BlogContext'
+import { ButtonLoadMoreLarge } from '@/components/UI/Button'
+import { fetchBlogs } from '@/store/features/blog/blogAsyncThunk'
+import { setIsLoadingRule, setPage } from '@/store/features/blog/blogSlice'
 
-function BlogPagination({ page, total, pageSize }) {
+function BlogPagination({ total, pageSize }) {
+  const dispatch = useDispatch()
+  const { page, pagination, activeTags, searchValue } = useSelector(
+    (state) => state.blog
+  )
+  const { params } = useContext(BlogContext)
+
   const paginationRange = usePagination({
     currentPage: page,
     totalCount: total,
     siblingCount: 1,
     pageSize,
-  });
-
-  const { pagination, searchParams } = useContext(BlogContext);
+  })
 
   if (page === 0 || paginationRange.length < 2) {
-    return null;
+    return null
   }
 
-  const lastPage = paginationRange[paginationRange.length - 1];
+  const handlePage = ({ page, skip }) => {
+    scroller.scrollTo('blog')
+    dispatch(setPage(page))
+    dispatch(
+      fetchBlogs({
+        params,
+        paginationParams: {
+          ...pagination,
+          skip,
+        },
+        tags: activeTags,
+        searchValue,
+      })
+    )
+  }
+
+  const lastPage = paginationRange[paginationRange.length - 1]
 
   return (
     <>
-      <ButtonLoadMore lastPage={lastPage} page={page} />
+      <ButtonLoadMore pagination={pagination} lastPage={lastPage} page={page} />
 
       {page === 0 || paginationRange.length < 2 ? null : (
         <StyledBlogPagination>
-          <Link
-            className={page === 1 ? 'events-none' : 'active'}
-            href={{
-              query: {
-                ...searchParams,
+          <button
+            onClick={() =>
+              handlePage({
+                page: page - 1,
                 skip: pagination.skip - pagination.first,
-              },
-            }}
+              })
+            }
+            className={page === 1 ? 'events-none' : 'active'}
+            disabled={page === 1}
           >
-            <li className={page === 1 ? 'events-none' : ''}>
-              {/* <div className="prev"/> */}
-              <ArrowPrev className="prev" />
-            </li>
-          </Link>
-          <div className="list-numbers">
+            <ArrowPrev className='prev' />
+          </button>
+
+          <div className='list-numbers'>
             {paginationRange.map((pageNumber) => {
               if (pageNumber === DOTS) {
                 return (
-                  <li className="dots number" key={Math.random()}>
+                  <li className='dots number' key={Math.random()}>
                     <StyledTypographyUrbanistBody>
                       ...
                     </StyledTypographyUrbanistBody>
                   </li>
-                );
+                )
               }
 
               return (
-                <Link
-                  key={pageNumber}
-                  href={{
-                    query: {
-                      ...searchParams,
+                <button
+                  onClick={() =>
+                    handlePage({
+                      page: pageNumber,
                       skip: pagination.first * pageNumber - pagination.first,
-                    },
-                  }}
+                    })
+                  }
+                  className={clsx('number', {
+                    ['active']: pageNumber === page,
+                  })}
+                  disabled={pageNumber === page}
                 >
-                  <li
-                    className={clsx('number', {
-                      ['active']: pageNumber === page,
-                    })}
-                  >
-                    <StyledTypographyUrbanistBody>
-                      {pageNumber}
-                    </StyledTypographyUrbanistBody>
-                  </li>
-                </Link>
-              );
+                  <StyledTypographyUrbanistBody>
+                    {pageNumber}
+                  </StyledTypographyUrbanistBody>
+                </button>
+              )
             })}
           </div>
-          <Link
-            className={page === lastPage ? 'events-none' : ''}
-            href={{
-              query: {
-                ...searchParams,
+          {/* <LinkAnchor
+            to='blog'
+            onClick={() =>
+              handlePage({
+                page: page + 1,
                 skip: pagination.skip + pagination.first,
-              },
-            }}
+              })
+            }
+            // spy
+            smooth
+            // duration={500}
+          > */}
+          <button
+            onClick={() =>
+              handlePage({
+                page: page + 1,
+                skip: pagination.skip + pagination.first,
+              })
+            }
+            className={page === lastPage ? 'events-none' : 'active'}
+            disabled={page === lastPage}
           >
-            <li className={page === lastPage ? 'events-none' : 'active'}>
-              <ArrowNext className="next" />
-            </li>
-          </Link>
+            <ArrowNext className='next' />
+          </button>
+          {/* </LinkAnchor> */}
         </StyledBlogPagination>
       )}
     </>
-  );
+  )
 }
 
-function ButtonLoadMore({ lastPage, page }) {
-  const { searchParams, pagination, heroSectionData } = useContext(BlogContext);
+function ButtonLoadMore({ lastPage, page, pagination }) {
+  const { heroSectionData, params } = useContext(BlogContext)
+  const { activeTags, searchValue } = useSelector((state) => state.blog)
+  const dispatch = useDispatch()
+
+  const handleLoadMore = () => {
+    dispatch(setIsLoadingRule(false))
+    dispatch(
+      fetchBlogs({
+        params,
+        paginationParams: {
+          ...pagination,
+
+          first: pagination.first + 3,
+        },
+        tags: activeTags,
+        searchValue,
+      })
+    )
+  }
 
   return lastPage === page ? null : (
     <>
@@ -112,44 +161,35 @@ function ButtonLoadMore({ lastPage, page }) {
           {pagination.first >= pagination.count ? (
             <>
               {pagination.count >= 4 ? (
-                <Link
-                  href={{
-                    href: '/blog',
-                    query: {
-                      ...searchParams,
-                      first: 3,
-                      skip: 0,
-                    },
-                  }}
-                  scroll={false}
-                >
-                  <ButtonLoadMoreLarge className="loadMoreButton">
-                    Load less
-                  </ButtonLoadMoreLarge>
-                </Link>
+                <ButtonLoadMoreLarge className='loadMoreButton'>
+                  Load less
+                </ButtonLoadMoreLarge>
               ) : null}
             </>
           ) : (
-            <Link
-              href={{
-                href: '/blog',
-                query: {
-                  ...searchParams,
-                  first: pagination.first + 3,
-                  skip: 0,
-                },
-              }}
-              scroll={false}
+            // <Link
+            //   href={{
+            //     href: '/blog',
+            //     query: {
+            //       ...searchParams,
+            //       first: pagination.first + 3,
+            //       skip: 0,
+            //     },
+            //   }}
+            //   scroll={false}
+            // >
+            <ButtonLoadMoreLarge
+              onClick={handleLoadMore}
+              className='loadMoreButton'
             >
-              <ButtonLoadMoreLarge className="loadMoreButton">
-                {heroSectionData.buttonLoadMore}
-              </ButtonLoadMoreLarge>
-            </Link>
+              {heroSectionData.buttonLoadMore}
+            </ButtonLoadMoreLarge>
+            // </Link>
           )}
         </>
       )}
     </>
-  );
+  )
 }
 
-export default BlogPagination;
+export default BlogPagination

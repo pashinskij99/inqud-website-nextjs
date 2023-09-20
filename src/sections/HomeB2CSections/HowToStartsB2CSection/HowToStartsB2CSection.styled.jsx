@@ -161,6 +161,9 @@ export const StyledStepCartWrapper = styled.div`
     align-items: center;
     column-gap: 8px;
   }
+  .step-cart-time-icon {
+    flex-shrink: 0;
+  }
   .step-cart-time {
     font-size: 18px;
     font-weight: 400;
