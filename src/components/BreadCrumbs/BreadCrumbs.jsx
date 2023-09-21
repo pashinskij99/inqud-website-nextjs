@@ -38,8 +38,8 @@ function BreadCrumbs() {
         return 'cookie policy'
       case 'aml-cft-policy-uab':
         return 'AML CFT Policy UAB'
-      case 'who-we-are-and-how-to-contact-us':
-        return 'Who we are and how to contact us'
+      case 'terms-of-use':
+        return 'Terms of use'
       // for blog details page
       default:
         return breadcrumb.blog || ''

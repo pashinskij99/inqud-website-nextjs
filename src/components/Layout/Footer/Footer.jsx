@@ -71,7 +71,7 @@ export default function Footer() {
         {
           id: 3,
           text: tResources(keysForLocale.keys5[4]),
-          href: '/who-we-are-and-how-to-contact-us',
+          href: '/terms-of-use',
         },
         // { id: 4, text: tResources(keysForLocale.keys5[4]), href: '#' },
       ],
