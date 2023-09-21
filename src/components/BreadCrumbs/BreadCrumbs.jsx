@@ -38,6 +38,8 @@ function BreadCrumbs() {
         return 'cookie policy'
       case 'aml-cft-policy-uab':
         return 'AML CFT Policy UAB'
+      case 'who-we-are-and-how-to-contact-us':
+        return 'Who we are and how to contact us'
       // for blog details page
       default:
         // eslint-disable-next-line no-nested-ternary

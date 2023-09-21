@@ -1,17 +1,17 @@
-import PrivacyNoticePage from '@/views/PrivacyNoticePage/PrivacyNoticePage'
 import { performRequest } from '@/lib/datocms'
+import WhoWeAreAndHowToContactUsPage from '@/views/WhoWeAreAndHowToContactUsPage'
 
 const PRIVACY_NOTE_PAGE_QUERY = `  
-query MyQuery($locale: SiteLocale) {
-  privacyNotePage(locale: $locale) {
-    content {
-      value
+    query MyQuery($locale: SiteLocale) {
+        whoWeAreAndHowToContact(locale: $locale) {
+            content {
+                value
+            }
+            title
+            id
+            _updatedAt
+        }
     }
-    title
-    id
-    _updatedAt
-}
-}
 `
 
 const getData = async (query, variables) => {
@@ -30,5 +30,5 @@ const getData = async (query, variables) => {
 
 export default async function Page({ params }) {
   const data = await getData(PRIVACY_NOTE_PAGE_QUERY, { locale: params.locale })
-  return <PrivacyNoticePage data={data.privacyNotePage} />
+  return <WhoWeAreAndHowToContactUsPage data={data.whoWeAreAndHowToContact} />
 }

@@ -15,6 +15,17 @@ export const StyledBlogCartWrapper = styled.div`
     .footer {
       display: none;
     }
+    ${responsive.sm`
+     .image {
+        transform: scale(1);
+      }
+      button {
+        display: none;
+      }
+      .footer {
+        display: flex;
+      } 
+    `}
   }
 
   ${responsive.xxl`

@@ -292,8 +292,8 @@ export const StyledFeeModalWrapper = styled(Dialog)`
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         justify-content: space-between;
-        outline: 1px solid rgba(129, 158, 176, 0.2);
-        outline-offset: ${rem(2)};
+        border: 1px solid rgba(129, 158, 176, 0.2);
+        padding: 2px;
         border-radius: ${rem(72)};
         margin-bottom: ${rem(18)};
 
