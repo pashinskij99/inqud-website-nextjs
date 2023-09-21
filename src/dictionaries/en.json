@@ -36,15 +36,16 @@
   },
   "footer": {
     "footer_description": "Company name UAB I0 Ready\nAddress Eisiskiy Sody 18-oji g. 11, Vilnius, Lithuania",
-    "footer_resources_title": "Resources",
+    "footer_resources_title": "Legal",
     "footer_resources_items": {
       "item1": "Privacy Notice",
       "item2": "Cookie Policy",
       "item3": "AML / KYC Policy",
       "item4": "Modern slavery statement",
-      "item5": "Press kit"
+      "item5": "Who we are and how to contact us",
+      "item6": "Press kit"
     },
-    "footer_legal_title": "Legal",
+    "footer_legal_title": "Resources",
     "footer_legal_items": {
       "item1": "API Documentation",
       "item2": "Insights",

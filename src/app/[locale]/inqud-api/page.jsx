@@ -43,6 +43,9 @@ const API_QUERY = `
       image {
         url
       }
+      lead1TitleStructured {
+        value
+      }
       lead1Title
       leadForm1Button
       leadForm1List {

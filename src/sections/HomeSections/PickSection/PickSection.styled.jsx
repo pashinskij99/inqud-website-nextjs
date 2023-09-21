@@ -8,8 +8,8 @@ export const StyledPickSectionSection = styled.section`
   padding-left: ${rem(63.5)};
 
   overflow: hidden;
-  max-width: 1216px;
-  width: 100%;
+  /* max-width: 1216px; */
+  /* width: 100%; */
   display: flex;
   justify-content: space-between;
 
@@ -24,15 +24,7 @@ export const StyledPickSectionSection = styled.section`
     height: auto;
     text-align: center;
 
-    display: grid;
-    grid-template-columns: 317.33px 312px;
-    padding-left: 39.5px !important;
-    padding-right: 39.5px !important;
-    justify-content: space-between;
-    column-gap: 59.67px;
-    padding-top: 96px !important;
-    padding-bottom: 72px !important;
-    row-gap: 24px;
+    padding-left: ${rem(0)};
   `};
 
   ${responsive.sm`
@@ -41,7 +33,31 @@ export const StyledPickSectionSection = styled.section`
     padding-right: 16px !important;
     order: 5;
     order: 11;
+    width: 100%;
   `}
+  .container {
+    display: contents;
+    ${responsive.xl`
+      display: grid;
+      grid-template-columns: 317.33px 312px;
+      padding-left: 39.5px !important;
+      padding-right: 39.5px !important;
+      justify-content: space-between;
+      column-gap: 59.67px;
+      padding-top: 96px !important;
+      padding-bottom: 72px !important;
+      row-gap: 24px;
+    `}
+    ${responsive.sm`
+      display: flex;
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+      order: 5;
+      order: 11;
+      flex-direction: column;
+      align-items: center;
+    `}
+  }
   .pickTitle {
     color: white;
     flex-shrink: 0;
@@ -144,6 +160,7 @@ export const StyledPickSectionSection = styled.section`
 
   .pickListWrapper {
     ${responsive.xl`
+      align-self: center;
       text-align: start;
     `}
   }

@@ -42,12 +42,6 @@ function BreadCrumbs() {
         return 'Who we are and how to contact us'
       // for blog details page
       default:
-        // eslint-disable-next-line no-nested-ternary
-        // return breadcrumb.blog
-        //   ? breadcrumb.blog
-        //   : page.split('-').length === 1
-        //   ? page
-        //   : null
         return breadcrumb.blog || ''
     }
   }

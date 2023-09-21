@@ -68,6 +68,11 @@ export default function Footer() {
           text: tResources(keysForLocale.keys5[3]),
           href: '/modern-slavery-statement',
         },
+        {
+          id: 3,
+          text: tResources(keysForLocale.keys5[4]),
+          href: '/who-we-are-and-how-to-contact-us',
+        },
         // { id: 4, text: tResources(keysForLocale.keys5[4]), href: '#' },
       ],
     },
