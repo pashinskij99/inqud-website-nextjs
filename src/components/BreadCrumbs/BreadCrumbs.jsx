@@ -40,6 +40,8 @@ function BreadCrumbs() {
         return 'AML CFT Policy UAB'
       case 'terms-of-use':
         return 'Terms of use'
+      case 'contact-us':
+        return 'Contact us'
       // for blog details page
       default:
         return breadcrumb.blog || ''

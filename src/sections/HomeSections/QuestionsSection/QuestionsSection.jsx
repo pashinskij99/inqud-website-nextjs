@@ -1,5 +1,7 @@
 import { useContext, useState } from 'react'
 import Link from 'next/link'
+import { StructuredText, renderNodeRule } from 'react-datocms/structured-text'
+import { isParagraph } from 'datocms-structured-text-utils'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -70,7 +72,13 @@ export default function QuestionsSection() {
   )
 }
 
-function AccordionItem({ title, expanded, description, handleChange }) {
+export function AccordionItem({
+  title,
+  expanded,
+  description,
+  handleChange,
+  isStructuredText = false,
+}) {
   return (
     <StyledQuestionsSectionAccordion
       expanded={expanded === title}
@@ -85,10 +93,26 @@ function AccordionItem({ title, expanded, description, handleChange }) {
         </StyledTypographyUrbanistH5>
       </StyledQuestionsSectionAccordionSummary>
       <StyledQuestionsSectionAccordionDetails expanded={expanded === title}>
-        <StyledTypographyUrbanistBody className='questionsAccordionBodyText'>
-          {description ||
-            'Get on board with the future of payments - our embeddable crypto widget for your website makes it simple to accept cryptocurrency payments including Bitcoin, Ethereum and other crypto.'}
-        </StyledTypographyUrbanistBody>
+        {isStructuredText ? (
+          <StructuredText
+            customNodeRules={[
+              // eslint-disable-next-line react/no-unstable-nested-components
+              renderNodeRule(isParagraph, ({ children, key }) => (
+                <StyledTypographyUrbanistBody
+                  key={key}
+                  className='questionsAccordionBodyText'
+                >
+                  {children}
+                </StyledTypographyUrbanistBody>
+              )),
+            ]}
+            data={description?.value}
+          />
+        ) : (
+          <StyledTypographyUrbanistBody className='questionsAccordionBodyText'>
+            {description || ''}
+          </StyledTypographyUrbanistBody>
+        )}
       </StyledQuestionsSectionAccordionDetails>
     </StyledQuestionsSectionAccordion>
   )

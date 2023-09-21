@@ -16,7 +16,7 @@ import PageProvider from '@/contexts/PageContext/PageContext'
 
 export default function ApiPage({ data }) {
   return (
-    <PageProvider dataPage={data} nameCMSPage='apiPage'>
+    <PageProvider isFaq dataPage={data} nameCMSPage='apiPage'>
       <StyledApiPageWrapper>
         <ApiHeroSection />
         <APIFlexibility />

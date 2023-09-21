@@ -24,7 +24,7 @@ export const StyledButtonGhost = styled.button`
 export const StyledButtonSecondary = styled.button`
   border-radius: ${rem(54)};
   background: var(--ambitious-green, #077453);
-  height: ${rem(56)};
+  height: 56px;
 
   color: var(--clarity-white, #fff);
   font-size: ${rem(18)};

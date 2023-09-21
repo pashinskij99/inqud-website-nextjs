@@ -27,7 +27,7 @@ export default function HomePage({ data }) {
     }
   }, [])
   return (
-    <PageProvider dataPage={data} nameCMSPage='homePage'>
+    <PageProvider isFaq dataPage={data} nameCMSPage='homePage'>
       <StyledHomeWrapper>
         <HeroSection />
         <YourNeedsSection />

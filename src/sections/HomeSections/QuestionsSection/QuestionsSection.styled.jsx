@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
-import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
-import { rem } from '@/utils/rem';
-import { responsive } from '@/utils/response';
+import styled from '@emotion/styled'
+import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledQuestionsSection = styled.section`
   padding: 200px 0;
@@ -156,7 +156,7 @@ export const StyledQuestionsSection = styled.section`
       fontSize: ${rem(18)};
     `}
   }
-`;
+`
 
 export const StyledQuestionsSectionAccordion = styled((props) => (
   <Accordion disableGutters elevation={0} square {...props} />
@@ -176,7 +176,7 @@ export const StyledQuestionsSectionAccordion = styled((props) => (
   '& .css-1uh3lx7-MuiAccordionDetails-root': {
     border: 'none',
   },
-}));
+}))
 
 export const StyledQuestionsSectionAccordionSummary = styled((props) => (
   <AccordionSummary {...props} />
@@ -205,7 +205,7 @@ export const StyledQuestionsSectionAccordionSummary = styled((props) => (
     },
   },
   transition: 'padding 0.3s ease',
-}));
+}))
 
 export const StyledQuestionsSectionAccordionDetails = styled(AccordionDetails)(
   ({ expanded }) => ({
@@ -220,13 +220,25 @@ export const StyledQuestionsSectionAccordionDetails = styled(AccordionDetails)(
     '@media (max-width: 1024px)': {
       justifyContent: 'start',
     },
+    a: {
+      display: 'inline',
+      textDecorationLine: 'underline',
+      color: '#077453',
+      marginBottom: '1rem',
+    },
     '& .questionsAccordionBodyText': {
       maxWidth: rem(560),
       '@media (max-width: 767px)': {
         maxWidth: '100%',
+        fontSize: '18px',
       },
+      '@media (max-width: 1279px)': {
+        maxWidth: '100%',
+        transform: 'translateY(0) !important',
+      },
+
       transform: `${expanded ? `translateY(-${rem(26)})` : 'translateY(0)'}`,
       transition: '0.3s ease',
     },
   })
-);
+)
