@@ -12,10 +12,15 @@ export const StyledBlogsSectionWrapper = styled.section`
     display: block;
   }
   .loader-wrapper {
+    background-color: rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
     display: flex;
     align-items: center;
     height: 100vh;
-
+    z-index: 111;
     justify-content: center;
   }
   .blog-grid {
@@ -90,7 +95,10 @@ export const StyledBlogsSectionWrapper = styled.section`
 
   .loadMoreButton {
     margin-bottom: ${rem(71)};
-
+    .loadMoreButtonLoader {
+      width: 36px;
+      height: 36px;
+    }
     ${responsive.xl`
       margin-bottom: ${rem(41)};
     `}

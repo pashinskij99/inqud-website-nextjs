@@ -14,50 +14,40 @@ function BlogsSection() {
   return (
     <StyledBlogsSectionWrapper>
       <BlogCategoryNavigation />
-      <Element
-        offset={150}
-        name='blog'
-        className='blog-category-navigation-wrapper'
-      >
+      <Element name='blog' className='blog-category-navigation-wrapper'>
         <div className='container'>
-          {loading ? (
-            <div className='loader-wrapper'>
-              <Loader />
-            </div>
-          ) : (
-            <>
-              {blogs.length ? (
-                <ul className='blog-grid'>
-                  {blogs.map(
-                    ({
-                      id,
-                      _createdAt,
-                      timeToRead,
-                      mainImage,
-                      mainTag,
-                      mainTitle,
-                      // slugPage,
-                    }) => (
-                      <li key={id}>
-                        <Link href={`/blog/${id}`}>
-                          <BlogCart
-                            time={timeToRead}
-                            date={_createdAt}
-                            title={mainTitle}
-                            imageSrc={mainImage?.url || ''}
-                            subTitle={mainTag?.tag}
-                          />
-                        </Link>
-                      </li>
-                    )
-                  )}
-                </ul>
-              ) : (
-                <StyledTypographyUrbanistH4 className='error-message'>
-                  Nothing was found for your request!
-                </StyledTypographyUrbanistH4>
+          {blogs.length ? (
+            <ul className='blog-grid'>
+              {blogs.map(
+                ({
+                  id,
+                  _createdAt,
+                  timeToRead,
+                  mainImage,
+                  mainTag,
+                  mainTitle,
+                  // slugPage,
+                }) => (
+                  <li key={id}>
+                    <Link href={`/blog/${id}`}>
+                      <BlogCart
+                        time={timeToRead}
+                        date={_createdAt}
+                        title={mainTitle}
+                        imageSrc={mainImage?.url || ''}
+                        subTitle={mainTag?.tag}
+                      />
+                    </Link>
+                  </li>
+                )
               )}
-            </>
+            </ul>
+          ) : (
+            !loading && (
+              <StyledTypographyUrbanistH4 className='error-message'>
+                Nothing was found for your request!
+              </StyledTypographyUrbanistH4>
+            )
           )}
 
           <BlogPagination
@@ -65,6 +55,11 @@ function BlogsSection() {
             pageSize={pagination.first}
             total={pagination.count}
           />
+          {loading ? (
+            <div className='loader-wrapper'>
+              <Loader />
+            </div>
+          ) : null}
         </div>
       </Element>
     </StyledBlogsSectionWrapper>

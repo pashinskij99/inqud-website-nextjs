@@ -14,6 +14,7 @@ import { BlogContext } from '@/contexts/BlogContext/BlogContext'
 import { ButtonLoadMoreLarge } from '@/components/UI/Button'
 import { fetchBlogs } from '@/store/features/blog/blogAsyncThunk'
 import { setIsLoadingRule, setPage } from '@/store/features/blog/blogSlice'
+import Loader from '@/components/Loader'
 
 function BlogPagination({ total, pageSize }) {
   const dispatch = useDispatch()
@@ -34,7 +35,9 @@ function BlogPagination({ total, pageSize }) {
   }
 
   const handlePage = ({ page, skip }) => {
-    scroller.scrollTo('blog')
+    scroller.scrollTo('blog', {
+      offset: -25,
+    })
     dispatch(setPage(page))
     dispatch(
       fetchBlogs({
@@ -135,7 +138,9 @@ function BlogPagination({ total, pageSize }) {
 
 function ButtonLoadMore({ lastPage, page, pagination }) {
   const { heroSectionData, params } = useContext(BlogContext)
-  const { activeTags, searchValue } = useSelector((state) => state.blog)
+  const { activeTags, searchValue, isLoading } = useSelector(
+    (state) => state.blog
+  )
   const dispatch = useDispatch()
 
   const handleLoadMore = () => {
@@ -167,24 +172,16 @@ function ButtonLoadMore({ lastPage, page, pagination }) {
               ) : null}
             </>
           ) : (
-            // <Link
-            //   href={{
-            //     href: '/blog',
-            //     query: {
-            //       ...searchParams,
-            //       first: pagination.first + 3,
-            //       skip: 0,
-            //     },
-            //   }}
-            //   scroll={false}
-            // >
             <ButtonLoadMoreLarge
               onClick={handleLoadMore}
               className='loadMoreButton'
             >
-              {heroSectionData.buttonLoadMore}
+              {isLoading ? (
+                heroSectionData.buttonLoadMore
+              ) : (
+                <Loader className='loadMoreButtonLoader' />
+              )}
             </ButtonLoadMoreLarge>
-            // </Link>
           )}
         </>
       )}

@@ -5,8 +5,8 @@ export const StyledLoader = styled.div`
   mask: radial-gradient(farthest-side, #0000 calc(100% - 5px), #fff 0);
   position: relative;
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  width: 40px;
+  height: 40px;
   animation: rot 2s linear infinite;
 
   @keyframes rot {

@@ -68,7 +68,6 @@ export const blogSlice = createSlice({
       } else {
         state.loading = false
       }
-      state.pagination.count = 0
     })
     builder.addCase(fetchBlogs.fulfilled, (state, action) => {
       state.error = ''
