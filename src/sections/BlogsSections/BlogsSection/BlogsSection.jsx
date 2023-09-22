@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import { Element } from 'react-scroll'
-import { CSSTransition } from 'react-transition-group'
+// import { CSSTransition } from 'react-transition-group'
 import { StyledBlogsSectionWrapper } from '@/sections/BlogsSections/BlogsSection/BlogsSection.styled'
 import BlogCategoryNavigation from '@/sections/BlogsSections/BlogsSection/BlogCategoryNavigation'
 import { BlogCart } from '@/components/BlogCart'
 import BlogPagination from '@/sections/BlogsSections/BlogsSection/BlogPagination'
 import { StyledTypographyUrbanistH4 } from '@/components/UI/Typography/Typography.styled'
-import { FullScreenLoader } from '@/components/Loader'
+// import { FullScreenLoader } from '@/components/Loader'
 
 function BlogsSection() {
   const { blogs, pagination, loading } = useSelector((state) => state.blog)
@@ -57,16 +57,14 @@ function BlogsSection() {
             total={pagination.count}
           />
 
-          <CSSTransition
+          {/* <CSSTransition
             in={loading}
             timeout={350}
             unmountOnExit
             classNames='display'
           >
-            {/* <div className='loader-wrapper'> */}
             <FullScreenLoader />
-            {/* </div> */}
-          </CSSTransition>
+          </CSSTransition> */}
         </div>
       </Element>
     </StyledBlogsSectionWrapper>

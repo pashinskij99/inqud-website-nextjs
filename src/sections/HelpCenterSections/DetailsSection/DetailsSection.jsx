@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
-import { CSSTransition } from 'react-transition-group'
+// import { CSSTransition } from 'react-transition-group'
 import {
   StyledCenterSideWrapper,
   StyledContentItemAccordion,
@@ -72,14 +72,14 @@ function DetailsSection({ params }) {
   return (
     <HelpCentreDetailsProvider data={helpCentreDetailsData}>
       <ArticleProvider>
-        <CSSTransition
+        {/* <CSSTransition
           in={loading}
           timeout={350}
           unmountOnExit
           classNames='display'
         >
           <FullScreenLoader />
-        </CSSTransition>
+        </CSSTransition> */}
         {isSearch ? <SearchResultDetailsSection /> : <DetailsSectionInner />}
       </ArticleProvider>
     </HelpCentreDetailsProvider>

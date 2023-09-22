@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CSSTransition } from 'react-transition-group'
+// import { CSSTransition } from 'react-transition-group'
 import { StyledHelpCenterPageWrapper } from '@/views/HelpCenterPage/HelpCenterPage.styled'
 import MainSection from '@/sections/HelpCenterSections/MainSection'
 import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection'
@@ -45,14 +45,14 @@ export function HelpCenterPageContent({ params }) {
 
   return (
     <HelpCentreProvider data={helpCentreData}>
-      <CSSTransition
+      {/* <CSSTransition
         in={loading}
         timeout={350}
         unmountOnExit
         classNames='display'
       >
         <FullScreenLoader />
-      </CSSTransition>
+      </CSSTransition> */}
       {isSearch ? <SearchResultSection /> : <MainSection />}
     </HelpCentreProvider>
   )
