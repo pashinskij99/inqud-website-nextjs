@@ -33,7 +33,7 @@ export function GetPersonalizedForm({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={clsx('form', className)}>
       {isModal ? (
-        <button className='closeButton' onClick={handleClose}>
+        <button type='button' className='closeButton' onClick={handleClose}>
           <Close />
         </button>
       ) : null}

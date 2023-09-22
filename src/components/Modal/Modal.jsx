@@ -53,7 +53,7 @@ export function ModalSendRequest({
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
       <form onSubmit={handleSubmit(onSubmit)} className='modalContainer'>
-        <button className='closeButton' onClick={handleClose}>
+        <button type='button' className='closeButton' onClick={handleClose}>
           <Close />
         </button>
         <div className='header'>
@@ -114,7 +114,7 @@ export function ModalSubmitEmail({
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
       <form onSubmit={handleSubmit(onSubmit)} className='modalContainer'>
-        <button className='closeButton' onClick={handleClose}>
+        <button type='button' className='closeButton' onClick={handleClose}>
           <Close />
         </button>
         <div className='header'>
@@ -379,7 +379,11 @@ export function FeeModal({
     <StyledFeeModalWrapper scroll='body' open={open} onClose={handleClose}>
       <DialogContent>
         {/* <DialogContentText tabIndex={-1}> */}
-        <form onSubmit={handleSubmit(onSubmit)} className='modalContainer'>
+        <form
+          type='button'
+          onSubmit={handleSubmit(onSubmit)}
+          className='modalContainer'
+        >
           <button className='closeButton' onClick={handleClose}>
             <Close />
           </button>
