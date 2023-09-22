@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-// import { CSSTransition } from 'react-transition-group'
+import { CSSTransition } from 'react-transition-group'
 import { StyledHelpCenterPageWrapper } from '@/views/HelpCenterPage/HelpCenterPage.styled'
 import MainSection from '@/sections/HelpCenterSections/MainSection'
 import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection'
@@ -11,6 +11,7 @@ import { HelpCentreProvider } from '@/contexts/HelpCentreContext/HelpCentreConte
 import { SearchResultSection } from '@/sections/HelpCenterSections/SearchResultSection'
 import { fetchHelpCentreData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
+import { FullScreenLoader } from '@/components/Loader'
 // import { FullScreenLoader } from '@/components/Loader'
 
 function HelpCenterPage({ children, data }) {
@@ -46,14 +47,14 @@ export function HelpCenterPageContent({ params }) {
 
   return (
     <HelpCentreProvider data={helpCentreData}>
-      {/* <CSSTransition
+      <CSSTransition
         in={loading}
         timeout={350}
         unmountOnExit
         classNames='display'
       >
         <FullScreenLoader />
-      </CSSTransition> */}
+      </CSSTransition>
       {isSearch ? <SearchResultSection /> : <MainSection />}
     </HelpCentreProvider>
   )

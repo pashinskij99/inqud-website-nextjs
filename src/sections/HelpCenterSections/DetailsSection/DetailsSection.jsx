@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
-// import { CSSTransition } from 'react-transition-group'
+import { CSSTransition } from 'react-transition-group'
 import {
   StyledCenterSideWrapper,
   StyledContentItemAccordion,
@@ -44,6 +44,7 @@ import { createBlog } from '@/lib/datocms'
 import { fetchHelpCentreDetailsData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
 // import { FullScreenLoader } from '@/components/Loader'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
+import { FullScreenLoader } from '@/components/Loader'
 
 function DetailsSection({ params }) {
   const { tab } = useSelector((state) => state.activeTab)
@@ -73,14 +74,14 @@ function DetailsSection({ params }) {
   return (
     <HelpCentreDetailsProvider data={helpCentreDetailsData}>
       <ArticleProvider>
-        {/* <CSSTransition
+        <CSSTransition
           in={loading}
           timeout={350}
           unmountOnExit
           classNames='display'
         >
           <FullScreenLoader />
-        </CSSTransition> */}
+        </CSSTransition>
         {isSearch ? <SearchResultDetailsSection /> : <DetailsSectionInner />}
       </ArticleProvider>
     </HelpCentreDetailsProvider>
