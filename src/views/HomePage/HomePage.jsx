@@ -32,12 +32,11 @@ export default function HomePage({ data }) {
         <HeroSection />
         <YourNeedsSection />
         <CryptoWidgetSection />
-
         <SmoothAPISection />
         <PickSection className='pickSection' variant='dontLose' />
         <CryptoWidget2Section />
         <ReasonsToTeamUp />
-        <FeesBusiness modelId='2540165' />
+        {/* <FeesBusiness modelId='2540165' /> */}
         <OurLandscapeSection />
         <PickSection className='pickSection2' />
         <BlogsSection />
