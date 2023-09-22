@@ -17,7 +17,7 @@ import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { userSchema2 } from '@/utils/userSchema'
-import { createBlog } from '@/lib/datocms'
+import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
 
 export function GetPersonalizedForm({
   data,
@@ -90,10 +90,28 @@ export default function Contact() {
   })
 
   const onSubmit = async (data) => {
-    await toast.promise(createBlog({ data, modelId: '2540348' }), {
-      pending: 'Sending data',
-      success: 'Data sent',
-    })
+    const newData = {
+      email: data.email,
+      fieldValues: [
+        {
+          field: '1',
+          value: data.message,
+        },
+      ],
+    }
+
+    await toast.promise(
+      submitForFormActiveCampaign(newData, '/api/create-contact', 9),
+      {
+        pending: 'Sending data',
+        success: 'Data sent',
+      }
+    )
+
+    // await toast.promise(createBlog({ data, modelId: '2540348' }), {
+    //   pending: 'Sending data',
+    //   success: 'Data sent',
+    // })
 
     reset()
   }

@@ -18,7 +18,7 @@ import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import background from '@/assets/images/api/contact/background.webp'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { userSchema2 } from '@/utils/userSchema'
-import { createBlog } from '@/lib/datocms'
+import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
 
 export default function SendRequestSection() {
   const {
@@ -31,10 +31,28 @@ export default function SendRequestSection() {
   })
 
   const onSubmit = async (data) => {
-    await toast.promise(createBlog({ data, modelId: '2540255' }), {
-      pending: 'Sending data',
-      success: 'Data sent',
-    })
+    const newData = {
+      email: data.email,
+      fieldValues: [
+        {
+          field: '1',
+          value: data.message,
+        },
+      ],
+    }
+
+    await toast.promise(
+      submitForFormActiveCampaign(newData, '/api/create-contact', 6),
+      {
+        pending: 'Sending data',
+        success: 'Data sent',
+      }
+    )
+
+    // await toast.promise(createBlog({ data, modelId: '2540255' }), {
+    //   pending: 'Sending data',
+    //   success: 'Data sent',
+    // })
     reset()
   }
 

@@ -17,10 +17,10 @@ import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { GetPersonalizedModal } from '@/components/Modal'
 import { userSchema2 } from '@/utils/userSchema'
-import { createBlog } from '@/lib/datocms'
 import { AnimatedOneVideo } from '@/components/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
 import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
+import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
 
 export default function ApiHeroSection() {
   const [showModal, setShowModal] = useState(false)
@@ -41,10 +41,30 @@ export default function ApiHeroSection() {
   })
 
   const onSubmit = async (data) => {
-    await toast.promise(createBlog({ data, modelId: '2540346' }), {
-      pending: 'Sending data',
-      success: 'Data sent',
-    })
+    const newData = {
+      email: data.email,
+      fieldValues: [
+        {
+          field: '1',
+          value: data.message,
+        },
+      ],
+    }
+
+    console.log(newData)
+
+    await toast.promise(
+      submitForFormActiveCampaign(newData, '/api/create-contact', 7),
+      {
+        pending: 'Sending data',
+        success: 'Data sent',
+      }
+    )
+
+    // await toast.promise(createBlog({ data, modelId: '2540346' }), {
+    //   pending: 'Sending data',
+    //   success: 'Data sent',
+    // })
 
     handleHideModal()
     reset()

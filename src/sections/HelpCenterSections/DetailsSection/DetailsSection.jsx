@@ -40,11 +40,11 @@ import { setBlogBreadcrumbs } from '@/store/features/breadcrumb/breadcrumbSlice'
 import { SearchResultDetailsSection } from '@/sections/HelpCenterSections/SearchResultSection'
 import { userSchema2 } from '@/utils/userSchema'
 import { ModalSendRequest } from '@/components/Modal'
-import { createBlog } from '@/lib/datocms'
 import { fetchHelpCentreDetailsData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
 // import { FullScreenLoader } from '@/components/Loader'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 import { FullScreenLoader } from '@/components/Loader'
+import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
 
 function DetailsSection({ params }) {
   const { tab } = useSelector((state) => state.activeTab)
@@ -62,14 +62,6 @@ function DetailsSection({ params }) {
       dispatch(setBlogBreadcrumbs(''))
     }
   }, [tab])
-
-  // if (loading) {
-  //   return (
-  //     <div className='loader-wrapper'>
-  //       <Loader />
-  //     </div>
-  //   )
-  // }
 
   return (
     <HelpCentreDetailsProvider data={helpCentreDetailsData}>
@@ -126,10 +118,27 @@ function DetailsSectionInner() {
   }
 
   const onSubmit = async (data) => {
-    await toast.promise(createBlog({ data, modelId: '2592391' }), {
-      pending: 'Sending data',
-      success: 'Data sent',
-    })
+    const newData = {
+      email: data.email,
+      fieldValues: [
+        {
+          field: '1',
+          value: data.message,
+        },
+      ],
+    }
+
+    await toast.promise(
+      submitForFormActiveCampaign(newData, '/api/create-contact', 12),
+      {
+        pending: 'Sending data',
+        success: 'Data sent',
+      }
+    )
+    // await toast.promise(createBlog({ data, modelId: '2592391' }), {
+    //   pending: 'Sending data',
+    //   success: 'Data sent',
+    // })
 
     handleClose()
     reset()

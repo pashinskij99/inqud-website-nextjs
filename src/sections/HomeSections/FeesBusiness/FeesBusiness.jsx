@@ -22,7 +22,7 @@ import BackCart from '@/assets/images/fee/cart-back.svg'
 import { FeeModal } from '@/components/Modal/Modal'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { emailRegExp, phoneRegExp, userSchema8 } from '@/utils/userSchema'
-import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
+import { createBlog } from '@/lib/datocms'
 
 const checkValue = (key, value) => {
   switch (key) {
@@ -89,42 +89,42 @@ export default function FeesBusiness({ modelId, autoId }) {
       whatsapp: data.whatsapp,
     })
     if (resultCheck === 'valid') {
-      const newData = {
-        email: data.email,
-        phone: data.phone,
-        whatsapp: data.whatsapp,
-        fieldValues: [
-          {
-            field: '1',
-            value: data.company_name,
-          },
-          {
-            field: '2',
-            value: data.website,
-          },
-          {
-            field: '3',
-            value: data.industry,
-          },
-          {
-            field: '4',
-            value: data.message,
-          },
-        ],
-      }
+      // const newData = {
+      //   email: data.email,
+      //   phone: data.phone,
+      //   whatsapp: data.whatsapp,
+      //   fieldValues: [
+      //     {
+      //       field: '2',
+      //       value: data.company_name,
+      //     },
+      //     {
+      //       field: '3',
+      //       value: data.website,
+      //     },
+      //     {
+      //       field: '4',
+      //       value: data.industry,
+      //     },
+      //     {
+      //       field: '1',
+      //       value: data.message,
+      //     },
+      //   ],
+      // }
 
-      await toast.promise(
-        submitForFormActiveCampaign(newData, '/api/create-contact', autoId),
-        {
-          pending: 'Sending data',
-          success: 'Data sent',
-        }
-      )
+      // await toast.promise(
+      //   submitForFormActiveCampaign(newData, '/api/create-contact', autoId),
+      //   {
+      //     pending: 'Sending data',
+      //     success: 'Data sent',
+      //   }
+      // )
 
-      // await toast.promise(createBlog({ data, modelId }), {
-      //   pending: 'Sending data',
-      //   success: 'Data sent',
-      // })
+      await toast.promise(createBlog({ data, modelId }), {
+        pending: 'Sending data',
+        success: 'Data sent',
+      })
 
       handleHideModal()
       reset()
