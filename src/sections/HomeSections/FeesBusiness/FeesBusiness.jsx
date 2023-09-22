@@ -63,10 +63,6 @@ export default function FeesBusiness({ modelId }) {
     setShowModal(true)
   }
 
-  const handleHideModal = () => {
-    setShowModal(false)
-  }
-
   const {
     register,
     formState: { errors },
@@ -77,6 +73,9 @@ export default function FeesBusiness({ modelId }) {
   } = useForm({
     resolver: yupResolver(userSchema8),
   })
+  const handleHideModal = () => {
+    setShowModal(false)
+  }
   const [lastError, setLastError] = useState('')
   const clearLastError = () => {
     setLastError('')
