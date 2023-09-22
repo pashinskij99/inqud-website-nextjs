@@ -1,7 +1,8 @@
 import clsx from 'clsx'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import Image from 'next/image'
 import { StructuredText } from 'react-datocms/structured-text'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -14,10 +15,25 @@ import Pick from '@/assets/icons/pick.svg'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 
+const DynamicModalCalendaly = dynamic(
+  () => import('react-calendly').then((mod) => mod.PopupModal),
+  {
+    ssr: false,
+  }
+)
+
 export default function PickSection({ variant, className }) {
   const {
     dataPage: { homePage: data, pickLeadForm: leadFormData },
   } = useContext(PageContext)
+  const [calendlyModal, setCalendlyModal] = useState(false)
+
+  const handleOpenCalendlyModal = () => {
+    setCalendlyModal(true)
+  }
+  const handleCloseCalendlyModal = () => {
+    setCalendlyModal(false)
+  }
 
   return (
     <StyledPickSectionSection className={clsx(className, 'container')}>
@@ -66,9 +82,18 @@ export default function PickSection({ variant, className }) {
             {leadFormData.pickDescription}
           </StyledTypographyUrbanistBody>
 
-          <StyledButtonSecondaryLight className='pickPickButton'>
+          <StyledButtonSecondaryLight
+            onClick={handleOpenCalendlyModal}
+            className='pickPickButton'
+          >
             {leadFormData.buttonText}
           </StyledButtonSecondaryLight>
+          <DynamicModalCalendaly
+            onModalClose={handleCloseCalendlyModal}
+            open={calendlyModal}
+            rootElement={document.getElementById('calendly-model-wrapper')}
+            url='https://calendly.com/inqud_team/call-with-inqud'
+          />
         </div>
       </div>
     </StyledPickSectionSection>
@@ -117,6 +142,15 @@ export function PickApiSection({ className }) {
     dataPage: { apiPage: data, pickLeadForm: leadFormData },
   } = useContext(PageContext)
 
+  const [calendlyModal, setCalendlyModal] = useState(false)
+
+  const handleOpenCalendlyModal = () => {
+    setCalendlyModal(true)
+  }
+  const handleCloseCalendlyModal = () => {
+    setCalendlyModal(false)
+  }
+
   return (
     <StyledPickSectionSection className={clsx(className, 'container')}>
       <div className='container'>
@@ -136,13 +170,25 @@ export function PickApiSection({ className }) {
             {leadFormData.pickDescription}
           </StyledTypographyUrbanistBody>
 
-          <StyledButtonSecondaryLight className='pickPickButton pickPickButtonApi-1'>
+          <StyledButtonSecondaryLight
+            onClick={handleOpenCalendlyModal}
+            className='pickPickButton pickPickButtonApi-1'
+          >
             {leadFormData.buttonText}
           </StyledButtonSecondaryLight>
 
-          <StyledButtonSecondaryLight className='pickPickButton pickPickButtonApi-2'>
+          <StyledButtonSecondaryLight
+            onClick={handleOpenCalendlyModal}
+            className='pickPickButton pickPickButtonApi-2'
+          >
             {leadFormData.buttonText}
           </StyledButtonSecondaryLight>
+          <DynamicModalCalendaly
+            onModalClose={handleCloseCalendlyModal}
+            open={calendlyModal}
+            rootElement={document.getElementById('calendly-model-wrapper')}
+            url='https://calendly.com/inqud_team/call-with-inqud'
+          />
         </div>
       </div>
     </StyledPickSectionSection>

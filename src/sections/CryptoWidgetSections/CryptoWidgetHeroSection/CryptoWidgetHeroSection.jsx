@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
 import { useWindowSize } from '@uidotdev/usehooks'
+import dynamic from 'next/dynamic'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
 import { StyledCryptoWidgetHeroSectionWrapper } from './CryptoWidgetHeroSection.styled'
 import { StyledTypographyUrbanistH1 } from '@/components/UI/Typography/Typography.styled'
@@ -13,12 +14,27 @@ import { AnimatedOneVideo } from '@/components/AnimatedVideo'
 import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
 
+const DynamicModalCalendaly = dynamic(
+  () => import('react-calendly').then((mod) => mod.PopupModal),
+  {
+    ssr: false,
+  }
+)
+
 export default function CryptoWidgetHeroSection() {
   const {
     dataPage: { cryptoWidgetPage: data },
   } = useContext(PageContext)
 
   const size = useWindowSize()
+  const [calendlyModal, setCalendlyModal] = useState(false)
+
+  const handleOpenCalendlyModal = () => {
+    setCalendlyModal(true)
+  }
+  const handleCloseCalendlyModal = () => {
+    setCalendlyModal(false)
+  }
 
   return (
     <StyledCryptoWidgetHeroSectionWrapper>
@@ -39,9 +55,18 @@ export default function CryptoWidgetHeroSection() {
               </ButtonGetStarted>
             </Link>
 
-            <StyledButtonGhost className='ghostButton'>
+            <StyledButtonGhost
+              onClick={handleOpenCalendlyModal}
+              className='ghostButton'
+            >
               {data.buttonScreen1B}
             </StyledButtonGhost>
+            <DynamicModalCalendaly
+              onModalClose={handleCloseCalendlyModal}
+              open={calendlyModal}
+              rootElement={document.getElementById('calendly-model-wrapper')}
+              url='https://calendly.com/inqud_team/call-with-inqud'
+            />
           </div>
 
           <PaymentList />

@@ -1,7 +1,8 @@
 import Image from 'next/image'
 // import { useTranslations } from 'next-intl'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH4,
@@ -13,12 +14,32 @@ import { PageContext } from '@/contexts/PageContext/PageContext'
 // import { PageContext } from '@/contexts/PageContext/PageContext'
 // import { useContext } from 'react'
 
+const DynamicModalCalendaly = dynamic(
+  () => import('react-calendly').then((mod) => mod.PopupModal),
+  {
+    ssr: false,
+  }
+)
+
 export default function ConnectCryptoSection() {
   // const t = useTranslations('crypto_centre_page.connect_with_crypto_section')
 
   const {
     dataPage: { cryptoWidgetPage: data },
   } = useContext(PageContext)
+
+  const [calendlyModal, setCalendlyModal] = useState(false)
+
+  // useCalendlyEventListener({
+  //   onEventScheduled: (e) => console.log(e),
+  // })
+
+  const handleOpenCalendlyModal = () => {
+    setCalendlyModal(true)
+  }
+  const handleCloseCalendlyModal = () => {
+    setCalendlyModal(false)
+  }
 
   // const {
   //   dataPage: { cryptoWidgetPage: data },
@@ -49,10 +70,19 @@ export default function ConnectCryptoSection() {
           <StructuredText data={data.leadForm2Description} />
         </StyledTypographyUrbanistH4>
 
-        <ButtonGetStartedLight className='get-started'>
+        <ButtonGetStartedLight
+          onClick={handleOpenCalendlyModal}
+          className='get-started'
+        >
           {/* {t('button_text')} */}
           {data.leadForm2Button}
         </ButtonGetStartedLight>
+        <DynamicModalCalendaly
+          onModalClose={handleCloseCalendlyModal}
+          open={calendlyModal}
+          rootElement={document.getElementById('calendly-model-wrapper')}
+          url='https://calendly.com/inqud_team/call-with-inqud'
+        />
       </div>
     </StyledConnectCryptoSectionWrapper>
   )

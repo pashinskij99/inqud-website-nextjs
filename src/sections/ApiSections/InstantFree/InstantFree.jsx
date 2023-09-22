@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 // import { useTranslations } from 'next-intl'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistH3,
   StyledTypographyUrbanistH5,
@@ -15,6 +16,13 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 // import { keysForLocale } from '@/config/keysForLocale'
 import { PageContext } from '@/contexts/PageContext/PageContext'
+
+const DynamicModalCalendaly = dynamic(
+  () => import('react-calendly').then((mod) => mod.PopupModal),
+  {
+    ssr: false,
+  }
+)
 
 export default function InstantFree() {
   // const t = useTranslations('api_page.instant_fee_section')
@@ -36,6 +44,19 @@ export default function InstantFree() {
   //   },
   //   { id: 1, icon: <Icon2 />, description: tFeatures(keysForLocale.keys2[1]) },
   // ]
+
+  const [calendlyModal, setCalendlyModal] = useState(false)
+
+  // useCalendlyEventListener({
+  //   onEventScheduled: (e) => console.log(e),
+  // })
+
+  const handleOpenCalendlyModal = () => {
+    setCalendlyModal(true)
+  }
+  const handleCloseCalendlyModal = () => {
+    setCalendlyModal(false)
+  }
 
   const {
     dataPage: { apiPage: data },
@@ -77,14 +98,26 @@ export default function InstantFree() {
               </ButtonGetStarted>
             </Link>
 
-            <StyledButtonGhost className='ghostButton ghostButton-1'>
+            <StyledButtonGhost
+              onClick={handleOpenCalendlyModal}
+              className='ghostButton ghostButton-1'
+            >
               {/* {tButtonsContactSales(keysForLocale.keys2[0])} */}
               {data.buttonScreen4B}
             </StyledButtonGhost>
-            <StyledButtonGhost className='ghostButton ghostButton-2'>
+            <StyledButtonGhost
+              onClick={handleOpenCalendlyModal}
+              className='ghostButton ghostButton-2'
+            >
               {/* {tButtonsContactSales(keysForLocale.keys2[1])} */}
               {data.buttonScreen4B}
             </StyledButtonGhost>
+            <DynamicModalCalendaly
+              onModalClose={handleCloseCalendlyModal}
+              open={calendlyModal}
+              rootElement={document.getElementById('calendly-model-wrapper')}
+              url='https://calendly.com/inqud_team/call-with-inqud'
+            />
           </div>
         </div>
         <div className='right-side'>
