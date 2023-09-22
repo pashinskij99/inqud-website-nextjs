@@ -12,7 +12,7 @@ import ReasonsToTeamUp from '@/sections/HomeSections/ReasonsToTeamUp'
 import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import BlogsSection from '@/sections/HomeSections/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
-// import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
+import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
 import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
 import PageProvider from '@/contexts/PageContext/PageContext'
 
@@ -36,7 +36,7 @@ export default function HomePage({ data }) {
         <PickSection className='pickSection' variant='dontLose' />
         <CryptoWidget2Section />
         <ReasonsToTeamUp />
-        {/* <FeesBusiness modelId='2540165' /> */}
+        <FeesBusiness modelId='2540165' />
         <OurLandscapeSection />
         <PickSection className='pickSection2' />
         <BlogsSection />
