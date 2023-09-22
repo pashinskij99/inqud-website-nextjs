@@ -1,3 +1,3 @@
-import Loader from './Loader'
+import { FullScreenLoader, Loader } from './Loader'
 
-export default Loader
+export { Loader, FullScreenLoader }

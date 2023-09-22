@@ -1,6 +1,8 @@
 import clsx from 'clsx'
 import Link from 'next/link'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { Controller, useForm } from 'react-hook-form'
+import { useWindowSize } from '@uidotdev/usehooks'
 import { StyledHelpHeroSectionWrapper } from '@/sections/HelpCenterSections/HelpHeroSection/HelpHeroSection.styled'
 import {
   StyledTypographyUrbanistBody,
@@ -14,22 +16,27 @@ import {
   setIsSearch,
   setSearchValue,
 } from '@/store/features/helpCentre/helpCentreSlice'
+import { responseBreakPoint } from '@/utils/response'
 
 function HelpHeroSection({ page, data }) {
   const dispatch = useDispatch()
-  const { searchValue } = useSelector((state) => state.helpCentre)
-  const handleChange = (value) => {
-    dispatch(setSearchValue(value))
-  }
+
+  const { handleSubmit, control, reset } = useForm()
 
   const handleClear = () => {
-    dispatch(setSearchValue(''))
     dispatch(setIsSearch(false))
+    reset({
+      search: '',
+    })
   }
 
-  const handleSearch = () => {
+  const handleSearch = (data) => {
+    dispatch(setSearchValue(data.search))
+
     dispatch(setIsSearch(true))
   }
+
+  const size = useWindowSize()
 
   return (
     <StyledHelpHeroSectionWrapper className={page}>
@@ -47,29 +54,45 @@ function HelpHeroSection({ page, data }) {
           {data.helpCentreHero.title}
         </StyledTypographyUrbanistH1>
 
-        <form className='search-wrapper'>
-          <InputSearch
-            placeholder={data.helpCentreHero.placeholder}
-            classNameWrapper='input-wrapper input-wrapper-1'
-            value={searchValue}
-            onChange={(event) => handleChange(event.target.value)}
-            handleChange={handleChange}
-            handleClear={handleClear}
-          />
-          <InputSearch
-            placeholder={data.helpCentreHero.placeholder}
-            classNameWrapper='input-wrapper input-wrapper-2'
-            value={searchValue}
-            onChange={(event) => handleChange(event.target.value)}
-            handleChange={handleChange}
-            handleClear={handleClear}
-          />
+        <form onSubmit={handleSubmit(handleSearch)} className='search-wrapper'>
+          {size.width && size.width >= responseBreakPoint.desktop ? (
+            <Controller
+              control={control}
+              name='search'
+              render={({ field: { onChange, value } }) => (
+                <InputSearch
+                  placeholder={data.helpCentreHero.placeholder}
+                  classNameWrapper='input-wrapper input-wrapper-1'
+                  value={value}
+                  onChange={(event) => {
+                    onChange(event.target.value)
+                  }}
+                  handleClear={handleClear}
+                />
+              )}
+            />
+          ) : null}
+          {size.width && size.width < responseBreakPoint.desktop ? (
+            <Controller
+              control={control}
+              name='search'
+              render={({ field: { onChange, value } }) => (
+                <InputSearch
+                  placeholder={data.helpCentreHero.placeholder}
+                  classNameWrapper='input-wrapper input-wrapper-2'
+                  value={value}
+                  onChange={(event) => {
+                    onChange(event.target.value)
+                  }}
+                  handleClear={handleClear}
+                />
+              )}
+            />
+          ) : null}
+
           <StyledButtonSecondaryLight
-            type='button'
-            className={clsx('search-btn', {
-              ['events-none']: !searchValue,
-            })}
-            onClick={handleSearch}
+            type='submit'
+            className={clsx('search-btn')}
           >
             {data.helpCentreHero.button}
           </StyledButtonSecondaryLight>

@@ -12,6 +12,7 @@ import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import SendRequestSection from '@/sections/CryptoWidgetSections/SendRequestSection'
 import PageProvider from '@/contexts/PageContext/PageContext'
+import ConnectCryptoSection from '@/sections/CryptoWidgetSections/ConnectCryptoSection'
 
 export default function CryptoWidget({ data }) {
   return (
@@ -25,7 +26,7 @@ export default function CryptoWidget({ data }) {
         <HowIntegrateCryptoSection />
         <SafetyReliability />
         <OurLandscapeSection />
-        {/* <ConnectCryptoSection /> */}
+        <ConnectCryptoSection />
         {/* <Tutorial /> */}
         <QuestionsSection />
         <SendRequestSection />

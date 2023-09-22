@@ -13,7 +13,6 @@ export const StyledCryptoWidgetFlexibilityWrapper = styled.section`
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 440px);
-      align-items: flex-start;
       justify-content: space-between;
       ${responsive.xxl`
         grid-template-columns: repeat(3, 389px);

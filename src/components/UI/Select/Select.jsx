@@ -1,5 +1,4 @@
 import { Controller } from 'react-hook-form'
-import { useContext } from 'react'
 import {
   StyledMenuItem,
   StyledSelect,
@@ -10,7 +9,6 @@ import {
   StyledTypographyUrbanistSmallSpaces,
 } from '../Typography/Typography.styled'
 import Arrow from '@/assets/icons/arrow-down-select.svg'
-import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export function SelectPrimary({
   name,
@@ -18,10 +16,8 @@ export function SelectPrimary({
   placeholder,
   helperTextBottom,
   control,
+  listItems,
 }) {
-  const {
-    dataPage: { allIndustries: industries },
-  } = useContext(PageContext)
   return (
     <StyledSelectWrapper>
       <StyledTypographyUrbanistSmallSpaces className='label'>
@@ -46,8 +42,8 @@ export function SelectPrimary({
                 {placeholder}
               </StyledTypographyUrbanistBody>
             </StyledMenuItem>
-            {industries.map(({ industry, id }) => (
-              <StyledMenuItem key={id} value={industry}>
+            {listItems.map((industry) => (
+              <StyledMenuItem key={industry} value={industry}>
                 <StyledTypographyUrbanistBody>
                   {industry}
                 </StyledTypographyUrbanistBody>

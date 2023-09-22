@@ -14,7 +14,7 @@ import { BlogContext } from '@/contexts/BlogContext/BlogContext'
 import { ButtonLoadMoreLarge } from '@/components/UI/Button'
 import { fetchBlogs } from '@/store/features/blog/blogAsyncThunk'
 import { setIsLoadingRule, setPage } from '@/store/features/blog/blogSlice'
-import Loader from '@/components/Loader'
+import { Loader } from '@/components/Loader'
 
 function BlogPagination({ total, pageSize }) {
   const dispatch = useDispatch()
@@ -37,6 +37,8 @@ function BlogPagination({ total, pageSize }) {
   const handlePage = ({ page, skip }) => {
     scroller.scrollTo('blog', {
       offset: -25,
+      duration: 500,
+      smooth: true,
     })
     dispatch(setPage(page))
     dispatch(

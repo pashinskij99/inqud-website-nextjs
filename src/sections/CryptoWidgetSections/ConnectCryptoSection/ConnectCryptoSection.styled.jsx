@@ -4,25 +4,36 @@ import { responsive } from '@/utils/response'
 export const StyledConnectCryptoSectionWrapper = styled.section`
   overflow: hidden;
   position: relative;
-  height: 568px;
   display: flex;
+  padding-top: 120px;
+  padding-bottom: 120px;
   align-items: center;
   justify-content: center;
-  background-color: rgba(7, 116, 83, 1);
+  background-color: #016b4c;
 
   ${responsive.sm`
     height: 490px;
   `}
+  .container {
+    position: relative;
+    z-index: 1;
+  }
   .background {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    top: 0;
+    left: auto;
+    right: auto;
+    margin: 0 auto;
+    ${responsive.xl`
+      display: none;
+    `}
+    /* width: 100%; */
 
     &.background-1 {
-      ${responsive.xxl`
+      /* ${responsive.xxl`
         display: none;
-      `}
+      `} */
     }
     &.background-2 {
       display: none;

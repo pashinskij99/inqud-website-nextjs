@@ -1,8 +1,16 @@
 import React from 'react'
-import { StyledLoader } from './Loader.styled'
+import { StyledFullScreenLoader, StyledLoader } from './Loader.styled'
 
 function Loader({ className }) {
   return <StyledLoader className={className} />
 }
 
-export default Loader
+function FullScreenLoader({ className }) {
+  return (
+    <StyledFullScreenLoader className={className}>
+      <Loader />
+    </StyledFullScreenLoader>
+  )
+}
+
+export { Loader, FullScreenLoader }

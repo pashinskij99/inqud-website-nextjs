@@ -96,6 +96,21 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     height: 100vh;
   }
+
+  .display-enter {
+    opacity: 0;
+  }
+  .display-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+  }
+  .display-exit {
+    opacity: 1;
+  }
+  .display-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+  }
 `
 
 export default GlobalStyle

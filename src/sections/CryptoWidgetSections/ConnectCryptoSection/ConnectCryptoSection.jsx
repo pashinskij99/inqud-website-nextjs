@@ -9,7 +9,6 @@ import {
 import { StyledConnectCryptoSectionWrapper } from './ConnectCryptoSection.styled'
 import { ButtonGetStartedLight } from '@/components/UI/Button'
 import image from '../../../assets/images/crypto-widget/page/connect/image.png'
-import image2 from '../../../assets/images/crypto-widget/page/connect/image2.png'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 // import { PageContext } from '@/contexts/PageContext/PageContext'
 // import { useContext } from 'react'
@@ -34,13 +33,13 @@ export default function ConnectCryptoSection() {
         height={568}
         alt='Connect with crypto customers!'
       />
-      <Image
+      {/* <Image
         className='background background-2'
         src={image2.src}
         width={1280}
         height={568}
         alt='Connect with crypto customers!'
-      />
+      /> */}
       <div className='container'>
         <StyledTypographyUrbanistH2 className='title'>
           {/* {t('title')} */}

@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
 import { useDispatch, useSelector } from 'react-redux'
+import { Controller, useForm } from 'react-hook-form'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
@@ -15,17 +16,15 @@ import {
   setIsLoadingRule,
   setSearchValue,
 } from '@/store/features/blog/blogSlice'
-import Loader from '@/components/Loader'
+import { Loader } from '@/components/Loader'
 
 function BlogsPageMainSection() {
   const { heroSectionData, params } = useContext(BlogContext)
-  const { searchValue, pagination, activeTags, isLoading } = useSelector(
+  const { pagination, activeTags, isLoading } = useSelector(
     (state) => state.blog
   )
+  const { handleSubmit, reset, control } = useForm()
   const dispatch = useDispatch()
-  const handleChange = (event) => {
-    dispatch(setSearchValue(event.target.value))
-  }
 
   const handleClear = () => {
     setSearchValue('')
@@ -43,16 +42,19 @@ function BlogsPageMainSection() {
         searchValue: '',
       })
     )
+    reset({
+      search: '',
+    })
   }
 
-  const handleClick = () => {
+  const handleClick = (data) => {
     dispatch(setIsLoadingRule(false))
     dispatch(
       fetchBlogs({
         params,
         paginationParams: pagination,
         tags: activeTags,
-        searchValue,
+        searchValue: data.search,
       })
     )
   }
@@ -69,20 +71,27 @@ function BlogsPageMainSection() {
           <StructuredText data={heroSectionData.description} />
         </StyledTypographyUrbanistH5>
 
-        <form className='blogsPageSearchWrapper'>
-          <InputSearch
-            onChange={handleChange}
-            value={searchValue}
-            classNameWrapper='inputWrapper'
-            placeholder={heroSectionData.inputPlaceholder}
-            handleClear={handleClear}
+        <form
+          onSubmit={handleSubmit(handleClick)}
+          className='blogsPageSearchWrapper'
+        >
+          <Controller
+            control={control}
+            name='search'
+            render={({ field: { value, onChange } }) => (
+              <InputSearch
+                onChange={(event) => {
+                  onChange(event.target.value)
+                }}
+                value={value}
+                classNameWrapper='inputWrapper'
+                placeholder={heroSectionData.inputPlaceholder}
+                handleClear={handleClear}
+              />
+            )}
           />
 
-          <StyledButtonSecondaryLight
-            onClick={handleClick}
-            type='button'
-            className='blogsPageSearchButton'
-          >
+          <StyledButtonSecondaryLight className='blogsPageSearchButton'>
             {heroSectionData.button}
             {!isLoading ? <Loader className='loader' /> : null}
           </StyledButtonSecondaryLight>

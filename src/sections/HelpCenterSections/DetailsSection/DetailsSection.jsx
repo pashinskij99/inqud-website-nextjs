@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
+import { CSSTransition } from 'react-transition-group'
 import {
   StyledCenterSideWrapper,
   StyledContentItemAccordion,
@@ -41,7 +42,7 @@ import { userSchema2 } from '@/utils/userSchema'
 import { ModalSendRequest } from '@/components/Modal'
 import { createBlog } from '@/lib/datocms'
 import { fetchHelpCentreDetailsData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
-import Loader from '@/components/Loader'
+import { FullScreenLoader } from '@/components/Loader'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 
 function DetailsSection({ params }) {
@@ -60,17 +61,25 @@ function DetailsSection({ params }) {
     }
   }, [tab])
 
-  if (loading) {
-    return (
-      <div className='loader-wrapper'>
-        <Loader />
-      </div>
-    )
-  }
+  // if (loading) {
+  //   return (
+  //     <div className='loader-wrapper'>
+  //       <Loader />
+  //     </div>
+  //   )
+  // }
 
   return (
     <HelpCentreDetailsProvider data={helpCentreDetailsData}>
       <ArticleProvider>
+        <CSSTransition
+          in={loading}
+          timeout={350}
+          unmountOnExit
+          classNames='display'
+        >
+          <FullScreenLoader />
+        </CSSTransition>
         {isSearch ? <SearchResultDetailsSection /> : <DetailsSectionInner />}
       </ArticleProvider>
     </HelpCentreDetailsProvider>
@@ -115,7 +124,7 @@ function DetailsSectionInner() {
   }
 
   const onSubmit = async (data) => {
-    await toast.promise(createBlog({ data, modelId: '2537177' }), {
+    await toast.promise(createBlog({ data, modelId: '2592391' }), {
       pending: 'Sending data',
       success: 'Data sent',
     })

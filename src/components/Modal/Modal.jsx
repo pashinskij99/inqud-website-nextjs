@@ -148,7 +148,22 @@ export function ModalSubmitEmail({
   )
 }
 
-const industryList = ['Fintech1', 'Fintech2', 'Fintech3']
+const industryList = [
+  'iGaming',
+  'Betting',
+  'Adult',
+  'Crypto',
+  'NFT',
+  'Farmacy',
+  'Fintech',
+  'Medicine',
+  'E-commerce',
+  'Gaming',
+  'Travel',
+  'Horeca',
+  'Education',
+  'Blogging',
+]
 
 const getInput = ({
   name,
@@ -194,7 +209,15 @@ const getInput = ({
           placeholder={placeholder}
           handleChange={handleChange}
           activeItem={industry}
-          listItems={industryList}
+          listItems={industryList.sort((a, b) => {
+            if (a.toUpperCase() < b.toUpperCase()) {
+              return -1
+            }
+            if (a.toUpperCase() > b.toUpperCase()) {
+              return 1
+            }
+            return 0
+          })}
         />
       )
     default:
@@ -426,7 +449,7 @@ export function FeeModal({
                 })}
                 onChange={() => clearLastError()}
                 name='whatsapp'
-                placeholder='whatsapp username'
+                placeholder='whatsapp number'
                 type='text'
                 label='Whatsapp'
               />

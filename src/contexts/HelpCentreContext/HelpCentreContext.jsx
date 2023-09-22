@@ -105,7 +105,7 @@ export function HelpCentreProvider({ children, data }) {
           }))
       )
     }
-  }, [tab])
+  }, [tab, data])
 
   const value = useMemo(
     () => ({

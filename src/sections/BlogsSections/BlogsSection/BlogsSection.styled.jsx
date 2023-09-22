@@ -11,18 +11,7 @@ export const StyledBlogsSectionWrapper = styled.section`
   .blog-category-navigation-wrapper {
     display: block;
   }
-  .loader-wrapper {
-    background-color: rgba(0, 0, 0, 0.2);
-    top: 0;
-    left: 0;
-    position: fixed;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    z-index: 111;
-    justify-content: center;
-  }
+
   .blog-grid {
     padding: ${rem(66)} 0 ${rem(52)};
     display: grid;

@@ -66,27 +66,32 @@ function SubSection({ title, grid }) {
 function Cart({ id, icon, titleCart, listQuestions, answers }) {
   return (
     <li className='cart'>
-      <div className='cart-header'>
-        <Image src={icon} alt={titleCart} width={64} height={64} />
-        <StyledTypographyUrbanistH5 className='cart-title'>
-          {titleCart}
-        </StyledTypographyUrbanistH5>
-      </div>
-      <div className='cart-body'>
-        {listQuestions.map(
-          ({ id: key, title }, i) =>
-            i <= 2 && (
-              <Link href={`/help-centre/${helpCentreLinkTransform(titleCart)}`}>
-                <StyledTypographyUrbanistBody
-                  key={key}
-                  className='cart-question'
+      <div>
+        <div className='cart-header'>
+          <Image src={icon} alt={titleCart} width={64} height={64} />
+          <StyledTypographyUrbanistH5 className='cart-title'>
+            {titleCart}
+          </StyledTypographyUrbanistH5>
+        </div>
+        <div className='cart-body'>
+          {listQuestions.map(
+            ({ id: key, title }, i) =>
+              i <= 2 && (
+                <Link
+                  href={`/help-centre/${helpCentreLinkTransform(titleCart)}`}
                 >
-                  {title}
-                </StyledTypographyUrbanistBody>
-              </Link>
-            )
-        )}
+                  <StyledTypographyUrbanistBody
+                    key={key}
+                    className='cart-question'
+                  >
+                    {title}
+                  </StyledTypographyUrbanistBody>
+                </Link>
+              )
+          )}
+        </div>
       </div>
+
       <div className='cart-footer'>
         <Link href={`/help-centre/${helpCentreLinkTransform(titleCart)}`}>
           <StyledButtonLearnMore className='cart-btn-view'>

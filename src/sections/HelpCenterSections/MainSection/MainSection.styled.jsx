@@ -39,7 +39,7 @@ export const StyledSubSectionWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 440px);
     justify-content: space-between;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     gap: 40px;
 
     ${responsive.xxl`
@@ -51,7 +51,7 @@ export const StyledSubSectionWrapper = styled.div`
       justify-content: flex-start;
     `}
     ${responsive.sm`
-      grid-template-columns: repeat(1, 343px);
+      grid-template-columns: repeat(1, 1fr);
       gap: 16px;
     `}
   }
@@ -63,6 +63,9 @@ export const StyledSubSectionWrapper = styled.div`
     ${responsive.xl`
       padding: 24px;
     `}
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .cart-header {
