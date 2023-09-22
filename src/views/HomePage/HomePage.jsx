@@ -11,7 +11,7 @@ import CryptoWidget2Section from '@/sections/HomeSections/CryptoWidget2Section'
 import ReasonsToTeamUp from '@/sections/HomeSections/ReasonsToTeamUp'
 import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import BlogsSection from '@/sections/HomeSections/BlogsSection'
-import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
+// import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
 import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
 import PageProvider from '@/contexts/PageContext/PageContext'
@@ -40,7 +40,7 @@ export default function HomePage({ data }) {
         <OurLandscapeSection />
         <PickSection className='pickSection2' />
         <BlogsSection />
-        <QuestionsSection />
+        {/* <QuestionsSection /> */}
       </StyledHomeWrapper>
     </PageProvider>
   )

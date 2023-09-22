@@ -30,6 +30,8 @@ function BreadCrumbs() {
         return 'help centre'
       case 'inqud-api':
         return 'api'
+      case 'company':
+        return 'Company'
       case 'modern-slavery-statement':
         return 'modern slavery statement'
       case 'privacy-notice':
