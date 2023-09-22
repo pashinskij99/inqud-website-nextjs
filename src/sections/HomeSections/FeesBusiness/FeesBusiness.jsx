@@ -22,7 +22,7 @@ import BackCart from '@/assets/images/fee/cart-back.svg'
 import { FeeModal } from '@/components/Modal/Modal'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { emailRegExp, phoneRegExp, userSchema8 } from '@/utils/userSchema'
-import { createBlog } from '@/lib/datocms'
+import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
 
 const checkValue = (key, value) => {
   switch (key) {
@@ -55,7 +55,8 @@ const validateLastValues = (obj) => {
   return result || 'one of these fields must be filled'
 }
 
-export default function FeesBusiness({ modelId }) {
+// eslint-disable-next-line no-unused-vars
+export default function FeesBusiness({ modelId, autoId }) {
   const [showModal, setShowModal] = useState(false)
   const [showMore, setShowMore] = useState(false)
 
@@ -88,10 +89,42 @@ export default function FeesBusiness({ modelId }) {
       whatsapp: data.whatsapp,
     })
     if (resultCheck === 'valid') {
-      await toast.promise(createBlog({ data, modelId }), {
-        pending: 'Sending data',
-        success: 'Data sent',
-      })
+      const newData = {
+        email: data.email,
+        phone: data.phone,
+        whatsapp: data.whatsapp,
+        fieldValues: [
+          {
+            field: '1',
+            value: data.company_name,
+          },
+          {
+            field: '2',
+            value: data.website,
+          },
+          {
+            field: '3',
+            value: data.industry,
+          },
+          {
+            field: '4',
+            value: data.message,
+          },
+        ],
+      }
+
+      await toast.promise(
+        submitForFormActiveCampaign(newData, '/api/create-contact', autoId),
+        {
+          pending: 'Sending data',
+          success: 'Data sent',
+        }
+      )
+
+      // await toast.promise(createBlog({ data, modelId }), {
+      //   pending: 'Sending data',
+      //   success: 'Data sent',
+      // })
 
       handleHideModal()
       reset()

@@ -8,6 +8,11 @@ import 'swiper/css'
 import 'swiper/css/scrollbar'
 import 'react-toastify/dist/ReactToastify.css'
 
+export const metadata = {
+  title: 'Ingud',
+  robots: 'noindex,nofollow',
+}
+
 export default async function RootLayout({ children, params: { locale } }) {
   let messages
   try {

@@ -28,9 +28,9 @@ import { CartRequirement } from '@/components/CartRequirement'
 // import { ModalSendRequest } from '@/components/Modal'
 import { keysForLocale } from '@/config/keysForLocale'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { createBlog } from '@/lib/datocms'
 import { userSchema2 } from '@/utils/userSchema'
 import { responseBreakPoint } from '@/utils/response'
+import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
 
 const DynamicModalSendRequest = dynamic(
   () => import('@/components/Modal').then((mod) => mod.ModalSendRequest),
@@ -73,10 +73,28 @@ export default function YourNeedsSection() {
   } = useContext(PageContext)
 
   const onSubmit = async (data) => {
-    await toast.promise(createBlog({ data, modelId: '2537177' }), {
-      pending: 'Sending data',
-      success: 'Data sent',
-    })
+    const newData = {
+      email: data.email,
+      fieldValues: [
+        {
+          field: '1',
+          value: data.message,
+        },
+      ],
+    }
+
+    await toast.promise(
+      submitForFormActiveCampaign(newData, '/api/create-contact', 2),
+      {
+        pending: 'Sending data',
+        success: 'Data sent',
+      }
+    )
+
+    // await toast.promise(createBlog({ data, modelId: '2537177' }), {
+    //   pending: 'Sending data',
+    //   success: 'Data sent',
+    // })
 
     handleClose()
     reset()
@@ -129,7 +147,7 @@ export default function YourNeedsSection() {
           {t('paragraph')}
         </StyledTypographyUrbanistH5>
 
-        {size.width && size.width > responseBreakPoint.mobile ? (
+        {size.width && size.width >= responseBreakPoint.desktop ? (
           <div className='listRequirements'>
             {list.map(
               ({ id, buttonText, description, image, title, handleClick }) => (
@@ -147,7 +165,7 @@ export default function YourNeedsSection() {
           </div>
         ) : null}
 
-        {size.width && size.width <= responseBreakPoint.mobile ? (
+        {size.width && size.width <= responseBreakPoint.tablet ? (
           <Swiper
             className='listRequirementsSwiper'
             slidesPerView='auto'

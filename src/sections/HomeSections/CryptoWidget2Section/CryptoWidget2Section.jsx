@@ -17,11 +17,11 @@ import Check from '@/assets/icons/check-dark.svg'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import { ButtonGhostCrypto } from '@/components/UI/Button'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { createBlog } from '@/lib/datocms'
 import { userSchema1 } from '@/utils/userSchema'
 import { responseBreakPoint } from '@/utils/response'
 import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
+import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
 
 const DynamicModalSubmitEmail = dynamic(
   () => import('@/components/Modal').then((mod) => mod.ModalSubmitEmail),
@@ -56,10 +56,22 @@ export default function CryptoWidget2Section() {
   }
 
   const onSubmit = async (data) => {
-    await toast.promise(createBlog({ data, modelId: '2537957' }), {
-      pending: 'Sending data',
-      success: 'Data sent',
-    })
+    const newData = {
+      email: data.email,
+    }
+
+    await toast.promise(
+      submitForFormActiveCampaign(newData, '/api/create-contact', 4),
+      {
+        pending: 'Sending data',
+        success: 'Data sent',
+      }
+    )
+
+    // await toast.promise(createBlog({ data, modelId: '2537957' }), {
+    //   pending: 'Sending data',
+    //   success: 'Data sent',
+    // })
 
     handleClose()
     reset()

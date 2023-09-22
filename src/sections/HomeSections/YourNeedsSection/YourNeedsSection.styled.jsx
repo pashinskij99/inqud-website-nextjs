@@ -129,9 +129,6 @@ export const YourNeedsSectionWrapper = styled.section`
     ${responsive.xxl`
       column-gap: 24px;
     `};
-    ${responsive.xl`
-      display: none;
-    `};
 
     .cart-requirements {
       ${responsive.xxl`
