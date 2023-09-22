@@ -42,12 +42,13 @@ import { userSchema2 } from '@/utils/userSchema'
 import { ModalSendRequest } from '@/components/Modal'
 import { createBlog } from '@/lib/datocms'
 import { fetchHelpCentreDetailsData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
-import { FullScreenLoader } from '@/components/Loader'
+// import { FullScreenLoader } from '@/components/Loader'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 
 function DetailsSection({ params }) {
   const { tab } = useSelector((state) => state.activeTab)
   const dispatch = useDispatch()
+  // eslint-disable-next-line no-unused-vars
   const { loading, helpCentreDetailsData, isSearch } = useSelector(
     (state) => state.helpCentre
   )

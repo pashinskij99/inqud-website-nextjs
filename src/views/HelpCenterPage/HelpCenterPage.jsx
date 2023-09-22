@@ -11,7 +11,7 @@ import { HelpCentreProvider } from '@/contexts/HelpCentreContext/HelpCentreConte
 import { SearchResultSection } from '@/sections/HelpCenterSections/SearchResultSection'
 import { fetchHelpCentreData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
-import { FullScreenLoader } from '@/components/Loader'
+// import { FullScreenLoader } from '@/components/Loader'
 
 function HelpCenterPage({ children, data }) {
   const path = usePathname()
@@ -29,6 +29,7 @@ function HelpCenterPage({ children, data }) {
 }
 
 export function HelpCenterPageContent({ params }) {
+  // eslint-disable-next-line no-unused-vars
   const { helpCentreData, isSearch, loading } = useSelector(
     (state) => state.helpCentre
   )
