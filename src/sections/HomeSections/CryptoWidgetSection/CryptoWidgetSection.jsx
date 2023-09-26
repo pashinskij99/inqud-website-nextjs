@@ -65,7 +65,7 @@ export default function CryptoWidgetSection() {
               <Animated2GifOnView
                 className='cryptoWidgetMobileSmaller'
                 height={600}
-                timeRepeat={3000}
+                timeRepeat={4000}
                 urlSecondVideo='/video/b2b_crypto_widget_mobile.gif'
                 stillSecondVideo={gifStill.src}
                 timeSecondAnimate={5000}
