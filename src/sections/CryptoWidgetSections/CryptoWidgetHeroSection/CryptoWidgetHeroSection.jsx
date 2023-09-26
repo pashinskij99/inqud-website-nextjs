@@ -13,6 +13,10 @@ import { PageContext } from '@/contexts/PageContext/PageContext'
 import { AnimatedOneVideo } from '@/components/AnimatedVideo'
 import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
+import {
+  addGlobalScrollBar,
+  removeGlobalScrollBar,
+} from '@/utils/addOrRemoveGlobalScrollBar'
 
 const DynamicModalCalendaly = dynamic(
   () => import('react-calendly').then((mod) => mod.PopupModal),
@@ -31,9 +35,11 @@ export default function CryptoWidgetHeroSection() {
 
   const handleOpenCalendlyModal = () => {
     setCalendlyModal(true)
+    removeGlobalScrollBar()
   }
   const handleCloseCalendlyModal = () => {
     setCalendlyModal(false)
+    addGlobalScrollBar()
   }
 
   return (

@@ -14,6 +14,10 @@ import Check from '@/assets/icons/check-green-background.svg'
 import Pick from '@/assets/icons/pick.svg'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
+import {
+  addGlobalScrollBar,
+  removeGlobalScrollBar,
+} from '@/utils/addOrRemoveGlobalScrollBar'
 
 const DynamicModalCalendaly = dynamic(
   () => import('react-calendly').then((mod) => mod.PopupModal),
@@ -30,9 +34,11 @@ export default function PickSection({ variant, className }) {
 
   const handleOpenCalendlyModal = () => {
     setCalendlyModal(true)
+    removeGlobalScrollBar()
   }
   const handleCloseCalendlyModal = () => {
     setCalendlyModal(false)
+    addGlobalScrollBar()
   }
 
   return (
@@ -146,9 +152,11 @@ export function PickApiSection({ className }) {
 
   const handleOpenCalendlyModal = () => {
     setCalendlyModal(true)
+    removeGlobalScrollBar()
   }
   const handleCloseCalendlyModal = () => {
     setCalendlyModal(false)
+    addGlobalScrollBar()
   }
 
   return (

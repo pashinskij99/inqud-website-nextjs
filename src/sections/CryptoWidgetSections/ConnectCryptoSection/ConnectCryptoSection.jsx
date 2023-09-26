@@ -11,6 +11,10 @@ import { StyledConnectCryptoSectionWrapper } from './ConnectCryptoSection.styled
 import { ButtonGetStartedLight } from '@/components/UI/Button'
 import image from '../../../assets/images/crypto-widget/page/connect/image.png'
 import { PageContext } from '@/contexts/PageContext/PageContext'
+import {
+  addGlobalScrollBar,
+  removeGlobalScrollBar,
+} from '@/utils/addOrRemoveGlobalScrollBar'
 // import { PageContext } from '@/contexts/PageContext/PageContext'
 // import { useContext } from 'react'
 
@@ -36,9 +40,11 @@ export default function ConnectCryptoSection() {
 
   const handleOpenCalendlyModal = () => {
     setCalendlyModal(true)
+    removeGlobalScrollBar()
   }
   const handleCloseCalendlyModal = () => {
     setCalendlyModal(false)
+    addGlobalScrollBar()
   }
 
   // const {

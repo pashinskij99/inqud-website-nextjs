@@ -4,9 +4,9 @@ import Link from 'next/link'
 import { useContext, useState } from 'react'
 import dynamic from 'next/dynamic'
 import {
+  StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH3,
   StyledTypographyUrbanistH5,
-  StyledTypographyUrbanistBody,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledInstantFreeWrapper } from './InstantFree.styled'
 // import image from '../../../assets/images/api/instant/graphic.webp'
@@ -16,6 +16,10 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 // import { keysForLocale } from '@/config/keysForLocale'
 import { PageContext } from '@/contexts/PageContext/PageContext'
+import {
+  addGlobalScrollBar,
+  removeGlobalScrollBar,
+} from '@/utils/addOrRemoveGlobalScrollBar'
 
 const DynamicModalCalendaly = dynamic(
   () => import('react-calendly').then((mod) => mod.PopupModal),
@@ -53,9 +57,11 @@ export default function InstantFree() {
 
   const handleOpenCalendlyModal = () => {
     setCalendlyModal(true)
+    removeGlobalScrollBar()
   }
   const handleCloseCalendlyModal = () => {
     setCalendlyModal(false)
+    addGlobalScrollBar()
   }
 
   const {
