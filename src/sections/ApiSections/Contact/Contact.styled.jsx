@@ -63,14 +63,14 @@ export const StyledContactWrapper = styled.section`
     margin-bottom: 34px;
     ${responsive.sm`
       grid-template-columns: 100%;
+      row-gap: 16px;
       text-align: start;
-      row-gap: 2px;
       margin-bottom: 22px;
     `}
     li {
       ${responsive.sm`
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         column-gap: 16px;
       `}
       svg {

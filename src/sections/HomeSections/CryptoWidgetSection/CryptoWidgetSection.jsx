@@ -56,7 +56,7 @@ export default function CryptoWidgetSection() {
               <AnimatedVideoOnScroll
                 className='cryptoWidgetDesktop'
                 height={600}
-                timeRepeat={5000}
+                timeRepeat={3000}
                 urlFirstVideo='/video/b2b_crypto_video_web.webm'
                 width={500}
               />
@@ -65,7 +65,7 @@ export default function CryptoWidgetSection() {
               <Animated2GifOnView
                 className='cryptoWidgetMobileSmaller'
                 height={600}
-                timeRepeat={5000}
+                timeRepeat={3000}
                 urlSecondVideo='/video/b2b_crypto_widget_mobile.gif'
                 stillSecondVideo={gifStill.src}
                 timeSecondAnimate={5000}
@@ -126,7 +126,7 @@ export default function CryptoWidgetSection() {
             <AnimatedVideoOnScroll
               className='graphic'
               height={600}
-              timeRepeat={5000}
+              timeRepeat={3000}
               urlFirstVideo='/video/b2b_crypto_video_web.webm'
               width={500}
             />

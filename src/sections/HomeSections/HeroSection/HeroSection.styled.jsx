@@ -261,7 +261,7 @@ export const StyledMobileGridWrapper = styled.div`
 `
 
 export const StyledPaymentListWrapper = styled.div`
-  overflow-x: hidden;
+  overflow: hidden;
   width: 597px;
   ${responsive.xl`
     width: 100%; 

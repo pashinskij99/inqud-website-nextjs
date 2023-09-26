@@ -21,6 +21,7 @@ import { AnimatedOneVideo } from '@/components/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
 import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
+import { createBlog } from '@/lib/datocms'
 
 export default function ApiHeroSection() {
   const [showModal, setShowModal] = useState(false)
@@ -51,20 +52,21 @@ export default function ApiHeroSection() {
       ],
     }
 
-    console.log(newData)
+    // console.log(newData)
 
-    await toast.promise(
-      submitForFormActiveCampaign(newData, '/api/create-contact', 7),
-      {
-        pending: 'Sending data',
-        success: 'Data sent',
-      }
-    )
+    // await toast.promise(
+    await submitForFormActiveCampaign(newData, '/api/create-contact', 7)
+    // ,
+    //   {
+    //     pending: 'Sending data',
+    //     success: 'Data sent',
+    //   }
+    // )
 
-    // await toast.promise(createBlog({ data, modelId: '2540346' }), {
-    //   pending: 'Sending data',
-    //   success: 'Data sent',
-    // })
+    await toast.promise(createBlog({ data, modelId: '2540346' }), {
+      pending: 'Sending data',
+      success: 'Data sent',
+    })
 
     handleHideModal()
     reset()

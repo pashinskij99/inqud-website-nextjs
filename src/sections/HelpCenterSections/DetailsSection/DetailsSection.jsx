@@ -45,6 +45,7 @@ import { fetchHelpCentreDetailsData } from '@/store/features/helpCentre/helpCent
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 import { FullScreenLoader } from '@/components/Loader'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
+import { createBlog } from '@/lib/datocms'
 
 function DetailsSection({ params }) {
   const { tab } = useSelector((state) => state.activeTab)
@@ -128,17 +129,18 @@ function DetailsSectionInner() {
       ],
     }
 
-    await toast.promise(
-      submitForFormActiveCampaign(newData, '/api/create-contact', 12),
-      {
-        pending: 'Sending data',
-        success: 'Data sent',
-      }
-    )
-    // await toast.promise(createBlog({ data, modelId: '2592391' }), {
-    //   pending: 'Sending data',
-    //   success: 'Data sent',
-    // })
+    // await toast.promise(
+    await submitForFormActiveCampaign(newData, '/api/create-contact', 12)
+    // ,
+    //   {
+    //     pending: 'Sending data',
+    //     success: 'Data sent',
+    //   }
+    // )
+    await toast.promise(createBlog({ data, modelId: '2592391' }), {
+      pending: 'Sending data',
+      success: 'Data sent',
+    })
 
     handleClose()
     reset()

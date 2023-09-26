@@ -111,6 +111,18 @@ const GlobalStyle = createGlobalStyle`
     opacity: 0;
     transition: opacity 200ms;
   }
+  #calendly-model-wrapper .calendly-popup {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+  }
+  #calendly-model-wrapper .calendly-overlay .calendly-popup-close {
+    right: 50px;
+    @media screen and (max-width: 976px) {
+      right: 25px;
+    }
+  }
 `
 
 export default GlobalStyle

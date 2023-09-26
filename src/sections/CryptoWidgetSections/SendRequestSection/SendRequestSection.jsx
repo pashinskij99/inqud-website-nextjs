@@ -19,6 +19,7 @@ import background from '@/assets/images/api/contact/background.webp'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { userSchema2 } from '@/utils/userSchema'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
+import { createBlog } from '@/lib/datocms'
 
 export default function SendRequestSection() {
   const {
@@ -41,18 +42,19 @@ export default function SendRequestSection() {
       ],
     }
 
-    await toast.promise(
-      submitForFormActiveCampaign(newData, '/api/create-contact', 6),
-      {
-        pending: 'Sending data',
-        success: 'Data sent',
-      }
-    )
+    // await toast.promise(
+    await submitForFormActiveCampaign(newData, '/api/create-contact', 6)
+    //     ,
+    //   {
+    //     pending: 'Sending data',
+    //     success: 'Data sent',
+    //   }
+    // )
 
-    // await toast.promise(createBlog({ data, modelId: '2540255' }), {
-    //   pending: 'Sending data',
-    //   success: 'Data sent',
-    // })
+    await toast.promise(createBlog({ data, modelId: '2540255' }), {
+      pending: 'Sending data',
+      success: 'Data sent',
+    })
     reset()
   }
 

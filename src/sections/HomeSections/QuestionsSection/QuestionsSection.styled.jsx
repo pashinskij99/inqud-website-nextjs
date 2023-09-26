@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Accordion, AccordionSummary, AccordionDetails } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
@@ -160,7 +160,11 @@ export const StyledQuestionsSection = styled.section`
 
 export const StyledQuestionsSectionAccordion = styled((props) => (
   <Accordion disableGutters elevation={0} square {...props} />
-))(() => ({
+))(({ expanded }) => ({
+  position: 'relative',
+  display: `${expanded ? 'flex' : 'block'}`,
+  justifyContent: 'space-between',
+
   borderRadius: rem(16),
   background: '#F4F5FA',
   borderBottom: 'none',
@@ -169,28 +173,41 @@ export const StyledQuestionsSectionAccordion = styled((props) => (
     overflow: 'visible!important',
     visibility: 'visible!important',
   },
-
   '&:before': {
     display: 'none',
   },
   '& .css-1uh3lx7-MuiAccordionDetails-root': {
     border: 'none',
   },
+
+  '@media(max-width: 1279px)': {
+    display: 'block',
+  },
 }))
 
 export const StyledQuestionsSectionAccordionSummary = styled((props) => (
   <AccordionSummary {...props} />
 ))(({ expanded }) => ({
+  position: 'static',
   padding: `${rem(25)} ${rem(32)} ${rem(21)}`,
   paddingBottom: `${expanded ? '0' : `${rem(21)}`}`,
   lineHeight: 1,
   height: 'fit-content',
   '& .css-1betqn-MuiAccordionSummary-content, & .MuiAccordionSummary-content.css-1n11r91':
     {
+      position: 'static',
       margin: 0,
+      '@media (max-width: 1279px)': {
+        height: 'auto',
+      },
     },
   '& .questionsAccordionTitle': {
     fontWeight: `${expanded ? '700' : '400'}`,
+    maxWidth: '455px',
+    '@media (max-width: 1279px)': {
+      maxWidth: '100%',
+      position: 'static',
+    },
     '@media (max-width: 767px)': {
       fontSize: '18px',
     },
@@ -198,22 +215,32 @@ export const StyledQuestionsSectionAccordionSummary = styled((props) => (
   '@media (max-width: 767px)': {
     padding: `${rem(16)}`,
   },
+  '& .MuiAccordionSummary-expandIconWrapper': {
+    position: `${expanded ? 'absolute' : 'static'}`,
+    right: '32px',
+    '@media (max-width: 1279px)': {
+      position: 'static',
+    },
+  },
   svg: {
     '@media (max-width: 767px)': {
       width: '16px',
       height: '16px',
     },
   },
-  transition: 'padding 0.3s ease',
+  transition: ' 0.3s ease',
 }))
 
 export const StyledQuestionsSectionAccordionDetails = styled(AccordionDetails)(
   ({ expanded }) => ({
     // background: '#FFA3A3',
-    padding: `0 ${rem(120)} ${rem(10)} ${rem(32)}`,
+    padding: `51px ${rem(120)} ${rem(10)} ${rem(32)}`,
     display: 'flex',
     justifyContent: 'flex-end',
     // overflow: 'visible!important',
+    '@media (max-width: 1279px)': {
+      padding: `26px ${rem(120)} ${rem(10)} ${rem(32)}`,
+    },
     '@media (max-width: 767px)': {
       padding: `0 ${rem(16)} ${rem(10)} ${rem(16)}`,
     },
@@ -226,6 +253,8 @@ export const StyledQuestionsSectionAccordionDetails = styled(AccordionDetails)(
       color: '#077453',
       marginBottom: '1rem',
     },
+    // marginTop: '51px',
+
     '& .questionsAccordionBodyText': {
       maxWidth: rem(560),
       '@media (max-width: 767px)': {
@@ -235,10 +264,10 @@ export const StyledQuestionsSectionAccordionDetails = styled(AccordionDetails)(
       '@media (max-width: 1279px)': {
         maxWidth: '100%',
         transform: 'translateY(0) !important',
+        paddingTop: '0',
       },
-
-      transform: `${expanded ? `translateY(-${rem(26)})` : 'translateY(0)'}`,
-      transition: '0.3s ease',
+      transform: `${expanded ? `translateY(-${rem(26)})` : 'translateY(50%)'}`,
+      transition: '0.34s ease',
     },
   })
 )

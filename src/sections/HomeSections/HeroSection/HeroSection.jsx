@@ -7,6 +7,7 @@ import { useWindowSize } from '@uidotdev/usehooks'
 // import { useCalendlyEventListener } from 'react-calendly'
 import GifPlayer from 'react-gif-player'
 import dynamic from 'next/dynamic'
+// import axios from 'axios'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import {
   StyledHeroSectionWrapper,
@@ -39,8 +40,31 @@ export default function HeroSection() {
   } = useContext(PageContext)
   const [calendlyModal, setCalendlyModal] = useState(false)
 
+  // eslint-disable-next-line no-unused-vars
+  // const setAutomationsOnCreatedCalendly = async (e) => {
+  //   try {
+  //     const response = await axios.get(e.data.payload.invitee.uri, {
+  //       headers: {
+  //         Authorization: `Bearer ${process.env.NEXT_PUBLIC_CALENDLY_TOKEN}`,
+  //       },
+  //     })
+
+  //     console.log(response.data.resource.email)
+
+  //     await axios.post('/api/get-contact-by-email', {
+  //       email: response.data.resource.email,
+  //       automationId: 13,
+  //     })
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
   // useCalendlyEventListener({
-  //   onEventScheduled: (e) => console.log(e),
+  //   onEventScheduled: async (e) => {
+  //     // console.log(e.data.payload.invitee.uri)
+  //     console.log(e.data.payload.invitee.uri)
+  //   },
   // })
 
   const handleOpenCalendlyModal = () => {
@@ -48,6 +72,7 @@ export default function HeroSection() {
   }
   const handleCloseCalendlyModal = () => {
     setCalendlyModal(false)
+    // console.log('hola')
   }
 
   const size = useWindowSize()

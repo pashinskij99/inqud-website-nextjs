@@ -77,7 +77,7 @@ export default function CryptoWidgetHeroSection() {
             <AnimatedOneVideo
               className='graphic'
               height={650.44}
-              timeRepeat={10000}
+              timeRepeat={0}
               urlFirstVideo='/video/400.mp4'
               width={633.97}
             />
@@ -86,7 +86,7 @@ export default function CryptoWidgetHeroSection() {
             <Animated2Gif
               className='graphic'
               height={357}
-              timeRepeat={5000}
+              timeRepeat={0}
               timeFirstAnimate={16000}
               urlFirstVideo='/video/crypto-page-mobile.gif'
               urlSecondVideo='/video/crypto-page-mobile.gif'

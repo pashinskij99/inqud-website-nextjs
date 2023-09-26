@@ -77,17 +77,9 @@ export default function RelatedArticles() {
           modules={[Scrollbar]}
         >
           {relatedData.map(
-            ({
-              id,
-              _createdAt,
-              mainImage,
-              timeToRead,
-              mainTag,
-              mainTitle,
-              slugPage,
-            }) => (
+            ({ id, _createdAt, mainImage, timeToRead, mainTag, mainTitle }) => (
               <SwiperSlide className='slide' key={id}>
-                <Link href={`/blog/${slugPage}`}>
+                <Link href={`/blog/${id}`}>
                   <BlogCart
                     time={timeToRead}
                     title={mainTitle}

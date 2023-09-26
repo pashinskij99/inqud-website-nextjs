@@ -22,6 +22,7 @@ import { responseBreakPoint } from '@/utils/response'
 import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
+import { createBlog } from '@/lib/datocms'
 
 const DynamicModalSubmitEmail = dynamic(
   () => import('@/components/Modal').then((mod) => mod.ModalSubmitEmail),
@@ -60,18 +61,19 @@ export default function CryptoWidget2Section() {
       email: data.email,
     }
 
-    await toast.promise(
-      submitForFormActiveCampaign(newData, '/api/create-contact', 4),
-      {
-        pending: 'Sending data',
-        success: 'Data sent',
-      }
-    )
+    // await toast.promise(
+    await submitForFormActiveCampaign(newData, '/api/create-contact', 4)
+    //     ,
+    //   {
+    //     pending: 'Sending data',
+    //     success: 'Data sent',
+    //   }
+    // )
 
-    // await toast.promise(createBlog({ data, modelId: '2537957' }), {
-    //   pending: 'Sending data',
-    //   success: 'Data sent',
-    // })
+    await toast.promise(createBlog({ data, modelId: '2537957' }), {
+      pending: 'Sending data',
+      success: 'Data sent',
+    })
 
     handleClose()
     reset()

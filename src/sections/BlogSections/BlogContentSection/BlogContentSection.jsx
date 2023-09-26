@@ -53,7 +53,7 @@ function LeftSide() {
     <StyledLeftSide>
       <StyledTypographyUrbanistH5>Contents</StyledTypographyUrbanistH5>
       <ul className='blog-content-nav'>
-        {titlesForNavigation.map((title) => (
+        {titlesForNavigation?.map((title) => (
           <li
             className={clsx('list-item', {
               ['active']: activeHeader === title.trim(),
@@ -106,12 +106,14 @@ function CenterSide() {
   } = useContext(BlogContext)
 
   useEffect(() => {
-    setActiveHeader(titlesForNavigation[0])
+    if (titlesForNavigation?.length) {
+      setActiveHeader(titlesForNavigation[0])
+    }
   }, [])
 
   return (
     <StyledCenterSide>
-      {bodyContent.map(
+      {bodyContent?.map(
         ({ descriptions, descriptions2, id, selectedText, title, image }) =>
           title ? (
             <Element className='content-section' name={title.trim()}>
@@ -238,7 +240,7 @@ function RightSide() {
 
   return (
     <StyledRightSide>
-      {blogInfo.map(({ id, title, description, imageSrc = '' }) => (
+      {blogInfo?.map(({ id, title, description, imageSrc = '' }) => (
         <CartInfo
           key={id}
           title={title}

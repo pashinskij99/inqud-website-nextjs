@@ -17,6 +17,7 @@ import { ModalSendRequest } from '@/components/Modal'
 import { userSchema2 } from '@/utils/userSchema'
 // import { createBlog } from '@/lib/datocms'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
+import { createBlog } from '@/lib/datocms'
 
 export default function HowIntegrateCryptoSection() {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
@@ -56,18 +57,19 @@ export default function HowIntegrateCryptoSection() {
       ],
     }
 
-    await toast.promise(
-      submitForFormActiveCampaign(newData, '/api/create-contact', 11),
-      {
-        pending: 'Sending data',
-        success: 'Data sent',
-      }
-    )
-
-    // await toast.promise(createBlog({ data, modelId: '2543028' }), {
+    // await toast.promise(
+    await submitForFormActiveCampaign(newData, '/api/create-contact', 11)
+    // ,
+    // {
     //   pending: 'Sending data',
     //   success: 'Data sent',
-    // })
+    // }
+    // )
+
+    await toast.promise(createBlog({ data, modelId: '2543028' }), {
+      pending: 'Sending data',
+      success: 'Data sent',
+    })
 
     handleClose()
     reset()

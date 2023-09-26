@@ -25,12 +25,12 @@ import Coins3 from '@/assets/images/your-needs/Coins3.svg'
 import Coins4 from '@/assets/images/your-needs/Coins4.svg'
 import Coins5 from '@/assets/images/your-needs/Coins5.svg'
 import { CartRequirement } from '@/components/CartRequirement'
-// import { ModalSendRequest } from '@/components/Modal'
 import { keysForLocale } from '@/config/keysForLocale'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { userSchema2 } from '@/utils/userSchema'
 import { responseBreakPoint } from '@/utils/response'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
+import { createBlog } from '@/lib/datocms'
 
 const DynamicModalSendRequest = dynamic(
   () => import('@/components/Modal').then((mod) => mod.ModalSendRequest),
@@ -83,18 +83,19 @@ export default function YourNeedsSection() {
       ],
     }
 
-    await toast.promise(
-      submitForFormActiveCampaign(newData, '/api/create-contact', 2),
-      {
-        pending: 'Sending data',
-        success: 'Data sent',
-      }
-    )
-
-    // await toast.promise(createBlog({ data, modelId: '2537177' }), {
+    // await toast.promise(
+    await submitForFormActiveCampaign(newData, '/api/create-contact', 2)
+    // ,
+    // {
     //   pending: 'Sending data',
     //   success: 'Data sent',
-    // })
+    // }
+    // )
+
+    await toast.promise(createBlog({ data, modelId: '2537177' }), {
+      pending: 'Sending data',
+      success: 'Data sent',
+    })
 
     handleClose()
     reset()

@@ -18,6 +18,7 @@ import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { userSchema2 } from '@/utils/userSchema'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
+import { createBlog } from '@/lib/datocms'
 
 export function GetPersonalizedForm({
   data,
@@ -100,18 +101,19 @@ export default function Contact() {
       ],
     }
 
-    await toast.promise(
-      submitForFormActiveCampaign(newData, '/api/create-contact', 9),
-      {
-        pending: 'Sending data',
-        success: 'Data sent',
-      }
-    )
+    // await toast.promise(
+    await submitForFormActiveCampaign(newData, '/api/create-contact', 9)
+    //   ,
+    //   {
+    //     pending: 'Sending data',
+    //     success: 'Data sent',
+    //   }
+    // )
 
-    // await toast.promise(createBlog({ data, modelId: '2540348' }), {
-    //   pending: 'Sending data',
-    //   success: 'Data sent',
-    // })
+    await toast.promise(createBlog({ data, modelId: '2540348' }), {
+      pending: 'Sending data',
+      success: 'Data sent',
+    })
 
     reset()
   }

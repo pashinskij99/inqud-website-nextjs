@@ -155,6 +155,7 @@ function AnimatedVideoOnScroll({
   }
 
   useEffect(() => {
+    console.log('12312')
     if (videoRef1.current) {
       if (videoInView) {
         videoRef1.current.play()

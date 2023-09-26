@@ -146,13 +146,13 @@ export const StyledModalGetPersonalizedFormWrapper = styled(Modal)`
     ${responsive.sm`
       grid-template-columns: 100%;
       text-align: start;
-      row-gap: 2px;
+      row-gap: 16px;
       margin-bottom: 22px;
     `}
     li {
       ${responsive.sm`
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         column-gap: 16px;
       `}
       svg {
