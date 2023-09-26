@@ -84,7 +84,7 @@ export default function CryptoWidgetHeroSection() {
               className='graphic'
               height={650.44}
               timeRepeat={0}
-              urlFirstVideo='/video/400.mp4'
+              urlFirstVideo='/video/650.mp4'
               width={633.97}
             />
           ) : null}
@@ -94,6 +94,8 @@ export default function CryptoWidgetHeroSection() {
               height={357}
               timeRepeat={0}
               timeFirstAnimate={16000}
+              stillSecondVideo='/video/crypto-page-mobile.webp'
+              stillFirstVideo='/video/crypto-page-mobile.webp'
               urlFirstVideo='/video/crypto-page-mobile.gif'
               urlSecondVideo='/video/crypto-page-mobile.gif'
               timeSecondAnimate={16000}
