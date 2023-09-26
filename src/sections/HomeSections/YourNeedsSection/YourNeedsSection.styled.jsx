@@ -178,6 +178,9 @@ export const YourNeedsSectionWrapper = styled.section`
       ${responsive.xl`
         max-width: 389.33px;
       `};
+      ${responsive.xs`
+        max-width: 100%;
+      `};
 
       .cartImage {
         ${responsive.xl`

@@ -186,7 +186,7 @@ export default function YourNeedsSection() {
                 loop: true,
                 initialSlide: '1',
               },
-              500: {
+              450: {
                 slidesPerView: 'auto',
                 spaceBetween: 8,
                 initialSlide: '0',
