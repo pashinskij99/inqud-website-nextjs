@@ -38,6 +38,7 @@ export default function CryptoBusinessSection() {
           {data.screen3List.map(({ id, list, listTitle }, listId) => (
             <li key={id} className='grid-item'>
               <StyledListItem
+                className='first-grid-item'
                 rgb={rgb[listId]}
                 opacity={opacity[0]}
                 color={color[listId]}
@@ -85,6 +86,7 @@ export default function CryptoBusinessSection() {
           {data.screen3List.map(({ id, list, listTitle }, listId) => (
             <SwiperSlide className='swiper-slide' key={id}>
               <StyledListItem
+                className='first-grid-item'
                 rgb={rgb[listId]}
                 opacity={opacity[0]}
                 color={color[listId]}
