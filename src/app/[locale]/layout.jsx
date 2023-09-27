@@ -25,9 +25,8 @@ export default async function RootLayout({ children, params: { locale } }) {
   return (
     <html lang={locale}>
       <head>
-        <meta name='title' content='Ingud' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta name='robots' content='noindex,nofollow' />
+        <meta name="trustpilot-one-time-domain-verification-id" content="5c9328f8-1c30-4679-8f8a-0b7b3c2853d0"/>
       </head>
 
       <body className={nunito.className}>
