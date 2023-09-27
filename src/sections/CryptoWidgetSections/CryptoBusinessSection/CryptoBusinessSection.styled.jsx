@@ -89,7 +89,7 @@ export const StyledCryptoBusinessSectionWrapper = styled.section`
 
     .list {
       .item {
-        &:not(:last-child) {
+        &:not(:last-of-type) {
           border: none !important;
           .list-item-styled {
             border: none !important;
@@ -121,7 +121,7 @@ export const StyledListItem = styled.div`
     line-height: 26px;
   }
 
-  &:first-child {
+  &:first-of-type {
     padding: 18px 24px 22px;
     ${responsive.xl`
       padding: 15px 16px 20px;
@@ -133,7 +133,7 @@ export const StyledListItem = styled.div`
     }
   }
 
-  &:last-child {
+  &:last-of-type {
     border: ${({ color }) => `2px solid ${color}`};
     padding: 15px 18px;
     ${responsive.xl`

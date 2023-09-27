@@ -129,13 +129,13 @@ export const StyledHeaderDropdownWrapper = styled.div`
           width: 100% !important;
         }
 
-        &:not(:first-child) {
+        &:not(:first-of-type) {
           &:hover {
             background-color: rgba(244, 245, 250, 1);
           }
         }
 
-        &:first-child {
+        &:first-of-type {
           color: var(--independent-grey, #517185);
           font-size: ${rem(14)};
           font-weight: 700;

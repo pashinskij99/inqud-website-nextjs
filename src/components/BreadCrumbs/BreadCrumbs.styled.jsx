@@ -35,11 +35,11 @@ export const StyledBreadcrumbs = styled(Breadcrumbs)`
         }
       }
 
-      &:nth-child(even) {
+      &:nth-of-type(even) {
         color: rgba(81, 113, 133, 0.6000000238418579);
         pointer-events: none;
       }
-      &:last-child {
+      &:last-of-type {
         pointer-events: none;
         touch-action: none;
         .breadCrumbText {

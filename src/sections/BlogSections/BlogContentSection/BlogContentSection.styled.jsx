@@ -196,7 +196,7 @@ export const StyledCenterSide = styled.div`
     ${responsive.xxl`
       margin-bottom: ${rem(38)};
     `}
-    &:last-child {
+    &:last-of-type {
       margin-bottom: 0;
     }
 
@@ -209,7 +209,6 @@ export const StyledCenterSide = styled.div`
 
       margin-bottom: ${rem(16)};
 
-      &:last-child,
       &:last-of-type {
         margin-bottom: 0;
       }
@@ -236,7 +235,6 @@ export const StyledCenterSide = styled.div`
       object-fit: contain;
       margin: ${rem(40)} 0;
 
-      &:last-child,
       &:last-of-type {
         margin-bottom: 0;
       }

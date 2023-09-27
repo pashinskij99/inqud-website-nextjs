@@ -58,7 +58,7 @@ export const StyledCompanyHeroSectionWrapper = styled.section`
     }
   }
   .cart {
-    &:nth-child(1) {
+    &:nth-of-type(1) {
       align-self: center;
     }
 
@@ -131,7 +131,7 @@ export const StyledCompanyHeroSectionWrapper = styled.section`
       ${responsive.sm`
         margin-bottom: 21px;
       `}
-      &:last-child {
+      &:last-of-type {
         margin-bottom: 0;
         ${responsive.xl`
           margin-bottom: 64px;

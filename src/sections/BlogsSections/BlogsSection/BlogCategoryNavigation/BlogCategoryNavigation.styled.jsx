@@ -34,11 +34,11 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
     gap: ${rem(8)};
     padding: ${rem(23)} 0;
 
-    &:first-child {
+    &:first-of-type {
       flex: 0 0 auto;
     }
 
-    &:last-child {
+    &:last-of-type {
       overflow-x: auto;
       margin-left: 8px;
 

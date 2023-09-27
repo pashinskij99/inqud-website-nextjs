@@ -110,7 +110,7 @@ export const StyledLandscapeSectionWrapper = styled.section`
       align-items: flex-end;
     `}
 
-    &:nth-child(1) {
+    &:nth-of-type(1) {
       svg {
         width: 37.031px;
         height: 35.872px;
@@ -121,7 +121,7 @@ export const StyledLandscapeSectionWrapper = styled.section`
         `}
       }
     }
-    &:nth-child(2) {
+    &:nth-of-type(2) {
       img {
         width: 42.189px;
         height: 38.638px;
@@ -132,7 +132,7 @@ export const StyledLandscapeSectionWrapper = styled.section`
         `}
       }
     }
-    &:nth-child(3) {
+    &:nth-of-type(3) {
       svg {
         width: 34.878px;
         height: 28.418px;

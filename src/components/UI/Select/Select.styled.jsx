@@ -52,7 +52,7 @@ export const StyledSelect = styled(Select)`
 `
 
 export const StyledMenuItem = styled(MenuItem)`
-  &:first-child {
+  &:first-of-type {
     display: none;
   }
 `

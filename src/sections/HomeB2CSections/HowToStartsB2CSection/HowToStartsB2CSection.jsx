@@ -1,6 +1,6 @@
 import Image from 'next/image'
 // import { useTranslations } from 'next-intl'
-import { useContext } from 'react'
+import { Fragment, useContext } from 'react'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH1,
@@ -95,9 +95,8 @@ export default function HowToStartsB2CSection() {
           <div className='steps-wrapper desktop'>
             {data.screen4Step.map(
               ({ description, id, cartId, imageSrc, time, title }, i) => (
-                <>
+                <Fragment key={id}>
                   <StepContent
-                    key={id}
                     keyId={id}
                     imageSrc={imageSrc}
                     time={time}
@@ -115,7 +114,7 @@ export default function HowToStartsB2CSection() {
                       />
                     </div>
                   )}
-                </>
+                </Fragment>
               )
             )}
           </div>

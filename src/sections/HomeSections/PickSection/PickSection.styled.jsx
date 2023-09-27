@@ -196,18 +196,18 @@ export const StyledPickSectionSection = styled.section`
         `}
 
         li {
-          &:nth-child(1) {
+          &:nth-of-type(1) {
             ${responsive.xl`
               order: 1;
             `}
           }
-          &:nth-child(2) {
+          &:nth-of-type(2) {
             order: 2;
             ${responsive.xl`
               order: 2;
             `}
           }
-          &:nth-child(3) {
+          &:nth-of-type(3) {
             ${responsive.xl`
               order: 3;
             `}
@@ -254,24 +254,24 @@ export const StyledPickSectionSection = styled.section`
         gap: ${rem(16)};
 
         ${responsive.xl`
-          &:nth-child(1) {
+          &:nth-of-type(1) {
             order: 2
           }
-          &:nth-child(2) {
+          &:nth-of-type(2) {
             order: 3
           }
-          &:nth-child(3) {
+          &:nth-of-type(3) {
             order: 1
           }
         `}
         ${responsive.sm`
-          &:nth-child(1) {
+          &:nth-of-type(1) {
             order: 1
           }
-          &:nth-child(2) {
+          &:nth-of-type(2) {
             order: 2
           }
-          &:nth-child(3) {
+          &:nth-of-type(3) {
             order: 3
           }
         `}
@@ -296,16 +296,16 @@ export const StyledPickSectionSection = styled.section`
       ul {
         gap: ${rem(21)};
         li {
-          &:nth-child(1) {
+          &:nth-of-type(1) {
             order: 1;
             br {
               display: none;
             }
           }
-          &:nth-child(2) {
+          &:nth-of-type(2) {
             order: 2
           }
-          &:nth-child(3) {
+          &:nth-of-type(3) {
             order: 3
           }
         }

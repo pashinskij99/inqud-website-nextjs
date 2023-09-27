@@ -62,7 +62,7 @@ export const StyledHeaderMobileMenu = styled.div`
   }
 
   .headerMobileMenuAccordionBodyText {
-    &:first-child {
+    &:first-of-type {
       font-weight: 700;
     }
   }

@@ -1,8 +1,8 @@
-import styled from '@emotion/styled';
-import MuiAccordion from '@mui/material/Accordion';
-import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import { responsive } from '@/utils/response';
+import styled from '@emotion/styled'
+import MuiAccordion from '@mui/material/Accordion'
+import MuiAccordionSummary from '@mui/material/AccordionSummary'
+import MuiAccordionDetails from '@mui/material/AccordionDetails'
+import { responsive } from '@/utils/response'
 
 export const StyledFeaturesSectionWrapper = styled.section`
   padding: 200px 0;
@@ -47,7 +47,7 @@ export const StyledFeaturesSectionWrapper = styled.section`
       ${responsive.xl`
         margin-bottom: 46px;
         br {
-          &:nth-child(2) {
+          &:nth-of-type(2) {
             display: none;
           }
         }
@@ -100,13 +100,13 @@ export const StyledFeaturesSectionWrapper = styled.section`
       `}
     }
   }
-`;
+`
 
 export const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ expanded }) => ({
   border: 'none',
-  '&:not(:last-child)': {
+  '&:not(:last-of-type)': {
     borderBottom: 0,
   },
   '&:before': {
@@ -114,7 +114,7 @@ export const Accordion = styled((props) => (
   },
   pointerEvents: expanded ? 'none' : 'auto',
   touchAction: expanded ? 'none' : 'auto',
-}));
+}))
 
 export const AccordionSummary = styled((props) => (
   <MuiAccordionSummary expandIcon={false} {...props} />
@@ -159,7 +159,7 @@ export const AccordionSummary = styled((props) => (
       },
     },
   },
-}));
+}))
 
 export const AccordionDetails = styled(MuiAccordionDetails)(() => ({
   padding: '8px 0 0 0',
@@ -174,7 +174,7 @@ export const AccordionDetails = styled(MuiAccordionDetails)(() => ({
   '@media (max-width: 767px)': {
     padding: '9px 0 0 35px',
   },
-}));
+}))
 
 export const StyledAccordionLoading = styled.div`
   position: relative;
@@ -186,7 +186,7 @@ export const StyledAccordionLoading = styled.div`
     isLast ? (isExpanded ? '1' : '0') : '1'};
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -196,4 +196,4 @@ export const StyledAccordionLoading = styled.div`
     width: ${({ width }) => `${width}%`};
     transition: ${({ width }) => (width ? 'width 0.4s linear' : 'none')};
   }
-`;
+`

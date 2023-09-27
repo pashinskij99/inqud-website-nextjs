@@ -66,12 +66,12 @@ export const StyledHowIntegrateWrapper = styled.section`
     `}
 
     .step-wrapper {
-      &:nth-child(1) {
+      &:nth-of-type(1) {
         ${responsive.xl`
           order: 1;        
         `}
       }
-      &:nth-child(2) {
+      &:nth-of-type(2) {
         ${responsive.xl`
           order: 2;        
         `}
@@ -84,12 +84,12 @@ export const StyledHowIntegrateWrapper = styled.section`
           }
         `}
       }
-      &:nth-child(3) {
+      &:nth-of-type(3) {
         ${responsive.xl`
           order: 3;        
         `}
       }
-      &:nth-child(4) {
+      &:nth-of-type(4) {
         ${responsive.xl`
           order: 4;        
           display: none;    
@@ -104,7 +104,7 @@ export const StyledHowIntegrateWrapper = styled.section`
           }
         `}
       }
-      &:nth-child(5) {
+      &:nth-of-type(5) {
         ${responsive.xl`
           order: 7;        
         `}
@@ -112,7 +112,7 @@ export const StyledHowIntegrateWrapper = styled.section`
           order: 5;        
         `}
       }
-      &:nth-child(6) {
+      &:nth-of-type(6) {
         ${responsive.xl`
           order: 6;
           .step-image {
@@ -129,7 +129,7 @@ export const StyledHowIntegrateWrapper = styled.section`
         `}
       }
 
-      &:nth-child(7) {
+      &:nth-of-type(7) {
         ${responsive.xl`
           order: 5;
         `}
@@ -239,7 +239,7 @@ export const StyledStepCartHowIntegrateWrapper = styled.div`
       `}
     }
   }
-  &:last-child {
+  &:last-of-type {
     .step-cart-title {
       margin-bottom: 14px;
       ${responsive.sm`

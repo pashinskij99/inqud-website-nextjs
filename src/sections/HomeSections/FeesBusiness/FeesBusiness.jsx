@@ -160,8 +160,8 @@ export default function FeesBusiness({ modelId, autoId }) {
           <table>
             <thead>
               {data.tableHeader.map(({ description, id, title }) => (
-                <tr>
-                  <th key={id}>
+                <tr key={id}>
+                  <th>
                     <StyledTypographyUrbanistSmallSpaces>
                       {title}
                     </StyledTypographyUrbanistSmallSpaces>

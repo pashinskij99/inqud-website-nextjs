@@ -83,28 +83,28 @@ export const StyledFeaturesB2CSectionWrapper = styled.section`
       border-radius: 0;
     `}
 
-    &:nth-child(1) {
+    &:nth-of-type(1) {
       order: 1;
     }
-    &:nth-child(2) {
+    &:nth-of-type(2) {
       order: 2;
     }
-    &:nth-child(3) {
+    &:nth-of-type(3) {
       order: 3;
     }
-    &:nth-child(4) {
+    &:nth-of-type(4) {
       order: 4;
       ${responsive.xxl`
         order: 5;
       `}
     }
-    &:nth-child(5) {
+    &:nth-of-type(5) {
       order: 5;
       ${responsive.xxl`
         order: 4;
       `}
     }
-    &:nth-child(6) {
+    &:nth-of-type(6) {
       order: 6;
     }
   }

@@ -119,7 +119,7 @@ export const StyledStepCartWrapper = styled.div`
     }
   }
 
-  &:last-child {
+  &:last-of-type {
     .step-cart-id-wrapper {
       margin-bottom: 22px;
       ${responsive.xl`
@@ -137,7 +137,7 @@ export const StyledStepCartWrapper = styled.div`
       margin-bottom: 6px;
     `}
   }
-  &:last-child {
+  &:last-of-type {
     .step-cart-title {
       margin-bottom: 10px;
     }
@@ -148,7 +148,7 @@ export const StyledStepCartWrapper = styled.div`
     line-height: 24px;
     margin-bottom: 8px;
   }
-  &:last-child {
+  &:last-of-type {
     .step-cart-description {
       margin-bottom: 0px;
       ${responsive.xl`

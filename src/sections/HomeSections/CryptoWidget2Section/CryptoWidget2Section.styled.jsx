@@ -172,10 +172,10 @@ export const StyledCryptoWidget2Section = styled.section`
             display: grid;
             grid-template-columns: auto 268px;
 
-            &:nth-child(4) {
+            &:nth-of-type(4) {
               row-gap: 16px;
             }
-            &:nth-child(3) {
+            &:nth-of-type(3) {
               row-gap: 16px;
             }
           `}
@@ -183,16 +183,16 @@ export const StyledCryptoWidget2Section = styled.section`
             display: flex;
             align-items: center;
             gap: ${rem(12)};
-            &:nth-child(1) {
+            &:nth-of-type(1) {
               order: 1;
             }
-            &:nth-child(2) {
+            &:nth-of-type(2) {
               order: 4;
             }
-            &:nth-child(3) {
+            &:nth-of-type(3) {
               order: 2;
             }
-            &:nth-child(4) {
+            &:nth-of-type(4) {
               order: 3;
             }
           `};

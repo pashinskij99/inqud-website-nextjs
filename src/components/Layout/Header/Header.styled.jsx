@@ -228,7 +228,7 @@ export const StyledHeaderWrapper = styled.header`
         `};
       }
 
-      & span:nth-child(even) {
+      & span:nth-of-type(even) {
         left: ${rem(25)};
         border-radius: 0 ${rem(9)} ${rem(9)} 0;
         ${responsive.sm`
@@ -236,7 +236,7 @@ export const StyledHeaderWrapper = styled.header`
         `};
       }
 
-      & span:nth-child(odd) {
+      & span:nth-of-type(odd) {
         left: ${rem(10)};
         border-radius: ${rem(9)} 0 0 ${rem(9)};
         ${responsive.sm`
@@ -244,47 +244,47 @@ export const StyledHeaderWrapper = styled.header`
         `};
       }
 
-      & span:nth-child(1),
-      & span:nth-child(2) {
+      & span:nth-of-type(1),
+      & span:nth-of-type(2) {
         top: ${rem(15.63)};
         ${responsive.sm`
           top: ${rem(10)} ;
         `};
       }
 
-      & span:nth-child(3),
-      & span:nth-child(4) {
+      & span:nth-of-type(3),
+      & span:nth-of-type(4) {
         top: ${rem(23.44)};
         ${responsive.sm`
           top: ${rem(15)};
         `};
       }
 
-      & span:nth-child(5),
-      & span:nth-child(6) {
+      & span:nth-of-type(5),
+      & span:nth-of-type(6) {
         top: ${rem(31.25)};
         ${responsive.sm`
           top: ${rem(20)};
         `};
       }
 
-      &.open span:nth-child(1),
-      &.open span:nth-child(6) {
+      &.open span:nth-of-type(1),
+      &.open span:nth-of-type(6) {
         -webkit-transform: rotate(45deg);
         -moz-transform: rotate(45deg);
         -o-transform: rotate(45deg);
         transform: rotate(45deg);
       }
 
-      &.open span:nth-child(2),
-      &.open span:nth-child(5) {
+      &.open span:nth-of-type(2),
+      &.open span:nth-of-type(5) {
         -webkit-transform: rotate(-45deg);
         -moz-transform: rotate(-45deg);
         -o-transform: rotate(-45deg);
         transform: rotate(-45deg);
       }
 
-      &.open span:nth-child(1) {
+      &.open span:nth-of-type(1) {
         left: ${rem(13)};
         top: ${rem(18)};
         ${responsive.sm`
@@ -293,7 +293,7 @@ export const StyledHeaderWrapper = styled.header`
         `};
       }
 
-      &.open span:nth-child(2) {
+      &.open span:nth-of-type(2) {
         left: calc(50% - ${rem(2)});
         top: ${rem(18)};
         ${responsive.sm`
@@ -302,17 +302,17 @@ export const StyledHeaderWrapper = styled.header`
         `};
       }
 
-      &.open span:nth-child(3) {
+      &.open span:nth-of-type(3) {
         left: -50%;
         opacity: 0;
       }
 
-      &.open span:nth-child(4) {
+      &.open span:nth-of-type(4) {
         left: 100%;
         opacity: 0;
       }
 
-      &.open span:nth-child(5) {
+      &.open span:nth-of-type(5) {
         left: ${rem(13)};
         top: ${rem(28)};
         ${responsive.sm`
@@ -321,7 +321,7 @@ export const StyledHeaderWrapper = styled.header`
         `};
       }
 
-      &.open span:nth-child(6) {
+      &.open span:nth-of-type(6) {
         left: calc(50% - ${rem(2)});
         top: ${rem(28)};
         ${responsive.sm`

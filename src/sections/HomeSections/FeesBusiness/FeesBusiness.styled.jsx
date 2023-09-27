@@ -114,7 +114,7 @@ export const StyledFeesBusinessWrapper = styled.section`
         th {
           height: 32px;
 
-          &:first-child {
+          &:first-of-type {
             padding-left: ${rem(32)};
             ${responsive.sm`
               padding-left: ${rem(20)};
@@ -127,7 +127,7 @@ export const StyledFeesBusinessWrapper = styled.section`
             font-weight: 700;
           }
 
-          &:last-child {
+          &:last-of-type {
             text-align: end;
             padding-right: ${rem(32)};
 
@@ -151,17 +151,17 @@ export const StyledFeesBusinessWrapper = styled.section`
       } */
 
       tr {
-        &:nth-child(odd) {
+        &:nth-of-type(odd) {
           border-radius: 16px;
           /* background: rgba(244, 245, 250, 1); */
 
-          td:first-child {
+          td:first-of-type {
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
             background: rgba(244, 245, 250, 1);
           }
 
-          td:last-child {
+          td:last-of-type {
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
             background: rgba(244, 245, 250, 1);
@@ -178,7 +178,7 @@ export const StyledFeesBusinessWrapper = styled.section`
           ${responsive.sm`
             height: ${rem(56)};
           `}
-          &:first-child {
+          &:first-of-type {
             padding-left: ${rem(32)};
 
             ${responsive.sm`
@@ -189,7 +189,7 @@ export const StyledFeesBusinessWrapper = styled.section`
             }
           }
 
-          &:last-child {
+          &:last-of-type {
             text-align: end;
             padding-right: ${rem(32)};
             ${responsive.sm`
@@ -348,17 +348,17 @@ export const StyledFeesBusinessWrapper = styled.section`
       ${responsive.sm`
         padding: 0 ${rem(16)};
       `}
-      &:first-child {
+      &:first-of-type {
         margin-bottom: 8px;
       }
 
-      &:nth-child(3) {
+      &:nth-of-type(3) {
         ${responsive.xl`
           margin-bottom: ${rem(8)};
         `}
       }
 
-      &:nth-child(4) {
+      &:nth-of-type(4) {
         ${responsive.xl`
           margin-bottom: 14px;
         `}
