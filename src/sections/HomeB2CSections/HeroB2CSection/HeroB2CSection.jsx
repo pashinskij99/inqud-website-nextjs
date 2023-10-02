@@ -70,7 +70,7 @@ export default function HeroB2CSection() {
               className='graphic'
               height={594}
               timeRepeat={5000}
-              urlFirstVideo='/video/b2c_video1.webm'
+              urlFirstVideo='/video/id_color 600_1.mp4'
               urlSecondVideo='/video/b2c_video2.webm'
               width={595}
             />
