@@ -55,7 +55,7 @@
     },
     "footer_email_title": "Don't miss out on the most important updates. Subscribe now!",
     "footer_email_button_text": "Subscribe",
-    "footer_email_description": "by submitting this form, you contirm that you agree to the storing and processing of your personal data",
+    "footer_email_description": "by submitting this form, you confirm that you agree to the storing and processing of your personal data",
     "footer_all_rights_reserved": "© Inqud. 2023. All rights reserved."
   },
   "home_page_your_needs_section": {
@@ -80,7 +80,7 @@
     "label_message": "Message",
     "placeholder_message": "Enter your request or question...",
     "button_text": "Submit",
-    "footer_description": "by submitting this form, you contirm that you agree to the storing and processing of your personal data"
+    "footer_description": "by submitting this form, you confirm that you agree to the storing and processing of your personal data"
   },
   "home_page_crypto_widget_section": {
     "comming_soon": "comming soon"

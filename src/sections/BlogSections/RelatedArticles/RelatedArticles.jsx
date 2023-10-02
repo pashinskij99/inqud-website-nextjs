@@ -27,8 +27,16 @@ export default function RelatedArticles() {
 
         <div className='relatedBlogsGrid blogsGrid'>
           {relatedData.map(
-            ({ id, _createdAt, mainImage, timeToRead, mainTag, mainTitle }) => (
-              <Link href={`/blog/${id}`}>
+            ({
+              id,
+              _createdAt,
+              mainImage,
+              slugPage,
+              timeToRead,
+              mainTag,
+              mainTitle,
+            }) => (
+              <Link href={`/blog/${slugPage}`}>
                 <BlogCart
                   time={timeToRead}
                   title={mainTitle}
@@ -77,9 +85,17 @@ export default function RelatedArticles() {
           modules={[Scrollbar]}
         >
           {relatedData.map(
-            ({ id, _createdAt, mainImage, timeToRead, mainTag, mainTitle }) => (
+            ({
+              id,
+              _createdAt,
+              mainImage,
+              slugPage,
+              timeToRead,
+              mainTag,
+              mainTitle,
+            }) => (
               <SwiperSlide className='slide' key={id}>
-                <Link href={`/blog/${id}`}>
+                <Link href={`/blog/${slugPage}`}>
                   <BlogCart
                     time={timeToRead}
                     title={mainTitle}

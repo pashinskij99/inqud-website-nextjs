@@ -5,8 +5,8 @@ async function Page({ searchParams, params }) {
   const PAGE_TAG_QUERY = `
   query Blog($locale: SiteLocale) {
     allTags(locale: $locale) {
-      id
       tag
+      id
     }
     blogHeroSection(locale: $locale) {
       title

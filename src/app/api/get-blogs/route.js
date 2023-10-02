@@ -70,6 +70,7 @@ export async function POST(req) {
         ]}) {
         id
         mainTitle
+        slugPage
         mainTag {
           tag
         }

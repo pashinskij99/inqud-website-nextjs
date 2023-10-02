@@ -29,7 +29,7 @@ const checkValue = (key, value) => {
     case 'email':
       return value.toLowerCase().match(emailRegExp)
         ? 'valid'
-        : 'Email number is not valid'
+        : 'Email is not valid'
     case 'phone':
       return value.toLowerCase().match(phoneRegExp)
         ? 'valid'

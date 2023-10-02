@@ -2,7 +2,7 @@ import { performRequest } from '@/lib/datocms'
 import BlogPage from '@/views/BlogPage'
 
 const PAGE_CONTENT_QUERY = `
-query Blog($slug: ItemId, $locale: SiteLocale) {
+query Blog($slug: String, $locale: SiteLocale) {
   blogHeroSection(locale: $locale) {
     title
     inputPlaceholder
@@ -14,7 +14,7 @@ query Blog($slug: ItemId, $locale: SiteLocale) {
     button
     buttonLoadMore
   }
-  blog(locale: $locale, filter: {id: {eq: $slug}}) {
+  blog(locale: $locale, filter: {slugPage: {eq: $slug}}) {
     id
     nameAuthor
     industries {
@@ -76,8 +76,8 @@ query Blog($slug: ItemId, $locale: SiteLocale) {
 }`
 
 const PAGE_CONTENT_QUERY_SEO = `
-query Blog($slug: ItemId, $locale: SiteLocale) {
-  blog(locale: $locale, filter: {id: {eq: $slug}}) {
+query Blog($slug: String, $locale: SiteLocale) {
+  blog(locale: $locale, filter: {slugPage: {eq: $slug}}) {
     seoMetaTag {
       description
       title
@@ -86,10 +86,11 @@ query Blog($slug: ItemId, $locale: SiteLocale) {
 }`
 
 const PAGE_RELATED_CONTENT_QUERY = `
-query Home($first: IntType = 3, $tagId: [ItemId], $blogId: [ItemId], $locale: SiteLocale) {
-    allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: $first, filter: { id: {notIn: $blogId}, mainTag: {in: $tagId} }) {
+query Home($first: IntType = 3, $tagId: [ItemId], $slug: String, $locale: SiteLocale) {
+    allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: $first, filter: { slugPage: {neq: $slug}, mainTag: {in: $tagId} }) {
         id
         mainTitle
+        slugPage
         mainTag {
           tag
           id
@@ -139,7 +140,7 @@ export default async function page({ params }) {
     variables: {
       tagId: blog.mainTag.id,
       locale: params.locale,
-      blogId: blog.id,
+      slug: params.slug,
     },
   })
 

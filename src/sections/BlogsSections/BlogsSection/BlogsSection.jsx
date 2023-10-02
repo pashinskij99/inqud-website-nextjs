@@ -8,7 +8,6 @@ import { BlogCart } from '@/components/BlogCart'
 import BlogPagination from '@/sections/BlogsSections/BlogsSection/BlogPagination'
 import { StyledTypographyUrbanistH4 } from '@/components/UI/Typography/Typography.styled'
 import { FullScreenLoader } from '@/components/Loader'
-// import { FullScreenLoader } from '@/components/Loader'
 
 function BlogsSection() {
   const { blogs, pagination, loading } = useSelector((state) => state.blog)
@@ -23,15 +22,15 @@ function BlogsSection() {
               {blogs.map(
                 ({
                   id,
+                  slugPage,
                   _createdAt,
                   timeToRead,
                   mainImage,
                   mainTag,
                   mainTitle,
-                  // slugPage,
                 }) => (
                   <li key={id}>
-                    <Link href={`/blog/${id}`}>
+                    <Link href={`/blog/${slugPage}`}>
                       <BlogCart
                         time={timeToRead}
                         date={_createdAt}
