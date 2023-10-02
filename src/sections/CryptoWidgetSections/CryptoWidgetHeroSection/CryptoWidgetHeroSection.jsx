@@ -71,7 +71,7 @@ export default function CryptoWidgetHeroSection() {
               onModalClose={handleCloseCalendlyModal}
               open={calendlyModal}
               rootElement={document.getElementById('calendly-model-wrapper')}
-              url='https://calendly.com/inqud_team/call-with-inqud'
+              url='https://calendly.com/inqud_team/30-minute-free-consultation'
             />
           </div>
 
