@@ -110,8 +110,7 @@ export async function generateMetadata({ params }) {
     } = await performRequest({
       query: PAGE_CONTENT_QUERY_SEO,
       revalidate: 0,
-      variables: { slug: params.slug },
-      locale: params.locale,
+      variables: { slug: params.slug, locale: params.locale },
     })
 
     return {
