@@ -33,7 +33,7 @@ export default function SmoothAPISection() {
               className='graphic'
               height={600}
               timeRepeat={5000}
-              urlFirstVideo='/video/b2b_api_video.webm'
+              urlFirstVideo='/video/il-api.mp4'
               width={416.45}
             />
           ) : null}

@@ -58,7 +58,7 @@ export default function CryptoWidgetSection() {
                 height={600}
                 timeRepeat={3000}
                 // urlFirstVideo='/video/b2b_crypto_video_web.webm'
-                urlFirstVideo='/video/il-api.mp4'
+                urlFirstVideo='/video/b2b_crypto_video_web.webm'
                 width={500}
               />
             ) : null}
@@ -128,7 +128,7 @@ export default function CryptoWidgetSection() {
               className='graphic'
               height={600}
               timeRepeat={3000}
-              urlFirstVideo='/video/il-api.mp4'
+              urlFirstVideo='/video/b2b_crypto_video_web.webm'
               width={500}
             />
           ) : null}
