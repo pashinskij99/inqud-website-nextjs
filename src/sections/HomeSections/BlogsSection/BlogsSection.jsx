@@ -87,8 +87,16 @@ export default function BlogsSection() {
             )}
           </ul> */}
           {blogsData.map(
-            ({ id, _createdAt, timeToRead, mainImage, mainTag, mainTitle }) => (
-              <Link href={`/blog/${id}`} key={id}>
+            ({
+              id,
+              _createdAt,
+              timeToRead,
+              slugPage,
+              mainImage,
+              mainTag,
+              mainTitle,
+            }) => (
+              <Link href={`/blog/${slugPage}`} key={id}>
                 <BlogCart
                   time={timeToRead}
                   date={_createdAt}
@@ -132,9 +140,17 @@ export default function BlogsSection() {
           modules={[Scrollbar]}
         >
           {blogsData.map(
-            ({ id, _createdAt, timeToRead, mainImage, mainTag, mainTitle }) => (
+            ({
+              id,
+              _createdAt,
+              timeToRead,
+              slugPage,
+              mainImage,
+              mainTag,
+              mainTitle,
+            }) => (
               <SwiperSlide className='slide' key={id}>
-                <Link href={`/blog/${id}`}>
+                <Link href={`/blog/${slugPage}`}>
                   <BlogCart2
                     time={timeToRead}
                     date={_createdAt}

@@ -206,6 +206,7 @@ const HOME_PAGE_QUERY = `
     allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: 3) {
       id
       mainTitle
+      slugPage
       mainTag {
         tag
         id
