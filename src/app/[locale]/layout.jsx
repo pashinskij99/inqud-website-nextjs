@@ -1,5 +1,6 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
+import Script from 'next/script'
 
 import LayoutComponent from '@/components/Layout/LayoutComponent'
 import { nunito } from '@/utils/font'
@@ -7,7 +8,6 @@ import { nunito } from '@/utils/font'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
 import 'react-toastify/dist/ReactToastify.css'
-import Script from 'next/script'
 
 export const metadata = {
   title: 'Inqud',
