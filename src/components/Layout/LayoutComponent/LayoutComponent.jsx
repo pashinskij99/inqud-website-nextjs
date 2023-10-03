@@ -9,32 +9,30 @@ import { NotFoundProvider } from '@/contexts/NotFoundContext/NotFoundContext'
 
 export default function LayoutComponent({ children }) {
   return (
-    <>
-      <ReduxProvider>
-        <NotFoundProvider>
-          <StyledComponentsRegistry>
-            <GlobalStyle />
-            <ToastContainer
-              position='bottom-right'
-              autoClose={2500}
-              hideProgressBar
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme='light'
-            />
-            <Header />
-            <BreadCrumbs />
+    <ReduxProvider>
+      <NotFoundProvider>
+        <StyledComponentsRegistry>
+          <GlobalStyle />
+          <ToastContainer
+            position='bottom-right'
+            autoClose={2500}
+            hideProgressBar
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme='light'
+          />
+          <Header />
+          <BreadCrumbs />
 
-            {children}
+          {children}
 
-            <Footer />
-          </StyledComponentsRegistry>
-        </NotFoundProvider>
-      </ReduxProvider>
-    </>
+          <Footer />
+        </StyledComponentsRegistry>
+      </NotFoundProvider>
+    </ReduxProvider>
   )
 }
