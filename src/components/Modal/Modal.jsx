@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from 'react'
+import { Fragment, useContext, useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { DialogContent } from '@mui/material'
 import { useTranslations } from 'next-intl'
@@ -22,6 +22,8 @@ import Close from '@/assets/icons/close.svg'
 import { SelectPrimary } from '../UI/Select'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { GetPersonalizedForm } from '@/sections/ApiSections/Contact/Contact'
+import { getPageData } from '@/lib/datocms'
+import { MODAL_1 } from '@/lib/datocmsQuery'
 
 export function ModalSendRequest({
   open,
@@ -272,12 +274,33 @@ export function FeeModal({
   control,
   setValue,
 }) {
-  const {
-    dataPage: { cryptoLeadForm: leadData },
-  } = useContext(PageContext)
+  const [leadData, setLeadData] = useState({})
+
+  // const {
+  //   dataPage: { cryptoLeadForm: leadData },
+  // } = useContext(PageContext)
+
+  const { params } = useContext(PageContext)
+
+  useEffect(() => {
+    const getData = async () => {
+      const pageData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: MODAL_1,
+      })
+
+      setLeadData(pageData.cryptoLeadForm)
+    }
+
+    getData()
+  }, [])
 
   const [industry, setIndustry] = useState('')
-  const tabs = [leadData.tabs[0], leadData.tabs[1], leadData.tabs[2]]
+  const tabs = leadData.length
+    ? [leadData?.tabs[0], leadData?.tabs[1], leadData?.tabs[2]]
+    : []
   const [activeTab, setActiveTab] = useState(tabs[0])
 
   const handleChange = (event) => {
@@ -326,59 +349,15 @@ export function FeeModal({
       name: 'message',
       type: 'textarea',
       label: leadData.labelMessage,
-      placeholder: leadData.title.placeholderMessage,
+      placeholder: leadData.title?.placeholderMessage,
       errors,
       register,
     },
   ]
 
-  // const getTabContent = (tab) => {
-  //   switch (tab) {
-  //     case 'Email':
-  //       return (
-  //         <InputSendRequest
-  //           errors={errors}
-  //           register={register}
-  //           classNameWrapper='tabInput'
-  //           name='email'
-  //           placeholder='example@mail.com'
-  //           type='email'
-  //           label='Email'
-  //         />
-  //       )
-  //     case 'Phone':
-  //       return (
-  //         <InputSendRequest
-  //           errors={errors}
-  //           register={register}
-  //           classNameWrapper='tabInput'
-  //           name='phone'
-  //           placeholder='+38067XXXXXXX'
-  //           type='text'
-  //           label='Phone'
-  //         />
-  //       )
-  //     case 'Whatsapp':
-  //       return (
-  //         <InputSendRequest
-  //           helperTextBottom={errors.whatsapp?.message}
-  //           register={register}
-  //           classNameWrapper='tabInput'
-  //           name='whatsapp'
-  //           placeholder='whatsapp username'
-  //           type='text'
-  //           label='Whatsapp'
-  //         />
-  //       )
-  //     default:
-  //       return null
-  //   }
-  // }
-
   return (
     <StyledFeeModalWrapper scroll='body' open={open} onClose={handleClose}>
       <DialogContent>
-        {/* <DialogContentText tabIndex={-1}> */}
         <form onSubmit={handleSubmit(onSubmit)} className='modalContainer'>
           <button type='reset' className='closeButton' onClick={handleClose}>
             <Close />

@@ -207,3 +207,24 @@ export const FAQ_QUERY = ({ pageCMSName }) => `
     }
   }
 `
+
+export const MODAL_1 = `
+  query MyQuery($locale: SiteLocale) {
+    cryptoLeadForm(locale: $locale) {
+      buttonText
+      description
+      footerDescription {
+        value
+      }
+      id
+      labelCompany
+      labelIndustry
+      labelMessage
+      labelWebsite
+      placeholderMessage
+      tabs
+      title
+      whatsappPlaceholder
+    }
+  }
+`

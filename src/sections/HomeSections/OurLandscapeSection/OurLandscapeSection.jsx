@@ -66,12 +66,12 @@ export default function OurLandscapeSection() {
   const getContent = () => {
     switch (active) {
       case 0:
-        return <IndustriesTab />
+        return <IndustriesTab data={data} />
       case 1:
-        return <CoverageTab />
+        return <CoverageTab data={data} />
 
       default:
-        return <IndustriesTab />
+        return <IndustriesTab data={data} />
     }
   }
 
@@ -94,10 +94,10 @@ export default function OurLandscapeSection() {
   )
 }
 
-function CoverageTab() {
-  const {
-    dataPage: { ourLandscape: data },
-  } = useContext(PageContext)
+function CoverageTab({ data }) {
+  // const {
+  //   dataPage: { ourLandscape: data },
+  // } = useContext(PageContext)
 
   return (
     <StyledCoverageWrapper>
@@ -138,10 +138,10 @@ function CoverageTab() {
   )
 }
 
-function IndustriesTab() {
-  const {
-    dataPage: { ourLandscape: data },
-  } = useContext(PageContext)
+function IndustriesTab({ data }) {
+  // const {
+  //   dataPage: { ourLandscape: data },
+  // } = useContext(PageContext)
 
   const accordionData = [
     {
@@ -165,7 +165,7 @@ function IndustriesTab() {
       </StyledTypographyUrbanistH5>
 
       <div className='ourLandscapeRisk'>
-        {data.industriesList.map(({ id, list, listTitle: title }, i) => (
+        {data.industriesList?.map(({ id, list, listTitle: title }, i) => (
           <Accordion
             key={id}
             idColumn={i}
@@ -194,7 +194,7 @@ function IndustriesTab() {
         }}
         modules={[Scrollbar]}
       >
-        {data.industriesList.map(({ id, list, listTitle: title }, i) => (
+        {data.industriesList?.map(({ id, list, listTitle: title }, i) => (
           <SwiperSlide className='listRequirementsSwiperItems' key={id}>
             <Accordion
               key={id}
