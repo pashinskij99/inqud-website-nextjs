@@ -1,6 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
-import Script from 'next/script'
 
 import LayoutComponent from '@/components/Layout/LayoutComponent'
 import { nunito } from '@/utils/font'
@@ -8,6 +7,7 @@ import { nunito } from '@/utils/font'
 import 'swiper/css'
 import 'swiper/css/scrollbar'
 import 'react-toastify/dist/ReactToastify.css'
+import Script from 'next/script'
 
 export const metadata = {
   title: 'Inqud',
@@ -29,17 +29,16 @@ export default async function RootLayout({ children, params: { locale } }) {
 
   return (
     <html lang={locale}>
-      <Script id='google-analytics'>
-        {`
+      <body className={nunito.className}>
+        <Script id='google-analytics'>
+          {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
           j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-5J4TMBX');
       `}
-      </Script>
-
-      <body className={nunito.className}>
+        </Script>
         <noscript>
           <iframe
             title='googletagmanager'
