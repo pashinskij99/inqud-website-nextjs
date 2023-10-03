@@ -30,7 +30,7 @@ export default async function RootLayout({ children, params: { locale } }) {
   return (
     <html lang={locale}>
       <body className={nunito.className}>
-        <Script id='google-analytics'>
+        <Script strategy='afterInteractive' id='google-analytics'>
           {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
