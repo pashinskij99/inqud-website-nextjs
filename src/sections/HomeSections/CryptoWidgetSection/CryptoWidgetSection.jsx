@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useWindowSize } from '@uidotdev/usehooks'
 import { StyledCryptoWidgetSection } from './CryptoWidgetSection.styled'
@@ -20,15 +20,31 @@ import { responseBreakPoint } from '@/utils/response'
 import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 // import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 import gifStill from '@/assets/gif/b2b_crypto_widget_mobile.webp'
+import { getPageData } from '@/lib/datocms'
+import { HOME_B2B_CRYPTO_WIDGET } from '@/lib/datocmsQuery'
 
 export default function CryptoWidgetSection() {
   const t = useTranslations('home_page_crypto_widget_section')
+  const [data, setData] = useState({})
 
-  const {
-    dataPage: { homePage: data },
-  } = useContext(PageContext)
+  const { params } = useContext(PageContext)
 
   const size = useWindowSize()
+
+  useEffect(() => {
+    const getData = async () => {
+      const pageData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: HOME_B2B_CRYPTO_WIDGET,
+      })
+
+      setData(pageData)
+    }
+
+    getData()
+  }, [])
 
   return (
     <StyledCryptoWidgetSection>
@@ -87,7 +103,7 @@ export default function CryptoWidgetSection() {
           ) : null}
 
           <ul className='cryptoGrid'>
-            {data.feature.map(({ description, id, image: { url }, title }) => (
+            {data.feature?.map(({ description, id, image: { url }, title }) => (
               <li
                 className='cryptoGridItem'
                 data-slug={t('comming_soon')}

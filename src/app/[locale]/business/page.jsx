@@ -27,20 +27,10 @@ const HOME_PAGE_QUERY = `
       buttonScreen1ContactSales
       buttonScreen1GetStarted
       buttonScreen2
-      buttonScreen3GetStarted
-      buttonScreen3LearnMore
       buttonScreen4GetStarted
       buttonScreen4LearnMore
       description {
         value
-      }
-      feature {
-        title
-        id
-        description
-        image {
-          url
-        }
       }
       features
       id
@@ -56,13 +46,10 @@ const HOME_PAGE_QUERY = `
         title
       }
       leadForm2Title
-      screen3Description
       screen3Image {
         url
       }
-      screen3SubTitle
       screen4Description
-      screen3Title
       screen4Features {
         id
         description
@@ -238,5 +225,5 @@ export default async function Home({ params }) {
     locale: params.locale,
   })
 
-  return <HomePage data={data} />
+  return <HomePage data={data} params={params} />
 }

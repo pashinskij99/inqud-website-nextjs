@@ -1,5 +1,6 @@
 import { cache } from 'react'
 import { ApiError, buildClient } from '@datocms/cma-client-browser'
+import axios from 'axios'
 
 const dedupedFetch = cache(async (serializedInit) => {
   const endPoint = 'https://graphql.datocms.com'
@@ -16,6 +17,19 @@ const dedupedFetch = cache(async (serializedInit) => {
   }
   return responseBody
 })
+
+export const getPageData = async ({ variables, query }) => {
+  const response = axios.post('/api/get-section-data', {
+    variables,
+    query,
+  })
+
+  const {
+    data: { data },
+  } = await response
+
+  return data
+}
 
 export async function performRequest({
   query,
@@ -49,10 +63,6 @@ export async function performRequest({
   )
   return data
 }
-
-// email: 'pashinskij99@icloud.com',
-// message: 'Labrador',
-// date_and_time: new Date().toISOString(),
 
 // eslint-disable-next-line consistent-return
 export const createBlog = async ({ data, modelId }) => {

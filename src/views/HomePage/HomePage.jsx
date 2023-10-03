@@ -16,7 +16,7 @@ import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
 import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
 import PageProvider from '@/contexts/PageContext/PageContext'
 
-export default function HomePage({ data }) {
+export default function HomePage({ data, params }) {
   const { setIsNotFound } = useContext(NotFoundContext)
 
   useEffect(() => {
@@ -27,10 +27,12 @@ export default function HomePage({ data }) {
     }
   }, [])
   return (
-    <PageProvider isFaq dataPage={data} nameCMSPage='homePage'>
+    <PageProvider isFaq dataPage={data} params={params} nameCMSPage='homePage'>
       <StyledHomeWrapper>
+        {/* Content loading ssr */}
         <HeroSection />
         <YourNeedsSection />
+        {/* Content loading in client */}
         <CryptoWidgetSection />
         <SmoothAPISection />
         <PickSection className='pickSection' variant='dontLose' />

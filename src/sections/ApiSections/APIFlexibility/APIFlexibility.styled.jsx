@@ -39,12 +39,10 @@ export const StyledAPIFlexibilityWrapper = styled.section`
     ${responsive.xxl`
       grid-template-columns: repeat(3, 389px);
       gap: 24px;
-      align-items: flex-start;
     `}
     ${responsive.xl`
       justify-content: center;
       grid-template-columns: repeat(2, 332px);
-      align-items: flex-start;
       gap: 24px;
     `}
     ${responsive.sm`
