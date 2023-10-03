@@ -32,7 +32,7 @@ async function Page({ searchParams, params }) {
 
   return (
     <>
-      <Script strategy='afterInteractive' id='use-credentials'>
+      <Script id='use-credentials'>
         {`
           (function(m, o, n, t, e, r, _){
             m['__GetResponseAnalyticsObject'] = e;m[e] = m[e]  function() {(m[e].q = m[e].q  []).push(arguments)};
