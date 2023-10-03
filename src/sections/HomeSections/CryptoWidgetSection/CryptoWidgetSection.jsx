@@ -18,7 +18,6 @@ import { PageContext } from '@/contexts/PageContext/PageContext'
 import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
 import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
-// import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 import gifStill from '@/assets/gif/b2b_crypto_widget_mobile.webp'
 import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_CRYPTO_WIDGET } from '@/lib/datocmsQuery'
@@ -40,7 +39,7 @@ export default function CryptoWidgetSection() {
         query: HOME_B2B_CRYPTO_WIDGET,
       })
 
-      setData(pageData)
+      setData(pageData.homePage)
     }
 
     getData()

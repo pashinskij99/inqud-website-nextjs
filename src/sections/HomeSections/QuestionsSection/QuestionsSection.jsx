@@ -1,6 +1,6 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Link from 'next/link'
-import { StructuredText, renderNodeRule } from 'react-datocms/structured-text'
+import { renderNodeRule, StructuredText } from 'react-datocms/structured-text'
 import { isParagraph } from 'datocms-structured-text-utils'
 import {
   StyledTypographyUrbanistBody,
@@ -17,34 +17,47 @@ import Plus from '@/assets/icons/plus.svg'
 import Minus from '@/assets/icons/minus.svg'
 import { ButtonLearnMore } from '@/components/UI/Button'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-
-// const questions = [
-//   { id: 0, title: 'Reduce transaction cost?', description: '' },
-//   { id: 1, title: 'Expand payments provider line up?', description: '' },
-//   { id: 2, title: 'Find off-market solutions?', description: '' },
-//   { id: 3, title: 'Effortlessly manage funds?', description: '' },
-// ]
+import { getPageData } from '@/lib/datocms'
+import { FAQ_QUERY } from '@/lib/datocmsQuery'
 
 export default function QuestionsSection() {
   const [expanded, setExpanded] = useState('')
+  const [faq, setFaq] = useState({})
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false)
   }
 
-  const { faq } = useContext(PageContext)
+  // const { faq } = useContext(PageContext)
+
+  const { params, nameCMSPage } = useContext(PageContext)
+
+  useEffect(() => {
+    const getData = async () => {
+      const pageData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: FAQ_QUERY({ pageCMSName: nameCMSPage }),
+      })
+
+      setFaq(pageData[nameCMSPage])
+    }
+
+    getData()
+  }, [])
 
   return (
     <StyledQuestionsSection className='faq'>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='questionsTitle'>
-          {faq.faqTitle}
+          {faq.faqMainTitle}
         </StyledTypographyUrbanistH2>
         <StyledTypographyUrbanistH2 className='questionsTitleMobile'>
-          {faq.faqTitleMobile}
+          {faq.faqMainTitleMobile}
         </StyledTypographyUrbanistH2>
         <div className='questionsAccordion'>
-          {faq.faqContent.map(({ description, id, title }) => (
+          {faq.faqContent?.map(({ description, id, title }) => (
             <AccordionItem
               key={id}
               description={description}

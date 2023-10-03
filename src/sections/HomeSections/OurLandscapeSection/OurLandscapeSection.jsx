@@ -1,32 +1,37 @@
-'use client';
+'use client'
 
-import { useState, useContext } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Scrollbar } from 'swiper/modules';
-import Image from 'next/image';
+import { useContext, useEffect, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Scrollbar } from 'swiper/modules'
+import Image from 'next/image'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
-} from '@/components/UI/Typography/Typography.styled';
+} from '@/components/UI/Typography/Typography.styled'
 import {
   StyledCoverageWrapper,
   StyledIndustriesWrapper,
   StyledOurLandscapeSection,
-} from './OurLandscapeSection.styled';
-import Icon1 from '@/assets/images/our-landscape/1.svg';
-import Icon2 from '@/assets/images/our-landscape/2.svg';
-import Icon3 from '@/assets/images/our-landscape/3.svg';
-import { TabsComponent } from '@/components/TabsComponent/TabsComponent';
-import { PageContext } from '@/contexts/PageContext/PageContext';
+} from './OurLandscapeSection.styled'
+import Icon1 from '@/assets/images/our-landscape/1.svg'
+import Icon2 from '@/assets/images/our-landscape/2.svg'
+import Icon3 from '@/assets/images/our-landscape/3.svg'
+import { TabsComponent } from '@/components/TabsComponent/TabsComponent'
+import { PageContext } from '@/contexts/PageContext/PageContext'
+import { getPageData } from '@/lib/datocms'
+import { HOME_B2B_LANDSCAPE } from '@/lib/datocmsQuery'
 
 export default function OurLandscapeSection() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(0)
+  const [data, setData] = useState({})
 
-  const {
-    dataPage: { ourLandscape: data },
-  } = useContext(PageContext);
+  // const {
+  //   dataPage: { ourLandscape: data },
+  // } = useContext(PageContext);
+
+  const { params } = useContext(PageContext)
 
   const tabs = [
     {
@@ -37,33 +42,48 @@ export default function OurLandscapeSection() {
       id: 1,
       text: data.tabName2,
     },
-  ];
+  ]
+
+  useEffect(() => {
+    const getData = async () => {
+      const pageData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: HOME_B2B_LANDSCAPE,
+      })
+
+      setData(pageData.ourLandscape)
+    }
+
+    getData()
+  }, [])
 
   const handleClick = (id) => {
-    setActive(id);
-  };
+    setActive(id)
+  }
 
   const getContent = () => {
     switch (active) {
       case 0:
-        return <IndustriesTab />;
+        return <IndustriesTab />
       case 1:
-        return <CoverageTab />;
+        return <CoverageTab />
 
       default:
-        return <IndustriesTab />;
+        return <IndustriesTab />
     }
-  };
+  }
 
   return (
-    <StyledOurLandscapeSection className="our-landscape">
-      <div className="container">
-        <StyledTypographyUrbanistH2 className="ourLandscapeTitle">
+    <StyledOurLandscapeSection className='our-landscape'>
+      <div className='container'>
+        <StyledTypographyUrbanistH2 className='ourLandscapeTitle'>
           {data.title}
         </StyledTypographyUrbanistH2>
         <TabsComponent
           tabs={tabs}
-          className="ourLandscapeTabs"
+          className='ourLandscapeTabs'
           active={active}
           handleClick={handleClick}
         />
@@ -71,32 +91,32 @@ export default function OurLandscapeSection() {
         {getContent()}
       </div>
     </StyledOurLandscapeSection>
-  );
+  )
 }
 
 function CoverageTab() {
   const {
     dataPage: { ourLandscape: data },
-  } = useContext(PageContext);
+  } = useContext(PageContext)
 
   return (
     <StyledCoverageWrapper>
-      <div className="headerWrapper">
-        <StyledTypographyUrbanistH5 className="ourLandscapeDescription">
+      <div className='headerWrapper'>
+        <StyledTypographyUrbanistH5 className='ourLandscapeDescription'>
           {data.description2}
         </StyledTypographyUrbanistH5>
-        <ul className="list desktop">
+        <ul className='list desktop'>
           {data.coverageFeatures.map(
             ({ id, description, image: { url, height, width }, title }) => (
               <li key={id}>
-                <div className="coverageWrapper">
+                <div className='coverageWrapper'>
                   <Image src={url} alt={title} width={width} height={height} />
                 </div>
-                <div className="descriptionWrapper">
-                  <StyledTypographyUrbanistBody className="name">
+                <div className='descriptionWrapper'>
+                  <StyledTypographyUrbanistBody className='name'>
                     {title}
                   </StyledTypographyUrbanistBody>
-                  <StyledTypographyUrbanistBody className="description">
+                  <StyledTypographyUrbanistBody className='description'>
                     {description}
                   </StyledTypographyUrbanistBody>
                 </div>
@@ -106,7 +126,7 @@ function CoverageTab() {
         </ul>
       </div>
 
-      <div className="coverageWrapper">
+      <div className='coverageWrapper'>
         <Image
           src={data.coverageMap.url}
           width={775.02}
@@ -115,13 +135,13 @@ function CoverageTab() {
         />
       </div>
     </StyledCoverageWrapper>
-  );
+  )
 }
 
 function IndustriesTab() {
   const {
     dataPage: { ourLandscape: data },
-  } = useContext(PageContext);
+  } = useContext(PageContext)
 
   const accordionData = [
     {
@@ -136,15 +156,15 @@ function IndustriesTab() {
       icon: <Icon3 />,
       columnColor: '129, 158, 176',
     },
-  ];
+  ]
 
   return (
     <StyledIndustriesWrapper>
-      <StyledTypographyUrbanistH5 className="ourLandscapeDescription">
+      <StyledTypographyUrbanistH5 className='ourLandscapeDescription'>
         {data.description1}
       </StyledTypographyUrbanistH5>
 
-      <div className="ourLandscapeRisk">
+      <div className='ourLandscapeRisk'>
         {data.industriesList.map(({ id, list, listTitle: title }, i) => (
           <Accordion
             key={id}
@@ -160,11 +180,11 @@ function IndustriesTab() {
       {/* mobile */}
 
       <Swiper
-        className="ourLandscapeSwiper"
+        className='ourLandscapeSwiper'
         slidesPerView={1}
         centeredSlides
         spaceBetween={8}
-        initialSlide="1"
+        initialSlide='1'
         loop
         height={500}
         scrollbar={{
@@ -175,7 +195,7 @@ function IndustriesTab() {
         modules={[Scrollbar]}
       >
         {data.industriesList.map(({ id, list, listTitle: title }, i) => (
-          <SwiperSlide className="listRequirementsSwiperItems" key={id}>
+          <SwiperSlide className='listRequirementsSwiperItems' key={id}>
             <Accordion
               key={id}
               idColumn={i}
@@ -188,7 +208,7 @@ function IndustriesTab() {
         ))}
       </Swiper>
     </StyledIndustriesWrapper>
-  );
+  )
 }
 
 const stepsOpacity = [
@@ -202,12 +222,12 @@ const stepsOpacity = [
   ],
   ['0.20000000298023224', '0.4000000059604645', '0.6000000238418579', '1'],
   ['0.20000000298023224', '0.4000000059604645', '0.6000000238418579', '1'],
-];
+]
 
 function Accordion({ idColumn, icon, items, title, columnColor }) {
   return (
-    <div className="ourLandscapeAccordion">
-      <div className="ourLandscapeAccordionTitle">
+    <div className='ourLandscapeAccordion'>
+      <div className='ourLandscapeAccordionTitle'>
         {icon}
         <StyledTypographyIBMH5>{title}</StyledTypographyIBMH5>
       </div>
@@ -222,7 +242,7 @@ function Accordion({ idColumn, icon, items, title, columnColor }) {
             flex: i === items.length - 1 ? 1 : 0,
             alignItems: i === items.length - 1 ? 'start' : 'start',
           }}
-          className="accordion-prob"
+          className='accordion-prob'
           key={accordionTitle}
         >
           <StyledTypographyUrbanistBody>
@@ -232,5 +252,5 @@ function Accordion({ idColumn, icon, items, title, columnColor }) {
         </div>
       ))}
     </div>
-  );
+  )
 }

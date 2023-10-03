@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { render } from 'datocms-structured-text-to-html-string'
 import { StructuredText } from 'react-datocms/structured-text'
@@ -22,7 +22,8 @@ import BackCart from '@/assets/images/fee/cart-back.svg'
 import { FeeModal } from '@/components/Modal/Modal'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { emailRegExp, phoneRegExp, userSchema8 } from '@/utils/userSchema'
-import { createBlog } from '@/lib/datocms'
+import { createBlog, getPageData } from '@/lib/datocms'
+import { HOME_B2B_FEES } from '@/lib/datocmsQuery'
 
 const checkValue = (key, value) => {
   switch (key) {
@@ -134,10 +135,28 @@ export default function FeesBusiness({ modelId, autoId }) {
   }
 
   const hadleShowMore = () => setShowMore((prevState) => !prevState)
+  const [data, setData] = useState({})
 
-  const {
-    dataPage: { feesYourBusiness: data },
-  } = useContext(PageContext)
+  // const {
+  //   dataPage: { feesYourBusiness: data },
+  // } = useContext(PageContext)
+
+  const { params } = useContext(PageContext)
+
+  useEffect(() => {
+    const getData = async () => {
+      const pageData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: HOME_B2B_FEES,
+      })
+
+      setData(pageData.feesYourBusiness)
+    }
+
+    getData()
+  }, [])
 
   return (
     <StyledFeesBusinessWrapper className='fees'>
@@ -159,7 +178,7 @@ export default function FeesBusiness({ modelId, autoId }) {
         <div className='content-wrapper'>
           <table>
             <thead>
-              {data.tableHeader.map(({ description, id, title }) => (
+              {data.tableHeader?.map(({ description, id, title }) => (
                 <tr key={id}>
                   <th>
                     <StyledTypographyUrbanistSmallSpaces>
@@ -175,7 +194,7 @@ export default function FeesBusiness({ modelId, autoId }) {
               ))}
             </thead>
             <tbody>
-              {data.table.map(({ description, id, title }) => (
+              {data.table?.map(({ description, id, title }) => (
                 <tr key={id}>
                   <td>
                     <StyledTypographyUrbanistBody>
@@ -198,13 +217,15 @@ export default function FeesBusiness({ modelId, autoId }) {
                 ['learnMore']: !showMore,
               })}
             >
-              <LearnMoreText
-                showMore={showMore}
-                text={render(data.footerDescription)
-                  .replace(/(<([^>]+)>)/gi, '')
-                  .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')}
-                endText={141}
-              />
+              {data.footerDescription ? (
+                <LearnMoreText
+                  showMore={showMore}
+                  text={render(data.footerDescription)
+                    .replace(/(<([^>]+)>)/gi, '')
+                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')}
+                  endText={141}
+                />
+              ) : null}
             </StyledTypographyUrbanistSmallSpaces>
 
             <StyledButtonLearnMore

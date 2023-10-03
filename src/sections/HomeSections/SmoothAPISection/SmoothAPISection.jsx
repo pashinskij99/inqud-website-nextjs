@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useWindowSize } from '@uidotdev/usehooks'
 import {
   StyledTypographyIBMH5,
@@ -16,11 +16,32 @@ import { PageContext } from '@/contexts/PageContext/PageContext'
 import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
+import { getPageData } from '@/lib/datocms'
+import { HOME_B2B_SMOOTH_API } from '@/lib/datocmsQuery'
 
 export default function SmoothAPISection() {
-  const {
-    dataPage: { homePage: data },
-  } = useContext(PageContext)
+  const [data, setData] = useState({})
+
+  // const {
+  //   dataPage: { homePage: data },
+  // } = useContext(PageContext)
+
+  const { params } = useContext(PageContext)
+
+  useEffect(() => {
+    const getData = async () => {
+      const pageData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: HOME_B2B_SMOOTH_API,
+      })
+
+      setData(pageData.homePage)
+    }
+
+    getData()
+  }, [])
 
   const size = useWindowSize()
 
@@ -90,7 +111,7 @@ export default function SmoothAPISection() {
           ) : null}
 
           <ul className='smoothAPIGrid'>
-            {data.screen4Features.map(
+            {data.screen4Features?.map(
               ({ description, id, image: { url }, title }) => (
                 <li
                   className='smoothAPIGridItem'

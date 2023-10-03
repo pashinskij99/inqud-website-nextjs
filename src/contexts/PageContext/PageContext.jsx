@@ -1,4 +1,4 @@
-import { createContext, useMemo, useState } from 'react'
+import { createContext, useMemo } from 'react'
 
 export const PageContext = createContext(null)
 
@@ -21,21 +21,14 @@ export default function PageProvider({
     }
   }
 
-  const [clientDataPage, setClientDataPage] = useState({})
-
-  console.log({
-    ...dataPage,
-    ...clientDataPage,
-  })
-
   const value = useMemo(
     () => ({
-      dataPage: { ...clientDataPage, ...dataPage },
+      dataPage,
       faq,
-      setClientDataPage,
       params,
+      nameCMSPage,
     }),
-    [dataPage, faq, clientDataPage]
+    [dataPage, faq, nameCMSPage]
   )
   return <PageContext.Provider value={value}>{children}</PageContext.Provider>
 }

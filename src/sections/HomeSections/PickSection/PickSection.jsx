@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { StructuredText } from 'react-datocms/structured-text'
 import dynamic from 'next/dynamic'
@@ -18,6 +18,11 @@ import {
   addGlobalScrollBar,
   removeGlobalScrollBar,
 } from '@/utils/addOrRemoveGlobalScrollBar'
+import { getPageData } from '@/lib/datocms'
+import {
+  HOME_B2B_PICK_SECTION_DONT_LOSE,
+  HOME_B2B_PICK_SECTION_DONT_LOSE_LEAD_FORM_DATA,
+} from '@/lib/datocmsQuery'
 
 const DynamicModalCalendaly = dynamic(
   () => import('react-calendly').then((mod) => mod.PopupModal),
@@ -27,9 +32,10 @@ const DynamicModalCalendaly = dynamic(
 )
 
 export default function PickSection({ variant, className }) {
-  const {
-    dataPage: { homePage: data, pickLeadForm: leadFormData },
-  } = useContext(PageContext)
+  const [data, setData] = useState({})
+  const [leadFormData, setLeadFormData] = useState({})
+
+  const { params } = useContext(PageContext)
   const [calendlyModal, setCalendlyModal] = useState(false)
 
   const handleOpenCalendlyModal = () => {
@@ -40,6 +46,29 @@ export default function PickSection({ variant, className }) {
     setCalendlyModal(false)
     addGlobalScrollBar()
   }
+
+  useEffect(() => {
+    const getData = async () => {
+      const pageData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: HOME_B2B_PICK_SECTION_DONT_LOSE,
+      })
+
+      const leadData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: HOME_B2B_PICK_SECTION_DONT_LOSE_LEAD_FORM_DATA,
+      })
+
+      setLeadFormData(leadData.pickLeadForm)
+      setData(pageData.homePage)
+    }
+
+    getData()
+  }, [])
 
   return (
     <StyledPickSectionSection className={clsx(className, 'container')}>
@@ -85,14 +114,14 @@ export default function PickSection({ variant, className }) {
           <Pick />
 
           <StyledTypographyUrbanistBody className='pickPickDescription'>
-            {leadFormData.pickDescription}
+            {leadFormData?.pickDescription}
           </StyledTypographyUrbanistBody>
 
           <StyledButtonSecondaryLight
             onClick={handleOpenCalendlyModal}
             className='pickPickButton'
           >
-            {leadFormData.buttonText}
+            {leadFormData?.buttonText}
           </StyledButtonSecondaryLight>
           <DynamicModalCalendaly
             onModalClose={handleCloseCalendlyModal}
@@ -113,7 +142,7 @@ export function PickListDontLose({ data }) {
         {data.title}
       </StyledTypographyUrbanistH5>
       <ul>
-        {data.list.map((text) => (
+        {data.list?.map((text) => (
           <li key={text}>
             <Check />
             <StyledTypographyUrbanistBody className='pickListItemText'>
@@ -130,7 +159,7 @@ export function PickList10Minutes({ data }) {
   return (
     <div className='pickList pickList10Minutes'>
       <ul>
-        {data.list.map(({ id, title, image: { url } }) => (
+        {data.list?.map(({ id, title, image: { url } }) => (
           <li key={id}>
             <Image src={url} alt={title} width={48} height={48} />
             <StyledTypographyUrbanistBody className='pickListItemText'>

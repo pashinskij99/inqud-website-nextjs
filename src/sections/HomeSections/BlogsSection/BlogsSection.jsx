@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
 import { useTranslations } from 'next-intl'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import { StyledBlogsSection } from './BlogsSection.styled'
 // import Image1 from '@/assets/images/blogs/image1.webp'
@@ -11,6 +11,8 @@ import { StyledBlogsSection } from './BlogsSection.styled'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { BlogCart, BlogCart2 } from '@/components/BlogCart'
 import { PageContext } from '@/contexts/PageContext/PageContext'
+import { getPageData } from '@/lib/datocms'
+import { HOME_B2B_BLOG, HOME_B2B_BLOGS_DATA } from '@/lib/datocmsQuery'
 
 // const blogs = [
 //   {
@@ -41,10 +43,38 @@ import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export default function BlogsSection() {
   const t = useTranslations('blog_name_section')
+  const [data, setData] = useState({})
+  const [blogs, setBlogs] = useState([])
 
-  const {
-    dataPage: { homePage: data, allBlogs: blogsData },
-  } = useContext(PageContext)
+  // const {
+  //   dataPage: { homePage: data, allBlogs: blogsData },
+  // } = useContext(PageContext)
+
+  const { params } = useContext(PageContext)
+
+  useEffect(() => {
+    const getData = async () => {
+      const pageData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: HOME_B2B_BLOG,
+      })
+      const blogsData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: HOME_B2B_BLOGS_DATA,
+      })
+
+      // console.log(blogsData)
+
+      setBlogs(blogsData.allBlogs)
+      setData(pageData.homePage)
+    }
+
+    getData()
+  }, [])
 
   return (
     <StyledBlogsSection>
@@ -86,7 +116,7 @@ export default function BlogsSection() {
               )
             )}
           </ul> */}
-          {blogsData.map(
+          {blogs?.map(
             ({
               id,
               _createdAt,
@@ -139,7 +169,7 @@ export default function BlogsSection() {
           }}
           modules={[Scrollbar]}
         >
-          {blogsData.map(
+          {blogs?.map(
             ({
               id,
               _createdAt,

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { useForm } from 'react-hook-form'
@@ -22,7 +22,8 @@ import { responseBreakPoint } from '@/utils/response'
 import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
-import { createBlog } from '@/lib/datocms'
+import { createBlog, getPageData } from '@/lib/datocms'
+import { HOME_B2B_CRYPTO_WIDGET_2 } from '@/lib/datocmsQuery'
 
 const DynamicModalSubmitEmail = dynamic(
   () => import('@/components/Modal').then((mod) => mod.ModalSubmitEmail),
@@ -33,6 +34,7 @@ const DynamicModalSubmitEmail = dynamic(
 
 export default function CryptoWidget2Section() {
   const [open, setOpen] = useState(false)
+  const [data, setData] = useState({})
   const {
     register,
     formState: { errors },
@@ -45,9 +47,10 @@ export default function CryptoWidget2Section() {
     resolver: yupResolver(userSchema1),
   })
 
-  const {
-    dataPage: { homePage: data },
-  } = useContext(PageContext)
+  // const {
+  //   dataPage: { homePage: data },
+  // } = useContext(PageContext)
+  const { params } = useContext(PageContext)
 
   const handleOpen = () => {
     setOpen(true)
@@ -81,6 +84,21 @@ export default function CryptoWidget2Section() {
 
   const size = useWindowSize()
 
+  useEffect(() => {
+    const getData = async () => {
+      const pageData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: HOME_B2B_CRYPTO_WIDGET_2,
+      })
+
+      setData(pageData.homePage)
+    }
+
+    getData()
+  }, [])
+
   return (
     <StyledCryptoWidget2Section>
       <div className='container'>
@@ -113,13 +131,6 @@ export default function CryptoWidget2Section() {
               timeSecondAnimate={5000}
             />
           ) : null}
-          {/* <Image
-            className='crypto2WidgetTablet'
-            src={data.screen5Image.url}
-            width={500}
-            height={500}
-            alt='widget'
-          /> */}
 
           {size.width && size.width <= responseBreakPoint.mobile ? (
             <StyledTypographyUrbanistH5 className='crypto2Description crypto2Description-mobile'>
@@ -134,7 +145,7 @@ export default function CryptoWidget2Section() {
           ) : null}
 
           <ul className='crypto2Grid'>
-            {data.screen5Features.map(
+            {data.screen5Features?.map(
               ({ description, id, image: { url }, title }) => (
                 <li
                   className='crypto2GridItem'
@@ -164,7 +175,7 @@ export default function CryptoWidget2Section() {
               </ButtonGhostCrypto>
               <ButtonGhostCrypto className='crypto2FooterButtonCryptoCalendar'>
                 <Image
-                  src={data.buttonLead2B.url}
+                  src={data.buttonLead2B?.url}
                   alt={data.lead5Screen}
                   width={18}
                   height={18}
@@ -199,12 +210,6 @@ export default function CryptoWidget2Section() {
               urlFirstVideo='/video/b2b_cart2crypto.webm'
             />
           ) : null}
-          {/* <Image
-            src={data.screen5Image.url}
-            alt={data.screen5Title}
-            width={500}
-            height={500}
-          /> */}
         </div>
       </div>
     </StyledCryptoWidget2Section>

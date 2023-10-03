@@ -11,8 +11,6 @@ export const submitForFormActiveCampaign = async (
   //   contact[key] = value
   // }
 
-  console.log(contact)
-
   await fetch(apiLink, {
     method: 'POST',
     headers: {
