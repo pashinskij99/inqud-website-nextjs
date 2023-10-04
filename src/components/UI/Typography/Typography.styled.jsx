@@ -111,7 +111,7 @@ const TypographyUrbanistH4 = styled(Typography)`
 
 export function StyledTypographyUrbanistH5({
   children,
-  component = 'h5',
+  component = 'p',
   ...props
 }) {
   return (
