@@ -1,9 +1,22 @@
 import styled from '@emotion/styled'
+import { Typography } from '@mui/material'
 import { nunito } from '@/utils/font'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
-export const StyledTypographyUrbanistH1 = styled.h1`
+export function StyledTypographyUrbanistH1({
+  children,
+  component = 'h1',
+  ...props
+}) {
+  return (
+    <TypographyUrbanistH1 component={component} {...props}>
+      {children}
+    </TypographyUrbanistH1>
+  )
+}
+
+const TypographyUrbanistH1 = styled(Typography)`
   color: var(--directness-black, #2d3439);
 
   font-size: ${rem(64)};
@@ -18,7 +31,19 @@ export const StyledTypographyUrbanistH1 = styled.h1`
   `}
 `
 
-export const StyledTypographyUrbanistH2 = styled.h2`
+export function StyledTypographyUrbanistH2({
+  children,
+  component = 'h2',
+  ...props
+}) {
+  return (
+    <TypographyUrbanistH2 component={component} {...props}>
+      {children}
+    </TypographyUrbanistH2>
+  )
+}
+
+const TypographyUrbanistH2 = styled(Typography)`
   color: var(--directness-black, #2d3439);
 
   ${nunito.style}
@@ -33,7 +58,19 @@ export const StyledTypographyUrbanistH2 = styled.h2`
   `}
 `
 
-export const StyledTypographyUrbanistH3 = styled.h3`
+export function StyledTypographyUrbanistH3({
+  children,
+  component = 'h3',
+  ...props
+}) {
+  return (
+    <TypographyUrbanistH3 component={component} {...props}>
+      {children}
+    </TypographyUrbanistH3>
+  )
+}
+
+const TypographyUrbanistH3 = styled(Typography)`
   color: var(--directness-black, #2d3439);
   ${nunito.style}
 
@@ -47,7 +84,19 @@ export const StyledTypographyUrbanistH3 = styled.h3`
   `}
 `
 
-export const StyledTypographyUrbanistH4 = styled.h4`
+export function StyledTypographyUrbanistH4({
+  children,
+  component = 'h4',
+  ...props
+}) {
+  return (
+    <TypographyUrbanistH4 component={component} {...props}>
+      {children}
+    </TypographyUrbanistH4>
+  )
+}
+
+const TypographyUrbanistH4 = styled(Typography)`
   color: var(--directness-black, #2d3439);
   ${nunito.style}
 
@@ -60,7 +109,19 @@ export const StyledTypographyUrbanistH4 = styled.h4`
   `}
 `
 
-export const StyledTypographyUrbanistH5 = styled.h5`
+export function StyledTypographyUrbanistH5({
+  children,
+  component = 'h5',
+  ...props
+}) {
+  return (
+    <TypographyUrbanistH5 component={component} {...props}>
+      {children}
+    </TypographyUrbanistH5>
+  )
+}
+
+const TypographyUrbanistH5 = styled(Typography)`
   color: var(--directness-black, #2d3439);
   ${nunito.style}
 
@@ -73,7 +134,19 @@ export const StyledTypographyUrbanistH5 = styled.h5`
   `}
 `
 
-export const StyledTypographyUrbanistBody = styled.p`
+export function StyledTypographyUrbanistBody({
+  children,
+  component = 'p',
+  ...props
+}) {
+  return (
+    <TypographyUrbanistBody component={component} {...props}>
+      {children}
+    </TypographyUrbanistBody>
+  )
+}
+
+const TypographyUrbanistBody = styled(Typography)`
   color: var(--directness-black, #2d3439);
   ${nunito.style}
 
@@ -82,7 +155,19 @@ export const StyledTypographyUrbanistBody = styled.p`
   line-height: ${rem(26)};
 `
 
-export const StyledTypographyUrbanistSmallSpaces = styled.p`
+export function StyledTypographyUrbanistSmallSpaces({
+  children,
+  component = 'p',
+  ...props
+}) {
+  return (
+    <TypographyUrbanistSmallSpaces component={component} {...props}>
+      {children}
+    </TypographyUrbanistSmallSpaces>
+  )
+}
+
+const TypographyUrbanistSmallSpaces = styled(Typography)`
   ${nunito.style}
   color: var(--directness-black, rgba(45, 52, 57, 0));
   pointer-events: none;
@@ -92,7 +177,19 @@ export const StyledTypographyUrbanistSmallSpaces = styled.p`
   line-height: ${rem(18)};
 `
 
-export const StyledTypographyUrbanistCTA = styled.p`
+export function StyledTypographyUrbanistCTA({
+  children,
+  component = 'p',
+  ...props
+}) {
+  return (
+    <TypographyUrbanistCTA component={component} {...props}>
+      {children}
+    </TypographyUrbanistCTA>
+  )
+}
+
+const TypographyUrbanistCTA = styled(Typography)`
   ${nunito.style}
   color: var(--ambitious-green, #077453);
 
@@ -101,7 +198,15 @@ export const StyledTypographyUrbanistCTA = styled.p`
   line-height: ${rem(26)};
 `
 
-export const StyledTypographyIBMH4 = styled.h4`
+export function StyledTypographyIBMH4({ children, component = 'p', ...props }) {
+  return (
+    <TypographyIBMH4 component={component} {...props}>
+      {children}
+    </TypographyIBMH4>
+  )
+}
+
+const TypographyIBMH4 = styled(Typography)`
   ${nunito.style}
   color: var(--ambitious-green, #077453);
 
@@ -110,7 +215,15 @@ export const StyledTypographyIBMH4 = styled.h4`
   line-height: ${rem(26)};
 `
 
-export const StyledTypographyIBMH5 = styled.h5`
+export function StyledTypographyIBMH5({ children, component = 'p', ...props }) {
+  return (
+    <TypographyIBMH5 component={component} {...props}>
+      {children}
+    </TypographyIBMH5>
+  )
+}
+
+const TypographyIBMH5 = styled(Typography)`
   ${nunito.style};
   color: #272727;
 

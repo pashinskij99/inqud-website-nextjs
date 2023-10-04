@@ -120,7 +120,10 @@ export default function SmoothAPISection() {
                 >
                   <Check className='check' />
                   <Image src={url} alt={title} width={48} height={48} />
-                  <StyledTypographyUrbanistH5 className='smoothAPIGridItemTitle'>
+                  <StyledTypographyUrbanistH5
+                    component='h3'
+                    className='smoothAPIGridItemTitle'
+                  >
                     {title}
                   </StyledTypographyUrbanistH5>
                   <StyledTypographyUrbanistBody className='smoothAPIGridItemDescription'>

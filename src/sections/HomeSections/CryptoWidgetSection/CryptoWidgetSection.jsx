@@ -106,7 +106,10 @@ export default function CryptoWidgetSection() {
                 <div className='icon-wrapper'>
                   <Image src={url} alt={title} width={24} height={24} />
                 </div>
-                <StyledTypographyUrbanistH5 className='cryptoGridItemTitle'>
+                <StyledTypographyUrbanistH5
+                  component='h3'
+                  className='cryptoGridItemTitle'
+                >
                   {title}
                 </StyledTypographyUrbanistH5>
                 <StyledTypographyUrbanistBody className='cryptoGridItemDescription'>

@@ -145,7 +145,7 @@ export default function PickSection({ variant, className }) {
 export function PickListDontLose({ data }) {
   return (
     <div className='pickList pickList_dontLose'>
-      <StyledTypographyUrbanistH5 className='pickListTitle'>
+      <StyledTypographyUrbanistH5 component='h3' className='pickListTitle'>
         {data.title}
       </StyledTypographyUrbanistH5>
       <ul>

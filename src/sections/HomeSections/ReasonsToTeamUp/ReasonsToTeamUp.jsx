@@ -37,7 +37,10 @@ export default function ReasonsToTeamUp() {
         <StyledTypographyUrbanistH2 className='reasonsToTeamUpTitle'>
           {data.screen6Title}
         </StyledTypographyUrbanistH2>
-        <StyledTypographyUrbanistH5 className='reasonsToTeamUpSubTitle'>
+        <StyledTypographyUrbanistH5
+          component='p'
+          className='reasonsToTeamUpSubTitle'
+        >
           {data.screen6Description}
         </StyledTypographyUrbanistH5>
 

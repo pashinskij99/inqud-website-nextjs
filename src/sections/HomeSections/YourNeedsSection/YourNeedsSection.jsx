@@ -155,7 +155,10 @@ export default function YourNeedsSection() {
 
         <DynamicCoinsList coinsList={coinsList} />
 
-        <StyledTypographyUrbanistH5 className='subTitle subTitle-desktop'>
+        <StyledTypographyUrbanistH5
+          component='p'
+          className='subTitle subTitle-desktop'
+        >
           {t('paragraph')}
         </StyledTypographyUrbanistH5>
 

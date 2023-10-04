@@ -96,7 +96,7 @@ export default function HeroSection() {
           <StyledTypographyUrbanistH1 className='title'>
             {data.title}
           </StyledTypographyUrbanistH1>
-          <StyledTypographyUrbanistH5 className='paragraph'>
+          <StyledTypographyUrbanistH5 component='p' className='paragraph'>
             <StructuredText data={data.description} />
           </StyledTypographyUrbanistH5>
 

@@ -154,7 +154,10 @@ export default function CryptoWidget2Section() {
                 >
                   <Check className='check' />
                   <Image src={url} alt={title} width={48} height={48} />
-                  <StyledTypographyUrbanistH5 className='crypto2GridItemTitle'>
+                  <StyledTypographyUrbanistH5
+                    component='h3'
+                    className='crypto2GridItemTitle'
+                  >
                     {title}
                   </StyledTypographyUrbanistH5>
                   <StyledTypographyUrbanistBody className='crypto2GridItemDescription'>
