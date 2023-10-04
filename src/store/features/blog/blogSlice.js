@@ -63,11 +63,7 @@ export const blogSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchBlogs.pending, (state) => {
       state.error = ''
-      if (state.isLoading) {
-        state.loading = true
-      } else {
-        state.loading = false
-      }
+      state.loading = state.isLoading
     })
     builder.addCase(fetchBlogs.fulfilled, (state, action) => {
       state.error = ''

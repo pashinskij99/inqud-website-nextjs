@@ -126,12 +126,14 @@ export default function HeroSection() {
             >
               {data.buttonScreen1ContactSales}
             </StyledButtonGhost>
-            <DynamicModalCalendaly
-              onModalClose={handleCloseCalendlyModal}
-              open={calendlyModal}
-              rootElement={document.getElementById('calendly-model-wrapper')}
-              url='https://calendly.com/inqud_team/30-minute-free-consultation'
-            />
+            {calendlyModal ? (
+              <DynamicModalCalendaly
+                onModalClose={handleCloseCalendlyModal}
+                open={calendlyModal}
+                rootElement={document.getElementById('calendly-model-wrapper')}
+                url='https://calendly.com/inqud_team/30-minute-free-consultation'
+              />
+            ) : null}
           </div>
 
           <PaymentList />
@@ -158,6 +160,7 @@ function MobileGrid() {
   return (
     <StyledMobileGridWrapper>
       <GifPlayer
+        fetchpriority='high'
         priority
         loading='eager'
         autoplay

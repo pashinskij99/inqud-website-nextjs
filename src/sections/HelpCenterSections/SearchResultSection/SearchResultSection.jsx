@@ -17,6 +17,7 @@ import {
 import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
 import { useFilter } from '@/app/[locale]/help-centre/useFilter'
 import { getHighlightedText } from '@/utils/getHighlightedText'
+
 // import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 
 export function SearchResultSection() {
@@ -64,9 +65,6 @@ export function SearchResultSection() {
 
 function Cart({ id, title, is, description, descriptions }) {
   const { searchValue } = useSelector((state) => state.helpCentre)
-  // const dispatch = useDispatch()
-  // const handleClick = () => dispatch(setIsSearch(false))
-
   return (
     <StyledSearchCartWrapper>
       <div className='cart-text-wrapper'>

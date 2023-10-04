@@ -46,12 +46,7 @@ export const fetchBlog = createAsyncThunk(
 const searchSlice = createSlice({
   name: 'searchSlice',
   initialState,
-  reducers: {
-    setSearchHelpCenterValue: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
-      state.searchHelpCenterValue = action.payload
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchBlog.fulfilled, (state, action) => {
       // eslint-disable-next-line no-param-reassign
@@ -64,7 +59,5 @@ const searchSlice = createSlice({
     })
   },
 })
-
-export const { setSearchHelpCenterValue } = searchSlice.actions
 
 export default searchSlice.reducer
