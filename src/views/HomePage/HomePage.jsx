@@ -1,20 +1,95 @@
 'use client'
 
 import { useContext, useEffect } from 'react'
+import dynamic from 'next/dynamic'
 import HeroSection from '@/sections/HomeSections/HeroSection'
 import { StyledHomeWrapper } from './HomePage.styled'
 import YourNeedsSection from '@/sections/HomeSections/YourNeedsSection'
-import CryptoWidgetSection from '@/sections/HomeSections/CryptoWidgetSection'
-import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
-import PickSection from '@/sections/HomeSections/PickSection'
-import CryptoWidget2Section from '@/sections/HomeSections/CryptoWidget2Section'
-import ReasonsToTeamUp from '@/sections/HomeSections/ReasonsToTeamUp'
-import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
-import BlogsSection from '@/sections/HomeSections/BlogsSection'
-import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
-import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
 import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
 import PageProvider from '@/contexts/PageContext/PageContext'
+
+const DynamicFeesBusiness = dynamic(
+  () =>
+    import('@/sections/HomeSections/FeesBusiness').then((res) => res.default),
+  {
+    ssr: false,
+  }
+)
+
+const DynamicOurLandscapeSection = dynamic(
+  () =>
+    import('@/sections/HomeSections/OurLandscapeSection').then(
+      (res) => res.default
+    ),
+  {
+    ssr: false,
+  }
+)
+
+const DynamicBlogSection = dynamic(
+  () =>
+    import('@/sections/HomeSections/BlogsSection').then((res) => res.default),
+  {
+    ssr: false,
+  }
+)
+
+const DynamicPickSection = dynamic(
+  () =>
+    import('@/sections/HomeSections/PickSection').then((res) => res.default),
+  {
+    ssr: false,
+  }
+)
+
+const DynamicQuestionsSection = dynamic(
+  () =>
+    import('@/sections/HomeSections/QuestionsSection').then(
+      (res) => res.default
+    ),
+  {
+    ssr: false,
+  }
+)
+const DynamicCryptoWidgetSection = dynamic(
+  () =>
+    import('@/sections/HomeSections/CryptoWidgetSection').then(
+      (res) => res.default
+    ),
+  {
+    ssr: false,
+  }
+)
+
+const DynamicSmoothAPISection = dynamic(
+  () =>
+    import('@/sections/HomeSections/SmoothAPISection').then(
+      (res) => res.default
+    ),
+  {
+    ssr: false,
+  }
+)
+
+const DynamicCryptoWidget2Section = dynamic(
+  () =>
+    import('@/sections/HomeSections/CryptoWidget2Section').then(
+      (res) => res.default
+    ),
+  {
+    ssr: false,
+  }
+)
+
+const DynamicReasonsToTeamUp = dynamic(
+  () =>
+    import('@/sections/HomeSections/ReasonsToTeamUp').then(
+      (res) => res.default
+    ),
+  {
+    ssr: false,
+  }
+)
 
 export default function HomePage({ data, params }) {
   const { setIsNotFound } = useContext(NotFoundContext)
@@ -33,16 +108,16 @@ export default function HomePage({ data, params }) {
         <HeroSection />
         <YourNeedsSection />
         {/* Content loading in client */}
-        <CryptoWidgetSection />
-        <SmoothAPISection />
-        <PickSection className='pickSection' variant='dontLose' />
-        <CryptoWidget2Section />
-        <ReasonsToTeamUp />
-        <FeesBusiness modelId='2540165' autoId={10} />
-        <OurLandscapeSection />
-        <PickSection className='pickSection2' />
-        <BlogsSection />
-        <QuestionsSection />
+        <DynamicCryptoWidgetSection /> {/* good */}
+        <DynamicSmoothAPISection /> {/* good */}
+        <DynamicPickSection className='pickSection' variant='dontLose' />
+        <DynamicCryptoWidget2Section />
+        <DynamicReasonsToTeamUp />
+        <DynamicFeesBusiness modelId='2540165' autoId={10} />
+        <DynamicOurLandscapeSection />
+        <DynamicPickSection className='pickSection2' />
+        <DynamicBlogSection />
+        <DynamicQuestionsSection />
       </StyledHomeWrapper>
     </PageProvider>
   )

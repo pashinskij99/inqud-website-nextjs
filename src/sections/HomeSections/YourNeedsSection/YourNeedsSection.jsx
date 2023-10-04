@@ -1,21 +1,12 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Scrollbar } from 'swiper/modules'
-import { Fragment, useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { toast } from 'react-toastify'
 import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
 import {
-  StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-import {
-  StyledCoinsListWrapper,
-  YourNeedsSectionWrapper,
-} from './YourNeedsSection.styled'
+import { YourNeedsSectionWrapper } from './YourNeedsSection.styled'
 import Image1 from '@/assets/images/your-needs/image1.png'
 import Image2 from '@/assets/images/your-needs/image2.png'
 import Image3 from '@/assets/images/your-needs/image3.png'
@@ -24,34 +15,62 @@ import Coins2 from '@/assets/images/your-needs/Coins2.svg'
 import Coins3 from '@/assets/images/your-needs/Coins3.svg'
 import Coins4 from '@/assets/images/your-needs/Coins4.svg'
 import Coins5 from '@/assets/images/your-needs/Coins5.svg'
-import { CartRequirement } from '@/components/CartRequirement'
 import { keysForLocale } from '@/config/keysForLocale'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { userSchema2 } from '@/utils/userSchema'
 import { responseBreakPoint } from '@/utils/response'
-import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
-import { createBlog } from '@/lib/datocms'
 
-const DynamicModalSendRequest = dynamic(
-  () => import('@/components/Modal').then((mod) => mod.ModalSendRequest),
+const DynamicCartRequirement = dynamic(
+  () =>
+    import('@/components/CartRequirement').then((mod) => mod.CartRequirement),
   {
     ssr: false,
   }
 )
 
+const DynamicYourNeedsSectionSwiper = dynamic(
+  () =>
+    import('./components/YourNeedsSectionSwiper').then((mod) => mod.default),
+  {
+    ssr: false,
+  }
+)
+
+const DynamicCoinsList = dynamic(
+  () => import('./components/CoinsList').then((mod) => mod.default),
+  {
+    ssr: false,
+  }
+)
+
+const DynamicYourNeedsSectionModalForm = dynamic(
+  () =>
+    import('./components/YourNeedsSectionModalForm').then((mod) => mod.default),
+  {
+    ssr: false,
+  }
+)
+
+const coinsList = [
+  { id: 3, icon: <Coins4 /> },
+  { id: 4, icon: <Coins5 /> },
+  { id: 0, icon: <Coins1 /> },
+  { id: 1, icon: <Coins2 /> },
+  { id: 2, icon: <Coins3 /> },
+]
+
 export default function YourNeedsSection() {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    reset,
-  } = useForm({
-    defaultValues: {
-      email: '',
-      message: '',
-    },
-    resolver: yupResolver(userSchema2),
-  })
+  // const {
+  //   register,
+  //   formState: { errors },
+  //   handleSubmit,
+  //   reset,
+  // } = useForm({
+  //   defaultValues: {
+  //     email: '',
+  //     message: '',
+  //   },
+  //   resolver: yupResolver(userSchema2),
+  // })
 
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
   const t = useTranslations('home_page_your_needs_section')
@@ -72,34 +91,34 @@ export default function YourNeedsSection() {
     dataPage: { homePage: data },
   } = useContext(PageContext)
 
-  const onSubmit = async (data) => {
-    const newData = {
-      email: data.email,
-      fieldValues: [
-        {
-          field: '1',
-          value: data.message,
-        },
-      ],
-    }
+  // const onSubmit = async (data) => {
+  //   const newData = {
+  //     email: data.email,
+  //     fieldValues: [
+  //       {
+  //         field: '1',
+  //         value: data.message,
+  //       },
+  //     ],
+  //   }
 
-    // await toast.promise(
-    await submitForFormActiveCampaign(newData, '/api/create-contact', 2)
-    // ,
-    // {
-    //   pending: 'Sending data',
-    //   success: 'Data sent',
-    // }
-    // )
+  //   // await toast.promise(
+  //   await submitForFormActiveCampaign(newData, '/api/create-contact', 2)
+  //   // ,
+  //   // {
+  //   //   pending: 'Sending data',
+  //   //   success: 'Data sent',
+  //   // }
+  //   // )
 
-    await toast.promise(createBlog({ data, modelId: '2537177' }), {
-      pending: 'Sending data',
-      success: 'Data sent',
-    })
+  //   await toast.promise(createBlog({ data, modelId: '2537177' }), {
+  //     pending: 'Sending data',
+  //     success: 'Data sent',
+  //   })
 
-    handleClose()
-    reset()
-  }
+  //   handleClose()
+  //   reset()
+  // }
 
   const list = [
     {
@@ -130,19 +149,11 @@ export default function YourNeedsSection() {
   return (
     <YourNeedsSectionWrapper>
       <div className='container'>
-        {size.width && size.width > responseBreakPoint.mobile ? (
-          <StyledTypographyUrbanistH2 className='title title-desktop'>
-            {t('title')}
-          </StyledTypographyUrbanistH2>
-        ) : null}
+        <StyledTypographyUrbanistH2 className='title title-desktop'>
+          {t('title')}
+        </StyledTypographyUrbanistH2>
 
-        {size.width && size.width <= responseBreakPoint.mobile ? (
-          <StyledTypographyUrbanistH1 className='title title-mobile'>
-            {t('title')}
-          </StyledTypographyUrbanistH1>
-        ) : null}
-
-        <CoinsList />
+        <DynamicCoinsList coinsList={coinsList} />
 
         <StyledTypographyUrbanistH5 className='subTitle subTitle-desktop'>
           {t('paragraph')}
@@ -152,7 +163,7 @@ export default function YourNeedsSection() {
           <div className='listRequirements'>
             {list.map(
               ({ id, buttonText, description, image, title, handleClick }) => (
-                <CartRequirement
+                <DynamicCartRequirement
                   key={id}
                   buttonText={buttonText}
                   description={description}
@@ -165,86 +176,16 @@ export default function YourNeedsSection() {
             )}
           </div>
         ) : null}
-
         {size.width && size.width <= responseBreakPoint.tablet ? (
-          <Swiper
-            className='listRequirementsSwiper'
-            slidesPerView='auto'
-            centeredSlides
-            initialSlide={1}
-            updateOnWindowResize
-            scrollbar={{
-              dragSize: 200 / 3,
-              horizontalClass: 'listRequirementsSwiperScollbar',
-              hide: true,
-            }}
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-                spaceBetween: 8,
-                centeredSlides: true,
-                loop: true,
-                initialSlide: '1',
-              },
-              450: {
-                slidesPerView: 'auto',
-                spaceBetween: 8,
-                initialSlide: '0',
-                loop: false,
-                centeredSlides: false,
-              },
-              767: {
-                slidesPerView: 'auto',
-                loop: false,
-                centeredSlides: false,
-                initialSlide: '0',
-                spaceBetween: 24,
-              },
-            }}
-            modules={[Scrollbar]}
-          >
-            {list.map(({ id, description, image, title, handleClick }) => (
-              <SwiperSlide className='listRequirementsSwiperItems' key={id}>
-                <CartRequirement
-                  buttonText={id === 1 && data.buttonScreen2}
-                  description={description}
-                  href='#'
-                  handleClick={handleClick}
-                  imageSrc={image}
-                  title={title}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <DynamicYourNeedsSectionSwiper data={data} list={list} />
         ) : null}
       </div>
-
-      <DynamicModalSendRequest
-        handleSubmit={handleSubmit}
-        onSubmit={onSubmit}
-        register={register}
-        handleClose={handleClose}
-        errors={errors}
-        open={openModalSendRequest}
-      />
+      {openModalSendRequest ? (
+        <DynamicYourNeedsSectionModalForm
+          openModalSendRequest={openModalSendRequest}
+          handleClose={handleClose}
+        />
+      ) : null}
     </YourNeedsSectionWrapper>
-  )
-}
-
-const coinsList = [
-  { id: 3, icon: <Coins4 /> },
-  { id: 4, icon: <Coins5 /> },
-  { id: 0, icon: <Coins1 /> },
-  { id: 1, icon: <Coins2 /> },
-  { id: 2, icon: <Coins3 /> },
-]
-
-function CoinsList() {
-  return (
-    <StyledCoinsListWrapper>
-      {coinsList.map(({ id, icon }) => (
-        <Fragment key={id}>{icon}</Fragment>
-      ))}
-    </StyledCoinsListWrapper>
   )
 }

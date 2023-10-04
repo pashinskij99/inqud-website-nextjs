@@ -25,13 +25,6 @@ export const YourNeedsSectionWrapper = styled.section`
     margin-bottom: 16px;
     line-height: 62px;
 
-    &.title-desktop {
-    }
-
-    &.title-mobile {
-      display: none;
-    }
-
     ${responsive.xl`
       text-align: start;
     `};
@@ -40,14 +33,6 @@ export const YourNeedsSectionWrapper = styled.section`
       line-height: 46px;
       margin-bottom: ${rem(32)};
       letter-spacing: 0.2px;
-
-      &.title-desktop {
-        display: none;
-      }
-
-      &.title-mobile {
-        display: block;
-      }
     `};
   }
 
