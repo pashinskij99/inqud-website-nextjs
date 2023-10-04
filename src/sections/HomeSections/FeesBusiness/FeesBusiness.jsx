@@ -246,7 +246,7 @@ export default function FeesBusiness({ modelId, autoId }) {
 
           <div className='cart'>
             <div className='cart-left-side'>
-              <StyledTypographyUrbanistH4>
+              <StyledTypographyUrbanistH4 component='h3'>
                 {data.cartTitle}
               </StyledTypographyUrbanistH4>
             </div>

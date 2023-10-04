@@ -37,7 +37,7 @@ export function BlogCart({ imageSrc, date, time, subTitle, title }) {
       <StyledTypographyIBMH5 className='subTitle'>
         {subTitle}
       </StyledTypographyIBMH5>
-      <StyledTypographyUrbanistH4 className='title'>
+      <StyledTypographyUrbanistH4 component='h3' className='title'>
         {title}
       </StyledTypographyUrbanistH4>
 
@@ -78,7 +78,7 @@ export function BlogCart2({ imageSrc, date, time, subTitle, title }) {
       <StyledTypographyIBMH5 className='subTitle'>
         {subTitle}
       </StyledTypographyIBMH5>
-      <StyledTypographyUrbanistH4 className='title'>
+      <StyledTypographyUrbanistH4 component='h3' className='title'>
         {title}
       </StyledTypographyUrbanistH4>
 
