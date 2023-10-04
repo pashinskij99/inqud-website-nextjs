@@ -49,16 +49,9 @@ export default function CryptoWidgetSection() {
     <StyledCryptoWidgetSection>
       <div className='container'>
         <div className='leftSide'>
-          {size.width && size.width <= responseBreakPoint.mobile ? (
-            <StyledTypographyIBMH5 className='cryptoSubTitle cryptoSubTitle-mobile'>
-              {data.screen3SubTitle}
-            </StyledTypographyIBMH5>
-          ) : null}
-          {size.width && size.width > responseBreakPoint.mobile ? (
-            <StyledTypographyIBMH5 className='cryptoSubTitle cryptoSubTitle-desktop'>
-              {data.screen3SubTitle}
-            </StyledTypographyIBMH5>
-          ) : null}
+          <StyledTypographyIBMH5 className='cryptoSubTitle'>
+            {data.screen3SubTitle}
+          </StyledTypographyIBMH5>
 
           <StyledTypographyUrbanistH2 className='cryptoTitle'>
             {data.screen3Title}

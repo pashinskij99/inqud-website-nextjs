@@ -165,19 +165,6 @@ export const StyledPickSectionSection = styled.section`
     `}
   }
 
-  .pickListMobile {
-    display: none;
-    ${responsive.sm`
-      display: block;
-    `};
-  }
-
-  .pickListDontLose {
-    ${responsive.sm`
-      display: none;
-    `};
-  }
-
   .pickList {
     flex-shrink: 0;
     margin-left: ${rem(20)};
@@ -368,31 +355,6 @@ export const StyledPickSectionSection = styled.section`
       ${responsive.sm`
         height: 48px;
       `};
-
-      &.pickPickButtonApi-1 {
-        ${responsive.sm`
-          display: none;
-        `}
-      }
-      &.pickPickButtonApi-2 {
-        display: none;
-        ${responsive.sm`
-          display: block;
-        `}
-      }
-
-      &.desktop {
-        ${responsive.xl`
-          display: none
-        `}
-      }
-
-      &.mobile {
-        display: none;
-        ${responsive.xl`
-          display: block;
-        `}
-      }
     }
   }
 `

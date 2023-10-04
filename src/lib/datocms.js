@@ -78,17 +78,7 @@ export const createBlog = async ({ data, modelId }) => {
     })
   } catch (e) {
     if (e instanceof ApiError) {
-      // Information about the failed request
-      console.log(e.request.url)
-      console.log(e.request.method)
-      console.log(e.request.headers)
-      console.log(e.request.body)
-
-      // Information about the response
       console.log(e.response.status)
-      console.log(e.response.statusText)
-      console.log(e.response.headers)
-      console.log(e.response.body)
     } else {
       throw e
     }

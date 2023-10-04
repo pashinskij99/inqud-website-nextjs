@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { renderNodeRule, StructuredText } from 'react-datocms/structured-text'
 import { isParagraph } from 'datocms-structured-text-utils'
+import { useWindowSize } from '@uidotdev/usehooks'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -19,6 +20,7 @@ import { ButtonLearnMore } from '@/components/UI/Button'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { getPageData } from '@/lib/datocms'
 import { FAQ_QUERY } from '@/lib/datocmsQuery'
+import { responseBreakPoint } from '@/utils/response'
 
 export default function QuestionsSection() {
   const [expanded, setExpanded] = useState('')
@@ -27,8 +29,6 @@ export default function QuestionsSection() {
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false)
   }
-
-  // const { faq } = useContext(PageContext)
 
   const { params, nameCMSPage } = useContext(PageContext)
 
@@ -46,6 +46,8 @@ export default function QuestionsSection() {
 
     getData()
   }, [])
+
+  const size = useWindowSize()
 
   return (
     <StyledQuestionsSection className='faq'>
@@ -69,16 +71,21 @@ export default function QuestionsSection() {
         </div>
         <StyledTypographyUrbanistH5 className='questionsButton'>
           {faq.faqDescription}
-          <Link href='/help-centre'>
-            <ButtonLearnMore className='questionsButtonHelp desktop'>
-              {faq.faqButton}
-            </ButtonLearnMore>
-          </Link>
-          <Link href='/help-centre'>
-            <ButtonLearnMore className='questionsButtonHelp mobile'>
-              {faq.faqButtonMobile}
-            </ButtonLearnMore>
-          </Link>
+          {size.width && size.width > responseBreakPoint.mobile ? (
+            <Link href='/help-centre'>
+              <ButtonLearnMore className='questionsButtonHelp'>
+                {faq.faqButton}
+              </ButtonLearnMore>
+            </Link>
+          ) : null}
+
+          {size.width && size.width <= responseBreakPoint.mobile ? (
+            <Link href='/help-centre'>
+              <ButtonLearnMore className='questionsButtonHelp'>
+                {faq.faqButtonMobile}
+              </ButtonLearnMore>
+            </Link>
+          ) : null}
         </StyledTypographyUrbanistH5>
       </div>
     </StyledQuestionsSection>

@@ -92,20 +92,6 @@ export const StyledQuestionsSection = styled.section`
       gap: 12px;
       border-radius: 0;
 
-      &.desktop {
-        ${responsive.sm`
-          display: none;
-        `}
-      }
-
-      &.mobile {
-        display: none;
-
-        ${responsive.sm`
-          display: flex;
-        `}
-      }
-
       ${responsive.sm`
         position: static;
         padding: 0;

@@ -7,6 +7,8 @@ import { StructuredText } from 'react-datocms/structured-text'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
+import { useWindowSize } from '@uidotdev/usehooks'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -19,11 +21,17 @@ import {
   StyledButtonSecondaryLight,
 } from '@/components/UI/Button/Button.styled'
 import BackCart from '@/assets/images/fee/cart-back.svg'
-import { FeeModal } from '@/components/Modal/Modal'
+// import { FeeModal } from '@/components/Modal/Modal'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { emailRegExp, phoneRegExp, userSchema8 } from '@/utils/userSchema'
 import { createBlog, getPageData } from '@/lib/datocms'
 import { HOME_B2B_FEES } from '@/lib/datocmsQuery'
+import { responseBreakPoint } from '@/utils/response'
+
+const DynamicFeeModal = dynamic(
+  () => import('@/components/Modal/Modal').then((res) => res.FeeModal),
+  { ssr: false }
+)
 
 const checkValue = (key, value) => {
   switch (key) {
@@ -158,15 +166,13 @@ export default function FeesBusiness({ modelId, autoId }) {
     getData()
   }, [])
 
+  const size = useWindowSize()
+
   return (
     <StyledFeesBusinessWrapper className='fees'>
       <div className='container'>
         <div className='title-wrapper'>
-          <StyledTypographyUrbanistH2 className='title title-1'>
-            {/* {t('title')} */}
-            {data.title}
-          </StyledTypographyUrbanistH2>
-          <StyledTypographyUrbanistH2 className='title title-2'>
+          <StyledTypographyUrbanistH2 className='title'>
             {data.title}
           </StyledTypographyUrbanistH2>
 
@@ -211,30 +217,32 @@ export default function FeesBusiness({ modelId, autoId }) {
             </tbody>
           </table>
 
-          <div className='description-wrapper tablet'>
-            <StyledTypographyUrbanistSmallSpaces
-              className={clsx('description', {
-                ['learnMore']: !showMore,
-              })}
-            >
-              {data.footerDescription ? (
-                <LearnMoreText
-                  showMore={showMore}
-                  text={render(data.footerDescription)
-                    .replace(/(<([^>]+)>)/gi, '')
-                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')}
-                  endText={141}
-                />
-              ) : null}
-            </StyledTypographyUrbanistSmallSpaces>
+          {size.width && size.width <= responseBreakPoint.tablet ? (
+            <div className='description-wrapper tablet'>
+              <StyledTypographyUrbanistSmallSpaces
+                className={clsx('description', {
+                  ['learnMore']: !showMore,
+                })}
+              >
+                {data.footerDescription ? (
+                  <LearnMoreText
+                    showMore={showMore}
+                    text={render(data.footerDescription)
+                      .replace(/(<([^>]+)>)/gi, '')
+                      .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')}
+                    endText={141}
+                  />
+                ) : null}
+              </StyledTypographyUrbanistSmallSpaces>
 
-            <StyledButtonLearnMore
-              onClick={hadleShowMore}
-              className='learnMoreButton'
-            >
-              {showMore ? 'Hide text' : 'Show more'}
-            </StyledButtonLearnMore>
-          </div>
+              <StyledButtonLearnMore
+                onClick={hadleShowMore}
+                className='learnMoreButton'
+              >
+                {showMore ? 'Hide text' : 'Show more'}
+              </StyledButtonLearnMore>
+            </div>
+          ) : null}
 
           <div className='cart'>
             <div className='cart-left-side'>
@@ -254,23 +262,27 @@ export default function FeesBusiness({ modelId, autoId }) {
           </div>
         </div>
 
-        <div className='description-wrapper'>
-          <StructuredText data={data.footerDescription} />
-        </div>
+        {size.width && size.width > responseBreakPoint.tablet ? (
+          <div className='description-wrapper'>
+            <StructuredText data={data.footerDescription} />
+          </div>
+        ) : null}
       </div>
 
-      <FeeModal
-        lastError={lastError}
-        clearLastError={clearLastError}
-        setValue={setValue}
-        control={control}
-        open={showModal}
-        handleClose={handleHideModal}
-        errors={errors}
-        register={register}
-        onSubmit={onSubmit}
-        handleSubmit={handleSubmit}
-      />
+      {showModal ? (
+        <DynamicFeeModal
+          lastError={lastError}
+          clearLastError={clearLastError}
+          setValue={setValue}
+          control={control}
+          open={showModal}
+          handleClose={handleHideModal}
+          errors={errors}
+          register={register}
+          onSubmit={onSubmit}
+          handleSubmit={handleSubmit}
+        />
+      ) : null}
     </StyledFeesBusinessWrapper>
   )
 }

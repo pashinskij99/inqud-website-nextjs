@@ -285,7 +285,6 @@ export const StyledIndustriesWrapper = styled.div`
 
   .ourLandscapeSwiper {
     overflow: visible;
-    display: none;
     height: auto;
 
     .swiper-slide {
@@ -326,10 +325,6 @@ export const StyledIndustriesWrapper = styled.div`
         bottom: -40px;
       `};
     }
-
-    ${responsive.sm`
-      display: block;
-    `};
   }
 
   .accordion-prob {

@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { StructuredText } from 'react-datocms/structured-text'
 import dynamic from 'next/dynamic'
+import { useWindowSize } from '@uidotdev/usehooks'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -23,6 +24,7 @@ import {
   HOME_B2B_PICK_SECTION_DONT_LOSE,
   HOME_B2B_PICK_SECTION_DONT_LOSE_LEAD_FORM_DATA,
 } from '@/lib/datocmsQuery'
+import { responseBreakPoint } from '@/utils/response'
 
 const DynamicModalCalendaly = dynamic(
   () => import('react-calendly').then((mod) => mod.PopupModal),
@@ -70,6 +72,8 @@ export default function PickSection({ variant, className }) {
     getData()
   }, [])
 
+  const size = useWindowSize()
+
   return (
     <StyledPickSectionSection className={clsx(className, 'container')}>
       <div className='container'>
@@ -84,22 +88,23 @@ export default function PickSection({ variant, className }) {
         <div className='pickListWrapper'>
           {variant === 'dontLose' ? (
             <>
-              <div className='pickListMobile'>
+              {size.width && size.width <= responseBreakPoint.mobile ? (
                 <PickListDontLose
                   data={{
                     list: data.leadForm1List,
                     title: data.leadForm1ListTitle,
                   }}
                 />
-              </div>
-              <div className='pickListDontLose'>
+              ) : null}
+
+              {size.width && size.width > responseBreakPoint.mobile ? (
                 <PickListDontLose
                   data={{
                     list: data.leadForm1List,
                     title: data.leadForm1ListTitle,
                   }}
                 />
-              </div>
+              ) : null}
             </>
           ) : (
             <PickList10Minutes
@@ -123,12 +128,14 @@ export default function PickSection({ variant, className }) {
           >
             {leadFormData?.buttonText}
           </StyledButtonSecondaryLight>
-          <DynamicModalCalendaly
-            onModalClose={handleCloseCalendlyModal}
-            open={calendlyModal}
-            rootElement={document.getElementById('calendly-model-wrapper')}
-            url='https://calendly.com/inqud_team/30-minute-free-consultation'
-          />
+          {calendlyModal ? (
+            <DynamicModalCalendaly
+              onModalClose={handleCloseCalendlyModal}
+              open={calendlyModal}
+              rootElement={document.getElementById('calendly-model-wrapper')}
+              url='https://calendly.com/inqud_team/30-minute-free-consultation'
+            />
+          ) : null}
         </div>
       </div>
     </StyledPickSectionSection>
@@ -193,7 +200,6 @@ export function PickApiSection({ className }) {
       <div className='container'>
         <StyledTypographyUrbanistH3 className='pickTitle pickTitleApi'>
           <StructuredText data={data.lead1TitleStructured} />
-          {/* {data.lead1Title} */}
         </StyledTypographyUrbanistH3>
 
         <div className='pickListWrapper'>
@@ -209,23 +215,18 @@ export function PickApiSection({ className }) {
 
           <StyledButtonSecondaryLight
             onClick={handleOpenCalendlyModal}
-            className='pickPickButton pickPickButtonApi-1'
+            className='pickPickButton'
           >
             {leadFormData.buttonText}
           </StyledButtonSecondaryLight>
-
-          <StyledButtonSecondaryLight
-            onClick={handleOpenCalendlyModal}
-            className='pickPickButton pickPickButtonApi-2'
-          >
-            {leadFormData.buttonText}
-          </StyledButtonSecondaryLight>
-          <DynamicModalCalendaly
-            onModalClose={handleCloseCalendlyModal}
-            open={calendlyModal}
-            rootElement={document.getElementById('calendly-model-wrapper')}
-            url='https://calendly.com/inqud_team/30-minute-free-consultation'
-          />
+          {calendlyModal ? (
+            <DynamicModalCalendaly
+              onModalClose={handleCloseCalendlyModal}
+              open={calendlyModal}
+              rootElement={document.getElementById('calendly-model-wrapper')}
+              url='https://calendly.com/inqud_team/30-minute-free-consultation'
+            />
+          ) : null}
         </div>
       </div>
     </StyledPickSectionSection>

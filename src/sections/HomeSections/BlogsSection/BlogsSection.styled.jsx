@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
-import {rem} from '@/utils/rem'
-import {responsive} from '@/utils/response'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledBlogsSection = styled.section`
   padding-top: 200px;
@@ -57,9 +57,6 @@ export const StyledBlogsSection = styled.section`
     ${responsive.xxl`
       gap: ${rem(24)};
     `};
-    ${responsive.xl`
-      display: none;
-    `};
 
     .cart {
       max-width: 100%;
@@ -75,7 +72,6 @@ export const StyledBlogsSection = styled.section`
     }
 
     .image {
-
     }
   }
 
@@ -181,10 +177,8 @@ export const StyledBlogsSection = styled.section`
           letter-spacing: 0em;
           margin-bottom: 12px;
         `}
-
       }
     }
-
 
     ${responsive.xs`
       .cart {

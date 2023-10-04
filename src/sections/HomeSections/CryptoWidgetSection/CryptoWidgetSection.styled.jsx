@@ -67,27 +67,12 @@ export const StyledCryptoWidgetSection = styled.section`
       padding: ${rem(7)} ${rem(16)};
       width: fit-content;
 
-      &.cryptoSubTitle-desktop {
-      }
-
-      &.cryptoSubTitle-mobile {
-        display: none;
-      }
-
       ${responsive.xl`
         margin: 0 auto 14px;
         padding: ${rem(5)} ${rem(16)};
       `};
       ${responsive.sm`
         margin: 0 auto ${rem(16)};
-        &.cryptoSubTitle-desktop {
-          display: none;
-        }
-
-        &.cryptoSubTitle-mobile {
-          display: block;
-          width: fit-content;
-        }
       `};
     }
 

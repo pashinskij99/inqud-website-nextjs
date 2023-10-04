@@ -190,14 +190,16 @@ export default function CryptoWidget2Section() {
               {data.buttonLead2C}
             </StyledButtonSecondaryLight>
 
-            <DynamicModalSubmitEmail
-              errors={errors}
-              onSubmit={onSubmit}
-              register={register}
-              handleSubmit={handleSubmit}
-              open={open}
-              handleClose={handleClose}
-            />
+            {open ? (
+              <DynamicModalSubmitEmail
+                errors={errors}
+                onSubmit={onSubmit}
+                register={register}
+                handleSubmit={handleSubmit}
+                open={open}
+                handleClose={handleClose}
+              />
+            ) : null}
           </div>
         </div>
         <div className='rightSide'>

@@ -32,18 +32,6 @@ export const StyledFeesBusinessWrapper = styled.section`
       padding: 0 ${rem(20)};
       letter-spacing: 0.7px;
     `}
-
-    &.title-1 {
-      ${responsive.sm`
-        display: none;
-      `}
-    }
-    &.title-2 {
-      display: none;
-      ${responsive.sm`
-        display: block;
-      `}
-    }
   }
 
   .description {
@@ -315,22 +303,6 @@ export const StyledFeesBusinessWrapper = styled.section`
     display: flex;
     flex-direction: column;
     max-width: var(--left-side-max-width);
-
-    ${responsive.xl`
-      display: none;
-    `}
-    &.tablet {
-      display: none;
-      ${responsive.xl`
-        display: block;
-        br {
-          display: none
-        }
-      `}
-      ${responsive.sm`
-        margin-bottom: ${rem(40)};
-      `}
-    }
 
     p {
       display: inline-block;

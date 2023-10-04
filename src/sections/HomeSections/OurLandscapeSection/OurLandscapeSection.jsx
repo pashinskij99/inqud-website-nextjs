@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
 import Image from 'next/image'
+import { useWindowSize } from '@uidotdev/usehooks'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -22,6 +23,7 @@ import { TabsComponent } from '@/components/TabsComponent/TabsComponent'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_LANDSCAPE } from '@/lib/datocmsQuery'
+import { responseBreakPoint } from '@/utils/response'
 
 export default function OurLandscapeSection() {
   const [active, setActive] = useState(0)
@@ -158,44 +160,17 @@ function IndustriesTab({ data }) {
     },
   ]
 
+  const size = useWindowSize()
+
   return (
     <StyledIndustriesWrapper>
       <StyledTypographyUrbanistH5 className='ourLandscapeDescription'>
         {data.description1}
       </StyledTypographyUrbanistH5>
 
-      <div className='ourLandscapeRisk'>
-        {data.industriesList?.map(({ id, list, listTitle: title }, i) => (
-          <Accordion
-            key={id}
-            idColumn={i}
-            icon={accordionData[i].icon}
-            items={list}
-            title={title}
-            columnColor={accordionData[i].columnColor}
-          />
-        ))}
-      </div>
-
-      {/* mobile */}
-
-      <Swiper
-        className='ourLandscapeSwiper'
-        slidesPerView={1}
-        centeredSlides
-        spaceBetween={8}
-        initialSlide='1'
-        loop
-        height={500}
-        scrollbar={{
-          dragSize: 200 / 3,
-          horizontalClass: 'listRequirementsSwiperScollbar',
-          hide: true,
-        }}
-        modules={[Scrollbar]}
-      >
-        {data.industriesList?.map(({ id, list, listTitle: title }, i) => (
-          <SwiperSlide className='listRequirementsSwiperItems' key={id}>
+      {size.width && size.width > responseBreakPoint.mobile ? (
+        <div className='ourLandscapeRisk'>
+          {data.industriesList?.map(({ id, list, listTitle: title }, i) => (
             <Accordion
               key={id}
               idColumn={i}
@@ -204,9 +179,42 @@ function IndustriesTab({ data }) {
               title={title}
               columnColor={accordionData[i].columnColor}
             />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          ))}
+        </div>
+      ) : null}
+
+      {/* mobile */}
+
+      {size.width && size.width <= responseBreakPoint.mobile ? (
+        <Swiper
+          className='ourLandscapeSwiper'
+          slidesPerView={1}
+          centeredSlides
+          spaceBetween={8}
+          initialSlide='1'
+          loop
+          height={500}
+          scrollbar={{
+            dragSize: 200 / 3,
+            horizontalClass: 'listRequirementsSwiperScollbar',
+            hide: true,
+          }}
+          modules={[Scrollbar]}
+        >
+          {data.industriesList?.map(({ id, list, listTitle: title }, i) => (
+            <SwiperSlide className='listRequirementsSwiperItems' key={id}>
+              <Accordion
+                key={id}
+                idColumn={i}
+                icon={accordionData[i].icon}
+                items={list}
+                title={title}
+                columnColor={accordionData[i].columnColor}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      ) : null}
     </StyledIndustriesWrapper>
   )
 }
