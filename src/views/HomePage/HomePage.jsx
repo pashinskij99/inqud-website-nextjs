@@ -4,10 +4,10 @@ import { useContext, useEffect } from 'react'
 import HeroSection from '@/sections/HomeSections/HeroSection'
 import { StyledHomeWrapper } from './HomePage.styled'
 import YourNeedsSection from '@/sections/HomeSections/YourNeedsSection'
-// import CryptoWidgetSection from '@/sections/HomeSections/CryptoWidgetSection'
-// import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
+import CryptoWidgetSection from '@/sections/HomeSections/CryptoWidgetSection'
+import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
 import PickSection from '@/sections/HomeSections/PickSection'
-// import CryptoWidget2Section from '@/sections/HomeSections/CryptoWidget2Section'
+import CryptoWidget2Section from '@/sections/HomeSections/CryptoWidget2Section'
 import ReasonsToTeamUp from '@/sections/HomeSections/ReasonsToTeamUp'
 import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import BlogsSection from '@/sections/HomeSections/BlogsSection'
@@ -33,10 +33,10 @@ export default function HomePage({ data, params }) {
         <HeroSection />
         <YourNeedsSection />
         {/* Content loading in client */}
-        {/* <CryptoWidgetSection /> */}
-        {/* <SmoothAPISection /> */}
+        <CryptoWidgetSection />
+        <SmoothAPISection />
         <PickSection className='pickSection' variant='dontLose' />
-        {/* <CryptoWidget2Section /> */}
+        <CryptoWidget2Section />
         <ReasonsToTeamUp />
         <FeesBusiness modelId='2540165' autoId={10} />
         <OurLandscapeSection />
