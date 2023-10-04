@@ -379,6 +379,7 @@ function Animated2GifOnView({
             className={clsx('image image-2', className)}
             autoplay={false}
             gif={urlSecondVideo}
+            still={stillSecondVideo || urlSecondVideo}
             width={width}
             height={height}
             pauseRef={(pause) => {

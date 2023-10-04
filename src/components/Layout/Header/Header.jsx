@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
+import { CSSTransition } from 'react-transition-group'
 import Logo from '../../../assets/icons/logo.svg'
 import LogoMobile from '../../../assets/icons/logo-header-mobile-without-text.svg'
 import { StyledHeaderWrapper } from './Header.styled'
@@ -179,7 +180,17 @@ export default function Header() {
         </div>
 
         {size.width && size.width < responseBreakPoint.desktop ? (
-          <DynamicHeader active={active} handleClose={handleClose} />
+          <CSSTransition
+            in={active}
+            timeout={{
+              enter: 0,
+              exit: 200,
+            }}
+            mountOnEnter
+            unmountOnExit
+          >
+            <DynamicHeader active={active} handleClose={handleClose} />
+          </CSSTransition>
         ) : null}
       </div>
     </StyledHeaderWrapper>
