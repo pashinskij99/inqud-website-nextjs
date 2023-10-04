@@ -5,7 +5,7 @@ import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
 import { useWindowSize } from '@uidotdev/usehooks'
 // import { useCalendlyEventListener } from 'react-calendly'
-// import GifPlayer from 'react-gif-player'
+import GifPlayer from 'react-gif-player'
 import dynamic from 'next/dynamic'
 // import axios from 'axios'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
@@ -159,17 +159,17 @@ export default function HeroSection() {
 function MobileGrid() {
   return (
     <StyledMobileGridWrapper>
-      {/* <GifPlayer */}
-      {/*   fetchpriority='high' */}
-      {/*   priority */}
-      {/*   loading='eager' */}
-      {/*   autoplay */}
-      {/*   still='/video/b2b_hero_mobile.webp' */}
-      {/*   gif='/video/b2b_hero_mobile.gif' */}
-      {/*   alt='animation' */}
-      {/*   width={343} */}
-      {/*   height={152} */}
-      {/* /> */}
+      <GifPlayer
+        fetchpriority='high'
+        priority
+        loading='eager'
+        autoplay
+        still='/video/b2b_hero_mobile.webp'
+        gif='/video/b2b_hero_mobile.gif'
+        alt='animation'
+        width={343}
+        height={152}
+      />
     </StyledMobileGridWrapper>
   )
 }
