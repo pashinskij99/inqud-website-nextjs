@@ -23,12 +23,12 @@ import PageProvider from '@/contexts/PageContext/PageContext'
 //     ssr: false,
 //   }
 // )
-const DynamicCryptoWidgetFlexibility = dynamic(
+const DynamicCryptoWidgetFlexibility = dynamic(() =>
   import('@/sections/CryptoWidgetSections/CryptoWidgetFlexibility').then(
     (res) => res.default
   )
 )
-const DynamicCryptoBusinessSection = dynamic(
+const DynamicCryptoBusinessSection = dynamic(() =>
   import('@/sections/CryptoWidgetSections/CryptoBusinessSection').then(
     (res) => res.default
   )
@@ -39,33 +39,33 @@ const DynamicCryptoWidgetFeatures = dynamic(
     (res) => res.default
   )
 )
-const DynamicFeesBusiness = dynamic(
+const DynamicFeesBusiness = dynamic(() =>
   import('@/sections/HomeSections/FeesBusiness').then((res) => res.default)
 )
-const DynamicHowIntegrateCryptoSection = dynamic(
+const DynamicHowIntegrateCryptoSection = dynamic(() =>
   import('@/sections/CryptoWidgetSections/HowIntegrateCryptoSection').then(
     (res) => res.default
   )
 )
-const DynamicSafetyReliability = dynamic(
+const DynamicSafetyReliability = dynamic(() =>
   import('@/sections/CryptoWidgetSections/SafetyReliability').then(
     (res) => res.default
   )
 )
-const DynamicOurLandscapeSection = dynamic(
+const DynamicOurLandscapeSection = dynamic(() =>
   import('@/sections/HomeSections/OurLandscapeSection').then(
     (res) => res.default
   )
 )
-const DynamicConnectCryptoSection = dynamic(
+const DynamicConnectCryptoSection = dynamic(() =>
   import('@/sections/CryptoWidgetSections/ConnectCryptoSection').then(
     (res) => res.default
   )
 )
-const DynamicQuestionsSection = dynamic(
+const DynamicQuestionsSection = dynamic(() =>
   import('@/sections/HomeSections/QuestionsSection').then((res) => res.default)
 )
-const DynamicSendRequestSection = dynamic(
+const DynamicSendRequestSection = dynamic(() =>
   import('@/sections/CryptoWidgetSections/SendRequestSection').then(
     (res) => res.default
   )
