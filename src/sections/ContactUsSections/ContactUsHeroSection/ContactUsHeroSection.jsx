@@ -23,10 +23,6 @@ function ContactUsHeroSection() {
 
   const [calendlyModal, setCalendlyModal] = useState(false)
 
-  // useCalendlyEventListener({
-  //   onEventScheduled: (e) => console.log(e),
-  // })
-
   const handleOpenCalendlyModal = () => {
     setCalendlyModal(true)
   }
@@ -52,12 +48,14 @@ function ContactUsHeroSection() {
           </StyledTypographyUrbanistBody>
         </StyledButtonSecondary>
 
-        <DynamicModalCalendaly
-          onModalClose={handleCloseCalendlyModal}
-          open={calendlyModal}
-          rootElement={document.getElementById('calendly-model-wrapper')}
-          url='https://calendly.com/inqud_team/30-minute-free-consultation'
-        />
+        {calendlyModal ? (
+          <DynamicModalCalendaly
+            onModalClose={handleCloseCalendlyModal}
+            open={calendlyModal}
+            rootElement={document.getElementById('calendly-model-wrapper')}
+            url='https://calendly.com/inqud_team/30-minute-free-consultation'
+          />
+        ) : null}
       </div>
     </StyledContactUsHeroSectionWrapper>
   )

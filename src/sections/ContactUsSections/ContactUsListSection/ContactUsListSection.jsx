@@ -1,8 +1,19 @@
 import { useContext, useState } from 'react'
+import dynamic from 'next/dynamic'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import { StyledContactUsListSectionWrapper } from './ContactUsListSection.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { AccordionItem } from '@/sections/HomeSections/QuestionsSection/QuestionsSection'
+// import { AccordionItem } from '@/sections/HomeSections/QuestionsSection/QuestionsSection'
+
+const DynamicAccordionItem = dynamic(
+  () =>
+    import('@/sections/HomeSections/QuestionsSection/QuestionsSection').then(
+      (res) => res.AccordionItem
+    ),
+  {
+    ssr: false,
+  }
+)
 
 function ContactUsListSection() {
   const {
@@ -23,7 +34,7 @@ function ContactUsListSection() {
         </StyledTypographyUrbanistH2>
         <ul className='list'>
           {contactUsPage.listItems.map(({ description, id, title }) => (
-            <AccordionItem
+            <DynamicAccordionItem
               description={description}
               expanded={expanded}
               handleChange={handleChange}

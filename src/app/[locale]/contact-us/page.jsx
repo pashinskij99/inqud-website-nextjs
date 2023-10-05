@@ -2,22 +2,20 @@ import { performRequest } from '@/lib/datocms'
 import ContactUsPage from '@/views/ContactUsPage'
 
 const PAGE_QUERY = `
-    query MyQuery {
-        contactUsPage {
-        id
-        listTitle
-        mainButtonText
-        mainSubTitle
-        mainTitle
-        listItems {
-            title
-            description {
-            value
-            }
-            id
+  query MyQuery {
+    contactUsPage {
+      listTitle
+      mainButtonText
+      mainSubTitle
+      mainTitle
+      listItems {
+        title
+        description {
+          value
         }
-        }
+      }
     }
+  }
 `
 
 const getData = async (query, variables) => {

@@ -6,12 +6,20 @@ import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH1,
 } from '@/components/UI/Typography/Typography.styled'
-import HeaderTabs from '@/components/Layout/Header/HeaderTabs'
+// import HeaderTabs from '@/components/Layout/Header/HeaderTabs'
 import BackIcon from '@/assets/icons/arrow-back.svg'
 
 const DynamicHelpHeroSectionSearchForm = dynamic(
   () =>
     import('./components/HelpHeroSectionSearchForm').then((res) => res.default),
+  {
+    ssr: false,
+  }
+)
+
+const DynamicHeaderTabs = dynamic(
+  () =>
+    import('@/components/Layout/Header/HeaderTabs').then((res) => res.default),
   {
     ssr: false,
   }
@@ -41,7 +49,7 @@ function HelpHeroSection({ page, data }) {
             ['hide']: page !== 'main',
           })}
         >
-          <HeaderTabs />
+          <DynamicHeaderTabs />
         </div>
       </div>
     </StyledHelpHeroSectionWrapper>

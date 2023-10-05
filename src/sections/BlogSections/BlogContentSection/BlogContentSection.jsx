@@ -1,24 +1,21 @@
 import clsx from 'clsx'
 import Image from 'next/image'
-import { Fragment, useContext, useEffect } from 'react'
-import { Element, Link as LinkAnchor } from 'react-scroll'
-import { InView } from 'react-intersection-observer'
-import { StructuredText } from 'react-datocms/structured-text'
+import { useContext } from 'react'
+import { Link as LinkAnchor } from 'react-scroll'
 import {
   FacebookShareButton,
   LinkedinShareButton,
   TwitterShareButton,
 } from 'next-share'
 import { usePathname } from 'next/navigation'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistBody,
-  StyledTypographyUrbanistH4,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import {
   StyledBlogContentSectionWrapper,
   StyledCartInfoWrapper,
-  StyledCenterSide,
   StyledLeftSide,
   StyledRightSide,
 } from './BlogContentSection.styled'
@@ -34,7 +31,7 @@ export default function BlogContentSection() {
     <StyledBlogContentSectionWrapper>
       <div className='container'>
         <LeftSide />
-        <CenterSide />
+        <DynamicCenterSide />
         <RightSide />
       </div>
     </StyledBlogContentSectionWrapper>
@@ -99,102 +96,10 @@ function LeftSide() {
   )
 }
 
-function CenterSide() {
-  const { setActiveHeader } = useContext(ArticleContext)
-  const {
-    blogDetails: { bodyContent, titlesForNavigation },
-  } = useContext(BlogContext)
-
-  useEffect(() => {
-    if (titlesForNavigation?.length) {
-      setActiveHeader(titlesForNavigation[0])
-    }
-  }, [])
-
-  return (
-    <StyledCenterSide>
-      {bodyContent?.map(
-        ({ descriptions, descriptions2, id, selectedText, title, image }) =>
-          title ? (
-            <Element className='content-section' name={title.trim()}>
-              <InView
-                threshold={0}
-                as='div'
-                id={title}
-                rootMargin='-30% 0px -70% 0px'
-                onChange={(inView) =>
-                  inView ? setActiveHeader(title.trim()) : null
-                }
-              >
-                <Content
-                  key={id}
-                  title={title}
-                  descriptions={descriptions}
-                  image={image}
-                  selectedText={selectedText}
-                  descriptions1={descriptions2}
-                />
-              </InView>
-            </Element>
-          ) : (
-            <Content
-              key={id}
-              title={title}
-              descriptions={descriptions}
-              image={image}
-              selectedText={selectedText}
-              descriptions1={descriptions2}
-            />
-          )
-      )}
-    </StyledCenterSide>
-  )
-}
-
-function Content({ title, descriptions, descriptions1, image, selectedText }) {
-  return (
-    <div className='content-section'>
-      {title && (
-        <StyledTypographyUrbanistH4 className='title'>
-          {title}
-        </StyledTypographyUrbanistH4>
-      )}
-
-      <Description descriptions={descriptions} />
-
-      {image?.url && (
-        <Image
-          className='image'
-          src={image.url}
-          width={680}
-          height={448}
-          alt='image'
-        />
-      )}
-
-      {selectedText && (
-        <StyledTypographyUrbanistH5 className='separated'>
-          {selectedText}
-        </StyledTypographyUrbanistH5>
-      )}
-
-      <Description descriptions={descriptions1} />
-    </div>
-  )
-}
-
-function Description({ descriptions }) {
-  return (
-    descriptions?.length > 0 && (
-      // eslint-disable-next-line react/jsx-no-useless-fragment
-      <>
-        {descriptions?.map(({ id, description }) => (
-          <StructuredText key={id} data={description} />
-        ))}
-      </>
-    )
-  )
-}
+const DynamicCenterSide = dynamic(
+  () => import('./components/CenterSide').then((res) => res.CenterSide),
+  { ssr: false }
+)
 
 function RightSide() {
   const { setActiveHeader } = useContext(ArticleContext)
