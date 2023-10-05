@@ -34,7 +34,7 @@ function HelpHeroSection({ page, data }) {
           {data.helpCentreHero.title}
         </StyledTypographyUrbanistH1>
 
-        <DynamicHelpHeroSectionSearchForm />
+        <DynamicHelpHeroSectionSearchForm data={data} />
 
         <div
           className={clsx('tabs-wrapper', {

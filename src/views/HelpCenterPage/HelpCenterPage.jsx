@@ -61,13 +61,23 @@ export function HelpCenterPageContent({ params }) {
   )
 }
 
-const DynamicSearchResultSection = dynamic(() =>
-  import('@/sections/HelpCenterSections/SearchResultSection').then(
-    (res) => res.SearchResultSection
-  )
+const DynamicSearchResultSection = dynamic(
+  () =>
+    import('@/sections/HelpCenterSections/SearchResultSection').then(
+      (res) => res.SearchResultSection
+    ),
+  {
+    ssr: false,
+  }
 )
-const DynamicMainSection = dynamic(() =>
-  import('@/sections/HelpCenterSections/MainSection').then((res) => res.default)
+const DynamicMainSection = dynamic(
+  () =>
+    import('@/sections/HelpCenterSections/MainSection').then(
+      (res) => res.default
+    ),
+  {
+    ssr: false,
+  }
 )
 
 export default HelpCenterPage

@@ -217,7 +217,7 @@ export default function FeesBusiness({ modelId, autoId }) {
             </tbody>
           </table>
 
-          {size.width && size.width <= responseBreakPoint.tablet ? (
+          {size.width && size.width <= responseBreakPoint.mobile ? (
             <div className='description-wrapper'>
               <StyledTypographyUrbanistSmallSpaces
                 className={clsx('description', {
@@ -241,6 +241,13 @@ export default function FeesBusiness({ modelId, autoId }) {
               >
                 {showMore ? 'Hide text' : 'Show more'}
               </StyledButtonLearnMore>
+            </div>
+          ) : null}
+          {size.width &&
+          size.width <= responseBreakPoint.tablet &&
+          size.width > responseBreakPoint.mobile ? (
+            <div className='description-wrapper'>
+              <StructuredText data={data.footerDescription} />
             </div>
           ) : null}
 
