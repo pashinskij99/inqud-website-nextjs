@@ -160,7 +160,14 @@ export default function HeroSection() {
 function MobileGrid() {
   return (
     <StyledMobileGridWrapper>
-      <GifPlayer
+      <Image
+        fetchpriority='high'
+        loading='eager'
+        gif='/video/b2b_hero_mobile.gif'
+        width={343}
+        height={152}
+      />
+      {/* <GifPlayer
         fetchpriority='high'
         priority
         loading='eager'
@@ -170,7 +177,7 @@ function MobileGrid() {
         alt='animation'
         width={343}
         height={152}
-      />
+      /> */}
     </StyledMobileGridWrapper>
   )
 }
