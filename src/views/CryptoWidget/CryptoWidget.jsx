@@ -26,79 +26,49 @@ import PageProvider from '@/contexts/PageContext/PageContext'
 const DynamicCryptoWidgetFlexibility = dynamic(
   import('@/sections/CryptoWidgetSections/CryptoWidgetFlexibility').then(
     (res) => res.default
-  ),
-  {
-    ssr: false,
-  }
+  )
 )
 const DynamicCryptoBusinessSection = dynamic(
   import('@/sections/CryptoWidgetSections/CryptoBusinessSection').then(
     (res) => res.default
-  ),
-  {
-    ssr: false,
-  }
+  )
 )
 
 const DynamicCryptoWidgetFeatures = dynamic(
   import('@/sections/CryptoWidgetSections/CryptoWidgetFeatures').then(
     (res) => res.default
-  ),
-  {
-    ssr: false,
-  }
+  )
 )
 const DynamicFeesBusiness = dynamic(
-  import('@/sections/HomeSections/FeesBusiness').then((res) => res.default),
-  {
-    ssr: false,
-  }
+  import('@/sections/HomeSections/FeesBusiness').then((res) => res.default)
 )
 const DynamicHowIntegrateCryptoSection = dynamic(
   import('@/sections/CryptoWidgetSections/HowIntegrateCryptoSection').then(
     (res) => res.default
-  ),
-  {
-    ssr: false,
-  }
+  )
 )
 const DynamicSafetyReliability = dynamic(
   import('@/sections/CryptoWidgetSections/SafetyReliability').then(
     (res) => res.default
-  ),
-  {
-    ssr: false,
-  }
+  )
 )
 const DynamicOurLandscapeSection = dynamic(
   import('@/sections/HomeSections/OurLandscapeSection').then(
     (res) => res.default
-  ),
-  {
-    ssr: false,
-  }
+  )
 )
 const DynamicConnectCryptoSection = dynamic(
   import('@/sections/CryptoWidgetSections/ConnectCryptoSection').then(
     (res) => res.default
-  ),
-  {
-    ssr: false,
-  }
+  )
 )
 const DynamicQuestionsSection = dynamic(
-  import('@/sections/HomeSections/QuestionsSection').then((res) => res.default),
-  {
-    ssr: false,
-  }
+  import('@/sections/HomeSections/QuestionsSection').then((res) => res.default)
 )
 const DynamicSendRequestSection = dynamic(
   import('@/sections/CryptoWidgetSections/SendRequestSection').then(
     (res) => res.default
-  ),
-  {
-    ssr: false,
-  }
+  )
 )
 
 export default function CryptoWidget({ data }) {
