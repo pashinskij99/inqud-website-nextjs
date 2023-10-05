@@ -48,6 +48,7 @@ export default async function RootLayout({ children, params: { locale } }) {
         </noscript>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LayoutComponent>{children}</LayoutComponent>
+          <div id='myportal' />
           <div id='calendly-model-wrapper' />
         </NextIntlClientProvider>
       </body>

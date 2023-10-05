@@ -5,6 +5,8 @@ import Header from '@/components/Layout/Header'
 import GlobalStyle from '@/styles/globalStyles'
 import ReduxProvider from '@/store/ReduxProvider'
 import { NotFoundProvider } from '@/contexts/NotFoundContext/NotFoundContext'
+import CookieComponent from '@/components/CookieComponent/CookieComponent'
+import Portal from '@/HOC/Portal'
 
 export const DynamicBreadCrumbs = dynamic(
   () => import('@/components/BreadCrumbs').then((res) => res.default),
@@ -43,6 +45,9 @@ export default function LayoutComponent({ children }) {
           {children}
 
           <DynamicFooter />
+          <Portal>
+            <CookieComponent />
+          </Portal>
         </StyledComponentsRegistry>
       </NotFoundProvider>
     </ReduxProvider>

@@ -19,13 +19,13 @@ export function StyledTypographyUrbanistH1({
 const TypographyUrbanistH1 = styled(Typography)`
   color: var(--directness-black, #2d3439);
 
-  font-size: ${rem(64)};
+  font-size: 64px;
   ${nunito.style}
   font-weight: 400;
   line-height: ${rem(74)};
   letter-spacing: -${rem(1.28)};
   ${responsive.xs`
-    font-size: ${rem(40)};
+    font-size: 40px;
     line-height: ${rem(46)};
     font-weight: 700;
   `}
@@ -48,11 +48,11 @@ const TypographyUrbanistH2 = styled(Typography)`
 
   ${nunito.style}
 
-  font-size: ${rem(56)};
+  font-size: 56px;
   font-weight: 400;
   line-height: ${rem(66)};
   ${responsive.xs`
-    font-size: ${rem(40)};
+    font-size: 40px;
     font-weight: 700;
     line-height: ${rem(50)};
   `}
@@ -74,11 +74,11 @@ const TypographyUrbanistH3 = styled(Typography)`
   color: var(--directness-black, #2d3439);
   ${nunito.style}
 
-  font-size: ${rem(40)};
+  font-size: 40px;
   font-weight: 400;
   line-height: ${rem(46)};
   ${responsive.xs`
-    font-size: ${rem(32)};
+    font-size: 32px;
     line-height: ${rem(42)};
     font-weight: 700;
   `}
@@ -100,11 +100,11 @@ const TypographyUrbanistH4 = styled(Typography)`
   color: var(--directness-black, #2d3439);
   ${nunito.style}
 
-  font-size: ${rem(32)};
+  font-size: 32px;
   font-weight: 400;
   line-height: ${rem(42)};
   ${responsive.xs`
-    font-size: ${rem(24)};
+    font-size: 24px;
     line-height: ${rem(34)};
   `}
 `
@@ -125,11 +125,11 @@ const TypographyUrbanistH5 = styled(Typography)`
   color: var(--directness-black, #2d3439);
   ${nunito.style}
 
-  font-size: ${rem(24)};
+  font-size: 24px;
   font-weight: 400;
   line-height: ${rem(34)};
   ${responsive.xs`
-    font-size: ${rem(18)};
+    font-size: 18px;
     line-height: ${rem(22)};
   `}
 `
@@ -150,7 +150,7 @@ const TypographyUrbanistBody = styled(Typography)`
   color: var(--directness-black, #2d3439);
   ${nunito.style}
 
-  font-size: ${rem(18)};
+  font-size: 18px;
   font-weight: 400;
   line-height: ${rem(26)};
 `
@@ -172,7 +172,7 @@ const TypographyUrbanistSmallSpaces = styled(Typography)`
   color: var(--directness-black, rgba(45, 52, 57, 0));
   pointer-events: none;
 
-  font-size: ${rem(14)};
+  font-size: 14px;
   font-weight: 500;
   line-height: ${rem(18)};
 `
@@ -193,7 +193,7 @@ const TypographyUrbanistCTA = styled(Typography)`
   ${nunito.style}
   color: var(--ambitious-green, #077453);
 
-  font-size: ${rem(18)};
+  font-size: 18px;
   font-weight: 700;
   line-height: ${rem(26)};
 `
@@ -210,7 +210,7 @@ const TypographyIBMH4 = styled(Typography)`
   ${nunito.style}
   color: var(--ambitious-green, #077453);
 
-  font-size: ${rem(18)};
+  font-size: 18px;
   font-weight: 700;
   line-height: ${rem(26)};
 `
@@ -233,7 +233,7 @@ const TypographyIBMH5 = styled(Typography)`
   letter-spacing: ${rem(2.4)};
   text-transform: uppercase;
   ${responsive.xs`
-    font-size: ${rem(14)};
+    font-size: 14px;
     line-height: ${rem(11)};
   `}
 `
