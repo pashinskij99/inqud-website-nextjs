@@ -4,11 +4,12 @@ import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
+import dynamic from 'next/dynamic'
 import { StyledHelpCenterPageWrapper } from '@/views/HelpCenterPage/HelpCenterPage.styled'
-import MainSection from '@/sections/HelpCenterSections/MainSection'
+// import MainSection from '@/sections/HelpCenterSections/MainSection'
 import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection'
 import { HelpCentreProvider } from '@/contexts/HelpCentreContext/HelpCentreContext'
-import { SearchResultSection } from '@/sections/HelpCenterSections/SearchResultSection'
+// import { SearchResultSection } from '@/sections/HelpCenterSections/SearchResultSection'
 import { fetchHelpCentreData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 import { FullScreenLoader } from '@/components/Loader'
@@ -55,9 +56,18 @@ export function HelpCenterPageContent({ params }) {
       >
         <FullScreenLoader />
       </CSSTransition>
-      {isSearch ? <SearchResultSection /> : <MainSection />}
+      {isSearch ? <DynamicSearchResultSection /> : <DynamicMainSection />}
     </HelpCentreProvider>
   )
 }
+
+const DynamicSearchResultSection = dynamic(() =>
+  import('@/sections/HelpCenterSections/SearchResultSection').then(
+    (res) => res.SearchResultSection
+  )
+)
+const DynamicMainSection = dynamic(() =>
+  import('@/sections/HelpCenterSections/MainSection').then((res) => res.default)
+)
 
 export default HelpCenterPage

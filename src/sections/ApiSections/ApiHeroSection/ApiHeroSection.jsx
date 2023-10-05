@@ -1,9 +1,7 @@
 import Link from 'next/link'
 import { useContext, useState } from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
 import { useWindowSize } from '@uidotdev/usehooks'
+import dynamic from 'next/dynamic'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
 import { StyledApiHeroSectionWrapper } from './ApiHeroSection.styled'
 import {
@@ -15,13 +13,13 @@ import Check from '@/assets/icons/check-green-background.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { GetPersonalizedModal } from '@/components/Modal'
-import { userSchema2 } from '@/utils/userSchema'
 import { AnimatedOneVideo } from '@/components/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
 import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
-import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
-import { createBlog } from '@/lib/datocms'
+
+const DynamicApiHeroSectionModalForm = dynamic(() =>
+  import('./components/ApiHeroSectionModalForm').then((res) => res.default)
+)
 
 export default function ApiHeroSection() {
   const [showModal, setShowModal] = useState(false)
@@ -31,45 +29,6 @@ export default function ApiHeroSection() {
 
   const handleHideModal = () => {
     setShowModal(false)
-  }
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    reset,
-  } = useForm({
-    resolver: yupResolver(userSchema2),
-  })
-
-  const onSubmit = async (data) => {
-    const newData = {
-      email: data.email,
-      fieldValues: [
-        {
-          field: '1',
-          value: data.message,
-        },
-      ],
-    }
-
-    // console.log(newData)
-
-    // await toast.promise(
-    await submitForFormActiveCampaign(newData, '/api/create-contact', 7)
-    // ,
-    //   {
-    //     pending: 'Sending data',
-    //     success: 'Data sent',
-    //   }
-    // )
-
-    await toast.promise(createBlog({ data, modelId: '2540346' }), {
-      pending: 'Sending data',
-      success: 'Data sent',
-    })
-
-    handleHideModal()
-    reset()
   }
 
   const {
@@ -114,14 +73,10 @@ export default function ApiHeroSection() {
             >
               {data.buttonScreen1B}
             </StyledButtonGhost>
-            <GetPersonalizedModal
-              handleSubmit={handleSubmit}
-              onSubmit={onSubmit}
-              register={register}
-              errors={errors}
+            <DynamicApiHeroSectionModalForm
               data={data}
               handleClose={handleHideModal}
-              open={showModal}
+              showModal={showModal}
             />
           </div>
 

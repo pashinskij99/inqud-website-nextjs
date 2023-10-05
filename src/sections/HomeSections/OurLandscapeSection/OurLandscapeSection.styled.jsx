@@ -264,7 +264,7 @@ export const StyledIndustriesWrapper = styled.div`
           margin-bottom: ${rem(14)};
         `};
 
-        h5 {
+        p {
           font-size: ${rem(32)};
           letter-spacing: ${rem(3.2)};
         }
@@ -274,7 +274,7 @@ export const StyledIndustriesWrapper = styled.div`
         }
 
         ${responsive.xl`
-          h5 {
+          p {
             font-size: ${rem(24)};
             line-height: ${rem(23)};
           }
@@ -302,7 +302,7 @@ export const StyledIndustriesWrapper = styled.div`
         gap: ${rem(24)};
         margin-bottom: ${rem(16)};
 
-        h5 {
+        p {
           font-size: ${rem(32)};
         }
       }

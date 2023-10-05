@@ -133,7 +133,10 @@ function AccordionItem({
           <StyledTypographyUrbanistBody className='accordion-sub-title'>
             {number}
           </StyledTypographyUrbanistBody>
-          <StyledTypographyUrbanistH5 className='accordion-title'>
+          <StyledTypographyUrbanistH5
+            component='h5'
+            className='accordion-title'
+          >
             {title}
           </StyledTypographyUrbanistH5>
         </AccordionSummary>

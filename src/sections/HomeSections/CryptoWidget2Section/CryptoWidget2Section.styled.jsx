@@ -340,7 +340,7 @@ export const StyledCryptoWidget2Section = styled.section`
           `};
           &:hover {
             background-color: transparent;
-            h5 {
+            p {
               color: #bfffc8;
             }
           }

@@ -20,6 +20,7 @@
     "clsx": "^1.2.1",
     "datocms-structured-text-to-html-string": "^2.1.11",
     "next": "13.5.2",
+    "next-compose-plugins": "^2.2.1",
     "next-intl": "3.0.0-beta.10",
     "next-share": "^0.25.0",
     "react": "18.2.0",
@@ -35,7 +36,8 @@
     "react-transition-group": "^4.4.5",
     "styled-components": "^6.0.3",
     "swiper": "^10.0.3",
-    "yup": "^1.2.0"
+    "yup": "^1.2.0",
+    "@next/bundle-analyzer": "^13.5.4"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.0.1",

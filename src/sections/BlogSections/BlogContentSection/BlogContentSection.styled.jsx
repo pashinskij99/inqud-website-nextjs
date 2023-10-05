@@ -63,7 +63,7 @@ export const StyledLeftSide = styled.div`
     padding: 0 16px;
   `};
 
-  h5 {
+  p {
     font-weight: 700;
     margin-bottom: ${rem(14)};
     ${responsive.xl`

@@ -203,7 +203,6 @@ export const FAQ_QUERY = ({ pageCMSName }) => `
       }
       faqButtonTextMobile
       faqButtonText
-      faqButton
     }
   }
 `

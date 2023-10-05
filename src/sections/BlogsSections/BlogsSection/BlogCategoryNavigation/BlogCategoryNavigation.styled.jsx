@@ -70,7 +70,7 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
         padding: 0 ${rem(16)};
         width: max-content;
 
-        h5 {
+        p {
           color: rgba(81, 113, 133, 1);
           @media (max-width: 576px) {
             font-size: 18px;
@@ -99,7 +99,7 @@ export const StyledBlogCategoryNavigationWrapper = styled.div`
           }
         }
 
-        h5 {
+        p {
           color: rgba(7, 116, 83, 1);
         }
       }

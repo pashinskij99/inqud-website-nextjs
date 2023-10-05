@@ -218,7 +218,7 @@ export default function FeesBusiness({ modelId, autoId }) {
           </table>
 
           {size.width && size.width <= responseBreakPoint.tablet ? (
-            <div className='description-wrapper tablet'>
+            <div className='description-wrapper'>
               <StyledTypographyUrbanistSmallSpaces
                 className={clsx('description', {
                   ['learnMore']: !showMore,

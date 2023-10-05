@@ -10,8 +10,8 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { PaymentList } from '@/sections/HomeSections/HeroSection/HeroSection'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { AnimatedOneVideo } from '@/components/AnimatedVideo'
-import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
+// import { AnimatedOneVideo } from '@/components/AnimatedVideo'
+// import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
 import {
   addGlobalScrollBar,
@@ -20,6 +20,22 @@ import {
 
 const DynamicModalCalendaly = dynamic(
   () => import('react-calendly').then((mod) => mod.PopupModal),
+  {
+    ssr: false,
+  }
+)
+const DynamicAnimatedOneVideo = dynamic(
+  () =>
+    import('@/components/AnimatedVideo').then((mod) => mod.AnimatedOneVideo),
+  {
+    ssr: false,
+  }
+)
+const DynamicAnimated2Gif = dynamic(
+  () =>
+    import('@/components/AnimatedVideo/AnimatedVideo').then(
+      (mod) => mod.Animated2Gif
+    ),
   {
     ssr: false,
   }
@@ -67,12 +83,14 @@ export default function CryptoWidgetHeroSection() {
             >
               {data.buttonScreen1B}
             </StyledButtonGhost>
-            <DynamicModalCalendaly
-              onModalClose={handleCloseCalendlyModal}
-              open={calendlyModal}
-              rootElement={document.getElementById('calendly-model-wrapper')}
-              url='https://calendly.com/inqud_team/30-minute-free-consultation'
-            />
+            {calendlyModal ? (
+              <DynamicModalCalendaly
+                onModalClose={handleCloseCalendlyModal}
+                open={calendlyModal}
+                rootElement={document.getElementById('calendly-model-wrapper')}
+                url='https://calendly.com/inqud_team/30-minute-free-consultation'
+              />
+            ) : null}
           </div>
 
           <PaymentList />
@@ -80,7 +98,7 @@ export default function CryptoWidgetHeroSection() {
 
         <div className='right-side'>
           {size.width && size.width > responseBreakPoint.mobile ? (
-            <AnimatedOneVideo
+            <DynamicAnimatedOneVideo
               className='graphic'
               height={650.44}
               timeRepeat={0}
@@ -89,7 +107,7 @@ export default function CryptoWidgetHeroSection() {
             />
           ) : null}
           {size.width && size.width <= responseBreakPoint.mobile ? (
-            <Animated2Gif
+            <DynamicAnimated2Gif
               className='graphic'
               height={357}
               timeRepeat={0}

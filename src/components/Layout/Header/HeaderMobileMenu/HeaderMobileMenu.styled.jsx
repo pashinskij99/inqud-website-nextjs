@@ -48,6 +48,9 @@ export const StyledHeaderMobileMenu = styled.div`
     width: 100%;
     overflow: auto;
     padding-bottom: ${rem(24)};
+    p {
+      cursor: pointer;
+    }
   }
 
   .headerMobileMenuNavTitle {

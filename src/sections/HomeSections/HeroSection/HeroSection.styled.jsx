@@ -360,7 +360,7 @@ export const StyledPaymentListWrapper = styled.div`
         }
       }
 
-      h5 {
+      p {
         color: rgba(129, 158, 176, 0.8);
         ${responsive.sm`
                 font-size: 24px;

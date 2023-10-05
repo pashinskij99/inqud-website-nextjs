@@ -128,7 +128,9 @@ function AccordionItem({
       <Accordion expanded={expanded === id} onChange={handleChange(id)}>
         <AccordionSummary expanded={expanded === id}>
           <StyledTypographyUrbanistBody>{number}</StyledTypographyUrbanistBody>
-          <StyledTypographyUrbanistH5>{title}</StyledTypographyUrbanistH5>
+          <StyledTypographyUrbanistH5 component='h5'>
+            {title}
+          </StyledTypographyUrbanistH5>
         </AccordionSummary>
         <AccordionDetails>
           <StyledTypographyUrbanistBody>

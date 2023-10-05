@@ -6,10 +6,8 @@ import { InView } from 'react-intersection-observer'
 import { Element, Link } from 'react-scroll'
 import { StructuredText } from 'react-datocms/structured-text'
 import { useDispatch, useSelector } from 'react-redux'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
 import { CSSTransition } from 'react-transition-group'
+import dynamic from 'next/dynamic'
 import {
   StyledCenterSideWrapper,
   StyledContentItemAccordion,
@@ -38,14 +36,10 @@ import {
 } from '@/contexts/HelpCentreDetailsContext/HelpCentreDetailsContext'
 import { setBlogBreadcrumbs } from '@/store/features/breadcrumb/breadcrumbSlice'
 import { SearchResultDetailsSection } from '@/sections/HelpCenterSections/SearchResultSection'
-import { userSchema2 } from '@/utils/userSchema'
-import { ModalSendRequest } from '@/components/Modal'
 import { fetchHelpCentreDetailsData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
 // import { FullScreenLoader } from '@/components/Loader'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 import { FullScreenLoader } from '@/components/Loader'
-import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
-import { createBlog } from '@/lib/datocms'
 
 function DetailsSection({ params }) {
   const { tab } = useSelector((state) => state.activeTab)
@@ -81,21 +75,16 @@ function DetailsSection({ params }) {
   )
 }
 
+const DynamicDetailsSectionModalForm = dynamic(
+  () =>
+    import('./components/DetailsSectionModalForm').then((res) => res.default),
+  {
+    ssr: false,
+  }
+)
+
 function DetailsSectionInner() {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
-
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    reset,
-  } = useForm({
-    defaultValues: {
-      email: '',
-      message: '',
-    },
-    resolver: yupResolver(userSchema2),
-  })
 
   const [expanded, setExpanded] = useState('')
   const { activeHeader, setActiveHeader } = useContext(ArticleContext)
@@ -116,34 +105,6 @@ function DetailsSectionInner() {
 
   const handleClose = () => {
     setOpenModalSendRequest(false)
-  }
-
-  const onSubmit = async (data) => {
-    const newData = {
-      email: data.email,
-      fieldValues: [
-        {
-          field: '1',
-          value: data.message,
-        },
-      ],
-    }
-
-    // await toast.promise(
-    await submitForFormActiveCampaign(newData, '/api/create-contact', 12)
-    // ,
-    //   {
-    //     pending: 'Sending data',
-    //     success: 'Data sent',
-    //   }
-    // )
-    await toast.promise(createBlog({ data, modelId: '2592391' }), {
-      pending: 'Sending data',
-      success: 'Data sent',
-    })
-
-    handleClose()
-    reset()
   }
 
   return (
@@ -203,13 +164,9 @@ function DetailsSectionInner() {
                   Contact us
                 </StyledTypographyUrbanistBody>
               </StyledButtonLearnMore>
-              <ModalSendRequest
-                handleSubmit={handleSubmit}
-                onSubmit={onSubmit}
-                register={register}
+              <DynamicDetailsSectionModalForm
                 handleClose={handleClose}
-                errors={errors}
-                open={openModalSendRequest}
+                openModal={openModalSendRequest}
               />
             </div>
           </div>

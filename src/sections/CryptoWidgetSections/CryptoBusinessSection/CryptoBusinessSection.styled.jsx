@@ -113,7 +113,7 @@ export const StyledListItem = styled.div`
     padding: 20px 16px;
     align-items: baseline;
   `}
-  h5 {
+  p {
     color: ${({ color }) => color};
     font-size: 18px;
 
@@ -127,7 +127,7 @@ export const StyledListItem = styled.div`
       padding: 15px 16px 20px;
     `}
 
-    h5 {
+    p {
       font-size: 24px;
       font-weight: 700;
     }
@@ -139,22 +139,21 @@ export const StyledListItem = styled.div`
       padding: 15px 16px 20px;
     `}
 
-    h5 {
+    p {
       font-size: 24px;
       font-weight: 700;
     }
   } */
 
   &.list-item-styled:last-of-type {
-      border: ${({ color }) => `2px solid ${color}`};
-      padding: 15px 18px;
-      ${responsive.xl`
+    border: ${({ color }) => `2px solid ${color}`};
+    padding: 15px 18px;
+    ${responsive.xl`
         padding: 15px 15px;
         align-items: baseline;
       `}
-      h5 {
-        font-weight: 700;
-      }
+    p {
+      font-weight: 700;
     }
- 
+  }
 `
