@@ -163,7 +163,7 @@ function MobileGrid() {
       <Image
         fetchpriority='high'
         loading='eager'
-        gif='/video/b2b_hero_mobile.gif'
+        src='/video/b2b_hero_mobile.gif'
         width={343}
         height={152}
       />
