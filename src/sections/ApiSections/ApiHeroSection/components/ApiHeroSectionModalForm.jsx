@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'
 import { GetPersonalizedModal } from '@/components/Modal'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
 import { createBlog } from '@/lib/datocms'
@@ -41,6 +41,7 @@ export default function ApiHeroSectionModalForm({
     //     success: 'Data sent',
     //   }
     // )
+    const toast = await import('react-toastify').then((res) => res.toast)
 
     await toast.promise(createBlog({ data, modelId: '2540346' }), {
       pending: 'Sending data',

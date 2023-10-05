@@ -4,7 +4,7 @@ import { StructuredText } from 'react-datocms/structured-text'
 import clsx from 'clsx'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'
 import Close from '@/assets/icons/close.svg'
 import {
   StyledTypographyUrbanistBody,
@@ -109,6 +109,7 @@ export default function Contact() {
     //     success: 'Data sent',
     //   }
     // )
+    const toast = await import('react-toastify').then((res) => res.toast)
 
     await toast.promise(createBlog({ data, modelId: '2540348' }), {
       pending: 'Sending data',

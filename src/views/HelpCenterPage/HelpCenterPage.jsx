@@ -10,7 +10,7 @@ import { StyledHelpCenterPageWrapper } from '@/views/HelpCenterPage/HelpCenterPa
 import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection'
 import { HelpCentreProvider } from '@/contexts/HelpCentreContext/HelpCentreContext'
 // import { SearchResultSection } from '@/sections/HelpCenterSections/SearchResultSection'
-import { fetchHelpCentreData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
+// import { fetchHelpCentreData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 import { FullScreenLoader } from '@/components/Loader'
 // import { FullScreenLoader } from '@/components/Loader'
@@ -38,8 +38,15 @@ export function HelpCenterPageContent({ params }) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(setIsSearch(false))
-    dispatch(fetchHelpCentreData({ params }))
+    const fetchData = async () => {
+      const fetchHelpCentreData = await import(
+        '@/store/features/helpCentre/helpCentreAsyncThunk'
+      ).then((res) => res.fetchHelpCentreData)
+      dispatch(setIsSearch(false))
+      dispatch(fetchHelpCentreData({ params }))
+    }
+
+    fetchData()
 
     return () => {
       dispatch(setIsSearch(false))

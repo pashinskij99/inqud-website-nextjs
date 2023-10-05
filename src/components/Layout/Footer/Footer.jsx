@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH5,
@@ -32,6 +32,9 @@ export default function Footer() {
   const handleSubmit = async () => {
     if (email.toLowerCase().match(emailRegExp)) {
       const page = pathname.split('/')[1] || 'Home'
+
+      const toast = await import('react-toastify').then((res) => res.toast)
+
       await toast.promise(
         createBlog({ data: { email, page }, modelId: '2540253' }),
         {

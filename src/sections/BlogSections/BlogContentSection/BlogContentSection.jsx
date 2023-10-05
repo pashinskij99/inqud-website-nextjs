@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import Image from 'next/image'
 import { useContext } from 'react'
-import { Link as LinkAnchor } from 'react-scroll'
+// import { Link as LinkAnchor } from 'react-scroll'
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -46,9 +46,22 @@ function LeftSide() {
     blogDetails: { titlesForNavigation },
   } = useContext(BlogContext)
 
+  const handleClick = async (title) => {
+    const scroller = await import('react-scroll').then((res) => res.scroller)
+
+    scroller.scrollTo(title, {
+      offset: -100,
+      spy: true,
+      smooth: true,
+      duration: 500,
+    })
+  }
+
   return (
     <StyledLeftSide>
-      <StyledTypographyUrbanistH5>Contents</StyledTypographyUrbanistH5>
+      <StyledTypographyUrbanistH5 className='contents-title'>
+        Contents
+      </StyledTypographyUrbanistH5>
       <ul className='blog-content-nav'>
         {titlesForNavigation?.map((title) => (
           <li
@@ -56,21 +69,22 @@ function LeftSide() {
               ['active']: activeHeader === title.trim(),
             })}
           >
-            <LinkAnchor
+            {/* <LinkAnchor
               to={title.trim()}
               offset={-100}
               spy
               smooth
               duration={500}
+            > */}
+            <StyledTypographyUrbanistBody
+              onClick={() => handleClick(title.trim())}
+              className={clsx('title', {
+                ['active']: activeHeader === title.trim(),
+              })}
             >
-              <StyledTypographyUrbanistBody
-                className={clsx('title', {
-                  ['active']: activeHeader === title.trim(),
-                })}
-              >
-                {title}
-              </StyledTypographyUrbanistBody>
-            </LinkAnchor>
+              {title}
+            </StyledTypographyUrbanistBody>
+            {/* </LinkAnchor> */}
           </li>
         ))}
       </ul>

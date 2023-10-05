@@ -7,7 +7,6 @@ import { CSSTransition } from 'react-transition-group'
 import { ArticleProvider } from '@/contexts/ArticleContext/ArticleContext'
 import { HelpCentreDetailsProvider } from '@/contexts/HelpCentreDetailsContext/HelpCentreDetailsContext'
 import { setBlogBreadcrumbs } from '@/store/features/breadcrumb/breadcrumbSlice'
-import { fetchHelpCentreDetailsData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
 import { FullScreenLoader } from '@/components/Loader'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 
@@ -20,8 +19,15 @@ function DetailsSection({ params }) {
   )
 
   useEffect(() => {
-    dispatch(setIsSearch(false))
-    dispatch(fetchHelpCentreDetailsData({ params }))
+    const fetchData = async () => {
+      const fetchHelpCentreDetailsData = await import(
+        '@/store/features/helpCentre/helpCentreAsyncThunk'
+      ).then((res) => res.fetchHelpCentreDetailsData)
+      dispatch(setIsSearch(false))
+      dispatch(fetchHelpCentreDetailsData({ params }))
+    }
+
+    fetchData()
     return () => {
       dispatch(setIsSearch(false))
       dispatch(setBlogBreadcrumbs(''))

@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'
 import { StyledHowIntegrateCryptoSectionWrapper } from './HowIntegrateCryptoSection.styled'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import arrowImage from '@/assets/images/homeB2C/how-to-start/arrow.png'
@@ -65,6 +65,7 @@ export default function HowIntegrateCryptoSection() {
     //   success: 'Data sent',
     // }
     // )
+    const toast = await import('react-toastify').then((res) => res.toast)
 
     await toast.promise(createBlog({ data, modelId: '2543028' }), {
       pending: 'Sending data',

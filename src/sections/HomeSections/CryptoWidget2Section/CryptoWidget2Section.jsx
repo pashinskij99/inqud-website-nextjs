@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'
 import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
 import {
@@ -72,6 +72,7 @@ export default function CryptoWidget2Section() {
     //     success: 'Data sent',
     //   }
     // )
+    const toast = await import('react-toastify').then((res) => res.toast)
 
     await toast.promise(createBlog({ data, modelId: '2537957' }), {
       pending: 'Sending data',

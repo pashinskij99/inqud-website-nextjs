@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-scroll'
+// import { Link } from 'react-scroll'
 import dynamic from 'next/dynamic'
 import {
   StyledCenterSideWrapper,
@@ -41,6 +41,16 @@ export function DetailsSectionInner() {
     setOpenModalSendRequest(false)
   }
 
+  const handleClick = async (title) => {
+    const scroller = await import('react-scroll').then((res) => res.scroller)
+    scroller.scrollTo(title, {
+      offset: -100,
+      spy: true,
+      smooth: true,
+      duration: 500,
+    })
+  }
+
   return (
     <StyledPersonalSectionWrapper>
       <div className='container'>
@@ -56,15 +66,16 @@ export function DetailsSectionInner() {
                   ['active']: activeHeader === title,
                 })}
               >
-                <Link to={title} offset={-100} spy smooth duration={500}>
-                  <StyledTypographyUrbanistBody
-                    className={clsx('list-item-text', {
-                      ['active']: activeHeader === title,
-                    })}
-                  >
-                    {title}
-                  </StyledTypographyUrbanistBody>
-                </Link>
+                {/* <Link to={title} offset={-100} spy smooth duration={500}> */}
+                <StyledTypographyUrbanistBody
+                  onClick={() => handleClick(title)}
+                  className={clsx('list-item-text', {
+                    ['active']: activeHeader === title,
+                  })}
+                >
+                  {title}
+                </StyledTypographyUrbanistBody>
+                {/* </Link> */}
               </li>
             ))}
           </ul>

@@ -1,6 +1,6 @@
 import { cache } from 'react'
-import { ApiError, buildClient } from '@datocms/cma-client-browser'
-import axios from 'axios'
+// import { buildClient } from '@datocms/cma-client-browser'
+// import axios from 'axios'
 
 const dedupedFetch = cache(async (serializedInit) => {
   const endPoint = 'https://graphql.datocms.com'
@@ -19,6 +19,8 @@ const dedupedFetch = cache(async (serializedInit) => {
 })
 
 export const getPageData = async ({ variables, query }) => {
+  const axios = await import('axios').then((res) => res.default)
+
   const response = axios.post('/api/get-section-data', {
     variables,
     query,
@@ -67,6 +69,9 @@ export async function performRequest({
 // eslint-disable-next-line consistent-return
 export const createBlog = async ({ data, modelId }) => {
   try {
+    const buildClient = await import('@datocms/cma-client-browser').then(
+      (res) => res.buildClient
+    )
     const client = buildClient({
       apiToken: process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN,
     })
@@ -77,6 +82,9 @@ export const createBlog = async ({ data, modelId }) => {
       date_and_time: new Date().toISOString(),
     })
   } catch (e) {
+    const ApiError = await import('@datocms/cma-client-browser').then(
+      (res) => res.ApiError
+    )
     if (e instanceof ApiError) {
       console.log(e.response.status)
     } else {

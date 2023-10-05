@@ -7,16 +7,23 @@ import { StyledBlogsPageWrapper } from '@/views/BlogsPage/BlogsPage.styled'
 // import BlogsSection from '@/sections/BlogsSections/BlogsSection'
 // import BlogsPageMainSection from '@/sections/BlogsSections/BlogsPageMainSection'
 import { BlogContext, BlogProvider } from '@/contexts/BlogContext/BlogContext'
-import { fetchBlogs } from '@/store/features/blog/blogAsyncThunk'
 import { setTags } from '@/store/features/blog/blogSlice'
 
-const DynamicBlogsPageMainSection = dynamic(() =>
-  import('@/sections/BlogsSections/BlogsPageMainSection').then(
-    (res) => res.default
-  )
+const DynamicBlogsPageMainSection = dynamic(
+  () =>
+    import('@/sections/BlogsSections/BlogsPageMainSection').then(
+      (res) => res.default
+    ),
+  {
+    ssr: false,
+  }
 )
-const DynamicBlogsSection = dynamic(() =>
-  import('@/sections/BlogsSections/BlogsSection').then((res) => res.default)
+const DynamicBlogsSection = dynamic(
+  () =>
+    import('@/sections/BlogsSections/BlogsSection').then((res) => res.default),
+  {
+    ssr: false,
+  }
 )
 
 function BlogsWrapper() {
@@ -28,14 +35,22 @@ function BlogsWrapper() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(
-      fetchBlogs({
-        params,
-        paginationParams: pagination,
-        tags: activeTags,
-        searchValue,
-      })
-    )
+    const fetchData = async () => {
+      const fetchBlogs = await import(
+        '@/store/features/blog/blogAsyncThunk'
+      ).then((res) => res.fetchBlogs)
+
+      dispatch(
+        fetchBlogs({
+          params,
+          paginationParams: pagination,
+          tags: activeTags,
+          searchValue,
+        })
+      )
+    }
+
+    fetchData()
   }, [])
 
   return (

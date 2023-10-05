@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { useContext } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'
 import {
   StyledFormWrapper,
   StyledSendRequestSectionWrapper,
@@ -50,6 +50,8 @@ export default function SendRequestSection() {
     //     success: 'Data sent',
     //   }
     // )
+
+    const toast = await import('react-toastify').then((res) => res.toast)
 
     await toast.promise(createBlog({ data, modelId: '2540255' }), {
       pending: 'Sending data',

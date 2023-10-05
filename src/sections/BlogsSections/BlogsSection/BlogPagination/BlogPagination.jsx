@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import { useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { scroller } from 'react-scroll'
 import { StyledBlogPagination } from '@/sections/BlogsSections/BlogsSection/BlogPagination/BlogPagination.styled'
 import {
   DOTS,
@@ -34,7 +33,8 @@ function BlogPagination({ total, pageSize }) {
     return null
   }
 
-  const handlePage = ({ page, skip }) => {
+  const handlePage = async ({ page, skip }) => {
+    const scroller = await import('react-scroll').then((res) => res.scroller)
     scroller.scrollTo('blog', {
       offset: -25,
       duration: 500,

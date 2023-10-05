@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import dynamic from 'next/dynamic'
-import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'
 import { userSchema2 } from '@/utils/userSchema'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
 import { createBlog } from '@/lib/datocms'
@@ -50,6 +50,7 @@ export default function YourNeedsSectionModalForm({
     //   success: 'Data sent',
     // }
     // )
+    const toast = await import('react-toastify').then((res) => res.toast)
 
     await toast.promise(createBlog({ data, modelId: '2537177' }), {
       pending: 'Sending data',
