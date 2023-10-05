@@ -13,6 +13,8 @@ import { HelpCentreProvider } from '@/contexts/HelpCentreContext/HelpCentreConte
 // import { fetchHelpCentreData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 import { FullScreenLoader } from '@/components/Loader'
+// import { SearchResultSection } from '@/sections/HelpCenterSections/SearchResultSection'
+// import MainSection from '@/sections/AmlCftPolicyUabSections/MainSection'
 // import { FullScreenLoader } from '@/components/Loader'
 
 function HelpCenterPage({ children, data }) {

@@ -1,4 +1,3 @@
-import React from 'react'
 import { StyledFullScreenLoader, StyledLoader } from './Loader.styled'
 
 function Loader({ className }) {

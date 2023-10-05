@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import Link from 'next/link'
 import { StructuredText } from 'react-datocms/structured-text'
 import { useWindowSize } from '@uidotdev/usehooks'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH5,
@@ -13,12 +14,27 @@ import {
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { PaymentList } from '@/sections/HomeSections/HeroSection/HeroSection'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-// import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
-import {
-  Animated2Gif,
-  AnimatedFirstScreenVideo,
-} from '@/components/AnimatedVideo/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
+
+const DynamicAnimated2Gif = dynamic(
+  () =>
+    import('@/components/AnimatedVideo/AnimatedVideo').then(
+      (res) => res.Animated2Gif
+    ),
+  {
+    ssr: false,
+  }
+)
+
+const DynamicAnimatedFirstScreenVideo = dynamic(
+  () =>
+    import('@/components/AnimatedVideo/AnimatedVideo').then(
+      (res) => res.AnimatedFirstScreenVideo
+    ),
+  {
+    ssr: false,
+  }
+)
 
 export function SubTitle({ className, children }) {
   return <StyledSubTitle className={className}>{children}</StyledSubTitle>
@@ -54,7 +70,7 @@ export default function HeroB2CSection() {
         </div>
         <div className='right-side'>
           {size.width && size.width <= responseBreakPoint.mobile ? (
-            <Animated2Gif
+            <DynamicAnimated2Gif
               className='graphic'
               height={594}
               timeRepeat={5000}
@@ -66,7 +82,7 @@ export default function HeroB2CSection() {
             />
           ) : null}
           {size.width && size.width > responseBreakPoint.mobile ? (
-            <AnimatedFirstScreenVideo
+            <DynamicAnimatedFirstScreenVideo
               className='graphic'
               height={594}
               timeRepeat={5000}
