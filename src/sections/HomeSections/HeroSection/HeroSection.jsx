@@ -86,9 +86,9 @@ export default function HeroSection() {
     <StyledHeroSectionWrapper>
       <div className='container'>
         <div className='leftSide'>
-          {/* {size.width && size.width <= responseBreakPoint.mobile ? (
+          {size.width && size.width <= responseBreakPoint.mobile ? (
             <MobileGrid />
-          ) : null} */}
+          ) : null}
 
           <StyledTypographyIBMH5 className='subTitle'>
             {data.subTitle}
