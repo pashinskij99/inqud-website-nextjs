@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation'
 import { performRequest } from '@/lib/datocms'
 import BlogPage from '@/views/BlogPage'
 
@@ -131,6 +132,7 @@ export default async function page({ params }) {
       locale: params.locale,
     },
   })
+  if (!blog) return notFound()
 
   const relatedData = await performRequest({
     query: PAGE_RELATED_CONTENT_QUERY,

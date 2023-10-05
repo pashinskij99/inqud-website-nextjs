@@ -86,9 +86,9 @@ export default function HeroSection() {
     <StyledHeroSectionWrapper>
       <div className='container'>
         <div className='leftSide'>
-          {size.width && size.width <= responseBreakPoint.mobile ? (
+          {/* {size.width && size.width <= responseBreakPoint.mobile ? (
             <MobileGrid />
-          ) : null}
+          ) : null} */}
 
           <StyledTypographyIBMH5 className='subTitle'>
             {data.subTitle}
@@ -156,6 +156,7 @@ export default function HeroSection() {
   )
 }
 
+// eslint-disable-next-line no-unused-vars
 function MobileGrid() {
   return (
     <StyledMobileGridWrapper>
