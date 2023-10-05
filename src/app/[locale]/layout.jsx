@@ -4,9 +4,9 @@ import Script from 'next/script'
 import LayoutComponent from '@/components/Layout/LayoutComponent'
 import { nunito } from '@/utils/font'
 
-import 'swiper/css'
-import 'swiper/css/scrollbar'
-import 'react-toastify/dist/ReactToastify.css'
+// import 'swiper/css'
+// import 'swiper/css/scrollbar'
+// import 'react-toastify/dist/ReactToastify.css'
 
 export const metadata = {
   title: 'Inqud',
@@ -27,6 +27,19 @@ export default async function RootLayout({ children, params: { locale } }) {
 
   return (
     <html lang={locale}>
+      <head>
+        <link
+          rel='stylesheet'
+          href='https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css'
+        />
+        <link
+          href='
+https://cdn.jsdelivr.net/npm/react-toastify@9.1.3/dist/ReactToastify.min.css
+'
+          rel='stylesheet'
+        />
+      </head>
+
       <body className={nunito.className}>
         <Script strategy='afterInteractive' id='google-analytics'>
           {` 
