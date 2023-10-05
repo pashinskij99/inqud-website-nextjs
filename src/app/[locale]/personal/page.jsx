@@ -1,4 +1,4 @@
-import { performRequest } from '@/lib/datocms'
+import { getData } from '@/lib/datocms'
 import HomeB2CPage from '@/views/HomeB2CPage'
 
 const PAGE_QUERY = `  
@@ -100,20 +100,6 @@ query MyQuery($locale: SiteLocale) {
     }
   }
 }`
-
-const getData = async (query, variables) => {
-  try {
-    const data = await performRequest({
-      query,
-      revalidate: 0,
-      variables,
-    })
-
-    return data
-  } catch (error) {
-    return {}
-  }
-}
 
 async function Page({ params }) {
   const data = await getData(PAGE_QUERY, {

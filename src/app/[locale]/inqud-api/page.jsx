@@ -1,4 +1,4 @@
-import { performRequest } from '@/lib/datocms'
+import { getData } from '@/lib/datocms'
 import ApiPage from '@/views/ApiPage'
 
 const API_QUERY = `
@@ -179,20 +179,6 @@ const API_QUERY = `
     }
   }
 `
-
-const getData = async (query, variables) => {
-  try {
-    const data = await performRequest({
-      query,
-      revalidate: 0,
-      variables,
-    })
-
-    return data
-  } catch (error) {
-    return {}
-  }
-}
 
 export default async function page({ params }) {
   const data = await getData(API_QUERY, {

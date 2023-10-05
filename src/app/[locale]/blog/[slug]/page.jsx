@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { performRequest } from '@/lib/datocms'
+import { getData } from '@/lib/datocms'
 import BlogPage from '@/views/BlogPage'
 
 const PAGE_CONTENT_QUERY = `
@@ -108,11 +108,17 @@ export async function generateMetadata({ params }) {
   try {
     const {
       blog: { seoMetaTag },
-    } = await performRequest({
-      query: PAGE_CONTENT_QUERY_SEO,
-      revalidate: 0,
-      variables: { slug: params.slug, locale: params.locale },
+    } = await getData(PAGE_CONTENT_QUERY_SEO, {
+      slug: params.slug,
+      locale: params.locale,
     })
+    // const {
+    //   blog: { seoMetaTag },
+    // } = await performRequest({
+    //   query: PAGE_CONTENT_QUERY_SEO,
+    //   revalidate: 0,
+    //   variables: { slug: params.slug, locale: params.locale },
+    // })
 
     return {
       title: seoMetaTag.title,
@@ -124,26 +130,36 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function page({ params }) {
-  const { blog, blogHeroSection } = await performRequest({
-    query: PAGE_CONTENT_QUERY,
-    revalidate: 0,
-    variables: {
-      slug: params.slug,
-      locale: params.locale,
-    },
+  const { blog, blogHeroSection } = await getData(PAGE_CONTENT_QUERY, {
+    slug: params.slug,
+    locale: params.locale,
   })
+  // const { blog, blogHeroSection } = await performRequest({
+  //   query: PAGE_CONTENT_QUERY,
+  //   revalidate: 0,
+  //   variables: {
+  //     slug: params.slug,
+  //     locale: params.locale,
+  //   },
+  // })
   if (!blog) return notFound()
 
-  const relatedData = await performRequest({
-    query: PAGE_RELATED_CONTENT_QUERY,
-    revalidate: 0,
-
-    variables: {
-      tagId: blog.mainTag.id,
-      locale: params.locale,
-      slug: params.slug,
-    },
+  const relatedData = await getData(PAGE_RELATED_CONTENT_QUERY, {
+    tagId: blog.mainTag.id,
+    locale: params.locale,
+    slug: params.slug,
   })
+
+  // const relatedData = await performRequest({
+  //   query: PAGE_RELATED_CONTENT_QUERY,
+  //   revalidate: 0,
+
+  //   variables: {
+  //     tagId: blog.mainTag.id,
+  //     locale: params.locale,
+  //     slug: params.slug,
+  //   },
+  // })
 
   return (
     <BlogPage

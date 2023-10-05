@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { performRequest } from '@/lib/datocms'
+import { getData } from '@/lib/datocms'
 
 export async function POST(req) {
   const { params, paginationParams, tags, searchValue } = await req.json()
@@ -23,20 +23,26 @@ export async function POST(req) {
       }
     }
   `
-  const { allProducts } = await performRequest({
-    query: PRODUCTS_QUERY,
-    revalidate: 0,
-    variables: {
-      locale: params.locale,
-    },
+  const { allProducts } = await getData(PRODUCTS_QUERY, {
+    locale: params.locale,
   })
-  const { allIndustries } = await performRequest({
-    query: INDUSTRIES_QUERY,
-    revalidate: 0,
-    variables: {
-      locale: params.locale,
-    },
+  const { allIndustries } = await getData(INDUSTRIES_QUERY, {
+    locale: params.locale,
   })
+  // const { allProducts } = await performRequest({
+  //   query: PRODUCTS_QUERY,
+  //   revalidate: 0,
+  //   variables: {
+  //     locale: params.locale,
+  //   },
+  // })
+  // const { allIndustries } = await performRequest({
+  //   query: INDUSTRIES_QUERY,
+  //   revalidate: 0,
+  //   variables: {
+  //     locale: params.locale,
+  //   },
+  // })
 
   const idAllProducts = allProducts.map(({ id }) => id)
   const idAllIndustries = allIndustries.map(({ id }) => id)
@@ -110,15 +116,20 @@ export async function POST(req) {
 
   const first = paginationParams.first ? +paginationParams.first : 12
   const skip = paginationParams.skip ? +paginationParams.skip : 0
-  const { _allBlogsMeta, allBlogs } = await performRequest({
-    query: PAGE_CONTENT_QUERY,
-    revalidate: 0,
-    variables: {
-      first,
-      skip,
-      locale: params.locale,
-    },
+  const { _allBlogsMeta, allBlogs } = await getData(PAGE_CONTENT_QUERY, {
+    first,
+    skip,
+    locale: params.locale,
   })
+  // const { _allBlogsMeta, allBlogs } = await performRequest({
+  //   query: PAGE_CONTENT_QUERY,
+  //   revalidate: 0,
+  //   variables: {
+  //     first,
+  //     skip,
+  //     locale: params.locale,
+  //   },
+  // })
 
   const pagination = {
     first,

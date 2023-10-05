@@ -1,5 +1,5 @@
 import HelpCenterPage from '@/views/HelpCenterPage'
-import { performRequest } from '@/lib/datocms'
+import { getData } from '@/lib/datocms'
 
 const HELP_CENTRE_QUERY = `
   query MyQuery($locale: SiteLocale) {
@@ -13,20 +13,10 @@ const HELP_CENTRE_QUERY = `
   }
 `
 
-const getData = async (variables) => {
-  try {
-    return await performRequest({
-      query: HELP_CENTRE_QUERY,
-      revalidate: 0,
-      variables,
-    })
-  } catch (error) {
-    throw Error(error.message)
-  }
-}
-
 export default async function layout({ children, params }) {
-  const data = await getData({ locale: params.locale })
+  const data = await getData(HELP_CENTRE_QUERY, {
+    locale: params.locale,
+  })
   const page = ''
   return (
     <main className='layout'>

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { performRequest } from '@/lib/datocms'
+import { getData } from '@/lib/datocms'
 import { helpCentreLinkTransformToNormal } from '@/utils/helpCentreLinkTransform'
 
 export async function POST(req) {
@@ -41,20 +41,7 @@ export async function POST(req) {
     }
   }
 `
-
-  const getData = async ({ query }) => {
-    try {
-      const helpCentreData = await performRequest({
-        query,
-        revalidate: 0,
-      })
-
-      return helpCentreData
-    } catch (error) {
-      throw Error(error.message)
-    }
-  }
-  const helpCenterData = await getData({ query: HELP_CENTRE_PAGE })
+  const helpCenterData = await getData(HELP_CENTRE_PAGE, {})
 
   return NextResponse.json({
     data: helpCenterData,

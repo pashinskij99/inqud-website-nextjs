@@ -92,3 +92,17 @@ export const createBlog = async ({ data, modelId }) => {
     }
   }
 }
+
+export const getData = async (query, variables) => {
+  try {
+    const data = await performRequest({
+      query,
+      revalidate: 0,
+      variables,
+    })
+
+    return data
+  } catch (error) {
+    return {}
+  }
+}

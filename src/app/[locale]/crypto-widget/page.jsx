@@ -1,4 +1,4 @@
-import { performRequest } from '@/lib/datocms'
+import { getData } from '@/lib/datocms'
 import CryptoWidget from '@/views/CryptoWidget'
 
 const CRYPTO_WIDGET = `
@@ -167,20 +167,6 @@ const CRYPTO_WIDGET = `
     }
   }
 `
-
-const getData = async (query, variables) => {
-  try {
-    const data = await performRequest({
-      query,
-      revalidate: 0,
-      variables,
-    })
-
-    return data
-  } catch (error) {
-    return {}
-  }
-}
 
 export default async function page({ params }) {
   const data = await getData(CRYPTO_WIDGET, {

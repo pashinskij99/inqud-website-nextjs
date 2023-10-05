@@ -1,12 +1,9 @@
-import React from 'react'
 import MainSection from '@/sections/CookiePolicySections/MainSection'
 
-
-
-function CookiePolicyPage({data}) {
+function CookiePolicyPage({ data }) {
   return (
     <div>
-        <MainSection data={data}/>
+      <MainSection data={data} />
     </div>
   )
 }

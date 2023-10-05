@@ -1,4 +1,4 @@
-import { performRequest } from '@/lib/datocms'
+import { getData } from '@/lib/datocms'
 import HomePage from '@/views/HomePage'
 
 const HOME_PAGE_QUERY = `  
@@ -29,18 +29,6 @@ const HOME_PAGE_QUERY = `
     }
   }
 `
-
-const getData = async (query, variables) => {
-  try {
-    return await performRequest({
-      query,
-      revalidate: 0,
-      variables,
-    })
-  } catch (error) {
-    return {}
-  }
-}
 
 export default async function Home({ params }) {
   const data = await getData(HOME_PAGE_QUERY, {
