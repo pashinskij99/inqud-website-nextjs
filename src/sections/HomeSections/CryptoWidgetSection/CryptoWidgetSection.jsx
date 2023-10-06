@@ -15,10 +15,10 @@ import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import Loading from '@/assets/icons/loading.svg'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
+// import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
-import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
-import gifStill from '@/assets/gif/b2b_crypto_widget_mobile.webp'
+// import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
+// import gifStill from '@/assets/gif/b2b_crypto_widget_mobile.webp'
 import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_CRYPTO_WIDGET } from '@/lib/datocmsQuery'
 
@@ -58,7 +58,7 @@ export default function CryptoWidgetSection() {
           </StyledTypographyUrbanistH2>
 
           <div className='cryptoWidgetMobileWrapper'>
-            {size.width &&
+            {/* {size.width &&
             size.width > responseBreakPoint.mobile &&
             size.width < responseBreakPoint.desktop ? (
               <AnimatedVideoOnScroll
@@ -80,7 +80,7 @@ export default function CryptoWidgetSection() {
                 timeSecondAnimate={5000}
                 width={500}
               />
-            ) : null}
+            ) : null} */}
           </div>
 
           {size.width && size.width <= responseBreakPoint.mobile ? (
@@ -134,7 +134,7 @@ export default function CryptoWidgetSection() {
         </div>
 
         <div className='rightSide'>
-          {size.width && size.width >= responseBreakPoint.desktop ? (
+          {/* {size.width && size.width >= responseBreakPoint.desktop ? (
             <AnimatedVideoOnScroll
               className='graphic'
               height={600}
@@ -142,7 +142,7 @@ export default function CryptoWidgetSection() {
               urlFirstVideo='/video/b2b_crypto_video_web.webm'
               width={500}
             />
-          ) : null}
+          ) : null} */}
         </div>
       </div>
     </StyledCryptoWidgetSection>

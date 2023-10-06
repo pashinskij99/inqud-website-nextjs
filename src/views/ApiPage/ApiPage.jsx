@@ -2,7 +2,7 @@
 
 // import dynamic from 'next/dynamic'
 import { StyledApiPageWrapper } from './ApiPage.styled'
-// import ApiHeroSection from '@/sections/ApiSections/ApiHeroSection'
+import ApiHeroSection from '@/sections/ApiSections/ApiHeroSection'
 import APIFlexibility from '@/sections/ApiSections/APIFlexibility'
 import HowIntegrate from '@/sections/ApiSections/HowIntegrate'
 import InstantFree from '@/sections/ApiSections/InstantFree'
@@ -51,7 +51,7 @@ export default function ApiPage({ data }) {
   return (
     <PageProvider isFaq dataPage={data} nameCMSPage='apiPage'>
       <StyledApiPageWrapper>
-        {/* <ApiHeroSection /> */}
+        <ApiHeroSection />
         <APIFlexibility />
         <HowIntegrate />
         <InstantFree />

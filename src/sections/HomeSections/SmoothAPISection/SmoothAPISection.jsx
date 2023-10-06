@@ -13,8 +13,8 @@ import { ButtonGetStarted } from '@/components/UI/Button/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
-import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
+// import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
+// import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
 import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_SMOOTH_API } from '@/lib/datocmsQuery'
@@ -49,7 +49,7 @@ export default function SmoothAPISection() {
     <StyledSmoothAPISection>
       <div className='container'>
         <div className='leftSide'>
-          {size.width && size.width >= responseBreakPoint.tablet ? (
+          {/* {size.width && size.width >= responseBreakPoint.tablet ? (
             <AnimatedVideoOnScroll
               className='graphic'
               height={600}
@@ -57,7 +57,7 @@ export default function SmoothAPISection() {
               urlFirstVideo='/video/il-api.mp4'
               width={416.45}
             />
-          ) : null}
+          ) : null} */}
         </div>
 
         <div className='rightSide'>
@@ -68,7 +68,7 @@ export default function SmoothAPISection() {
             {data.screen4Title}
           </StyledTypographyUrbanistH2>
 
-          {size.width && size.width <= responseBreakPoint.mobile ? (
+          {/* {size.width && size.width <= responseBreakPoint.mobile ? (
             <Animated2GifOnView
               className='smoothAPIImageTablet'
               height={232.88}
@@ -78,9 +78,9 @@ export default function SmoothAPISection() {
               timeSecondAnimate={5000}
               width={343}
             />
-          ) : null}
+          ) : null} */}
 
-          {size.width &&
+          {/* {size.width &&
           size.width > responseBreakPoint.mobile &&
           size.width < responseBreakPoint.desktop ? (
             <AnimatedVideoOnScroll
@@ -90,7 +90,7 @@ export default function SmoothAPISection() {
               urlFirstVideo='/video/b2b_api_video_tablet.mp4'
               width={416.45}
             />
-          ) : null}
+          ) : null} */}
 
           {size.width && size.width <= responseBreakPoint.mobile ? (
             <StyledTypographyUrbanistH5 className='smoothAPIDescriptionMobile'>

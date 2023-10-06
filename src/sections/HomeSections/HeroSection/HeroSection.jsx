@@ -8,7 +8,7 @@ import { useWindowSize } from '@uidotdev/usehooks'
 // import GifPlayer from 'react-gif-player'
 import dynamic from 'next/dynamic'
 // import axios from 'axios'
-import GifPlayer from 'react-gif-player'
+// import GifPlayer from 'react-gif-player'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import {
   StyledHeroSectionWrapper,
@@ -169,7 +169,8 @@ function MobileGrid() {
       {/*   width={343} */}
       {/*   height={152} */}
       {/* /> */}
-      <GifPlayer
+
+      {/* <GifPlayer
         fetchpriority='high'
         priority
         loading='lazy'
@@ -179,7 +180,7 @@ function MobileGrid() {
         alt='animation'
         width={343}
         height={152}
-      />
+      /> */}
     </StyledMobileGridWrapper>
   )
 }
