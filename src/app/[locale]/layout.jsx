@@ -2,7 +2,7 @@ import '@/styles/index.scss'
 
 import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
-import Script from 'next/script'
+// import Script from 'next/script'
 import LayoutComponent from '@/components/Layout/LayoutComponent'
 import { nunito } from '@/utils/font'
 
@@ -49,7 +49,7 @@ https://cdn.jsdelivr.net/npm/react-toastify@9.1.3/dist/ReactToastify.min.css
           crossOrigin='anonymous'
           referrerPolicy='no-referrer'
         /> */}
-        <Script strategy='afterInteractive' id='google-analytics'>
+        {/* <Script strategy='afterInteractive' id='google-analytics'>
           {` 
            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], 
@@ -66,7 +66,7 @@ https://cdn.jsdelivr.net/npm/react-toastify@9.1.3/dist/ReactToastify.min.css
             width='0'
             style={{ display: 'none', visibility: 'hidden' }}
           />
-        </noscript>
+        </noscript> */}
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LayoutComponent>{children}</LayoutComponent>
           {/* {children} */}
