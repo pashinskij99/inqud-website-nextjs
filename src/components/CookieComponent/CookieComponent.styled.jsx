@@ -16,7 +16,7 @@ export const StyledCookieComponentWrapper = styled.div`
     align-items: center;
     gap: 24px;
     background-color: #077453;
-    padding: 44px 48px;
+    padding: 28px 48px;
     border-radius: 24px;
     ${responsive.sm`
       flex-direction: column;
@@ -52,13 +52,14 @@ export const StyledCookieComponentWrapper = styled.div`
           text-align: center;
         `}
         .title {
-          font-size: 24px;
+          font-size: 22px;
           font-weight: 700;
           line-height: 32px;
           letter-spacing: 0em;
           color: #ffffff;
         }
         .description {
+          font-size: 18px;
           color: #ffffff;
 
           .link {
@@ -76,6 +77,8 @@ export const StyledCookieComponentWrapper = styled.div`
       width: 100%;
     `}
     .btn {
+      font-size: 18px;
+      height: 46px;
       ${responsive.sm`
         width: 100%;
       `}
