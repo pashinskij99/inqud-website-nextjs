@@ -30,7 +30,7 @@ export default function HomePage({ data, params }) {
         <InView
           threshold={0}
           as='div'
-          rootMargin='30%'
+          rootMargin='440px'
           triggerOnce
           onChange={(inView) => setLoad(inView)}
         >
