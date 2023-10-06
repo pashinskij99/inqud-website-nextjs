@@ -18,8 +18,6 @@ import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import background from '@/assets/images/api/contact/background.webp'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { userSchema2 } from '@/utils/userSchema'
-import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
-import { createBlog } from '@/lib/datocms'
 
 export default function SendRequestSection() {
   const {
@@ -43,6 +41,9 @@ export default function SendRequestSection() {
     }
 
     // await toast.promise(
+    const submitForFormActiveCampaign = await import(
+      '@/lib/activeCampaign'
+    ).then((res) => res.submitForFormActiveCampaign)
     await submitForFormActiveCampaign(newData, '/api/create-contact', 6)
     //     ,
     //   {
@@ -52,7 +53,9 @@ export default function SendRequestSection() {
     // )
 
     const toast = await import('react-toastify').then((res) => res.toast)
-
+    const createBlog = await import('@/lib/datocms').then(
+      (res) => res.createBlog
+    )
     await toast.promise(createBlog({ data, modelId: '2540255' }), {
       pending: 'Sending data',
       success: 'Data sent',

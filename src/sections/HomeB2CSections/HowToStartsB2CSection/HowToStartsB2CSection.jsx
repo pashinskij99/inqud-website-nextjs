@@ -1,6 +1,7 @@
 import Image from 'next/image'
 // import { useTranslations } from 'next-intl'
 import { Fragment, useContext } from 'react'
+import { useWindowSize } from '@uidotdev/usehooks'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH1,
@@ -15,6 +16,7 @@ import TimeIcon from '@/assets/images/homeB2C/how-to-start/time.svg'
 import { ButtonLearnMore } from '@/components/UI/Button'
 // import { keysForLocale } from '@/config/keysForLocale'
 import { PageContext } from '@/contexts/PageContext/PageContext'
+import { responseBreakPoint } from '@/utils/response'
 
 export default function HowToStartsB2CSection() {
   // const t = useTranslations('home_b2c_page.how_start_section')
@@ -81,6 +83,8 @@ export default function HowToStartsB2CSection() {
   //   },
   // ]
 
+  const size = useWindowSize()
+
   const {
     dataPage: { homeB2c: data },
   } = useContext(PageContext)
@@ -92,11 +96,41 @@ export default function HowToStartsB2CSection() {
           <StyledTypographyUrbanistH1 className='title'>
             {data.screen4Title}
           </StyledTypographyUrbanistH1>
-          <div className='steps-wrapper desktop'>
-            {data.screen4Step.map(
-              ({ description, id, cartId, imageSrc, time, title }, i) => (
-                <Fragment key={id}>
+          {size.width && size.width > responseBreakPoint.tablet ? (
+            <div className='steps-wrapper desktop'>
+              {data.screen4Step.map(
+                ({ description, id, cartId, imageSrc, time, title }, i) => (
+                  <Fragment key={id}>
+                    <StepContent
+                      keyId={id}
+                      imageSrc={imageSrc}
+                      time={time}
+                      title={title}
+                      description={description}
+                      id={cartId}
+                    />
+                    {i !== data.screen4Step.length - 1 && (
+                      <div className='step-image-wrapper'>
+                        <Image
+                          className='step-image'
+                          src={arrowImage.src}
+                          width={171}
+                          height={20}
+                        />
+                      </div>
+                    )}
+                  </Fragment>
+                )
+              )}
+            </div>
+          ) : null}
+
+          {size.width && size.width <= responseBreakPoint.tablet ? (
+            <div className='steps-wrapper tabletOrMobile'>
+              {data.screen4Step.map(
+                ({ description, id, cartId, imageSrc, time, title }) => (
                   <StepContent
+                    key={id}
                     keyId={id}
                     imageSrc={imageSrc}
                     time={time}
@@ -104,36 +138,10 @@ export default function HowToStartsB2CSection() {
                     description={description}
                     id={cartId}
                   />
-                  {i !== data.screen4Step.length - 1 && (
-                    <div className='step-image-wrapper'>
-                      <Image
-                        className='step-image'
-                        src={arrowImage.src}
-                        width={171}
-                        height={20}
-                      />
-                    </div>
-                  )}
-                </Fragment>
-              )
-            )}
-          </div>
-
-          <div className='steps-wrapper tabletOrMobile'>
-            {data.screen4Step.map(
-              ({ description, id, cartId, imageSrc, time, title }) => (
-                <StepContent
-                  key={id}
-                  keyId={id}
-                  imageSrc={imageSrc}
-                  time={time}
-                  title={title}
-                  description={description}
-                  id={cartId}
-                />
-              )
-            )}
-          </div>
+                )
+              )}
+            </div>
+          ) : null}
         </div>
       </div>
     </StyledHowToStartsB2CSectionWrapper>

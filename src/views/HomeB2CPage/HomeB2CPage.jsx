@@ -16,7 +16,7 @@ import FeaturesB2CSection from '@/sections/HomeB2CSections/FeaturesB2CSection'
 import ProductLineB2CSection from '@/sections/HomeB2CSections/ProductLineB2CSection'
 import HowToStartsB2CSection from '@/sections/HomeB2CSections/HowToStartsB2CSection'
 import PassKYCB2CSection from '@/sections/HomeB2CSections/PassKYCB2CSection'
-import BlogsSection from '@/sections/BlogsSections/BlogsSection'
+import BlogsSection from '@/sections/HomeSections/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 
 export default function HomeB2CPage({ data }) {

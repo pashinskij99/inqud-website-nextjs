@@ -13,12 +13,15 @@ import Check from '@/assets/icons/check-green-background.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { AnimatedOneVideo } from '@/components/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
 import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
 
 const DynamicApiHeroSectionModalForm = dynamic(() =>
   import('./components/ApiHeroSectionModalForm').then((res) => res.default)
+)
+
+const DynamicAnimatedOneVideo = dynamic(() =>
+  import('@/components/AnimatedVideo').then((res) => res.AnimatedOneVideo)
 )
 
 export default function ApiHeroSection() {
@@ -73,18 +76,20 @@ export default function ApiHeroSection() {
             >
               {data.buttonScreen1B}
             </StyledButtonGhost>
-            <DynamicApiHeroSectionModalForm
-              data={data}
-              handleClose={handleHideModal}
-              showModal={showModal}
-            />
+            {showModal ? (
+              <DynamicApiHeroSectionModalForm
+                data={data}
+                handleClose={handleHideModal}
+                showModal={showModal}
+              />
+            ) : null}
           </div>
 
           <PaymentList />
         </div>
         <div className='right-side'>
           {size.width && size.width > responseBreakPoint.mobile ? (
-            <AnimatedOneVideo
+            <DynamicAnimatedOneVideo
               className='cart'
               width={500}
               height={488}

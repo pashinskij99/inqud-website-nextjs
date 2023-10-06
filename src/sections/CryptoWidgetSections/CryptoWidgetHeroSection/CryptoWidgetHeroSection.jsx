@@ -17,6 +17,7 @@ import {
   addGlobalScrollBar,
   removeGlobalScrollBar,
 } from '@/utils/addOrRemoveGlobalScrollBar'
+import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
 
 const DynamicModalCalendaly = dynamic(
   () => import('react-calendly').then((mod) => mod.PopupModal),
@@ -27,15 +28,6 @@ const DynamicModalCalendaly = dynamic(
 const DynamicAnimatedOneVideo = dynamic(
   () =>
     import('@/components/AnimatedVideo').then((mod) => mod.AnimatedOneVideo),
-  {
-    ssr: false,
-  }
-)
-const DynamicAnimated2Gif = dynamic(
-  () =>
-    import('@/components/AnimatedVideo/AnimatedVideo').then(
-      (mod) => mod.Animated2Gif
-    ),
   {
     ssr: false,
   }
@@ -107,7 +99,7 @@ export default function CryptoWidgetHeroSection() {
             />
           ) : null}
           {size.width && size.width <= responseBreakPoint.mobile ? (
-            <DynamicAnimated2Gif
+            <Animated2Gif
               className='graphic'
               height={357}
               timeRepeat={0}

@@ -3,8 +3,8 @@
 import { useContext, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
-import Image from 'next/image'
 import { useWindowSize } from '@uidotdev/usehooks'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -12,7 +12,6 @@ import {
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import {
-  StyledCoverageWrapper,
   StyledIndustriesWrapper,
   StyledOurLandscapeSection,
 } from './OurLandscapeSection.styled'
@@ -24,6 +23,10 @@ import { PageContext } from '@/contexts/PageContext/PageContext'
 import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_LANDSCAPE } from '@/lib/datocmsQuery'
 import { responseBreakPoint } from '@/utils/response'
+
+const DynamicCoverageTab = dynamic(() =>
+  import('./components/CoverageTab').then((res) => res.CoverageTab)
+)
 
 export default function OurLandscapeSection() {
   const [active, setActive] = useState(0)
@@ -70,7 +73,7 @@ export default function OurLandscapeSection() {
       case 0:
         return <IndustriesTab data={data} />
       case 1:
-        return <CoverageTab data={data} />
+        return <DynamicCoverageTab data={data} />
 
       default:
         return <IndustriesTab data={data} />
@@ -93,50 +96,6 @@ export default function OurLandscapeSection() {
         {getContent()}
       </div>
     </StyledOurLandscapeSection>
-  )
-}
-
-function CoverageTab({ data }) {
-  // const {
-  //   dataPage: { ourLandscape: data },
-  // } = useContext(PageContext)
-
-  return (
-    <StyledCoverageWrapper>
-      <div className='headerWrapper'>
-        <StyledTypographyUrbanistH5 className='ourLandscapeDescription'>
-          {data.description2}
-        </StyledTypographyUrbanistH5>
-        <ul className='list desktop'>
-          {data.coverageFeatures.map(
-            ({ id, description, image: { url, height, width }, title }) => (
-              <li key={id}>
-                <div className='coverageWrapper'>
-                  <Image src={url} alt={title} width={width} height={height} />
-                </div>
-                <div className='descriptionWrapper'>
-                  <StyledTypographyUrbanistBody className='name'>
-                    {title}
-                  </StyledTypographyUrbanistBody>
-                  <StyledTypographyUrbanistBody className='description'>
-                    {description}
-                  </StyledTypographyUrbanistBody>
-                </div>
-              </li>
-            )
-          )}
-        </ul>
-      </div>
-
-      <div className='coverageWrapper'>
-        <Image
-          src={data.coverageMap.url}
-          width={775.02}
-          height={400}
-          alt={data.description2}
-        />
-      </div>
-    </StyledCoverageWrapper>
   )
 }
 

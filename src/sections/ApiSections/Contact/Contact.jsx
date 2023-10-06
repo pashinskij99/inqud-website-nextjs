@@ -17,7 +17,6 @@ import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { userSchema2 } from '@/utils/userSchema'
-import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
 import { createBlog } from '@/lib/datocms'
 
 export function GetPersonalizedForm({
@@ -102,6 +101,9 @@ export default function Contact() {
     }
 
     // await toast.promise(
+    const submitForFormActiveCampaign = await import(
+      '@/lib/activeCampaign'
+    ).then((res) => res.submitForFormActiveCampaign)
     await submitForFormActiveCampaign(newData, '/api/create-contact', 9)
     //   ,
     //   {

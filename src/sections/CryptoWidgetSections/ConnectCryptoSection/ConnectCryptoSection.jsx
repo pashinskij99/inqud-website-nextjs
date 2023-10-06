@@ -83,12 +83,14 @@ export default function ConnectCryptoSection() {
           {/* {t('button_text')} */}
           {data.leadForm2Button}
         </ButtonGetStartedLight>
-        <DynamicModalCalendaly
-          onModalClose={handleCloseCalendlyModal}
-          open={calendlyModal}
-          rootElement={document.getElementById('calendly-model-wrapper')}
-          url='https://calendly.com/inqud_team/30-minute-free-consultation'
-        />
+        {calendlyModal ? (
+          <DynamicModalCalendaly
+            onModalClose={handleCloseCalendlyModal}
+            open={calendlyModal}
+            rootElement={document.getElementById('calendly-model-wrapper')}
+            url='https://calendly.com/inqud_team/30-minute-free-consultation'
+          />
+        ) : null}
       </div>
     </StyledConnectCryptoSectionWrapper>
   )

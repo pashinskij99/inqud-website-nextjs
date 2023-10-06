@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import { useContext, useEffect, useState } from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
 
-import { useForm } from 'react-hook-form'
 // import { toast } from 'react-toastify'
 import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
@@ -17,16 +15,15 @@ import Check from '@/assets/icons/check-dark.svg'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import { ButtonGhostCrypto } from '@/components/UI/Button'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { userSchema1 } from '@/utils/userSchema'
 import { responseBreakPoint } from '@/utils/response'
 import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
-import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
-import { createBlog, getPageData } from '@/lib/datocms'
+import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_CRYPTO_WIDGET_2 } from '@/lib/datocmsQuery'
 
-const DynamicModalSubmitEmail = dynamic(
-  () => import('@/components/Modal').then((mod) => mod.ModalSubmitEmail),
+const DynamicModalSubmitEmailWrapper = dynamic(
+  () =>
+    import('./components/ModalSubmitEmailWrapper').then((mod) => mod.default),
   {
     ssr: false,
   }
@@ -35,17 +32,6 @@ const DynamicModalSubmitEmail = dynamic(
 export default function CryptoWidget2Section() {
   const [open, setOpen] = useState(false)
   const [data, setData] = useState({})
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    reset,
-  } = useForm({
-    defaultValues: {
-      email: '',
-    },
-    resolver: yupResolver(userSchema1),
-  })
 
   // const {
   //   dataPage: { homePage: data },
@@ -57,30 +43,6 @@ export default function CryptoWidget2Section() {
   }
   const handleClose = () => {
     setOpen(false)
-  }
-
-  const onSubmit = async (data) => {
-    const newData = {
-      email: data.email,
-    }
-
-    // await toast.promise(
-    await submitForFormActiveCampaign(newData, '/api/create-contact', 4)
-    //     ,
-    //   {
-    //     pending: 'Sending data',
-    //     success: 'Data sent',
-    //   }
-    // )
-    const toast = await import('react-toastify').then((res) => res.toast)
-
-    await toast.promise(createBlog({ data, modelId: '2537957' }), {
-      pending: 'Sending data',
-      success: 'Data sent',
-    })
-
-    handleClose()
-    reset()
   }
 
   const size = useWindowSize()
@@ -195,11 +157,7 @@ export default function CryptoWidget2Section() {
             </StyledButtonSecondaryLight>
 
             {open ? (
-              <DynamicModalSubmitEmail
-                errors={errors}
-                onSubmit={onSubmit}
-                register={register}
-                handleSubmit={handleSubmit}
+              <DynamicModalSubmitEmailWrapper
                 open={open}
                 handleClose={handleClose}
               />

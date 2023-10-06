@@ -109,10 +109,12 @@ export function DetailsSectionInner() {
                   Contact us
                 </StyledTypographyUrbanistBody>
               </StyledButtonLearnMore>
-              <DynamicDetailsSectionModalForm
-                handleClose={handleClose}
-                openModal={openModalSendRequest}
-              />
+              {openModalSendRequest ? (
+                <DynamicDetailsSectionModalForm
+                  handleClose={handleClose}
+                  openModal={openModalSendRequest}
+                />
+              ) : null}
             </div>
           </div>
         </StyledRightSideWrapper>

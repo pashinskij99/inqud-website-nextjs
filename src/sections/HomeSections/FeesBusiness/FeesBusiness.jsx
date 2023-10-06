@@ -4,8 +4,6 @@ import { useContext, useEffect, useState } from 'react'
 import clsx from 'clsx'
 import { render } from 'datocms-structured-text-to-html-string'
 import { StructuredText } from 'react-datocms/structured-text'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
 // import { toast } from 'react-toastify'
 import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
@@ -23,46 +21,14 @@ import {
 import BackCart from '@/assets/images/fee/cart-back.svg'
 // import { FeeModal } from '@/components/Modal/Modal'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { emailRegExp, phoneRegExp, userSchema8 } from '@/utils/userSchema'
-import { createBlog, getPageData } from '@/lib/datocms'
+import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_FEES } from '@/lib/datocmsQuery'
 import { responseBreakPoint } from '@/utils/response'
 
-const DynamicFeeModal = dynamic(
-  () => import('@/components/Modal/Modal').then((res) => res.FeeModal),
+const DynamicFeeModalWrapper = dynamic(
+  () => import('./components/FeeModalWrapper').then((res) => res.default),
   { ssr: false }
 )
-
-const checkValue = (key, value) => {
-  switch (key) {
-    case 'email':
-      return value.toLowerCase().match(emailRegExp)
-        ? 'valid'
-        : 'Email is not valid'
-    case 'phone':
-      return value.toLowerCase().match(phoneRegExp)
-        ? 'valid'
-        : 'Phone number is not valid'
-    case 'whatsapp':
-      return value.toLowerCase().length >= 4
-        ? 'valid'
-        : 'Whatsapp username must be at least 4 characters'
-    default:
-      return null
-  }
-}
-
-const validateLastValues = (obj) => {
-  let result
-
-  Object.entries(obj).forEach(([key, value]) => {
-    if (value) {
-      result = checkValue(key, value)
-    }
-  })
-
-  return result || 'one of these fields must be filled'
-}
 
 // eslint-disable-next-line no-unused-vars
 export default function FeesBusiness({ modelId, autoId }) {
@@ -73,74 +39,8 @@ export default function FeesBusiness({ modelId, autoId }) {
     setShowModal(true)
   }
 
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    reset,
-    setValue,
-    control,
-  } = useForm({
-    resolver: yupResolver(userSchema8),
-  })
   const handleHideModal = () => {
     setShowModal(false)
-  }
-  const [lastError, setLastError] = useState('')
-  const clearLastError = () => {
-    setLastError('')
-  }
-
-  const onSubmit = async (data) => {
-    const resultCheck = validateLastValues({
-      email: data.email,
-      phone: data.phone,
-      whatsapp: data.whatsapp,
-    })
-    if (resultCheck === 'valid') {
-      // const newData = {
-      //   email: data.email,
-      //   phone: data.phone,
-      //   whatsapp: data.whatsapp,
-      //   fieldValues: [
-      //     {
-      //       field: '2',
-      //       value: data.company_name,
-      //     },
-      //     {
-      //       field: '3',
-      //       value: data.website,
-      //     },
-      //     {
-      //       field: '4',
-      //       value: data.industry,
-      //     },
-      //     {
-      //       field: '1',
-      //       value: data.message,
-      //     },
-      //   ],
-      // }
-
-      // await toast.promise(
-      //   submitForFormActiveCampaign(newData, '/api/create-contact', autoId),
-      //   {
-      //     pending: 'Sending data',
-      //     success: 'Data sent',
-      //   }
-      // )
-      const toast = await import('react-toastify').then((res) => res.toast)
-
-      await toast.promise(createBlog({ data, modelId }), {
-        pending: 'Sending data',
-        success: 'Data sent',
-      })
-
-      handleHideModal()
-      reset()
-    } else {
-      setLastError(resultCheck)
-    }
   }
 
   const hadleShowMore = () => setShowMore((prevState) => !prevState)
@@ -278,17 +178,10 @@ export default function FeesBusiness({ modelId, autoId }) {
       </div>
 
       {showModal ? (
-        <DynamicFeeModal
-          lastError={lastError}
-          clearLastError={clearLastError}
-          setValue={setValue}
-          control={control}
-          open={showModal}
-          handleClose={handleHideModal}
-          errors={errors}
-          register={register}
-          onSubmit={onSubmit}
-          handleSubmit={handleSubmit}
+        <DynamicFeeModalWrapper
+          modelId={modelId}
+          showModal={showModal}
+          handleHideModal={handleHideModal}
         />
       ) : null}
     </StyledFeesBusinessWrapper>

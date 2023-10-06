@@ -118,12 +118,14 @@ export default function InstantFree() {
               {/* {tButtonsContactSales(keysForLocale.keys2[1])} */}
               {data.buttonScreen4B}
             </StyledButtonGhost>
-            <DynamicModalCalendaly
-              onModalClose={handleCloseCalendlyModal}
-              open={calendlyModal}
-              rootElement={document.getElementById('calendly-model-wrapper')}
-              url='https://calendly.com/inqud_team/30-minute-free-consultation'
-            />
+            {calendlyModal ? (
+              <DynamicModalCalendaly
+                onModalClose={handleCloseCalendlyModal}
+                open={calendlyModal}
+                rootElement={document.getElementById('calendly-model-wrapper')}
+                url='https://calendly.com/inqud_team/30-minute-free-consultation'
+              />
+            ) : null}
           </div>
         </div>
         <div className='right-side'>

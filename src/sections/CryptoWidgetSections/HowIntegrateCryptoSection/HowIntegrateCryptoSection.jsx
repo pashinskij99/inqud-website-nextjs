@@ -1,7 +1,6 @@
 import { useContext, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
 // import { toast } from 'react-toastify'
+import dynamic from 'next/dynamic'
 import { StyledHowIntegrateCryptoSectionWrapper } from './HowIntegrateCryptoSection.styled'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import arrowImage from '@/assets/images/homeB2C/how-to-start/arrow.png'
@@ -13,11 +12,13 @@ import Icon4 from '@/assets/images/api/how-integrate/num4-min.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { StepContent } from '@/sections/ApiSections/HowIntegrate/HowIntegrate'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { ModalSendRequest } from '@/components/Modal'
-import { userSchema2 } from '@/utils/userSchema'
 // import { createBlog } from '@/lib/datocms'
-import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
-import { createBlog } from '@/lib/datocms'
+
+const DynamicHowIntegrateCryptoSectionModal = dynamic(() =>
+  import('./components/HowIntegrateCryptoSectionModal').then(
+    (res) => res.default
+  )
+)
 
 export default function HowIntegrateCryptoSection() {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
@@ -25,55 +26,12 @@ export default function HowIntegrateCryptoSection() {
     dataPage: { cryptoWidgetPage: data },
   } = useContext(PageContext)
 
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    reset,
-  } = useForm({
-    defaultValues: {
-      email: '',
-      message: '',
-    },
-    resolver: yupResolver(userSchema2),
-  })
-
   const handleOpen = () => {
     setOpenModalSendRequest(true)
   }
 
   const handleClose = () => {
     setOpenModalSendRequest(false)
-  }
-
-  const onSubmit = async (data) => {
-    const newData = {
-      email: data.email,
-      fieldValues: [
-        {
-          field: '1',
-          value: data.message,
-        },
-      ],
-    }
-
-    // await toast.promise(
-    await submitForFormActiveCampaign(newData, '/api/create-contact', 11)
-    // ,
-    // {
-    //   pending: 'Sending data',
-    //   success: 'Data sent',
-    // }
-    // )
-    const toast = await import('react-toastify').then((res) => res.toast)
-
-    await toast.promise(createBlog({ data, modelId: '2543028' }), {
-      pending: 'Sending data',
-      success: 'Data sent',
-    })
-
-    handleClose()
-    reset()
   }
 
   const stepsContent = [
@@ -164,14 +122,12 @@ export default function HowIntegrateCryptoSection() {
           {data.buttonScreen6}
         </ButtonGetStarted>
 
-        <ModalSendRequest
-          handleSubmit={handleSubmit}
-          onSubmit={onSubmit}
-          register={register}
-          handleClose={handleClose}
-          errors={errors}
-          open={openModalSendRequest}
-        />
+        {openModalSendRequest ? (
+          <DynamicHowIntegrateCryptoSectionModal
+            handleClose={handleClose}
+            open={openModalSendRequest}
+          />
+        ) : null}
       </div>
     </StyledHowIntegrateCryptoSectionWrapper>
   )
