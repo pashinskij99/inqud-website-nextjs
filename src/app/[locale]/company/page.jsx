@@ -1,5 +1,6 @@
-import { getData } from '@/lib/datocms'
-import CompanyPage from '@/views/CompanyPage'
+/* eslint-disable no-unused-vars */
+// import { getData } from '@/lib/datocms'
+// import CompanyPage from '@/views/CompanyPage'
 
 const COMPANY_PAGE_QUERY = `  
 query MyQuery($locale: SiteLocale) {
@@ -69,7 +70,8 @@ query MyQuery($locale: SiteLocale) {
 `
 
 export default async function Page({ params }) {
-  const data = await getData(COMPANY_PAGE_QUERY, { locale: params.locale })
+  // const data = await getData(COMPANY_PAGE_QUERY, { locale: params.locale })
 
-  return <CompanyPage data={data} />
+  // return <CompanyPage data={data} />
+  return <>1</>
 }
