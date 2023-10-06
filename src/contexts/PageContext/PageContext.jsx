@@ -9,9 +9,8 @@ export default function PageProvider({
   children,
   params = {},
 }) {
-  console.log(dataPage)
   let faq
-  if (isFaq) {
+  if (isFaq && dataPage.length) {
     faq = {
       faqTitle: dataPage[nameCMSPage].faqMainTitle,
       faqTitleMobile: dataPage[nameCMSPage].faqMainTitleMobile,
