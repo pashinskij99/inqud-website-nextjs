@@ -3,7 +3,7 @@ import '@/styles/index.scss'
 import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'
-// import LayoutComponent from '@/components/Layout/LayoutComponent'
+import LayoutComponent from '@/components/Layout/LayoutComponent'
 import { nunito } from '@/utils/font'
 
 // import 'swiper/css'
@@ -43,6 +43,12 @@ https://cdn.jsdelivr.net/npm/react-toastify@9.1.3/dist/ReactToastify.min.css
       </head>
 
       <body className={nunito.className}>
+        {/* <Script
+          src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js'
+          integrity='sha512-emSwuKiMyYedRwflbZB2ghzX8Cw8fmNVgZ6yQNNXXagFzFOaQmbvQ1vmDkddHjm5AITcBIZfC7k4ShQSjgPAmQ=='
+          crossOrigin='anonymous'
+          referrerPolicy='no-referrer'
+        /> */}
         <Script strategy='afterInteractive' id='google-analytics'>
           {` 
            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': 
@@ -62,8 +68,8 @@ https://cdn.jsdelivr.net/npm/react-toastify@9.1.3/dist/ReactToastify.min.css
           />
         </noscript>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {/* <LayoutComponent>{children}</LayoutComponent> */}
-          {children}
+          <LayoutComponent>{children}</LayoutComponent>
+          {/* {children} */}
           <div id='myportal' />
           <div id='calendly-model-wrapper' />
         </NextIntlClientProvider>

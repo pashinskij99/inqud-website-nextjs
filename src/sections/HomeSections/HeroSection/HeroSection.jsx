@@ -27,10 +27,6 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
-import {
-  addGlobalScrollBar,
-  removeGlobalScrollBar,
-} from '@/utils/addOrRemoveGlobalScrollBar'
 import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_HERO_LIST } from '@/lib/datocmsQuery'
 
@@ -73,12 +69,19 @@ export default function HeroSection() {
   //   },
   // })
 
-  const handleOpenCalendlyModal = () => {
+  const handleOpenCalendlyModal = async () => {
     setCalendlyModal(true)
+    const removeGlobalScrollBar = await import(
+      '@/utils/addOrRemoveGlobalScrollBar'
+    ).then((res) => res.removeGlobalScrollBar)
     removeGlobalScrollBar()
   }
-  const handleCloseCalendlyModal = () => {
+  const handleCloseCalendlyModal = async () => {
     setCalendlyModal(false)
+    const addGlobalScrollBar = await import(
+      '@/utils/addOrRemoveGlobalScrollBar'
+    ).then((res) => res.addGlobalScrollBar)
+
     addGlobalScrollBar()
   }
 

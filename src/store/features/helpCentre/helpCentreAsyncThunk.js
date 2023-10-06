@@ -1,6 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-// import axios from 'axios'
-import { setBlogBreadcrumbs } from '../breadcrumb/breadcrumbSlice'
 
 export const fetchHelpCentreData = createAsyncThunk(
   'helpCentre/fetchHelpCentreData',
@@ -29,6 +27,9 @@ export const fetchHelpCentreDetailsData = createAsyncThunk(
       )
 
       const { data } = await response.data
+      const setBlogBreadcrumbs = await import(
+        '../breadcrumb/breadcrumbSlice'
+      ).then((res) => res.setBlogBreadcrumbs)
       dispatch(setBlogBreadcrumbs(data.helpCentre.mainTitle))
       return data
     } catch (error) {

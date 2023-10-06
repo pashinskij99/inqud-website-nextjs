@@ -10,9 +10,9 @@ import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
 import PickSection from '@/sections/HomeSections/PickSection'
 import CryptoWidget2Section from '@/sections/HomeSections/CryptoWidget2Section'
 import ReasonsToTeamUp from '@/sections/HomeSections/ReasonsToTeamUp'
-import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
-import BlogsSection from '@/sections/HomeSections/BlogsSection'
-import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
+// import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
+// import BlogsSection from '@/sections/HomeSections/BlogsSection'
+// import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import HeroSection from '@/sections/HomeSections/HeroSection'
 import YourNeedsSection from '@/sections/HomeSections/YourNeedsSection'
 
@@ -30,7 +30,6 @@ export default function HomePage({ data, params }) {
   return (
     <PageProvider isFaq dataPage={data} params={params} nameCMSPage='homePage'>
       <StyledHomeWrapper>
-        {/* Content loading ssr */}
         <HeroSection />
         <YourNeedsSection />
         <CryptoWidgetSection />
@@ -39,10 +38,10 @@ export default function HomePage({ data, params }) {
         <CryptoWidget2Section />
         <ReasonsToTeamUp />
         <FeesBusiness modelId='2540165' autoId={10} />
-        <OurLandscapeSection />
+        {/* <OurLandscapeSection /> */}
         <PickSection className='pickSection2' />
-        <BlogsSection />
-        <QuestionsSection />
+        {/* <BlogsSection /> */}
+        {/* <QuestionsSection /> */}
       </StyledHomeWrapper>
     </PageProvider>
   )
