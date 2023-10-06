@@ -21,6 +21,10 @@ import { responseBreakPoint } from '@/utils/response'
 // import gifStill from '@/assets/gif/b2b_crypto_widget_mobile.webp'
 import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_CRYPTO_WIDGET } from '@/lib/datocmsQuery'
+import {
+  Animated2GifOnView,
+  AnimatedVideoOnScroll,
+} from '@/components/AnimatedVideo/AnimatedVideo'
 
 export default function CryptoWidgetSection() {
   const t = useTranslations('home_page_crypto_widget_section')
@@ -58,7 +62,7 @@ export default function CryptoWidgetSection() {
           </StyledTypographyUrbanistH2>
 
           <div className='cryptoWidgetMobileWrapper'>
-            {/* {size.width &&
+            {size.width &&
             size.width > responseBreakPoint.mobile &&
             size.width < responseBreakPoint.desktop ? (
               <AnimatedVideoOnScroll
@@ -80,7 +84,7 @@ export default function CryptoWidgetSection() {
                 timeSecondAnimate={5000}
                 width={500}
               />
-            ) : null} */}
+            ) : null}
           </div>
 
           {size.width && size.width <= responseBreakPoint.mobile ? (
@@ -134,7 +138,7 @@ export default function CryptoWidgetSection() {
         </div>
 
         <div className='rightSide'>
-          {/* {size.width && size.width >= responseBreakPoint.desktop ? (
+          {size.width && size.width >= responseBreakPoint.desktop ? (
             <AnimatedVideoOnScroll
               className='graphic'
               height={600}
@@ -142,7 +146,7 @@ export default function CryptoWidgetSection() {
               urlFirstVideo='/video/b2b_crypto_video_web.webm'
               width={500}
             />
-          ) : null} */}
+          ) : null}
         </div>
       </div>
     </StyledCryptoWidgetSection>

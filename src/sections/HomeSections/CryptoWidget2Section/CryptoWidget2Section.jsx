@@ -20,6 +20,8 @@ import { responseBreakPoint } from '@/utils/response'
 // import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_CRYPTO_WIDGET_2 } from '@/lib/datocmsQuery'
+import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
+import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 
 const DynamicModalSubmitEmailWrapper = dynamic(
   () =>
@@ -72,7 +74,7 @@ export default function CryptoWidget2Section() {
           <StyledTypographyUrbanistH2 className='crypto2Title'>
             {data.screen5Title}
           </StyledTypographyUrbanistH2>
-          {/* {size.width &&
+          {size.width &&
           size.width <= responseBreakPoint.tablet &&
           size.width > responseBreakPoint.mobile ? (
             <AnimatedVideoOnScroll
@@ -82,8 +84,8 @@ export default function CryptoWidget2Section() {
               timeRepeat={5000}
               urlFirstVideo='/video/b2b_cart2crypto.webm'
             />
-          ) : null} */}
-          {/* {size.width && size.width <= responseBreakPoint.mobile ? (
+          ) : null}
+          {size.width && size.width <= responseBreakPoint.mobile ? (
             <Animated2GifOnView
               className='crypto2WidgetTablet'
               width={500}
@@ -93,7 +95,7 @@ export default function CryptoWidget2Section() {
               urlSecondVideo='/video/b2b_cart2crypto.gif'
               timeSecondAnimate={5000}
             />
-          ) : null} */}
+          ) : null}
 
           {size.width && size.width <= responseBreakPoint.mobile ? (
             <StyledTypographyUrbanistH5 className='crypto2Description crypto2Description-mobile'>
@@ -171,7 +173,7 @@ export default function CryptoWidget2Section() {
           </div>
         </div>
         <div className='rightSide'>
-          {/* {size.width && size.width >= responseBreakPoint.desktop ? (
+          {size.width && size.width >= responseBreakPoint.desktop ? (
             <AnimatedVideoOnScroll
               className='graphic'
               width={500}
@@ -179,7 +181,7 @@ export default function CryptoWidget2Section() {
               timeRepeat={5000}
               urlFirstVideo='/video/b2b_cart2crypto.webm'
             />
-          ) : null} */}
+          ) : null}
         </div>
       </div>
     </StyledCryptoWidget2Section>
