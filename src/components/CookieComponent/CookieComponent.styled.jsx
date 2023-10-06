@@ -27,7 +27,7 @@ export const StyledCookieComponentWrapper = styled.div`
       align-items: center;
       gap: 24px;
       ${responsive.sm`
-        flex-direction: column;
+        flex-direction: row;
       `}
       .icon-wrapper {
         flex-shrink: 0;
@@ -57,11 +57,16 @@ export const StyledCookieComponentWrapper = styled.div`
           line-height: 32px;
           letter-spacing: 0em;
           color: #ffffff;
+          ${responsive.sm`
+            font-size: 16px;
+          `}
         }
         .description {
           font-size: 18px;
           color: #ffffff;
-
+          ${responsive.sm`
+            font-size: 14px;
+          `}
           .link {
             display: inline-flex;
             color: #bfffc8;
