@@ -14,8 +14,8 @@ import {
   StyledQuestionsSectionAccordionDetails,
   StyledQuestionsSectionAccordionSummary,
 } from './QuestionsSection.styled'
-import Plus from '@/assets/icons/plus.svg'
-import Minus from '@/assets/icons/minus.svg'
+// import Plus from '@/assets/icons/plus.svg'
+// import Minus from '@/assets/icons/minus.svg'
 import { ButtonLearnMore } from '@/components/UI/Button'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { getPageData } from '@/lib/datocms'
@@ -106,7 +106,7 @@ export function AccordionItem({
     >
       <StyledQuestionsSectionAccordionSummary
         expanded={expanded === title}
-        expandIcon={expanded === title ? <Minus /> : <Plus />}
+        // expandIcon={expanded === title ? <Minus /> : <Plus />}
       >
         <StyledTypographyUrbanistH5 className='questionsAccordionTitle'>
           {title}

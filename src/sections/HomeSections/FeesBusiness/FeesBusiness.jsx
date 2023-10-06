@@ -18,7 +18,7 @@ import {
   StyledButtonLearnMore,
   StyledButtonSecondaryLight,
 } from '@/components/UI/Button/Button.styled'
-import BackCart from '@/assets/images/fee/cart-back.svg'
+// import BackCart from '@/assets/images/fee/cart-back.svg'
 // import { FeeModal } from '@/components/Modal/Modal'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { getPageData } from '@/lib/datocms'
@@ -166,7 +166,7 @@ export default function FeesBusiness({ modelId, autoId }) {
                 {data.cartButton}
               </StyledButtonSecondaryLight>
             </div>
-            <BackCart className='cart-back' />
+            {/* <BackCart className='cart-back' /> TODO */}
           </div>
         </div>
 

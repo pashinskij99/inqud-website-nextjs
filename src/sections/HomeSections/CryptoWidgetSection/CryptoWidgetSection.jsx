@@ -12,8 +12,8 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 import { ButtonGetStartedLight } from '@/components/UI/Button/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import Check from '@/assets/icons/check-green-background.svg'
-import Loading from '@/assets/icons/loading.svg'
+// import Check from '@/assets/icons/check-green-background.svg'
+// import Loading from '@/assets/icons/loading.svg'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 // import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
@@ -101,8 +101,8 @@ export default function CryptoWidgetSection() {
                 data-slug={t('comming_soon')}
                 key={id}
               >
-                <Check className='check' />
-                <Loading className='loading' />
+                {/* <Check className='check' /> TODO */}
+                {/* <Loading className='loading' /> */}
                 <div className='icon-wrapper'>
                   <Image src={url} alt={title} width={24} height={24} />
                 </div>

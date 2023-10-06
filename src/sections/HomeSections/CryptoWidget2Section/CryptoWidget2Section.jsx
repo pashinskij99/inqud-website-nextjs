@@ -11,7 +11,7 @@ import {
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledCryptoWidget2Section } from './CryptoWidget2Section.styled'
-import Check from '@/assets/icons/check-dark.svg'
+// import Check from '@/assets/icons/check-dark.svg'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import { ButtonGhostCrypto } from '@/components/UI/Button'
 import { PageContext } from '@/contexts/PageContext/PageContext'
@@ -115,7 +115,7 @@ export default function CryptoWidget2Section() {
                   data-slug='comming soon'
                   key={id}
                 >
-                  <Check className='check' />
+                  {/* <Check className='check' /> TODO */}
                   <Image src={url} alt={title} width={48} height={48} />
                   <StyledTypographyUrbanistH5
                     component='h3'

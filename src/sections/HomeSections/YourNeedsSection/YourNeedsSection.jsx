@@ -10,14 +10,15 @@ import { YourNeedsSectionWrapper } from './YourNeedsSection.styled'
 import Image1 from '@/assets/images/your-needs/image1.png'
 import Image2 from '@/assets/images/your-needs/image2.png'
 import Image3 from '@/assets/images/your-needs/image3.png'
-import Coins1 from '@/assets/images/your-needs/Coins1.svg'
-import Coins2 from '@/assets/images/your-needs/Coins2.svg'
-import Coins3 from '@/assets/images/your-needs/Coins3.svg'
-import Coins4 from '@/assets/images/your-needs/Coins4.svg'
-import Coins5 from '@/assets/images/your-needs/Coins5.svg'
+// import Coins1 from '@/assets/images/your-needs/Coins1.svg'
+// import Coins2 from '@/assets/images/your-needs/Coins2.svg'
+// import Coins3 from '@/assets/images/your-needs/Coins3.svg'
+// import Coins4 from '@/assets/images/your-needs/Coins4.svg'
+// import Coins5 from '@/assets/images/your-needs/Coins5.svg'
 import { keysForLocale } from '@/config/keysForLocale'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { responseBreakPoint } from '@/utils/response'
+import CoinsList from './components/CoinsList'
 
 const DynamicCartRequirement = dynamic(
   () =>
@@ -35,12 +36,12 @@ const DynamicYourNeedsSectionSwiper = dynamic(
   }
 )
 
-const DynamicCoinsList = dynamic(
-  () => import('./components/CoinsList').then((mod) => mod.default),
-  {
-    ssr: false,
-  }
-)
+// const DynamicCoinsList = dynamic(
+//   () => import('./components/CoinsList').then((mod) => mod.default),
+//   {
+//     ssr: false,
+//   }
+// )
 
 const DynamicYourNeedsSectionModalForm = dynamic(
   () =>
@@ -51,11 +52,26 @@ const DynamicYourNeedsSectionModalForm = dynamic(
 )
 
 const coinsList = [
-  { id: 3, icon: <Coins4 /> },
-  { id: 4, icon: <Coins5 /> },
-  { id: 0, icon: <Coins1 /> },
-  { id: 1, icon: <Coins2 /> },
-  { id: 2, icon: <Coins3 /> },
+  {
+    id: 3,
+    // icon: <Coins4 />
+  },
+  {
+    id: 4,
+    // icon: <Coins5 />
+  },
+  {
+    id: 0,
+    // icon: <Coins1 />
+  },
+  {
+    id: 1,
+    // icon: <Coins2 />
+  },
+  {
+    id: 2,
+    // icon: <Coins3 />
+  },
 ]
 
 export default function YourNeedsSection() {
@@ -153,7 +169,7 @@ export default function YourNeedsSection() {
           {t('title')}
         </StyledTypographyUrbanistH2>
 
-        <DynamicCoinsList coinsList={coinsList} />
+        <CoinsList coinsList={coinsList} />
 
         <StyledTypographyUrbanistH5
           component='p'

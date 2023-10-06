@@ -15,9 +15,9 @@ import {
   StyledIndustriesWrapper,
   StyledOurLandscapeSection,
 } from './OurLandscapeSection.styled'
-import Icon1 from '@/assets/images/our-landscape/1.svg'
-import Icon2 from '@/assets/images/our-landscape/2.svg'
-import Icon3 from '@/assets/images/our-landscape/3.svg'
+// import Icon1 from '@/assets/images/our-landscape/1.svg'
+// import Icon2 from '@/assets/images/our-landscape/2.svg'
+// import Icon3 from '@/assets/images/our-landscape/3.svg'
 import { TabsComponent } from '@/components/TabsComponent/TabsComponent'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { getPageData } from '@/lib/datocms'
@@ -106,15 +106,15 @@ function IndustriesTab({ data }) {
 
   const accordionData = [
     {
-      icon: <Icon1 />,
+      // icon: <Icon1 />,
       columnColor: '255, 163, 163',
     },
     {
-      icon: <Icon2 />,
+      // icon: <Icon2 />,
       columnColor: '255, 196, 81',
     },
     {
-      icon: <Icon3 />,
+      // icon: <Icon3 />,
       columnColor: '129, 158, 176',
     },
   ]
@@ -191,11 +191,12 @@ const stepsOpacity = [
   ['0.20000000298023224', '0.4000000059604645', '0.6000000238418579', '1'],
 ]
 
+// eslint-disable-next-line no-unused-vars
 function Accordion({ idColumn, icon, items, title, columnColor }) {
   return (
     <div className='ourLandscapeAccordion'>
       <div className='ourLandscapeAccordionTitle'>
-        {icon}
+        {/* {icon} TODO */}
         <StyledTypographyIBMH5>{title}</StyledTypographyIBMH5>
       </div>
       {items.map((accordionTitle, i) => (

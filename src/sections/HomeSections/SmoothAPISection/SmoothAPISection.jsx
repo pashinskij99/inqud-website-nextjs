@@ -11,7 +11,7 @@ import {
 import { StyledSmoothAPISection } from './SmoothAPISection.styled'
 import { ButtonGetStarted } from '@/components/UI/Button/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import Check from '@/assets/icons/check-green-background.svg'
+// import Check from '@/assets/icons/check-green-background.svg'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 // import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 // import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
@@ -118,7 +118,7 @@ export default function SmoothAPISection() {
                   data-slug='comming soon'
                   key={id}
                 >
-                  <Check className='check' />
+                  {/* <Check className='check' /> TODO */}
                   <Image src={url} alt={title} width={48} height={48} />
                   <StyledTypographyUrbanistH5
                     component='h3'
