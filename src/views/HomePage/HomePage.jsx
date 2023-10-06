@@ -30,6 +30,7 @@ export default function HomePage({ data, params }) {
         <InView
           threshold={0}
           as='div'
+          className='content-wrapper-homepage'
           rootMargin='440px'
           triggerOnce
           onChange={(inView) => setLoad(inView)}
