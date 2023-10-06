@@ -7,7 +7,7 @@ import PageProvider from '@/contexts/PageContext/PageContext'
 // import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
 // import CryptoWidgetSection from '@/sections/HomeSections/CryptoWidgetSection'
 // import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
-// import PickSection from '@/sections/HomeSections/PickSection'
+import PickSection from '@/sections/HomeSections/PickSection'
 // import CryptoWidget2Section from '@/sections/HomeSections/CryptoWidget2Section'
 // import ReasonsToTeamUp from '@/sections/HomeSections/ReasonsToTeamUp'
 // import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
@@ -30,18 +30,18 @@ export default function HomePage({ data, params }) {
   return (
     <PageProvider isFaq dataPage={data} params={params} nameCMSPage='homePage'>
       <StyledHomeWrapper>
-        {/* <HeroSection />
-        <YourNeedsSection />
-        <CryptoWidgetSection />
-        <SmoothAPISection />
+        {/* <HeroSection /> */}
+        {/* <YourNeedsSection /> */}
+        {/* <CryptoWidgetSection /> */}
+        {/* <SmoothAPISection /> */}
         <PickSection className='pickSection' variant='dontLose' />
-        <CryptoWidget2Section />
-        <ReasonsToTeamUp />
-        <FeesBusiness modelId='2540165' autoId={10} />
-        <OurLandscapeSection />
-        <PickSection className='pickSection2' />
-        <BlogsSection />
-        <QuestionsSection /> */}
+        {/* <CryptoWidget2Section /> */}
+        {/* <ReasonsToTeamUp /> */}
+        {/* <FeesBusiness modelId='2540165' autoId={10} /> */}
+        {/* <OurLandscapeSection /> */}
+        {/* <PickSection className='pickSection2' /> */}
+        {/* <BlogsSection /> */}
+        {/* <QuestionsSection /> */}
       </StyledHomeWrapper>
     </PageProvider>
   )
