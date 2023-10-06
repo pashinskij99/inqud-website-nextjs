@@ -4,9 +4,9 @@ import { responsive } from '@/utils/response'
 export const StyledHomeWrapper = styled.main`
   height: 100%;
 
-  // ${responsive.sm`
-  //   display: grid;
-  // `}
+  ${responsive.sm`
+    display: grid;
+  `}
   .pickSection {
     position: absolute;
     margin: 0 auto;
