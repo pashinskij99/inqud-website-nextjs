@@ -82,13 +82,13 @@ export const createBlog = async ({ data, modelId }) => {
       date_and_time: new Date().toISOString(),
     })
   } catch (e) {
-    const ApiError = await import('@datocms/cma-client-browser').then(
-      (res) => res.ApiError
-    )
-    if (e instanceof ApiError) {
-    } else {
-      throw e
-    }
+    // const ApiError = await import('@datocms/cma-client-browser').then(
+    //   (res) => res.ApiError
+    // )
+    // if (e instanceof ApiError) {
+    // } else {
+    throw e
+    // }
   }
 }
 
