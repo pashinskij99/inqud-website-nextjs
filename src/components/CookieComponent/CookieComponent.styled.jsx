@@ -20,6 +20,7 @@ export const StyledCookieComponentWrapper = styled.div`
     border-radius: 24px;
     ${responsive.sm`
       flex-direction: column;
+      padding: 20px;
     `}
 
     .text {
