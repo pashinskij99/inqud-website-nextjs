@@ -1,7 +1,8 @@
-import { getData } from '@/lib/datocms'
+// import { getData } from '@/lib/datocms'
 import HomePage from '@/views/HomePage'
+import { getData } from '@/lib/datocms'
 
-const HOME_PAGE_QUERY = `  
+const HOME_PAGE_QUERY = `
   query MyQuery($locale: SiteLocale) {
     homePage(locale: $locale) {
       buttonScreen1ContactSales
@@ -14,18 +15,6 @@ const HOME_PAGE_QUERY = `
       subTitle
       title
       buttonScreen2
-    }
-    
-    supportedCurrency(locale: $locale) {
-      id
-      title
-      list {
-        id
-        supportedCurrenciesName
-        supportedCurrenciesImage {
-          url
-        }
-      }
     }
   }
 `

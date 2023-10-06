@@ -18,6 +18,22 @@ export const HOME_B2B_CRYPTO_WIDGET = `
   }
 `
 
+export const HOME_B2B_HERO_LIST = `
+  query MyQuery($locale: SiteLocale) {
+    supportedCurrency(locale: $locale) {
+      id
+      title
+      list {
+        id
+        supportedCurrenciesName
+        supportedCurrenciesImage {
+          url
+        }
+      }
+    }
+  }
+`
+
 export const HOME_B2B_SMOOTH_API = `
   query MyQuery($locale: SiteLocale) {
     homePage(locale: $locale) {

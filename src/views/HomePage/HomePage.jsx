@@ -1,10 +1,7 @@
 'use client'
 
 import React, { useContext, useEffect } from 'react'
-import dynamic from 'next/dynamic'
-import HeroSection from '@/sections/HomeSections/HeroSection'
 import { StyledHomeWrapper } from './HomePage.styled'
-import YourNeedsSection from '@/sections/HomeSections/YourNeedsSection'
 import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
 import PageProvider from '@/contexts/PageContext/PageContext'
 import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
@@ -16,6 +13,8 @@ import ReasonsToTeamUp from '@/sections/HomeSections/ReasonsToTeamUp'
 import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import BlogsSection from '@/sections/HomeSections/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
+import HeroSection from '@/sections/HomeSections/HeroSection'
+import YourNeedsSection from '@/sections/HomeSections/YourNeedsSection'
 
 export default function HomePage({ data, params }) {
   const { setIsNotFound } = useContext(NotFoundContext)
@@ -69,7 +68,3 @@ export default function HomePage({ data, params }) {
     </PageProvider>
   )
 }
-
-const DynamicHomePageWrapper = dynamic(() =>
-  import('./components/HomePageWrapper').then((res) => res.default)
-)

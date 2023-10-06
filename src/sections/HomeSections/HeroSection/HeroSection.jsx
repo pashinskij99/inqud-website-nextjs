@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import Link from 'next/link'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
 import { useWindowSize } from '@uidotdev/usehooks'
@@ -31,6 +31,8 @@ import {
   addGlobalScrollBar,
   removeGlobalScrollBar,
 } from '@/utils/addOrRemoveGlobalScrollBar'
+import { getPageData } from '@/lib/datocms'
+import { HOME_B2B_HERO_LIST } from '@/lib/datocmsQuery'
 
 const DynamicModalCalendaly = dynamic(
   () => import('react-calendly').then((mod) => mod.PopupModal),
@@ -44,7 +46,6 @@ export default function HeroSection() {
     dataPage: { homePage: data },
   } = useContext(PageContext)
   const [calendlyModal, setCalendlyModal] = useState(false)
-
   // eslint-disable-next-line no-unused-vars
   // const setAutomationsOnCreatedCalendly = async (e) => {
   //   try {
@@ -184,9 +185,23 @@ function MobileGrid() {
 }
 
 export function PaymentList() {
-  const {
-    dataPage: { supportedCurrency: data },
-  } = useContext(PageContext)
+  const { params } = useContext(PageContext)
+  const [data, setData] = useState({})
+
+  useEffect(() => {
+    const getData = async () => {
+      const pageData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: HOME_B2B_HERO_LIST,
+      })
+
+      setData(pageData.supportedCurrency)
+    }
+
+    getData()
+  }, [])
 
   return (
     <StyledPaymentListWrapper className='payment'>
@@ -196,7 +211,7 @@ export function PaymentList() {
 
       <ul className='payment-list-wrapper'>
         <div className='payment-list payment-list-1'>
-          {data.list.map(
+          {data?.list?.map(
             ({ supportedCurrenciesImage, supportedCurrenciesName, id }) => (
               <li key={id}>
                 <div className='icon-wrapper'>
@@ -215,7 +230,7 @@ export function PaymentList() {
           )}
         </div>
         <div aria-hidden='true' className='payment-list payment-list-2'>
-          {data.list.map(
+          {data?.list?.map(
             ({ supportedCurrenciesImage, supportedCurrenciesName, id }) => (
               <li key={id}>
                 <div className='icon-wrapper'>
