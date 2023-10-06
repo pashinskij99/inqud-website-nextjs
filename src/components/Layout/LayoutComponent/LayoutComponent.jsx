@@ -1,17 +1,17 @@
-import { ToastContainer } from 'react-toastify'
-import Header from '@/components/Layout/Header'
 import ReduxProvider from '@/store/ReduxProvider'
 import { NotFoundProvider } from '@/contexts/NotFoundContext/NotFoundContext'
-import CookieComponent from '@/components/CookieComponent/CookieComponent'
-import Portal from '@/HOC/Portal'
-import Footer from '../Footer'
-import BreadCrumbs from '@/components/BreadCrumbs'
+// import { ToastContainer } from 'react-toastify'
+// import Header from '@/components/Layout/Header'
+// import CookieComponent from '@/components/CookieComponent/CookieComponent'
+// import Portal from '@/HOC/Portal'
+// import Footer from '../Footer'
+// import BreadCrumbs from '@/components/BreadCrumbs'
 
 export default function LayoutComponent({ children }) {
   return (
     <ReduxProvider>
       <NotFoundProvider>
-        <Header />
+        {/* <Header />
         <BreadCrumbs />
         <ToastContainer
           position='bottom-right'
@@ -24,13 +24,13 @@ export default function LayoutComponent({ children }) {
           draggable
           pauseOnHover
           theme='light'
-        />
+        /> */}
         {children}
 
-        <Footer />
-        <Portal>
+        {/* <Footer /> */}
+        {/* <Portal>
           <CookieComponent />
-        </Portal>
+        </Portal> */}
       </NotFoundProvider>
     </ReduxProvider>
   )
