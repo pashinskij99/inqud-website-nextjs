@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import Link from 'next/link'
 // import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import { StyledHelpHeroSectionWrapper } from '@/sections/HelpCenterSections/HelpHeroSection/HelpHeroSection.styled'
 import {
   StyledTypographyUrbanistBody,
@@ -31,7 +32,7 @@ function HelpHeroSection({ page, data }) {
     <StyledHelpHeroSectionWrapper className={page}>
       <Link href='/help-centre'>
         <button className={clsx('btn-back', page)}>
-          <BackIcon />
+          <Image src={BackIcon} alt='BackIcon' />
           <StyledTypographyUrbanistBody>
             {data.helpCentreHero.backButton}
           </StyledTypographyUrbanistBody>

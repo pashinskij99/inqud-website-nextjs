@@ -48,7 +48,7 @@ export function BlogCart({ imageSrc, date, time, subTitle, title }) {
         </StyledTypographyUrbanistBody>
         {time ? (
           <>
-            <Dot />
+            <Image className='dot' src={Dot} alt='Dot' />
             <StyledTypographyUrbanistBody className='time'>
               {time} read
             </StyledTypographyUrbanistBody>
@@ -86,7 +86,7 @@ export function BlogCart2({ imageSrc, date, time, subTitle, title }) {
         <StyledTypographyUrbanistBody className='date'>
           {currentDate.date}
         </StyledTypographyUrbanistBody>
-        <Dot />
+        <Image className='dot' src={Dot} alt='Dot' />
         <StyledTypographyUrbanistBody className='time'>
           {time}
         </StyledTypographyUrbanistBody>
@@ -117,7 +117,7 @@ export function RelatedBlogCart({ imageSrc, date, time, subTitle, title }) {
         <StyledTypographyUrbanistBody className='date'>
           {date}
         </StyledTypographyUrbanistBody>
-        <Dot />
+        <Image src={Dot} alt='Dot' />
         <StyledTypographyUrbanistBody className='time'>
           {time}
         </StyledTypographyUrbanistBody>

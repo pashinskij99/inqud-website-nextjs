@@ -333,7 +333,7 @@ export const StyledPickSectionSection = styled.section`
       padding: 0;
     `};
 
-    svg {
+    img {
       margin-bottom: ${rem(16)};
       ${responsive.sm`
         display: none;

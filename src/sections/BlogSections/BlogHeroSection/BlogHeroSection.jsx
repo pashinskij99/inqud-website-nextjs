@@ -1,5 +1,6 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { StyledBlogHeroSectionWrapper } from './BlogHeroSection.styled'
 import Dot from '@/assets/icons/dot.svg'
 import ArrowBack from '@/assets/icons/arrow-back.svg'
@@ -22,8 +23,18 @@ export default function BlogHeroSection() {
 
   return (
     <StyledBlogHeroSectionWrapper>
-      <ArrowLeftBackground className='arrowLeftBackground' />
-      <ArrowRightBackground className='arrowRightBackground' />
+      <Image
+        src={ArrowLeftBackground}
+        className='arrowLeftBackground'
+        alt='ArrowLeftBackground'
+      />
+      <Image
+        src={ArrowRightBackground}
+        className='arrowRightBackground'
+        alt='ArrowRightBackground'
+      />
+      {/* <ArrowLeftBackground className='arrowLeftBackground' />
+      <ArrowRightBackground className='arrowRightBackground' /> */}
 
       <div className='container'>
         <StyledTypographyUrbanistH1 className='title'>
@@ -32,7 +43,7 @@ export default function BlogHeroSection() {
 
         <div className='date-wrapper'>
           <StyledTypographyUrbanistBody>{date}</StyledTypographyUrbanistBody>
-          <Dot />
+          <Image src={Dot} alt='Dot' />
           <StyledTypographyUrbanistBody>
             {timeToRead} read
           </StyledTypographyUrbanistBody>
@@ -41,7 +52,7 @@ export default function BlogHeroSection() {
 
       <Link href='/blog'>
         <button className='button-back'>
-          <ArrowBack />
+          <Image src={ArrowBack} alt='ArrowBack' />
           <StyledTypographyUrbanistBody>
             {heroSectionData.buttonBack}
           </StyledTypographyUrbanistBody>

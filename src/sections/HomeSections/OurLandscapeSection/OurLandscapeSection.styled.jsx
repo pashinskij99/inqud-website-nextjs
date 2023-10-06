@@ -130,7 +130,7 @@ export const StyledCoverageWrapper = styled.div`
         `}
       }
 
-      svg {
+      img {
         flex: 0 0 auto;
 
         &.desktop {
@@ -269,7 +269,7 @@ export const StyledIndustriesWrapper = styled.div`
           letter-spacing: ${rem(3.2)};
         }
 
-        svg {
+        img {
           flex-shrink: 0;
         }
 

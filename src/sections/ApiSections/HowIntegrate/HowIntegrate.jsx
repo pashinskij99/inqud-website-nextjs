@@ -35,7 +35,7 @@ export default function minHowIntegrate() {
       titleTablet: data.screen3Steps[0].title,
       titleMobile: data.screen3Steps[0].title,
       time: data.screen3Steps[0].time,
-      icon: <Icon1 className='step-icon' />,
+      icon: <Image className='step-icon' src={Icon1} alt='Icon1' />,
     },
     { id: 2, imageSrc: arrowImage.src, imageSrcMobile: arrowImageMobile.src },
     {
@@ -45,7 +45,7 @@ export default function minHowIntegrate() {
       titleTablet: data.screen3Steps[1].title,
       titleMobile: data.screen3Steps[1].title,
       time: data.screen3Steps[1].time,
-      icon: <Icon2 className='step-icon' />,
+      icon: <Image className='step-icon' src={Icon2} alt='Icon2' />,
     },
     { id: 4, imageSrc: arrowImage.src, imageSrcMobile: arrowImageMobile.src },
     {
@@ -55,7 +55,7 @@ export default function minHowIntegrate() {
       titleTablet: data.screen3Steps[2].title,
       titleMobile: data.screen3Steps[2].title,
       time: data.screen3Steps[2].time,
-      icon: <Icon3 className='step-icon' />,
+      icon: <Image className='step-icon' src={Icon3} alt='Icon3' />,
     },
     { id: 6, imageSrc: arrowImage.src, imageSrcMobile: arrowImageMobile.src },
     {
@@ -65,7 +65,7 @@ export default function minHowIntegrate() {
       titleTablet: data.screen3Steps[3].title,
       titleMobile: data.screen3Steps[3].title,
       time: data.screen3Steps[3].time,
-      icon: <Icon4 className='step-icon' />,
+      icon: <Image className='step-icon' src={Icon4} alt='Icon4' />,
     },
   ]
 
@@ -189,7 +189,7 @@ export function StepCart({
       </StyledTypographyUrbanistH4>
 
       <div className='step-cart-time-wrapper'>
-        <TimeIcon />
+        <Image src={TimeIcon} alt='TimeIcon' />
         <StyledTypographyUrbanistBody className='step-cart-time'>
           {time}
         </StyledTypographyUrbanistBody>

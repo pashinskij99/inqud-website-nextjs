@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
 import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -15,9 +16,9 @@ import {
   StyledIndustriesWrapper,
   StyledOurLandscapeSection,
 } from './OurLandscapeSection.styled'
-// import Icon1 from '@/assets/images/our-landscape/1.svg'
-// import Icon2 from '@/assets/images/our-landscape/2.svg'
-// import Icon3 from '@/assets/images/our-landscape/3.svg'
+import Icon1 from '@/assets/images/our-landscape/1.svg'
+import Icon2 from '@/assets/images/our-landscape/2.svg'
+import Icon3 from '@/assets/images/our-landscape/3.svg'
 import { TabsComponent } from '@/components/TabsComponent/TabsComponent'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { getPageData } from '@/lib/datocms'
@@ -106,15 +107,15 @@ function IndustriesTab({ data }) {
 
   const accordionData = [
     {
-      // icon: <Icon1 />,
+      icon: <Image src={Icon1} alt='icon' />,
       columnColor: '255, 163, 163',
     },
     {
-      // icon: <Icon2 />,
+      icon: <Image src={Icon2} alt='icon' />,
       columnColor: '255, 196, 81',
     },
     {
-      // icon: <Icon3 />,
+      icon: <Image src={Icon3} alt='icon' />,
       columnColor: '129, 158, 176',
     },
   ]
@@ -196,7 +197,7 @@ function Accordion({ idColumn, icon, items, title, columnColor }) {
   return (
     <div className='ourLandscapeAccordion'>
       <div className='ourLandscapeAccordionTitle'>
-        {/* {icon} TODO */}
+        {icon}
         <StyledTypographyIBMH5>{title}</StyledTypographyIBMH5>
       </div>
       {items.map((accordionTitle, i) => (

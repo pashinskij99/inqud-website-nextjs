@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import Image from 'next/image'
 import { StyledTypographyUrbanistSmallSpaces } from '../Typography/Typography.styled'
 import {
   StyledInputSearchWrapper,
@@ -8,7 +9,7 @@ import {
 } from './Input.styled'
 import ErrorInput from '@/assets/icons/error-input.svg'
 import Search from '@/assets/icons/search.svg'
-import Close from '../../../assets/icons/close-search.svg'
+import Close from '@/assets/icons/close-search.svg'
 
 export function InputText(props) {
   const { label, type, id, helperTextBottom, helperTextTop, placeholder } =
@@ -29,7 +30,7 @@ export function InputText(props) {
           id={id}
           type={type}
         />
-        <ErrorInput />
+        <Image src={ErrorInput} alt='ErrorInput' />
       </div>
       <StyledTypographyUrbanistSmallSpaces className='inputTextHelperTextBottom error'>
         {helperTextBottom}
@@ -51,15 +52,27 @@ export function InputSearch(props) {
   return (
     <StyledInputSearchWrapper className={classNameWrapper}>
       {/* <button className={classNameWrapperIcon}> */}
-      <Search className={clsx('search-icon', classNameIcon)} />
+      <Image
+        className={clsx('search-icon', classNameIcon)}
+        src={Search}
+        alt='Search'
+      />
       {/* </button> */}
       <input className={clsx('input', className)} {...props} />
-      <Close
+      <Image
+        className={clsx('close', {
+          ['active']: value,
+        })}
+        onClick={() => handleClear('')}
+        src={Close}
+        alt='Close'
+      />
+      {/* <Close
         onClick={() => handleClear('')}
         className={clsx('close', {
           ['active']: value,
         })}
-      />
+      /> */}
     </StyledInputSearchWrapper>
   )
 }

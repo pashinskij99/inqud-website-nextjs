@@ -122,13 +122,16 @@ export const StyledBlogCartWrapper = styled.div`
       margin: 0 auto;
     `}
 
-    svg {
+    img {
       position: static;
       width: ${rem(24)};
       height: ${rem(24)};
     }
   }
-
+  .dot {
+    height: fit-content !important;
+    margin: 0 !important;
+  }
   .footer {
     display: flex;
     align-items: center;
@@ -140,9 +143,6 @@ export const StyledBlogCartWrapper = styled.div`
 
   .date {
     color: rgba(81, 113, 133, 1);
-  }
-
-  svg {
   }
 
   .time {

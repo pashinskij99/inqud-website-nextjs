@@ -257,7 +257,7 @@ export const StyledStepCartHowIntegrateWrapper = styled.div`
     padding-left: 0;
     height: fit-content;
 
-    svg {
+    img {
       width: 24px;
       height: 24px;
     }

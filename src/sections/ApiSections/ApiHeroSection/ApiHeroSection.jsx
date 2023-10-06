@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useContext, useState } from 'react'
 import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
 import { StyledApiHeroSectionWrapper } from './ApiHeroSection.styled'
 import {
@@ -55,7 +56,7 @@ export default function ApiHeroSection() {
           <ul className='features'>
             {data.features.map((text) => (
               <li key={text}>
-                <Check />
+                <Image src={Check} alt='Check' />
                 <StyledTypographyUrbanistBody key={text}>
                   {text}
                 </StyledTypographyUrbanistBody>

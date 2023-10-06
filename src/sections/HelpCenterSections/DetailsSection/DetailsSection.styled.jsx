@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
-import { responsive } from '@/utils/response';
+import styled from '@emotion/styled'
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
+import { responsive } from '@/utils/response'
 
 export const StyledPersonalSectionWrapper = styled.section`
   padding: 50px 0 120px;
@@ -24,7 +24,7 @@ export const StyledPersonalSectionWrapper = styled.section`
       grid-template-columns: 100%;
     `};
   }
-`;
+`
 export const StyledLeftSideWrapper = styled.div`
   position: sticky;
   top: calc(var(--header-height) + 10px);
@@ -69,7 +69,7 @@ export const StyledLeftSideWrapper = styled.div`
       }
     }
   }
-`;
+`
 export const StyledCenterSideWrapper = styled.div`
   transform: translateY(-6px);
 
@@ -144,7 +144,7 @@ export const StyledCenterSideWrapper = styled.div`
       }
     }
   }
-`;
+`
 export const StyledRightSideWrapper = styled.div`
   transform: translateY(-7px);
   position: sticky;
@@ -165,10 +165,7 @@ export const StyledRightSideWrapper = styled.div`
     ${responsive.sm`
       padding: 16px;
     `}
-    .cart-left-side {
-      svg {
-      }
-    }
+   
 
     .cart-right-side {
       ${responsive.xl`
@@ -201,7 +198,7 @@ export const StyledRightSideWrapper = styled.div`
       }
     }
   }
-`;
+`
 
 export const StyledContentItemAccordion = styled((props) => (
   <Accordion disableGutters elevation={0} square {...props} />
@@ -222,7 +219,7 @@ export const StyledContentItemAccordion = styled((props) => (
   '& .css-1uh3lx7-MuiAccordionDetails-root': {
     border: 'none',
   },
-}));
+}))
 export const StyledContentItemAccordionSummary = styled((props) => (
   <AccordionSummary {...props} />
 ))(({ expanded }) => ({
@@ -244,7 +241,7 @@ export const StyledContentItemAccordionSummary = styled((props) => (
   // '@media (max-width: 767px)': {
   //   padding: `${rem(16)}`,
   // },
-  svg: {
+  img: {
     '@media (max-width: 767px)': {
       // width: '16px',
       // height: '16px',
@@ -253,7 +250,7 @@ export const StyledContentItemAccordionSummary = styled((props) => (
     },
   },
   transition: 'padding 0.3s ease',
-}));
+}))
 export const StyledContentItemAccordionDetails = styled(AccordionDetails)(
   () => ({
     // background: '#FFA3A3',
@@ -281,4 +278,4 @@ export const StyledContentItemAccordionDetails = styled(AccordionDetails)(
       transition: '0.3s ease',
     },
   })
-);
+)

@@ -4,7 +4,6 @@ import { useState } from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import ArrowDown from '@/assets/icons/arrow-down.svg'
 import { StyledHeaderDropdownWrapper } from './HeaderDropdown.styled'
 import { keysForLocale } from '@/config/keysForLocale'
 
@@ -120,7 +119,21 @@ export default function HeaderDropdown() {
         })}
         // onClick={handleClick}
       >
-        {dropdownListNameTranslate('item1')} <ArrowDown />
+        {dropdownListNameTranslate('item1')}{' '}
+        <svg
+          width='14'
+          height='8'
+          viewBox='0 0 14 8'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'
+        >
+          <path
+            fillRule='evenodd'
+            clipRule='evenodd'
+            d='M7.11066 5.1503L2.16031 0.199951L0.746094 1.61416L7.11066 7.97873L13.4752 1.61416L12.061 0.199951L7.11066 5.1503Z'
+            fill='#2D3439'
+          />
+        </svg>
       </button>
 
       <div

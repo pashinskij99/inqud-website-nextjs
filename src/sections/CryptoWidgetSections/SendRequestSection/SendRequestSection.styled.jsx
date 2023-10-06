@@ -41,7 +41,7 @@ export const StyledSendRequestSectionWrapper = styled(StyledContactWrapper)`
   }
 
   .header {
-    svg {
+    img {
       margin-bottom: ${rem(15)};
     }
 

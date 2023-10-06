@@ -11,8 +11,8 @@ import {
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledPickSectionSection } from './PickSection.styled'
-// import Check from '@/assets/icons/check-green-background.svg'
-// import Pick from '@/assets/icons/pick.svg'
+import Check from '@/assets/icons/check-green-background.svg'
+import Pick from '@/assets/icons/pick.svg'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import {
@@ -116,7 +116,7 @@ export default function PickSection({ variant, className }) {
         </div>
 
         <div className='pickPick'>
-          {/* <Pick /> TODO */}
+          <Image src={Pick} alt='Pick' />
 
           <StyledTypographyUrbanistBody className='pickPickDescription'>
             {leadFormData?.pickDescription}
@@ -151,7 +151,7 @@ export function PickListDontLose({ data }) {
       <ul>
         {data.list?.map((text) => (
           <li key={text}>
-            {/* <Check /> TODO */}
+            <Image src={Check} alt='check' />
             <StyledTypographyUrbanistBody className='pickListItemText'>
               {text}
             </StyledTypographyUrbanistBody>
@@ -207,7 +207,7 @@ export function PickApiSection({ className }) {
         </div>
 
         <div className='pickPick'>
-          {/* <Pick /> TODO */}
+          <Image src={Pick} alt='pick' />
 
           <StyledTypographyUrbanistBody className='pickPickDescription'>
             {leadFormData.pickDescription}

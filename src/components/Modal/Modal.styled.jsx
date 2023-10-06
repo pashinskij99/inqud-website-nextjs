@@ -34,7 +34,7 @@ export const StyledModalSendRequestWrapper = styled(Modal)`
   }
 
   .header {
-    svg {
+    img {
       margin-bottom: ${rem(16)};
     }
 
@@ -112,9 +112,6 @@ export const StyledModalGetPersonalizedFormWrapper = styled(Modal)`
       position: absolute;
       right: ${rem(16)};
       top: ${rem(16)};
-
-      svg {
-      }
     }
   }
   .title {
@@ -155,7 +152,7 @@ export const StyledModalGetPersonalizedFormWrapper = styled(Modal)`
         align-items: center;
         column-gap: 16px;
       `}
-      svg {
+      img {
         margin-bottom: 12px;
         flex-shrink: 0;
       }
@@ -266,9 +263,6 @@ export const StyledFeeModalWrapper = styled(Dialog)`
       position: absolute;
       right: ${rem(16)};
       top: ${rem(16)};
-
-      svg {
-      }
     }
 
     .header {

@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import { useContext, useEffect, useState } from 'react'
 // import { Link } from 'react-scroll'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import {
   StyledCenterSideWrapper,
   StyledLeftSideWrapper,
@@ -94,7 +95,7 @@ export function DetailsSectionInner() {
         <StyledRightSideWrapper>
           <div className='cart'>
             <div className='cart-left-side'>
-              <MessageIcon />
+              <Image src={MessageIcon} alt={MessageIcon} />
             </div>
             <div className='cart-right-side'>
               <StyledTypographyUrbanistBody className='cart-title'>

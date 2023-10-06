@@ -7,6 +7,7 @@ import { StructuredText } from 'react-datocms/structured-text'
 // import { toast } from 'react-toastify'
 import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -18,7 +19,7 @@ import {
   StyledButtonLearnMore,
   StyledButtonSecondaryLight,
 } from '@/components/UI/Button/Button.styled'
-// import BackCart from '@/assets/images/fee/cart-back.svg'
+import BackCart from '@/assets/images/fee/cart-back.svg'
 // import { FeeModal } from '@/components/Modal/Modal'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { getPageData } from '@/lib/datocms'
@@ -166,7 +167,7 @@ export default function FeesBusiness({ modelId, autoId }) {
                 {data.cartButton}
               </StyledButtonSecondaryLight>
             </div>
-            {/* <BackCart className='cart-back' /> TODO */}
+            <Image className='cart-back' src={BackCart} alt='BackCart' />
           </div>
         </div>
 

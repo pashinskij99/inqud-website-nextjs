@@ -56,10 +56,11 @@ export function ModalSendRequest({
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
       <form onSubmit={handleSubmit(onSubmit)} className='modalContainer'>
         <button type='reset' className='closeButton' onClick={handleClose}>
-          <Close />
+          <Image src={Close} alt='Close' />
         </button>
         <div className='header'>
-          <Message />
+          <Image src={Message} alt='Message' />
+          {/* <Message /> */}
           <StyledTypographyUrbanistH3>{t('title')}</StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistBody>
             {t('description')}

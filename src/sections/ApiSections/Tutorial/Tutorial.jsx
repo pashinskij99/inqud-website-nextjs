@@ -123,7 +123,7 @@ function TutorialCart({ imageSrc, title }) {
 function PlayButton() {
   return (
     <StyledTutorialCartPlayButtonWrapper>
-      <Play className='play-icon' />
+      <Image className='play-icon' src={Play} alt='Play' />
       <StyledTypographyUrbanistBody className='play-text'>
         Play
       </StyledTypographyUrbanistBody>

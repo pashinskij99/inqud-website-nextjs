@@ -146,7 +146,7 @@ export const StyledHeroSectionWrapper = styled.section`
             align-items: center;
           `};
 
-          svg {
+          img {
             width: ${rem(21.333)};
             height: ${rem(21.333)};
             flex-shrink: 0;

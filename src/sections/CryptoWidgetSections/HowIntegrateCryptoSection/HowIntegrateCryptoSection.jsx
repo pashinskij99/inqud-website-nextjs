@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react'
 // import { toast } from 'react-toastify'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import { StyledHowIntegrateCryptoSectionWrapper } from './HowIntegrateCryptoSection.styled'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import arrowImage from '@/assets/images/homeB2C/how-to-start/arrow.png'
@@ -42,7 +43,7 @@ export default function HowIntegrateCryptoSection() {
       titleTablet: data.screen6Step[0].title,
       titleMobile: data.screen6Step[0].title,
       time: data.screen6Step[0].time,
-      icon: <Icon1 className='step-icon' />,
+      icon: <Image src={Icon1} alt='Icon1' className='step-icon' />,
     },
     { id: 2, imageSrc: arrowImage.src, imageSrcMobile: arrowImageMobile.src },
     {
@@ -52,7 +53,7 @@ export default function HowIntegrateCryptoSection() {
       titleTablet: data.screen6Step[1].title,
       titleMobile: data.screen6Step[1].title,
       time: data.screen6Step[1].time,
-      icon: <Icon2 className='step-icon' />,
+      icon: <Image src={Icon2} alt='Icon2' className='step-icon' />,
     },
     { id: 4, imageSrc: arrowImage.src, imageSrcMobile: arrowImageMobile.src },
     {
@@ -62,7 +63,7 @@ export default function HowIntegrateCryptoSection() {
       titleTablet: data.screen6Step[2].title,
       titleMobile: data.screen6Step[2].title,
       time: data.screen6Step[2].time,
-      icon: <Icon3 className='step-icon' />,
+      icon: <Image src={Icon3} alt='Icon3' className='step-icon' />,
     },
     { id: 6, imageSrc: arrowImage.src, imageSrcMobile: arrowImageMobile.src },
     {
@@ -72,7 +73,7 @@ export default function HowIntegrateCryptoSection() {
       titleTablet: data.screen6Step[3].title,
       titleMobile: data.screen6Step[3].title,
       time: data.screen6Step[3].time,
-      icon: <Icon4 className='step-icon' />,
+      icon: <Image src={Icon4} alt='Icon4' className='step-icon' />,
     },
   ]
 

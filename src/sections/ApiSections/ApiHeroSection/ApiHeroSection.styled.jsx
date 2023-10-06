@@ -96,7 +96,7 @@ export const StyledApiHeroSectionWrapper = styled.section`
         align-items: center;
         column-gap: 8px;
 
-        svg {
+        img {
           flex-shrink: 0;
         }
 

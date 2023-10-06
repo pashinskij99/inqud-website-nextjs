@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { InView } from 'react-intersection-observer'
 import { Element } from 'react-scroll'
 import { StructuredText } from 'react-datocms/structured-text'
+import Image from 'next/image'
 import {
   StyledContentItemAccordion,
   StyledContentItemAccordionDetails,
@@ -84,7 +85,13 @@ function ContentAccordionItem({ title, expanded, description, handleChange }) {
     >
       <StyledContentItemAccordionSummary
         expanded={expanded === title}
-        expandIcon={expanded === title ? <Minus /> : <Plus />}
+        expandIcon={
+          expanded === title ? (
+            <Image src={Minus} alt='minus' />
+          ) : (
+            <Image src={Plus} alt='plus' />
+          )
+        }
       >
         <StyledTypographyUrbanistH5 className='questionsAccordionTitle'>
           {title}

@@ -1,4 +1,5 @@
 import { Controller } from 'react-hook-form'
+import Image from 'next/image'
 import {
   StyledMenuItem,
   StyledSelect,
@@ -28,7 +29,7 @@ export function SelectPrimary({
         control={control}
         render={({ field: { onChange, value, name } }) => (
           <StyledSelect
-            IconComponent={Arrow}
+            IconComponent={<Image src={Arrow} alt='Arrow' />}
             value={value}
             onChange={(event) => {
               onChange(event.target.value)

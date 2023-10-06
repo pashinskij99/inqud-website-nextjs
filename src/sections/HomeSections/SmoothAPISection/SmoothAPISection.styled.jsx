@@ -227,7 +227,7 @@ export const StyledSmoothAPISection = styled.section`
             `};
           }
 
-          img {
+          .icon {
             width: ${rem(48)};
             height: ${rem(48.002)};
             margin-bottom: 2px;

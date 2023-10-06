@@ -6,7 +6,7 @@ function CoinsList({ coinsList }) {
     <StyledCoinsListWrapper>
       {/* eslint-disable-next-line no-unused-vars */},
       {coinsList.map(({ id, icon }) => (
-        <Fragment key={id}>{/* {icon} TODO */} icon</Fragment>
+        <Fragment key={id}>{icon}</Fragment>
       ))}
     </StyledCoinsListWrapper>
   )

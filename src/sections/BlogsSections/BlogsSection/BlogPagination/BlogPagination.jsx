@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import { useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Image from 'next/image'
 import { StyledBlogPagination } from '@/sections/BlogsSections/BlogsSection/BlogPagination/BlogPagination.styled'
 import {
   DOTS,
@@ -72,7 +73,7 @@ function BlogPagination({ total, pageSize }) {
             className={page === 1 ? 'events-none' : 'active'}
             disabled={page === 1}
           >
-            <ArrowPrev className='prev' />
+            <Image src={ArrowPrev} alt='Arrow prev' className='prev' />
           </button>
 
           <div className='list-numbers'>
@@ -129,7 +130,7 @@ function BlogPagination({ total, pageSize }) {
             className={page === lastPage ? 'events-none' : 'active'}
             disabled={page === lastPage}
           >
-            <ArrowNext className='next' />
+            <Image src={ArrowNext} className='next' alt='Arrow next' />
           </button>
           {/* </LinkAnchor> */}
         </StyledBlogPagination>

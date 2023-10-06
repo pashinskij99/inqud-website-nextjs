@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useCookies, withCookies } from 'react-cookie'
+import Image from 'next/image'
 import { StyledCookieComponentWrapper } from './CookieComponent.styled'
 import { StyledTypographyUrbanistH5 } from '../UI/Typography/Typography.styled'
 import CoockieIcon from '@/assets/icons/cookie.svg'
@@ -21,7 +22,8 @@ function CookieComponent() {
       <div className='content'>
         <div className='text'>
           <div className='icon-wrapper'>
-            <CoockieIcon className='icon' />
+            <Image className='icon' src={CoockieIcon} alt='CoockieIcon' />
+            {/* <CoockieIcon className='icon' /> */}
           </div>
           <div className='text-content'>
             <StyledTypographyUrbanistH5 className='title'>

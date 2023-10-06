@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 // import { toast } from 'react-toastify'
+import Image from 'next/image'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH5,
@@ -98,15 +99,19 @@ export default function Footer() {
   ]
 
   const social = [
-    { id: 0, icon: <Twitter />, href: 'https://twitter.com/inqud' },
+    {
+      id: 0,
+      icon: <Image src={Twitter} alt='Twitter' />,
+      href: 'https://twitter.com/inqud',
+    },
     {
       id: 1,
-      icon: <Facebook />,
+      icon: <Image src={Facebook} alt='Facebook' />,
       href: 'https://www.facebook.com/Inqud-106842349102120',
     },
     {
       id: 2,
-      icon: <Linkedin />,
+      icon: <Image src={Linkedin} alt='Linkedin' />,
       href: 'https://www.linkedin.com/company/inqud/about/?viewAsMember=true',
     },
     // { id: 3, icon: <Star />, href: '#' },
@@ -145,7 +150,8 @@ export default function Footer() {
       <div className='top'>
         <div className='container'>
           <div className='footerLogoSection'>
-            <Logo />
+            <Image src={Logo} alt='Logo' />
+            {/* <Logo /> */}
             <StyledTypographyUrbanistBody className='footerLogoSectionText'>
               {t('footer_description')}
             </StyledTypographyUrbanistBody>

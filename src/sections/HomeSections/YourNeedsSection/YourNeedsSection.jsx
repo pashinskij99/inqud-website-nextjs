@@ -2,6 +2,7 @@ import { useContext, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
@@ -10,11 +11,11 @@ import { YourNeedsSectionWrapper } from './YourNeedsSection.styled'
 import Image1 from '@/assets/images/your-needs/image1.png'
 import Image2 from '@/assets/images/your-needs/image2.png'
 import Image3 from '@/assets/images/your-needs/image3.png'
-// import Coins1 from '@/assets/images/your-needs/Coins1.svg'
-// import Coins2 from '@/assets/images/your-needs/Coins2.svg'
-// import Coins3 from '@/assets/images/your-needs/Coins3.svg'
-// import Coins4 from '@/assets/images/your-needs/Coins4.svg'
-// import Coins5 from '@/assets/images/your-needs/Coins5.svg'
+import Coins1 from '@/assets/images/your-needs/Coins1.svg'
+import Coins2 from '@/assets/images/your-needs/Coins2.svg'
+import Coins3 from '@/assets/images/your-needs/Coins3.svg'
+import Coins4 from '@/assets/images/your-needs/Coins4.svg'
+import Coins5 from '@/assets/images/your-needs/Coins5.svg'
 import { keysForLocale } from '@/config/keysForLocale'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { responseBreakPoint } from '@/utils/response'
@@ -54,23 +55,23 @@ const DynamicYourNeedsSectionModalForm = dynamic(
 const coinsList = [
   {
     id: 3,
-    // icon: <Coins4 />
+    icon: <Image src={Coins4} alt='coins' />,
   },
   {
     id: 4,
-    // icon: <Coins5 />
+    icon: <Image src={Coins5} alt='coins' />,
   },
   {
     id: 0,
-    // icon: <Coins1 />
+    icon: <Image src={Coins1} alt='coins' />,
   },
   {
     id: 1,
-    // icon: <Coins2 />
+    icon: <Image src={Coins2} alt='coins' />,
   },
   {
     id: 2,
-    // icon: <Coins3 />
+    icon: <Image src={Coins3} alt='coins' />,
   },
 ]
 

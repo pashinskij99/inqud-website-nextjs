@@ -8,8 +8,9 @@ import { useTranslations } from 'next-intl'
 import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
 import { CSSTransition } from 'react-transition-group'
-import Logo from '../../../assets/icons/logo.svg'
-import LogoMobile from '../../../assets/icons/logo-header-mobile-without-text.svg'
+import Image from 'next/image'
+import logo from '@/assets/icons/logo.svg'
+import logoMobile from '@/assets/icons/logo-header-mobile-without-text.svg'
 import { StyledHeaderWrapper } from './Header.styled'
 import HeaderDropdown from './HeaderDropdown'
 import {
@@ -102,8 +103,12 @@ export default function Header() {
       <div className='containerHeader'>
         <div className='logoSection'>
           <Link href='/'>
-            <Logo className='logo' />
-            <LogoMobile className='logo-mobile' />
+            {size.width && size.width > responseBreakPoint.mobile ? (
+              <Image className='logo' src={logo} alt='logo' />
+            ) : null}
+            {size.width && size.width <= responseBreakPoint.mobile ? (
+              <Image className='logo-mobile' src={logoMobile} alt='logo' />
+            ) : null}
           </Link>
 
           <div className='button-link-wrapper'>

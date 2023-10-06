@@ -34,7 +34,7 @@ export function GetPersonalizedForm({
     <form onSubmit={handleSubmit(onSubmit)} className={clsx('form', className)}>
       {isModal ? (
         <button type='button' className='closeButton' onClick={handleClose}>
-          <Close />
+          <Image src={Close} alt='Close' />
         </button>
       ) : null}
       <StyledTypographyUrbanistH4 className='title'>

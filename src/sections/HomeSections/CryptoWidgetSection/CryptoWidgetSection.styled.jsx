@@ -114,7 +114,7 @@ export const StyledCryptoWidgetSection = styled.section`
           background: linear-gradient(360deg, #077453 0%, rgba(7, 116, 83, 0.00) 100%);
         }
 
-        svg {
+        img {
           width: 397.33px;
           height: 399.3333435058594px;
         }

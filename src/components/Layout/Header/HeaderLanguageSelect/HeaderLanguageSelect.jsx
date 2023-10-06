@@ -4,10 +4,11 @@ import { useRouter } from 'next-intl/client'
 import { useLocale } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useWindowSize } from '@uidotdev/usehooks'
+import Image from 'next/image'
 import { StyledHeaderLanguageSelectWrapper } from './HeaderLanguageSelect.styled'
 import Planet from '@/assets/icons/planet.svg'
 import Check from '@/assets/icons/check.svg'
-import Arrow from '@/assets/icons/arrow-down.svg'
+// import Arrow from '@/assets/icons/arrow-down.svg'
 import { responseBreakPoint } from '@/utils/response'
 
 const languages = [
@@ -64,9 +65,23 @@ export default function HeaderLanguageSelect({ className }) {
           ['active']: active,
         })}
       >
-        <Planet className='planet' />
+        <Image src={Planet} alt='planet' className='planet' />
         <span>
-          {language} <Arrow />
+          {language}{' '}
+          <svg
+            width='14'
+            height='8'
+            viewBox='0 0 14 8'
+            fill='none'
+            xmlns='http://www.w3.org/2000/svg'
+          >
+            <path
+              fillRule='evenodd'
+              clipRule='evenodd'
+              d='M7.11066 5.1503L2.16031 0.199951L0.746094 1.61416L7.11066 7.97873L13.4752 1.61416L12.061 0.199951L7.11066 5.1503Z'
+              fill='#2D3439'
+            />
+          </svg>
         </span>
       </button>
 
@@ -85,7 +100,10 @@ export default function HeaderLanguageSelect({ className }) {
           {languages.map(({ id, name, value, locale: localeLang }) => (
             <li key={id}>
               <button onClick={() => handleLangClick(value, localeLang)}>
-                {language.toLowerCase() === localeLang && <Check />} {name}
+                {language.toLowerCase() === localeLang && (
+                  <Image src={Check} alt='check' />
+                )}{' '}
+                {name}
               </button>
             </li>
           ))}

@@ -109,7 +109,7 @@ function Form({ register, handleSubmit, errors, onSubmit }) {
     <StyledFormWrapper>
       <form onSubmit={handleSubmit(onSubmit)} className='formContainer'>
         <div className='header'>
-          <Message />
+          <Image src={Message} alt='Message' />
           <StyledTypographyUrbanistH3>
             {data.lead3Title}
           </StyledTypographyUrbanistH3>

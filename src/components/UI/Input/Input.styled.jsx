@@ -56,7 +56,7 @@ export const StyledInputTextWrapper = styled.div`
       }
     }
 
-    svg {
+    img {
       display: none;
     }
   }

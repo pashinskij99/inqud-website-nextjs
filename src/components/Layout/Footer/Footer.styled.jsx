@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
-import { rem } from '@/utils/rem';
-import { responsive } from '@/utils/response';
+import styled from '@emotion/styled'
+import { rem } from '@/utils/rem'
+import { responsive } from '@/utils/response'
 
 export const StyledFooter = styled.footer`
   .footerSubscribeSectionMobile {
@@ -124,7 +124,7 @@ export const StyledFooter = styled.footer`
           margin: 0 auto;
         `};
 
-        svg {
+        img {
           margin-bottom: ${rem(34)};
           ${responsive.sm`
             margin-bottom: ${rem(32)};
@@ -295,4 +295,4 @@ export const StyledFooter = styled.footer`
       }
     }
   }
-`;
+`

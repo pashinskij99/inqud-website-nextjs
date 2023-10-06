@@ -15,7 +15,7 @@ import {
   StyledMobileGridWrapper,
   StyledPaymentListWrapper,
 } from './HeroSection.styled'
-// import Check from '@/assets/icons/check-green-background.svg'
+import Check from '@/assets/icons/check-green-background.svg'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -105,7 +105,7 @@ export default function HeroSection() {
           <ul className='features'>
             {data.features.map((text) => (
               <li key={text}>
-                {/* <Check /> TODO */}
+                <Image src={Check} alt='check' />
                 <StyledTypographyUrbanistBody className='features-title features-title-1'>
                   {text}
                 </StyledTypographyUrbanistBody>
