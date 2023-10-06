@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import HeroSection from '@/sections/HomeSections/HeroSection'
 import { StyledHomeWrapper } from './HomePage.styled'
@@ -19,7 +19,7 @@ import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 
 export default function HomePage({ data, params }) {
   const { setIsNotFound } = useContext(NotFoundContext)
-  const [load, setLoad] = useState(false)
+  // const [load, setLoad] = useState(false)
 
   useEffect(() => {
     setIsNotFound(true)
