@@ -128,7 +128,7 @@ export function SearchResultDetailsSection() {
           {filteredValue.length > 0 ? (
             filteredValue.map(
               ({ id: idElement, is, description, descriptions, title }) => (
-                <CartForDetails
+                <Cart
                   id={idElement}
                   key={idElement}
                   is={is}
@@ -146,43 +146,5 @@ export function SearchResultDetailsSection() {
         </div>
       </div>
     </StyledSearchResultSectionWrapper>
-  )
-}
-
-function CartForDetails({ id, title, is, description, descriptions }) {
-  const { searchValue } = useSelector((state) => state.helpCentre)
-  return (
-    <StyledSearchCartWrapper>
-      <div className='cart-text-wrapper'>
-        <StyledTypographyUrbanistH5 className='cart-title'>
-          {title}
-        </StyledTypographyUrbanistH5>
-        {is !== 'description' ? (
-          <>
-            {descriptions.map(({ description }, i) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <Fragment key={i}>
-                <StyledTypographyUrbanistBody className='cart-description'>
-                  {render(description)
-                    .replace(/(<([^>]+)>)/gi, '')
-                    .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')}
-                </StyledTypographyUrbanistBody>
-                <br />
-              </Fragment>
-            ))}
-          </>
-        ) : (
-          <>{getHighlightedText(description, searchValue)}</>
-        )}
-      </div>
-
-      <StyledButtonLearnMore className='cart-btn'>
-        <Link href={`/help-centre/${id}`}>
-          <StyledTypographyUrbanistBody className='cart-btn-text'>
-            Learn more
-          </StyledTypographyUrbanistBody>
-        </Link>
-      </StyledButtonLearnMore>
-    </StyledSearchCartWrapper>
   )
 }

@@ -10,10 +10,8 @@ export const fetchHelpCentreData = createAsyncThunk(
 
       const response = await axios.post('/api/get-help-centre-data', searchData)
 
-      const data = await response.data
-      return data
+      return await response.data
     } catch (error) {
-      console.log(error)
       return {}
     }
   }
@@ -34,7 +32,6 @@ export const fetchHelpCentreDetailsData = createAsyncThunk(
       dispatch(setBlogBreadcrumbs(data.helpCentre.mainTitle))
       return data
     } catch (error) {
-      console.log(error)
       return {}
     }
   }

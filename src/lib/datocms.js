@@ -86,7 +86,6 @@ export const createBlog = async ({ data, modelId }) => {
       (res) => res.ApiError
     )
     if (e instanceof ApiError) {
-      console.log(e.response.status)
     } else {
       throw e
     }
@@ -95,13 +94,11 @@ export const createBlog = async ({ data, modelId }) => {
 
 export const getData = async (query, variables) => {
   try {
-    const data = await performRequest({
+    return await performRequest({
       query,
       revalidate: 0,
       variables,
     })
-
-    return data
   } catch (error) {
     return {}
   }
