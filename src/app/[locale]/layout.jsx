@@ -6,9 +6,9 @@ import { notFound } from 'next/navigation'
 import LayoutComponent from '@/components/Layout/LayoutComponent'
 import { nunito } from '@/utils/font'
 
-// import 'swiper/css'
-// import 'swiper/css/scrollbar'
-// import 'react-toastify/dist/ReactToastify.css'
+import 'swiper/css'
+import 'swiper/css/scrollbar'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const metadata = {
   title: 'Inqud',
@@ -29,7 +29,7 @@ export default async function RootLayout({ children, params: { locale } }) {
 
   return (
     <html lang={locale}>
-      <head>
+      {/* <head>
         <link
           rel='stylesheet'
           href='https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css'
@@ -40,7 +40,7 @@ https://cdn.jsdelivr.net/npm/react-toastify@9.1.3/dist/ReactToastify.min.css
 '
           rel='stylesheet'
         />
-      </head>
+      </head> */}
 
       <body className={nunito.className}>
         {/* <Script
