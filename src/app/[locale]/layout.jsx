@@ -3,7 +3,7 @@ import '@/styles/index.scss'
 import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
 import Script from 'next/script'
-import LayoutComponent from '@/components/Layout/LayoutComponent'
+// import LayoutComponent from '@/components/Layout/LayoutComponent'
 import { nunito } from '@/utils/font'
 
 // import 'swiper/css'
@@ -62,7 +62,8 @@ https://cdn.jsdelivr.net/npm/react-toastify@9.1.3/dist/ReactToastify.min.css
           />
         </noscript>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <LayoutComponent>{children}</LayoutComponent>
+          {/* <LayoutComponent>{children}</LayoutComponent> */}
+          {children}
           <div id='myportal' />
           <div id='calendly-model-wrapper' />
         </NextIntlClientProvider>

@@ -122,7 +122,7 @@ export const StyledBlogCartWrapper = styled.div`
       margin: 0 auto;
     `}
 
-    img {
+    svg {
       position: static;
       width: ${rem(24)};
       height: ${rem(24)};

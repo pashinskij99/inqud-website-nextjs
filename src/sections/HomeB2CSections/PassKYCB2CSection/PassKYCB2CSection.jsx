@@ -202,7 +202,7 @@ function StepCart({ image, title, time, button }) {
         </Link>
       ) : (
         <div className='step-cart-time-wrapper'>
-          <Image src={TimeIcon} alt='TimeIcon' />
+          <Image className='time' src={TimeIcon} alt='TimeIcon' />
           <StyledTypographyUrbanistBody className='step-cart-time'>
             {time}
           </StyledTypographyUrbanistBody>

@@ -197,6 +197,9 @@ export const StyledStepCartKYCWrapper = styled(StyledStepCartWrapper)`
       margin-bottom: 8px;
     `}
   }
+  .time {
+    margin-bottom: 0 !important;
+  }
   .step-cart-title {
     margin-bottom: 16px;
     ${responsive.sm`
@@ -219,7 +222,7 @@ export const StyledStepCartKYCWrapper = styled(StyledStepCartWrapper)`
     padding-left: 0;
     height: fit-content;
 
-    img {
+    svg {
       width: 24px;
       height: 24px;
     }

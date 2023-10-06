@@ -21,7 +21,7 @@ import { InputText } from '@/components/UI/Input'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import { keysForLocale } from '@/config/keysForLocale'
 import { emailRegExp } from '@/utils/userSchema'
-import { createBlog } from '@/lib/datocms'
+// import { createBlog } from '@/lib/datocms'
 
 export default function Footer() {
   const pathname = usePathname()
@@ -35,7 +35,9 @@ export default function Footer() {
       const page = pathname.split('/')[1] || 'Home'
 
       const toast = await import('react-toastify').then((res) => res.toast)
-
+      const createBlog = await import('@/lib/datocms').then(
+        (res) => res.createBlog
+      )
       await toast.promise(
         createBlog({ data: { email, page }, modelId: '2540253' }),
         {
