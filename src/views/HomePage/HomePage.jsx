@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { StyledHomeWrapper } from './HomePage.styled'
 import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
 import PageProvider from '@/contexts/PageContext/PageContext'
@@ -33,37 +33,16 @@ export default function HomePage({ data, params }) {
         {/* Content loading ssr */}
         <HeroSection />
         <YourNeedsSection />
-        {/* {size.width && size.width <= responseBreakPoint.mobile ? ( */}
-        {/*   <FeesBusiness modelId='2540165' autoId={10} /> */}
-        {/* ) : null} */}
         <CryptoWidgetSection /> {/* good */}
         <SmoothAPISection /> {/* good */}
         <PickSection className='pickSection' variant='dontLose' />
         <CryptoWidget2Section />
         <ReasonsToTeamUp />
-        {/* {size.width && size.width <= responseBreakPoint.mobile ? ( */}
-        {/*   <PickSection className='pickSection2' /> */}
-        {/* ) : null} */}
-        {/* {size.width && size.width > responseBreakPoint.mobile ? ( */}
         <FeesBusiness modelId='2540165' autoId={10} />
-        {/* ) : null} */}
         <OurLandscapeSection />
-        {/* {size.width && size.width > responseBreakPoint.mobile ? ( */}
         <PickSection className='pickSection2' />
-        {/* ) : null} */}
         <BlogsSection />
         <QuestionsSection />
-        {/* Content loading in client */}
-        {/* <InView */}
-        {/*   threshold={0} */}
-        {/*   as='div' */}
-        {/*   className='content-wrapper-homepage' */}
-        {/*   rootMargin='440px' */}
-        {/*   triggerOnce */}
-        {/*   onChange={(inView) => setLoad(inView)} */}
-        {/* > */}
-        {/*   {load ? <DynamicHomePageWrapper /> : null} */}
-        {/* </InView> */}
       </StyledHomeWrapper>
     </PageProvider>
   )

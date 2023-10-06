@@ -172,7 +172,7 @@ function MobileGrid() {
       <GifPlayer
         fetchpriority='high'
         priority
-        loading='eager'
+        loading='lazy'
         autoplay
         still='/video/b2b_hero_mobile.webp'
         gif='/video/b2b_hero_mobile.gif'
