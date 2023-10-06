@@ -7,8 +7,8 @@ import PageProvider from '@/contexts/PageContext/PageContext'
 // import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
 // import CryptoWidgetSection from '@/sections/HomeSections/CryptoWidgetSection'
 // import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
-import PickSection from '@/sections/HomeSections/PickSection'
-// import CryptoWidget2Section from '@/sections/HomeSections/CryptoWidget2Section'
+// import PickSection from '@/sections/HomeSections/PickSection'
+import CryptoWidget2Section from '@/sections/HomeSections/CryptoWidget2Section'
 // import ReasonsToTeamUp from '@/sections/HomeSections/ReasonsToTeamUp'
 // import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 // import BlogsSection from '@/sections/HomeSections/BlogsSection'
@@ -34,8 +34,8 @@ export default function HomePage({ data, params }) {
         {/* <YourNeedsSection /> */}
         {/* <CryptoWidgetSection /> */}
         {/* <SmoothAPISection /> */}
-        <PickSection className='pickSection' variant='dontLose' />
-        {/* <CryptoWidget2Section /> */}
+        {/* <PickSection className='pickSection' variant='dontLose' /> */}
+        <CryptoWidget2Section />
         {/* <ReasonsToTeamUp /> */}
         {/* <FeesBusiness modelId='2540165' autoId={10} /> */}
         {/* <OurLandscapeSection /> */}
