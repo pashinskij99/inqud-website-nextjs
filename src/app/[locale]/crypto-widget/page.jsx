@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-// import { getData } from '@/lib/datocms'
-// import CryptoWidget from '@/views/CryptoWidget'
+import { getData } from '@/lib/datocms'
+import CryptoWidget from '@/views/CryptoWidget'
 
 const CRYPTO_WIDGET = `
   query MyQuery($locale: SiteLocale) {
@@ -170,10 +170,10 @@ const CRYPTO_WIDGET = `
 `
 
 export default async function page({ params }) {
-  // const data = await getData(CRYPTO_WIDGET, {
-  //   locale: params.locale,
-  // })
+  const data = await getData(CRYPTO_WIDGET, {
+    locale: params.locale,
+  })
 
-  // return  <CryptoWidget data={data} />
-  return <>2</>
+  return <CryptoWidget data={data} />
+  // return <>2</>
 }
