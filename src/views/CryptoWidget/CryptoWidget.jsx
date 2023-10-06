@@ -1,7 +1,7 @@
 'use client'
 
 import { StyledCryptoWidgetWrapper } from './CryptoWidget.styled'
-import CryptoWidgetHeroSection from '@/sections/CryptoWidgetSections/CryptoWidgetHeroSection'
+// import CryptoWidgetHeroSection from '@/sections/CryptoWidgetSections/CryptoWidgetHeroSection'
 import CryptoWidgetFlexibility from '@/sections/CryptoWidgetSections/CryptoWidgetFlexibility'
 import CryptoBusinessSection from '@/sections/CryptoWidgetSections/CryptoBusinessSection'
 import CryptoWidgetFeatures from '@/sections/CryptoWidgetSections/CryptoWidgetFeatures'
@@ -28,7 +28,7 @@ export default function CryptoWidget({ data }) {
   return (
     <PageProvider dataPage={data} isFaq nameCMSPage='cryptoWidgetPage'>
       <StyledCryptoWidgetWrapper>
-        <CryptoWidgetHeroSection />
+        {/* <CryptoWidgetHeroSection /> */}
         {/* <DynamicCryptoWidgetHeroSection /> */}
         {/* <DynamicCryptoWidgetFlexibility />
         <DynamicCryptoBusinessSection />
