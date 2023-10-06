@@ -8,7 +8,7 @@ import {
   TwitterShareButton,
 } from 'next-share'
 import { usePathname } from 'next/navigation'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH5,
@@ -25,13 +25,14 @@ import Linkedin from '@/assets/icons/linkedin.svg'
 import { BlogContext } from '@/contexts/BlogContext/BlogContext'
 import { ArticleContext } from '@/contexts/ArticleContext/ArticleContext'
 import { getURL } from '@/utils/getUrl'
+import { CenterSide } from '@/sections/BlogSections/BlogContentSection/components/CenterSide'
 
 export default function BlogContentSection() {
   return (
     <StyledBlogContentSectionWrapper>
       <div className='container'>
         <LeftSide />
-        <DynamicCenterSide />
+        <CenterSide />
         <RightSide />
       </div>
     </StyledBlogContentSectionWrapper>
@@ -110,10 +111,10 @@ function LeftSide() {
   )
 }
 
-const DynamicCenterSide = dynamic(
-  () => import('./components/CenterSide').then((res) => res.CenterSide),
-  { ssr: false }
-)
+// const DynamicCenterSide = dynamic(
+//   () => import('./components/CenterSide').then((res) => res.CenterSide),
+//   { ssr: false }
+// )
 
 function RightSide() {
   const { setActiveHeader } = useContext(ArticleContext)

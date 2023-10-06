@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
 import dynamic from 'next/dynamic'
 import { StyledHelpCenterPageWrapper } from '@/views/HelpCenterPage/HelpCenterPage.styled'
-// import MainSection from '@/sections/HelpCenterSections/MainSection'
+import MainSection from '@/sections/HelpCenterSections/MainSection'
 import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection'
 import { HelpCentreProvider } from '@/contexts/HelpCentreContext/HelpCentreContext'
 // import { SearchResultSection } from '@/sections/HelpCenterSections/SearchResultSection'
@@ -65,7 +65,7 @@ export function HelpCenterPageContent({ params }) {
       >
         <FullScreenLoader />
       </CSSTransition>
-      {isSearch ? <DynamicSearchResultSection /> : <DynamicMainSection />}
+      {isSearch ? <DynamicSearchResultSection /> : <MainSection />}
     </HelpCentreProvider>
   )
 }
@@ -79,14 +79,14 @@ const DynamicSearchResultSection = dynamic(
     ssr: false,
   }
 )
-const DynamicMainSection = dynamic(
-  () =>
-    import('@/sections/HelpCenterSections/MainSection').then(
-      (res) => res.default
-    ),
-  {
-    ssr: false,
-  }
-)
+// const DynamicMainSection = dynamic(
+//   () =>
+//     import('@/sections/HelpCenterSections/MainSection').then(
+//       (res) => res.default
+//     ),
+//   {
+//     ssr: false,
+//   }
+// )
 
 export default HelpCenterPage

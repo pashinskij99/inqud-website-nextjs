@@ -30,7 +30,7 @@ export default function HelpHeroSectionSearchForm({ data }) {
 
   return (
     <form onSubmit={handleSubmit(handleSearch)} className='search-wrapper'>
-      {size.width && size.width >= responseBreakPoint.desktop ? (
+      {size.width && size.width > responseBreakPoint.tablet ? (
         <Controller
           control={control}
           name='search'
@@ -47,7 +47,7 @@ export default function HelpHeroSectionSearchForm({ data }) {
           )}
         />
       ) : null}
-      {size.width && size.width < responseBreakPoint.desktop ? (
+      {size.width && size.width <= responseBreakPoint.desktop ? (
         <Controller
           control={control}
           name='search'

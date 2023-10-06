@@ -9,6 +9,7 @@ import { HelpCentreDetailsProvider } from '@/contexts/HelpCentreDetailsContext/H
 import { setBlogBreadcrumbs } from '@/store/features/breadcrumb/breadcrumbSlice'
 import { FullScreenLoader } from '@/components/Loader'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
+import { DetailsSectionInner } from '@/sections/HelpCenterSections/DetailsSection/components/DetailsSectionInner'
 
 function DetailsSection({ params }) {
   const { tab } = useSelector((state) => state.activeTab)
@@ -48,7 +49,7 @@ function DetailsSection({ params }) {
         {isSearch ? (
           <DynamicSearchResultDetailsSection />
         ) : (
-          <DynamicDetailsSectionInner />
+          <DetailsSectionInner />
         )}
       </ArticleProvider>
     </HelpCentreDetailsProvider>
@@ -64,14 +65,14 @@ const DynamicSearchResultDetailsSection = dynamic(
     ssr: false,
   }
 )
-const DynamicDetailsSectionInner = dynamic(
-  () =>
-    import('./components/DetailsSectionInner').then(
-      (res) => res.DetailsSectionInner
-    ),
-  {
-    ssr: false,
-  }
-)
+// const DynamicDetailsSectionInner = dynamic(
+//   () =>
+//     import('./components/DetailsSectionInner').then(
+//       (res) => res.DetailsSectionInner
+//     ),
+//   {
+//     ssr: false,
+//   }
+// )
 
 export default DetailsSection

@@ -1,29 +1,30 @@
 import clsx from 'clsx'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { StyledHelpHeroSectionWrapper } from '@/sections/HelpCenterSections/HelpHeroSection/HelpHeroSection.styled'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH1,
 } from '@/components/UI/Typography/Typography.styled'
-// import HeaderTabs from '@/components/Layout/Header/HeaderTabs'
+import HeaderTabs from '@/components/Layout/Header/HeaderTabs'
 import BackIcon from '@/assets/icons/arrow-back.svg'
+import HelpHeroSectionSearchForm from '@/sections/HelpCenterSections/HelpHeroSection/components/HelpHeroSectionSearchForm'
 
-const DynamicHelpHeroSectionSearchForm = dynamic(
-  () =>
-    import('./components/HelpHeroSectionSearchForm').then((res) => res.default),
-  {
-    ssr: false,
-  }
-)
+// const DynamicHelpHeroSectionSearchForm = dynamic(
+//   () =>
+//     import('./components/HelpHeroSectionSearchForm').then((res) => res.default),
+//   {
+//     ssr: false,
+//   }
+// )
 
-const DynamicHeaderTabs = dynamic(
-  () =>
-    import('@/components/Layout/Header/HeaderTabs').then((res) => res.default),
-  {
-    ssr: false,
-  }
-)
+// const DynamicHeaderTabs = dynamic(
+//   () =>
+//     import('@/components/Layout/Header/HeaderTabs').then((res) => res.default),
+//   {
+//     ssr: false,
+//   }
+// )
 
 function HelpHeroSection({ page, data }) {
   return (
@@ -42,14 +43,14 @@ function HelpHeroSection({ page, data }) {
           {data.helpCentreHero.title}
         </StyledTypographyUrbanistH1>
 
-        <DynamicHelpHeroSectionSearchForm data={data} />
+        <HelpHeroSectionSearchForm data={data} />
 
         <div
           className={clsx('tabs-wrapper', {
             ['hide']: page !== 'main',
           })}
         >
-          <DynamicHeaderTabs />
+          <HeaderTabs />
         </div>
       </div>
     </StyledHelpHeroSectionWrapper>
