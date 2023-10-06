@@ -4,11 +4,8 @@ import { useContext, useEffect, useState } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
 import { useWindowSize } from '@uidotdev/usehooks'
-// import { useCalendlyEventListener } from 'react-calendly'
-import GifPlayer from 'react-gif-player'
-import dynamic from 'next/dynamic'
-// import axios from 'axios'
 // import GifPlayer from 'react-gif-player'
+import dynamic from 'next/dynamic'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import {
   StyledHeroSectionWrapper,
@@ -173,7 +170,7 @@ function MobileGrid() {
       {/*   height={152} */}
       {/* /> */}
 
-      <GifPlayer
+      {/* <GifPlayer
         fetchpriority='high'
         priority
         loading='lazy'
@@ -183,7 +180,7 @@ function MobileGrid() {
         alt='animation'
         width={343}
         height={152}
-      />
+      /> */}
     </StyledMobileGridWrapper>
   )
 }
