@@ -41,7 +41,7 @@ export default function CryptoWidget({ data }) {
         <DynamicQuestionsSection />
         <DynamicSendRequestSection /> */}
 
-        <CryptoWidgetHeroSection />
+        {/* <CryptoWidgetHeroSection /> */}
         <CryptoWidgetFlexibility />
         <CryptoBusinessSection />
         <CryptoWidgetFeatures />

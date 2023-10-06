@@ -32,7 +32,7 @@ export default function CompanyHeroSection() {
     <StyledCompanyHeroSectionWrapper>
       {(size.width && size.width > responseBreakPoint.tablet) ||
       size.width <= responseBreakPoint.mobile ? (
-        <DynamicCompanyHeroSectionDesktop />
+        <DynamicCompanyHeroSectionDesktop data={data} />
       ) : null}
 
       {size.width &&

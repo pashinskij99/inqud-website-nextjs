@@ -9,6 +9,7 @@ export default function PageProvider({
   children,
   params = {},
 }) {
+  console.log(dataPage)
   let faq
   if (isFaq) {
     faq = {
