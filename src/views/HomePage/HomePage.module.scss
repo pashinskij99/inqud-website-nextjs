@@ -1,0 +1,85 @@
+.wrapper {
+  height: 100%;
+  @media (max-width: 767px) {
+    display: grid;
+  }
+
+  .pickSection {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    @media (max-width: 1279px) {
+      position: relative;
+      transform: translateY(0%);
+    }
+    @media (max-width: 767px) {
+      order: 6;
+    }
+    :global(.pickTitle) {
+      width: 365px;
+      @media (max-width: 1279px) {
+        width: 100%;
+      }
+    }
+    :global(.pickList_dontLose) {
+      max-width: 335.33px;
+      @media (max-width: 767px) {
+        max-width: 100%;
+      }
+    }
+    :global(.pickPickButtonTablet) {
+      @media (max-width: 1024px) {
+        display: block;
+      }
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+    }
+  }
+
+  .pickSection2 {
+    @media (max-width: 1279px) {
+      padding-bottom: 76px !important;
+      grid-template-columns: 332px 312px;
+      column-gap: 44px;
+
+      :global(.pickTitle) {
+        margin-bottom: 6px;
+      }
+
+      :global(.pickPick) {
+        transform: translateY(-19px);
+      }
+
+      :global(.pickList) {
+        ul {
+          gap: 16px;
+        }
+      }
+    }
+    @media (max-width: 767px) {
+      order: 9;
+    }
+
+    :global(.pickPickButtonTablet) {
+      display: none;
+    }
+    @media (max-width: 1279px) {
+      :global(.pickPickButtonTablet) {
+        display: block;
+      }
+    }
+
+    @media (max-width: 767px) {
+      :global(.pickPickButton) {
+        display: block;
+      }
+
+      :global(.pickPickButtonTablet) {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,48 +1,59 @@
 import Link from 'next/link'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Scrollbar } from 'swiper/modules'
 import { useTranslations } from 'next-intl'
-import { useContext, useEffect, useState } from 'react'
-import { useWindowSize } from '@uidotdev/usehooks'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import { StyledBlogsSection } from './BlogsSection.styled'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import { BlogCart, BlogCart2 } from '@/components/BlogCart'
-import { PageContext } from '@/contexts/PageContext/PageContext'
-import { getPageData } from '@/lib/datocms'
+import { BlogCart } from '@/components/BlogCart'
+// import { PageContext } from '@/contexts/PageContext/PageContext'
+// import { getPageData } from '@/lib/datocms'
+// import { HOME_B2B_BLOG, HOME_B2B_BLOGS_DATA } from '@/lib/datocmsQuery'
+// import { responseBreakPoint } from '@/utils/response'
+import Device, { DESKTOP, MOBILE_OR_TABLET } from '@/components/Device/Device'
+import HomePageBlogsSectionSwiper from './components/HomePageBlogsSectionSwiper'
+import { getData } from '@/lib/datocms'
 import { HOME_B2B_BLOG, HOME_B2B_BLOGS_DATA } from '@/lib/datocmsQuery'
-import { responseBreakPoint } from '@/utils/response'
 
-export default function BlogsSection() {
+export default async function BlogsSectionWrapper({ params }) {
+  const { homePage: data } = await getData(HOME_B2B_BLOG, {
+    locale: params.locale,
+  })
+  const { allBlogs: blogs } = await getData(HOME_B2B_BLOGS_DATA, {
+    locale: params.locale,
+  })
+
+  return <BlogsSection data={data} blogs={blogs} />
+}
+
+function BlogsSection({ data, blogs }) {
   const t = useTranslations('blog_name_section')
-  const [data, setData] = useState({})
-  const [blogs, setBlogs] = useState([])
+  // const [data, setData] = useState({})
+  // const [blogs, setBlogs] = useState([])
 
-  const { params } = useContext(PageContext)
+  // const { params } = useContext(PageContext)
 
-  useEffect(() => {
-    const getData = async () => {
-      const pageData = await getPageData({
-        variables: {
-          locale: params.locale,
-        },
-        query: HOME_B2B_BLOG,
-      })
-      const blogsData = await getPageData({
-        variables: {
-          locale: params.locale,
-        },
-        query: HOME_B2B_BLOGS_DATA,
-      })
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const pageData = await getPageData({
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //       query: HOME_B2B_BLOG,
+  //     })
+  //     const blogsData = await getPageData({
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //       query: HOME_B2B_BLOGS_DATA,
+  //     })
 
-      setBlogs(blogsData.allBlogs)
-      setData(pageData.homePage)
-    }
+  //     setBlogs(blogsData.allBlogs)
+  //     setData(pageData.homePage)
+  //   }
 
-    getData()
-  }, [])
+  //   getData()
+  // }, [])
 
-  const size = useWindowSize()
+  // const size = useWindowSize()
 
   return (
     <StyledBlogsSection>
@@ -57,8 +68,7 @@ export default function BlogsSection() {
             </StyledButtonGhost>
           </Link>
         </div>
-
-        {size.width && size.width > responseBreakPoint.tablet ? (
+        <Device device={DESKTOP}>
           <div className='blogsGrid'>
             {blogs?.map(
               ({
@@ -82,64 +92,12 @@ export default function BlogsSection() {
               )
             )}
           </div>
-        ) : null}
+        </Device>
 
         {/* mobile */}
-
-        {size.width && size.width <= responseBreakPoint.tablet ? (
-          <Swiper
-            className='blogsSwiper'
-            slidesPerView='auto'
-            spaceBetween={24}
-            updateOnWindowResize
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-                spaceBetween: 8,
-                initialSlide: 1,
-                loop: true,
-                centeredSlides: true,
-              },
-              500: {
-                loop: false,
-                slidesPerView: 'auto',
-                initialSlide: 0,
-                spaceBetween: 24,
-                centeredSlides: false,
-              },
-            }}
-            scrollbar={{
-              dragSize: 200 / 3,
-              horizontalClass: 'listRequirementsSwiperScollbar',
-              hide: true,
-            }}
-            modules={[Scrollbar]}
-          >
-            {blogs?.map(
-              ({
-                id,
-                _createdAt,
-                timeToRead,
-                slugPage,
-                mainImage,
-                mainTag,
-                mainTitle,
-              }) => (
-                <SwiperSlide className='slide' key={id}>
-                  <Link href={`/blog/${slugPage}`}>
-                    <BlogCart2
-                      time={timeToRead}
-                      date={_createdAt}
-                      title={mainTitle}
-                      imageSrc={mainImage?.url || ''}
-                      subTitle={mainTag?.tag}
-                    />
-                  </Link>
-                </SwiperSlide>
-              )
-            )}
-          </Swiper>
-        ) : null}
+        <Device device={MOBILE_OR_TABLET}>
+          <HomePageBlogsSectionSwiper blogs={blogs} />
+        </Device>
 
         <Link href='/blog'>
           <StyledButtonGhost className='blogsHeaderButtonMobile'>

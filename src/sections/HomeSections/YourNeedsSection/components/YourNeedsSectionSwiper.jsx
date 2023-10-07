@@ -1,18 +1,22 @@
+'use client'
+
 import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { CartRequirement } from '@/components/CartRequirement'
+import CartRequirement from '@/components/CartRequirement'
+import YourNeedsSectionModalWithButton from './YourNeedsSectionModalWithButton'
+import styles from '../YourNeedsSection.module.scss'
 
 function YourNeedsSectionSwiper({ list, data }) {
   return (
     <Swiper
-      className='listRequirementsSwiper'
+      className={styles.listRequirementsSwiper}
       slidesPerView='auto'
       centeredSlides
       initialSlide={1}
       updateOnWindowResize
       scrollbar={{
         dragSize: 200 / 3,
-        horizontalClass: 'listRequirementsSwiperScollbar',
+        horizontalClass: styles.listRequirementsSwiperScollbar,
         hide: true,
       }}
       breakpoints={{
@@ -40,18 +44,23 @@ function YourNeedsSectionSwiper({ list, data }) {
       }}
       modules={[Scrollbar]}
     >
-      {list.map(({ id, description, image, title, handleClick }) => (
-        <SwiperSlide className='listRequirementsSwiperItems' key={id}>
-          <CartRequirement
-            buttonText={id === 1 && data.buttonScreen2}
-            description={description}
-            href='#'
-            handleClick={handleClick}
-            imageSrc={image}
-            title={title}
-          />
-        </SwiperSlide>
-      ))}
+      {list.map(({ id, description, image, title }, i) =>
+        i !== 1 ? (
+          <SwiperSlide key={id} className={styles.listRequirementsSwiperItems}>
+            <CartRequirement
+              buttonText=''
+              description={description}
+              href='#'
+              imageSrc={image}
+              title={title}
+            />
+          </SwiperSlide>
+        ) : (
+          <SwiperSlide key={id} className={styles.listRequirementsSwiperItems}>
+            <YourNeedsSectionModalWithButton data={data} />
+          </SwiperSlide>
+        )
+      )}
     </Swiper>
   )
 }

@@ -1,3 +1,3 @@
-import { CartRequirement } from './CartRequirement'
+import CartRequirement from './CartRequirement'
 
-export { CartRequirement }
+export default CartRequirement

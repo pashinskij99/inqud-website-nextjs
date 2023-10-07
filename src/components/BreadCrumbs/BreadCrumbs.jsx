@@ -1,24 +1,24 @@
 'use client'
 
 import Link from 'next/link'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { capitalize } from '@mui/material'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import {
   StyledBreadcrumbs,
   StyledBreadCrumbsWrapper,
 } from '@/components/BreadCrumbs/BreadCrumbs.styled'
 import { StyledTypographyUrbanistSmallSpaces } from '@/components/UI/Typography/Typography.styled'
 import { getUrlForBreadCrumbs } from '@/utils/getUrlForBreadCrumbs'
-import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
+// import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
 
 function BreadCrumbs() {
   const [pages, setPages] = useState([])
   const pathname = usePathname()
 
-  const { isNotFound } = useContext(NotFoundContext)
-  const breadcrumb = useSelector((state) => state.breadcrumb)
+  // const { isNotFound } = useContext(NotFoundContext)
+  // const breadcrumb = useSelector((state) => state.breadcrumb)
 
   const getCurrentPageName = (page) => {
     switch (page) {
@@ -46,7 +46,7 @@ function BreadCrumbs() {
         return 'Contact us'
       // for blog details page
       default:
-        return breadcrumb.blog || ''
+        return ''
     }
   }
 
@@ -60,9 +60,9 @@ function BreadCrumbs() {
     }))
 
     setPages(pagesArray)
-  }, [pathname, breadcrumb])
+  }, [pathname])
 
-  return isNotFound ? null : (
+  return pathname !== '/business' ? (
     <StyledBreadCrumbsWrapper>
       <div className='containerHeader'>
         <StyledBreadcrumbs>
@@ -76,7 +76,7 @@ function BreadCrumbs() {
         </StyledBreadcrumbs>
       </div>
     </StyledBreadCrumbsWrapper>
-  )
+  ) : null
 }
 
 export default BreadCrumbs

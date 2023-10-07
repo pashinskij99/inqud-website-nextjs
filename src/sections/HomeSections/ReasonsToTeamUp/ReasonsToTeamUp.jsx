@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+// import { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
 import {
   StyledTypographyUrbanistBody,
@@ -6,30 +6,36 @@ import {
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledReasonsToTeamUp } from './ReasonsToTeamUp.styled'
-
-import { PageContext } from '@/contexts/PageContext/PageContext'
-import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_REASONS_TEAM_UP } from '@/lib/datocmsQuery'
+import { getData } from '@/lib/datocms'
 
-export default function ReasonsToTeamUp() {
-  const [data, setData] = useState({})
+// import { PageContext } from '@/contexts/PageContext/PageContext'
+// import { getPageData } from '@/lib/datocms'
+// import { HOME_B2B_REASONS_TEAM_UP } from '@/lib/datocmsQuery'
 
-  const { params } = useContext(PageContext)
+export default async function ReasonsToTeamUp({ params }) {
+  // const [data, setData] = useState({})
 
-  useEffect(() => {
-    const getData = async () => {
-      const pageData = await getPageData({
-        variables: {
-          locale: params.locale,
-        },
-        query: HOME_B2B_REASONS_TEAM_UP,
-      })
+  // const { params } = useContext(PageContext)
 
-      setData(pageData.homePage)
-    }
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const pageData = await getPageData({
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //       query: HOME_B2B_REASONS_TEAM_UP,
+  //     })
 
-    getData()
-  }, [])
+  //     setData(pageData.homePage)
+  //   }
+
+  //   getData()
+  // }, [])
+
+  const { homePage: data } = await getData(HOME_B2B_REASONS_TEAM_UP, {
+    locale: params.locale,
+  })
 
   return (
     <StyledReasonsToTeamUp>

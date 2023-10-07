@@ -1,3 +1,5 @@
+'use client'
+
 import { Tab, Tabs } from '@mui/material'
 import clsx from 'clsx'
 import {

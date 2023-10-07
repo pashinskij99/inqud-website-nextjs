@@ -1,14 +1,12 @@
-import { Fragment } from 'react'
-import { StyledCoinsListWrapper } from '../YourNeedsSection.styled'
+import styles from '../YourNeedsSection.module.scss'
 
 function CoinsList({ coinsList }) {
   return (
-    <StyledCoinsListWrapper>
-      {/* eslint-disable-next-line no-unused-vars */},
+    <ul className={styles['coins-list-wrapper']}>
       {coinsList.map(({ id, icon }) => (
-        <Fragment key={id}>{icon}</Fragment>
+        <li key={id}>{icon}</li>
       ))}
-    </StyledCoinsListWrapper>
+    </ul>
   )
 }
 

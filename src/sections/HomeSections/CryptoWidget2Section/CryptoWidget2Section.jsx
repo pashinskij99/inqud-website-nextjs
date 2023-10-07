@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import { useContext, useEffect, useState } from 'react'
+// import { useContext, useEffect, useState } from 'react'
 
 // import { toast } from 'react-toastify'
-import { useWindowSize } from '@uidotdev/usehooks'
-import dynamic from 'next/dynamic'
+// import { useWindowSize } from '@uidotdev/usehooks'
+// import dynamic from 'next/dynamic'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -12,57 +12,53 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledCryptoWidget2Section } from './CryptoWidget2Section.styled'
 import Check from '@/assets/icons/check-dark.svg'
-import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
+// import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import { ButtonGhostCrypto } from '@/components/UI/Button'
-import { PageContext } from '@/contexts/PageContext/PageContext'
-import { responseBreakPoint } from '@/utils/response'
+// import { PageContext } from '@/contexts/PageContext/PageContext'
+// import { responseBreakPoint } from '@/utils/response'
 // import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 // import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
-import { getPageData } from '@/lib/datocms'
+import { getData } from '@/lib/datocms'
 import { HOME_B2B_CRYPTO_WIDGET_2 } from '@/lib/datocmsQuery'
 import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
+import Device, {
+  DESKTOP,
+  MOBILE,
+  TABLET,
+  TABLET_OR_DESKTOP,
+} from '@/components/Device/Device'
+import { CryptoWidget2ModalWithButton } from './components/CryptoWidget2ModalWithButton'
 
-const DynamicModalSubmitEmailWrapper = dynamic(
-  () =>
-    import('./components/ModalSubmitEmailWrapper').then((mod) => mod.default),
-  {
-    ssr: false,
-  }
-)
-
-export default function CryptoWidget2Section() {
-  const [open, setOpen] = useState(false)
-  const [data, setData] = useState({})
+export default async function CryptoWidget2Section({ params }) {
+  // const [open, setOpen] = useState(false)
+  // const [data, setData] = useState({})
 
   // const {
   //   dataPage: { homePage: data },
   // } = useContext(PageContext)
-  const { params } = useContext(PageContext)
+  // const { params } = useContext(PageContext)
 
-  const handleOpen = () => {
-    setOpen(true)
-  }
-  const handleClose = () => {
-    setOpen(false)
-  }
+  // const size = useWindowSize()
 
-  const size = useWindowSize()
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const pageData = await getPageData({
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //       query: HOME_B2B_CRYPTO_WIDGET_2,
+  //     })
 
-  useEffect(() => {
-    const getData = async () => {
-      const pageData = await getPageData({
-        variables: {
-          locale: params.locale,
-        },
-        query: HOME_B2B_CRYPTO_WIDGET_2,
-      })
+  //     setData(pageData.homePage)
+  //   }
 
-      setData(pageData.homePage)
-    }
+  //   getData()
+  // }, [])
 
-    getData()
-  }, [])
+  const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET_2, {
+    locale: params.locale,
+  })
 
   return (
     <StyledCryptoWidget2Section>
@@ -74,9 +70,7 @@ export default function CryptoWidget2Section() {
           <StyledTypographyUrbanistH2 className='crypto2Title'>
             {data.screen5Title}
           </StyledTypographyUrbanistH2>
-          {size.width &&
-          size.width <= responseBreakPoint.tablet &&
-          size.width > responseBreakPoint.mobile ? (
+          <Device device={TABLET}>
             <AnimatedVideoOnScroll
               className='crypto2WidgetTablet'
               width={500}
@@ -84,8 +78,8 @@ export default function CryptoWidget2Section() {
               timeRepeat={5000}
               urlFirstVideo='/video/b2b_cart2crypto.webm'
             />
-          ) : null}
-          {size.width && size.width <= responseBreakPoint.mobile ? (
+          </Device>
+          <Device device={MOBILE}>
             <Animated2GifOnView
               className='crypto2WidgetTablet'
               width={500}
@@ -95,19 +89,18 @@ export default function CryptoWidget2Section() {
               urlSecondVideo='/video/b2b_cart2crypto.gif'
               timeSecondAnimate={5000}
             />
-          ) : null}
-
-          {size.width && size.width <= responseBreakPoint.mobile ? (
+          </Device>
+          <Device device={MOBILE}>
             <StyledTypographyUrbanistH5 className='crypto2Description crypto2Description-mobile'>
               {data.screen5Description}
             </StyledTypographyUrbanistH5>
-          ) : null}
+          </Device>
 
-          {size.width && size.width > responseBreakPoint.mobile ? (
+          <Device device={TABLET_OR_DESKTOP}>
             <StyledTypographyUrbanistBody className='crypto2Description crypto2Description-desktop'>
               {data.screen5Description}
             </StyledTypographyUrbanistBody>
-          ) : null}
+          </Device>
 
           <ul className='crypto2Grid'>
             {data.screen5Features?.map(
@@ -157,23 +150,11 @@ export default function CryptoWidget2Section() {
               </ButtonGhostCrypto>
             </div>
 
-            <StyledButtonSecondaryLight
-              onClick={handleOpen}
-              className='crypto2FooterApplyButton'
-            >
-              {data.buttonLead2C}
-            </StyledButtonSecondaryLight>
-
-            {open ? (
-              <DynamicModalSubmitEmailWrapper
-                open={open}
-                handleClose={handleClose}
-              />
-            ) : null}
+            <CryptoWidget2ModalWithButton data={data} />
           </div>
         </div>
         <div className='rightSide'>
-          {size.width && size.width >= responseBreakPoint.desktop ? (
+          <Device device={DESKTOP}>
             <AnimatedVideoOnScroll
               className='graphic'
               width={500}
@@ -181,7 +162,7 @@ export default function CryptoWidget2Section() {
               timeRepeat={5000}
               urlFirstVideo='/video/b2b_cart2crypto.webm'
             />
-          ) : null}
+          </Device>
         </div>
       </div>
     </StyledCryptoWidget2Section>

@@ -35,10 +35,10 @@ const nextConfig = {
       },
     ]
   },
-  compiler: {
-    styledComponents: true,
-    // removeConsole: process.env.NODE_ENV === 'production',
-  },
+  // compiler: {
+  //   styledComponents: true,
+  //   // removeConsole: process.env.NODE_ENV === 'production',
+  // },
   images: {
     remotePatterns: [
       {

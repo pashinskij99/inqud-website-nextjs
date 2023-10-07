@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 'use client'
 
 import { useState } from 'react'
@@ -5,6 +7,7 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 import Arrow from '@/assets/icons/arrow-down.svg'
 import {
   StyledTypographyUrbanistBody,
@@ -191,33 +194,35 @@ function AccordionComponent({
   ]
 
   return (
-    <StyledHeaderMobileMenuAccordion
-      expanded={expanded === title}
-      onChange={handleChange(title)}
-    >
-      <StyledHeaderMobileMenuAccordionSummary
+    <div>
+      <StyledHeaderMobileMenuAccordion
         expanded={expanded === title}
-        expandIcon={<Arrow />}
+        onChange={handleChange(title)}
       >
-        <StyledTypographyUrbanistH5 className='headerMobileMenuAccordionTitle'>
-          {title}
-        </StyledTypographyUrbanistH5>
-      </StyledHeaderMobileMenuAccordionSummary>
-      <StyledHeaderMobileMenuAccordionDetails expanded={expanded === title}>
-        {dropdownList.map(({ id, items }) => (
-          <ul className='headerMobileMenuAccordionBodyList' key={id}>
-            {items.map(({ id: itemId, name, href }) => (
-              <StyledTypographyUrbanistBody
-                key={itemId}
-                onClick={() => handleClickLink(href)}
-                className='headerMobileMenuAccordionBodyText'
-              >
-                {name}
-              </StyledTypographyUrbanistBody>
-            ))}
-          </ul>
-        ))}
-      </StyledHeaderMobileMenuAccordionDetails>
-    </StyledHeaderMobileMenuAccordion>
+        <StyledHeaderMobileMenuAccordionSummary
+          expanded={expanded === title}
+          expandIcon={<Image src={Arrow} alt='Arrow' />}
+        >
+          <StyledTypographyUrbanistH5 className='headerMobileMenuAccordionTitle'>
+            {title}
+          </StyledTypographyUrbanistH5>
+        </StyledHeaderMobileMenuAccordionSummary>
+        <StyledHeaderMobileMenuAccordionDetails expanded={expanded === title}>
+          {dropdownList.map(({ id, items }) => (
+            <ul className='headerMobileMenuAccordionBodyList' key={id}>
+              {items.map(({ id: itemId, name, href }) => (
+                <StyledTypographyUrbanistBody
+                  key={itemId}
+                  onClick={() => handleClickLink(href)}
+                  className='headerMobileMenuAccordionBodyText'
+                >
+                  {name}
+                </StyledTypographyUrbanistBody>
+              ))}
+            </ul>
+          ))}
+        </StyledHeaderMobileMenuAccordionDetails>
+      </StyledHeaderMobileMenuAccordion>
+    </div>
   )
 }

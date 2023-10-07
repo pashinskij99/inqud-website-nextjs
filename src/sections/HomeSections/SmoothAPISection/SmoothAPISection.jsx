@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useContext, useEffect, useState } from 'react'
-import { useWindowSize } from '@uidotdev/usehooks'
+// import { useContext, useEffect, useState } from 'react'
+// import { useWindowSize } from '@uidotdev/usehooks'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -12,46 +12,60 @@ import { StyledSmoothAPISection } from './SmoothAPISection.styled'
 import { ButtonGetStarted } from '@/components/UI/Button/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import Check from '@/assets/icons/check-green-background.svg'
-import { PageContext } from '@/contexts/PageContext/PageContext'
+// import { PageContext } from '@/contexts/PageContext/PageContext'
 // import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 // import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
-import { responseBreakPoint } from '@/utils/response'
-import { getPageData } from '@/lib/datocms'
-import { HOME_B2B_SMOOTH_API } from '@/lib/datocmsQuery'
+// import { responseBreakPoint } from '@/utils/response'
+// import { getPageData } from '@/lib/datocms'
+// import { HOME_B2B_SMOOTH_API } from '@/lib/datocmsQuery'
 import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
+import Device, {
+  DESKTOP,
+  MOBILE,
+  // MOBILE_OR_TABLET,
+  TABLET,
+  TABLET_OR_DESKTOP,
+} from '@/components/Device/Device'
+import { getData } from '@/lib/datocms'
+import { HOME_B2B_SMOOTH_API } from '@/lib/datocmsQuery'
 
-export default function SmoothAPISection() {
-  const [data, setData] = useState({})
+export default async function SmoothAPISection({ params }) {
+  // const [data, setData] = useState({})
 
   // const {
   //   dataPage: { homePage: data },
   // } = useContext(PageContext)
 
-  const { params } = useContext(PageContext)
+  // const { params } = useContext(PageContext)
 
-  useEffect(() => {
-    const getData = async () => {
-      const pageData = await getPageData({
-        variables: {
-          locale: params.locale,
-        },
-        query: HOME_B2B_SMOOTH_API,
-      })
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const pageData = await getPageData({
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //       query: HOME_B2B_SMOOTH_API,
+  //     })
 
-      setData(pageData.homePage)
-    }
+  //     setData(pageData.homePage)
+  //   }
 
-    getData()
-  }, [])
+  //   getData()
+  // }, [])
 
-  const size = useWindowSize()
+  // const size = useWindowSize()
+
+  const { homePage: data } = await getData(HOME_B2B_SMOOTH_API, {
+    locale: params.locale,
+  })
 
   return (
     <StyledSmoothAPISection>
+      {/* <section> */}
       <div className='container'>
         <div className='leftSide'>
-          {size.width && size.width >= responseBreakPoint.tablet ? (
+          <Device device={TABLET_OR_DESKTOP}>
             <AnimatedVideoOnScroll
               className='graphic'
               height={600}
@@ -59,9 +73,8 @@ export default function SmoothAPISection() {
               urlFirstVideo='/video/il-api.mp4'
               width={416.45}
             />
-          ) : null}
+          </Device>
         </div>
-
         <div className='rightSide'>
           <StyledTypographyIBMH5 className='smoothAPISubTitle'>
             {data.screen4SubTitle}
@@ -70,7 +83,7 @@ export default function SmoothAPISection() {
             {data.screen4Title}
           </StyledTypographyUrbanistH2>
 
-          {size.width && size.width <= responseBreakPoint.mobile ? (
+          <Device device={MOBILE}>
             <Animated2GifOnView
               className='smoothAPIImageTablet'
               height={232.88}
@@ -80,11 +93,9 @@ export default function SmoothAPISection() {
               timeSecondAnimate={5000}
               width={343}
             />
-          ) : null}
+          </Device>
 
-          {size.width &&
-          size.width > responseBreakPoint.mobile &&
-          size.width < responseBreakPoint.desktop ? (
+          <Device device={TABLET}>
             <AnimatedVideoOnScroll
               className='smoothAPIImageTablet'
               height={600}
@@ -92,25 +103,24 @@ export default function SmoothAPISection() {
               urlFirstVideo='/video/b2b_api_video_tablet.mp4'
               width={416.45}
             />
-          ) : null}
+          </Device>
 
-          {size.width && size.width <= responseBreakPoint.mobile ? (
+          <Device device={MOBILE}>
             <StyledTypographyUrbanistH5 className='smoothAPIDescriptionMobile'>
               {data.screen4Description}
             </StyledTypographyUrbanistH5>
-          ) : null}
-          {size.width &&
-          size.width > responseBreakPoint.mobile &&
-          size.width < responseBreakPoint.desktop ? (
+          </Device>
+          <Device device={TABLET}>
             <StyledTypographyUrbanistH5 className='smoothAPIDescription tablet'>
               {data.screen4Description}
             </StyledTypographyUrbanistH5>
-          ) : null}
-          {size.width && size.width >= responseBreakPoint.desktop ? (
+          </Device>
+
+          <Device device={DESKTOP}>
             <StyledTypographyUrbanistBody className='smoothAPIDescription desktop'>
               {data.screen4Description}
             </StyledTypographyUrbanistBody>
-          ) : null}
+          </Device>
 
           <ul className='smoothAPIGrid'>
             {data.screen4Features?.map(
@@ -156,6 +166,7 @@ export default function SmoothAPISection() {
           </div>
         </div>
       </div>
+      {/* </section> */}
     </StyledSmoothAPISection>
   )
 }

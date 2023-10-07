@@ -1,3 +1,5 @@
+'use client'
+
 import styled from '@emotion/styled'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'

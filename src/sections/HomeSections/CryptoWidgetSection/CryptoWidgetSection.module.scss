@@ -1,0 +1,490 @@
+.wrapper {
+  background: var(--ambitious-green, rgb(7, 116, 83));
+  padding-top: 200px;
+  padding-bottom: 200px;
+  overflow-x: hidden;
+  &::selection {
+    background: var(--ambitious-green, rgb(7, 116, 83));
+  }
+  @media (max-width: 1536px) {
+    padding-top: 200px;
+  }
+  @media (max-width: 1279px) {
+    padding: 120px 0;
+  }
+  @media (max-width: 767px) {
+    padding: 96px 0;
+    overflow: hidden;
+    order: 4;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    column-gap: 133px;
+
+    @media (max-width: 1536px) {
+      column-gap: 72px;
+      align-items: flex-end;
+    }
+    @media (max-width: 1279px) {
+      padding-right: 50px;
+      gap: 0;
+    }
+    @media (max-width: 767px) {
+      padding-right: 16px;
+      text-align: center;
+      padding: 0;
+    }
+
+    .leftSide {
+      max-width: 680px;
+      width: 100%;
+      @media (max-width: 1536px) {
+        max-width: 596px;
+      }
+      @media (max-width: 1279px) {
+        max-width: 100%;
+      }
+    }
+
+    .cryptoSubTitle {
+      border-radius: 50px;
+      background: var(--exciting-lime, #bfffc8);
+      color: #077453;
+      font-size: 18px;
+      margin-bottom: 10px;
+      line-height: 1;
+      padding: 7px 16px;
+      width: fit-content;
+      @media (max-width: 1279px) {
+        margin: 0 auto 14px;
+        padding: 5px 16px;
+      }
+      @media (max-width: 767px) {
+        margin: 0 auto 16px;
+      }
+    }
+
+    .cryptoTitle {
+      color: #ffffff;
+      margin-bottom: 14px;
+      @media (max-width: 1279px) {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      @media (max-width: 767px) {
+        line-height: 46px;
+        letter-spacing: 0.3px;
+      }
+    }
+
+    .cryptoWidgetMobileWrapper {
+      display: none;
+      @media (max-width: 1279px) {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 22px;
+        position: relative;
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 133.333px;
+        }
+        &::before {
+          top: 0;
+          background: linear-gradient(
+            180deg,
+            #077453 0%,
+            rgba(7, 116, 83, 0) 100%
+          );
+        }
+
+        &::after {
+          bottom: 0;
+          background: linear-gradient(
+            360deg,
+            #077453 0%,
+            rgba(7, 116, 83, 0) 100%
+          );
+        }
+
+        img {
+          width: 397.33px;
+          height: 399.3333435058594px;
+        }
+        .cryptoWidgetMobileSmaller {
+          display: none;
+        }
+
+        .cryptoWidgetDesktop {
+          display: block;
+        }
+      }
+      @media (max-width: 767px) {
+        margin-bottom: 24.47px;
+        overflow: hidden;
+        &::before,
+        &::after {
+          height: 80px;
+        }
+
+        &::after {
+          background: linear-gradient(
+            360deg,
+            #077453 0%,
+            rgba(7, 116, 83, 0) 100%
+          );
+          transform: translateY(50px);
+        }
+
+        .cryptoWidgetMobileSmaller {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+
+        .cryptoWidgetDesktop {
+          display: none;
+        }
+      }
+    }
+
+    .cryptoDescription {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 24px;
+
+      color: #ffffff;
+      margin-bottom: 40px;
+      @media (max-width: 1279px) {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0em;
+      }
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+
+    .cryptoDescriptionMobile {
+      display: none;
+      @media (max-width: 767px) {
+        display: block;
+        color: #ffffff;
+        margin-bottom: 40px;
+        font-size: 24px;
+        line-height: 32px;
+        padding: 0 16px;
+      }
+    }
+
+    .cryptoGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 46;
+      row-gap: 24px;
+      margin-bottom: 40px;
+      @media (max-width: 1536px) {
+        column-gap: 28px;
+        row-gap: 42px;
+      }
+      @media (max-width: 1279px) {
+        align-items: flex-start;
+        row-gap: 26px;
+      }
+
+      @media (max-width: 767px) {
+        grid-template-columns: repeat(1, 1fr);
+        text-align: start;
+        width: fit-content;
+        margin: 0 auto 48px;
+        gap: 16px;
+      }
+
+      .cryptoGridItem {
+        position: relative;
+        @media (max-width: 1279px) {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          align-items: flex-start;
+        }
+
+        @media (max-width: 767px) {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          &:nth-of-type(1) {
+            order: 1;
+          }
+          &:nth-of-type(2) {
+            order: 3;
+          }
+          &:nth-of-type(3) {
+            order: 2;
+          }
+          &:nth-of-type(4) {
+            order: 4;
+          }
+        }
+
+        .icon-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 48px;
+          height: 48px;
+
+          border-radius: 16px;
+          background: rgba(191, 255, 200, 0.20000000298023224);
+          margin-bottom: 6px;
+          @media (max-width: 1536px) {
+            margin-bottom: 7px;
+          }
+
+          @media (max-width: 767px) {
+            display: none;
+          }
+        }
+
+        .icon1 {
+          width: 24.0000057220459px;
+          height: 24.0000057220459px;
+        }
+
+        .icon2 {
+          width: 20.25px;
+          height: 21px;
+        }
+
+        .icon3 {
+          width: 24px;
+          height: 24px;
+        }
+
+        .icon4 {
+          width: 24;
+          height: 22.23px;
+        }
+
+        &:last-of-type {
+          .cryptoGridItemTitle,
+          .cryptoGridItemDescription,
+          .icon4 {
+            opacity: 0.6000000238418579;
+          }
+
+          &::before {
+            content: attr(data-slug);
+            position: absolute;
+            top: 0;
+            right: 12px;
+
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 8.673px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+
+            color: var(--ambitious-green, #077453);
+            height: 25px;
+            padding: 0 10px;
+
+            border-radius: 30px;
+            background: var(--exciting-lime, #bfffc8);
+            display: flex;
+            align-items: center;
+            z-index: 1;
+            @media (max-width: 1536px) {
+              margin-top: 10px;
+              right: 0;
+            }
+            @media (max-width: 1279px) {
+              margin-top: 0;
+              right: 0;
+              transform: translateY(-100%) translateX(-14px);
+            }
+            @media (max-width: 767px) {
+              display: none;
+            }
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            outline: 2px dotted var(--exciting-lime, #bfffc8);
+            opacity: 0.4000000059604645;
+            padding: 14px 12px 16px 20px;
+            @media (max-width: 1536px) {
+              padding: 12px;
+            }
+            @media (max-width: 1279px) {
+              padding: 15px;
+              padding-right: 10px;
+            }
+            @media (max-width: 767px) {
+              display: none;
+            }
+          }
+        }
+
+        .loading {
+          display: none;
+        }
+
+        .check {
+          display: none;
+          @media (max-width: 767px) {
+            display: block;
+          }
+        }
+
+        &:last-of-type {
+          @media (max-width: 767px) {
+            .loading {
+              display: block;
+            }
+
+            .check {
+              display: none;
+            }
+          }
+        }
+
+        .cryptoGridItemTitle {
+          color: #ffffff;
+          font-weight: 700;
+          margin-bottom: 8px;
+          @media (max-width: 1536px) {
+            margin-bottom: 8px;
+          }
+          @media (max-width: 1279px) {
+            grid-column-start: 2;
+            grid-column-end: 2;
+            margin-left: 16px;
+            width: 100%;
+            margin: 0 0 0 16px;
+            height: 48px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+          }
+          @media (max-width: 767px) {
+            height: auto;
+            font-weight: 500;
+            margin: 0;
+          }
+        }
+
+        .cryptoGridItemDescription {
+          font-weight: 500;
+          color: #ffffff;
+          @media (max-width: 1536px) {
+            br {
+              display: none;
+            }
+          }
+          @media (max-width: 1279px) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+          }
+          @media (max-width: 767px) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .cryptoButtonWrapper {
+      gap: 16px;
+      display: flex;
+      align-items: center;
+      @media (max-width: 767px) {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 0 16px;
+      }
+
+      .cryptoButtonGetStarted {
+        @media (max-width: 767px) {
+          width: 100%;
+          padding-left: 0;
+          height: 48px;
+          svg {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+
+      .cryptoButtonGhost {
+        border: 1px solid var(--exciting-lime-20, rgba(191, 255, 200, 0.2));
+        color: #bfffc8;
+
+        &:hover {
+          background-color: #bfffc8;
+          color: #077453;
+        }
+        @media (max-width: 767px) {
+          width: 100%;
+          height: 48px;
+        }
+      }
+    }
+
+    .rightSide {
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 200px;
+      }
+
+      &::before {
+        top: 0;
+        background: linear-gradient(
+          180deg,
+          #077453 0%,
+          rgba(7, 116, 83, 0) 100%
+        );
+      }
+
+      &::after {
+        bottom: 0;
+        background: linear-gradient(
+          360deg,
+          #077453 0%,
+          rgba(7, 116, 83, 0) 100%
+        );
+      }
+      @media (max-width: 1279px) {
+        display: none;
+      }
+
+      .graphic {
+        max-width: 500px;
+        width: 100%;
+      }
+    }
+  }
+}

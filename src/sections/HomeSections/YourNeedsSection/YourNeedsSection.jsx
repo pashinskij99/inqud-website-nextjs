@@ -1,13 +1,17 @@
-import { useContext, useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { useWindowSize } from '@uidotdev/usehooks'
+// import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
+// import { SwiperSlide } from 'swiper/react'
+// import { Scrollbar } from 'swiper/modules'
+// import Swiper from 'swiper'
+import clsx from 'clsx'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-import { YourNeedsSectionWrapper } from './YourNeedsSection.styled'
+import styles from './YourNeedsSection.module.scss'
+// import { YourNeedsSectionWrapper } from './YourNeedsSection.styled'
 import Image1 from '@/assets/images/your-needs/image1.png'
 import Image2 from '@/assets/images/your-needs/image2.png'
 import Image3 from '@/assets/images/your-needs/image3.png'
@@ -17,25 +21,35 @@ import Coins3 from '@/assets/images/your-needs/Coins3.svg'
 import Coins4 from '@/assets/images/your-needs/Coins4.svg'
 import Coins5 from '@/assets/images/your-needs/Coins5.svg'
 import { keysForLocale } from '@/config/keysForLocale'
-import { PageContext } from '@/contexts/PageContext/PageContext'
-import { responseBreakPoint } from '@/utils/response'
 import CoinsList from './components/CoinsList'
+import Device, { DESKTOP } from '@/components/Device/Device'
+import { getData } from '@/lib/datocms'
+import { HOME_B2B_NEEDS } from '@/lib/datocmsQuery'
+import YourNeedsSectionSwiper from './components/YourNeedsSectionSwiper'
 
 const DynamicCartRequirement = dynamic(
-  () =>
-    import('@/components/CartRequirement').then((mod) => mod.CartRequirement),
+  () => import('@/components/CartRequirement').then((mod) => mod.default),
   {
     ssr: false,
   }
 )
 
-const DynamicYourNeedsSectionSwiper = dynamic(
+const DynamicCartRequirementModalWithCart = dynamic(
   () =>
-    import('./components/YourNeedsSectionSwiper').then((mod) => mod.default),
+    import('./components/YourNeedsSectionModalWithButton').then(
+      (res) => res.default
+    ),
   {
     ssr: false,
   }
 )
+export default async function YourNeedsSectionWrapper({ params }) {
+  const { homePage: data } = await getData(HOME_B2B_NEEDS, {
+    locale: params.locale,
+  })
+
+  return <YourNeedsSection data={data} />
+}
 
 // const DynamicCoinsList = dynamic(
 //   () => import('./components/CoinsList').then((mod) => mod.default),
@@ -44,13 +58,13 @@ const DynamicYourNeedsSectionSwiper = dynamic(
 //   }
 // )
 
-const DynamicYourNeedsSectionModalForm = dynamic(
-  () =>
-    import('./components/YourNeedsSectionModalForm').then((mod) => mod.default),
-  {
-    ssr: false,
-  }
-)
+// const DynamicYourNeedsSectionModalForm = dynamic(
+//   () =>
+//     import('./components/YourNeedsSectionModalForm').then((mod) => mod.default),
+//   {
+//     ssr: false,
+//   }
+// )
 
 const coinsList = [
   {
@@ -75,7 +89,7 @@ const coinsList = [
   },
 ]
 
-export default function YourNeedsSection() {
+function YourNeedsSection({ data }) {
   // const {
   //   register,
   //   formState: { errors },
@@ -89,24 +103,15 @@ export default function YourNeedsSection() {
   //   resolver: yupResolver(userSchema2),
   // })
 
-  const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
   const t = useTranslations('home_page_your_needs_section')
   const tList = useTranslations('home_page_your_needs_section_list_item_title')
   const tList2 = useTranslations(
     'home_page_your_needs_section_list_item_description'
   )
 
-  const handleOpen = () => {
-    setOpenModalSendRequest(true)
-  }
-
-  const handleClose = () => {
-    setOpenModalSendRequest(false)
-  }
-
-  const {
-    dataPage: { homePage: data },
-  } = useContext(PageContext)
+  // const {
+  //   dataPage: { homePage: data },
+  // } = useContext(PageContext)
 
   // const onSubmit = async (data) => {
   //   const newData = {
@@ -148,9 +153,9 @@ export default function YourNeedsSection() {
       id: 1,
       title: tList(keysForLocale.keys3[1]),
       description: tList2(keysForLocale.keys3[1]),
-      buttonText: data.buttonScreen2,
-      open: openModalSendRequest,
-      handleClick: handleOpen,
+      // buttonText: data.buttonScreen2,
+      // open: openModalSendRequest,
+      // handleClick: handleOpen,
       image: Image2.src,
     },
     {
@@ -161,12 +166,14 @@ export default function YourNeedsSection() {
     },
   ]
 
-  const size = useWindowSize()
+  // const size = useWindowSize()
 
   return (
-    <YourNeedsSectionWrapper>
+    <section className={styles.wrapper}>
       <div className='container'>
-        <StyledTypographyUrbanistH2 className='title title-desktop'>
+        <StyledTypographyUrbanistH2
+          className={clsx(styles.title, styles['title-desktop'])}
+        >
           {t('title')}
         </StyledTypographyUrbanistH2>
 
@@ -174,38 +181,35 @@ export default function YourNeedsSection() {
 
         <StyledTypographyUrbanistH5
           component='p'
-          className='subTitle subTitle-desktop'
+          className={clsx(styles.subTitle, styles['subTitle-desktop'])}
         >
           {t('paragraph')}
         </StyledTypographyUrbanistH5>
 
-        {size.width && size.width >= responseBreakPoint.desktop ? (
-          <div className='listRequirements'>
-            {list.map(
-              ({ id, buttonText, description, image, title, handleClick }) => (
+        <Device device={DESKTOP}>
+          <div className={styles.listRequirements}>
+            {list.map(({ id, description, image, title }) =>
+              id !== 1 ? (
                 <DynamicCartRequirement
                   key={id}
-                  buttonText={buttonText}
                   description={description}
                   href='#'
-                  handleClick={handleClick}
                   imageSrc={image}
                   title={title}
                 />
+              ) : (
+                <DynamicCartRequirementModalWithCart data={data} />
               )
             )}
           </div>
-        ) : null}
-        {size.width && size.width <= responseBreakPoint.tablet ? (
-          <DynamicYourNeedsSectionSwiper data={data} list={list} />
-        ) : null}
+        </Device>
+
+        <YourNeedsSectionSwiper list={list} data={data} />
+
+        {/* {size.width && size.width <= responseBreakPoint.tablet ? ( */}
+
+        {/* ) : null} */}
       </div>
-      {openModalSendRequest ? (
-        <DynamicYourNeedsSectionModalForm
-          openModalSendRequest={openModalSendRequest}
-          handleClose={handleClose}
-        />
-      ) : null}
-    </YourNeedsSectionWrapper>
+    </section>
   )
 }

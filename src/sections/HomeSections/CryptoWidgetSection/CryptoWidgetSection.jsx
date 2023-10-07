@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import { useContext, useEffect, useState } from 'react'
+// import { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
-import { useWindowSize } from '@uidotdev/usehooks'
-import { StyledCryptoWidgetSection } from './CryptoWidgetSection.styled'
+// import { useWindowSize } from '@uidotdev/usehooks'
+import clsx from 'clsx'
+import styles from './CryptoWidgetSection.module.scss'
+// import { StyledCryptoWidgetSection } from './CryptoWidgetSection.styled'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -14,69 +16,80 @@ import { ButtonGetStartedLight } from '@/components/UI/Button/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import Loading from '@/assets/icons/loading.svg'
-import { PageContext } from '@/contexts/PageContext/PageContext'
+// import { PageContext } from '@/contexts/PageContext/PageContext'
 // import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
-import { responseBreakPoint } from '@/utils/response'
+// import { responseBreakPoint } from '@/utils/response'
 // import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 import gifStill from '@/assets/gif/b2b_crypto_widget_mobile.webp'
-import { getPageData } from '@/lib/datocms'
+import { getData } from '@/lib/datocms'
 import { HOME_B2B_CRYPTO_WIDGET } from '@/lib/datocmsQuery'
 import {
   Animated2GifOnView,
   AnimatedVideoOnScroll,
 } from '@/components/AnimatedVideo/AnimatedVideo'
+import Device, {
+  DESKTOP,
+  MOBILE,
+  TABLET,
+  TABLET_OR_DESKTOP,
+} from '@/components/Device/Device'
 
-export default function CryptoWidgetSection() {
+export default async function CryptoWidgetSectionWrapper({ params }) {
+  const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET, {
+    locale: params.locale,
+  })
+  return <CryptoWidgetSection data={data} />
+}
+
+function CryptoWidgetSection({ data }) {
   const t = useTranslations('home_page_crypto_widget_section')
-  const [data, setData] = useState({})
+  // const [data, setData] = useState({})
 
-  const { params } = useContext(PageContext)
+  // const { params } = useContext(PageContext)
 
-  const size = useWindowSize()
+  // const size = useWindowSize()
 
-  useEffect(() => {
-    const getData = async () => {
-      const pageData = await getPageData({
-        variables: {
-          locale: params.locale,
-        },
-        query: HOME_B2B_CRYPTO_WIDGET,
-      })
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const pageData = await getPageData({
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //       query: HOME_B2B_CRYPTO_WIDGET,
+  //     })
 
-      setData(pageData.homePage)
-    }
+  //     setData(pageData.homePage)
+  //   }
 
-    getData()
-  }, [])
+  //   getData()
+  // }, [])
 
   return (
-    <StyledCryptoWidgetSection>
-      <div className='container'>
-        <div className='leftSide'>
-          <StyledTypographyIBMH5 className='cryptoSubTitle'>
+    <section className={styles.wrapper}>
+      <div className={clsx('container', styles.container)}>
+        <div className={styles.leftSide}>
+          <StyledTypographyIBMH5 className={styles.cryptoSubTitle}>
             {data.screen3SubTitle}
           </StyledTypographyIBMH5>
 
-          <StyledTypographyUrbanistH2 className='cryptoTitle'>
+          <StyledTypographyUrbanistH2 className={styles.cryptoTitle}>
             {data.screen3Title}
           </StyledTypographyUrbanistH2>
 
-          <div className='cryptoWidgetMobileWrapper'>
-            {size.width &&
-            size.width > responseBreakPoint.mobile &&
-            size.width < responseBreakPoint.desktop ? (
+          <div className={styles.cryptoWidgetMobileWrapper}>
+            <Device device={TABLET}>
               <AnimatedVideoOnScroll
-                className='cryptoWidgetDesktop'
+                className={styles.cryptoWidgetDesktop}
                 height={600}
                 timeRepeat={3000}
                 // urlFirstVideo='/video/b2b_crypto_video_web.webm'
                 urlFirstVideo='/video/b2b_crypto_video_web.webm'
                 width={500}
               />
-            ) : null}
-            {size.width && size.width <= responseBreakPoint.mobile ? (
+            </Device>
+            <Device device={MOBILE}>
               <Animated2GifOnView
-                className='cryptoWidgetMobileSmaller'
+                className={styles.cryptoWidgetMobileSmaller}
                 height={600}
                 timeRepeat={4000}
                 urlSecondVideo='/video/b2b_crypto_widget_mobile.gif'
@@ -84,71 +97,77 @@ export default function CryptoWidgetSection() {
                 timeSecondAnimate={5000}
                 width={500}
               />
-            ) : null}
+            </Device>
           </div>
-
-          {size.width && size.width <= responseBreakPoint.mobile ? (
-            <StyledTypographyUrbanistH5 className='cryptoDescriptionMobile'>
+          <Device device={MOBILE}>
+            <StyledTypographyUrbanistH5
+              className={styles.cryptoDescriptionMobile}
+            >
               {data.screen3Description}
             </StyledTypographyUrbanistH5>
-          ) : null}
-          {size.width && size.width > responseBreakPoint.mobile ? (
-            <StyledTypographyUrbanistBody className='cryptoDescription'>
+          </Device>
+          {/* {size.width && size.width <= responseBreakPoint.mobile ? ( */}
+
+          {/* ) : null} */}
+          <Device device={TABLET_OR_DESKTOP}>
+            <StyledTypographyUrbanistBody className={styles.cryptoDescription}>
               {data.screen3Description}
             </StyledTypographyUrbanistBody>
-          ) : null}
+          </Device>
 
-          <ul className='cryptoGrid'>
+          <ul className={styles.cryptoGrid}>
             {data.feature?.map(({ description, id, image: { url }, title }) => (
               <li
-                className='cryptoGridItem'
+                className={styles.cryptoGridItem}
                 data-slug={t('comming_soon')}
                 key={id}
               >
-                <Image src={Check} alt='Check' className='check' />
-                <Image src={Loading} alt='loading' className='loading' />
-                <div className='icon-wrapper'>
+                <Image src={Check} alt='Check' className={styles.check} />
+                <Image src={Loading} alt='loading' className={styles.loading} />
+                <div className={styles['icon-wrapper']}>
                   <Image src={url} alt={title} width={24} height={24} />
                 </div>
                 <StyledTypographyUrbanistH5
                   component='h3'
-                  className='cryptoGridItemTitle'
+                  className={styles.cryptoGridItemTitle}
                 >
                   {title}
                 </StyledTypographyUrbanistH5>
-                <StyledTypographyUrbanistBody className='cryptoGridItemDescription'>
+                <StyledTypographyUrbanistBody
+                  className={styles.cryptoGridItemDescription}
+                >
                   {description}
                 </StyledTypographyUrbanistBody>
               </li>
             ))}
           </ul>
 
-          <div className='cryptoButtonWrapper'>
+          <div className={styles.cryptoButtonWrapper}>
             <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
-              <ButtonGetStartedLight className='cryptoButtonGetStarted'>
+              <ButtonGetStartedLight className={styles.cryptoButtonGetStarted}>
                 {data.buttonScreen3GetStarted}
               </ButtonGetStartedLight>
             </Link>
             <Link href='/crypto-widget'>
-              <StyledButtonGhost className='cryptoButtonGhost'>
+              <StyledButtonGhost className={styles.cryptoButtonGhost}>
                 {data.buttonScreen3LearnMore}
               </StyledButtonGhost>
             </Link>
           </div>
         </div>
 
-        <div className='rightSide'>
-          {size.width && size.width >= responseBreakPoint.desktop ? (
+        <div className={styles.rightSide}>
+          <Device device={DESKTOP}>
             <AnimatedVideoOnScroll
-              className='graphic'
+              className={styles.graphic}
               height={600}
               timeRepeat={3000}
               urlFirstVideo='/video/b2b_crypto_video_web.webm'
               width={500}
             />
-          ) : null}
+          </Device>
         </div>
       </div>
-    </StyledCryptoWidgetSection>
+    </section>
   )
 }

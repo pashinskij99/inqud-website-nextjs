@@ -29,6 +29,7 @@ export const StyledHomeWrapper = styled.main`
     }
     .pickList_dontLose {
       max-width: 335.33px;
+      width: 100%;
       ${responsive.sm`
         max-width: 100%; 
       `}

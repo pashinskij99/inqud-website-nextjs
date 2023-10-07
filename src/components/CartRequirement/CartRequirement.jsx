@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { StyledCartRequirement } from './CartRequirement.styled'
 import {
@@ -6,7 +8,7 @@ import {
 } from '../UI/Typography/Typography.styled'
 import { ButtonLearnMore } from '../UI/Button/Button'
 
-export function CartRequirement({
+export default function CartRequirement({
   title,
   imageSrc,
   description,

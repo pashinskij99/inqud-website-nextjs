@@ -1,12 +1,5 @@
-'use client'
-
-import { useContext, useEffect, useState } from 'react'
-import clsx from 'clsx'
-import { render } from 'datocms-structured-text-to-html-string'
 import { StructuredText } from 'react-datocms/structured-text'
 // import { toast } from 'react-toastify'
-import { useWindowSize } from '@uidotdev/usehooks'
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import {
   StyledTypographyUrbanistBody,
@@ -15,60 +8,19 @@ import {
   StyledTypographyUrbanistSmallSpaces,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledFeesBusinessWrapper } from './FeesBusiness.styled'
-import {
-  StyledButtonLearnMore,
-  StyledButtonSecondaryLight,
-} from '@/components/UI/Button/Button.styled'
 import BackCart from '@/assets/images/fee/cart-back.svg'
 // import { FeeModal } from '@/components/Modal/Modal'
-import { PageContext } from '@/contexts/PageContext/PageContext'
-import { getPageData } from '@/lib/datocms'
+import { getData } from '@/lib/datocms'
 import { HOME_B2B_FEES } from '@/lib/datocmsQuery'
-import { responseBreakPoint } from '@/utils/response'
-
-const DynamicFeeModalWrapper = dynamic(
-  () => import('./components/FeeModalWrapper').then((res) => res.default),
-  { ssr: false }
-)
+import FeesBusinessShowMore from './components/FeesBusinessShowMore'
+import FeesBusinessModalWithButton from './components/FeesBusinessModalWithButton'
+import Device, { DESKTOP, MOBILE, TABLET } from '@/components/Device/Device'
 
 // eslint-disable-next-line no-unused-vars
-export default function FeesBusiness({ modelId, autoId }) {
-  const [showModal, setShowModal] = useState(false)
-  const [showMore, setShowMore] = useState(false)
-
-  const handleShowModal = () => {
-    setShowModal(true)
-  }
-
-  const handleHideModal = () => {
-    setShowModal(false)
-  }
-
-  const hadleShowMore = () => setShowMore((prevState) => !prevState)
-  const [data, setData] = useState({})
-
-  // const {
-  //   dataPage: { feesYourBusiness: data },
-  // } = useContext(PageContext)
-
-  const { params } = useContext(PageContext)
-
-  useEffect(() => {
-    const getData = async () => {
-      const pageData = await getPageData({
-        variables: {
-          locale: params.locale,
-        },
-        query: HOME_B2B_FEES,
-      })
-
-      setData(pageData.feesYourBusiness)
-    }
-
-    getData()
-  }, [])
-
-  const size = useWindowSize()
+export default async function FeesBusiness({ modelId, autoId, params }) {
+  const { feesYourBusiness: data } = await getData(HOME_B2B_FEES, {
+    locale: params.locale,
+  })
 
   return (
     <StyledFeesBusinessWrapper className='fees'>
@@ -118,40 +70,14 @@ export default function FeesBusiness({ modelId, autoId }) {
               ))}
             </tbody>
           </table>
-
-          {size.width && size.width <= responseBreakPoint.mobile ? (
-            <div className='description-wrapper'>
-              <StyledTypographyUrbanistSmallSpaces
-                className={clsx('description', {
-                  ['learnMore']: !showMore,
-                })}
-              >
-                {data.footerDescription ? (
-                  <LearnMoreText
-                    showMore={showMore}
-                    text={render(data.footerDescription)
-                      .replace(/(<([^>]+)>)/gi, '')
-                      .replace(/(&[a-z]*;|<([^>]+)>)/gi, '')}
-                    endText={141}
-                  />
-                ) : null}
-              </StyledTypographyUrbanistSmallSpaces>
-
-              <StyledButtonLearnMore
-                onClick={hadleShowMore}
-                className='learnMoreButton'
-              >
-                {showMore ? 'Hide text' : 'Show more'}
-              </StyledButtonLearnMore>
-            </div>
-          ) : null}
-          {size.width &&
-          size.width <= responseBreakPoint.tablet &&
-          size.width > responseBreakPoint.mobile ? (
+          <Device device={MOBILE}>
+            <FeesBusinessShowMore data={data} />
+          </Device>
+          <Device device={TABLET}>
             <div className='description-wrapper'>
               <StructuredText data={data.footerDescription} />
             </div>
-          ) : null}
+          </Device>
 
           <div className='cart'>
             <div className='cart-left-side'>
@@ -163,32 +89,18 @@ export default function FeesBusiness({ modelId, autoId }) {
               <StyledTypographyUrbanistBody>
                 {data.cartDescription}
               </StyledTypographyUrbanistBody>
-              <StyledButtonSecondaryLight onClick={handleShowModal}>
-                {data.cartButton}
-              </StyledButtonSecondaryLight>
+              <FeesBusinessModalWithButton data={data} modelId={modelId} />
             </div>
             <Image className='cart-back' src={BackCart} alt='BackCart' />
           </div>
         </div>
 
-        {size.width && size.width > responseBreakPoint.tablet ? (
+        <Device device={DESKTOP}>
           <div className='description-wrapper'>
             <StructuredText data={data.footerDescription} />
           </div>
-        ) : null}
+        </Device>
       </div>
-
-      {showModal ? (
-        <DynamicFeeModalWrapper
-          modelId={modelId}
-          showModal={showModal}
-          handleHideModal={handleHideModal}
-        />
-      ) : null}
     </StyledFeesBusinessWrapper>
   )
-}
-
-function LearnMoreText({ endText, text, showMore }) {
-  return <>{showMore ? text : text.substring(0, endText)}</>
 }

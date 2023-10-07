@@ -1,3 +1,27 @@
+export const HOME_PAGE_QUERY = `
+query MyQuery($locale: SiteLocale) {
+  homePage(locale: $locale) {
+    buttonScreen1ContactSales
+    buttonScreen1GetStarted
+    description {
+      value
+    }
+    features
+    id
+    subTitle
+    title
+    buttonScreen2
+  }
+}
+`
+export const HOME_B2B_NEEDS = `
+query MyQuery($locale: SiteLocale) {
+  homePage(locale: $locale) {
+    buttonScreen2
+  }
+}
+`
+
 export const HOME_B2B_CRYPTO_WIDGET = `
   query MyQuery($locale: SiteLocale) {
     homePage(locale: $locale) {

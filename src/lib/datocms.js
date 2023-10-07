@@ -71,7 +71,7 @@ export const getData = async (query, variables) => {
   try {
     return await performRequest({
       query,
-      revalidate: 0,
+      // revalidate: 20,
       variables,
     })
   } catch (error) {

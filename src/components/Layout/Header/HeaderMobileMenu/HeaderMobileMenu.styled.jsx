@@ -1,7 +1,15 @@
 import styled from '@emotion/styled'
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
-import { rem } from '@/utils/rem'
+// import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
+
+// import * as React from 'react';
+// import { styled } from '@mui/material/styles'
+// import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import MuiAccordion from '@mui/material/Accordion'
+import MuiAccordionSummary from '@mui/material/AccordionSummary'
+import MuiAccordionDetails from '@mui/material/AccordionDetails'
 import { responsive } from '@/utils/response'
+import { rem } from '@/utils/rem'
+// import Typography from '@mui/material/Typography';
 
 export const StyledHeaderMobileMenu = styled.div`
   left: 0;
@@ -115,7 +123,7 @@ export const StyledHeaderMobileMenu = styled.div`
 `
 
 export const StyledHeaderMobileMenuAccordion = styled((props) => (
-  <Accordion disableGutters elevation={0} square {...props} />
+  <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(() => ({
   width: 'fit-content',
   margin: '0 auto',
@@ -157,7 +165,10 @@ export const StyledHeaderMobileMenuAccordion = styled((props) => (
 }))
 
 export const StyledHeaderMobileMenuAccordionSummary = styled((props) => (
-  <AccordionSummary {...props} />
+  <MuiAccordionSummary
+    // expandIcon={}
+    {...props}
+  />
 ))(() => ({
   lineHeight: 1,
   padding: 0,
@@ -177,8 +188,46 @@ export const StyledHeaderMobileMenuAccordionSummary = styled((props) => (
     },
 }))
 
-export const StyledHeaderMobileMenuAccordionDetails = styled(AccordionDetails)(
-  () => ({
-    padding: 0,
-  })
-)
+export const StyledHeaderMobileMenuAccordionDetails = styled(
+  MuiAccordionDetails
+)(() => ({
+  padding: 0,
+}))
+
+//
+
+// const Accordion = styled((props) => (
+//   <MuiAccordion disableGutters elevation={0} square {...props} />
+// ))(({ theme }) => ({
+//   border: `1px solid ${theme.palette.divider}`,
+//   '&:not(:last-child)': {
+//     borderBottom: 0,
+//   },
+//   '&:before': {
+//     display: 'none',
+//   },
+// }))
+
+// const AccordionSummary = styled((props) => (
+//   <MuiAccordionSummary
+//     // expandIcon={}
+//     {...props}
+//   />
+// ))(({ theme }) => ({
+//   backgroundColor:
+//     theme.palette.mode === 'dark'
+//       ? 'rgba(255, 255, 255, .05)'
+//       : 'rgba(0, 0, 0, .03)',
+//   flexDirection: 'row-reverse',
+//   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+//     transform: 'rotate(90deg)',
+//   },
+//   '& .MuiAccordionSummary-content': {
+//     marginLeft: theme.spacing(1),
+//   },
+// }))
+
+// const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+//   padding: theme.spacing(2),
+//   borderTop: '1px solid rgba(0, 0, 0, .125)',
+// }))

@@ -1,78 +1,78 @@
 import clsx from 'clsx'
-import { useContext, useEffect, useState } from 'react'
+// import { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
-import { StructuredText } from 'react-datocms/structured-text'
-import dynamic from 'next/dynamic'
-import { useWindowSize } from '@uidotdev/usehooks'
+// import { StructuredText } from 'react-datocms/structured-text'
+// import dynamic from 'next/dynamic'
+// import { useWindowSize } from '@uidotdev/usehooks'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
-  StyledTypographyUrbanistH3,
+  // StyledTypographyUrbanistH3,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledPickSectionSection } from './PickSection.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import Pick from '@/assets/icons/pick.svg'
-import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
-import { PageContext } from '@/contexts/PageContext/PageContext'
-import {
-  addGlobalScrollBar,
-  removeGlobalScrollBar,
-} from '@/utils/addOrRemoveGlobalScrollBar'
-import { getPageData } from '@/lib/datocms'
+// import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
+// import { PageContext } from '@/contexts/PageContext/PageContext'
+// import {
+//   addGlobalScrollBar,
+//   removeGlobalScrollBar,
+// } from '@/utils/addOrRemoveGlobalScrollBar'
+// import { getPageData } from '@/lib/datocms'
+// import {
+//   HOME_B2B_PICK_SECTION_DONT_LOSE,
+//   HOME_B2B_PICK_SECTION_DONT_LOSE_LEAD_FORM_DATA,
+// } from '@/lib/datocmsQuery'
+// import { responseBreakPoint } from '@/utils/response'
+import PickSectionModalWithButton from './components/PickSectionModalWithButton'
+// import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
+import { getData } from '@/lib/datocms'
 import {
   HOME_B2B_PICK_SECTION_DONT_LOSE,
   HOME_B2B_PICK_SECTION_DONT_LOSE_LEAD_FORM_DATA,
 } from '@/lib/datocmsQuery'
-import { responseBreakPoint } from '@/utils/response'
 
-const DynamicModalCalendaly = dynamic(
-  () => import('react-calendly').then((mod) => mod.PopupModal),
-  {
-    ssr: false,
-  }
-)
+export default async function PickSection({ variant, className, params }) {
+  // const [data, setData] = useState({})
+  // const [leadFormData, setLeadFormData] = useState({})
 
-export default function PickSection({ variant, className }) {
-  const [data, setData] = useState({})
-  const [leadFormData, setLeadFormData] = useState({})
+  // const { params } = useContext(PageContext)
 
-  const { params } = useContext(PageContext)
-  const [calendlyModal, setCalendlyModal] = useState(false)
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const pageData = await getPageData({
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //       query: HOME_B2B_PICK_SECTION_DONT_LOSE,
+  //     })
 
-  const handleOpenCalendlyModal = () => {
-    setCalendlyModal(true)
-    removeGlobalScrollBar()
-  }
-  const handleCloseCalendlyModal = () => {
-    setCalendlyModal(false)
-    addGlobalScrollBar()
-  }
+  //     const leadData = await getPageData({
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //       query: HOME_B2B_PICK_SECTION_DONT_LOSE_LEAD_FORM_DATA,
+  //     })
 
-  useEffect(() => {
-    const getData = async () => {
-      const pageData = await getPageData({
-        variables: {
-          locale: params.locale,
-        },
-        query: HOME_B2B_PICK_SECTION_DONT_LOSE,
-      })
+  //     setLeadFormData(leadData.pickLeadForm)
+  //     setData(pageData.homePage)
+  //   }
 
-      const leadData = await getPageData({
-        variables: {
-          locale: params.locale,
-        },
-        query: HOME_B2B_PICK_SECTION_DONT_LOSE_LEAD_FORM_DATA,
-      })
+  //   getData()
+  // }, [])
 
-      setLeadFormData(leadData.pickLeadForm)
-      setData(pageData.homePage)
+  // const size = useWindowSize()
+
+  const { homePage: data } = await getData(HOME_B2B_PICK_SECTION_DONT_LOSE, {
+    locale: params.locale,
+  })
+  const { pickLeadForm: leadFormData } = await getData(
+    HOME_B2B_PICK_SECTION_DONT_LOSE_LEAD_FORM_DATA,
+    {
+      locale: params.locale,
     }
-
-    getData()
-  }, [])
-
-  const size = useWindowSize()
+  )
 
   return (
     <StyledPickSectionSection className={clsx(className, 'container')}>
@@ -87,25 +87,12 @@ export default function PickSection({ variant, className }) {
 
         <div className='pickListWrapper'>
           {variant === 'dontLose' ? (
-            <>
-              {size.width && size.width <= responseBreakPoint.mobile ? (
-                <PickListDontLose
-                  data={{
-                    list: data.leadForm1List,
-                    title: data.leadForm1ListTitle,
-                  }}
-                />
-              ) : null}
-
-              {size.width && size.width > responseBreakPoint.mobile ? (
-                <PickListDontLose
-                  data={{
-                    list: data.leadForm1List,
-                    title: data.leadForm1ListTitle,
-                  }}
-                />
-              ) : null}
-            </>
+            <PickListDontLose
+              data={{
+                list: data.leadForm1List,
+                title: data.leadForm1ListTitle,
+              }}
+            />
           ) : (
             <PickList10Minutes
               data={{
@@ -122,20 +109,7 @@ export default function PickSection({ variant, className }) {
             {leadFormData?.pickDescription}
           </StyledTypographyUrbanistBody>
 
-          <StyledButtonSecondaryLight
-            onClick={handleOpenCalendlyModal}
-            className='pickPickButton'
-          >
-            {leadFormData?.buttonText}
-          </StyledButtonSecondaryLight>
-          {calendlyModal ? (
-            <DynamicModalCalendaly
-              onModalClose={handleCloseCalendlyModal}
-              open={calendlyModal}
-              rootElement={document.getElementById('calendly-model-wrapper')}
-              url='https://calendly.com/inqud_team/30-minute-free-consultation'
-            />
-          ) : null}
+          <PickSectionModalWithButton leadFormData={leadFormData} />
         </div>
       </div>
     </StyledPickSectionSection>
@@ -169,77 +143,6 @@ export function PickList10Minutes({ data }) {
         {data.list?.map(({ id, title, image: { url } }) => (
           <li key={id}>
             <Image src={url} alt={title} width={48} height={48} />
-            <StyledTypographyUrbanistBody className='pickListItemText'>
-              {title}
-            </StyledTypographyUrbanistBody>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-export function PickApiSection({ className }) {
-  const {
-    dataPage: { apiPage: data, pickLeadForm: leadFormData },
-  } = useContext(PageContext)
-
-  const [calendlyModal, setCalendlyModal] = useState(false)
-
-  const handleOpenCalendlyModal = () => {
-    setCalendlyModal(true)
-    removeGlobalScrollBar()
-  }
-  const handleCloseCalendlyModal = () => {
-    setCalendlyModal(false)
-    addGlobalScrollBar()
-  }
-
-  return (
-    <StyledPickSectionSection className={clsx(className, 'container')}>
-      <div className='container'>
-        <StyledTypographyUrbanistH3 className='pickTitle pickTitleApi'>
-          <StructuredText data={data.lead1TitleStructured} />
-        </StyledTypographyUrbanistH3>
-
-        <div className='pickListWrapper'>
-          <PickListApi list={data.leadForm1List} />
-        </div>
-
-        <div className='pickPick'>
-          <Image src={Pick} alt='pick' />
-
-          <StyledTypographyUrbanistBody className='pickPickDescription'>
-            {leadFormData.pickDescription}
-          </StyledTypographyUrbanistBody>
-
-          <StyledButtonSecondaryLight
-            onClick={handleOpenCalendlyModal}
-            className='pickPickButton'
-          >
-            {leadFormData.buttonText}
-          </StyledButtonSecondaryLight>
-          {calendlyModal ? (
-            <DynamicModalCalendaly
-              onModalClose={handleCloseCalendlyModal}
-              open={calendlyModal}
-              rootElement={document.getElementById('calendly-model-wrapper')}
-              url='https://calendly.com/inqud_team/30-minute-free-consultation'
-            />
-          ) : null}
-        </div>
-      </div>
-    </StyledPickSectionSection>
-  )
-}
-
-function PickListApi({ list }) {
-  return (
-    <div className='pickList pickListApi'>
-      <ul>
-        {list.map(({ id, title, image }) => (
-          <li key={id}>
-            <Image src={image?.url} alt={title} width={48} height={48} />
             <StyledTypographyUrbanistBody className='pickListItemText'>
               {title}
             </StyledTypographyUrbanistBody>

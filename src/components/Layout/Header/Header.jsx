@@ -21,9 +21,13 @@ import { keysForLocale } from '@/config/keysForLocale'
 import HeaderLanguageSelect from '@/components/Layout/Header/HeaderLanguageSelect'
 import { responseBreakPoint } from '@/utils/response'
 
-const DynamicHeader = dynamic(() => import('./HeaderMobileMenu'), {
-  ssr: false,
-})
+const DynamicHeader = dynamic(
+  () =>
+    import('./HeaderMobileMenu/HeaderMobileMenu').then((res) => res.default),
+  {
+    ssr: false,
+  }
+)
 
 export default function Header() {
   const [active, setActive] = useState(false)
@@ -185,17 +189,21 @@ export default function Header() {
         </div>
 
         {size.width && size.width < responseBreakPoint.desktop ? (
-          <CSSTransition
-            in={active}
-            timeout={{
-              enter: 0,
-              exit: 200,
-            }}
-            mountOnEnter
-            unmountOnExit
-          >
-            <DynamicHeader active={active} handleClose={handleClose} />
-          </CSSTransition>
+          <>
+            {active ? (
+              <CSSTransition
+                in={active}
+                timeout={{
+                  enter: 0,
+                  exit: 200,
+                }}
+                mountOnEnter
+                unmountOnExit
+              >
+                <DynamicHeader active={active} handleClose={handleClose} />
+              </CSSTransition>
+            ) : null}
+          </>
         ) : null}
       </div>
     </StyledHeaderWrapper>

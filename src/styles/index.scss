@@ -1,5 +1,12 @@
 :root {
   --header-height: 72px;
+  --xxs: 400px;
+  --xs: 576px;
+  --sm: 767px;
+  --md: 830px;
+  --lg: 1024px;
+  --xl: 1279px;
+  --xxl: 1536px;
 
   @media (max-width: 1279px) {
     --header-height: 72px;

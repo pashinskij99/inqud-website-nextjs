@@ -1,0 +1,209 @@
+.wrapper {
+  text-align: center;
+  padding-top: 98px;
+  padding-bottom: 199px;
+  overflow: hidden;
+
+  @media (max-width: 1536px) {
+    padding-bottom: 184px;
+  }
+  @media (max-width: 1279px) {
+    padding-top: 119px;
+    padding-bottom: 132px;
+  }
+  @media (max-width: 767px) {
+    padding-top: 95px;
+    padding-bottom: 129.67px;
+    order: 2;
+  }
+
+  .title {
+    margin-bottom: 16px;
+    line-height: 62px;
+    @media (max-width: 1279px) {
+      text-align: start;
+    }
+    @media (max-width: 767px) {
+      text-align: center;
+      line-height: 46px;
+      margin-bottom: 32px;
+      letter-spacing: 0.2px;
+    }
+  }
+
+  .subTitle {
+    margin-bottom: 50px;
+    color: rgba(81, 113, 133, 1);
+
+    &.subTitle-desktop {
+    }
+
+    &.subTitle-mobile {
+      display: none;
+    }
+    @media (max-width: 1279px) {
+      text-align: start;
+      margin-bottom: 38px;
+    }
+    @media (max-width: 767px) {
+      margin-bottom: 40px;
+      &.subTitle-desktop {
+        display: none;
+      }
+
+      &.subTitle-mobile {
+        display: none;
+      }
+    }
+  }
+
+  .cart-requirements {
+    @media (max-width: 767px) {
+      border-radius: 16px;
+      background: var(--confident-light-grey, #f4f5fa);
+      padding: 24px 26px;
+    }
+    .cartBody {
+      @media (max-width: 767px) {
+        padding: 0;
+      }
+      .cartTitle {
+        @media (max-width: 767px) {
+          margin-bottom: 8px;
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 34px;
+        }
+      }
+
+      .cartDescription {
+        @media (max-width: 767px) {
+          margin-bottom: 16px;
+        }
+      }
+
+      button {
+        @media (max-width: 767px) {
+          height: fit-content;
+          margin: 0 auto;
+        }
+      }
+    }
+
+    img {
+      @media (max-width: 1536px) {
+        border-radius: 30px;
+        object-fit: cover;
+      }
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+  }
+
+  .listRequirements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    @media (max-width: 1536px) {
+      column-gap: 24px;
+    }
+    .cart-requirements {
+      @media (max-width: 1536px) {
+        max-width: 389.33px;
+      }
+    }
+
+    .cartBody {
+      @media (max-width: 1536px) {
+        padding: 40px 10px 0;
+      }
+      @media (max-width: 1279px) {
+        padding: 40px 20px 0;
+      }
+
+      .cartTitle {
+        margin-bottom: 9px;
+        @media (max-width: 1536px) {
+          margin-bottom: 14px;
+        }
+      }
+    }
+
+    .cartImage {
+      @media (max-width: 1536px) {
+        height: 240px;
+      }
+    }
+  }
+
+  .slick-slide {
+    width: fit-content !important;
+    margin: 0 10px;
+  }
+
+  .listRequirementsSwiper {
+    overflow: visible;
+    display: none;
+
+    .swiper-slide {
+    }
+
+    .cart-requirements {
+      @media (max-width: 1279px) {
+        max-width: 389.33px;
+      }
+      @media (max-width: 576px) {
+        max-width: 100%;
+      }
+
+      .cartImage {
+        @media (max-width: 1279px) {
+          height: 240px;
+        }
+      }
+    }
+
+    .listRequirementsSwiperScollbar {
+      bottom: -46px;
+      width: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(81, 113, 133, 0.2);
+      opacity: 1 !important;
+      height: 2px;
+      @media (max-width: 1279px) {
+        bottom: -54px;
+      }
+      @media (max-width: 767px) {
+        bottom: -32px;
+      }
+
+      :global(.swiper-scrollbar-drag) {
+        background: rgba(7, 116, 83, 1) !important;
+      }
+    }
+
+    .listRequirementsSwiperDrag {
+    }
+
+    .listRequirementsSwiperItems {
+      width: fit-content;
+      /* width: 440px !important; */
+    }
+    @media (max-width: 1279px) {
+      display: block;
+    }
+  }
+}
+
+.coins-list-wrapper {
+  display: none;
+  column-gap: 16px;
+  justify-content: center;
+  margin-bottom: 32px;
+  @media (max-width: 767px) {
+    display: flex;
+    column-gap: 15px;
+  }
+}
