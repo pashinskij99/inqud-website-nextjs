@@ -1,8 +1,8 @@
-import HeroSection from '@/sections/HomeSections/HeroSection'
+// import HeroSection from '@/sections/HomeSections/HeroSection'
 import styles from './HomePage.module.scss'
 import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
 import YourNeedsSectionWrapper from '@/sections/HomeSections/YourNeedsSection/YourNeedsSection'
-import CryptoWidgetSectionWrapper from '@/sections/HomeSections/CryptoWidgetSection/CryptoWidgetSection'
+// import CryptoWidgetSectionWrapper from '@/sections/HomeSections/CryptoWidgetSection/CryptoWidgetSection'
 import PickSection from '@/sections/HomeSections/PickSection'
 import CryptoWidget2Section from '@/sections/HomeSections/CryptoWidget2Section'
 import ReasonsToTeamUp from '@/sections/HomeSections/ReasonsToTeamUp'
@@ -14,9 +14,9 @@ import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 export default function HomePage({ params }) {
   return (
     <main className={styles.wrapper}>
-      <HeroSection params={params} />
+      {/* <HeroSection params={params} /> */}
       <YourNeedsSectionWrapper params={params} />
-      <CryptoWidgetSectionWrapper params={params} />
+      {/* <CryptoWidgetSectionWrapper params={params} /> */}
       <SmoothAPISection params={params} />
       <PickSection
         className={styles.pickSection}
