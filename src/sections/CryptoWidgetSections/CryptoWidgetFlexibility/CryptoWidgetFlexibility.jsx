@@ -1,4 +1,6 @@
-import React, { useContext } from 'react'
+'use client'
+
+import { useContext } from 'react'
 // import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { StyledCryptoWidgetFlexibilityWrapper } from './CryptoWidgetFlexibility.styled'

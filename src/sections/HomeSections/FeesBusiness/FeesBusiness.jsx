@@ -89,7 +89,11 @@ export default async function FeesBusiness({ modelId, autoId, params }) {
               <StyledTypographyUrbanistBody>
                 {data.cartDescription}
               </StyledTypographyUrbanistBody>
-              <FeesBusinessModalWithButton data={data} modelId={modelId} />
+              <FeesBusinessModalWithButton
+                data={data}
+                modelId={modelId}
+                params={params}
+              />
             </div>
             <Image className='cart-back' src={BackCart} alt='BackCart' />
           </div>

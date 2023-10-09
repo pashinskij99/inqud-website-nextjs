@@ -1,5 +1,3 @@
-'use client'
-
 import { StyledCryptoWidgetWrapper } from './CryptoWidget.styled'
 import CryptoWidgetHeroSection from '@/sections/CryptoWidgetSections/CryptoWidgetHeroSection'
 import CryptoWidgetFlexibility from '@/sections/CryptoWidgetSections/CryptoWidgetFlexibility'
@@ -14,7 +12,7 @@ import SendRequestSection from '@/sections/CryptoWidgetSections/SendRequestSecti
 import ConnectCryptoSection from '@/sections/CryptoWidgetSections/ConnectCryptoSection'
 import PageProvider from '@/contexts/PageContext/PageContext'
 
-export default function CryptoWidget({ data }) {
+export default function CryptoWidget({ data, params }) {
   return (
     <PageProvider dataPage={data} isFaq nameCMSPage='cryptoWidgetPage'>
       <StyledCryptoWidgetWrapper>
@@ -22,12 +20,12 @@ export default function CryptoWidget({ data }) {
         <CryptoWidgetFlexibility />
         <CryptoBusinessSection />
         <CryptoWidgetFeatures />
-        <FeesBusiness modelId='2540254' />
+        <FeesBusiness modelId='2540254' params={params} />
         <HowIntegrateCryptoSection />
         <SafetyReliability />
-        <OurLandscapeSection />
+        <OurLandscapeSection params={params} />
         <ConnectCryptoSection />
-        <QuestionsSection />
+        <QuestionsSection params={params} nameCMSPage='cryptoWidgetPage' />
         <SendRequestSection />
       </StyledCryptoWidgetWrapper>
     </PageProvider>

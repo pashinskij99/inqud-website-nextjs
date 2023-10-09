@@ -1,4 +1,4 @@
-// noinspection DuplicatedCode
+'use client'
 
 import Image from 'next/image'
 import { useContext } from 'react'

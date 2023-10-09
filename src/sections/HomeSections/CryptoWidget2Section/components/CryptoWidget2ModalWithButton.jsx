@@ -11,7 +11,7 @@ const DynamicModalSubmitEmailWrapper = dynamic(
   }
 )
 
-export function CryptoWidget2ModalWithButton({ data }) {
+export function CryptoWidget2ModalWithButton({ data, params }) {
   const [open, setOpen] = useState(false)
 
   const handleOpen = () => {
@@ -30,7 +30,11 @@ export function CryptoWidget2ModalWithButton({ data }) {
       </StyledButtonSecondaryLight>
 
       {open ? (
-        <DynamicModalSubmitEmailWrapper open={open} handleClose={handleClose} />
+        <DynamicModalSubmitEmailWrapper
+          params={params}
+          open={open}
+          handleClose={handleClose}
+        />
       ) : null}
     </>
   )

@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { StructuredText } from 'react-datocms/structured-text'
 import clsx from 'clsx'

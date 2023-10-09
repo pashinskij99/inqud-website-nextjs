@@ -7,6 +7,7 @@ import Header from '@/components/Layout/Header'
 import Footer from '../Footer'
 import Portal from '@/HOC/Portal'
 import CookieComponent from '@/components/CookieComponent/CookieComponent'
+import ReduxProvider from '@/store/ReduxProvider'
 // import ReduxProvider from '@/store/ReduxProvider'
 // import CookieComponent from '@/components/CookieComponent/CookieComponent'
 // import Portal from '@/HOC/Portal'
@@ -15,7 +16,7 @@ import CookieComponent from '@/components/CookieComponent/CookieComponent'
 
 export default function LayoutComponent({ children }) {
   return (
-    <>
+    <ReduxProvider>
       <Header />
       <BreadCrumbs />
       <ToastContainer
@@ -36,6 +37,6 @@ export default function LayoutComponent({ children }) {
       <Portal>
         <CookieComponent />
       </Portal>
-    </>
+    </ReduxProvider>
   )
 }

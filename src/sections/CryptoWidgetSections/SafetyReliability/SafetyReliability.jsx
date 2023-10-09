@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { InView } from 'react-intersection-observer'
 import { useTranslations } from 'next-intl'

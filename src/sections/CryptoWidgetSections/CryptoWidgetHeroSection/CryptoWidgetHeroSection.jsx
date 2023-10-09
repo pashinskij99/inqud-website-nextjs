@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { useContext, useState } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
@@ -8,16 +10,14 @@ import { StyledCryptoWidgetHeroSectionWrapper } from './CryptoWidgetHeroSection.
 import { StyledTypographyUrbanistH1 } from '@/components/UI/Typography/Typography.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import { PaymentList } from '@/sections/HomeSections/HeroSection/HeroSection'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-// import { AnimatedOneVideo } from '@/components/AnimatedVideo'
-// import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
 import { responseBreakPoint } from '@/utils/response'
 import {
   addGlobalScrollBar,
   removeGlobalScrollBar,
 } from '@/utils/addOrRemoveGlobalScrollBar'
 import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
+import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
 
 const DynamicModalCalendaly = dynamic(
   () => import('react-calendly').then((mod) => mod.PopupModal),
@@ -35,6 +35,7 @@ const DynamicAnimatedOneVideo = dynamic(
 
 export default function CryptoWidgetHeroSection() {
   const {
+    params,
     dataPage: { cryptoWidgetPage: data },
   } = useContext(PageContext)
 
@@ -85,7 +86,7 @@ export default function CryptoWidgetHeroSection() {
             ) : null}
           </div>
 
-          <PaymentList />
+          <HeroSectionPaymentList params={params} />
         </div>
 
         <div className='right-side'>

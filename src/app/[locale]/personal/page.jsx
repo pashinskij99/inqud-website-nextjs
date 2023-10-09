@@ -106,7 +106,7 @@ async function Page({ params }) {
     locale: params.locale,
   })
 
-  return <HomeB2CPage data={data} />
+  return <HomeB2CPage data={data} params={params} />
 }
 
 export default Page

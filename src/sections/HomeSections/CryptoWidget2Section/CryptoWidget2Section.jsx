@@ -150,7 +150,7 @@ export default async function CryptoWidget2Section({ params }) {
               </ButtonGhostCrypto>
             </div>
 
-            <CryptoWidget2ModalWithButton data={data} />
+            <CryptoWidget2ModalWithButton data={data} params={params} />
           </div>
         </div>
         <div className='rightSide'>

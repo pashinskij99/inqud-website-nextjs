@@ -1,4 +1,6 @@
-import { Fragment, useContext, useEffect, useState } from 'react'
+'use client'
+
+import { Fragment, useEffect, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import { DialogContent } from '@mui/material'
 import { useTranslations } from 'next-intl'
@@ -20,10 +22,9 @@ import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import Close from '@/assets/icons/close.svg'
 import { SelectPrimary } from '../UI/Select'
-import { PageContext } from '@/contexts/PageContext/PageContext'
 import { GetPersonalizedForm } from '@/sections/ApiSections/Contact/Contact'
 import { getPageData } from '@/lib/datocms'
-import { MODAL_1 } from '@/lib/datocmsQuery'
+import { MODAL_1, MODAL_2 } from '@/lib/datocmsQuery'
 
 export function ModalSendRequest({
   open,
@@ -109,19 +110,37 @@ export function ModalSubmitEmail({
   handleSubmit,
   onSubmit,
   register,
+  params,
 }) {
-  const {
-    dataPage: { homePage: data },
-  } = useContext(PageContext)
+  const [data, setData] = useState({})
+  // const {
+  //   dataPage: { homePage: data },
+  // } = useContext(PageContext)
+
+  useEffect(() => {
+    const getData = async () => {
+      const pageData = await getPageData({
+        variables: {
+          locale: params.locale,
+        },
+        query: MODAL_2,
+      })
+
+      setData(pageData.homePage)
+    }
+
+    getData()
+  }, [])
 
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
       <form onSubmit={handleSubmit(onSubmit)} className='modalContainer'>
         <button type='reset' className='closeButton' onClick={handleClose}>
-          <Close />
+          <Image src={Close} alt='close' />
         </button>
         <div className='header'>
-          <Message />
+          <Image src={Message} alt='Message' />
+
           <StyledTypographyUrbanistH3>
             {data.lead5Title}
           </StyledTypographyUrbanistH3>
@@ -274,6 +293,7 @@ export function FeeModal({
   onSubmit,
   control,
   setValue,
+  params,
 }) {
   const [leadData, setLeadData] = useState({})
 
@@ -281,7 +301,7 @@ export function FeeModal({
   //   dataPage: { cryptoLeadForm: leadData },
   // } = useContext(PageContext)
 
-  const { params } = useContext(PageContext)
+  // const { params } = useContext(PageContext)
 
   useEffect(() => {
     const getData = async () => {
@@ -299,10 +319,19 @@ export function FeeModal({
   }, [])
 
   const [industry, setIndustry] = useState('')
-  const tabs = leadData.length
-    ? [leadData?.tabs[0], leadData?.tabs[1], leadData?.tabs[2]]
-    : []
+  const tabs = useMemo(
+    () =>
+      Object.keys(leadData).length !== 0
+        ? [leadData?.tabs[0], leadData?.tabs[1], leadData?.tabs[2]]
+        : [],
+    [leadData]
+  )
+
   const [activeTab, setActiveTab] = useState(tabs[0])
+
+  useEffect(() => {
+    setActiveTab(tabs[0])
+  }, [tabs])
 
   const handleChange = (event) => {
     setIndustry(event.target.value)
@@ -361,7 +390,7 @@ export function FeeModal({
       <DialogContent>
         <form onSubmit={handleSubmit(onSubmit)} className='modalContainer'>
           <button type='reset' className='closeButton' onClick={handleClose}>
-            <Close />
+            <Image src={Close} alt='close' />
           </button>
           <div className='header'>
             <StyledTypographyUrbanistH4>

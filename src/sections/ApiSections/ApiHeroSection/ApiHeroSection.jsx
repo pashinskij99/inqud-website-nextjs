@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { useContext, useState } from 'react'
 import { useWindowSize } from '@uidotdev/usehooks'
@@ -9,13 +11,13 @@ import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH1,
 } from '@/components/UI/Typography/Typography.styled'
-import { PaymentList } from '@/sections/HomeSections/HeroSection/HeroSection'
 import Check from '@/assets/icons/check-green-background.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { responseBreakPoint } from '@/utils/response'
 import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
+import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
 
 const DynamicApiHeroSectionModalForm = dynamic(() =>
   import('./components/ApiHeroSectionModalForm').then((res) => res.default)
@@ -36,6 +38,7 @@ export default function ApiHeroSection() {
   }
 
   const {
+    params,
     dataPage: { apiPage: data },
   } = useContext(PageContext)
 
@@ -86,7 +89,7 @@ export default function ApiHeroSection() {
             ) : null}
           </div>
 
-          <PaymentList />
+          <HeroSectionPaymentList params={params} />
         </div>
         <div className='right-side'>
           {size.width && size.width > responseBreakPoint.mobile ? (

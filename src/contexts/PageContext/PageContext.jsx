@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, useMemo } from 'react'
 
 export const PageContext = createContext(null)

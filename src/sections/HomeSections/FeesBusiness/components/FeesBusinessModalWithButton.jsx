@@ -9,7 +9,7 @@ const DynamicFeeModalWrapper = dynamic(
   { ssr: false }
 )
 
-export default function FeesBusinessModalWithButton({ modelId, data }) {
+export default function FeesBusinessModalWithButton({ modelId, data, params }) {
   const [showModal, setShowModal] = useState(false)
 
   const handleShowModal = () => {
@@ -29,6 +29,7 @@ export default function FeesBusinessModalWithButton({ modelId, data }) {
           modelId={modelId}
           showModal={showModal}
           handleHideModal={handleHideModal}
+          params={params}
         />
       ) : null}
     </>

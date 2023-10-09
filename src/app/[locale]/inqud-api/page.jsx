@@ -185,5 +185,5 @@ export default async function page({ params }) {
     locale: params.locale,
   })
 
-  return <ApiPage data={data} />
+  return <ApiPage data={data} params={params} />
 }

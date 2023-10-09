@@ -1,9 +1,11 @@
+'use client'
+
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { userSchema1 } from '@/utils/userSchema'
 import { ModalSubmitEmail } from '@/components/Modal'
 
-export default function ModalSubmitEmailWrapper({ handleClose, open }) {
+export default function ModalSubmitEmailWrapper({ handleClose, open, params }) {
   const {
     register,
     formState: { errors },
@@ -51,6 +53,7 @@ export default function ModalSubmitEmailWrapper({ handleClose, open }) {
       handleSubmit={handleSubmit}
       open={open}
       handleClose={handleClose}
+      params={params}
     />
   )
 }

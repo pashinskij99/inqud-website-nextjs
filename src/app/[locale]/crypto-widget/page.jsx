@@ -174,6 +174,6 @@ export default async function page({ params }) {
     locale: params.locale,
   })
 
-  return <CryptoWidget data={data} />
+  return <CryptoWidget data={data} params={params} />
   // return <>2</>
 }

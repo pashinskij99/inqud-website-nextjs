@@ -267,3 +267,16 @@ export const MODAL_1 = `
     }
   }
 `
+
+export const MODAL_2 = `
+  query MyQuery($locale: SiteLocale) {
+    homePage(locale: $locale) {
+      lead5Title
+      lead5Description
+      lead5ButtonText
+      lead5FooterDescription {
+        value
+      }
+    }
+  }
+`

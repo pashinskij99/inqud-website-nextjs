@@ -1,3 +1,5 @@
+'use client'
+
 import { useContext } from 'react'
 import Link from 'next/link'
 import { StructuredText } from 'react-datocms/structured-text'
@@ -12,9 +14,9 @@ import {
   StyledSubTitle,
 } from './HeroB2CSection.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
-import { PaymentList } from '@/sections/HomeSections/HeroSection/HeroSection'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { responseBreakPoint } from '@/utils/response'
+import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
 
 const DynamicAnimated2Gif = dynamic(
   () =>
@@ -42,6 +44,7 @@ export function SubTitle({ className, children }) {
 
 export default function HeroB2CSection() {
   const {
+    params,
     dataPage: { homeB2c: data },
   } = useContext(PageContext)
 
@@ -56,7 +59,7 @@ export default function HeroB2CSection() {
             <StyledTypographyUrbanistH1 className='title'>
               {data.title}
             </StyledTypographyUrbanistH1>
-            <StyledTypographyUrbanistH5 className='description'>
+            <StyledTypographyUrbanistH5 component='div' className='description'>
               <StructuredText data={data.description} />
             </StyledTypographyUrbanistH5>
             <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
@@ -66,7 +69,7 @@ export default function HeroB2CSection() {
             </Link>
           </div>
 
-          <PaymentList />
+          <HeroSectionPaymentList params={params} />
         </div>
         <div className='right-side'>
           {size.width && size.width <= responseBreakPoint.mobile ? (

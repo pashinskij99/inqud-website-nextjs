@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { capitalize } from '@mui/material'
 // import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import {
   StyledBreadcrumbs,
   StyledBreadCrumbsWrapper,
@@ -18,7 +19,7 @@ function BreadCrumbs() {
   const pathname = usePathname()
 
   // const { isNotFound } = useContext(NotFoundContext)
-  // const breadcrumb = useSelector((state) => state.breadcrumb)
+  const breadcrumb = useSelector((state) => state.breadcrumb)
 
   const getCurrentPageName = (page) => {
     switch (page) {
@@ -46,7 +47,7 @@ function BreadCrumbs() {
         return 'Contact us'
       // for blog details page
       default:
-        return ''
+        return breadcrumb.blog || ''
     }
   }
 
@@ -60,7 +61,7 @@ function BreadCrumbs() {
     }))
 
     setPages(pagesArray)
-  }, [pathname])
+  }, [pathname, breadcrumb])
 
   return pathname !== '/business' ? (
     <StyledBreadCrumbsWrapper>
