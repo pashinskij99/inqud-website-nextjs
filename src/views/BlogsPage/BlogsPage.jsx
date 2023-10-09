@@ -8,6 +8,7 @@ import BlogsSection from '@/sections/BlogsSections/BlogsSection'
 import BlogsPageMainSection from '@/sections/BlogsSections/BlogsPageMainSection'
 import { BlogContext, BlogProvider } from '@/contexts/BlogContext/BlogContext'
 import { setTags } from '@/store/features/blog/blogSlice'
+// import ReduxProvider from '@/store/ReduxProvider'
 
 // const DynamicBlogsPageMainSection = dynamic(
 //   () =>
@@ -68,11 +69,13 @@ function BlogsPage({ tags = [], params, heroSectionData }) {
   dispatch(setTags(tags))
 
   return (
+    // <ReduxProvider>
     <BlogProvider params={params} heroSectionData={heroSectionData}>
       <StyledBlogsPageWrapper>
         <BlogsWrapper />
       </StyledBlogsPageWrapper>
     </BlogProvider>
+    // </ReduxProvider>
   )
 }
 
