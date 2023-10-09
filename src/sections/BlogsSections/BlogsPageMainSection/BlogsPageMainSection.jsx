@@ -27,7 +27,10 @@ function BlogsPageMainSection() {
         <StyledTypographyUrbanistH2 className='blogsPageTitle'>
           {heroSectionData.title}
         </StyledTypographyUrbanistH2>
-        <StyledTypographyUrbanistH5 className='blogsPageDescription'>
+        <StyledTypographyUrbanistH5
+          component='div'
+          className='blogsPageDescription'
+        >
           <StructuredText data={heroSectionData.description} />
         </StyledTypographyUrbanistH5>
 
