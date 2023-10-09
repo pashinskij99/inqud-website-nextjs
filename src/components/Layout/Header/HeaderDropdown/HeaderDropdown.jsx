@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import clsx from 'clsx'
-import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import dynamic from 'next/dynamic'
 import { StyledHeaderDropdownWrapper } from './HeaderDropdown.styled'
 import { keysForLocale } from '@/config/keysForLocale'
 
@@ -142,26 +142,19 @@ export default function HeaderDropdown() {
         })}
       >
         <div className='trigger' />
-
-        <div
-          className={clsx('dropdown-menu', {
-            ['show']: active,
-            ['hide']: !active,
-          })}
-        >
-          {dropdownList.map(({ id, items }) => (
-            <ul key={id}>
-              {items.map(({ id: itemId, name, href }) => (
-                <li key={itemId}>
-                  <Link onClick={handleClose} href={href}>
-                    {name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          ))}
-        </div>
+        {active ? (
+          <DynamicHeaderDropdown
+            active={active}
+            dropdownList={dropdownList}
+            handleClose={handleClose}
+          />
+        ) : null}
       </div>
     </StyledHeaderDropdownWrapper>
   )
 }
+
+const DynamicHeaderDropdown = dynamic(
+  () => import('./components/HeaderDropdownList'),
+  { ssr: false }
+)

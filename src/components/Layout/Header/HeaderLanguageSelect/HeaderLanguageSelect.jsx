@@ -5,9 +5,9 @@ import { useLocale } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useWindowSize } from '@uidotdev/usehooks'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { StyledHeaderLanguageSelectWrapper } from './HeaderLanguageSelect.styled'
 import Planet from '@/assets/icons/planet.svg'
-import Check from '@/assets/icons/check.svg'
 // import Arrow from '@/assets/icons/arrow-down.svg'
 import { responseBreakPoint } from '@/utils/response'
 
@@ -91,24 +91,20 @@ export default function HeaderLanguageSelect({ className }) {
         })}
       >
         <div className='trigger' />
-        <ul
-          className={clsx({
-            ['show']: active,
-            ['hide']: !active,
-          })}
-        >
-          {languages.map(({ id, name, value, locale: localeLang }) => (
-            <li key={id}>
-              <button onClick={() => handleLangClick(value, localeLang)}>
-                {language.toLowerCase() === localeLang && (
-                  <Image src={Check} alt='check' />
-                )}{' '}
-                {name}
-              </button>
-            </li>
-          ))}
-        </ul>
+        {active ? (
+          <DynamicHeaderLanguageSelectList
+            active={active}
+            handleLangClick={handleLangClick}
+            language={language}
+            languages={languages}
+          />
+        ) : null}
       </div>
     </StyledHeaderLanguageSelectWrapper>
   )
 }
+
+const DynamicHeaderLanguageSelectList = dynamic(
+  () => import('./components/HeaderLanguageSelectList'),
+  { ssr: false }
+)
