@@ -1,7 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-// import { useContext, useEffect, useState } from 'react'
-// import { useWindowSize } from '@uidotdev/usehooks'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,

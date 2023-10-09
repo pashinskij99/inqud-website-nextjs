@@ -9,30 +9,7 @@ import { StyledReasonsToTeamUp } from './ReasonsToTeamUp.styled'
 import { HOME_B2B_REASONS_TEAM_UP } from '@/lib/datocmsQuery'
 import { getData } from '@/lib/datocms'
 
-// import { PageContext } from '@/contexts/PageContext/PageContext'
-// import { getPageData } from '@/lib/datocms'
-// import { HOME_B2B_REASONS_TEAM_UP } from '@/lib/datocmsQuery'
-
 export default async function ReasonsToTeamUp({ params }) {
-  // const [data, setData] = useState({})
-
-  // const { params } = useContext(PageContext)
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const pageData = await getPageData({
-  //       variables: {
-  //         locale: params.locale,
-  //       },
-  //       query: HOME_B2B_REASONS_TEAM_UP,
-  //     })
-
-  //     setData(pageData.homePage)
-  //   }
-
-  //   getData()
-  // }, [])
-
   const { homePage: data } = await getData(HOME_B2B_REASONS_TEAM_UP, {
     locale: params.locale,
   })

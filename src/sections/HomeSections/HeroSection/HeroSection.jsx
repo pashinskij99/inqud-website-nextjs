@@ -1,19 +1,8 @@
-/* eslint-disable jsx-a11y/media-has-caption */
 import Link from 'next/link'
-// import { useContext, useEffect, useState } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
 import clsx from 'clsx'
 import styles from './HeroSection.module.scss'
-// import { useWindowSize } from '@uidotdev/usehooks'
-// import GifPlayer from 'react-gif-player'
-// import dynamic from 'next/dynamic'
-// import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-// import {
-// StyledHeroSectionWrapper,
-// StyledMobileGridWrapper,
-// StyledPaymentListWrapper,
-// } from './HeroSection.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import {
   StyledTypographyIBMH5,
@@ -22,12 +11,6 @@ import {
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
-
-// import { PageContext } from '@/contexts/PageContext/PageContext'
-// import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
-// import { responseBreakPoint } from '@/utils/response'
-// import { getPageData } from '@/lib/datocms'
-// import { HOME_B2B_HERO_LIST } from '@/lib/datocmsQuery'
 import HeroSectionPaymentList from './components/HeroSectionPaymentList'
 import HeroSectionModal from './components/HeroSectionModal'
 import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
@@ -35,42 +18,8 @@ import { getData } from '@/lib/datocms'
 import { MobileGrid } from './components/HeroMobileGrid'
 import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
 import { HOME_PAGE_QUERY } from '@/lib/datocmsQuery'
-// import Device from '@/components/Device'
 
 export default async function HeroSection({ params }) {
-  // const {
-  //   dataPage: { homePage: data },
-  // } = useContext(PageContext)
-  // const [calendlyModal, setCalendlyModal] = useState(false)
-  // eslint-disable-next-line no-unused-vars
-  // const setAutomationsOnCreatedCalendly = async (e) => {
-  //   try {
-  //     const response = await axios.get(e.data.payload.invitee.uri, {
-  //       headers: {
-  //         Authorization: `Bearer ${process.env.NEXT_PUBLIC_CALENDLY_TOKEN}`,
-  //       },
-  //     })
-
-  //     console.log(response.data.resource.email)
-
-  //     await axios.post('/api/get-contact-by-email', {
-  //       email: response.data.resource.email,
-  //       automationId: 13,
-  //     })
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
-  // useCalendlyEventListener({
-  //   onEventScheduled: async (e) => {
-  //     // console.log(e.data.payload.invitee.uri)
-  //     console.log(e.data.payload.invitee.uri)
-  //   },
-  // })
-
-  // const size = useWindowSize()
-
   const { homePage: data } = await getData(HOME_PAGE_QUERY, {
     locale: params.locale,
   })

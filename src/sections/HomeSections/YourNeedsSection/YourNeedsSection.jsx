@@ -1,20 +1,15 @@
 import { useTranslations } from 'next-intl'
-// import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
-// import { SwiperSlide } from 'swiper/react'
-// import { Scrollbar } from 'swiper/modules'
-// import Swiper from 'swiper'
 import clsx from 'clsx'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import styles from './YourNeedsSection.module.scss'
-// import { YourNeedsSectionWrapper } from './YourNeedsSection.styled'
-import Image1 from '@/assets/images/your-needs/image1.png'
-import Image2 from '@/assets/images/your-needs/image2.png'
-import Image3 from '@/assets/images/your-needs/image3.png'
+import Image1 from '@/assets/images/your-needs/image1.webp'
+import Image2 from '@/assets/images/your-needs/image2.webp'
+import Image3 from '@/assets/images/your-needs/image3.webp'
 import Coins1 from '@/assets/images/your-needs/Coins1.svg'
 import Coins2 from '@/assets/images/your-needs/Coins2.svg'
 import Coins3 from '@/assets/images/your-needs/Coins3.svg'

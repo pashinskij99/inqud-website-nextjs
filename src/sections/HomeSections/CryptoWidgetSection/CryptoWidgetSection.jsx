@@ -1,11 +1,8 @@
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-// import { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
-// import { useWindowSize } from '@uidotdev/usehooks'
 import clsx from 'clsx'
 import styles from './CryptoWidgetSection.module.scss'
-// import { StyledCryptoWidgetSection } from './CryptoWidgetSection.styled'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -16,10 +13,6 @@ import { ButtonGetStartedLight } from '@/components/UI/Button/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import Loading from '@/assets/icons/loading.svg'
-// import { PageContext } from '@/contexts/PageContext/PageContext'
-// import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
-// import { responseBreakPoint } from '@/utils/response'
-// import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 import gifStill from '@/assets/gif/b2b_crypto_widget_mobile.webp'
 import { getData } from '@/lib/datocms'
 import { HOME_B2B_CRYPTO_WIDGET } from '@/lib/datocmsQuery'
@@ -43,26 +36,6 @@ export default async function CryptoWidgetSectionWrapper({ params }) {
 
 function CryptoWidgetSection({ data }) {
   const t = useTranslations('home_page_crypto_widget_section')
-  // const [data, setData] = useState({})
-
-  // const { params } = useContext(PageContext)
-
-  // const size = useWindowSize()
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const pageData = await getPageData({
-  //       variables: {
-  //         locale: params.locale,
-  //       },
-  //       query: HOME_B2B_CRYPTO_WIDGET,
-  //     })
-
-  //     setData(pageData.homePage)
-  //   }
-
-  //   getData()
-  // }, [])
 
   return (
     <section className={styles.wrapper}>

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
-import Image2 from '@/assets/images/your-needs/image2.png'
+import Image2 from '@/assets/images/your-needs/image2.webp'
 import CartRequirement from '@/components/CartRequirement'
 import { keysForLocale } from '@/config/keysForLocale'
 
