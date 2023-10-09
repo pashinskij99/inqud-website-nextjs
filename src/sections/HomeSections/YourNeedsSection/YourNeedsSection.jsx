@@ -46,21 +46,6 @@ export default async function YourNeedsSectionWrapper({ params }) {
   return <YourNeedsSection data={data} />
 }
 
-// const DynamicCoinsList = dynamic(
-//   () => import('./components/CoinsList').then((mod) => mod.default),
-//   {
-//     ssr: false,
-//   }
-// )
-
-// const DynamicYourNeedsSectionModalForm = dynamic(
-//   () =>
-//     import('./components/YourNeedsSectionModalForm').then((mod) => mod.default),
-//   {
-//     ssr: false,
-//   }
-// )
-
 const coinsList = [
   {
     id: 3,
@@ -85,57 +70,11 @@ const coinsList = [
 ]
 
 function YourNeedsSection({ data }) {
-  // const {
-  //   register,
-  //   formState: { errors },
-  //   handleSubmit,
-  //   reset,
-  // } = useForm({
-  //   defaultValues: {
-  //     email: '',
-  //     message: '',
-  //   },
-  //   resolver: yupResolver(userSchema2),
-  // })
-
   const t = useTranslations('home_page_your_needs_section')
   const tList = useTranslations('home_page_your_needs_section_list_item_title')
   const tList2 = useTranslations(
     'home_page_your_needs_section_list_item_description'
   )
-
-  // const {
-  //   dataPage: { homePage: data },
-  // } = useContext(PageContext)
-
-  // const onSubmit = async (data) => {
-  //   const newData = {
-  //     email: data.email,
-  //     fieldValues: [
-  //       {
-  //         field: '1',
-  //         value: data.message,
-  //       },
-  //     ],
-  //   }
-
-  //   // await toast.promise(
-  //   await submitForFormActiveCampaign(newData, '/api/create-contact', 2)
-  //   // ,
-  //   // {
-  //   //   pending: 'Sending data',
-  //   //   success: 'Data sent',
-  //   // }
-  //   // )
-
-  //   await toast.promise(createBlog({ data, modelId: '2537177' }), {
-  //     pending: 'Sending data',
-  //     success: 'Data sent',
-  //   })
-
-  //   handleClose()
-  //   reset()
-  // }
 
   const list = [
     {
@@ -160,8 +99,6 @@ function YourNeedsSection({ data }) {
       image: Image3.src,
     },
   ]
-
-  // const size = useWindowSize()
 
   return (
     <section className={styles.wrapper}>
@@ -200,10 +137,6 @@ function YourNeedsSection({ data }) {
         </Device>
 
         <YourNeedsSectionSwiper list={list} data={data} />
-
-        {/* {size.width && size.width <= responseBreakPoint.tablet ? ( */}
-
-        {/* ) : null} */}
       </div>
     </section>
   )

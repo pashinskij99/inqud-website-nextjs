@@ -1,6 +1,3 @@
-// import { ToastContainer } from 'react-toastify'
-// import ReduxProvider from '@/store/ReduxProvider'
-// import { NotFoundProvider } from '@/contexts/NotFoundContext/NotFoundContext'
 import { ToastContainer } from 'react-toastify'
 import BreadCrumbs from '@/components/BreadCrumbs'
 import Header from '@/components/Layout/Header'
@@ -8,11 +5,6 @@ import Footer from '../Footer'
 import Portal from '@/HOC/Portal'
 import CookieComponent from '@/components/CookieComponent/CookieComponent'
 import ReduxProvider from '@/store/ReduxProvider'
-// import ReduxProvider from '@/store/ReduxProvider'
-// import CookieComponent from '@/components/CookieComponent/CookieComponent'
-// import Portal from '@/HOC/Portal'
-// import Footer from '../Footer'
-// import BreadCrumbs from '@/components/BreadCrumbs'
 
 export default function LayoutComponent({ children }) {
   return (
@@ -32,7 +24,6 @@ export default function LayoutComponent({ children }) {
         theme='light'
       />
       {children}
-
       <Footer />
       <Portal>
         <CookieComponent />
