@@ -1,10 +1,5 @@
-'use client'
-
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
-import { usePathname } from 'next/navigation'
-// import { toast } from 'react-toastify'
 import Image from 'next/image'
 import {
   StyledTypographyUrbanistBody,
@@ -16,37 +11,13 @@ import Logo from '@/assets/icons/footer-logo.svg'
 import Twitter from '@/assets/icons/twitter.svg'
 import Facebook from '@/assets/icons/facebook.svg'
 import Linkedin from '@/assets/icons/linkedin.svg'
-// import Star from '@/assets/icons/star.svg'
-import { InputText } from '@/components/UI/Input'
-import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import { keysForLocale } from '@/config/keysForLocale'
-import { emailRegExp } from '@/utils/userSchema'
-// import { createBlog } from '@/lib/datocms'
+import FooterForm from './components/FooterForm'
 
 export default function Footer() {
-  const pathname = usePathname()
-  const [email, setEmail] = useState('')
   const t = useTranslations('footer')
   const tResources = useTranslations('footer.footer_resources_items')
   const tLegal = useTranslations('footer.footer_legal_items')
-
-  const handleSubmit = async () => {
-    if (email.toLowerCase().match(emailRegExp)) {
-      const page = pathname.split('/')[1] || 'Home'
-
-      const toast = await import('react-toastify').then((res) => res.toast)
-      const createBlog = await import('@/lib/datocms').then(
-        (res) => res.createBlog
-      )
-      await toast.promise(
-        createBlog({ data: { email, page }, modelId: '2540253' }),
-        {
-          pending: 'Sending data',
-          success: 'Data sent',
-        }
-      )
-    }
-  }
 
   const footerData = [
     {
@@ -128,7 +99,8 @@ export default function Footer() {
           </StyledTypographyUrbanistH5>
 
           <div className='footerSubscribeSectionInputWrapper'>
-            <InputText
+            <FooterForm t={t('footer_email_button_text')} />
+            {/* <InputText
               type='email'
               value={email}
               onChange={(event) => setEmail(event.target.value)}
@@ -140,7 +112,7 @@ export default function Footer() {
               className='footerSubscribeSectionButton'
             >
               {t('footer_email_button_text')}
-            </StyledButtonSecondary>
+            </StyledButtonSecondary> */}
           </div>
 
           <StyledTypographyUrbanistSmallSpaces className='footerSubscribeSectionDescription'>
@@ -189,19 +161,7 @@ export default function Footer() {
             </StyledTypographyUrbanistH5>
 
             <div className='footerSubscribeSectionInputWrapper'>
-              <InputText
-                type='email'
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                placeholder='example@mail.com'
-                className='footerSubscribeSectionInput'
-              />
-              <StyledButtonSecondary
-                onClick={handleSubmit}
-                className='footerSubscribeSectionButton'
-              >
-                {t('footer_email_button_text')}
-              </StyledButtonSecondary>
+              <FooterForm t={t('footer_email_button_text')} />
             </div>
 
             <StyledTypographyUrbanistSmallSpaces className='footerSubscribeSectionDescription'>

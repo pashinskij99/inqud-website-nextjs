@@ -17,7 +17,7 @@ import { getUrlForBreadCrumbs } from '@/utils/getUrlForBreadCrumbs'
 function BreadCrumbs() {
   const [pages, setPages] = useState([])
   const pathname = usePathname()
-
+  if (pathname === '/business' || pathname === '/personal') return null
   // const { isNotFound } = useContext(NotFoundContext)
   const breadcrumb = useSelector((state) => state.breadcrumb)
 
