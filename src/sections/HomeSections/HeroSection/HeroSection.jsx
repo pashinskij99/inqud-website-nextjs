@@ -29,7 +29,7 @@ export default async function HeroSection({ params }) {
       <div className={clsx(styles.container, 'container')}>
         <div className={styles.leftSide}>
           {/* <Device device={MOBILE}> */}
-          <MobileGrid />
+          {/* <MobileGrid /> */}
           {/* </Device> */}
 
           <StyledTypographyIBMH5 className={styles.subTitle}>
