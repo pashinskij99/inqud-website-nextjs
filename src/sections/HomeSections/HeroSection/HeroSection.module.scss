@@ -255,7 +255,11 @@
     margin: 0 auto 24px;
     &_1 {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      animation-duration: 0s;
+      animation-name: hide;
+      animation-delay: 3s;
+      animation-fill-mode: forwards;
     }
     &_2 {
       position: absolute;
@@ -271,6 +275,15 @@
     @media (max-width: 767px) {
       display: block;
     }
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
