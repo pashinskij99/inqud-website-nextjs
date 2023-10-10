@@ -15,7 +15,7 @@ import HeroSectionPaymentList from './components/HeroSectionPaymentList'
 import HeroSectionModal from './components/HeroSectionModal'
 import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import { getData } from '@/lib/datocms'
-import { MobileGrid } from './components/HeroMobileGrid'
+// import { MobileGrid } from './components/HeroMobileGrid'
 import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
 import { HOME_PAGE_QUERY } from '@/lib/datocmsQuery'
 
