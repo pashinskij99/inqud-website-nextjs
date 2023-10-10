@@ -1,9 +1,9 @@
 import { useTranslations } from 'next-intl'
-import HeroSection from '@/sections/HomeSections/HeroSection'
+// import HeroSection from '@/sections/HomeSections/HeroSection'
 import styles from './HomePage.module.scss'
 import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
 // import YourNeedsSectionWrapper from '@/sections/HomeSections/YourNeedsSection/YourNeedsSection'
-// import CryptoWidgetSectionWrapper from '@/sections/HomeSections/CryptoWidgetSection/CryptoWidgetSection'
+import CryptoWidgetSectionWrapper from '@/sections/HomeSections/CryptoWidgetSection/CryptoWidgetSection'
 import PickSection from '@/sections/HomeSections/PickSection'
 import CryptoWidget2Section from '@/sections/HomeSections/CryptoWidget2Section'
 import ReasonsToTeamUp from '@/sections/HomeSections/ReasonsToTeamUp'
@@ -35,22 +35,22 @@ export default function HomePage({ params }) {
   //     'home_page_your_needs_section_list_item_description'
   //   )(keysForLocale.keys3[0]),
   // }
-  // const cryptoWidgetTrans = {
-  //   t: useTranslations('home_page_crypto_widget_section'),
-  // }
+  const cryptoWidgetTrans = {
+    t: useTranslations('home_page_crypto_widget_section'),
+  }
   const blogTrans = {
     t: useTranslations('blog_name_section'),
   }
 
   return (
     <main className={styles.wrapper}>
-      <HeroSection params={params} />
+      {/* <HeroSection params={params} /> */}
       {/* <YourNeedsSectionWrapper
         trans={yourNeedsSectionTrans}
         transCart={yourNeedsSectionTransCart}
         params={params}
-      />
-      <CryptoWidgetSectionWrapper trans={cryptoWidgetTrans} params={params} /> */}
+      /> */}
+      <CryptoWidgetSectionWrapper trans={cryptoWidgetTrans} params={params} />
       <SmoothAPISection params={params} />
       <PickSection
         className={styles.pickSection}
