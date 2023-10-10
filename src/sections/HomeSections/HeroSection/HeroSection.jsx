@@ -15,9 +15,9 @@ import HeroSectionPaymentList from './components/HeroSectionPaymentList'
 import HeroSectionModal from './components/HeroSectionModal'
 import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import { getData } from '@/lib/datocms'
-// import { MobileGrid } from './components/HeroMobileGrid'
 import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
 import { HOME_PAGE_QUERY } from '@/lib/datocmsQuery'
+import AnimatedMobile from './components/AnimatedMobile'
 
 export default async function HeroSection({ params }) {
   const { homePage: data } = await getData(HOME_PAGE_QUERY, {
@@ -31,6 +31,7 @@ export default async function HeroSection({ params }) {
           {/* <Device device={MOBILE}> */}
           {/* <MobileGrid /> */}
           {/* </Device> */}
+          <AnimatedMobile />
 
           <StyledTypographyIBMH5 className={styles.subTitle}>
             {data.subTitle}

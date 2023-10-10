@@ -1,5 +1,1 @@
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Icons 16x16">
-<path id="Rectangle 270 (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M6.09848 7.99957L11.0488 3.04922L9.63461 1.63501L3.27005 7.99957L9.63461 14.3641L11.0488 12.9499L6.09848 7.99957Z" fill="#517185"/>
-</g>
-</svg>
+<svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m6.098 8 4.95-4.95-1.413-1.415L3.27 8l6.365 6.364 1.414-1.414L6.099 8z" fill="#517185"/></svg>

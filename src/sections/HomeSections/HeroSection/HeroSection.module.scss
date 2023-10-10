@@ -245,12 +245,29 @@
       }
     }
   }
-
+  .gif-wrapper {
+    position: relative;
+  }
   .gif {
     display: none;
     max-width: 343px;
     width: 100%;
     margin: 0 auto 24px;
+    &_1 {
+      position: relative;
+      z-index: 1;
+    }
+    &_2 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      z-index: 1;
+    }
+    &.hide {
+      opacity: 0;
+    }
     @media (max-width: 767px) {
       display: block;
     }

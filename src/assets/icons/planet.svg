@@ -1,18 +1,1 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Group 1468">
-<circle id="Ellipse 180" cx="16" cy="16" r="15.5" stroke="#517185"/>
-<g id="Mask group">
-<mask id="mask0_87_14867" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
-<circle id="Ellipse 184" cx="16" cy="16" r="16" fill="#BFFFC8"/>
-</mask>
-<g mask="url(#mask0_87_14867)">
-<circle id="Ellipse 180_2" cx="16" cy="-6.27344" r="15.5" stroke="#517185"/>
-<path id="Ellipse 182" d="M16 31.5C11.0294 31.5 7 24.5604 7 16C7 7.43959 11.0294 0.5 16 0.5" stroke="#517185"/>
-<path id="Ellipse 185" d="M16 31.5C20.9706 31.5 25 24.5604 25 16C25 7.43959 20.9706 0.5 16 0.5" stroke="#517185"/>
-<path id="Vector 84" d="M16 0C16 25.6 16 32 16 32" stroke="#517185"/>
-<path id="Vector 85" d="M0 16C25.6 16 32 16 32 16" stroke="#517185"/>
-<circle id="Ellipse 181" cx="16" cy="38.2734" r="15.5" stroke="#517185"/>
-</g>
-</g>
-</g>
-</svg>
+<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="15.5" stroke="#517185"/><mask id="a" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32"><circle cx="16" cy="16" r="16" fill="#BFFFC8"/></mask><g mask="url(#a)" stroke="#517185"><circle cx="16" cy="-6.273" r="15.5"/><path d="M16 31.5c-4.97 0-9-6.94-9-15.5C7 7.44 11.03.5 16 .5m0 31c4.97 0 9-6.94 9-15.5C25 7.44 20.97.5 16 .5m0-.5v32M0 16h32"/><circle cx="16" cy="38.273" r="15.5"/></g></svg>
