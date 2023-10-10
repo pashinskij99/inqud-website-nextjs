@@ -4,36 +4,13 @@ import {
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledQuestionsSection } from './QuestionsSection.styled'
-
 import { ButtonLearnMore } from '@/components/UI/Button'
-// import { AccordionItem } from './components/QuestionsAccordion'
 import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import QuestionsAccordion from './components/QuestionsAccordion'
 import { getData } from '@/lib/datocms'
 import { FAQ_QUERY } from '@/lib/datocmsQuery'
 
 export default async function QuestionsSection({ params, nameCMSPage }) {
-  // const [faq, setFaq] = useState({})
-
-  // const { params, nameCMSPage } = useContext(PageContext)
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const pageData = await getPageData({
-  //       variables: {
-  //         locale: params.locale,
-  //       },
-  //       query: FAQ_QUERY({ pageCMSName: nameCMSPage }),
-  //     })
-
-  //     setFaq(pageData[nameCMSPage])
-  //   }
-
-  //   getData()
-  // }, [])
-
-  // const size = useWindowSize()
-
   const data = await getData(FAQ_QUERY({ pageCMSName: nameCMSPage }), {
     locale: params.locale,
   })

@@ -14,7 +14,6 @@ export default async function OurLandscapeSection({ params }) {
         <StyledTypographyUrbanistH2 className='ourLandscapeTitle'>
           {data.title}
         </StyledTypographyUrbanistH2>
-
         <OurLandscapeTabComponent data={data} />
       </div>
     </StyledOurLandscapeSection>
