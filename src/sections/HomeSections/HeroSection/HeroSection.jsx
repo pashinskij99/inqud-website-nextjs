@@ -89,7 +89,7 @@ export default async function HeroSection({ params }) {
               height={595}
               timeRepeat={5000}
               urlFirstVideo='/video/video1.webm'
-              urlSecondVideo='/video/video2.webm'
+              urlSecondVideo='/video/video2.mp4'
               width={595}
             />
           </Device>
