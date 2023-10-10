@@ -38,9 +38,9 @@ export default function HomePage({ params }) {
   const cryptoWidgetTrans = {
     t: useTranslations('home_page_crypto_widget_section'),
   }
-  const blogTrans = {
-    t: useTranslations('blog_name_section'),
-  }
+  // const blogTrans = {
+  //   t: useTranslations('blog_name_section'),
+  // }
 
   return (
     <main className={styles.wrapper}>
