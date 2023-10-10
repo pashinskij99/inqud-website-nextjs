@@ -12,6 +12,7 @@ const withNextIntl = require('next-intl/plugin')(
 // })
 
 const nextConfig = {
+  output: 'standalone',
   async redirects() {
     return [
       {
