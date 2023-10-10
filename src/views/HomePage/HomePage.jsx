@@ -1,8 +1,8 @@
 import { useTranslations } from 'next-intl'
 import HeroSection from '@/sections/HomeSections/HeroSection'
 import styles from './HomePage.module.scss'
-// import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
-import YourNeedsSectionWrapper from '@/sections/HomeSections/YourNeedsSection/YourNeedsSection'
+import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
+// import YourNeedsSectionWrapper from '@/sections/HomeSections/YourNeedsSection/YourNeedsSection'
 // import CryptoWidgetSectionWrapper from '@/sections/HomeSections/CryptoWidgetSection/CryptoWidgetSection'
 import PickSection from '@/sections/HomeSections/PickSection'
 import CryptoWidget2Section from '@/sections/HomeSections/CryptoWidget2Section'
@@ -11,30 +11,30 @@ import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
 import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import BlogsSectionWrapper from '@/sections/HomeSections/BlogsSection/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
-import { keysForLocale } from '@/config/keysForLocale'
+// import { keysForLocale } from '@/config/keysForLocale'
 
 export default function HomePage({ params }) {
-  const yourNeedsSectionTrans = {
-    t: useTranslations('home_page_your_needs_section'),
-    tList: useTranslations('home_page_your_needs_section_list_item_title'),
-    tList2: useTranslations(
-      'home_page_your_needs_section_list_item_description'
-    ),
-    cartDescription: useTranslations(
-      'home_page_your_needs_section_list_item_description'
-    )(keysForLocale.keys3[1]),
-    cartTitle: useTranslations(
-      'home_page_your_needs_section_list_item_description'
-    )(keysForLocale.keys3[0]),
-  }
-  const yourNeedsSectionTransCart = {
-    cartDescription: useTranslations(
-      'home_page_your_needs_section_list_item_description'
-    )(keysForLocale.keys3[1]),
-    cartTitle: useTranslations(
-      'home_page_your_needs_section_list_item_description'
-    )(keysForLocale.keys3[0]),
-  }
+  // const yourNeedsSectionTrans = {
+  //   t: useTranslations('home_page_your_needs_section'),
+  //   tList: useTranslations('home_page_your_needs_section_list_item_title'),
+  //   tList2: useTranslations(
+  //     'home_page_your_needs_section_list_item_description'
+  //   ),
+  //   cartDescription: useTranslations(
+  //     'home_page_your_needs_section_list_item_description'
+  //   )(keysForLocale.keys3[1]),
+  //   cartTitle: useTranslations(
+  //     'home_page_your_needs_section_list_item_description'
+  //   )(keysForLocale.keys3[0]),
+  // }
+  // const yourNeedsSectionTransCart = {
+  //   cartDescription: useTranslations(
+  //     'home_page_your_needs_section_list_item_description'
+  //   )(keysForLocale.keys3[1]),
+  //   cartTitle: useTranslations(
+  //     'home_page_your_needs_section_list_item_description'
+  //   )(keysForLocale.keys3[0]),
+  // }
   // const cryptoWidgetTrans = {
   //   t: useTranslations('home_page_crypto_widget_section'),
   // }
@@ -45,18 +45,18 @@ export default function HomePage({ params }) {
   return (
     <main className={styles.wrapper}>
       <HeroSection params={params} />
-      <YourNeedsSectionWrapper
+      {/* <YourNeedsSectionWrapper
         trans={yourNeedsSectionTrans}
         transCart={yourNeedsSectionTransCart}
         params={params}
       />
-      {/* <CryptoWidgetSectionWrapper trans={cryptoWidgetTrans} params={params} />
+      <CryptoWidgetSectionWrapper trans={cryptoWidgetTrans} params={params} /> */}
       <SmoothAPISection params={params} />
       <PickSection
         className={styles.pickSection}
         variant='dontLose'
         params={params}
-      /> */}
+      />
       <CryptoWidget2Section params={params} />
       <ReasonsToTeamUp params={params} />
       <FeesBusiness modelId='2540165' autoId={10} params={params} />
