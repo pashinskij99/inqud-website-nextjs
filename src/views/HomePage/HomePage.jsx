@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import HeroSection from '@/sections/HomeSections/HeroSection'
 import styles from './HomePage.module.scss'
 import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
@@ -10,12 +11,43 @@ import FeesBusiness from '@/sections/HomeSections/FeesBusiness'
 import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import BlogsSectionWrapper from '@/sections/HomeSections/BlogsSection/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function HomePage({ params }) {
+  const yourNeedsSectionTrans = {
+    t: useTranslations('home_page_your_needs_section'),
+    tList: useTranslations('home_page_your_needs_section_list_item_title'),
+    tList2: useTranslations(
+      'home_page_your_needs_section_list_item_description'
+    ),
+    cartDescription: useTranslations(
+      'home_page_your_needs_section_list_item_description'
+    )(keysForLocale.keys3[1]),
+    cartTitle: useTranslations(
+      'home_page_your_needs_section_list_item_description'
+    )(keysForLocale.keys3[0]),
+  }
+  const yourNeedsSectionTransCart = {
+    cartDescription: useTranslations(
+      'home_page_your_needs_section_list_item_description'
+    )(keysForLocale.keys3[1]),
+    cartTitle: useTranslations(
+      'home_page_your_needs_section_list_item_description'
+    )(keysForLocale.keys3[0]),
+  }
+
+  const blogTrans = {
+    t: useTranslations('blog_name_section'),
+  }
+
   return (
     <main className={styles.wrapper}>
       <HeroSection params={params} />
-      <YourNeedsSectionWrapper params={params} />
+      <YourNeedsSectionWrapper
+        trans={yourNeedsSectionTrans}
+        transCart={yourNeedsSectionTransCart}
+        params={params}
+      />
       <CryptoWidgetSectionWrapper params={params} />
       <SmoothAPISection params={params} />
       <PickSection
@@ -28,7 +60,7 @@ export default function HomePage({ params }) {
       <FeesBusiness modelId='2540165' autoId={10} params={params} />
       <OurLandscapeSection params={params} />
       <PickSection className={styles.pickSection2} params={params} />
-      <BlogsSectionWrapper params={params} />
+      <BlogsSectionWrapper trans={blogTrans} params={params} />
       <QuestionsSection params={params} nameCMSPage='homePage' />
     </main>
   )

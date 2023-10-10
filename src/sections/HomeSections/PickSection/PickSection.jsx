@@ -1,32 +1,14 @@
 import clsx from 'clsx'
-// import { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
-// import { StructuredText } from 'react-datocms/structured-text'
-// import dynamic from 'next/dynamic'
-// import { useWindowSize } from '@uidotdev/usehooks'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
-  // StyledTypographyUrbanistH3,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledPickSectionSection } from './PickSection.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import Pick from '@/assets/icons/pick.svg'
-// import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
-// import { PageContext } from '@/contexts/PageContext/PageContext'
-// import {
-//   addGlobalScrollBar,
-//   removeGlobalScrollBar,
-// } from '@/utils/addOrRemoveGlobalScrollBar'
-// import { getPageData } from '@/lib/datocms'
-// import {
-//   HOME_B2B_PICK_SECTION_DONT_LOSE,
-//   HOME_B2B_PICK_SECTION_DONT_LOSE_LEAD_FORM_DATA,
-// } from '@/lib/datocmsQuery'
-// import { responseBreakPoint } from '@/utils/response'
 import PickSectionModalWithButton from './components/PickSectionModalWithButton'
-// import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import { getData } from '@/lib/datocms'
 import {
   HOME_B2B_PICK_SECTION_DONT_LOSE,
@@ -34,36 +16,6 @@ import {
 } from '@/lib/datocmsQuery'
 
 export default async function PickSection({ variant, className, params }) {
-  // const [data, setData] = useState({})
-  // const [leadFormData, setLeadFormData] = useState({})
-
-  // const { params } = useContext(PageContext)
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const pageData = await getPageData({
-  //       variables: {
-  //         locale: params.locale,
-  //       },
-  //       query: HOME_B2B_PICK_SECTION_DONT_LOSE,
-  //     })
-
-  //     const leadData = await getPageData({
-  //       variables: {
-  //         locale: params.locale,
-  //       },
-  //       query: HOME_B2B_PICK_SECTION_DONT_LOSE_LEAD_FORM_DATA,
-  //     })
-
-  //     setLeadFormData(leadData.pickLeadForm)
-  //     setData(pageData.homePage)
-  //   }
-
-  //   getData()
-  // }, [])
-
-  // const size = useWindowSize()
-
   const { homePage: data } = await getData(HOME_B2B_PICK_SECTION_DONT_LOSE, {
     locale: params.locale,
   })

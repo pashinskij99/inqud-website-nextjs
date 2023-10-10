@@ -6,7 +6,7 @@ import CartRequirement from '@/components/CartRequirement'
 import YourNeedsSectionModalWithButton from './YourNeedsSectionModalWithButton'
 import styles from '../YourNeedsSection.module.scss'
 
-function YourNeedsSectionSwiper({ list, data }) {
+function YourNeedsSectionSwiper({ list, data, trans }) {
   return (
     <Swiper
       className={styles.listRequirementsSwiper}
@@ -57,7 +57,7 @@ function YourNeedsSectionSwiper({ list, data }) {
           </SwiperSlide>
         ) : (
           <SwiperSlide key={id} className={styles.listRequirementsSwiperItems}>
-            <YourNeedsSectionModalWithButton data={data} />
+            <YourNeedsSectionModalWithButton data={data} trans={trans} />
           </SwiperSlide>
         )
       )}

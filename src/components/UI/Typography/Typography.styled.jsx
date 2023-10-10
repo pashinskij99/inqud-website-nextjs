@@ -3,7 +3,6 @@
 import styled from '@emotion/styled'
 import { Typography } from '@mui/material'
 import { nunito } from '@/utils/font'
-import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
 export function StyledTypographyUrbanistH1({
@@ -24,11 +23,11 @@ const TypographyUrbanistH1 = styled(Typography)`
   font-size: 64px;
   ${nunito.style}
   font-weight: 400;
-  line-height: ${rem(74)};
-  letter-spacing: -${rem(1.28)};
+  line-height: 74px;
+  letter-spacing: -1.28px;
   ${responsive.xs`
     font-size: 40px;
-    line-height: ${rem(46)};
+    line-height: 46px;
     font-weight: 700;
   `}
 `
@@ -52,11 +51,11 @@ const TypographyUrbanistH2 = styled(Typography)`
 
   font-size: 56px;
   font-weight: 400;
-  line-height: ${rem(66)};
+  line-height: 66px;
   ${responsive.xs`
     font-size: 40px;
     font-weight: 700;
-    line-height: ${rem(50)};
+    line-height: 50px;
   `}
 `
 
@@ -78,10 +77,10 @@ const TypographyUrbanistH3 = styled(Typography)`
 
   font-size: 40px;
   font-weight: 400;
-  line-height: ${rem(46)};
+  line-height: 46px;
   ${responsive.xs`
     font-size: 32px;
-    line-height: ${rem(42)};
+    line-height: 42px;
     font-weight: 700;
   `}
 `
@@ -104,10 +103,10 @@ const TypographyUrbanistH4 = styled(Typography)`
 
   font-size: 32px;
   font-weight: 400;
-  line-height: ${rem(42)};
+  line-height: 42px;
   ${responsive.xs`
     font-size: 24px;
-    line-height: ${rem(34)};
+    line-height: 34px;
   `}
 `
 
@@ -129,10 +128,10 @@ const TypographyUrbanistH5 = styled(Typography)`
 
   font-size: 24px;
   font-weight: 400;
-  line-height: ${rem(34)};
+  line-height: 34px;
   ${responsive.xs`
     font-size: 18px;
-    line-height: ${rem(22)};
+    line-height: 22px;
   `}
 `
 
@@ -154,7 +153,7 @@ const TypographyUrbanistBody = styled(Typography)`
 
   font-size: 18px;
   font-weight: 400;
-  line-height: ${rem(26)};
+  line-height: 26px;
 `
 
 export function StyledTypographyUrbanistSmallSpaces({
@@ -176,7 +175,7 @@ const TypographyUrbanistSmallSpaces = styled(Typography)`
 
   font-size: 14px;
   font-weight: 500;
-  line-height: ${rem(18)};
+  line-height: 18px;
 `
 
 export function StyledTypographyUrbanistCTA({
@@ -197,7 +196,7 @@ const TypographyUrbanistCTA = styled(Typography)`
 
   font-size: 18px;
   font-weight: 700;
-  line-height: ${rem(26)};
+  line-height: 26px;
 `
 
 export function StyledTypographyIBMH4({ children, component = 'p', ...props }) {
@@ -214,7 +213,7 @@ const TypographyIBMH4 = styled(Typography)`
 
   font-size: 18px;
   font-weight: 700;
-  line-height: ${rem(26)};
+  line-height: 26px;
 `
 
 export function StyledTypographyIBMH5({ children, component = 'p', ...props }) {
@@ -231,11 +230,11 @@ const TypographyIBMH5 = styled(Typography)`
 
   font-size: 18px;
   font-weight: 400;
-  line-height: ${rem(30)};
-  letter-spacing: ${rem(2.4)};
+  line-height: 30px;
+  letter-spacing: 2.4px;
   text-transform: uppercase;
   ${responsive.xs`
     font-size: 14px;
-    line-height: ${rem(11)};
+    line-height: 11px;
   `}
 `

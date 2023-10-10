@@ -10,18 +10,11 @@ import { StyledSmoothAPISection } from './SmoothAPISection.styled'
 import { ButtonGetStarted } from '@/components/UI/Button/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import Check from '@/assets/icons/check-green-background.svg'
-// import { PageContext } from '@/contexts/PageContext/PageContext'
-// import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
-// import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
-// import { responseBreakPoint } from '@/utils/response'
-// import { getPageData } from '@/lib/datocms'
-// import { HOME_B2B_SMOOTH_API } from '@/lib/datocmsQuery'
 import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
 import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 import Device, {
   DESKTOP,
   MOBILE,
-  // MOBILE_OR_TABLET,
   TABLET,
   TABLET_OR_DESKTOP,
 } from '@/components/Device/Device'
@@ -29,31 +22,6 @@ import { getData } from '@/lib/datocms'
 import { HOME_B2B_SMOOTH_API } from '@/lib/datocmsQuery'
 
 export default async function SmoothAPISection({ params }) {
-  // const [data, setData] = useState({})
-
-  // const {
-  //   dataPage: { homePage: data },
-  // } = useContext(PageContext)
-
-  // const { params } = useContext(PageContext)
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const pageData = await getPageData({
-  //       variables: {
-  //         locale: params.locale,
-  //       },
-  //       query: HOME_B2B_SMOOTH_API,
-  //     })
-
-  //     setData(pageData.homePage)
-  //   }
-
-  //   getData()
-  // }, [])
-
-  // const size = useWindowSize()
-
   const { homePage: data } = await getData(HOME_B2B_SMOOTH_API, {
     locale: params.locale,
   })

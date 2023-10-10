@@ -1,8 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import React from 'react'
 import { useForm } from 'react-hook-form'
 import dynamic from 'next/dynamic'
-// import { toast } from 'react-toastify'
 import { userSchema2 } from '@/utils/userSchema'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
 import { createBlog } from '@/lib/datocms'

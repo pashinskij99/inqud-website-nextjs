@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import clsx from 'clsx'
 import styles from './CryptoWidgetSection.module.scss'
@@ -27,16 +26,14 @@ import Device, {
   TABLET_OR_DESKTOP,
 } from '@/components/Device/Device'
 
-export default async function CryptoWidgetSectionWrapper({ params }) {
+export default async function CryptoWidgetSectionWrapper({ params, trans }) {
   const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET, {
     locale: params.locale,
   })
-  return <CryptoWidgetSection data={data} />
+  return <CryptoWidgetSection data={data} trans={trans} />
 }
 
-function CryptoWidgetSection({ data }) {
-  const t = useTranslations('home_page_crypto_widget_section')
-
+function CryptoWidgetSection({ data, trans }) {
   return (
     <section className={styles.wrapper}>
       <div className={clsx('container', styles.container)}>
@@ -92,7 +89,7 @@ function CryptoWidgetSection({ data }) {
             {data.feature?.map(({ description, id, image: { url }, title }) => (
               <li
                 className={styles.cryptoGridItem}
-                data-slug={t('comming_soon')}
+                data-slug={trans.t('comming_soon')}
                 key={id}
               >
                 <Image src={Check} alt='Check' className={styles.check} />

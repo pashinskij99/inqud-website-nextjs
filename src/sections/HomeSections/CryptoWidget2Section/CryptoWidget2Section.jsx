@@ -1,9 +1,4 @@
 import Image from 'next/image'
-// import { useContext, useEffect, useState } from 'react'
-
-// import { toast } from 'react-toastify'
-// import { useWindowSize } from '@uidotdev/usehooks'
-// import dynamic from 'next/dynamic'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -12,12 +7,7 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledCryptoWidget2Section } from './CryptoWidget2Section.styled'
 import Check from '@/assets/icons/check-dark.svg'
-// import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import { ButtonGhostCrypto } from '@/components/UI/Button'
-// import { PageContext } from '@/contexts/PageContext/PageContext'
-// import { responseBreakPoint } from '@/utils/response'
-// import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
-// import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
 import { getData } from '@/lib/datocms'
 import { HOME_B2B_CRYPTO_WIDGET_2 } from '@/lib/datocmsQuery'
 import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
@@ -31,31 +21,6 @@ import Device, {
 import { CryptoWidget2ModalWithButton } from './components/CryptoWidget2ModalWithButton'
 
 export default async function CryptoWidget2Section({ params }) {
-  // const [open, setOpen] = useState(false)
-  // const [data, setData] = useState({})
-
-  // const {
-  //   dataPage: { homePage: data },
-  // } = useContext(PageContext)
-  // const { params } = useContext(PageContext)
-
-  // const size = useWindowSize()
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const pageData = await getPageData({
-  //       variables: {
-  //         locale: params.locale,
-  //       },
-  //       query: HOME_B2B_CRYPTO_WIDGET_2,
-  //     })
-
-  //     setData(pageData.homePage)
-  //   }
-
-  //   getData()
-  // }, [])
-
   const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET_2, {
     locale: params.locale,
   })

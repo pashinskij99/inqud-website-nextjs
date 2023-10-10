@@ -1,19 +1,14 @@
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import { StyledBlogsSection } from './BlogsSection.styled'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { BlogCart } from '@/components/BlogCart'
-// import { PageContext } from '@/contexts/PageContext/PageContext'
-// import { getPageData } from '@/lib/datocms'
-// import { HOME_B2B_BLOG, HOME_B2B_BLOGS_DATA } from '@/lib/datocmsQuery'
-// import { responseBreakPoint } from '@/utils/response'
 import Device, { DESKTOP, MOBILE_OR_TABLET } from '@/components/Device/Device'
 import HomePageBlogsSectionSwiper from './components/HomePageBlogsSectionSwiper'
 import { getData } from '@/lib/datocms'
 import { HOME_B2B_BLOG, HOME_B2B_BLOGS_DATA } from '@/lib/datocmsQuery'
 
-export default async function BlogsSectionWrapper({ params }) {
+export default async function BlogsSectionWrapper({ params, trans }) {
   const { homePage: data } = await getData(HOME_B2B_BLOG, {
     locale: params.locale,
   })
@@ -21,46 +16,16 @@ export default async function BlogsSectionWrapper({ params }) {
     locale: params.locale,
   })
 
-  return <BlogsSection data={data} blogs={blogs} />
+  return <BlogsSection trans={trans} data={data} blogs={blogs} />
 }
 
-function BlogsSection({ data, blogs }) {
-  const t = useTranslations('blog_name_section')
-  // const [data, setData] = useState({})
-  // const [blogs, setBlogs] = useState([])
-
-  // const { params } = useContext(PageContext)
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const pageData = await getPageData({
-  //       variables: {
-  //         locale: params.locale,
-  //       },
-  //       query: HOME_B2B_BLOG,
-  //     })
-  //     const blogsData = await getPageData({
-  //       variables: {
-  //         locale: params.locale,
-  //       },
-  //       query: HOME_B2B_BLOGS_DATA,
-  //     })
-
-  //     setBlogs(blogsData.allBlogs)
-  //     setData(pageData.homePage)
-  //   }
-
-  //   getData()
-  // }, [])
-
-  // const size = useWindowSize()
-
+function BlogsSection({ data, blogs, trans }) {
   return (
     <StyledBlogsSection>
       <div className='container'>
         <div className='blogsHeader'>
           <StyledTypographyUrbanistH2 className='blogsHeaderTitle'>
-            {t('title')}
+            {trans.t('title')}
           </StyledTypographyUrbanistH2>
           <Link href='/blog'>
             <StyledButtonGhost className='blogsHeaderButton'>

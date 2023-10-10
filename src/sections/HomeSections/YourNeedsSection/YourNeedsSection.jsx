@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import clsx from 'clsx'
@@ -38,12 +37,16 @@ const DynamicCartRequirementModalWithCart = dynamic(
     ssr: false,
   }
 )
-export default async function YourNeedsSectionWrapper({ params }) {
+export default async function YourNeedsSectionWrapper({
+  trans,
+  params,
+  transCart,
+}) {
   const { homePage: data } = await getData(HOME_B2B_NEEDS, {
     locale: params.locale,
   })
 
-  return <YourNeedsSection data={data} />
+  return <YourNeedsSection transCart={transCart} data={data} trans={trans} />
 }
 
 const coinsList = [
@@ -69,24 +72,18 @@ const coinsList = [
   },
 ]
 
-function YourNeedsSection({ data }) {
-  const t = useTranslations('home_page_your_needs_section')
-  const tList = useTranslations('home_page_your_needs_section_list_item_title')
-  const tList2 = useTranslations(
-    'home_page_your_needs_section_list_item_description'
-  )
-
+function YourNeedsSection({ data, trans, transCart }) {
   const list = [
     {
       id: 0,
-      title: tList(keysForLocale.keys3[0]),
-      description: tList2(keysForLocale.keys3[0]),
+      title: trans.tList(keysForLocale.keys3[0]),
+      description: trans.tList2(keysForLocale.keys3[0]),
       image: Image1.src,
     },
     {
       id: 1,
-      title: tList(keysForLocale.keys3[1]),
-      description: tList2(keysForLocale.keys3[1]),
+      title: trans.tList(keysForLocale.keys3[1]),
+      description: trans.tList2(keysForLocale.keys3[1]),
       // buttonText: data.buttonScreen2,
       // open: openModalSendRequest,
       // handleClick: handleOpen,
@@ -94,8 +91,8 @@ function YourNeedsSection({ data }) {
     },
     {
       id: 2,
-      title: tList(keysForLocale.keys3[2]),
-      description: tList2(keysForLocale.keys3[2]),
+      title: trans.tList(keysForLocale.keys3[2]),
+      description: trans.tList2(keysForLocale.keys3[2]),
       image: Image3.src,
     },
   ]
@@ -106,7 +103,7 @@ function YourNeedsSection({ data }) {
         <StyledTypographyUrbanistH2
           className={clsx(styles.title, styles['title-desktop'])}
         >
-          {t('title')}
+          {trans.t('title')}
         </StyledTypographyUrbanistH2>
 
         <CoinsList coinsList={coinsList} />
@@ -115,7 +112,7 @@ function YourNeedsSection({ data }) {
           component='p'
           className={clsx(styles.subTitle, styles['subTitle-desktop'])}
         >
-          {t('paragraph')}
+          {trans.t('paragraph')}
         </StyledTypographyUrbanistH5>
 
         <Device device={DESKTOP}>
@@ -130,13 +127,16 @@ function YourNeedsSection({ data }) {
                   title={title}
                 />
               ) : (
-                <DynamicCartRequirementModalWithCart data={data} />
+                <DynamicCartRequirementModalWithCart
+                  trans={transCart}
+                  data={data}
+                />
               )
             )}
           </div>
         </Device>
 
-        <YourNeedsSectionSwiper list={list} data={data} />
+        <YourNeedsSectionSwiper trans={transCart} list={list} data={data} />
       </div>
     </section>
   )
