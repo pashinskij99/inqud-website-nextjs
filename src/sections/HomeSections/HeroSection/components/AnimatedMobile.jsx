@@ -21,6 +21,9 @@ export default function AnimatedMobile() {
         })}
         src='/video/b2b_hero_mobile.avif'
         alt='avif'
+        priority
+        fetchpriority='high'
+        loading='eager'
         width={375}
         height={152}
       />
@@ -28,6 +31,9 @@ export default function AnimatedMobile() {
         className={clsx(styles.gif, styles.gif_2, {
           [styles.hide]: !stop,
         })}
+        priority
+        fetchpriority='high'
+        loading='eager'
         src='/video/b2b_hero_mobile.webp'
         alt='webp'
         width={375}
