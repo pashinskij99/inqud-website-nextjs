@@ -35,7 +35,9 @@ export default function HomePage({ params }) {
       'home_page_your_needs_section_list_item_description'
     )(keysForLocale.keys3[0]),
   }
-
+  const cryptoWidgetTrans = {
+    t: useTranslations('home_page_crypto_widget_section'),
+  }
   const blogTrans = {
     t: useTranslations('blog_name_section'),
   }
@@ -48,7 +50,7 @@ export default function HomePage({ params }) {
         transCart={yourNeedsSectionTransCart}
         params={params}
       />
-      <CryptoWidgetSectionWrapper params={params} />
+      <CryptoWidgetSectionWrapper trans={cryptoWidgetTrans} params={params} />
       <SmoothAPISection params={params} />
       <PickSection
         className={styles.pickSection}
