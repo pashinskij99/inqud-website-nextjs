@@ -1,6 +1,6 @@
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import clsx from 'clsx'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
@@ -21,22 +21,6 @@ import { getData } from '@/lib/datocms'
 import { HOME_B2B_NEEDS } from '@/lib/datocmsQuery'
 import YourNeedsSectionSwiper from './components/YourNeedsSectionSwiper'
 
-const DynamicCartRequirement = dynamic(
-  () => import('@/components/CartRequirement').then((mod) => mod.default),
-  {
-    ssr: false,
-  }
-)
-
-const DynamicCartRequirementModalWithCart = dynamic(
-  () =>
-    import('./components/YourNeedsSectionModalWithButton').then(
-      (res) => res.default
-    ),
-  {
-    ssr: false,
-  }
-)
 export default async function YourNeedsSectionWrapper({
   trans,
   params,
@@ -72,6 +56,16 @@ const coinsList = [
   },
 ]
 
+const DynamicYourNeedsSectionDesktopCarts = dynamic(
+  () =>
+    import('./components/YourNeedsSectionDesktopCarts').then(
+      (res) => res.default
+    ),
+  {
+    ssr: false,
+  }
+)
+
 function YourNeedsSection({ data, trans, transCart }) {
   const list = [
     {
@@ -84,9 +78,6 @@ function YourNeedsSection({ data, trans, transCart }) {
       id: 1,
       title: trans.tList(keysForLocale.keys3[1]),
       description: trans.tList2(keysForLocale.keys3[1]),
-      // buttonText: data.buttonScreen2,
-      // open: openModalSendRequest,
-      // handleClick: handleOpen,
       image: Image2.src,
     },
     {
@@ -116,24 +107,11 @@ function YourNeedsSection({ data, trans, transCart }) {
         </StyledTypographyUrbanistH5>
 
         <Device device={DESKTOP}>
-          <div className={styles.listRequirements}>
-            {list.map(({ id, description, image, title }) =>
-              id !== 1 ? (
-                <DynamicCartRequirement
-                  key={id}
-                  description={description}
-                  href='#'
-                  imageSrc={image}
-                  title={title}
-                />
-              ) : (
-                <DynamicCartRequirementModalWithCart
-                  trans={transCart}
-                  data={data}
-                />
-              )
-            )}
-          </div>
+          <DynamicYourNeedsSectionDesktopCarts
+            list={list}
+            transCart={transCart}
+            data={data}
+          />
         </Device>
 
         <YourNeedsSectionSwiper trans={transCart} list={list} data={data} />

@@ -122,25 +122,7 @@ export const StyledSmoothAPISection = styled.section`
 
       .smoothAPIDescription {
         line-height: 24px;
-
         margin-bottom: 39px;
-
-        &.desktop {
-          ${responsive.xl`
-            display: none;
-          `}
-        }
-
-        &.tablet {
-          display: none;
-
-          ${responsive.xl`
-            display: block;
-          `}
-          ${responsive.sm`
-            display: none;
-          `}
-        }
 
         ${responsive.xxl`
           font-weight: 500;
@@ -154,13 +136,6 @@ export const StyledSmoothAPISection = styled.section`
           margin-bottom: 49px;
         `}
 
-        ${responsive.sm`
-          display: none;
-        `};
-      }
-
-      .smoothAPIDescriptionMobile {
-        display: none;
         ${responsive.sm`
           display: block;
           margin-bottom: 34px;

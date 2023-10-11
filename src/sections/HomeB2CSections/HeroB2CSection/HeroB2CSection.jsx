@@ -19,20 +19,14 @@ import { responseBreakPoint } from '@/utils/response'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
 
 const DynamicAnimated2Gif = dynamic(
-  () =>
-    import('@/components/AnimatedVideo/AnimatedVideo').then(
-      (res) => res.Animated2Gif
-    ),
+  () => import('@/components/AnimatedVideo/Animated2Gif'),
   {
     ssr: false,
   }
 )
 
 const DynamicAnimatedFirstScreenVideo = dynamic(
-  () =>
-    import('@/components/AnimatedVideo/AnimatedVideo').then(
-      (res) => res.AnimatedFirstScreenVideo
-    ),
+  () => import('@/components/AnimatedVideo/AnimatedFirstScreenVideo'),
   {
     ssr: false,
   }

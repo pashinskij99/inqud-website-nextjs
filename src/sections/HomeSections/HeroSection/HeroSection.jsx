@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
 import clsx from 'clsx'
+import dynamic from 'next/dynamic'
 import styles from './HeroSection.module.scss'
 import Check from '@/assets/icons/check-green-background.svg'
 import {
@@ -15,9 +16,15 @@ import HeroSectionPaymentList from './components/HeroSectionPaymentList'
 import HeroSectionModal from './components/HeroSectionModal'
 import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import { getData } from '@/lib/datocms'
-import { AnimatedFirstScreenVideo } from '@/components/AnimatedVideo'
 import { HOME_PAGE_QUERY } from '@/lib/datocmsQuery'
 import AnimatedMobile from './components/AnimatedMobile'
+
+const DynamicAnimatedFirstScreenVideo = dynamic(
+  () => import('@/components/AnimatedVideo/AnimatedFirstScreenVideo'),
+  {
+    ssr: false,
+  }
+)
 
 export default async function HeroSection({ params }) {
   const { homePage: data } = await getData(HOME_PAGE_QUERY, {
@@ -28,9 +35,6 @@ export default async function HeroSection({ params }) {
     <section className={styles.wrapper}>
       <div className={clsx(styles.container, 'container')}>
         <div className={styles.leftSide}>
-          {/* <Device device={MOBILE}> */}
-          {/* <MobileGrid /> */}
-          {/* </Device> */}
           <AnimatedMobile />
 
           <StyledTypographyIBMH5 className={styles.subTitle}>
@@ -51,18 +55,7 @@ export default async function HeroSection({ params }) {
               <li key={text}>
                 <Image src={Check} alt='check' />
                 <StyledTypographyUrbanistBody
-                  className={clsx(
-                    styles['features-title'],
-                    styles['features-title-1']
-                  )}
-                >
-                  {text}
-                </StyledTypographyUrbanistBody>
-                <StyledTypographyUrbanistBody
-                  className={clsx(
-                    styles['features-title'],
-                    styles['features-title-2']
-                  )}
+                  className={styles['features-title']}
                 >
                   {text}
                 </StyledTypographyUrbanistBody>
@@ -85,29 +78,8 @@ export default async function HeroSection({ params }) {
 
         <div className={styles.rightSide}>
           <Device device={TABLET_OR_DESKTOP}>
-            <AnimatedFirstScreenVideo
-              className={styles.graphic}
-              height={595}
-              timeRepeat={5000}
-              urlFirstVideo='/video/video1.webm'
-              urlSecondVideo='/video/video2.mp4'
-              width={595}
-            />
+            <DynamicAnimatedFirstScreenVideo />
           </Device>
-          {/* <Device>
-            {({ isMobile }) =>
-              !isMobile && (
-                <AnimatedFirstScreenVideo
-                  className='graphic'
-                  height={595}
-                  timeRepeat={5000}
-                  urlFirstVideo='/video/video1.webm'
-                  urlSecondVideo='/video/video2.webm'
-                  width={595}
-                />
-              )
-            }
-          </Device> */}
         </div>
       </div>
     </section>

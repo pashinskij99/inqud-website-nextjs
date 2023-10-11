@@ -3,7 +3,7 @@
 import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 // eslint-disable-next-line import/no-cycle
-import { Accordion } from './OurLandscapeTabComponent'
+import Accordion from '../OurLandscapeSectionAccordion/Accordion'
 
 export default function OurLandscapeSwiper({ accordionData, data }) {
   return (

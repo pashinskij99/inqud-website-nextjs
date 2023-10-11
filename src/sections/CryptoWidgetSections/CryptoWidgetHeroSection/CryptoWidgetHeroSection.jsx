@@ -16,7 +16,7 @@ import {
   addGlobalScrollBar,
   removeGlobalScrollBar,
 } from '@/utils/addOrRemoveGlobalScrollBar'
-import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
+import Animated2Gif from '@/components/AnimatedVideo/Animated2Gif'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
 
 const DynamicModalCalendaly = dynamic(
@@ -26,8 +26,7 @@ const DynamicModalCalendaly = dynamic(
   }
 )
 const DynamicAnimatedOneVideo = dynamic(
-  () =>
-    import('@/components/AnimatedVideo').then((mod) => mod.AnimatedOneVideo),
+  () => import('@/components/AnimatedVideo/AnimatedOneVideo'),
   {
     ssr: false,
   }

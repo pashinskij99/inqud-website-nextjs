@@ -8,7 +8,7 @@ import {
   StyledTypographyUrbanistSmallSpaces,
 } from '@/components/UI/Typography/Typography.styled'
 
-const stepsOpacity = [
+export const stepsOpacity = [
   '0.20000000298023224',
   '0.4000000059604645',
   '0.6000000238418579',
@@ -18,14 +18,14 @@ const stepsOpacity = [
 ]
 
 export default function OurLandscapeSectionAccordion({
-                                                       title,
-                                                       description,
-                                                       expanded,
-                                                       handleChange,
-                                                       id,
-                                                       columnColor,
-                                                       lastchild,
-                                                     }) {
+  title,
+  description,
+  expanded,
+  handleChange,
+  id,
+  columnColor,
+  lastchild,
+}) {
   return (
     <StyledOurLandscapeSectionAccordion
       opacity={stepsOpacity[id]}

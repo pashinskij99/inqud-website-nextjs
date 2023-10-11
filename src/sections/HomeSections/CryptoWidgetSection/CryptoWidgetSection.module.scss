@@ -168,14 +168,6 @@
         letter-spacing: 0em;
       }
       @media (max-width: 767px) {
-        display: none;
-      }
-    }
-
-    .cryptoDescriptionMobile {
-      display: none;
-      @media (max-width: 767px) {
-        display: block;
         color: #ffffff;
         margin-bottom: 40px;
         font-size: 24px;
@@ -187,7 +179,7 @@
     .cryptoGrid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      column-gap: 46;
+      column-gap: 46px;
       row-gap: 24px;
       margin-bottom: 40px;
       @media (max-width: 1536px) {
@@ -269,7 +261,7 @@
         }
 
         .icon4 {
-          width: 24;
+          width: 24px;
           height: 22.23px;
         }
 

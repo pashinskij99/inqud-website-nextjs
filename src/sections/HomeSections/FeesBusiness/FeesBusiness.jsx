@@ -1,6 +1,6 @@
-import { StructuredText } from 'react-datocms/structured-text'
 // import { toast } from 'react-toastify'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -15,6 +15,14 @@ import { HOME_B2B_FEES } from '@/lib/datocmsQuery'
 import FeesBusinessShowMore from './components/FeesBusinessShowMore'
 import FeesBusinessModalWithButton from './components/FeesBusinessModalWithButton'
 import Device, { DESKTOP, MOBILE, TABLET } from '@/components/Device/Device'
+
+const DynamicFeeBusinessDescriptionWrapper = dynamic(
+  () =>
+    import(
+      '@/sections/HomeSections/FeesBusiness/components/FeeBusinessDescriptionWrapper'
+    ),
+  { ssr: false }
+)
 
 // eslint-disable-next-line no-unused-vars
 export default async function FeesBusiness({ modelId, autoId, params }) {
@@ -74,9 +82,7 @@ export default async function FeesBusiness({ modelId, autoId, params }) {
             <FeesBusinessShowMore data={data} />
           </Device>
           <Device device={TABLET}>
-            <div className='description-wrapper'>
-              <StructuredText data={data.footerDescription} />
-            </div>
+            <DynamicFeeBusinessDescriptionWrapper data={data} />
           </Device>
 
           <div className='cart'>
@@ -100,9 +106,7 @@ export default async function FeesBusiness({ modelId, autoId, params }) {
         </div>
 
         <Device device={DESKTOP}>
-          <div className='description-wrapper'>
-            <StructuredText data={data.footerDescription} />
-          </div>
+          <DynamicFeeBusinessDescriptionWrapper data={data} />
         </Device>
       </div>
     </StyledFeesBusinessWrapper>

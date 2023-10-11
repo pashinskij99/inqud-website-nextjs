@@ -114,13 +114,6 @@ export const StyledCryptoWidget2Section = styled.section`
         line-height: 24px;
         margin-bottom: 40px;
 
-        &.crypto2Description-desktop {
-        }
-
-        &.crypto2Description-mobile {
-          display: none;
-        }
-
         ${responsive.xxl`
           font-size: ${rem(18)};
           font-weight: 500;

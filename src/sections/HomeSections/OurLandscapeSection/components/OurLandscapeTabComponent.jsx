@@ -4,11 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import OurLandscapeTabContent from './OurLandscapeTabContent'
-import {
-  StyledTypographyIBMH5,
-  StyledTypographyUrbanistBody,
-  StyledTypographyUrbanistH5,
-} from '@/components/UI/Typography/Typography.styled'
+import { StyledTypographyUrbanistH5 } from '@/components/UI/Typography/Typography.styled'
 import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
 // eslint-disable-next-line import/no-cycle
 import OurLandscapeSwiper from './OurLandscapeSwiper'
@@ -52,11 +48,12 @@ export default function OurLandscapeTabComponent({ data }) {
   )
 }
 
-function IndustriesTab({ data }) {
-  // const {
-  //   dataPage: { ourLandscape: data },
-  // } = useContext(PageContext)
+const DynamicAccordion = dynamic(
+  () => import('../OurLandscapeSectionAccordion/Accordion'),
+  { ssr: false }
+)
 
+function IndustriesTab({ data }) {
   const accordionData = [
     {
       icon: <Image src={Icon1} alt='icon' />,
@@ -72,8 +69,6 @@ function IndustriesTab({ data }) {
     },
   ]
 
-  // const size = useWindowSize()
-
   return (
     <StyledIndustriesWrapper>
       <StyledTypographyUrbanistH5 className='ourLandscapeDescription'>
@@ -82,7 +77,7 @@ function IndustriesTab({ data }) {
       <Device device={TABLET_OR_DESKTOP}>
         <div className='ourLandscapeRisk'>
           {data.industriesList?.map(({ id, list, listTitle: title }, i) => (
-            <Accordion
+            <DynamicAccordion
               key={id}
               idColumn={i}
               icon={accordionData[i].icon}
@@ -99,49 +94,5 @@ function IndustriesTab({ data }) {
         <OurLandscapeSwiper accordionData={accordionData} data={data} />
       </Device>
     </StyledIndustriesWrapper>
-  )
-}
-
-const stepsOpacity = [
-  [
-    '0.20000000298023224',
-    '0.4000000059604645',
-    '0.6000000238418579',
-    '0.800000011920929',
-    '0.8999999761581421',
-    '1',
-  ],
-  ['0.20000000298023224', '0.4000000059604645', '0.6000000238418579', '1'],
-  ['0.20000000298023224', '0.4000000059604645', '0.6000000238418579', '1'],
-]
-
-export function Accordion({ idColumn, icon, items, title, columnColor }) {
-  return (
-    <div className='ourLandscapeAccordion'>
-      <div className='ourLandscapeAccordionTitle'>
-        {icon}
-        <StyledTypographyIBMH5>{title}</StyledTypographyIBMH5>
-      </div>
-      {items.map((accordionTitle, i) => (
-        <div
-          style={{
-            backgroundColor: `rgba(${columnColor}, ${
-              i === items.length - 1
-                ? stepsOpacity[idColumn][0]
-                : stepsOpacity[idColumn][stepsOpacity[idColumn].length - 1 - i]
-            })`,
-            flex: i === items.length - 1 ? 1 : 0,
-            alignItems: i === items.length - 1 ? 'start' : 'start',
-          }}
-          className='accordion-prob'
-          key={accordionTitle}
-        >
-          <StyledTypographyUrbanistBody>
-            {accordionTitle}
-          </StyledTypographyUrbanistBody>
-          <div />
-        </div>
-      ))}
-    </div>
   )
 }

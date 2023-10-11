@@ -16,7 +16,7 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { responseBreakPoint } from '@/utils/response'
-import { Animated2Gif } from '@/components/AnimatedVideo/AnimatedVideo'
+import Animated2Gif from '@/components/AnimatedVideo/Animated2Gif'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
 
 const DynamicApiHeroSectionModalForm = dynamic(() =>
@@ -24,7 +24,7 @@ const DynamicApiHeroSectionModalForm = dynamic(() =>
 )
 
 const DynamicAnimatedOneVideo = dynamic(() =>
-  import('@/components/AnimatedVideo').then((res) => res.AnimatedOneVideo)
+  import('@/components/AnimatedVideo/AnimatedOneVideo')
 )
 
 export default function ApiHeroSection() {

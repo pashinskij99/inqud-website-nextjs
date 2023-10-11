@@ -7,12 +7,10 @@ import {
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledPaymentListWrapper } from '../HeroSection.styled'
-// import { PageContext } from '@/contexts/PageContext/PageContext'
 import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_HERO_LIST } from '@/lib/datocmsQuery'
 
 export default function HeroSectionPaymentList({ params }) {
-  // const { params } = useContext(PageContext)
   const [data, setData] = useState({})
 
   useEffect(() => {

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -10,8 +11,7 @@ import Check from '@/assets/icons/check-dark.svg'
 import { ButtonGhostCrypto } from '@/components/UI/Button'
 import { getData } from '@/lib/datocms'
 import { HOME_B2B_CRYPTO_WIDGET_2 } from '@/lib/datocmsQuery'
-import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
-import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
+import Animated2GifOnView from '@/components/AnimatedVideo/Animated2GifOnView'
 import Device, {
   DESKTOP,
   MOBILE,
@@ -19,6 +19,13 @@ import Device, {
   TABLET_OR_DESKTOP,
 } from '@/components/Device/Device'
 import { CryptoWidget2ModalWithButton } from './components/CryptoWidget2ModalWithButton'
+
+const DynamicAnimatedVideoOnScroll = dynamic(
+  () => import('@/components/AnimatedVideo/AnimatedVideoOnScroll'),
+  {
+    ssr: false,
+  }
+)
 
 export default async function CryptoWidget2Section({ params }) {
   const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET_2, {
@@ -36,7 +43,7 @@ export default async function CryptoWidget2Section({ params }) {
             {data.screen5Title}
           </StyledTypographyUrbanistH2>
           <Device device={TABLET}>
-            <AnimatedVideoOnScroll
+            <DynamicAnimatedVideoOnScroll
               className='crypto2WidgetTablet'
               width={500}
               height={500}
@@ -55,17 +62,10 @@ export default async function CryptoWidget2Section({ params }) {
               timeSecondAnimate={5000}
             />
           </Device>
-          <Device device={MOBILE}>
-            <StyledTypographyUrbanistH5 className='crypto2Description crypto2Description-mobile'>
-              {data.screen5Description}
-            </StyledTypographyUrbanistH5>
-          </Device>
 
-          <Device device={TABLET_OR_DESKTOP}>
-            <StyledTypographyUrbanistBody className='crypto2Description crypto2Description-desktop'>
-              {data.screen5Description}
-            </StyledTypographyUrbanistBody>
-          </Device>
+          <StyledTypographyUrbanistBody className='crypto2Description'>
+            {data.screen5Description}
+          </StyledTypographyUrbanistBody>
 
           <ul className='crypto2Grid'>
             {data.screen5Features?.map(
@@ -76,13 +76,16 @@ export default async function CryptoWidget2Section({ params }) {
                   key={id}
                 >
                   <Image className='check' src={Check} alt='check' />
-                  <Image
-                    className='icon'
-                    src={url}
-                    alt={title}
-                    width={48}
-                    height={48}
-                  />
+                  <Device device={TABLET_OR_DESKTOP}>
+                    <Image
+                      className='icon'
+                      src={url}
+                      alt={title}
+                      width={48}
+                      height={48}
+                    />
+                  </Device>
+
                   <StyledTypographyUrbanistH5
                     component='h3'
                     className='crypto2GridItemTitle'
@@ -120,7 +123,7 @@ export default async function CryptoWidget2Section({ params }) {
         </div>
         <div className='rightSide'>
           <Device device={DESKTOP}>
-            <AnimatedVideoOnScroll
+            <DynamicAnimatedVideoOnScroll
               className='graphic'
               width={500}
               height={500}

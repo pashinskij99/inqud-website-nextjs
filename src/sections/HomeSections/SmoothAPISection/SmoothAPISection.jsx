@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
@@ -10,8 +11,7 @@ import { StyledSmoothAPISection } from './SmoothAPISection.styled'
 import { ButtonGetStarted } from '@/components/UI/Button/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import Check from '@/assets/icons/check-green-background.svg'
-import { AnimatedVideoOnScroll } from '@/components/AnimatedVideo'
-import { Animated2GifOnView } from '@/components/AnimatedVideo/AnimatedVideo'
+import Animated2GifOnView from '@/components/AnimatedVideo/Animated2GifOnView'
 import Device, {
   DESKTOP,
   MOBILE,
@@ -21,6 +21,13 @@ import Device, {
 import { getData } from '@/lib/datocms'
 import { HOME_B2B_SMOOTH_API } from '@/lib/datocmsQuery'
 
+const DynamicAnimatedVideoOnScroll = dynamic(
+  () => import('@/components/AnimatedVideo/AnimatedVideoOnScroll'),
+  {
+    ssr: false,
+  }
+)
+
 export default async function SmoothAPISection({ params }) {
   const { homePage: data } = await getData(HOME_B2B_SMOOTH_API, {
     locale: params.locale,
@@ -28,11 +35,10 @@ export default async function SmoothAPISection({ params }) {
 
   return (
     <StyledSmoothAPISection>
-      {/* <section> */}
       <div className='container'>
         <div className='leftSide'>
-          <Device device={TABLET_OR_DESKTOP}>
-            <AnimatedVideoOnScroll
+          <Device device={DESKTOP}>
+            <DynamicAnimatedVideoOnScroll
               className='graphic'
               height={600}
               timeRepeat={5000}
@@ -62,7 +68,7 @@ export default async function SmoothAPISection({ params }) {
           </Device>
 
           <Device device={TABLET}>
-            <AnimatedVideoOnScroll
+            <DynamicAnimatedVideoOnScroll
               className='smoothAPIImageTablet'
               height={600}
               timeRepeat={5000}
@@ -71,22 +77,9 @@ export default async function SmoothAPISection({ params }) {
             />
           </Device>
 
-          <Device device={MOBILE}>
-            <StyledTypographyUrbanistH5 className='smoothAPIDescriptionMobile'>
-              {data.screen4Description}
-            </StyledTypographyUrbanistH5>
-          </Device>
-          <Device device={TABLET}>
-            <StyledTypographyUrbanistH5 className='smoothAPIDescription tablet'>
-              {data.screen4Description}
-            </StyledTypographyUrbanistH5>
-          </Device>
-
-          <Device device={DESKTOP}>
-            <StyledTypographyUrbanistBody className='smoothAPIDescription desktop'>
-              {data.screen4Description}
-            </StyledTypographyUrbanistBody>
-          </Device>
+          <StyledTypographyUrbanistBody className='smoothAPIDescription'>
+            {data.screen4Description}
+          </StyledTypographyUrbanistBody>
 
           <ul className='smoothAPIGrid'>
             {data.screen4Features?.map(
@@ -97,13 +90,16 @@ export default async function SmoothAPISection({ params }) {
                   key={id}
                 >
                   <Image src={Check} alt='check' className='check' />
-                  <Image
-                    className='icon'
-                    src={url}
-                    alt={title}
-                    width={48}
-                    height={48}
-                  />
+                  <Device device={TABLET_OR_DESKTOP}>
+                    <Image
+                      className='icon'
+                      src={url}
+                      alt={title}
+                      width={48}
+                      height={48}
+                    />
+                  </Device>
+
                   <StyledTypographyUrbanistH5
                     component='h3'
                     className='smoothAPIGridItemTitle'
@@ -132,7 +128,6 @@ export default async function SmoothAPISection({ params }) {
           </div>
         </div>
       </div>
-      {/* </section> */}
     </StyledSmoothAPISection>
   )
 }

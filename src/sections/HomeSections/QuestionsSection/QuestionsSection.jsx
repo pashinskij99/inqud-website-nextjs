@@ -20,9 +20,12 @@ export default async function QuestionsSection({ params, nameCMSPage }) {
   return (
     <StyledQuestionsSection className='faq'>
       <div className='container'>
-        <StyledTypographyUrbanistH2 className='questionsTitle'>
-          {faq.faqMainTitle}
-        </StyledTypographyUrbanistH2>
+        <Device device={TABLET_OR_DESKTOP}>
+          <StyledTypographyUrbanistH2 className='questionsTitle'>
+            {faq.faqMainTitle}
+          </StyledTypographyUrbanistH2>
+        </Device>
+
         <StyledTypographyUrbanistH2 className='questionsTitleMobile'>
           {faq.faqMainTitleMobile}
         </StyledTypographyUrbanistH2>

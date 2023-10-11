@@ -1,14 +1,12 @@
 import clsx from 'clsx'
 import Image from 'next/image'
 import { useContext } from 'react'
-// import { Link as LinkAnchor } from 'react-scroll'
 import {
   FacebookShareButton,
   LinkedinShareButton,
   TwitterShareButton,
 } from 'next-share'
 import { usePathname } from 'next/navigation'
-// import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH5,
@@ -19,9 +17,6 @@ import {
   StyledLeftSide,
   StyledRightSide,
 } from './BlogContentSection.styled'
-// import Facebook from '@/assets/icons/facebook.svg'
-// import Twitter from '@/assets/icons/twitter.svg'
-// import Linkedin from '@/assets/icons/linkedin.svg'
 import { BlogContext } from '@/contexts/BlogContext/BlogContext'
 import { ArticleContext } from '@/contexts/ArticleContext/ArticleContext'
 import { getURL } from '@/utils/getUrl'
@@ -164,11 +159,6 @@ function LeftSide() {
     </StyledLeftSide>
   )
 }
-
-// const DynamicCenterSide = dynamic(
-//   () => import('./components/CenterSide').then((res) => res.CenterSide),
-//   { ssr: false }
-// )
 
 function RightSide() {
   const { setActiveHeader } = useContext(ArticleContext)
