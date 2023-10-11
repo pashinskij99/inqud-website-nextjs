@@ -17,7 +17,10 @@ export default function HeaderLanguageSelectList({
     >
       {languages.map(({ id, name, value, locale: localeLang }) => (
         <li key={id}>
-          <button onClick={() => handleLangClick(value, localeLang)}>
+          <button
+            onTouchStart={() => handleLangClick(value, localeLang)}
+            onClick={() => handleLangClick(value, localeLang)}
+          >
             {language.toLowerCase() === localeLang && (
               <Image src={Check} alt='check' />
             )}{' '}

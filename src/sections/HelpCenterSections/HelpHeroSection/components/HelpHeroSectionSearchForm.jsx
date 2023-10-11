@@ -1,12 +1,10 @@
-import { useWindowSize } from '@uidotdev/usehooks'
 import { Controller, useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
-import clsx from 'clsx'
 import { InputSearch } from '@/components/UI/Input'
 import { setSearchValue } from '@/store/features/blog/blogSlice'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
-import { responseBreakPoint } from '@/utils/response'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
+import Device, { DESKTOP, MOBILE_OR_TABLET } from '@/components/Device/Device'
 
 export default function HelpHeroSectionSearchForm({ data }) {
   const dispatch = useDispatch()
@@ -26,11 +24,9 @@ export default function HelpHeroSectionSearchForm({ data }) {
     dispatch(setIsSearch(true))
   }
 
-  const size = useWindowSize()
-
   return (
     <form onSubmit={handleSubmit(handleSearch)} className='search-wrapper'>
-      {size.width && size.width > responseBreakPoint.tablet ? (
+      <Device device={DESKTOP}>
         <Controller
           control={control}
           name='search'
@@ -46,8 +42,8 @@ export default function HelpHeroSectionSearchForm({ data }) {
             />
           )}
         />
-      ) : null}
-      {size.width && size.width <= responseBreakPoint.desktop ? (
+      </Device>
+      <Device device={MOBILE_OR_TABLET}>
         <Controller
           control={control}
           name='search'
@@ -63,9 +59,9 @@ export default function HelpHeroSectionSearchForm({ data }) {
             />
           )}
         />
-      ) : null}
+      </Device>
 
-      <StyledButtonSecondaryLight type='submit' className={clsx('search-btn')}>
+      <StyledButtonSecondaryLight type='submit' className='search-btn'>
         {data.helpCentreHero.button}
       </StyledButtonSecondaryLight>
     </form>

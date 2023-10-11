@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { useContext, useState } from 'react'
-import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
@@ -15,9 +14,9 @@ import Check from '@/assets/icons/check-green-background.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { responseBreakPoint } from '@/utils/response'
 import Animated2Gif from '@/components/AnimatedVideo/Animated2Gif'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
+import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
 
 const DynamicApiHeroSectionModalForm = dynamic(() =>
   import('./components/ApiHeroSectionModalForm').then((res) => res.default)
@@ -41,8 +40,6 @@ export default function ApiHeroSection() {
     params,
     dataPage: { apiPage: data },
   } = useContext(PageContext)
-
-  const size = useWindowSize()
 
   return (
     <StyledApiHeroSectionWrapper>
@@ -92,7 +89,7 @@ export default function ApiHeroSection() {
           <HeroSectionPaymentList params={params} />
         </div>
         <div className='right-side'>
-          {size.width && size.width > responseBreakPoint.mobile ? (
+          <Device device={TABLET_OR_DESKTOP}>
             <DynamicAnimatedOneVideo
               className='cart'
               width={500}
@@ -100,8 +97,8 @@ export default function ApiHeroSection() {
               timeRepeat={10000}
               urlFirstVideo='/video/code 2.mp4'
             />
-          ) : null}
-          {size.width && size.width <= responseBreakPoint.mobile ? (
+          </Device>
+          <Device device={MOBILE}>
             <Animated2Gif
               className='cart'
               width={500}
@@ -114,7 +111,7 @@ export default function ApiHeroSection() {
               stillSecondVideo='/video/api_page_hero.webp'
               timeSecondAnimate={10000}
             />
-          ) : null}
+          </Device>
         </div>
       </div>
     </StyledApiHeroSectionWrapper>

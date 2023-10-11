@@ -9,6 +9,7 @@ import { emailRegExp } from '@/utils/userSchema'
 export default function FooterForm({ t }) {
   const pathname = usePathname()
   const [email, setEmail] = useState('')
+
   const handleSubmit = async () => {
     if (email.toLowerCase().match(emailRegExp)) {
       const page = pathname.split('/')[1] || 'Home'
@@ -17,6 +18,15 @@ export default function FooterForm({ t }) {
       const createBlog = await import('@/lib/datocms').then(
         (res) => res.createBlog
       )
+      await fetch('/api/post-get-response', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+        }),
+      })
       await toast.promise(
         createBlog({ data: { email, page }, modelId: '2540253' }),
         {

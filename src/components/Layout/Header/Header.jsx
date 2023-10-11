@@ -5,7 +5,6 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useTranslations } from 'next-intl'
-import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
 import { CSSTransition } from 'react-transition-group'
 import Image from 'next/image'
@@ -19,7 +18,11 @@ import {
 } from '@/components/UI/Button/Button.styled'
 import { keysForLocale } from '@/config/keysForLocale'
 import HeaderLanguageSelect from '@/components/Layout/Header/HeaderLanguageSelect'
-import { responseBreakPoint } from '@/utils/response'
+import Device, {
+  MOBILE,
+  MOBILE_OR_TABLET,
+  TABLET_OR_DESKTOP,
+} from '@/components/Device/Device'
 
 const DynamicHeader = dynamic(
   () =>
@@ -96,8 +99,6 @@ export default function Header() {
 
   const pathname = usePathname()
 
-  const size = useWindowSize()
-
   return (
     <StyledHeaderWrapper
       isTop={isTop}
@@ -107,12 +108,12 @@ export default function Header() {
       <div className='containerHeader'>
         <div className='logoSection'>
           <Link href='/'>
-            {size.width && size.width > responseBreakPoint.mobile ? (
+            <Device device={TABLET_OR_DESKTOP}>
               <Image className='logo' src={logo} alt='logo' />
-            ) : null}
-            {size.width && size.width <= responseBreakPoint.mobile ? (
+            </Device>
+            <Device device={MOBILE}>
               <Image className='logo-mobile' src={logoMobile} alt='logo' />
-            ) : null}
+            </Device>
           </Link>
 
           <div className='button-link-wrapper'>
@@ -133,8 +134,6 @@ export default function Header() {
               {tabsTranslate(keysForLocale.keys3[1])}
             </Link>
           </div>
-
-          {/* <HeaderTabs /> */}
         </div>
 
         <nav className='navSection'>
@@ -187,8 +186,7 @@ export default function Header() {
             </Link>
           </div>
         </div>
-
-        {size.width && size.width < responseBreakPoint.desktop ? (
+        <Device device={MOBILE_OR_TABLET}>
           <>
             {active ? (
               <CSSTransition
@@ -204,7 +202,7 @@ export default function Header() {
               </CSSTransition>
             ) : null}
           </>
-        ) : null}
+        </Device>
       </div>
     </StyledHeaderWrapper>
   )

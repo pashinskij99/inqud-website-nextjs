@@ -3,8 +3,6 @@
 import { useContext } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
-// import { useTranslations } from 'next-intl'
-import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistBody,
@@ -16,7 +14,7 @@ import {
   StyledListItem,
 } from './CryptoBusinessSection.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { responseBreakPoint } from '@/utils/response'
+import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
 
 const DynamicCryptoBusinessSectionList = dynamic(() =>
   import('./components/CryptoBusinessSectionList').then((res) => res.default)
@@ -35,26 +33,22 @@ export default function CryptoBusinessSection() {
     dataPage: { cryptoWidgetPage: data },
   } = useContext(PageContext)
 
-  const size = useWindowSize()
-
   return (
     <StyledCryptoBusinessSectionWrapper>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='title'>
-          {/* {t('title')} */}
           {data.screen3Title}
         </StyledTypographyUrbanistH2>
-
-        {size.width && size.width > responseBreakPoint.mobile ? (
+        <Device device={TABLET_OR_DESKTOP}>
           <DynamicCryptoBusinessSectionList
             color={color}
             data={data}
             opacity={opacity}
             rgb={rgb}
           />
-        ) : null}
+        </Device>
 
-        {size.width && size.width <= responseBreakPoint.mobile ? (
+        <Device device={MOBILE}>
           <Swiper
             className='grid grid-2'
             slidesPerView='1'
@@ -102,7 +96,7 @@ export default function CryptoBusinessSection() {
               </SwiperSlide>
             ))}
           </Swiper>
-        ) : null}
+        </Device>
       </div>
     </StyledCryptoBusinessSectionWrapper>
   )

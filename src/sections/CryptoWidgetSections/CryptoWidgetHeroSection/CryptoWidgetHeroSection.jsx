@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { useContext, useState } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
-import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
 import { StyledCryptoWidgetHeroSectionWrapper } from './CryptoWidgetHeroSection.styled'
@@ -11,13 +10,13 @@ import { StyledTypographyUrbanistH1 } from '@/components/UI/Typography/Typograph
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { responseBreakPoint } from '@/utils/response'
 import {
   addGlobalScrollBar,
   removeGlobalScrollBar,
 } from '@/utils/addOrRemoveGlobalScrollBar'
 import Animated2Gif from '@/components/AnimatedVideo/Animated2Gif'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
+import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
 
 const DynamicModalCalendaly = dynamic(
   () => import('react-calendly').then((mod) => mod.PopupModal),
@@ -38,7 +37,6 @@ export default function CryptoWidgetHeroSection() {
     dataPage: { cryptoWidgetPage: data },
   } = useContext(PageContext)
 
-  const size = useWindowSize()
   const [calendlyModal, setCalendlyModal] = useState(false)
 
   const handleOpenCalendlyModal = () => {
@@ -89,7 +87,7 @@ export default function CryptoWidgetHeroSection() {
         </div>
 
         <div className='right-side'>
-          {size.width && size.width > responseBreakPoint.mobile ? (
+          <Device device={TABLET_OR_DESKTOP}>
             <DynamicAnimatedOneVideo
               className='graphic'
               height={650.44}
@@ -97,8 +95,8 @@ export default function CryptoWidgetHeroSection() {
               urlFirstVideo='/video/400.mp4'
               width={633.97}
             />
-          ) : null}
-          {size.width && size.width <= responseBreakPoint.mobile ? (
+          </Device>
+          <Device device={MOBILE}>
             <Animated2Gif
               className='graphic'
               height={357}
@@ -111,7 +109,7 @@ export default function CryptoWidgetHeroSection() {
               timeSecondAnimate={16000}
               width={500}
             />
-          ) : null}
+          </Device>
         </div>
       </div>
     </StyledCryptoWidgetHeroSectionWrapper>

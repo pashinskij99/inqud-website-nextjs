@@ -2,17 +2,15 @@ import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Scrollbar } from 'swiper/modules'
 import { useContext } from 'react'
-import { useWindowSize } from '@uidotdev/usehooks'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import { BlogCart } from '@/components/BlogCart'
 import { StyledRelatedArticlesSection } from './RelatedArticles.styled'
 import { BlogContext } from '@/contexts/BlogContext/BlogContext'
-import { responseBreakPoint } from '@/utils/response'
+import Device, { DESKTOP, MOBILE_OR_TABLET } from '@/components/Device/Device'
 
 export default function RelatedArticles() {
   const { relatedData } = useContext(BlogContext)
-  const size = useWindowSize()
 
   return (
     <StyledRelatedArticlesSection>
@@ -27,7 +25,7 @@ export default function RelatedArticles() {
             </StyledButtonGhost>
           </Link>
         </div>
-        {size.width && size.width > responseBreakPoint.tablet ? (
+        <Device device={DESKTOP}>
           <div className='relatedBlogsGrid blogsGrid'>
             {relatedData.map(
               ({
@@ -52,10 +50,8 @@ export default function RelatedArticles() {
               )
             )}
           </div>
-        ) : null}
-
-        {/* mobile */}
-        {size.width && size.width <= responseBreakPoint.tablet ? (
+        </Device>
+        <Device device={MOBILE_OR_TABLET}>
           <Swiper
             className='relatedBlogsSwiper blogsSwiper'
             slidesPerView='auto'
@@ -112,7 +108,7 @@ export default function RelatedArticles() {
               )
             )}
           </Swiper>
-        ) : null}
+        </Device>
 
         <Link href='/blog'>
           <StyledButtonGhost className='relatedBlogsHeaderButtonMobile blogsHeaderButtonMobile'>

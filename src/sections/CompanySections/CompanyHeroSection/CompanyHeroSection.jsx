@@ -1,7 +1,5 @@
 import Image from 'next/image'
-// import { useTranslations } from 'next-intl'
 import { useContext } from 'react'
-import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistBody,
@@ -9,35 +7,28 @@ import {
   StyledTypographyUrbanistH3,
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledCompanyHeroSectionWrapper } from './CompanyHeroSection.styled'
-// import graphic from '@/assets/images/company/hero/graphic.webp'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { responseBreakPoint } from '@/utils/response'
+import Device, { MOBILE, TABLET } from '@/components/Device/Device'
 
 const DynamicCompanyHeroSectionDesktop = dynamic(() =>
   import('./components/CompanyHeroSectionDesktop').then((res) => res.default)
 )
 
 export default function CompanyHeroSection() {
-  // const t = useTranslations('company_page.hero_section')
-  // const tMission = useTranslations('company_page.hero_section.our_mission')
-  // const tVision = useTranslations('company_page.hero_section.our_vision')
-
   const {
     dataPage: { aboutUsPage: data },
   } = useContext(PageContext)
 
-  const size = useWindowSize()
-
   return (
     <StyledCompanyHeroSectionWrapper>
-      {(size.width && size.width > responseBreakPoint.tablet) ||
-      size.width <= responseBreakPoint.mobile ? (
+      <Device device={Device}>
         <DynamicCompanyHeroSectionDesktop data={data} />
-      ) : null}
+      </Device>
+      <Device device={MOBILE}>
+        <DynamicCompanyHeroSectionDesktop data={data} />
+      </Device>
 
-      {size.width &&
-      size.width <= responseBreakPoint.tablet &&
-      size.width > responseBreakPoint.mobile ? (
+      <Device device={TABLET}>
         <div className='container tablet'>
           <div className='cart'>
             <StyledTypographyUrbanistH2 className='title'>
@@ -81,7 +72,7 @@ export default function CompanyHeroSection() {
             </StyledTypographyUrbanistBody>
           </div>
         </div>
-      ) : null}
+      </Device>
     </StyledCompanyHeroSectionWrapper>
   )
 }

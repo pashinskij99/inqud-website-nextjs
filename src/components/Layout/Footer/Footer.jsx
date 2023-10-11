@@ -102,19 +102,6 @@ export default function Footer() {
 
           <div className='footerSubscribeSectionInputWrapper'>
             <FooterForm t={t('footer_email_button_text')} />
-            {/* <InputText
-              type='email'
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              placeholder='example@mail.com'
-              className='footerSubscribeSectionInput'
-            />
-            <StyledButtonSecondary
-              onClick={handleSubmit}
-              className='footerSubscribeSectionButton'
-            >
-              {t('footer_email_button_text')}
-            </StyledButtonSecondary> */}
           </div>
 
           <StyledTypographyUrbanistSmallSpaces className='footerSubscribeSectionDescription'>

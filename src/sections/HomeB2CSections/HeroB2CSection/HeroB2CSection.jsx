@@ -3,7 +3,6 @@
 import { useContext } from 'react'
 import Link from 'next/link'
 import { StructuredText } from 'react-datocms/structured-text'
-import { useWindowSize } from '@uidotdev/usehooks'
 import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistH1,
@@ -15,8 +14,8 @@ import {
 } from './HeroB2CSection.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import { responseBreakPoint } from '@/utils/response'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
+import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
 
 const DynamicAnimated2Gif = dynamic(
   () => import('@/components/AnimatedVideo/Animated2Gif'),
@@ -42,8 +41,6 @@ export default function HeroB2CSection() {
     dataPage: { homeB2c: data },
   } = useContext(PageContext)
 
-  const size = useWindowSize()
-
   return (
     <StyledHeroB2CSectionWrapper>
       <div className='container'>
@@ -66,7 +63,7 @@ export default function HeroB2CSection() {
           <HeroSectionPaymentList params={params} />
         </div>
         <div className='right-side'>
-          {size.width && size.width <= responseBreakPoint.mobile ? (
+          <Device device={MOBILE}>
             <DynamicAnimated2Gif
               className='graphic'
               height={594}
@@ -77,8 +74,8 @@ export default function HeroB2CSection() {
               urlSecondVideo='/video/b2c_video2.gif'
               width={595}
             />
-          ) : null}
-          {size.width && size.width > responseBreakPoint.mobile ? (
+          </Device>
+          <Device device={TABLET_OR_DESKTOP}>
             <DynamicAnimatedFirstScreenVideo
               className='graphic'
               height={594}
@@ -87,7 +84,7 @@ export default function HeroB2CSection() {
               urlSecondVideo='/video/b2c_video2.webm'
               width={595}
             />
-          ) : null}
+          </Device>
         </div>
       </div>
     </StyledHeroB2CSectionWrapper>
