@@ -2,9 +2,9 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { usePathname } from 'next/navigation'
+// import { usePathname } from 'next/navigation'
+import { usePathname } from 'next-intl/client'
 import { capitalize } from '@mui/material'
-// import { useSelector } from 'react-redux'
 import { useSelector } from 'react-redux'
 import {
   StyledBreadcrumbs,
@@ -17,7 +17,7 @@ import { getUrlForBreadCrumbs } from '@/utils/getUrlForBreadCrumbs'
 function BreadCrumbs() {
   const [pages, setPages] = useState([])
   const pathname = usePathname()
-  if (pathname === '/business' || pathname === '/personal') return null
+  if (pathname === '/' || pathname === '/personal') return null
   // const { isNotFound } = useContext(NotFoundContext)
   const breadcrumb = useSelector((state) => state.breadcrumb)
 

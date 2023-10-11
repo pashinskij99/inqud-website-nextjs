@@ -12,16 +12,16 @@ const withNextIntl = require('next-intl/plugin')(
 // })
 
 const nextConfig = {
-  output: 'standalone',
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/business',
-        permanent: true,
-      },
-    ]
-  },
+  // output: 'standalone',
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/',
+  //       destination: '/business',
+  //       permanent: true,
+  //     },
+  //   ]
+  // },
   // async headers() {
   //   return [
   //     {

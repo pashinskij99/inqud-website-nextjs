@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import clsx from 'clsx'
-import { useRouter } from 'next-intl/client'
+import { useRouter, usePathname } from 'next-intl/client'
 import { useLocale } from 'next-intl'
-import { usePathname } from 'next/navigation'
 import { useWindowSize } from '@uidotdev/usehooks'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
@@ -15,7 +14,7 @@ const languages = [
   { id: 0, name: 'English (US)', value: 'EN', locale: 'en' },
   // { id: 1, name: 'Ukrainian', value: 'UK', locale: 'uk' },
   // { id: 3, name: 'Español', value: 'ES', locale: 'es' },
-  // { id: 2, name: 'Russian', value: 'RU', locale: 'ru' },
+  { id: 2, name: 'Russian', value: 'RU', locale: 'ru' },
 ]
 
 export default function HeaderLanguageSelect({ className }) {
