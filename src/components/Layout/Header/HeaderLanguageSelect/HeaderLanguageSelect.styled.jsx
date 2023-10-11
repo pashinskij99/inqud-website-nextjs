@@ -143,7 +143,7 @@ export const StyledHeaderLanguageSelectWrapper = styled(Box)`
           line-height: normal;
           position: relative;
 
-          svg {
+          img {
             position: absolute;
             left: -${rem(21.53)};
             top: 50%;
