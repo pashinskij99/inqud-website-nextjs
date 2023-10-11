@@ -19,7 +19,7 @@ import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { userSchema2 } from '@/utils/userSchema'
-import { createBlog } from '@/lib/datocms'
+// import { createBlog } from '@/lib/datocms'
 
 export function GetPersonalizedForm({
   data,
@@ -114,7 +114,9 @@ export default function Contact() {
     //   }
     // )
     const toast = await import('react-toastify').then((res) => res.toast)
-
+    const createBlog = await import('@/lib/datocms').then(
+      (res) => res.createBlog
+    )
     await toast.promise(createBlog({ data, modelId: '2540348' }), {
       pending: 'Sending data',
       success: 'Data sent',

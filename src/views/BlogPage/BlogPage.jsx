@@ -25,7 +25,9 @@ export default function BlogPage({ blog, relatedData, blogHeroSection }) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(setBlogBreadcrumbs(blog.mainTitle))
+    if (blog) {
+      dispatch(setBlogBreadcrumbs(blog.mainTitle))
+    }
 
     return () => {
       dispatch(setBlogBreadcrumbs(''))

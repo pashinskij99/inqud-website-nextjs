@@ -9,18 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@datocms/cma-client-browser": "^2.0.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.3.1",
     "@mui/material": "^5.14.12",
     "@reduxjs/toolkit": "^1.9.5",
     "@uidotdev/usehooks": "^2.2.0",
-    "axios": "^1.5.0",
     "clsx": "^1.2.1",
     "cookies-next": "^4.0.0",
     "datocms-structured-text-to-html-string": "^2.1.11",
     "next": "13.5.4",
+    "next-compose-plugins": "^2.2.1",
     "next-intl": "3.0.0-beta.19",
     "next-share": "^0.25.0",
     "react": "^18.2.0",
@@ -41,6 +40,7 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.5.4",
     "@svgr/webpack": "^8.0.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^19.0.4",

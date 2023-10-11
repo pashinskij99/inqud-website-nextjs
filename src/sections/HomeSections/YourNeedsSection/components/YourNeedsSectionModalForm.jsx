@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import dynamic from 'next/dynamic'
 import { userSchema2 } from '@/utils/userSchema'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
-import { createBlog } from '@/lib/datocms'
+// import { createBlog } from '@/lib/datocms'
 
 const DynamicModalSendRequest = dynamic(
   () => import('@/components/Modal').then((mod) => mod.ModalSendRequest),
@@ -49,7 +49,9 @@ export default function YourNeedsSectionModalForm({
     // }
     // )
     const toast = await import('react-toastify').then((res) => res.toast)
-
+    const createBlog = await import('@/lib/datocms').then(
+      (res) => res.createBlog
+    )
     await toast.promise(createBlog({ data, modelId: '2537177' }), {
       pending: 'Sending data',
       success: 'Data sent',

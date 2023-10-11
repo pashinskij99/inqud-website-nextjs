@@ -4,10 +4,16 @@ export const fetchBlogs = createAsyncThunk(
   'blog/fetchBlogs',
   async (searchData) => {
     try {
-      const axios = await import('axios').then((res) => res.default)
-      const response = await axios.post('/api/get-blogs', searchData)
+      const response = await fetch('/api/get-blogs', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(searchData),
+      })
+      const data = await response.json()
 
-      return await response.data
+      return data
     } catch (error) {
       return {}
     }

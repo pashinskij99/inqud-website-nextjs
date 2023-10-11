@@ -2,30 +2,12 @@
 
 import { useContext, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-// import dynamic from 'next/dynamic'
 import { StyledBlogsPageWrapper } from '@/views/BlogsPage/BlogsPage.styled'
 import BlogsSection from '@/sections/BlogsSections/BlogsSection'
 import BlogsPageMainSection from '@/sections/BlogsSections/BlogsPageMainSection'
 import { BlogContext, BlogProvider } from '@/contexts/BlogContext/BlogContext'
 import { setTags } from '@/store/features/blog/blogSlice'
-// import ReduxProvider from '@/store/ReduxProvider'
-
-// const DynamicBlogsPageMainSection = dynamic(
-//   () =>
-//     import('@/sections/BlogsSections/BlogsPageMainSection').then(
-//       (res) => res.default
-//     ),
-//   {
-//     ssr: false,
-//   }
-// )
-// const DynamicBlogsSection = dynamic(
-//   () =>
-//     import('@/sections/BlogsSections/BlogsSection').then((res) => res.default),
-//   {
-//     ssr: false,
-//   }
-// )
+import { fetchBlogs } from '@/store/features/blog/blogAsyncThunk'
 
 function BlogsWrapper() {
   const { pagination, activeTags, searchValue } = useSelector(
@@ -37,10 +19,6 @@ function BlogsWrapper() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const fetchBlogs = await import(
-        '@/store/features/blog/blogAsyncThunk'
-      ).then((res) => res.fetchBlogs)
-
       dispatch(
         fetchBlogs({
           params,
@@ -69,13 +47,11 @@ function BlogsPage({ tags = [], params, heroSectionData }) {
   dispatch(setTags(tags))
 
   return (
-    // <ReduxProvider>
     <BlogProvider params={params} heroSectionData={heroSectionData}>
       <StyledBlogsPageWrapper>
         <BlogsWrapper />
       </StyledBlogsPageWrapper>
     </BlogProvider>
-    // </ReduxProvider>
   )
 }
 

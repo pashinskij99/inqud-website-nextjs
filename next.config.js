@@ -1,15 +1,13 @@
 /** @type {import('next').NextConfig} */
 // const isProd = process.env.NODE_ENV === 'production'
-
 const withNextIntl = require('next-intl/plugin')(
   // This is the default (also the `src` folder is supported out of the box)
   './i18n.js'
 )
-
-// const withPlugins = require('next-compose-plugins')
-// const withBundleAnalyzer = require('@next/bundle-analyzer')({
-//   enabled: process.env.ANALYZE === 'true',
-// })
+const withPlugins = require('next-compose-plugins')
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 const nextConfig = {
   // output: 'standalone',
@@ -100,4 +98,4 @@ const nextConfig = {
   // },
 }
 
-module.exports = withNextIntl(nextConfig)
+module.exports = withPlugins([withBundleAnalyzer, withNextIntl], nextConfig)

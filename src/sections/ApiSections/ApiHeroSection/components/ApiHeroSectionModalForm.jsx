@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 // import { toast } from 'react-toastify'
 import { GetPersonalizedModal } from '@/components/Modal'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
-import { createBlog } from '@/lib/datocms'
+// import { createBlog } from '@/lib/datocms'
 import { userSchema2 } from '@/utils/userSchema'
 
 export default function ApiHeroSectionModalForm({
@@ -42,7 +42,9 @@ export default function ApiHeroSectionModalForm({
     //   }
     // )
     const toast = await import('react-toastify').then((res) => res.toast)
-
+    const createBlog = await import('@/lib/datocms').then(
+      (res) => res.createBlog
+    )
     await toast.promise(createBlog({ data, modelId: '2540346' }), {
       pending: 'Sending data',
       success: 'Data sent',

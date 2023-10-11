@@ -4,11 +4,16 @@ export const fetchHelpCentreData = createAsyncThunk(
   'helpCentre/fetchHelpCentreData',
   async (searchData) => {
     try {
-      const axios = await import('axios').then((res) => res.default)
+      const response = await fetch('/api/get-help-centre-data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(searchData),
+      })
+      const data = await response.json()
 
-      const response = await axios.post('/api/get-help-centre-data', searchData)
-
-      return await response.data
+      return data
     } catch (error) {
       return {}
     }
@@ -19,14 +24,15 @@ export const fetchHelpCentreDetailsData = createAsyncThunk(
   'helpCentre/fetchHelpCentreDetailsData',
   async (searchData, { dispatch }) => {
     try {
-      const axios = await import('axios').then((res) => res.default)
+      const response = await fetch('/api/get-help-centre-details-data', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(searchData),
+      })
+      const { data } = await response.json()
 
-      const response = await axios.post(
-        '/api/get-help-centre-details-data',
-        searchData
-      )
-
-      const { data } = await response.data
       const setBlogBreadcrumbs = await import(
         '../breadcrumb/breadcrumbSlice'
       ).then((res) => res.setBlogBreadcrumbs)
