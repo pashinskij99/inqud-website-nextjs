@@ -1,6 +1,9 @@
+'use client'
+
 // import { toast } from 'react-toastify'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
+import { useEffect, useState } from 'react'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -10,7 +13,7 @@ import {
 import { StyledFeesBusinessWrapper } from './FeesBusiness.styled'
 import BackCart from '@/assets/images/fee/cart-back.svg'
 // import { FeeModal } from '@/components/Modal/Modal'
-import { getData } from '@/lib/datocms'
+import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_FEES } from '@/lib/datocmsQuery'
 import FeesBusinessShowMore from './components/FeesBusinessShowMore'
 import FeesBusinessModalWithButton from './components/FeesBusinessModalWithButton'
@@ -25,10 +28,23 @@ const DynamicFeeBusinessDescriptionWrapper = dynamic(
 )
 
 // eslint-disable-next-line no-unused-vars
-export default async function FeesBusiness({ modelId, autoId, params }) {
-  const { feesYourBusiness: data } = await getData(HOME_B2B_FEES, {
-    locale: params.locale,
-  })
+export default function FeesBusiness({ modelId, autoId, params }) {
+  const [data, setData] = useState({})
+
+  useEffect(() => {
+    const response = async () => {
+      const { feesYourBusiness: data } = await getPageData({
+        query: HOME_B2B_FEES,
+        variables: {
+          locale: params.locale,
+        },
+      })
+
+      setData(data)
+    }
+
+    response()
+  }, [])
 
   return (
     <StyledFeesBusinessWrapper className='fees'>
