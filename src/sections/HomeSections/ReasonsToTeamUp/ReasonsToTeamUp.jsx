@@ -16,7 +16,7 @@ export default function ReasonsToTeamUp({ params }) {
 
   useEffect(() => {
     const response = async () => {
-      const { feesYourBusiness: data } = await getPageData({
+      const { homePage: data } = await getPageData({
         query: HOME_B2B_REASONS_TEAM_UP,
         variables: {
           locale: params.locale,
