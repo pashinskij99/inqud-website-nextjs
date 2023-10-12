@@ -117,15 +117,10 @@ export const HOME_B2B_PICK_SECTION_DONT_LOSE = `
        }
        leadForm1ListTitle
     }
-  }
-`
-
-export const HOME_B2B_PICK_SECTION_DONT_LOSE_LEAD_FORM_DATA = `
-  query MyQuery($locale: SiteLocale) {
     pickLeadForm(locale: $locale) {
-       pickDescription
-       buttonText
-    }
+      pickDescription
+      buttonText
+   }
   }
 `
 
@@ -208,11 +203,6 @@ export const HOME_B2B_BLOG = `
     homePage(locale: $locale) {
       buttonBlog
     }
-  }
-`
-
-export const HOME_B2B_BLOGS_DATA = `
-  query MyQuery($locale: SiteLocale) {
     allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: 3) {
       id
       mainTitle

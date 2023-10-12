@@ -21,18 +21,6 @@ import { getData } from '@/lib/datocms'
 import { HOME_B2B_NEEDS } from '@/lib/datocmsQuery'
 import YourNeedsSectionSwiper from './components/YourNeedsSectionSwiper'
 
-// export default async function YourNeedsSectionWrapper({
-//   trans,
-//   params,
-//   transCart,
-// }) {
-//   const { homePage: data } = await getData(HOME_B2B_NEEDS, {
-//     locale: params.locale,
-//   })
-
-//   return <YourNeedsSection transCart={transCart} data={data} trans={trans} />
-// }
-
 const coinsList = [
   {
     id: 3,
