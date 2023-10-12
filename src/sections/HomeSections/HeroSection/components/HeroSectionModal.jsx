@@ -43,7 +43,7 @@ export default function HeroSectionModal({ data }) {
 }
 
 const DynamicModalCalendaly = dynamic(
-  () => import('react-calendly').then((mod) => mod.PopupModal),
+  () => import('@/components/CalendlyForm').then((mod) => mod.default),
   {
     ssr: false,
   }

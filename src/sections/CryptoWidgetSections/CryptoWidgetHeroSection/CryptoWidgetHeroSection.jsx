@@ -19,7 +19,7 @@ import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/componen
 import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
 
 const DynamicModalCalendaly = dynamic(
-  () => import('react-calendly').then((mod) => mod.PopupModal),
+  () => import('@/components/CalendlyForm').then((mod) => mod.default),
   {
     ssr: false,
   }

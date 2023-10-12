@@ -10,7 +10,7 @@ import { PageContext } from '@/contexts/PageContext/PageContext'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 
 const DynamicModalCalendaly = dynamic(
-  () => import('react-calendly').then((mod) => mod.PopupModal),
+  () => import('@/components/CalendlyForm').then((mod) => mod.default),
   {
     ssr: false,
   }

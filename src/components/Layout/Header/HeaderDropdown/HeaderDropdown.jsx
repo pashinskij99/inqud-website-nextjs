@@ -17,9 +17,6 @@ export default function HeaderDropdown() {
   const dropdownList1Translate = useTranslations(
     'header_nav_dropdown_dropdown_items_1_items'
   )
-  // const dropdownList2Translate = useTranslations(
-  //   'header_nav_dropdown_dropdown_items_2_items'
-  // )
 
   const dropdownList = [
     {
@@ -117,7 +114,6 @@ export default function HeaderDropdown() {
         className={clsx('dropdown-button', {
           ['active']: active,
         })}
-        // onClick={handleClick}
       >
         {dropdownListNameTranslate('item1')}{' '}
         <svg

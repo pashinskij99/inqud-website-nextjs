@@ -69,22 +69,6 @@ export default function Header() {
     setActive(false)
   }
 
-  const [isTop, setIsTop] = useState(true)
-
-  const scrollHandler = () => {
-    setIsTop(window.scrollY <= 20)
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', scrollHandler)
-
-    scrollHandler()
-
-    return () => {
-      window.removeEventListener('scroll', scrollHandler)
-    }
-  }, [])
-
   useEffect(() => {
     if (active) {
       document.body.classList.add('no-scroll')
@@ -100,11 +84,7 @@ export default function Header() {
   const pathname = usePathname()
 
   return (
-    <StyledHeaderWrapper
-      isTop={isTop}
-      active={active}
-      isHome={pathname === '/'}
-    >
+    <StyledHeaderWrapper active={active} isHome={pathname === '/'}>
       <div className='containerHeader'>
         <div className='logoSection'>
           <Link href='/'>

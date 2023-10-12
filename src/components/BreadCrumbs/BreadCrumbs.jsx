@@ -11,13 +11,10 @@ import {
 } from '@/components/BreadCrumbs/BreadCrumbs.styled'
 import { StyledTypographyUrbanistSmallSpaces } from '@/components/UI/Typography/Typography.styled'
 import { getUrlForBreadCrumbs } from '@/utils/getUrlForBreadCrumbs'
-// import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
 
 function BreadCrumbs() {
   const [pages, setPages] = useState([])
   const pathname = usePathname()
-  // if (pathname === '/business' || pathname === '/personal') return null
-  // const { isNotFound } = useContext(NotFoundContext)
   const breadcrumb = useSelector((state) => state.breadcrumb)
 
   const getCurrentPageName = (page) => {
@@ -62,7 +59,7 @@ function BreadCrumbs() {
     setPages(pagesArray)
   }, [pathname, breadcrumb])
 
-  return pathname !== '/' ? (
+  return pathname !== '/' && pathname !== '/personal' ? (
     <StyledBreadCrumbsWrapper>
       <div className='containerHeader'>
         <StyledBreadcrumbs>

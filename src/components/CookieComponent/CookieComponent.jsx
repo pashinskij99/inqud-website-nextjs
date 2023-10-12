@@ -1,21 +1,24 @@
 'use client'
 
 import Link from 'next/link'
-import { useCookies, withCookies } from 'react-cookie'
 import Image from 'next/image'
+import cookieCutter from 'cookie-cutter'
+import { useState } from 'react'
 import { StyledCookieComponentWrapper } from './CookieComponent.styled'
 import { StyledTypographyUrbanistH5 } from '../UI/Typography/Typography.styled'
 import CoockieIcon from '@/assets/icons/cookie.svg'
 import { StyledButtonSecondaryLight } from '../UI/Button/Button.styled'
 
 function CookieComponent() {
-  const [cookies, setCookie] = useCookies(['inqud'])
+  const inqud = cookieCutter.get('inqud')
+  const [_, setCookie] = useState(0)
 
   const handleClick = () => {
-    setCookie('inqud', 'accept')
+    cookieCutter.set('inqud', 'accept')
+    setCookie((prevState) => prevState + 1)
   }
 
-  if (cookies.inqud) return null
+  if (inqud) return null
 
   return (
     <StyledCookieComponentWrapper>
@@ -23,7 +26,6 @@ function CookieComponent() {
         <div className='text'>
           <div className='icon-wrapper'>
             <Image className='icon' src={CoockieIcon} alt='CoockieIcon' />
-            {/* <CoockieIcon className='icon' /> */}
           </div>
           <div className='text-content'>
             <StyledTypographyUrbanistH5 className='title'>
@@ -50,4 +52,4 @@ function CookieComponent() {
   )
 }
 
-export default withCookies(CookieComponent)
+export default CookieComponent

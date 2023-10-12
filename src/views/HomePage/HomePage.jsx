@@ -12,6 +12,7 @@ import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import BlogsSection from '@/sections/HomeSections/BlogsSection/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import { keysForLocale } from '@/config/keysForLocale'
+import CalendlyFormModal from '@/components/CalendlyForm'
 
 export default function HomePage({ params }) {
   const yourNeedsSectionTrans = {
@@ -44,6 +45,7 @@ export default function HomePage({ params }) {
 
   return (
     <main className={styles.wrapper}>
+      <CalendlyFormModal />
       <HeroSection params={params} />
       <YourNeedsSection
         trans={yourNeedsSectionTrans}

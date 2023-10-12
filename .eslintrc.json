@@ -37,6 +37,7 @@
       "no-continue": "off",
       "no-plusplus":"off",
       "react/jsx-no-useless-fragment": "off",
-      "no-param-reassign": "off"
+      "no-param-reassign": "off",
+      "no-unused-vars": "off"
     }
 }

@@ -10,9 +10,7 @@ export const StyledHeaderWrapper = styled.header`
   background-color: ${({ active }) =>
     active ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0.9)'};
   position: sticky;
-  backdrop-filter: ${({ isTop, active }) =>
-    // eslint-disable-next-line no-nested-ternary
-    isTop ? 'blur(0px)' : active ? 'none' : 'blur(5px)'};
+  backdrop-filter: ${({ active }) => (active ? 'none' : 'blur(5px)')};
   top: 0;
   z-index: 100;
   transition: background-color 0.3s ease-in-out;

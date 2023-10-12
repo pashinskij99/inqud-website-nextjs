@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 
 const DynamicModalCalendaly = dynamic(
-  () => import('react-calendly').then((mod) => mod.PopupModal),
+  () => import('@/components/CalendlyForm').then((mod) => mod.default),
   {
     ssr: false,
   }
