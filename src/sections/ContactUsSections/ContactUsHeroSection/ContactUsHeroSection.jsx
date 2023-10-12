@@ -50,10 +50,8 @@ function ContactUsHeroSection() {
 
         {calendlyModal ? (
           <DynamicModalCalendaly
-            onModalClose={handleCloseCalendlyModal}
+            handleClose={handleCloseCalendlyModal}
             open={calendlyModal}
-            rootElement={document.getElementById('calendly-model-wrapper')}
-            url='https://calendly.com/inqud_team/30-minute-free-consultation'
           />
         ) : null}
       </div>
