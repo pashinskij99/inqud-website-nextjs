@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { capitalize } from '@mui/material'
-// import { useSelector } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { usePathname } from 'next-intl/client'
 import {

@@ -1,9 +1,8 @@
 import styled from '@emotion/styled'
-import { Box } from '@mui/material'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
 
-export const StyledHeaderLanguageSelectWrapper = styled(Box)`
+export const StyledHeaderLanguageSelectWrapper = styled.div`
   position: relative;
   width: ${rem(40)};
   cursor: pointer;

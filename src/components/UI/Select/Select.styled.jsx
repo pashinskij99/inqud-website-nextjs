@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
-import { MenuItem, Select } from '@mui/material'
+import Select from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem'
 import { rem } from '@/utils/rem'
 
 export const StyledSelectWrapper = styled.div`

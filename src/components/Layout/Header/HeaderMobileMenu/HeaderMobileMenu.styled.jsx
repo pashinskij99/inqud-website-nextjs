@@ -1,15 +1,9 @@
 import styled from '@emotion/styled'
-// import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
-
-// import * as React from 'react';
-// import { styled } from '@mui/material/styles'
-// import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import MuiAccordion from '@mui/material/Accordion'
 import MuiAccordionSummary from '@mui/material/AccordionSummary'
 import MuiAccordionDetails from '@mui/material/AccordionDetails'
 import { responsive } from '@/utils/response'
 import { rem } from '@/utils/rem'
-// import Typography from '@mui/material/Typography';
 
 export const StyledHeaderMobileMenu = styled.div`
   left: 0;
