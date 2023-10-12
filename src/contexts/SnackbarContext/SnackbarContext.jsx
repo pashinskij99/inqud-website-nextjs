@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useMemo, useReducer, useState } from 'react'
+import { createContext, useMemo, useReducer } from 'react'
 
 export const SnackbarContext = createContext(null)
 
