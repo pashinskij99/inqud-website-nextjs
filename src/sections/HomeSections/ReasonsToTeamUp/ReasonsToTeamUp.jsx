@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -6,12 +9,28 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 import { StyledReasonsToTeamUp } from './ReasonsToTeamUp.styled'
 import { HOME_B2B_REASONS_TEAM_UP } from '@/lib/datocmsQuery'
-import { getData } from '@/lib/datocms'
+import { getPageData } from '@/lib/datocms'
 
-export default async function ReasonsToTeamUp({ params }) {
-  const { homePage: data } = await getData(HOME_B2B_REASONS_TEAM_UP, {
-    locale: params.locale,
-  })
+export default function ReasonsToTeamUp({ params }) {
+  const [data, setData] = useState({})
+
+  useEffect(() => {
+    const response = async () => {
+      const { feesYourBusiness: data } = await getPageData({
+        query: HOME_B2B_REASONS_TEAM_UP,
+        variables: {
+          locale: params.locale,
+        },
+      })
+
+      setData(data)
+    }
+
+    response()
+  }, [])
+  // const { homePage: data } = await getData(HOME_B2B_REASONS_TEAM_UP, {
+  //   locale: params.locale,
+  // })
 
   return (
     <StyledReasonsToTeamUp>
