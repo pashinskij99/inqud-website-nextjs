@@ -6,7 +6,6 @@ import dynamic from 'next/dynamic'
 import OurLandscapeTabContent from './OurLandscapeTabContent'
 import { StyledTypographyUrbanistH5 } from '@/components/UI/Typography/Typography.styled'
 import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
-// eslint-disable-next-line import/no-cycle
 import OurLandscapeSwiper from './OurLandscapeSwiper'
 import { StyledIndustriesWrapper } from '../OurLandscapeSection.styled'
 import Icon1 from '@/assets/images/our-landscape/1.svg'
@@ -89,7 +88,6 @@ function IndustriesTab({ data }) {
         </div>
       </Device>
 
-      {/* mobile */}
       <Device device={MOBILE}>
         <OurLandscapeSwiper accordionData={accordionData} data={data} />
       </Device>
