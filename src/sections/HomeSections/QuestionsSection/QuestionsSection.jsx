@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
@@ -7,15 +10,33 @@ import { StyledQuestionsSection } from './QuestionsSection.styled'
 import { ButtonLearnMore } from '@/components/UI/Button'
 import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import QuestionsAccordion from './components/QuestionsAccordion'
-import { getData } from '@/lib/datocms'
+import { getPageData } from '@/lib/datocms'
 import { FAQ_QUERY } from '@/lib/datocmsQuery'
 
-export default async function QuestionsSection({ params, nameCMSPage }) {
-  const data = await getData(FAQ_QUERY({ pageCMSName: nameCMSPage }), {
-    locale: params.locale,
-  })
+export default function QuestionsSection({ params, nameCMSPage }) {
+  const [faq, setFaq] = useState({})
 
-  const faq = data[nameCMSPage]
+  useEffect(() => {
+    const response = async () => {
+      const data = await getPageData({
+        query: FAQ_QUERY({ pageCMSName: nameCMSPage }),
+        variables: {
+          locale: params.locale,
+        },
+      })
+
+      setFaq(data[nameCMSPage])
+    }
+
+    response()
+  }, [])
+
+  // const data = await getData(FAQ_QUERY({ pageCMSName: nameCMSPage }), {
+  //   locale: params.locale,
+  // })
+  // const faq = data[nameCMSPage]
+
+  // if (!faq) return null
 
   return (
     <StyledQuestionsSection className='faq'>

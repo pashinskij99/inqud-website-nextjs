@@ -64,7 +64,7 @@ export default function HomePage({ params }) {
       <PickSection className={styles.pickSection2} params={params} />
       <BlogsSection trans={blogTrans} params={params} />
       <QuestionsSection params={params} nameCMSPage='homePage' />
-      {/* FeesBusiness no ssr */}
+      {/* QuestionsSection, ReasonsToTeamUp, FeesBusiness no ssr */}
     </main>
   )
 }
