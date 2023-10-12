@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { StructuredText } from 'react-datocms/structured-text'
-import { InView } from 'react-intersection-observer'
 import { Element } from 'react-scroll'
 import { useEffect, useContext } from 'react'
+import InView from '@/components/InView'
 import { StyledCenterSide } from '../BlogContentSection.styled'
 import {
   StyledTypographyUrbanistH5,
@@ -30,11 +30,13 @@ export function CenterSide() {
           title ? (
             <Element className='content-section' name={title.trim()}>
               <InView
-                threshold={0}
+                options={{
+                  threshold: 0,
+                  rootMargin: '-30% 0px -70% 0px',
+                }}
                 as='div'
                 id={title}
-                rootMargin='-30% 0px -70% 0px'
-                onChange={(inView) =>
+                onView={(inView) =>
                   inView ? setActiveHeader(title.trim()) : null
                 }
               >

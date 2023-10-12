@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { InView } from 'react-intersection-observer'
 import GifPlayer from 'react-gif-player'
 import clsx from 'clsx'
+import InView from '@/components/InView'
 import { StyledAnimatedGifWrapper } from '@/components/AnimatedVideo/AnimatedVideo.styled'
 
 export default function Animated2GifOnView({
@@ -59,8 +59,8 @@ export default function Animated2GifOnView({
   return (
     <InView
       as='div'
-      rootMargin='-30% 0px -30% 0px'
-      onChange={(inView) => {
+      options={{ rootMargin: '-30% 0px -30% 0px' }}
+      onView={(inView) => {
         setVideoInView(inView)
       }}
     >

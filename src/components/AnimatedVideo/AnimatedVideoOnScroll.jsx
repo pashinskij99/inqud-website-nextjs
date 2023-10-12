@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { InView } from 'react-intersection-observer'
+import InView from '@/components/InView'
 
 export default function AnimatedVideoOnScroll({
   className,
@@ -52,8 +52,10 @@ export default function AnimatedVideoOnScroll({
   return (
     <InView
       as='div'
-      rootMargin='-30% 0px -30% 0px'
-      onChange={(inView) => {
+      options={{
+        rootMargin: '-30% 0px -30% 0px',
+      }}
+      onView={(inView) => {
         setVideoInView(inView)
       }}
     >

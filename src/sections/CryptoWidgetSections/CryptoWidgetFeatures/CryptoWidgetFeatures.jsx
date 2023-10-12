@@ -1,9 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import { InView } from 'react-intersection-observer'
 import { useTranslations } from 'next-intl'
 import { useContext } from 'react'
+import InView from '@/components/InView'
 import { StyledCryptoWidgetFeaturesWrapper } from './CryptoWidgetFeatures.styled'
 import {
   StyledTypographyUrbanistBody,
@@ -185,7 +185,7 @@ export default function CryptoWidgetFeatures() {
   })
 
   return (
-    <InView as={StyledCryptoWidgetFeaturesWrapper} onChange={handleInView}>
+    <InView as={StyledCryptoWidgetFeaturesWrapper} onView={handleInView}>
       <div className='container'>
         <div className='left-side'>
           <StyledTypographyUrbanistH2 className='title'>

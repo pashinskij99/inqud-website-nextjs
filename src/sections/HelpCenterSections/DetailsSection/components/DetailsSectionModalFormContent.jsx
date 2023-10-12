@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { InView } from 'react-intersection-observer'
 import { Element } from 'react-scroll'
 import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
+import InView from '@/components/InView'
 import {
   StyledContentItemAccordion,
   StyledContentItemAccordionDetails,
@@ -29,11 +29,13 @@ export function DetailsSectionModalFormContent({
     <>
       <Element className='content content-1' name={title}>
         <InView
-          threshold={0}
+          options={{
+            threshold: 0,
+            rootMargin: '-30% 0px -70% 0px',
+          }}
           as='div'
           id={title}
-          rootMargin='-30% 0px -70% 0px'
-          onChange={(inView) => (inView ? setActiveHeader(title) : null)}
+          onView={(inView) => (inView ? setActiveHeader(title) : null)}
         >
           <div className=''>
             <StyledTypographyUrbanistH4 className='content-title'>
@@ -51,17 +53,6 @@ export function DetailsSectionModalFormContent({
                 </StyledTypographyUrbanistBody>
               ))}
             </div>
-
-            {/* <div className='content-footer'>
-              <StyledTypographyUrbanistBody className='content-footer-text'>
-                Did this answer your question?
-              </StyledTypographyUrbanistBody>
-
-              <div className='likeOrDislike'>
-                <DislikeIcon />
-                <LikeIcon />
-              </div>
-            </div> */}
           </div>
         </InView>
       </Element>
@@ -103,16 +94,6 @@ function ContentAccordionItem({ title, expanded, description, handleChange }) {
             <StructuredText data={description} />
           ))}
         </StyledTypographyUrbanistBody>
-        {/* <div className='content-footer'>
-          <StyledTypographyUrbanistBody className='content-footer-text'>
-            Did this answer your question?
-          </StyledTypographyUrbanistBody>
-
-          <div className='likeOrDislike'>
-            <DislikeIcon />
-            <LikeIcon />
-          </div>
-        </div> */}
       </StyledContentItemAccordionDetails>
     </StyledContentItemAccordion>
   )

@@ -78,7 +78,14 @@ export default async function HeroSection({ params }) {
 
         <div className={styles.rightSide}>
           <Device device={TABLET_OR_DESKTOP}>
-            <DynamicAnimatedFirstScreenVideo />
+            <DynamicAnimatedFirstScreenVideo
+              className={styles.graphic}
+              height={595}
+              timeRepeat={5000}
+              urlFirstVideo='/video/video1.webm'
+              urlSecondVideo='/video/video2.mp4'
+              width={595}
+            />
           </Device>
         </div>
       </div>

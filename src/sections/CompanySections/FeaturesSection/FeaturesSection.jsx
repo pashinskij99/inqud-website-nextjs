@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import { InView } from 'react-intersection-observer'
 import { useTranslations } from 'next-intl'
 import { useContext } from 'react'
+import InView from '@/components/InView'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
@@ -14,13 +14,11 @@ import {
   StyledAccordionLoading,
   StyledFeaturesSectionWrapper,
 } from './FeaturesSection.styled'
-// import img from '@/assets/images/company/features/image.webp'
 import { keysForLocale } from '@/config/keysForLocale'
 import { useIntervalStep } from '@/hooks/useIntervalStep'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export default function FeaturesSection() {
-  // const t = useTranslations('company_page.our_features_section')
   const tTitles = useTranslations(
     'company_page.our_features_section.items_title'
   )
@@ -69,7 +67,7 @@ export default function FeaturesSection() {
   } = useContext(PageContext)
 
   return (
-    <InView as={StyledFeaturesSectionWrapper} onChange={handleInView}>
+    <InView as={StyledFeaturesSectionWrapper} onView={handleInView}>
       <div className='container'>
         <div className='left-side'>
           <StyledTypographyUrbanistH2 className='title'>

@@ -5,6 +5,7 @@ import Footer from '../Footer'
 import Portal from '@/HOC/Portal'
 import CookieComponent from '@/components/CookieComponent/CookieComponent'
 import ReduxProvider from '@/store/ReduxProvider'
+// import SnackbarWrapper from '@/components/SnackbarWrapper/SnackbarWrapper'
 
 export default function LayoutComponent({ children }) {
   return (
@@ -23,6 +24,7 @@ export default function LayoutComponent({ children }) {
         pauseOnHover
         theme='light'
       />
+      {/* <SnackbarWrapper /> */}
       {children}
       <Footer />
       <Portal>

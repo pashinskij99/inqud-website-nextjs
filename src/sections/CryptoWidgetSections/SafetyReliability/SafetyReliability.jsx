@@ -1,9 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import { InView } from 'react-intersection-observer'
 import { useTranslations } from 'next-intl'
 import { useContext } from 'react'
+import InView from '@/components/InView'
 import { StyledSafetyReliabilitySection } from './SafetyReliability.styled'
 import {
   StyledTypographyUrbanistBody,
@@ -16,13 +16,11 @@ import {
   AccordionSummary,
   StyledAccordionLoading,
 } from '../../CompanySections/FeaturesSection/FeaturesSection.styled'
-// import img from '../../../assets/images/crypto-widget/page/reliability/shield.png'
 import { keysForLocale } from '@/config/keysForLocale'
 import { useIntervalStep } from '@/hooks/useIntervalStep'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export default function SafetyReliability() {
-  // const t = useTranslations('crypto_centre_page.safety_&_reliability_section')
   const tTitles = useTranslations(
     'crypto_centre_page.safety_&_reliability_section.items_title'
   )
@@ -70,7 +68,7 @@ export default function SafetyReliability() {
   })
 
   return (
-    <InView as={StyledSafetyReliabilitySection} onChange={handleInView}>
+    <InView as={StyledSafetyReliabilitySection} onView={handleInView}>
       <div className='container'>
         <div className='left-side'>
           <StyledTypographyUrbanistH2 className='title'>

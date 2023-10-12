@@ -65,13 +65,6 @@ function LeftSide() {
               ['active']: activeHeader === title.trim(),
             })}
           >
-            {/* <LinkAnchor
-              to={title.trim()}
-              offset={-100}
-              spy
-              smooth
-              duration={500}
-            > */}
             <StyledTypographyUrbanistBody
               onClick={() => handleClick(title.trim())}
               className={clsx('title', {
@@ -80,7 +73,6 @@ function LeftSide() {
             >
               {title}
             </StyledTypographyUrbanistBody>
-            {/* </LinkAnchor> */}
           </li>
         ))}
       </ul>

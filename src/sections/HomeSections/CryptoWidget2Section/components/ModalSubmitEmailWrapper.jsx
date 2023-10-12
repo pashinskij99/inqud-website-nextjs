@@ -25,14 +25,8 @@ export default function ModalSubmitEmailWrapper({ handleClose, open, params }) {
     const submitForFormActiveCampaign = await import(
       '@/lib/activeCampaign'
     ).then((res) => res.submitForFormActiveCampaign)
-    // await toast.promise(
     await submitForFormActiveCampaign(newData, '/api/create-contact', 4)
-    //     ,
-    //   {
-    //     pending: 'Sending data',
-    //     success: 'Data sent',
-    //   }
-    // )
+
     const toast = await import('react-toastify').then((res) => res.toast)
     const createBlog = await import('@/lib/datocms').then(
       (res) => res.createBlog

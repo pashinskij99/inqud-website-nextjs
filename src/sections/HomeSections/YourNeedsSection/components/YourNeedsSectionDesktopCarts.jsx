@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from '@/sections/HomeSections/YourNeedsSection/YourNeedsSection.module.scss'
 import CartRequirement from '@/components/CartRequirement'
 import CartRequirementModalWithCart from './YourNeedsSectionModalWithButton'

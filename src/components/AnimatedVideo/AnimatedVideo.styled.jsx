@@ -18,8 +18,6 @@ export const StyledAnimatedVideo = styled.video`
   opacity: 1;
   transition: opacity 0.1s ease;
   &.hide {
-    //visibility: hidden;
-    //display: none;
     opacity: 0;
   }
 `
