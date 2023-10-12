@@ -43,7 +43,6 @@ function BlogsWrapper() {
 
 function BlogsPage({ tags = [], params, heroSectionData }) {
   const dispatch = useDispatch()
-
   dispatch(setTags(tags))
 
   return (

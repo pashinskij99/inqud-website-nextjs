@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   StyledBlogCartWrapper,
   StyledBlogCartWrapper2,
@@ -14,14 +14,25 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 import Dot from '@/assets/icons/dot.svg'
 import { ButtonLearnMore } from '@/components/UI/Button'
-import { getTimeForBlog } from '@/utils/getTimeForBlog'
 
 // eslint-disable-next-line no-unused-vars
 export function BlogCart({ imageSrc, date, time, subTitle, title }) {
   const [currentDate, setCurrentDate] = useState({})
+  const workerRef = useRef()
 
   useEffect(() => {
-    setCurrentDate(getTimeForBlog(date))
+    workerRef.current = new Worker(
+      new URL('../../worker/index.js', import.meta.url)
+    )
+
+    workerRef.current.onmessage = (event) => {
+      setCurrentDate(event.data)
+    }
+
+    workerRef.current?.postMessage(date)
+    return () => {
+      workerRef.current?.terminate()
+    }
   }, [date])
 
   return (
@@ -63,10 +74,22 @@ export function BlogCart({ imageSrc, date, time, subTitle, title }) {
 
 export function BlogCart2({ imageSrc, date, time, subTitle, title }) {
   const [currentDate, setCurrentDate] = useState({})
-
+  const workerRef = useRef()
   useEffect(() => {
-    setCurrentDate(getTimeForBlog(date))
+    workerRef.current = new Worker(
+      new URL('../../worker/index.js', import.meta.url)
+    )
+
+    workerRef.current.onmessage = (event) => {
+      setCurrentDate(event.data)
+    }
+
+    workerRef.current?.postMessage(date)
+    return () => {
+      workerRef.current?.terminate()
+    }
   }, [date])
+
   return (
     <StyledBlogCartWrapper2 className='cart'>
       <Image
