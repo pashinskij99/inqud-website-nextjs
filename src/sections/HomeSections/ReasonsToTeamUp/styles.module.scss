@@ -1,0 +1,185 @@
+$xxs: 400px;
+$xs: 576px;
+$sm: 767px;
+$md: 830px;
+$lg: 1024px;
+$xl: 1279px;
+$xxl: 1536px;
+
+.wrapper {
+  padding-top: 198px;
+  padding-bottom: 197px;
+  text-align: center;
+  overflow: hidden;
+
+  @media (max-width: #{$xxl}) {
+    padding-top: 194px;
+  }
+
+  @media (max-width: #{$xl}) {
+    padding: 120px 0 119px;
+  }
+
+  @media (max-width: #{$sm}) {
+    padding: 96px 0;
+    order: 8;
+  }
+  :global {
+    .reasonsToTeamUpTitle {
+      margin-bottom: 14px;
+
+      @media (max-width: #{$xl}) {
+        text-align: start;
+        line-height: 62px;
+      }
+
+      @media (max-width: #{$sm}) {
+        line-height: 46px;
+        text-align: center;
+        letter-spacing: 0.2px;
+        margin-bottom: 14px;
+      }
+    }
+
+    .reasonsToTeamUpSubTitle {
+      color: #517185;
+      margin-bottom: 46px;
+
+      @media (max-width: #{$xl}) {
+        text-align: start;
+        line-height: 30px;
+        margin-bottom: 64px;
+      }
+
+      @media (max-width: #{$sm}) {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 32px;
+        letter-spacing: 0em;
+        text-align: center;
+        margin-bottom: 42px;
+      }
+    }
+
+    .reasonsToTeamUpGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 343px);
+      justify-content: center;
+      column-gap: 137px;
+      row-gap: 37px;
+
+      @media (max-width: #{$xxl}) {
+        column-gap: 70.5px;
+      }
+
+      @media (max-width: #{$xl}) {
+        grid-template-columns: repeat(2, 332px);
+        justify-items: center;
+        row-gap: 39px;
+        justify-content: center;
+        column-gap: 25px;
+        align-items: flex-start;
+      }
+
+      @media (max-width: #{$sm}) {
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+        column-gap: 0;
+        justify-items: start;
+        text-align: start;
+        row-gap: 24px;
+      }
+
+      li {
+        @media (max-width: #{$xl}) {
+          row-gap: 17px;
+          column-gap: 16px;
+          display: grid;
+          grid-template-columns: 64px 252px;
+          text-align: start;
+        }
+
+        @media (max-width: #{$sm}) {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+
+          &:nth-of-type(1) {
+            order: 1;
+          }
+
+          &:nth-of-type(2) {
+            order: 2;
+          }
+
+          &:nth-of-type(3) {
+            order: 3;
+          }
+
+          &:nth-of-type(4) {
+            order: 6;
+          }
+
+          &:nth-of-type(5) {
+            order: 6;
+          }
+
+          &:nth-of-type(6) {
+            order: 5;
+          }
+        }
+
+        img {
+          margin-bottom: 10px;
+
+          @media (max-width: #{$xl}) {
+            margin-bottom: 0;
+          }
+
+          @media (max-width: #{$sm}) {
+            flex-shrink: 0;
+            margin-bottom: 0;
+          }
+        }
+
+        .reasonsToTeamUpGridItemTitle {
+          font-weight: 700;
+          margin-bottom: 9px;
+
+          @media (max-width: #{$xl}) {
+            grid-column-start: 2;
+            grid-column-end: 2;
+            margin-bottom: 0;
+            line-height: 30px;
+            display: flex;
+            align-items: center;
+          }
+
+          @media (max-width: #{$sm}) {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 32px;
+            letter-spacing: 0em;
+            br {
+              display: none;
+            }
+          }
+        }
+
+        .reasonsToTeamUpGridItemDescription {
+          color: #517185;
+          line-height: 24px;
+
+          @media (max-width: #{$xl}) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+          }
+
+          @media (max-width: #{$sm}) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

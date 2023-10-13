@@ -7,7 +7,6 @@ import OurLandscapeTabContent from './OurLandscapeTabContent'
 import { StyledTypographyUrbanistH5 } from '@/components/UI/Typography/Typography.styled'
 import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import OurLandscapeSwiper from './OurLandscapeSwiper'
-import { StyledIndustriesWrapper } from '../OurLandscapeSection.styled'
 import Icon1 from '@/assets/images/our-landscape/1.svg'
 import Icon2 from '@/assets/images/our-landscape/2.svg'
 import Icon3 from '@/assets/images/our-landscape/3.svg'
@@ -69,7 +68,7 @@ function IndustriesTab({ data }) {
   ]
 
   return (
-    <StyledIndustriesWrapper>
+    <div className={styles}>
       <StyledTypographyUrbanistH5 className='ourLandscapeDescription'>
         {data.description1}
       </StyledTypographyUrbanistH5>
@@ -91,6 +90,6 @@ function IndustriesTab({ data }) {
       {/* <Device device={MOBILE}> */}
       <OurLandscapeSwiper accordionData={accordionData} data={data} />
       {/* </Device> */}
-    </StyledIndustriesWrapper>
+    </div>
   )
 }

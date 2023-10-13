@@ -1,18 +1,18 @@
 'use client'
 
-// import { toast } from 'react-toastify'
+// import { toast } from 'react-toastify'4
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
+import clsx from 'clsx'
+import styles from './styles.module.scss'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH4,
   StyledTypographyUrbanistSmallSpaces,
 } from '@/components/UI/Typography/Typography.styled'
-import { StyledFeesBusinessWrapper } from './FeesBusiness.styled'
 import BackCart from '@/assets/images/fee/cart-back.svg'
-// import { FeeModal } from '@/components/Modal/Modal'
 import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_FEES } from '@/lib/datocmsQuery'
 import FeesBusinessShowMore from './components/FeesBusinessShowMore'
@@ -47,7 +47,7 @@ export default function FeesBusiness({ modelId, autoId, params }) {
   }, [])
 
   return (
-    <StyledFeesBusinessWrapper className='fees'>
+    <div className={clsx(styles.wrapper, 'fees')}>
       <div className='container'>
         <div className='title-wrapper'>
           <StyledTypographyUrbanistH2 className='title'>
@@ -125,6 +125,6 @@ export default function FeesBusiness({ modelId, autoId, params }) {
           <DynamicFeeBusinessDescriptionWrapper data={data} />
         </Device>
       </div>
-    </StyledFeesBusinessWrapper>
+    </div>
   )
 }

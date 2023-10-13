@@ -3,7 +3,6 @@ import { Breadcrumbs } from '@mui/material'
 import { rem } from '@/utils/rem'
 import { nunito } from '@/utils/font'
 
-export const StyledBreadCrumbsWrapper = styled.div``
 export const StyledBreadcrumbs = styled(Breadcrumbs)`
   padding: ${rem(10)} 0;
   ${nunito.style}

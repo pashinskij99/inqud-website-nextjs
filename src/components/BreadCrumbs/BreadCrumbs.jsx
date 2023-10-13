@@ -5,10 +5,7 @@ import { useEffect, useState } from 'react'
 import { capitalize } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { usePathname } from 'next-intl/client'
-import {
-  StyledBreadcrumbs,
-  StyledBreadCrumbsWrapper,
-} from '@/components/BreadCrumbs/BreadCrumbs.styled'
+import { StyledBreadcrumbs } from '@/components/BreadCrumbs/BreadCrumbs.styled'
 import { StyledTypographyUrbanistSmallSpaces } from '@/components/UI/Typography/Typography.styled'
 import { getUrlForBreadCrumbs } from '@/utils/getUrlForBreadCrumbs'
 
@@ -60,19 +57,17 @@ function BreadCrumbs() {
   }, [pathname, breadcrumb])
 
   return pathname !== '/' && pathname !== '/personal' ? (
-    <StyledBreadCrumbsWrapper>
-      <div className='containerHeader'>
-        <StyledBreadcrumbs>
-          {pages.map(({ name, href }) => (
-            <Link key={name} href={href} className='breadCrumbLink'>
-              <StyledTypographyUrbanistSmallSpaces className='breadCrumbText'>
-                {name}
-              </StyledTypographyUrbanistSmallSpaces>
-            </Link>
-          ))}
-        </StyledBreadcrumbs>
-      </div>
-    </StyledBreadCrumbsWrapper>
+    <div className='containerHeader'>
+      <StyledBreadcrumbs>
+        {pages.map(({ name, href }) => (
+          <Link key={name} href={href} className='breadCrumbLink'>
+            <StyledTypographyUrbanistSmallSpaces className='breadCrumbText'>
+              {name}
+            </StyledTypographyUrbanistSmallSpaces>
+          </Link>
+        ))}
+      </StyledBreadcrumbs>
+    </div>
   ) : null
 }
 

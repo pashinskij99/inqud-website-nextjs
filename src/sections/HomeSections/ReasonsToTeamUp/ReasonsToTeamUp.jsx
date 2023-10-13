@@ -2,12 +2,12 @@
 
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import styles from './styles.module.scss'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-import { StyledReasonsToTeamUp } from './ReasonsToTeamUp.styled'
 import { HOME_B2B_REASONS_TEAM_UP } from '@/lib/datocmsQuery'
 import { getPageData } from '@/lib/datocms'
 
@@ -33,7 +33,7 @@ export default function ReasonsToTeamUp({ params }) {
   // })
 
   return (
-    <StyledReasonsToTeamUp>
+    <section className={styles.wrapper}>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='reasonsToTeamUpTitle'>
           {data.screen6Title}
@@ -61,6 +61,6 @@ export default function ReasonsToTeamUp({ params }) {
           )}
         </ul>
       </div>
-    </StyledReasonsToTeamUp>
+    </section>
   )
 }

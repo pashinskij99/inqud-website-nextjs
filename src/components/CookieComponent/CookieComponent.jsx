@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import cookieCutter from 'cookie-cutter'
 import { useState } from 'react'
-import { StyledCookieComponentWrapper } from './CookieComponent.styled'
+import styles from './styles.module.scss'
 import { StyledTypographyUrbanistH5 } from '../UI/Typography/Typography.styled'
 import CoockieIcon from '@/assets/icons/cookie.svg'
 import { StyledButtonSecondaryLight } from '../UI/Button/Button.styled'
@@ -21,7 +21,7 @@ function CookieComponent() {
   if (inqud) return null
 
   return (
-    <StyledCookieComponentWrapper>
+    <div className={styles.wrapper}>
       <div className='content'>
         <div className='text'>
           <div className='icon-wrapper'>
@@ -48,7 +48,7 @@ function CookieComponent() {
           </StyledButtonSecondaryLight>
         </div>
       </div>
-    </StyledCookieComponentWrapper>
+    </div>
   )
 }
 
