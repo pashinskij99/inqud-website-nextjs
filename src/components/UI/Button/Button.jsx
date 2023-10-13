@@ -227,7 +227,7 @@ export function ButtonLoadMoreLarge(props) {
     <button {...props} className={clsx('button-load-more-large', className)}>
       <StyledTypographyUrbanistCTA>{children}</StyledTypographyUrbanistCTA>
 
-      <IconSVG />
+      {/* <IconSVG /> */}
     </button>
   )
 

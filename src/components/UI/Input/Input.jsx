@@ -1,22 +1,24 @@
 import clsx from 'clsx'
 import Image from 'next/image'
+import styles from './styles.module.scss'
 import { StyledTypographyUrbanistSmallSpaces } from '../Typography/Typography.styled'
-import {
-  StyledInputSearchWrapper,
-  StyledInputSendRequestWrapper,
-  StyledInputTextWrapper,
-  StyledTextAreaSendRequest,
-} from './Input.styled'
 import ErrorInput from '@/assets/icons/error-input.svg'
 import Search from '@/assets/icons/search.svg'
 import Close from '@/assets/icons/close-search.svg'
 
 export function InputText(props) {
-  const { label, type, id, helperTextBottom, helperTextTop, placeholder } =
-    props
+  const {
+    className,
+    label,
+    type,
+    id,
+    helperTextBottom,
+    helperTextTop,
+    placeholder,
+  } = props
 
   return (
-    <StyledInputTextWrapper {...props}>
+    <div {...props} className={clsx(styles.wrapper1, className)}>
       <label htmlFor={id} className='inputTextLabel'>
         <StyledTypographyUrbanistSmallSpaces className='inputTextLabelText'>
           {label}
@@ -35,7 +37,9 @@ export function InputText(props) {
       <StyledTypographyUrbanistSmallSpaces className='inputTextHelperTextBottom error'>
         {helperTextBottom}
       </StyledTypographyUrbanistSmallSpaces>
-    </StyledInputTextWrapper>
+    </div>
+    // <StyledInputTextWrapper {...props}>
+    // </StyledInputTextWrapper>
   )
 }
 
@@ -47,17 +51,16 @@ export function InputSearch(props) {
     className,
     value,
     handleClear,
+    ...otherProps
   } = props
 
   return (
-    <StyledInputSearchWrapper className={classNameWrapper}>
-      {/* <button className={classNameWrapperIcon}> */}
+    <div {...otherProps} className={clsx(classNameWrapper, styles.wrapper2)}>
       <Image
         className={clsx('search-icon', classNameIcon)}
         src={Search}
         alt='Search'
       />
-      {/* </button> */}
       <input className={clsx('input', className)} {...props} />
       <Image
         className={clsx('close', {
@@ -67,13 +70,7 @@ export function InputSearch(props) {
         src={Close}
         alt='Close'
       />
-      {/* <Close
-        onClick={() => handleClear('')}
-        className={clsx('close', {
-          ['active']: value,
-        })}
-      /> */}
-    </StyledInputSearchWrapper>
+    </div>
   )
 }
 
@@ -87,7 +84,7 @@ export function InputSendRequest(props) {
     ...otherProps
   } = props
   return (
-    <StyledInputSendRequestWrapper className={classNameWrapper}>
+    <div className={clsx(classNameWrapper, styles.wrapper3)}>
       <StyledTypographyUrbanistSmallSpaces className='label'>
         {label}
       </StyledTypographyUrbanistSmallSpaces>
@@ -95,7 +92,9 @@ export function InputSendRequest(props) {
       <StyledTypographyUrbanistSmallSpaces className='inputTextHelperTextBottom error'>
         {helperTextBottom}
       </StyledTypographyUrbanistSmallSpaces>
-    </StyledInputSendRequestWrapper>
+    </div>
+    // <StyledInputSendRequestWrapper className={classNameWrapper}>
+    // </StyledInputSendRequestWrapper>
   )
 }
 
@@ -109,7 +108,8 @@ export function TextAreaSendRequest(props) {
     ...otherProps
   } = props
   return (
-    <StyledTextAreaSendRequest className={classNameWrapper}>
+    <div className={clsx(classNameWrapper, styles.wrapper4)}>
+      {/* <StyledTextAreaSendRequest className={classNameWrapper}> */}
       <StyledTypographyUrbanistSmallSpaces className='label'>
         {label}
       </StyledTypographyUrbanistSmallSpaces>
@@ -122,6 +122,7 @@ export function TextAreaSendRequest(props) {
       <StyledTypographyUrbanistSmallSpaces className='inputTextHelperTextBottom error'>
         {helperTextBottom}
       </StyledTypographyUrbanistSmallSpaces>
-    </StyledTextAreaSendRequest>
+      {/* </StyledTextAreaSendRequest> */}
+    </div>
   )
 }

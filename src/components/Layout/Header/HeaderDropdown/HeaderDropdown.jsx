@@ -4,7 +4,8 @@ import { useState } from 'react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
-import { StyledHeaderDropdownWrapper } from './HeaderDropdown.styled'
+import styles from './styles.module.scss'
+// import { StyledHeaderDropdownWrapper } from './HeaderDropdown.styled'
 import { keysForLocale } from '@/config/keysForLocale'
 
 export default function HeaderDropdown() {
@@ -106,7 +107,8 @@ export default function HeaderDropdown() {
   }
 
   return (
-    <StyledHeaderDropdownWrapper
+    <div
+      className={styles.wrapper}
       onMouseEnter={handleClick}
       onMouseLeave={handleClose}
     >
@@ -146,7 +148,7 @@ export default function HeaderDropdown() {
           />
         ) : null}
       </div>
-    </StyledHeaderDropdownWrapper>
+    </div>
   )
 }
 

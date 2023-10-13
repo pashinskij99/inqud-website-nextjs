@@ -3,12 +3,12 @@
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import styles from './styles.module.scss'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH5,
   StyledTypographyUrbanistSmallSpaces,
 } from '@/components/UI/Typography/Typography.styled'
-import { StyledFooter } from './Footer.styled'
 import Logo from '@/assets/icons/footer-logo.svg'
 import Twitter from '@/assets/icons/twitter.svg'
 import Facebook from '@/assets/icons/facebook.svg'
@@ -93,7 +93,7 @@ export default function Footer() {
   ]
 
   return (
-    <StyledFooter>
+    <div className={styles.wrapper}>
       <div className='footerSubscribeSectionMobile'>
         <div className='container'>
           <StyledTypographyUrbanistH5 className='footerSubscribeSectionTitle'>
@@ -180,6 +180,6 @@ export default function Footer() {
           </StyledTypographyUrbanistBody>
         </div>
       </div>
-    </StyledFooter>
+    </div>
   )
 }

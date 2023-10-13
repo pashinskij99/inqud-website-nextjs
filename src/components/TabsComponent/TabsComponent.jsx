@@ -2,14 +2,11 @@
 
 import { Tab, Tabs } from '@mui/material'
 import clsx from 'clsx'
-import {
-  StyledTabsComponentWrapper,
-  StyledTabsHeaderComponentWrapper,
-} from './TabsComponent.styled'
+import styles from './styles.module.scss'
 
 export function TabsComponent({ className, active, handleClick, tabs }) {
   return (
-    <StyledTabsComponentWrapper className={className}>
+    <div className={clsx(className, styles.wrapper1)}>
       <Tabs value={active}>
         {tabs.map(({ id, text }, i) => (
           <Tab
@@ -25,13 +22,13 @@ export function TabsComponent({ className, active, handleClick, tabs }) {
           />
         ))}
       </Tabs>
-    </StyledTabsComponentWrapper>
+    </div>
   )
 }
 
 export function TabsHeaderComponent({ className, active, handleClick, tabs }) {
   return (
-    <StyledTabsHeaderComponentWrapper className={className}>
+    <div className={clsx(className, styles.wrapper2)}>
       <Tabs value={active}>
         {tabs.map(({ id, text }) => (
           <Tab
@@ -48,6 +45,6 @@ export function TabsHeaderComponent({ className, active, handleClick, tabs }) {
           />
         ))}
       </Tabs>
-    </StyledTabsHeaderComponentWrapper>
+    </div>
   )
 }

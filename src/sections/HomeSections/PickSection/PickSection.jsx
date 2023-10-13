@@ -1,11 +1,11 @@
 import clsx from 'clsx'
 import Image from 'next/image'
+import styles from './styles.module.scss'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-import { StyledPickSectionSection } from './PickSection.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import Pick from '@/assets/icons/pick.svg'
 import PickSectionModalWithButton from './components/PickSectionModalWithButton'
@@ -21,7 +21,8 @@ export default async function PickSection({ variant, className, params }) {
   )
 
   return (
-    <StyledPickSectionSection className={clsx(className, 'container')}>
+    <section className={clsx(className, 'container', styles.wrapper)}>
+      {/* <StyledPickSectionSection > */}
       <div className='container'>
         <StyledTypographyUrbanistH2 className='pickTitle'>
           {variant === 'dontLose' ? (
@@ -58,7 +59,8 @@ export default async function PickSection({ variant, className, params }) {
           <PickSectionModalWithButton leadFormData={leadFormData} />
         </div>
       </div>
-    </StyledPickSectionSection>
+      {/* </StyledPickSectionSection> */}
+    </section>
   )
 }
 

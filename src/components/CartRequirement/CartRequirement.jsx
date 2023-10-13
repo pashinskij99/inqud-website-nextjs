@@ -1,7 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import { StyledCartRequirement } from './CartRequirement.styled'
+import clsx from 'clsx'
+import styles from './styles.module.scss'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH4,
@@ -16,7 +17,8 @@ export default function CartRequirement({
   handleClick,
 }) {
   return (
-    <StyledCartRequirement className='cart-requirements'>
+    <div className={clsx('cart-requirements', styles.wrapper)}>
+      {/* <StyledCartRequirement> */}
       <Image
         className='cartImage'
         src={imageSrc}
@@ -38,6 +40,7 @@ export default function CartRequirement({
           </ButtonLearnMore>
         ) : null}
       </div>
-    </StyledCartRequirement>
+      {/* </StyledCartRequirement> */}
+    </div>
   )
 }

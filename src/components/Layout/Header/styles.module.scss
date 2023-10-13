@@ -14,8 +14,6 @@
   //border-bottom: ${({ isHome }) =>
   //isHome ? 'none' : '1px solid rgba(0, 0, 0, 0.07)'};
   :global {
-
-
     .containerHeader {
       display: flex;
       justify-content: space-between;
@@ -82,7 +80,6 @@
           @media (max-width: 767px) {
             height: 33px;
             font-size: 14px;
-
           }
 
           &.business-link {

@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import clsx from 'clsx'
-import { useRouter, usePathname } from 'next-intl/client'
+import { usePathname, useRouter } from 'next-intl/client'
 import { useLocale } from 'next-intl'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import { StyledHeaderLanguageSelectWrapper } from './HeaderLanguageSelect.styled'
 import Planet from '@/assets/icons/planet.svg'
+import styles from './styles.module.scss'
 
 const languages = [
   { id: 0, name: 'English (US)', value: 'EN', locale: 'en' },
@@ -14,7 +14,7 @@ const languages = [
   { id: 2, name: 'Russian', value: 'RU', locale: 'ru' },
 ]
 
-export default function HeaderLanguageSelect({ className }) {
+export default function HeaderLanguageSelect({ activeStyle, className }) {
   const [active, setActive] = useState(false)
   const locale = useLocale()
   const [language, setLanguage] = useState(locale.toUpperCase())
@@ -35,12 +35,16 @@ export default function HeaderLanguageSelect({ className }) {
   }
 
   return (
-    <StyledHeaderLanguageSelectWrapper
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions,jsx-a11y/click-events-have-key-events
+    <div
+      style={{
+        display: activeStyle ? 'flex' : null,
+      }}
+      className={clsx(className, styles.wrapper)}
       onMouseEnter={handleClick}
       onMouseLeave={handleClose}
       onClick={handleClick}
       onTouchStart={handleClick}
-      className={className}
     >
       <button
         className={clsx('button-select', {
@@ -82,7 +86,7 @@ export default function HeaderLanguageSelect({ className }) {
           />
         ) : null}
       </div>
-    </StyledHeaderLanguageSelectWrapper>
+    </div>
   )
 }
 

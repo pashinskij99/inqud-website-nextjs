@@ -1,0 +1,349 @@
+.wrapper {
+  :global {
+    border-radius: 30px;
+    background: var(--ambitious-green, #077453);
+    padding-left: 63.5px;
+
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+
+    height: 344px;
+
+    align-items: center;
+    @media (max-width: 1279px) {
+      max-width: 100% !important;
+      border-radius: 0;
+      flex-direction: column;
+      height: auto;
+      text-align: center;
+
+      padding-left: 0;
+    }
+    @media (max-width: 767px) {
+      display: flex;
+      padding-left: 16px !important;
+      padding-right: 16px !important;
+      order: 5;
+      order: 11;
+      width: 100%;
+    }
+    .container {
+      display: contents;
+      @media (max-width: 1279px) {
+        display: grid;
+        grid-template-columns: 317.33px 312px;
+        padding-left: 39.5px !important;
+        padding-right: 39.5px !important;
+        justify-content: space-between;
+        column-gap: 59.67px;
+        padding-top: 96px !important;
+        padding-bottom: 72px !important;
+        row-gap: 24px;
+      }
+      @media (max-width: 767px) {
+        display: flex;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        order: 5;
+        order: 11;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .pickTitle {
+      color: white;
+      flex-shrink: 0;
+
+      &.pickTitleApi {
+        max-width: 400px;
+        @media (max-width: 1279px) {
+          font-size: 40px;
+          font-weight: 400;
+          line-height: 46px;
+          margin-bottom: 40px;
+          max-width: 100%;
+        }
+        @media (max-width: 767px) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          line-height: 50px;
+          margin-bottom: 13px;
+        }
+        span {
+          @media (max-width: 767px) {
+            display: contents;
+            text-align: center;
+          }
+        }
+        .br-desktop {
+          @media (max-width: 1279px) {
+            display: none;
+          }
+        }
+        .br-tablet {
+          display: none;
+          @media (max-width: 1279px) {
+            display: block;
+          }
+
+          @media (max-width: 767px) {
+            display: none;
+          }
+        }
+        .br-mobile {
+          display: none;
+          @media (max-width: 767px) {
+            display: block;
+          }
+        }
+
+        span {
+          font-weight: 700;
+        }
+      }
+      @media (max-width: 1536px) {
+        .pickTitle10Minutes {
+          line-height: 62px;
+        }
+      }
+      @media (max-width: 1279px) {
+        margin-bottom: 24px;
+        font-weight: 400;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        text-align: start;
+        line-height: 62px;
+        .pickTitleDontLose {
+          br {
+            display: none;
+          }
+        }
+        .pickTitle10Minutes {
+          margin-bottom: 11.5px;
+          br {
+            display: none;
+          }
+        }
+      }
+      @media (max-width: 767px) {
+        text-align: center;
+        font-weight: 700;
+        line-height: 46px;
+        margin-bottom: 6px;
+        max-width: 300px;
+        .pickTitle10Minutes {
+          line-height: 46px;
+          margin-bottom: 6px;
+          br {
+            display: block;
+          }
+        }
+      }
+
+      .pickTitle10Minutes {
+        max-width: 390px;
+        @media (max-width: 1279px) {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .pickListWrapper {
+      @media (max-width: 1279px) {
+        align-self: center;
+        text-align: start;
+      }
+    }
+
+    .pickList {
+      flex-shrink: 0;
+      margin-left: 20px;
+      @media (max-width: 1279px) {
+        margin-bottom: 40px;
+        margin-left: 0;
+      }
+      @media (max-width: 767px) {
+        margin-bottom: 38px;
+      }
+
+      &.pickListApi {
+        ul {
+          @media (max-width: 1279px) {
+            row-gap: 16px;
+          }
+
+          li {
+            &:nth-of-type(1) {
+              @media (max-width: 1279px) {
+                order: 1;
+              }
+            }
+            &:nth-of-type(2) {
+              order: 2;
+              @media (max-width: 1279px) {
+                order: 2;
+              }
+            }
+            &:nth-of-type(3) {
+              @media (max-width: 1279px) {
+                order: 3;
+              }
+            }
+            p {
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+
+      .pickListTitle {
+        color: white;
+        font-weight: 700;
+        margin-bottom: 24px;
+        @media (max-width: 1279px) {
+          margin-bottom: 24px;
+        }
+        @media (max-width: 767px) {
+          text-align: center;
+          font-size: 24px;
+          font-weight: 700;
+          margin-bottom: 28px;
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+        @media (max-width: 1279px) {
+          text-align: start;
+          row-gap: 11px;
+        }
+
+        li {
+          display: flex;
+          align-items: center;
+          font-weight: 500;
+          gap: 16px;
+          @media (max-width: 1279px) {
+            &:nth-of-type(1) {
+              order: 2;
+            }
+            &:nth-of-type(2) {
+              order: 3;
+            }
+            &:nth-of-type(3) {
+              order: 1;
+            }
+          }
+          @media (max-width: 767px) {
+            &:nth-of-type(1) {
+              order: 1;
+            }
+            &:nth-of-type(2) {
+              order: 2;
+            }
+            &:nth-of-type(3) {
+              order: 3;
+            }
+          }
+
+          .pickListItemText {
+            color: white;
+          }
+
+          img,
+          svg {
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+
+    .pickList10Minutes {
+      max-width: 300px;
+      @media (max-width: 767px) {
+        max-width: 100%;
+      }
+      @media (max-width: 1279px) {
+        ul {
+          gap: 21px;
+          li {
+            &:nth-of-type(1) {
+              order: 1;
+              br {
+                display: none;
+              }
+            }
+            &:nth-of-type(2) {
+              order: 2;
+            }
+            &:nth-of-type(3) {
+              order: 3;
+            }
+          }
+        }
+      }
+      @media (max-width: 767px) {
+        ul {
+          max-width: 308px;
+          row-gap: 20px;
+        }
+      }
+    }
+
+    .pickPick {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 0 54px;
+      background: var(--ambitious-green, #0f674d);
+
+      @media (max-width: 1279px) {
+        background: rgba(45, 52, 57, 0.2);
+        border-radius: 30px;
+        padding-left: 34px;
+        padding-right: 34px;
+        transform: translateY(-25px);
+        padding-top: 32px;
+        padding-bottom: 32px;
+      }
+      @media (max-width: 767px) {
+        background: transparent;
+        width: 100%;
+        padding: 0;
+      }
+
+      img {
+        margin-bottom: 16px;
+        @media (max-width: 767px) {
+          display: none;
+        }
+      }
+
+      .pickPickDescription {
+        color: white;
+        margin-bottom: 32px;
+        font-weight: 500;
+        max-width: 187px;
+        @media (max-width: 767px) {
+          display: none;
+        }
+      }
+
+      .pickPickButton {
+        width: 100%;
+        @media (max-width: 767px) {
+          height: 48px;
+        }
+      }
+    }
+  }
+
+}

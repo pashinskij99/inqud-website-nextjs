@@ -152,7 +152,7 @@ export default function Header() {
         </nav>
 
         <div className='userSection'>
-          <HeaderLanguageSelect className='languageMenu' />
+          <HeaderLanguageSelect activeStyle={active} className='languageMenu' />
 
           <button
             onClick={handleClickHamburger}

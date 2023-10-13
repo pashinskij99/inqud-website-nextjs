@@ -1,6 +1,6 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next-intl/client'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { CSSTransition } from 'react-transition-group'
@@ -9,13 +9,8 @@ import { StyledHelpCenterPageWrapper } from '@/views/HelpCenterPage/HelpCenterPa
 import MainSection from '@/sections/HelpCenterSections/MainSection'
 import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection'
 import { HelpCentreProvider } from '@/contexts/HelpCentreContext/HelpCentreContext'
-// import { SearchResultSection } from '@/sections/HelpCenterSections/SearchResultSection'
-// import { fetchHelpCentreData } from '@/store/features/helpCentre/helpCentreAsyncThunk'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 import { FullScreenLoader } from '@/components/Loader'
-// import { SearchResultSection } from '@/sections/HelpCenterSections/SearchResultSection'
-// import MainSection from '@/sections/AmlCftPolicyUabSections/MainSection'
-// import { FullScreenLoader } from '@/components/Loader'
 
 function HelpCenterPage({ children, data }) {
   const path = usePathname()
