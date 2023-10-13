@@ -2,11 +2,13 @@
 
 // import styled from '@emotion/styled'
 import clsx from 'clsx'
+import { createElement } from 'react'
 // import { nunito } from '@/utils/font'
 // import { responsive } from '@/utils/response'
 
 export function StyledTypographyUrbanistH1({
   children,
+  className,
   component = 'h1',
   ...props
 }) {
@@ -24,16 +26,25 @@ export function StyledTypographyUrbanistH1({
   //     font-weight: 700;
   //   `}
   // `
-  return (
-    // <TypographyUrbanistH1 component={component} {...props}>
-    //   {children}
-    // </TypographyUrbanistH1>
-    <p className={clsx('title-1', props.className)}>{children}</p>
+  return createElement(
+    component,
+    {
+      className: clsx('title-1', className),
+      ...props,
+    },
+    children
   )
+  // (
+  //   // <TypographyUrbanistH1 component={component} {...props}>
+  //   //   {children}
+  //   // </TypographyUrbanistH1>
+  //   <p className={clsx('title-1', props.className)}>{children}</p>
+  // )
 }
 
 export function StyledTypographyUrbanistH2({
   children,
+  className,
   component = 'h2',
   ...props
 }) {
@@ -52,16 +63,25 @@ export function StyledTypographyUrbanistH2({
   //   `}
   // `
 
-  return (
-    <p className={clsx('title-2', props.className)}>{children}</p>
-    // <TypographyUrbanistH2 component={component} {...props}>
-    //   {children}
-    // </TypographyUrbanistH2>
+  return createElement(
+    component,
+    {
+      className: clsx('title-2', className),
+      ...props,
+    },
+    children
   )
+  // (
+  //   <p className={clsx('title-2', props.className)}>{children}</p>
+  //   // <TypographyUrbanistH2 component={component} {...props}>
+  //   //   {children}
+  //   // </TypographyUrbanistH2>
+  // )
 }
 
 export function StyledTypographyUrbanistH3({
   children,
+  className,
   component = 'h3',
   ...props
 }) {
@@ -78,17 +98,26 @@ export function StyledTypographyUrbanistH3({
   //     font-weight: 700;
   //   `}
   // `
-  return (
-    // <TypographyUrbanistH3 component={component} {...props}>
-    //   {children}
-    // </TypographyUrbanistH3>
-    <p className={clsx('title-3', props.className)}>{children}</p>
+  return createElement(
+    component,
+    {
+      className: clsx('title-3', className),
+      ...props,
+    },
+    children
   )
+  // (
+  //   // <TypographyUrbanistH3 component={component} {...props}>
+  //   //   {children}
+  //   // </TypographyUrbanistH3>
+  //   <p className={clsx('title-3', className)}>{children}</p>
+  // )
 }
 
 export function StyledTypographyUrbanistH4({
   children,
   component = 'h4',
+  className,
   ...props
 }) {
   // const TypographyUrbanistH4 = styled[component]`
@@ -103,17 +132,26 @@ export function StyledTypographyUrbanistH4({
   //     line-height: 34px;
   //   `}
   // `
-  return (
-    // <TypographyUrbanistH4 component={component} {...props}>
-    //   {children}
-    // </TypographyUrbanistH4>
-    <p className={clsx('title-4', props.className)}>{children}</p>
+  return createElement(
+    component,
+    {
+      className: clsx('title-4', className),
+      ...props,
+    },
+    children
   )
+  // return (
+  //   // <TypographyUrbanistH4 component={component} {...props}>
+  //   //   {children}
+  //   // </TypographyUrbanistH4>
+  //   <p className={clsx('title-4', props.className)}>{children}</p>
+  // )
 }
 
 export function StyledTypographyUrbanistH5({
   children,
   component = 'p',
+  className,
   ...props
 }) {
   // const TypographyUrbanistH5 = styled[component]`
@@ -129,17 +167,26 @@ export function StyledTypographyUrbanistH5({
   //   `}
   // `
 
-  return (
-    // <TypographyUrbanistH5 component={component} {...props}>
-    //   {children}
-    // </TypographyUrbanistH5>
-    <p className={clsx('title-5', props.className)}>{children}</p>
+  return createElement(
+    component,
+    {
+      className: clsx('title-5', className),
+      ...props,
+    },
+    children
   )
+  // (
+  //   // <TypographyUrbanistH5 component={component} {...props}>
+  //   //   {children}
+  //   // </TypographyUrbanistH5>
+  //   <p className={clsx('title-5', props.className)}>{children}</p>
+  // )
 }
 
 export function StyledTypographyUrbanistBody({
   children,
   component = 'p',
+  className,
   ...props
 }) {
   // const TypographyUrbanistBody = styled[component]`
@@ -150,16 +197,25 @@ export function StyledTypographyUrbanistBody({
   //   font-weight: 400;
   //   line-height: 26px;
   // `
-  return (
-    // <TypographyUrbanistBody component={component} {...props}>
-    //   {children}
-    // </TypographyUrbanistBody>
-    <p className={clsx('paragraph', props.className)}>{children}</p>
+  return createElement(
+    component,
+    {
+      className: clsx('paragraph', className),
+      ...props,
+    },
+    children
   )
+  // (
+  //   // <TypographyUrbanistBody component={component} {...props}>
+  //   //   {children}
+  //   // </TypographyUrbanistBody>
+  //   <p className={clsx('paragraph', props.className)}>{children}</p>
+  // )
 }
 
 export function StyledTypographyUrbanistSmallSpaces({
   children,
+  className,
   component = 'p',
   ...props
 }) {
@@ -172,16 +228,25 @@ export function StyledTypographyUrbanistSmallSpaces({
   //   font-weight: 500;
   //   line-height: 18px;
   // `
-  return (
-    // <TypographyUrbanistSmallSpaces component={component} {...props}>
-    //   {children}
-    // </TypographyUrbanistSmallSpaces>
-    <p className={clsx('title-small-spaces', props.className)}>{children}</p>
+  return createElement(
+    component,
+    {
+      className: clsx('title-small-spaces', className),
+      ...props,
+    },
+    children
   )
+  // (
+  //   // <TypographyUrbanistSmallSpaces component={component} {...props}>
+  //   //   {children}
+  //   // </TypographyUrbanistSmallSpaces>
+  //   <p className={clsx('title-small-spaces', props.className)}>{children}</p>
+  // )
 }
 
 export function StyledTypographyUrbanistCTA({
   children,
+  className,
   component = 'p',
   ...props
 }) {
@@ -193,15 +258,28 @@ export function StyledTypographyUrbanistCTA({
   //   font-weight: 700;
   //   line-height: 26px;
   // `
-  return (
-    // <TypographyUrbanistCTA component={component} {...props}>
-    //   {children}
-    // </TypographyUrbanistCTA>
-    <p className={clsx('title-cta', props.className)}>{children}</p>
+  return createElement(
+    component,
+    {
+      className: clsx('title-cta', className),
+      ...props,
+    },
+    children
   )
+  // (
+  //   // <TypographyUrbanistCTA component={component} {...props}>
+  //   //   {children}
+  //   // </TypographyUrbanistCTA>
+  //   <p className={clsx('title-cta', props.className)}>{children}</p>
+  // )
 }
 
-export function StyledTypographyIBMH4({ children, component = 'p', ...props }) {
+export function StyledTypographyIBMH4({
+  children,
+  className,
+  component = 'p',
+  ...props
+}) {
   // const TypographyIBMH4 = styled[component]`
   //   ${nunito.style}
   //   color: var(--ambitious-green, #077453);
@@ -210,15 +288,28 @@ export function StyledTypographyIBMH4({ children, component = 'p', ...props }) {
   //   font-weight: 700;
   //   line-height: 26px;
   // `
-  return (
-    // <TypographyIBMH4 component={component} {...props}>
-    //   {children}
-    // </TypographyIBMH4>
-    <p className={clsx('title-ibm-1', props.className)}>{children}</p>
+  return createElement(
+    component,
+    {
+      className: clsx('title-ibm-1', className),
+      ...props,
+    },
+    children
   )
+  // (
+  //   // <TypographyIBMH4 component={component} {...props}>
+  //   //   {children}
+  //   // </TypographyIBMH4>
+  //   <p className={clsx('title-ibm-1', props.className)}>{children}</p>
+  // )
 }
 
-export function StyledTypographyIBMH5({ children, component = 'p', ...props }) {
+export function StyledTypographyIBMH5({
+  children,
+  className,
+  component = 'p',
+  ...props
+}) {
   // const TypographyIBMH5 = styled[component]`
   //   ${nunito.style};
   //   color: #272727;
@@ -233,10 +324,16 @@ export function StyledTypographyIBMH5({ children, component = 'p', ...props }) {
   //     line-height: 11px;
   //   `}
   // `
-  return (
-    // <TypographyIBMH5 component={component} {...props}>
-    //   {children}
-    // </TypographyIBMH5>
-    <p className={clsx('title-ibm-2', props.className)}>{children}</p>
+  return createElement(
+    component,
+    {
+      className: clsx('title-ibm-2', className),
+      ...props,
+    },
+    children
   )
+  // <TypographyIBMH5 component={component} {...props}>
+  //   {children}
+  // </TypographyIBMH5>
+  // <p className={clsx('title-ibm-2', props.className)}>{children}</p>
 }

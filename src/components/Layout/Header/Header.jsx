@@ -8,9 +8,9 @@ import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import { CSSTransition } from 'react-transition-group'
 import Image from 'next/image'
+import styles from './styles.module.scss'
 import logo from '@/assets/icons/logo.svg'
 import logoMobile from '@/assets/icons/logo-header-mobile-without-text.svg'
-import { StyledHeaderWrapper } from './Header.styled'
 import HeaderDropdown from './HeaderDropdown'
 import {
   StyledButtonGhost,
@@ -84,7 +84,18 @@ export default function Header() {
   const pathname = usePathname()
 
   return (
-    <StyledHeaderWrapper active={active} isHome={pathname === '/'}>
+    <header
+      style={{
+        backgroundColor: active
+          ? 'rgba(255, 255, 255, 1)'
+          : 'rgba(255, 255, 255, 0.9)',
+        backdropFilter: active ? 'none' : 'blur(5px)',
+        borderBottom:
+          pathname === '/' ? 'none' : '1px solid rgba(0, 0, 0, 0.07)',
+      }}
+      className={styles.header}
+    >
+      {/* <StyledHeaderWrapper active={active} isHome={pathname === '/'}> */}
       <div className='containerHeader'>
         <div className='logoSection'>
           <Link href='/'>
@@ -96,7 +107,12 @@ export default function Header() {
             </Device>
           </Link>
 
-          <div className='button-link-wrapper'>
+          <div
+            style={{
+              display: active ? 'none' : 'flex',
+            }}
+            className='button-link-wrapper'
+          >
             <Link
               href='/'
               className={clsx('button-link', {
@@ -184,6 +200,7 @@ export default function Header() {
           </>
         </Device>
       </div>
-    </StyledHeaderWrapper>
+      {/* </StyledHeaderWrapper> */}
+    </header>
   )
 }

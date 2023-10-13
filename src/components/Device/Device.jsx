@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
+// import { useMediaQuery } from 'react-responsive'
+import useMediaQuery from '@mui/material/useMediaQuery'
 import { responseBreakPoint } from '@/utils/response'
 
 export const MOBILE = 'MOBILE'
@@ -12,22 +13,38 @@ export const DESKTOP = 'DESKTOP'
 
 export default function Device({ device, children }) {
   const [isClient, setIsClient] = useState(false)
-  const isMobile = useMediaQuery({
-    query: `(max-width: ${responseBreakPoint.mobile}px)`,
-  })
-  const isTablet = useMediaQuery({
-    minWidth: responseBreakPoint.mobile,
-    maxWidth: responseBreakPoint.tablet,
-  })
-  const isMobileOrTablet = useMediaQuery({
-    query: `(max-width: ${responseBreakPoint.tablet}px)`,
-  })
-  const isDesktop = useMediaQuery({
-    query: `(min-width: ${responseBreakPoint.tablet + 1}px)`,
-  })
-  const isDesktopOrTablet = useMediaQuery({
-    query: `(min-width: ${responseBreakPoint.mobile + 1}px)`,
-  })
+  // const isMobile = useMediaQuery({
+  //   query: `(max-width: ${responseBreakPoint.mobile}px)`,
+  // })
+  const isMobile = useMediaQuery(
+    `(max-width: ${responseBreakPoint.mobile}px)`,
+    { noSsr: true }
+  )
+  // const isTablet = useMediaQuery({
+  //   minWidth: responseBreakPoint.mobile,
+  //   maxWidth: responseBreakPoint.tablet,
+  // })
+  const isTablet = useMediaQuery(
+    `(max-width: ${responseBreakPoint.tablet}px) and (min-width: ${responseBreakPoint.mobile}px)`
+  )
+  // const isMobileOrTablet = useMediaQuery({
+  //   query: `(max-width: ${responseBreakPoint.tablet}px)`,
+  // })
+  const isMobileOrTablet = useMediaQuery(
+    `(max-width: ${responseBreakPoint.tablet}px)`
+  )
+  // const isDesktop = useMediaQuery({
+  //   query: `(min-width: ${responseBreakPoint.tablet + 1}px)`,
+  // })
+  const isDesktop = useMediaQuery(
+    `(min-width: ${responseBreakPoint.tablet + 1}px)`
+  )
+  // const isDesktopOrTablet = useMediaQuery({
+  //   query: `(min-width: ${responseBreakPoint.mobile + 1}px)`,
+  // })
+  const isDesktopOrTablet = useMediaQuery(
+    `(min-width: ${responseBreakPoint.mobile + 1}px)`
+  )
 
   const getDevice = (key) => {
     switch (key) {
