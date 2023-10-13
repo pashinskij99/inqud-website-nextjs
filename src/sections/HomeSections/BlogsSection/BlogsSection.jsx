@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import { StyledBlogsSection } from './BlogsSection.styled'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import Device, { DESKTOP, MOBILE_OR_TABLET } from '@/components/Device/Device'
+import Device, { DESKTOP } from '@/components/Device/Device'
 import HomePageBlogsSectionSwiper from './components/HomePageBlogsSectionSwiper'
 import { getData } from '@/lib/datocms'
 import { HOME_B2B_BLOG } from '@/lib/datocmsQuery'
@@ -34,9 +34,9 @@ export default async function BlogsSection({ params, trans }) {
           <DynamicHomePageBlogsGrid blogs={blogs} />
         </Device>
 
-        <Device device={MOBILE_OR_TABLET}>
-          <HomePageBlogsSectionSwiper blogs={blogs} />
-        </Device>
+        {/* <Device device={MOBILE_OR_TABLET}> */}
+        <HomePageBlogsSectionSwiper blogs={blogs} />
+        {/* </Device> */}
 
         <Link href='/blog'>
           <StyledButtonGhost className='blogsHeaderButtonMobile'>

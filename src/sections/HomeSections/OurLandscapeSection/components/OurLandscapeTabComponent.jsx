@@ -5,7 +5,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import OurLandscapeTabContent from './OurLandscapeTabContent'
 import { StyledTypographyUrbanistH5 } from '@/components/UI/Typography/Typography.styled'
-import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
+import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import OurLandscapeSwiper from './OurLandscapeSwiper'
 import { StyledIndustriesWrapper } from '../OurLandscapeSection.styled'
 import Icon1 from '@/assets/images/our-landscape/1.svg'
@@ -88,9 +88,9 @@ function IndustriesTab({ data }) {
         </div>
       </Device>
 
-      <Device device={MOBILE}>
-        <OurLandscapeSwiper accordionData={accordionData} data={data} />
-      </Device>
+      {/* <Device device={MOBILE}> */}
+      <OurLandscapeSwiper accordionData={accordionData} data={data} />
+      {/* </Device> */}
     </StyledIndustriesWrapper>
   )
 }

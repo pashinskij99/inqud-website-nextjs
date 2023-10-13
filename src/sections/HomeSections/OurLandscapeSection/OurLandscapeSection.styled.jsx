@@ -288,6 +288,10 @@ export const StyledIndustriesWrapper = styled.div`
   .ourLandscapeSwiper {
     overflow: visible;
     height: auto;
+    display: none;
+    @media (max-width: 767px) {
+      display: block;
+    }
 
     .swiper-slide {
       height: auto;
