@@ -17,7 +17,7 @@ import HeroSectionModal from './components/HeroSectionModal'
 import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import { getData } from '@/lib/datocms'
 import { HOME_PAGE_QUERY } from '@/lib/datocmsQuery'
-// import AnimatedMobile from './components/AnimatedMobile'
+import AnimatedMobile from './components/AnimatedMobile'
 
 const DynamicAnimatedFirstScreenVideo = dynamic(
   () => import('@/components/AnimatedVideo/AnimatedFirstScreenVideo'),
@@ -35,7 +35,7 @@ export default async function HeroSection({ params }) {
     <section className={styles.wrapper}>
       <div className={clsx(styles.container, 'container')}>
         <div className={styles.leftSide}>
-          {/* <AnimatedMobile /> */}
+          <AnimatedMobile />
 
           <StyledTypographyIBMH5 className={styles.subTitle}>
             {data.subTitle}
