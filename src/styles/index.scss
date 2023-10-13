@@ -227,3 +227,12 @@ button {
     line-height: 11px;
   }
 }
+
+@keyframes scrollText {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

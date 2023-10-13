@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import clsx from 'clsx'
+import styles from '../HeroSection.module.scss'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-import { StyledPaymentListWrapper } from '../HeroSection.styled'
 import { getPageData } from '@/lib/datocms'
 import { HOME_B2B_HERO_LIST } from '@/lib/datocmsQuery'
 
@@ -29,7 +30,7 @@ export default function HeroSectionPaymentList({ params }) {
   }, [])
 
   return (
-    <StyledPaymentListWrapper className='payment'>
+    <div className={clsx('payment', styles.payment)}>
       <StyledTypographyUrbanistBody className='payment-descr'>
         {data.title}
       </StyledTypographyUrbanistBody>
@@ -74,6 +75,8 @@ export default function HeroSectionPaymentList({ params }) {
           )}
         </div>
       </ul>
-    </StyledPaymentListWrapper>
+    </div>
+    // <StyledPaymentListWrapper className='payment'>
+    // </StyledPaymentListWrapper>
   )
 }

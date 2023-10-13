@@ -294,115 +294,108 @@
   @media (max-width: 1279px) {
     width: 100%;
   }
-  .payment-descr {
-    color: rgba(81, 113, 133, 0.800000011920929);
-    margin-bottom: 24px;
-    @media (max-width: 1279px) {
-      margin-bottom: 13px;
+  :global {
+    .payment-descr {
+      color: rgba(81, 113, 133, 0.800000011920929);
+      margin-bottom: 24px;
+      @media (max-width: 1279px) {
+        margin-bottom: 13px;
+      }
+      @media (max-width: 767px) {
+        text-align: start;
+        margin-bottom: 16px;
+      }
     }
-    @media (max-width: 767px) {
-      text-align: start;
-      margin-bottom: 16px;
-    }
-  }
-  .payment-list-wrapper {
-    display: flex;
-    align-items: center;
-  }
-  .payment-list {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    padding-left: 2.0625rem;
-    /* overflow: auto; */
-    animation: scrollText 10s infinite linear;
-    /* -ms-overflow-style: none; Internet Explorer 10+ */
-    /* scrollbar-width: none; Firefox */
-
-    /* &.payment-list-2 {
-      padding-left: 2.0625rem;
-    } */
-
-    @media (max-width: 1536px) {
-      gap: 33px;
-    }
-    @media (max-width: 767px) {
-      gap: 25px;
-    }
-    &::-webkit-scrollbar {
-      display: none; /* Safari and Chrome */
-    }
-
-    li {
+    .payment-list-wrapper {
       display: flex;
       align-items: center;
-      gap: 10px;
+    }
+    .payment-list {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding-left: 2.0625rem;
+      /* overflow: auto; */
+      animation: scrollText 10s infinite linear;
+      /* -ms-overflow-style: none; Internet Explorer 10+ */
+      /* scrollbar-width: none; Firefox */
 
-      /* &:nth-last-child(1),
-      &:nth-last-child(2),
-      &:nth-last-child(3),
-      &:nth-last-child(4) {
-        display: none;
-
-        ${responsive.xl`
-          display: flex;
-        `}
+      /* &.payment-list-2 {
+        padding-left: 2.0625rem;
       } */
 
-      .icon-wrapper {
-        position: relative;
+      @media (max-width: 1536px) {
+        gap: 33px;
+      }
+      @media (max-width: 767px) {
+        gap: 25px;
+      }
+      &::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+      }
+
+      li {
         display: flex;
+        align-items: center;
+        gap: 10px;
 
-        img {
+        /* &:nth-last-child(1),
+        &:nth-last-child(2),
+        &:nth-last-child(3),
+        &:nth-last-child(4) {
+          display: none;
+
+          ${responsive.xl`
+            display: flex;
+          `}
+        } */
+
+        .icon-wrapper {
           position: relative;
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
+          display: flex;
 
-          z-index: 1;
+          img {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+
+            z-index: 1;
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+
+            background-color: rgba(154, 177, 192, 0.2);
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 95%;
+            height: 95%;
+            background-color: white;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+          }
         }
 
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-
-          background-color: rgba(154, 177, 192, 0.2);
-        }
-
-        &::after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 95%;
-          height: 95%;
-          background-color: white;
-          border-radius: 50%;
-          transform: translate(-50%, -50%);
-          border-radius: 50%;
+        p {
+          color: rgba(129, 158, 176, 0.8);
+          @media (max-width: 767px) {
+            font-size: 24px;
+          }
         }
       }
-
-      p {
-        color: rgba(129, 158, 176, 0.8);
-        @media (max-width: 767px) {
-          font-size: 24px;
-        }
-      }
-    }
-  }
-
-  @keyframes scrollText {
-    from {
-      transform: translateX(0%);
-    }
-    to {
-      transform: translateX(-100%);
     }
   }
 }
