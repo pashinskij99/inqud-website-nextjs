@@ -11,6 +11,7 @@ import YourNeedsSection from '@/sections/HomeSections/YourNeedsSection/YourNeeds
 import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import BlogsSection from '@/sections/HomeSections/BlogsSection/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
+import { keysForLocale } from '@/config/keysForLocale'
 
 export default function HomePage({ params }) {
   const yourNeedsSectionTrans = {
