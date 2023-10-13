@@ -20,6 +20,8 @@ import Device, {
   TABLET,
   TABLET_OR_DESKTOP,
 } from '@/components/Device/Device'
+import { getData } from '@/lib/datocms'
+import { HOME_B2B_SMOOTH_API } from '@/lib/datocmsQuery'
 
 const DynamicAnimatedVideoOnScroll = dynamic(
   () => import('@/components/AnimatedVideo/AnimatedVideoOnScroll'),
@@ -28,16 +30,10 @@ const DynamicAnimatedVideoOnScroll = dynamic(
   }
 )
 
-export default async function SmoothAPISection({
-  params,
-  data: {
-    data: { homePage },
-  },
-}) {
-  const data = homePage
-  // const { homePage: data } = await getData(HOME_B2B_SMOOTH_API, {
-  //   locale: params.locale,
-  // })
+export default async function SmoothAPISection({ params }) {
+  const { homePage: data } = await getData(HOME_B2B_SMOOTH_API, {
+    locale: params.locale,
+  })
 
   return (
     <section className={styles.wrapper}>

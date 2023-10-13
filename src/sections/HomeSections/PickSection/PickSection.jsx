@@ -9,24 +9,16 @@ import {
 import Check from '@/assets/icons/check-green-background.svg'
 import Pick from '@/assets/icons/pick.svg'
 import PickSectionModalWithButton from './components/PickSectionModalWithButton'
+import { getData } from '@/lib/datocms'
+import { HOME_B2B_PICK_SECTION_DONT_LOSE } from '@/lib/datocmsQuery'
 
-export default async function PickSection({
-  data: {
-    data: { homePage, pickLeadForm },
-  },
-  variant,
-  className,
-  params,
-}) {
-  const data = homePage
-  const leadFormData = pickLeadForm
-
-  // const { homePage: data, pickLeadForm: leadFormData } = await getData(
-  //   HOME_B2B_PICK_SECTION_DONT_LOSE,
-  //   {
-  //     locale: params.locale,
-  //   }
-  // )
+export default async function PickSection({ variant, className, params }) {
+  const { homePage: data, pickLeadForm: leadFormData } = await getData(
+    HOME_B2B_PICK_SECTION_DONT_LOSE,
+    {
+      locale: params.locale,
+    }
+  )
 
   return (
     <section className={clsx(className, 'container', styles.wrapper)}>
