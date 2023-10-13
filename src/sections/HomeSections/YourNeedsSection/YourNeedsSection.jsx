@@ -70,6 +70,7 @@ export default async function YourNeedsSection({ trans, transCart, params }) {
       title: trans.tList(keysForLocale.keys3[1]),
       description: trans.tList2(keysForLocale.keys3[1]),
       image: Image2.src,
+      button: data.buttonScreen2,
     },
     {
       id: 2,
