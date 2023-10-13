@@ -14,8 +14,6 @@ import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import Loading from '@/assets/icons/loading.svg'
 import gifStill from '@/assets/gif/b2b_crypto_widget_mobile.webp'
-import { getData } from '@/lib/datocms'
-import { HOME_B2B_CRYPTO_WIDGET } from '@/lib/datocmsQuery'
 import Device, { DESKTOP, MOBILE, TABLET } from '@/components/Device/Device'
 import Animated2GifOnView from '@/components/AnimatedVideo/Animated2GifOnView'
 
@@ -26,10 +24,17 @@ const DynamicCryptoWidgetSectionAnimationOnScroll = dynamic(
   }
 )
 
-export default async function CryptoWidgetSection({ trans, params }) {
-  const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET, {
-    locale: params.locale,
-  })
+export default async function CryptoWidgetSection({
+  data: {
+    data: { homePage },
+  },
+  trans,
+  params,
+}) {
+  const data = homePage
+  // const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET, {
+  //   locale: params.locale,
+  // })
   return (
     <section className={styles.wrapper}>
       <div className={clsx('container', styles.container)}>

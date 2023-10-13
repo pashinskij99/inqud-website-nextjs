@@ -51,7 +51,6 @@ function YourNeedsSectionSwiper({ list, data, trans }) {
             centeredSlides: false,
           },
           767: {
-            slidesPerView: 'auto',
             spaceBetween: 24,
           },
         }}

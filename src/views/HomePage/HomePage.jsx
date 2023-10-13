@@ -13,7 +13,7 @@ import BlogsSection from '@/sections/HomeSections/BlogsSection/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import { keysForLocale } from '@/config/keysForLocale'
 
-export default function HomePage({ params }) {
+export default function HomePage({ params, data }) {
   const yourNeedsSectionTrans = {
     t: useTranslations('home_page_your_needs_section'),
     tList: useTranslations('home_page_your_needs_section_list_item_title'),
@@ -44,15 +44,21 @@ export default function HomePage({ params }) {
 
   return (
     <main className={styles.wrapper}>
-      <HeroSection params={params} />
+      <HeroSection data={data} params={params} />
       <YourNeedsSection
+        data={data}
         trans={yourNeedsSectionTrans}
         transCart={yourNeedsSectionTransCart}
         params={params}
       />
-      <CryptoWidgetSection trans={cryptoWidgetTrans} params={params} />
-      <SmoothAPISection params={params} />
+      <CryptoWidgetSection
+        data={data}
+        trans={cryptoWidgetTrans}
+        params={params}
+      />
+      <SmoothAPISection data={data} params={params} />
       <PickSection
+        data={data}
         className={styles.pickSection}
         variant='dontLose'
         params={params}
@@ -61,7 +67,11 @@ export default function HomePage({ params }) {
       <ReasonsToTeamUp params={params} />
       <FeesBusiness modelId='2540165' autoId={10} params={params} />
       <OurLandscapeSection params={params} />
-      <PickSection className={styles.pickSection2} params={params} />
+      <PickSection
+        data={data}
+        className={styles.pickSection2}
+        params={params}
+      />
       <BlogsSection trans={blogTrans} params={params} />
       <QuestionsSection params={params} nameCMSPage='homePage' />
       {/* CryptoWidget2Section, QuestionsSection, ReasonsToTeamUp, FeesBusiness no ssr */}

@@ -17,8 +17,6 @@ import Coins5 from '@/assets/images/your-needs/Coins5.svg'
 import { keysForLocale } from '@/config/keysForLocale'
 import CoinsList from './components/CoinsList'
 import Device, { DESKTOP } from '@/components/Device/Device'
-import { getData } from '@/lib/datocms'
-import { HOME_B2B_NEEDS } from '@/lib/datocmsQuery'
 import YourNeedsSectionSwiper from './components/YourNeedsSectionSwiper'
 
 const coinsList = [
@@ -54,10 +52,16 @@ const DynamicYourNeedsSectionDesktopCarts = dynamic(
   }
 )
 
-export default async function YourNeedsSection({ trans, transCart, params }) {
-  const { homePage: data } = await getData(HOME_B2B_NEEDS, {
-    locale: params.locale,
-  })
+export default async function YourNeedsSection({
+  trans,
+  transCart,
+  params,
+  data: { data: homePage },
+}) {
+  const data = homePage
+  // const { homePage: data } = await getData(HOME_B2B_NEEDS, {
+  //   locale: params.locale,
+  // })
   const list = [
     {
       id: 0,
