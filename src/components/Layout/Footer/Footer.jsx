@@ -15,7 +15,6 @@ import Facebook from '@/assets/icons/facebook.svg'
 import Linkedin from '@/assets/icons/linkedin.svg'
 import { keysForLocale } from '@/config/keysForLocale'
 import FooterForm from './components/FooterForm'
-import Device, { DESKTOP } from '@/components/Device/Device'
 
 export default function Footer() {
   const t = useTranslations('footer')
@@ -150,11 +149,11 @@ export default function Footer() {
               {t('footer_email_title')}
             </StyledTypographyUrbanistH5>
 
-            <Device device={DESKTOP}>
-              <div className='footerSubscribeSectionInputWrapper'>
-                <FooterForm t={t('footer_email_button_text')} />
-              </div>
-            </Device>
+            {/* <Device device={DESKTOP}> */}
+            <div className='footerSubscribeSectionInputWrapper'>
+              <FooterForm t={t('footer_email_button_text')} />
+            </div>
+            {/* </Device> */}
             <StyledTypographyUrbanistSmallSpaces className='footerSubscribeSectionDescription'>
               {t('footer_email_description')}
             </StyledTypographyUrbanistSmallSpaces>
