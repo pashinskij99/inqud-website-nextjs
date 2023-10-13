@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
+import styles from './styles.module.scss'
 import {
   StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-import { StyledCryptoWidget2Section } from './CryptoWidget2Section.styled'
 import Check from '@/assets/icons/check-dark.svg'
 import { ButtonGhostCrypto } from '@/components/UI/Button'
 import { getData } from '@/lib/datocms'
@@ -33,7 +33,7 @@ export default async function CryptoWidget2Section({ params }) {
   })
 
   return (
-    <StyledCryptoWidget2Section>
+    <section className={styles.wrapper}>
       <div className='container'>
         <div className='leftSide'>
           <StyledTypographyIBMH5 className='crypto2SubTitle'>
@@ -133,6 +133,6 @@ export default async function CryptoWidget2Section({ params }) {
           </Device>
         </div>
       </div>
-    </StyledCryptoWidget2Section>
+    </section>
   )
 }

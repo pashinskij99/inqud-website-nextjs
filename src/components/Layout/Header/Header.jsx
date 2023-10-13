@@ -11,18 +11,30 @@ import Image from 'next/image'
 import styles from './styles.module.scss'
 import logo from '@/assets/icons/logo.svg'
 import logoMobile from '@/assets/icons/logo-header-mobile-without-text.svg'
-import HeaderDropdown from './HeaderDropdown'
 import {
   StyledButtonGhost,
   StyledButtonSecondary,
 } from '@/components/UI/Button/Button.styled'
 import { keysForLocale } from '@/config/keysForLocale'
-import HeaderLanguageSelect from '@/components/Layout/Header/HeaderLanguageSelect'
 import Device, {
-  MOBILE,
+  DESKTOP,
   MOBILE_OR_TABLET,
   TABLET_OR_DESKTOP,
 } from '@/components/Device/Device'
+
+const DynamicHeaderNav = dynamic(
+  () => import('@/components/Layout/Header/HeaderNav/HeaderNav'),
+  {
+    ssr: false,
+  }
+)
+
+const DynamicHeaderLanguageSelect = dynamic(
+  () => import('./HeaderLanguageSelect').then((res) => res.default),
+  {
+    ssr: false,
+  }
+)
 
 const DynamicHeader = dynamic(
   () =>
@@ -35,19 +47,8 @@ const DynamicHeader = dynamic(
 export default function Header() {
   const [active, setActive] = useState(false)
 
-  const navListTranslate = useTranslations('header_items')
   const signButtonsTranslate = useTranslations('header_buttons_text')
   const tabsTranslate = useTranslations('header_tabs')
-
-  const navList = [
-    { id: 0, name: navListTranslate(keysForLocale.keys3[0]), href: '/company' },
-    { id: 1, name: navListTranslate(keysForLocale.keys3[1]), href: '/blog' },
-    {
-      id: 2,
-      name: navListTranslate(keysForLocale.keys3[2]),
-      href: '/help-centre',
-    },
-  ]
 
   const signButton = [
     {
@@ -102,9 +103,9 @@ export default function Header() {
             <Device device={TABLET_OR_DESKTOP}>
               <Image className='logo' src={logo} alt='logo' />
             </Device>
-            <Device device={MOBILE}>
-              <Image className='logo-mobile' src={logoMobile} alt='logo' />
-            </Device>
+            {/* <Device device={MOBILE}> */}
+            <Image className='logo-mobile' src={logoMobile} alt='logo' />
+            {/* </Device> */}
           </Link>
 
           <div
@@ -131,28 +132,23 @@ export default function Header() {
             </Link>
           </div>
         </div>
-
-        <nav className='navSection'>
-          <ul>
-            <HeaderDropdown />
-
-            {navList.map(({ id, name, href }) => (
-              <li key={id}>
-                <Link
-                  className={clsx({
-                    ['active']: pathname.search(href) !== -1,
-                  })}
-                  href={href}
-                >
-                  {name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <Device device={DESKTOP}>
+          <DynamicHeaderNav />
+        </Device>
 
         <div className='userSection'>
-          <HeaderLanguageSelect activeStyle={active} className='languageMenu' />
+          {active ? (
+            <DynamicHeaderLanguageSelect
+              activeStyle={active}
+              className='languageMenu'
+            />
+          ) : null}
+          <Device device={DESKTOP}>
+            <DynamicHeaderLanguageSelect
+              activeStyle={active}
+              className='languageMenu'
+            />
+          </Device>
 
           <button
             onClick={handleClickHamburger}
