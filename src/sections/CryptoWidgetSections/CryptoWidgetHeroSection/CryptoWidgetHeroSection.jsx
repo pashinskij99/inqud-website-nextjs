@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useContext, useState } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
 import { StyledCryptoWidgetHeroSectionWrapper } from './CryptoWidgetHeroSection.styled'
 import { StyledTypographyUrbanistH1 } from '@/components/UI/Typography/Typography.styled'
@@ -14,7 +15,6 @@ import {
   addGlobalScrollBar,
   removeGlobalScrollBar,
 } from '@/utils/addOrRemoveGlobalScrollBar'
-import Animated2Gif from '@/components/AnimatedVideo/Animated2Gif'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
 import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
 
@@ -95,18 +95,25 @@ export default function CryptoWidgetHeroSection() {
             />
           </Device>
           <Device device={MOBILE}>
-            <Animated2Gif
+            <Image
+              src='/video/crypto-page-mobile.avif'
               className='graphic'
-              height={357}
-              timeRepeat={0}
-              timeFirstAnimate={16000}
-              stillSecondVideo='/video/crypto-page-mobile.webp'
-              stillFirstVideo='/video/crypto-page-mobile.webp'
-              urlFirstVideo='/video/crypto-page-mobile.gif'
-              urlSecondVideo='/video/crypto-page-mobile.gif'
-              timeSecondAnimate={16000}
               width={500}
+              height={357}
+              alt='graphic'
             />
+            {/* <Animated2Gif */}
+            {/*   className='graphic' */}
+            {/*   height={357} */}
+            {/*   timeRepeat={0} */}
+            {/*   timeFirstAnimate={16000} */}
+            {/*   stillSecondVideo='/video/crypto-page-mobile.webp' */}
+            {/*   stillFirstVideo='/video/crypto-page-mobile.webp' */}
+            {/*   urlFirstVideo='/video/crypto-page-mobile.avif' */}
+            {/*   urlSecondVideo='/video/crypto-page-mobile.avif' */}
+            {/*   timeSecondAnimate={16000} */}
+            {/*   width={500} */}
+            {/* /> */}
           </Device>
         </div>
       </div>
