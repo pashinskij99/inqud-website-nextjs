@@ -3,13 +3,12 @@ import dynamic from 'next/dynamic'
 import { StyledTypographyUrbanistH2 } from '@/components/UI/Typography/Typography.styled'
 import { StyledContactUsListSectionWrapper } from './ContactUsListSection.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-// import { AccordionItem } from '@/sections/HomeSections/QuestionsSection/QuestionsSection'
 
 const DynamicAccordionItem = dynamic(
   () =>
-    import('@/sections/HomeSections/QuestionsSection/QuestionsSection').then(
-      (res) => res.AccordionItem
-    ),
+    import(
+      '@/sections/HomeSections/QuestionsSection/components/QuestionsAccordion'
+    ).then((res) => res.AccordionItem),
   {
     ssr: false,
   }

@@ -1,5 +1,7 @@
-import { getData } from '@/lib/datocms'
+import { toNextMetadata } from 'react-datocms'
+import { getData, performRequest } from '@/lib/datocms'
 import HomeB2CPage from '@/views/HomeB2CPage'
+import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const PAGE_QUERY = `  
 query MyQuery($locale: SiteLocale) {
@@ -100,6 +102,15 @@ query MyQuery($locale: SiteLocale) {
     }
   }
 }`
+
+export async function generateMetadata() {
+  const response = await performRequest({
+    query: PAGE_SEO_QUERY('homeB2c'),
+    revalidate: 360,
+  })
+
+  return toNextMetadata([...response.homeB2c.seo])
+}
 
 async function Page({ params }) {
   const data = await getData(PAGE_QUERY, {

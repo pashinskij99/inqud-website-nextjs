@@ -14,6 +14,17 @@ query MyQuery($locale: SiteLocale) {
   }
 }
 `
+export const PAGE_SEO_QUERY = (page) => `
+query MyQuery($locale: SiteLocale) {
+  ${page}(locale: $locale) {
+    seo: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+}
+`
 export const HOME_B2B_NEEDS = `
 query MyQuery($locale: SiteLocale) {
   homePage(locale: $locale) {

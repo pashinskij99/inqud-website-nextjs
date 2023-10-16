@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { getData } from '@/lib/datocms'
+import { toNextMetadata } from 'react-datocms'
+import { getData, performRequest } from '@/lib/datocms'
 import CryptoWidget from '@/views/CryptoWidget'
+import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const CRYPTO_WIDGET = `
   query MyQuery($locale: SiteLocale) {
@@ -169,11 +171,19 @@ const CRYPTO_WIDGET = `
   }
 `
 
+export async function generateMetadata() {
+  const response = await performRequest({
+    query: PAGE_SEO_QUERY('cryptoWidgetPage'),
+    revalidate: 360,
+  })
+
+  return toNextMetadata([...response.cryptoWidgetPage.seo])
+}
+
 export default async function page({ params }) {
   const data = await getData(CRYPTO_WIDGET, {
     locale: params.locale,
   })
 
   return <CryptoWidget data={data} params={params} />
-  // return <>2</>
 }

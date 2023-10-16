@@ -1,5 +1,7 @@
-import { getData } from '@/lib/datocms'
+import { toNextMetadata } from 'react-datocms'
+import { getData, performRequest } from '@/lib/datocms'
 import AmlCftPolicyUabPage from '@/views/AmlCftPolicyUabPage/AmlCftPolicyUabPage'
+import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const AML_CFT_POLICY_UAB_PAGE_QUERY = `  
 query MyQuery($locale: SiteLocale) {
@@ -13,6 +15,15 @@ query MyQuery($locale: SiteLocale) {
 }
 }
 `
+
+export async function generateMetadata() {
+  const response = await performRequest({
+    query: PAGE_SEO_QUERY('antiMoneyLaundering'),
+    revalidate: 360,
+  })
+
+  return toNextMetadata([...response.antiMoneyLaundering.seo])
+}
 
 export default async function Page({ params }) {
   const data = await getData(AML_CFT_POLICY_UAB_PAGE_QUERY, {

@@ -1,5 +1,7 @@
-import { getData } from '@/lib/datocms'
+import { toNextMetadata } from 'react-datocms'
+import { getData, performRequest } from '@/lib/datocms'
 import ApiPage from '@/views/ApiPage'
+import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const API_QUERY = `
   query MyQuery($locale: SiteLocale) {
@@ -179,6 +181,15 @@ const API_QUERY = `
     }
   }
 `
+
+export async function generateMetadata() {
+  const response = await performRequest({
+    query: PAGE_SEO_QUERY('apiPage'),
+    revalidate: 360,
+  })
+
+  return toNextMetadata([...response.apiPage.seo])
+}
 
 export default async function page({ params }) {
   const data = await getData(API_QUERY, {

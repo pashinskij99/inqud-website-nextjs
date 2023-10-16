@@ -1,5 +1,7 @@
+import { toNextMetadata } from 'react-datocms'
 import PrivacyNoticePage from '@/views/PrivacyNoticePage/PrivacyNoticePage'
-import { getData } from '@/lib/datocms'
+import { getData, performRequest } from '@/lib/datocms'
+import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const PRIVACY_NOTE_PAGE_QUERY = `  
 query MyQuery($locale: SiteLocale) {
@@ -10,9 +12,18 @@ query MyQuery($locale: SiteLocale) {
     title
     id
     _updatedAt
-}
+  }
 }
 `
+
+export async function generateMetadata() {
+  const response = await performRequest({
+    query: PAGE_SEO_QUERY('privacyNotePage'),
+    revalidate: 360,
+  })
+
+  return toNextMetadata([...response.privacyNotePage.seo])
+}
 
 export default async function Page({ params }) {
   const data = await getData(PRIVACY_NOTE_PAGE_QUERY, { locale: params.locale })

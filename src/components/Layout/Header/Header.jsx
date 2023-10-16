@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next-intl/client'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import { CSSTransition } from 'react-transition-group'

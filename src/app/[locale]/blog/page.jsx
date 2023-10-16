@@ -1,6 +1,17 @@
 // import Script from 'next/script'
-import { getData } from '@/lib/datocms'
+import { toNextMetadata } from 'react-datocms'
+import { getData, performRequest } from '@/lib/datocms'
 import BlogsPage from '@/views/BlogsPage'
+import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
+
+export async function generateMetadata() {
+  const response = await performRequest({
+    query: PAGE_SEO_QUERY('blogHeroSection'),
+    revalidate: 360,
+  })
+
+  return toNextMetadata([...response.blogHeroSection.seo])
+}
 
 async function Page({ searchParams, params }) {
   const PAGE_TAG_QUERY = `
