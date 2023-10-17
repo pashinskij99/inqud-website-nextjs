@@ -256,22 +256,22 @@
     &_1 {
       position: relative;
       z-index: 2;
-      animation-duration: 0s;
-      animation-name: hide;
-      animation-delay: 3s;
-      animation-fill-mode: forwards;
+      //animation-duration: 0s;
+      //animation-name: hide;
+      //animation-delay: 3s;
+      //animation-fill-mode: forwards;
     }
-    &_2 {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      z-index: 1;
-    }
-    &.hide {
-      opacity: 0;
-    }
+    //&_2 {
+    //  position: absolute;
+    //  top: 0;
+    //  left: 0;
+    //  right: 0;
+    //  margin: 0 auto;
+    //  z-index: 1;
+    //}
+    //&.hide {
+    //  opacity: 0;
+    //}
     @media (max-width: 767px) {
       display: block;
     }
