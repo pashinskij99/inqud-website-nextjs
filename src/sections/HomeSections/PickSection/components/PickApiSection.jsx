@@ -1,34 +1,20 @@
-'use client'
-
 import Image from 'next/image'
 import { StructuredText } from 'react-datocms/structured-text'
 import clsx from 'clsx'
-import { useContext } from 'react'
+// import { useContext } from 'react'
 import Pick from '@/assets/icons/pick.svg'
-// import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH3,
 } from '@/components/UI/Typography/Typography.styled'
 import PickSectionModalWithButton from './PickSectionModalWithButton'
 import { StyledPickSectionSection } from '../PickSection.styled'
-import { PageContext } from '@/contexts/PageContext/PageContext'
+// import { PageContext } from '@/contexts/PageContext/PageContext'
 
-export function PickApiSection({ className }) {
-  const {
-    dataPage: { apiPage: data, pickLeadForm: leadFormData },
-  } = useContext(PageContext)
-
-  // const [calendlyModal, setCalendlyModal] = useState(false)
-
-  // const handleOpenCalendlyModal = () => {
-  //   setCalendlyModal(true)
-  //   removeGlobalScrollBar()
-  // }
-  // const handleCloseCalendlyModal = () => {
-  //   setCalendlyModal(false)
-  //   addGlobalScrollBar()
-  // }
+export function PickApiSection({ className, data, leadFormData }) {
+  // const {
+  //   dataPage: { apiPage: data, pickLeadForm: leadFormData },
+  // } = useContext(PageContext)
 
   return (
     <StyledPickSectionSection className={clsx(className, 'container')}>

@@ -1,9 +1,5 @@
-'use client'
-
-import { useContext } from 'react'
 import Link from 'next/link'
 import { StructuredText } from 'react-datocms/structured-text'
-import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH5,
@@ -13,33 +9,31 @@ import {
   StyledSubTitle,
 } from './HeroB2CSection.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
-import { PageContext } from '@/contexts/PageContext/PageContext'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
-import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
+import AnimatedFirstScreenVideo from '@/components/AnimatedVideo/AnimatedFirstScreenVideo'
+// const DynamicAnimated2Gif = dynamic(
+//   () => import('@/components/AnimatedVideo/Animated2Gif'),
+//   {
+//     ssr: false,
+//   }
+// )
 
-const DynamicAnimated2Gif = dynamic(
-  () => import('@/components/AnimatedVideo/Animated2Gif'),
-  {
-    ssr: false,
-  }
-)
-
-const DynamicAnimatedFirstScreenVideo = dynamic(
-  () => import('@/components/AnimatedVideo/AnimatedFirstScreenVideo'),
-  {
-    ssr: false,
-  }
-)
+// const DynamicAnimatedFirstScreenVideo = dynamic(
+//   () => import('@/components/AnimatedVideo/AnimatedFirstScreenVideo'),
+//   {
+//     ssr: false,
+//   }
+// )
 
 export function SubTitle({ className, children }) {
   return <StyledSubTitle className={className}>{children}</StyledSubTitle>
 }
 
-export default function HeroB2CSection() {
-  const {
-    params,
-    dataPage: { homeB2c: data },
-  } = useContext(PageContext)
+export default function HeroB2CSection({ data, params }) {
+  // const {
+  //   params,
+  //   dataPage: { homeB2c: data },
+  // } = useContext(PageContext)
 
   return (
     <StyledHeroB2CSectionWrapper>
@@ -63,28 +57,39 @@ export default function HeroB2CSection() {
           <HeroSectionPaymentList params={params} />
         </div>
         <div className='right-side'>
-          <Device device={MOBILE}>
-            <DynamicAnimated2Gif
-              className='graphic'
-              height={594}
-              timeRepeat={5000}
-              timeFirstAnimate={3000}
-              timeSecondAnimate={3000}
-              urlFirstVideo='/video/b2c_video1.gif'
-              urlSecondVideo='/video/b2c_video2.gif'
-              width={595}
-            />
-          </Device>
-          <Device device={TABLET_OR_DESKTOP}>
-            <DynamicAnimatedFirstScreenVideo
-              className='graphic'
-              height={594}
-              timeRepeat={5000}
-              urlFirstVideo='/video/id_color 600_1.mp4'
-              urlSecondVideo='/video/b2c_video2.webm'
-              width={595}
-            />
-          </Device>
+          {/* <Device device={MOBILE}> */}
+          {/* <AnimatedVideoGif */}
+          {/*   loading='eager' */}
+          {/*   className='graphic graphic-1' */}
+          {/*   height={594} */}
+          {/*   timeRepeat={5000} */}
+          {/*   timeFirstAnimate={3000} */}
+          {/*   timeSecondAnimate={3000} */}
+          {/*   urlFirstVideo='/video/b2c_video1.webp' */}
+          {/*   urlSecondVideo='/video/b2c_video2.webp' */}
+          {/*   width={595} */}
+          {/* /> */}
+          {/* </Device> */}
+          {/* DynamicAnimatedFirstScreenVideo */}
+
+          <AnimatedFirstScreenVideo
+            className='graphic'
+            height={594}
+            timeRepeat={5000}
+            urlFirstVideo='/video/color 600.mp4'
+            urlSecondVideo='/video/b2c_video2.webm'
+            width={595}
+          />
+          {/* <Device device={TABLET_OR_DESKTOP}> */}
+          {/*   <DynamicAnimatedFirstScreenVideo */}
+          {/*     className='graphic graphic-2' */}
+          {/*     height={594} */}
+          {/*     timeRepeat={5000} */}
+          {/*     urlFirstVideo='/video/id_color 600_1.mp4' */}
+          {/*     urlSecondVideo='/video/b2c_video2.webm' */}
+          {/*     width={595} */}
+          {/*   /> */}
+          {/* </Device> */}
         </div>
       </div>
     </StyledHeroB2CSectionWrapper>

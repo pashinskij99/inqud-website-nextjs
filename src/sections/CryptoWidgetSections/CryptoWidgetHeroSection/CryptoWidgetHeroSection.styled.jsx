@@ -1,3 +1,5 @@
+'use client'
+
 import styled from '@emotion/styled'
 import { responsive } from '@/utils/response'
 import { nunito } from '@/utils/font'
@@ -137,8 +139,6 @@ export const StyledCryptoWidgetHeroSectionWrapper = styled.section`
       height: 399.73px;
       justify-content: center;
     `}
-   
-
     .graphic {
       width: 100%;
       height: 100%;
@@ -154,6 +154,15 @@ export const StyledCryptoWidgetHeroSectionWrapper = styled.section`
         width: 360.999px;
         height: 357.707px;
       `}
+
+      &.graphic-1 {
+      }
+      &.graphic-2 {
+        display: none;
+        ${responsive.sm`
+          display: block;
+        `}
+      }
     }
   }
 `

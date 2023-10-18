@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
@@ -12,34 +12,21 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
-import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-import Animated2Gif from '@/components/AnimatedVideo/Animated2Gif'
+// import Animated2Gif from '@/components/AnimatedVideo/Animated2Gif'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
 import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
-
-const DynamicApiHeroSectionModalForm = dynamic(() =>
-  import('./components/ApiHeroSectionModalForm').then((res) => res.default)
-)
+import ApiHeroButtonShowModal from './components/ApiHeroButtonShowModal'
 
 const DynamicAnimatedOneVideo = dynamic(() =>
   import('@/components/AnimatedVideo/AnimatedOneVideo')
 )
 
-export default function ApiHeroSection() {
-  const [showModal, setShowModal] = useState(false)
-  const handleShowModal = () => {
-    setShowModal(true)
-  }
-
-  const handleHideModal = () => {
-    setShowModal(false)
-  }
-
-  const {
-    params,
-    dataPage: { apiPage: data },
-  } = useContext(PageContext)
+export default function ApiHeroSection({ params, data }) {
+  // const {
+  //   params,
+  //   dataPage: { apiPage: data },
+  // } = useContext(PageContext)
 
   return (
     <StyledApiHeroSectionWrapper>
@@ -71,19 +58,7 @@ export default function ApiHeroSection() {
               </ButtonGetStarted>
             </Link>
 
-            <StyledButtonGhost
-              onClick={handleShowModal}
-              className='ghostButton'
-            >
-              {data.buttonScreen1B}
-            </StyledButtonGhost>
-            {showModal ? (
-              <DynamicApiHeroSectionModalForm
-                data={data}
-                handleClose={handleHideModal}
-                showModal={showModal}
-              />
-            ) : null}
+            <ApiHeroButtonShowModal data={data} />
           </div>
 
           <HeroSectionPaymentList params={params} />
@@ -94,24 +69,33 @@ export default function ApiHeroSection() {
               className='cart'
               width={500}
               height={488}
-              timeRepeat={10000}
+              timeRepeat={0}
               urlFirstVideo='/video/code 2.mp4'
             />
           </Device>
-          <Device device={MOBILE}>
-            <Animated2Gif
+          {/* <Device device={MOBILE}> */}
+          <Image
+            priority
+            loading='eager'
+            className='cart cart-2'
+            width={500}
+            height={488}
+            src='/video/api_page_hero.avif'
+            alt='animations'
+          />
+          {/* <Animated2Gif
               className='cart'
               width={500}
               height={488}
-              timeRepeat={5000}
+              timeRepeat={0}
               timeFirstAnimate={10000}
-              urlFirstVideo='/video/api_page_hero.gif'
+              urlFirstVideo='/video/api_page_hero.avif'
               stillFirstVideo='/video/api_page_hero.webp'
-              urlSecondVideo='/video/api_page_hero.gif'
+              urlSecondVideo='/video/api_page_hero.avif'
               stillSecondVideo='/video/api_page_hero.webp'
               timeSecondAnimate={10000}
-            />
-          </Device>
+            /> */}
+          {/* </Device> */}
         </div>
       </div>
     </StyledApiHeroSectionWrapper>

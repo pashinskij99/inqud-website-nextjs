@@ -16,8 +16,8 @@ export default function HomeB2CPage({ data, params }) {
   return (
     <PageProvider isFaq dataPage={data} nameCMSPage='homeB2c'>
       <StyledHomeB2CPageWrapper>
-        <HeroB2CSection />
-        <FeaturesB2CSection />
+        <HeroB2CSection data={data.homeB2c} params={params} />
+        <FeaturesB2CSection data={data.homeB2c} />
         <ProductLineB2CSection />
         <HowToStartsB2CSection />
         <PassKYCB2CSection />

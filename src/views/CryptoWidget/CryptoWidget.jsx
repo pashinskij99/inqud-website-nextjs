@@ -16,8 +16,8 @@ export default function CryptoWidget({ data, params }) {
   return (
     <PageProvider dataPage={data} isFaq nameCMSPage='cryptoWidgetPage'>
       <StyledCryptoWidgetWrapper>
-        <CryptoWidgetHeroSection />
-        <CryptoWidgetFlexibility />
+        <CryptoWidgetHeroSection data={data.cryptoWidgetPage} params={params} />
+        <CryptoWidgetFlexibility data={data.cryptoWidgetPage} />
         <CryptoBusinessSection />
         <CryptoWidgetFeatures />
         <FeesBusiness modelId='2540254' params={params} />

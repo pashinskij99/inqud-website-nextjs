@@ -58,7 +58,7 @@
     }
 
     .dropdown-menu {
-      margin-top: 29px;
+      //margin-top: 29px;
       left: 50%;
       padding: 24px 24px;
       border-radius: 16px;
@@ -67,6 +67,7 @@
       /* gap: ${rem(32)}; */
       gap: 0;
       outline: 2px solid rgba(244, 245, 250, 1);
+      transform: translateY(29px);
 
       &.show {
         animation: showMenu 0.3s ease-in-out forwards;

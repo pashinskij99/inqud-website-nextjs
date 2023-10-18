@@ -27,7 +27,7 @@ export default function CartRequirement({
         height={300}
       />
       <div className='cartBody'>
-        <StyledTypographyUrbanistH4 className='cartTitle'>
+        <StyledTypographyUrbanistH4 component='h3' className='cartTitle'>
           {title}
         </StyledTypographyUrbanistH4>
         <StyledTypographyUrbanistBody className='cartDescription'>

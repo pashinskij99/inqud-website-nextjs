@@ -15,12 +15,12 @@ export default function ApiPage({ data, params }) {
   return (
     <PageProvider isFaq dataPage={data} nameCMSPage='apiPage'>
       <StyledApiPageWrapper>
-        <ApiHeroSection />
-        <APIFlexibility />
+        <ApiHeroSection data={data.apiPage} params={params} />
+        <APIFlexibility data={data.apiPage} />
         <HowIntegrate />
-        <InstantFree />
-        <DevelopGuide />
-        <PickApiSection />
+        <InstantFree data={data.apiPage} />
+        <DevelopGuide data={data.apiPage} />
+        <PickApiSection data={data.apiPage} leadFormData={data.pickLeadForm} />
         <FeesBusiness modelId='2540343' params={params} />
         <OurLandscapeSection params={params} />
         <QuestionsSection nameCMSPage='apiPage' params={params} />

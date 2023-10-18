@@ -1,9 +1,6 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { useContext, useState } from 'react'
-import dynamic from 'next/dynamic'
+// import { useContext } from 'react'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH3,
@@ -12,34 +9,13 @@ import {
 import { StyledInstantFreeWrapper } from './InstantFree.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
-import { PageContext } from '@/contexts/PageContext/PageContext'
-import {
-  addGlobalScrollBar,
-  removeGlobalScrollBar,
-} from '@/utils/addOrRemoveGlobalScrollBar'
+// import { PageContext } from '@/contexts/PageContext/PageContext'
+import InstantFreeModalWithButton from './components/InstantFreeModalWithButton'
 
-const DynamicModalCalendaly = dynamic(
-  () => import('@/components/CalendlyForm').then((mod) => mod.default),
-  {
-    ssr: false,
-  }
-)
-
-export default function InstantFree() {
-  const [calendlyModal, setCalendlyModal] = useState(false)
-
-  const handleOpenCalendlyModal = () => {
-    setCalendlyModal(true)
-    removeGlobalScrollBar()
-  }
-  const handleCloseCalendlyModal = () => {
-    setCalendlyModal(false)
-    addGlobalScrollBar()
-  }
-
-  const {
-    dataPage: { apiPage: data },
-  } = useContext(PageContext)
+export default function InstantFree({ data }) {
+  // const {
+  //   dataPage: { apiPage: data },
+  // } = useContext(PageContext)
 
   return (
     <StyledInstantFreeWrapper>
@@ -73,24 +49,7 @@ export default function InstantFree() {
               </ButtonGetStarted>
             </Link>
 
-            <StyledButtonGhost
-              onClick={handleOpenCalendlyModal}
-              className='ghostButton ghostButton-1'
-            >
-              {data.buttonScreen4B}
-            </StyledButtonGhost>
-            <StyledButtonGhost
-              onClick={handleOpenCalendlyModal}
-              className='ghostButton ghostButton-2'
-            >
-              {data.buttonScreen4B}
-            </StyledButtonGhost>
-            {calendlyModal ? (
-              <DynamicModalCalendaly
-                handleClose={handleCloseCalendlyModal}
-                open={calendlyModal}
-              />
-            ) : null}
+            <InstantFreeModalWithButton data={data} />
           </div>
         </div>
         <div className='right-side'>

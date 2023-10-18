@@ -1,31 +1,7 @@
+'use client'
+
 import styled from '@emotion/styled'
-// import { css } from 'styled-components'
 import { responsive } from '@/utils/response'
-
-// function forForStyled({ start, end, setCssString }) {
-//   let styles = ''
-
-//   for (let i = start; i <= end; i += 1) {
-//     console.log(setCssString(i))
-//     styles += setCssString(i)
-//   }
-
-//   return css`
-//     ${styles}
-//   `
-// }
-
-// console.log(
-//   forForStyled(
-//     1,
-//     6,
-//     (i) => `
-//       .features-grid-item:nth-child(${i}) {
-//         order: ${i};
-//       }
-//     `
-//   )
-// )
 
 export const StyledFeaturesB2CSectionWrapper = styled.section`
   --max-width-text: 320px;

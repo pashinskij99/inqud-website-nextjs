@@ -160,6 +160,12 @@ export const StyledApiHeroSectionWrapper = styled.section`
       ${responsive.sm`
         height: 398.125px;
       `}
+      &.cart-2 {
+        display: none;
+        ${responsive.sm`
+          display: block;
+        `}
+      }
     }
     /* .cart {
       background: conic-gradient(

@@ -1,7 +1,4 @@
-'use client'
-
 import Image from 'next/image'
-import { useContext } from 'react'
 import Link from 'next/link'
 import { StyledDevelopGuideWrapper } from './DevelopGuide.styled'
 import {
@@ -9,12 +6,11 @@ import {
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
-import { PageContext } from '@/contexts/PageContext/PageContext'
 
-export default function DevelopGuide() {
-  const {
-    dataPage: { apiPage: data },
-  } = useContext(PageContext)
+export default function DevelopGuide({ data }) {
+  // const {
+  //   dataPage: { apiPage: data },
+  // } = useContext(PageContext)
 
   return (
     <StyledDevelopGuideWrapper>

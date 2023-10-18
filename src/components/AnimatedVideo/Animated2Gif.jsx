@@ -16,6 +16,7 @@ export default function Animated2Gif({
   timeRepeat,
   timeFirstAnimate,
   timeSecondAnimate,
+  loading = 'lazy', // eager
 }) {
   const [gif2Ended, setGif2Ended] = useState(true)
   const element = useRef()
@@ -66,7 +67,7 @@ export default function Animated2Gif({
     <StyledAnimatedGifWrapper>
       <div ref={element} className='content'>
         <GifPlayer
-          loading='lazy'
+          loading={loading}
           className={clsx('image image-1', className)}
           autoplay={false}
           gif={urlFirstVideo}
@@ -80,7 +81,7 @@ export default function Animated2Gif({
       </div>
       <div ref={element2} className='content'>
         <GifPlayer
-          loading='lazy'
+          loading={loading}
           className={clsx('image image-2', className, {
             ['hide']: gif2Ended,
           })}

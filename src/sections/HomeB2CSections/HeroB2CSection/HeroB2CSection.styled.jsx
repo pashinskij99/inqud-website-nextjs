@@ -1,3 +1,5 @@
+'use client'
+
 import styled from '@emotion/styled'
 import { rem } from '@/utils/rem'
 import { responsive } from '@/utils/response'
@@ -144,6 +146,18 @@ export const StyledHeroB2CSectionWrapper = styled.section`
         width: 342.9996337890625px;
         height: 342.48712158203125px;
       `}
+
+      .graphic-1 {
+        display: none;
+        ${responsive.sm`
+          display: block;
+        `}
+      }
+      .graphic-2 {
+        ${responsive.sm`
+          display: none;
+        `}
+      }
     }
   }
 `
