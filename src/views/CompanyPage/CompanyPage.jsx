@@ -1,5 +1,3 @@
-'use client'
-
 import { StyledCompanyPageWrapper } from './CompanyPage.styled'
 import PageProvider from '@/contexts/PageContext/PageContext'
 import CompanyHeroSection from '@/sections/CompanySections/CompanyHeroSection/CompanyHeroSection'
@@ -11,9 +9,9 @@ export default function CompanyPage({ data }) {
   return (
     <PageProvider dataPage={data} nameCMSPage='aboutUsPage'>
       <StyledCompanyPageWrapper>
-        <CompanyHeroSection />
-        <CoreSection />
-        <LandscapeSection />
+        <CompanyHeroSection data={data.aboutUsPage} />
+        <CoreSection data={data.aboutUsPage} />
+        <LandscapeSection data={data.aboutUsPage} />
         <FeaturesSection />
       </StyledCompanyPageWrapper>
     </PageProvider>

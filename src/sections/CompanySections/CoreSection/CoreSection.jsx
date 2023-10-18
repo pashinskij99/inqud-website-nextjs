@@ -1,5 +1,3 @@
-// import { useTranslations } from 'next-intl'
-import { useContext } from 'react'
 import {
   StyledTypographyIBMH4,
   StyledTypographyUrbanistBody,
@@ -10,58 +8,16 @@ import {
   StyledCoreSectionWrapper,
   StyledGridCartWrapper,
 } from './CoreSection.styled'
-// import { keysForLocale } from '@/config/keysForLocale'
-import { PageContext } from '@/contexts/PageContext/PageContext'
 
-export default function CoreSection() {
-  // const t = useTranslations('company_page.our_core_section')
-  // const tTitles = useTranslations('company_page.our_core_section.items_title')
-  // const tDescriptions = useTranslations(
-  //   'company_page.our_core_section.items_description'
-  // )
-
-  // const grid = [
-  //   {
-  //     id: '01',
-  //     title: tTitles(keysForLocale.keys6[0]),
-  //     description: tDescriptions(keysForLocale.keys6[0]),
-  //   },
-  //   {
-  //     id: '02',
-  //     title: tTitles(keysForLocale.keys6[1]),
-  //     description: tDescriptions(keysForLocale.keys6[1]),
-  //   },
-  //   {
-  //     id: '03',
-  //     title: tTitles(keysForLocale.keys6[2]),
-  //     description: tDescriptions(keysForLocale.keys6[2]),
-  //   },
-  //   {
-  //     id: '04',
-  //     title: tTitles(keysForLocale.keys6[3]),
-  //     description: tDescriptions(keysForLocale.keys6[3]),
-  //   },
-  //   {
-  //     id: '05',
-  //     title: tTitles(keysForLocale.keys6[4]),
-  //     description: tDescriptions(keysForLocale.keys6[4]),
-  //   },
-  //   {
-  //     id: '06',
-  //     title: tTitles(keysForLocale.keys6[5]),
-  //     description: tDescriptions(keysForLocale.keys6[5]),
-  //   },
-  // ]
-
-  const {
-    dataPage: { aboutUsPage: data },
-  } = useContext(PageContext)
+export default function CoreSection({ data }) {
+  // const {
+  //   dataPage: { aboutUsPage: data },
+  // } = useContext(PageContext)
 
   return (
     <StyledCoreSectionWrapper>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='title'>
-          {/* {t('title')} */}
           {data.screen2MainTitle}
         </StyledTypographyUrbanistH2>
 
