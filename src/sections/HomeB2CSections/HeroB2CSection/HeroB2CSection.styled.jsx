@@ -147,13 +147,13 @@ export const StyledHeroB2CSectionWrapper = styled.section`
         height: 342.48712158203125px;
       `}
 
-      .graphic-1 {
+      &.graphic-1 {
         display: none;
         ${responsive.sm`
           display: block;
         `}
       }
-      .graphic-2 {
+      &.graphic-2 {
         ${responsive.sm`
           display: none;
         `}

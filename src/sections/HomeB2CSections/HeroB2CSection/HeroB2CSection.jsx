@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { StructuredText } from 'react-datocms/structured-text'
+import dynamic from 'next/dynamic'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH5,
@@ -10,7 +11,8 @@ import {
 } from './HeroB2CSection.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
-import AnimatedFirstScreenVideo from '@/components/AnimatedVideo/AnimatedFirstScreenVideo'
+import Animated2Gif from '@/components/AnimatedVideo/Animated2Gif'
+import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
 // const DynamicAnimated2Gif = dynamic(
 //   () => import('@/components/AnimatedVideo/Animated2Gif'),
 //   {
@@ -18,12 +20,12 @@ import AnimatedFirstScreenVideo from '@/components/AnimatedVideo/AnimatedFirstSc
 //   }
 // )
 
-// const DynamicAnimatedFirstScreenVideo = dynamic(
-//   () => import('@/components/AnimatedVideo/AnimatedFirstScreenVideo'),
-//   {
-//     ssr: false,
-//   }
-// )
+const DynamicAnimatedFirstScreenVideo = dynamic(
+  () => import('@/components/AnimatedVideo/AnimatedFirstScreenVideo'),
+  {
+    ssr: false,
+  }
+)
 
 export function SubTitle({ className, children }) {
   return <StyledSubTitle className={className}>{children}</StyledSubTitle>
@@ -58,38 +60,40 @@ export default function HeroB2CSection({ data, params }) {
         </div>
         <div className='right-side'>
           {/* <Device device={MOBILE}> */}
-          {/* <AnimatedVideoGif */}
-          {/*   loading='eager' */}
-          {/*   className='graphic graphic-1' */}
-          {/*   height={594} */}
-          {/*   timeRepeat={5000} */}
-          {/*   timeFirstAnimate={3000} */}
-          {/*   timeSecondAnimate={3000} */}
-          {/*   urlFirstVideo='/video/b2c_video1.webp' */}
-          {/*   urlSecondVideo='/video/b2c_video2.webp' */}
-          {/*   width={595} */}
-          {/* /> */}
+          <Animated2Gif
+            loading='eager'
+            className='graphic graphic-1'
+            height={594}
+            timeRepeat={5000}
+            timeFirstAnimate={3000}
+            timeSecondAnimate={3000}
+            stillFirstVideo='/video/b2c_video-1.webp'
+            stillSecondVideo='/video/b2c_video-2.webp'
+            urlFirstVideo='/video/b2c_video-1.webp'
+            urlSecondVideo='/video/b2c_video-2.webp'
+            width={595}
+          />
           {/* </Device> */}
           {/* DynamicAnimatedFirstScreenVideo */}
 
-          <AnimatedFirstScreenVideo
+          {/* <AnimatedFirstScreenVideo
             className='graphic'
             height={594}
             timeRepeat={5000}
             urlFirstVideo='/video/color 600.mp4'
             urlSecondVideo='/video/b2c_video2.webm'
             width={595}
-          />
-          {/* <Device device={TABLET_OR_DESKTOP}> */}
-          {/*   <DynamicAnimatedFirstScreenVideo */}
-          {/*     className='graphic graphic-2' */}
-          {/*     height={594} */}
-          {/*     timeRepeat={5000} */}
-          {/*     urlFirstVideo='/video/id_color 600_1.mp4' */}
-          {/*     urlSecondVideo='/video/b2c_video2.webm' */}
-          {/*     width={595} */}
-          {/*   /> */}
-          {/* </Device> */}
+          /> */}
+          <Device device={TABLET_OR_DESKTOP}>
+            <DynamicAnimatedFirstScreenVideo
+              className='graphic'
+              height={594}
+              timeRepeat={5000}
+              urlFirstVideo='/video/b2c_video1.webm'
+              urlSecondVideo='/video/b2c_video2.webm'
+              width={595}
+            />
+          </Device>
         </div>
       </div>
     </StyledHeroB2CSectionWrapper>
