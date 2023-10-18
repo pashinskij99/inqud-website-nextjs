@@ -1,24 +1,16 @@
 import Link from 'next/link'
 import { StructuredText } from 'react-datocms/structured-text'
 import dynamic from 'next/dynamic'
+import clsx from 'clsx'
 import {
   StyledTypographyUrbanistH1,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-import {
-  StyledHeroB2CSectionWrapper,
-  StyledSubTitle,
-} from './HeroB2CSection.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
 import Animated2Gif from '@/components/AnimatedVideo/Animated2Gif'
 import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
-// const DynamicAnimated2Gif = dynamic(
-//   () => import('@/components/AnimatedVideo/Animated2Gif'),
-//   {
-//     ssr: false,
-//   }
-// )
+import styles from './styles.module.scss'
 
 const DynamicAnimatedFirstScreenVideo = dynamic(
   () => import('@/components/AnimatedVideo/AnimatedFirstScreenVideo'),
@@ -28,7 +20,11 @@ const DynamicAnimatedFirstScreenVideo = dynamic(
 )
 
 export function SubTitle({ className, children }) {
-  return <StyledSubTitle className={className}>{children}</StyledSubTitle>
+  return (
+    <span className={clsx('title-ibm-2', styles['sub-title'], className)}>
+      {children}
+    </span>
+  )
 }
 
 export default function HeroB2CSection({ data, params }) {
@@ -38,7 +34,7 @@ export default function HeroB2CSection({ data, params }) {
   // } = useContext(PageContext)
 
   return (
-    <StyledHeroB2CSectionWrapper>
+    <section className={styles.wrapper}>
       <div className='container'>
         <div className='left-side'>
           <div className='text-wrapper'>
@@ -96,6 +92,6 @@ export default function HeroB2CSection({ data, params }) {
           </Device>
         </div>
       </div>
-    </StyledHeroB2CSectionWrapper>
+    </section>
   )
 }

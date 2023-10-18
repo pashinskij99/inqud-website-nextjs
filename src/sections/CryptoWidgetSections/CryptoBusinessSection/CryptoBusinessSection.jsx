@@ -9,12 +9,10 @@ import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-import {
-  StyledCryptoBusinessSectionWrapper,
-  StyledListItem,
-} from './CryptoBusinessSection.styled'
+import { StyledListItem } from './CryptoBusinessSection.styled'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
+import styles from './styles.module.scss'
 
 const DynamicCryptoBusinessSectionList = dynamic(() =>
   import('./components/CryptoBusinessSectionList').then((res) => res.default)
@@ -34,7 +32,7 @@ export default function CryptoBusinessSection() {
   } = useContext(PageContext)
 
   return (
-    <StyledCryptoBusinessSectionWrapper>
+    <section className={styles.wrapper}>
       <div className='container'>
         <StyledTypographyUrbanistH2 className='title'>
           {data.screen3Title}
@@ -48,56 +46,54 @@ export default function CryptoBusinessSection() {
           />
         </Device>
 
-        <Device device={MOBILE}>
-          <Swiper
-            className='grid grid-2'
-            slidesPerView='1'
-            spaceBetween={14}
-            updateOnWindowResize
-            centeredSlides
-            loop
-            scrollbar={{
-              dragSize: 200 / 3,
-              horizontalClass: 'listRequirementsSwiperScollbar',
-              hide: true,
-            }}
-            initialSlide={2}
-            modules={[Scrollbar]}
-          >
-            {data.screen3List.map(({ id, list, listTitle }, listId) => (
-              <SwiperSlide className='swiper-slide' key={id}>
-                <StyledListItem
-                  className='first-grid-item'
-                  rgb={rgb[listId]}
-                  opacity={opacity[0]}
-                  color={color[listId]}
-                >
-                  <StyledTypographyUrbanistH5 className='grid-item-title'>
-                    {listTitle}
-                  </StyledTypographyUrbanistH5>
-                </StyledListItem>
+        <Swiper
+          className='grid grid-2'
+          slidesPerView='1'
+          spaceBetween={14}
+          updateOnWindowResize
+          centeredSlides
+          loop
+          scrollbar={{
+            dragSize: 200 / 3,
+            horizontalClass: 'listRequirementsSwiperScollbar',
+            hide: true,
+          }}
+          initialSlide={2}
+          modules={[Scrollbar]}
+        >
+          {data.screen3List.map(({ id, list, listTitle }, listId) => (
+            <SwiperSlide className='swiper-slide' key={id}>
+              <StyledListItem
+                className='first-grid-item'
+                rgb={rgb[listId]}
+                opacity={opacity[0]}
+                color={color[listId]}
+              >
+                <StyledTypographyUrbanistH5 className='grid-item-title'>
+                  {listTitle}
+                </StyledTypographyUrbanistH5>
+              </StyledListItem>
 
-                <ul className='grid grid-2 list'>
-                  {list.map((text, elementId) => (
-                    <li key={text} className='item'>
-                      <StyledListItem
-                        className='list-item-styled'
-                        rgb={rgb[listId]}
-                        opacity={opacity[elementId + 1]}
-                        color={color[listId]}
-                      >
-                        <StyledTypographyUrbanistBody>
-                          {text}
-                        </StyledTypographyUrbanistBody>
-                      </StyledListItem>
-                    </li>
-                  ))}
-                </ul>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </Device>
+              <ul className='grid grid-2 list'>
+                {list.map((text, elementId) => (
+                  <li key={text} className='item'>
+                    <StyledListItem
+                      className='list-item-styled'
+                      rgb={rgb[listId]}
+                      opacity={opacity[elementId + 1]}
+                      color={color[listId]}
+                    >
+                      <StyledTypographyUrbanistBody>
+                        {text}
+                      </StyledTypographyUrbanistBody>
+                    </StyledListItem>
+                  </li>
+                ))}
+              </ul>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
-    </StyledCryptoBusinessSectionWrapper>
+    </section>
   )
 }

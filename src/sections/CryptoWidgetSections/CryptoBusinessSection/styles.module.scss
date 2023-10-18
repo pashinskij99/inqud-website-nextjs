@@ -1,0 +1,105 @@
+.wrapper {
+  padding: 200px 0;
+  overflow: hidden;
+
+  @media (max-width: 1536px) {
+    padding: 200px 0 240px;
+  }
+  @media (max-width: 1279px) {
+    padding: 120px 0;
+  }
+  @media (max-width: 767px) {
+    padding: 90px 0 112px;
+  }
+
+  :global {
+    .container {
+      @media (max-width: 767px) {
+        padding: 0 8px;
+      }
+    }
+
+    .title {
+      color: var(--directness-black, #2d3439);
+      font-weight: 400;
+      line-height: 62px;
+      margin-bottom: 56px;
+
+      @media (max-width: 1536px) {
+        margin-bottom: 68px;
+      }
+      @media (max-width: 1279px) {
+        margin-bottom: 40px;
+      }
+      @media (max-width: 767px) {
+        color: var(--directness-black, #2d3439);
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 46px;
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 440px);
+      justify-content: space-between;
+
+      @media (max-width: 1536px) {
+        grid-template-columns: repeat(3, 389px);
+      }
+      @media (max-width: 1279px) {
+        grid-template-columns: repeat(3, 213px);
+      }
+      @media (max-width: 767px) {
+        overflow: visible;
+      }
+
+      &.grid-1 {
+        @media (max-width: 767px) {
+          display: none;
+        }
+      }
+
+      &.grid-2 {
+        display: none;
+
+        .listRequirementsSwiperScollbar {
+          bottom: -17px;
+          width: 200px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: rgba(81, 113, 133, 0.2);
+          opacity: 1 !important;
+          height: 2px;
+
+          .swiper-scrollbar-drag {
+            background: rgba(7, 116, 83, 1) !important;
+          }
+
+          @media (max-width: 767px) {
+            bottom: -55px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          display: block;
+        }
+
+        .swiper-slide {
+          width: 328px;
+        }
+      }
+
+      .list {
+        .item {
+          &:not(:last-of-type) {
+            border: none !important;
+            .list-item-styled {
+              border: none !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

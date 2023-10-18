@@ -3,12 +3,13 @@ import { StructuredText } from 'react-datocms/structured-text'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
-import { StyledCryptoWidgetHeroSectionWrapper } from './CryptoWidgetHeroSection.styled'
+// import { StyledCryptoWidgetHeroSectionWrapper } from './CryptoWidgetHeroSection.styled'
 import { StyledTypographyUrbanistH1 } from '@/components/UI/Typography/Typography.styled'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
 import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import CryptoWidgetHeroCalendly from './components/CryptoWidgetHeroCalendly'
+import styles from './styles.module.scss'
 
 const DynamicAnimatedOneVideo = dynamic(
   () => import('@/components/AnimatedVideo/AnimatedOneVideo'),
@@ -19,7 +20,7 @@ const DynamicAnimatedOneVideo = dynamic(
 
 export default function CryptoWidgetHeroSection({ data, params }) {
   return (
-    <StyledCryptoWidgetHeroSectionWrapper>
+    <section className={styles.wrapper}>
       <div className='container'>
         <div className='left-side'>
           <SubTitle className='subTitle'>{data.subTitle}</SubTitle>
@@ -78,6 +79,6 @@ export default function CryptoWidgetHeroSection({ data, params }) {
           {/* </Device> */}
         </div>
       </div>
-    </StyledCryptoWidgetHeroSectionWrapper>
+    </section>
   )
 }

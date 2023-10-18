@@ -7,24 +7,15 @@ export default function AnimatedMobile() {
     <div className={styles['gif-wrapper']}>
       <Image
         className={clsx(styles.gif, styles.gif_1)}
-        src='/video/b2b_hero_mobile.webp'
+        src='/video/b2b_hero_mobile.gif'
         alt='avif'
         priority
+        autoplay
         fetchpriority='high'
         loading='eager'
         width={375}
         height={152}
       />
-      {/* <Image */}
-      {/*   className={clsx(styles.gif, styles.gif_2)} */}
-      {/*   priority */}
-      {/*   fetchpriority='high' */}
-      {/*   loading='eager' */}
-      {/*   src='/video/b2b_hero_mobile.webp' */}
-      {/*   alt='webp' */}
-      {/*   width={375} */}
-      {/*   height={152} */}
-      {/* /> */}
     </div>
   )
 }

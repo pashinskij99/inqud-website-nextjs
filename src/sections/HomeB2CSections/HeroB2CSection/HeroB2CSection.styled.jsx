@@ -163,6 +163,8 @@ export const StyledHeroB2CSectionWrapper = styled.section`
 `
 
 export const StyledSubTitle = styled(StyledTypographyIBMH5)`
+  /* @extend .title-ibm-2; */
+
   font-size: 18px;
 
   color: #517185;

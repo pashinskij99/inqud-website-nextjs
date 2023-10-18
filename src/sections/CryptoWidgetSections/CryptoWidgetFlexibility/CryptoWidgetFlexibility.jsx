@@ -1,13 +1,13 @@
 import Image from 'next/image'
-import { StyledCryptoWidgetFlexibilityWrapper } from './CryptoWidgetFlexibility.styled'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH4,
 } from '@/components/UI/Typography/Typography.styled'
+import styles from './styles.module.scss'
 
 export default function CryptoWidgetFlexibility({ data }) {
   return (
-    <StyledCryptoWidgetFlexibilityWrapper>
+    <section className={styles.wrapper}>
       <div className='container'>
         <ul className='grid'>
           {data.screen2Content.map(({ description, image, id, title }) => (
@@ -25,6 +25,6 @@ export default function CryptoWidgetFlexibility({ data }) {
           ))}
         </ul>
       </div>
-    </StyledCryptoWidgetFlexibilityWrapper>
+    </section>
   )
 }

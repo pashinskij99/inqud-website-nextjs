@@ -166,6 +166,7 @@ export function StyledTypographyUrbanistH4({
 export function StyledTypographyUrbanistH5({
   children,
   component = 'p',
+  style,
   className,
   ...props
 }) {
@@ -186,6 +187,7 @@ export function StyledTypographyUrbanistH5({
     component,
     {
       className: clsx('title-5', className),
+      style,
       ...props,
     },
     children

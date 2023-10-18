@@ -1,4 +1,4 @@
-import { StyledCryptoWidgetWrapper } from './CryptoWidget.styled'
+import styles from './styles.module.scss'
 import CryptoWidgetHeroSection from '@/sections/CryptoWidgetSections/CryptoWidgetHeroSection'
 import CryptoWidgetFlexibility from '@/sections/CryptoWidgetSections/CryptoWidgetFlexibility'
 import CryptoBusinessSection from '@/sections/CryptoWidgetSections/CryptoBusinessSection'
@@ -15,7 +15,7 @@ import PageProvider from '@/contexts/PageContext/PageContext'
 export default function CryptoWidget({ data, params }) {
   return (
     <PageProvider dataPage={data} isFaq nameCMSPage='cryptoWidgetPage'>
-      <StyledCryptoWidgetWrapper>
+      <main className={styles.wrapper}>
         <CryptoWidgetHeroSection data={data.cryptoWidgetPage} params={params} />
         <CryptoWidgetFlexibility data={data.cryptoWidgetPage} />
         <CryptoBusinessSection />
@@ -27,7 +27,7 @@ export default function CryptoWidget({ data, params }) {
         <ConnectCryptoSection />
         <QuestionsSection params={params} nameCMSPage='cryptoWidgetPage' />
         <SendRequestSection />
-      </StyledCryptoWidgetWrapper>
+      </main>
     </PageProvider>
   )
 }
