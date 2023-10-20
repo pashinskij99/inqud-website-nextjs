@@ -18,13 +18,14 @@ import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
 import { useFilter } from '@/app/[locale]/help-center/useFilter'
 import { getHighlightedText } from '@/utils/getHighlightedText'
 
-// import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
-
 export function SearchResultSection() {
   const { helpCentreData, searchValue } = useSelector(
     (state) => state.helpCentre
   )
-  const newArray = useMemo(() => [...helpCentreData], [helpCentreData])
+  const newArray = useMemo(
+    () => [...helpCentreData],
+    [helpCentreData, searchValue]
+  )
 
   const { filteredValue } = useFilter({
     data: newArray,
@@ -38,10 +39,16 @@ export function SearchResultSection() {
           Search results for: <span className='search-text'>{searchValue}</span>
         </StyledTypographyUrbanistH3>
         <div className='list-search-result'>
-          {/* eslint-disable-next-line no-use-before-define */}
           {filteredValue.length > 0 ? (
             filteredValue.map(
-              ({ id: idElement, is, description, descriptions, title }) => (
+              ({
+                id: idElement,
+                is,
+                description,
+                descriptions,
+                title,
+                slugPage,
+              }) => (
                 <Cart
                   id={idElement}
                   key={idElement}
@@ -49,6 +56,7 @@ export function SearchResultSection() {
                   title={title}
                   descriptions={descriptions}
                   description={description}
+                  slugPage={slugPage}
                 />
               )
             )
@@ -63,12 +71,12 @@ export function SearchResultSection() {
   )
 }
 
-function Cart({ id, title, is, description, descriptions }) {
+function Cart({ id, title, is, description, descriptions, slugPage }) {
   const { searchValue } = useSelector((state) => state.helpCentre)
   return (
     <StyledSearchCartWrapper>
       <div className='cart-text-wrapper'>
-        <StyledTypographyUrbanistH5 className='cart-title'>
+        <StyledTypographyUrbanistH5 component='h5' className='cart-title'>
           {title}
         </StyledTypographyUrbanistH5>
         {is !== 'description' ? (
@@ -91,7 +99,7 @@ function Cart({ id, title, is, description, descriptions }) {
       </div>
 
       <StyledButtonLearnMore className='cart-btn'>
-        <Link href={`/help-center/${id}`}>
+        <Link href={`/help-center/${slugPage}`}>
           <StyledTypographyUrbanistBody className='cart-btn-text'>
             Learn more
           </StyledTypographyUrbanistBody>
@@ -102,14 +110,12 @@ function Cart({ id, title, is, description, descriptions }) {
 }
 
 export function SearchResultDetailsSection() {
-  // const { searchIn, fullData } = useContext(HelpCentreDetailsContext)
   const { helpCentreDetailsData, searchValue } = useSelector(
     (state) => state.helpCentre
   )
-
   const newArray = useMemo(
     () => [...[helpCentreDetailsData]],
-    [helpCentreDetailsData]
+    [helpCentreDetailsData, searchValue]
   )
 
   const { filteredValue } = useFilter({
@@ -124,10 +130,16 @@ export function SearchResultDetailsSection() {
           Search results for: <span className='search-text'>{searchValue}</span>
         </StyledTypographyUrbanistH3>
         <div className='list-search-result'>
-          {/* eslint-disable-next-line no-use-before-define */}
           {filteredValue.length > 0 ? (
             filteredValue.map(
-              ({ id: idElement, is, description, descriptions, title }) => (
+              ({
+                id: idElement,
+                is,
+                description,
+                descriptions,
+                title,
+                slugPage,
+              }) => (
                 <Cart
                   id={idElement}
                   key={idElement}
@@ -135,6 +147,7 @@ export function SearchResultDetailsSection() {
                   title={title}
                   descriptions={descriptions}
                   description={description}
+                  slugPage={slugPage}
                 />
               )
             )

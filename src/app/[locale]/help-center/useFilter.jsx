@@ -4,7 +4,6 @@ import { helpCentreLinkTransform } from '@/utils/helpCentreLinkTransform'
 
 export const useFilter = ({ data = [], searchValue }) => {
   const [filteredValue, setFilteredValue] = useState([])
-
   useEffect(() => {
     const newArray = []
     if (data) {
@@ -22,6 +21,7 @@ export const useFilter = ({ data = [], searchValue }) => {
               ...elementInner,
               id: helpCentreLinkTransform(element.mainTitle),
               is: 'title',
+              slugPage: element.slugPage,
             })
             break
           }
@@ -39,6 +39,7 @@ export const useFilter = ({ data = [], searchValue }) => {
                 id: helpCentreLinkTransform(element.mainTitle),
                 description,
                 is: 'description',
+                slugPage: element.slugPage,
               })
               break
             }

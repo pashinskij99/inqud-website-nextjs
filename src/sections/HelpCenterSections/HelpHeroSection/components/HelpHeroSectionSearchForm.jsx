@@ -1,8 +1,10 @@
 import { Controller, useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { InputSearch } from '@/components/UI/Input'
-import { setSearchValue } from '@/store/features/blog/blogSlice'
-import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
+import {
+  setIsSearch,
+  setSearchValue,
+} from '@/store/features/helpCentre/helpCentreSlice'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 import Device, { DESKTOP, MOBILE_OR_TABLET } from '@/components/Device/Device'
 
