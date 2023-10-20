@@ -1,6 +1,5 @@
 'use client'
 
-// import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import clsx from 'clsx'
 import styles from '../HeroSection.module.scss'
@@ -8,8 +7,6 @@ import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-// import { getPageData } from '@/lib/datocms'
-// import { HOME_B2B_HERO_LIST } from '@/lib/datocmsQuery'
 
 export default function HeroSectionPaymentList({ data }) {
   // const [data, setData] = useState({})
@@ -76,7 +73,5 @@ export default function HeroSectionPaymentList({ data }) {
         </div>
       </ul>
     </div>
-    // <StyledPaymentListWrapper className='payment'>
-    // </StyledPaymentListWrapper>
   )
 }

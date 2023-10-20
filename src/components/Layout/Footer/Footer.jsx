@@ -66,7 +66,7 @@ export default function Footer() {
           href: 'https://docs.inqud.com/',
         },
         { id: 1, text: tLegal(keysForLocale.keys5[1]), href: '/blog' },
-        { id: 2, text: tLegal(keysForLocale.keys5[2]), href: '/help-centre' },
+        { id: 2, text: tLegal(keysForLocale.keys5[2]), href: '/help-center' },
         // { id: 3, text: tLegal(keysForLocale.keys5[3]), href: '/contact-us' },
         { id: 4, text: tLegal(keysForLocale.keys5[4]), href: '/contact-us' },
       ],

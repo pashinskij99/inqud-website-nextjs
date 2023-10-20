@@ -5,7 +5,6 @@ import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import styles from './styles.module.scss'
-// import { StyledHeaderDropdownWrapper } from './HeaderDropdown.styled'
 import { keysForLocale } from '@/config/keysForLocale'
 
 export default function HeaderDropdown() {
@@ -36,7 +35,7 @@ export default function HeaderDropdown() {
         {
           id: 2,
           name: dropdownList1Translate(keysForLocale.keys6[1]),
-          href: '/inqud-api',
+          href: '/integration-api',
         },
         // {
         //   id: 3,

@@ -124,7 +124,7 @@ export default async function SmoothAPISection({ data }) {
                 {data.buttonScreen4GetStarted}
               </ButtonGetStarted>
             </Link>
-            <Link href='/inqud-api'>
+            <Link href='/integration-api'>
               <StyledButtonGhost className={styles.smoothAPIButtonGhost}>
                 {data.buttonScreen4LearnMore}
               </StyledButtonGhost>

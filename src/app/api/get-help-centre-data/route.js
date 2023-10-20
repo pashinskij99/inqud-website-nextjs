@@ -4,6 +4,7 @@ import { getData } from '@/lib/datocms'
 const HELP_CENTRE_QUERY = `
   query MyQuery($locale: SiteLocale) {
     allHelpCentres(locale: $locale) {
+      slugPage
       content {
         id
         title

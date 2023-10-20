@@ -20,9 +20,9 @@ function BreadCrumbs() {
         return 'insights'
       case 'crypto-widget':
         return 'crypto widget'
-      case 'help-centre':
+      case 'help-center':
         return 'help centre'
-      case 'inqud-api':
+      case 'integration-api':
         return 'api'
       case 'company':
         return 'Company'

@@ -1,20 +1,25 @@
 import { NextResponse } from 'next/server'
 import { getData } from '@/lib/datocms'
-import { helpCentreLinkTransformToNormal } from '@/utils/helpCentreLinkTransform'
+
+// filter: {mainTitle: {matches: {pattern: "${helpCentreLinkTransformToNormal(
+//   decodeURIComponent(params.slug)
+// )}"}}}
 
 export async function POST(req) {
   const { params } = await req.json()
 
   const HELP_CENTRE_PAGE = `
   query MyQuery(
-    $locale: SiteLocale,
+      $slug: String = "${params.slug}",
+      $locale: SiteLocale
     ) {
     helpCentre(
         locale: $locale,
-        filter: {mainTitle: {matches: {pattern: "${helpCentreLinkTransformToNormal(
-          decodeURIComponent(params.slug)
-        )}"}}} 
+        filter: {
+          slugPage: {eq: $slug}
+        }
       ) {
+      slugPage
       content {
         id
         title

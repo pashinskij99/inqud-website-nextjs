@@ -1,5 +1,5 @@
 export const helpCentreLinkTransform = (text) =>
-  text.split(' ').join('_').toLowerCase()
+  text.split(' ').join('-').toLowerCase()
 
 export const helpCentreLinkTransformToNormal = (transformText) =>
-  transformText.split('_').join(' ').toLowerCase()
+  transformText.split('-').join(' ').toLowerCase()

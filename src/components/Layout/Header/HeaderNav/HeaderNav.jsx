@@ -14,7 +14,7 @@ function HeaderNav() {
     {
       id: 2,
       name: navListTranslate(keysForLocale.keys3[2]),
-      href: '/help-centre',
+      href: '/help-center',
     },
   ]
 

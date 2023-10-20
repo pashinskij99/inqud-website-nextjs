@@ -8,7 +8,6 @@ export function HelpCentreProvider({ children, data }) {
   const { tab } = useSelector((state) => state.activeTab)
   const [browseByProductData, setBrowseByProductData] = useState([])
   const [exploreByCategoryData, setExploreByCategoryData] = useState([])
-
   useEffect(() => {
     if (tab === 0) {
       setBrowseByProductData(
@@ -18,7 +17,8 @@ export function HelpCentreProvider({ children, data }) {
               typeContent.name === 'Business' &&
               category.name === 'Browse by product'
           )
-          .map(({ mainTitle, id, icon, content }) => ({
+          .map(({ mainTitle, id, icon, content, slugPage }) => ({
+            slugPage,
             title: mainTitle,
             id,
             icon: icon.url,
@@ -41,7 +41,8 @@ export function HelpCentreProvider({ children, data }) {
               typeContent.name === 'Business' &&
               category.name === 'Explore by category'
           )
-          .map(({ mainTitle, id, icon, content }) => ({
+          .map(({ mainTitle, id, icon, content, slugPage }) => ({
+            slugPage,
             title: mainTitle,
             id,
             icon: icon.url,
@@ -65,7 +66,8 @@ export function HelpCentreProvider({ children, data }) {
               typeContent.name === 'Personal' &&
               category.name === 'Browse by product'
           )
-          .map(({ mainTitle, id, icon, content }) => ({
+          .map(({ mainTitle, id, icon, content, slugPage }) => ({
+            slugPage,
             title: mainTitle,
             id,
             icon: icon.url,
@@ -88,7 +90,8 @@ export function HelpCentreProvider({ children, data }) {
               typeContent.name === 'Personal' &&
               category.name === 'Explore by category'
           )
-          .map(({ mainTitle, id, icon, content }) => ({
+          .map(({ mainTitle, id, icon, content, slugPage }) => ({
+            slugPage,
             title: mainTitle,
             id,
             icon: icon.url,

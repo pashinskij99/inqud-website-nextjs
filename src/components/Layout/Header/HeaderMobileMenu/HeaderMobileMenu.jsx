@@ -36,7 +36,7 @@ export default function HeaderMobileMenu({ active, handleClose }) {
     {
       id: 2,
       name: navListTranslate(keysForLocale.keys3[2]),
-      href: '/help-centre',
+      href: '/help-center',
     },
   ]
 
@@ -132,7 +132,7 @@ function AccordionComponent({
         {
           id: 2,
           name: dropdownList1Translate(keysForLocale.keys6[1]),
-          href: '/inqud-api',
+          href: '/integration-api',
         },
         // {
         //   id: 3,

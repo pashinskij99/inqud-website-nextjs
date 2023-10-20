@@ -4,7 +4,6 @@ import { useContext } from 'react'
 import {
   StyledBusinessSectionWrapper,
   StyledOtherDocumentationSectionWrapper,
-  // StyledOtherDocumentationSectionWrapper,
   StyledSubSectionWrapper,
 } from '@/sections/HelpCenterSections/MainSection/MainSection.styled'
 import {
@@ -12,13 +11,8 @@ import {
   StyledTypographyUrbanistH3,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-// import image from '@/assets/images/help-center/folder.png'
-import {
-  // StyledButtonGetStarted,
-  StyledButtonLearnMore,
-} from '@/components/UI/Button/Button.styled'
+import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
 import { HelpCentreContext } from '@/contexts/HelpCentreContext/HelpCentreContext'
-import { helpCentreLinkTransform } from '@/utils/helpCentreLinkTransform'
 
 function MainSection() {
   const { browseByProductData, exploreByCategoryData } =
@@ -47,23 +41,33 @@ function SubSection({ title, grid }) {
         {title}
       </StyledTypographyUrbanistH3>
       <div className='grid'>
-        {grid.map(({ id, icon, title: titleCart, answers, listQuestions }) => (
-          <Cart
-            key={id}
-            id={id}
-            icon={icon}
-            titleCart={titleCart}
-            answers={answers}
-            listQuestions={listQuestions}
-          />
-        ))}
+        {grid.map(
+          ({
+            id,
+            icon,
+            title: titleCart,
+            answers,
+            listQuestions,
+            slugPage,
+          }) => (
+            <Cart
+              key={id}
+              id={id}
+              icon={icon}
+              titleCart={titleCart}
+              answers={answers}
+              listQuestions={listQuestions}
+              slugPage={slugPage}
+            />
+          )
+        )}
       </div>
     </StyledSubSectionWrapper>
   )
 }
 
 // eslint-disable-next-line no-unused-vars
-function Cart({ id, icon, titleCart, listQuestions, answers }) {
+function Cart({ id, icon, titleCart, listQuestions, answers, slugPage }) {
   return (
     <li className='cart'>
       <div>
@@ -78,7 +82,8 @@ function Cart({ id, icon, titleCart, listQuestions, answers }) {
             ({ id: key, title }, i) =>
               i <= 2 && (
                 <Link
-                  href={`/help-centre/${helpCentreLinkTransform(titleCart)}`}
+                  // href={`/help-center/${helpCentreLinkTransform(titleCart)}`}
+                  href={`/help-center/${slugPage}?anchor=${title}`}
                 >
                   <StyledTypographyUrbanistBody
                     key={key}
@@ -93,7 +98,7 @@ function Cart({ id, icon, titleCart, listQuestions, answers }) {
       </div>
 
       <div className='cart-footer'>
-        <Link href={`/help-centre/${helpCentreLinkTransform(titleCart)}`}>
+        <Link href={`/help-center/${slugPage}`}>
           <StyledButtonLearnMore className='cart-btn-view'>
             View all
           </StyledButtonLearnMore>

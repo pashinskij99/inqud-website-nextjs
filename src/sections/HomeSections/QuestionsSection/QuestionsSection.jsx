@@ -56,7 +56,7 @@ export default function QuestionsSection({ faq }) {
         <StyledTypographyUrbanistH5 className='questionsButton'>
           {faq.faqDescription}
           <Device device={TABLET_OR_DESKTOP}>
-            <Link href='/help-centre'>
+            <Link href='/help-center'>
               <ButtonLearnMore className='questionsButtonHelp'>
                 {faq.faqButton}
               </ButtonLearnMore>
@@ -64,7 +64,7 @@ export default function QuestionsSection({ faq }) {
           </Device>
 
           <Device device={MOBILE}>
-            <Link href='/help-centre'>
+            <Link href='/help-center'>
               <ButtonLearnMore className='questionsButtonHelp'>
                 {faq.faqButtonMobile}
               </ButtonLearnMore>

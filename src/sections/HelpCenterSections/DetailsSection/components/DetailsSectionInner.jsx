@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react'
 // import { Link } from 'react-scroll'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
+import { useSearchParams } from 'next/navigation'
 import {
   StyledCenterSideWrapper,
   StyledLeftSideWrapper,
@@ -20,6 +21,7 @@ import { HelpCentreDetailsContext } from '@/contexts/HelpCentreDetailsContext/He
 
 export function DetailsSectionInner() {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
+  const searchParams = useSearchParams()
 
   const [expanded, setExpanded] = useState('')
   const { activeHeader, setActiveHeader } = useContext(ArticleContext)
@@ -29,9 +31,22 @@ export function DetailsSectionInner() {
   }
 
   useEffect(() => {
-    if (data.content) {
-      setActiveHeader(data.content[0].title)
+    const useEffectFunc = async () => {
+      if (data.content) {
+        setActiveHeader(data.content[0].title)
+        const scroller = await import('react-scroll').then(
+          (res) => res.scroller
+        )
+        scroller.scrollTo(searchParams.get('anchor'), {
+          offset: -100,
+          spy: true,
+          smooth: true,
+          duration: 500,
+        })
+      }
     }
+
+    useEffectFunc()
   }, [data])
 
   const handleOpen = () => {

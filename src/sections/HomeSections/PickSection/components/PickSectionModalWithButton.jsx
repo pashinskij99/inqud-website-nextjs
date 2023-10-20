@@ -39,7 +39,7 @@ export default function PickSectionModalWithButton({ leadFormData }) {
       </StyledButtonSecondaryLight>
       {calendlyModal ? (
         <DynamicModalCalendaly
-          onModalClose={handleCloseCalendlyModal}
+          handleClose={handleCloseCalendlyModal}
           open={calendlyModal}
         />
       ) : null}

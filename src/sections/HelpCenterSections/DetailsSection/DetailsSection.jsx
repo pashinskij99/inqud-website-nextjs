@@ -14,7 +14,6 @@ import { DetailsSectionInner } from '@/sections/HelpCenterSections/DetailsSectio
 function DetailsSection({ params }) {
   const { tab } = useSelector((state) => state.activeTab)
   const dispatch = useDispatch()
-  // eslint-disable-next-line no-unused-vars
   const { loading, helpCentreDetailsData, isSearch } = useSelector(
     (state) => state.helpCentre
   )
@@ -65,14 +64,5 @@ const DynamicSearchResultDetailsSection = dynamic(
     ssr: false,
   }
 )
-// const DynamicDetailsSectionInner = dynamic(
-//   () =>
-//     import('./components/DetailsSectionInner').then(
-//       (res) => res.DetailsSectionInner
-//     ),
-//   {
-//     ssr: false,
-//   }
-// )
 
 export default DetailsSection

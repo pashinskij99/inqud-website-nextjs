@@ -18,7 +18,11 @@ const DynamicAnimatedOneVideo = dynamic(
   }
 )
 
-export default function CryptoWidgetHeroSection({ data, params }) {
+export default function CryptoWidgetHeroSection({
+  data,
+  params,
+  paymentListData,
+}) {
   return (
     <section className={styles.wrapper}>
       <div className='container'>
@@ -41,7 +45,7 @@ export default function CryptoWidgetHeroSection({ data, params }) {
             <CryptoWidgetHeroCalendly data={data} />
           </div>
 
-          <HeroSectionPaymentList data={data} params={params} />
+          <HeroSectionPaymentList data={paymentListData} params={params} />
         </div>
 
         <div className='right-side'>

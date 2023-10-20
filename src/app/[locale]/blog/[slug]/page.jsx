@@ -84,25 +84,26 @@ query Blog($slug: String, $locale: SiteLocale) {
       title
     }
   }
+  allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: $first, filter: { slugPage: {neq: $slug}, mainTag: {in: $tagId} }) {
+    id
+    mainTitle
+    slugPage
+    mainTag {
+      tag
+      id
+    }
+    timeToRead
+    _createdAt
+    mainImage {
+      url
+    }
+  }
 }`
 
-const PAGE_RELATED_CONTENT_QUERY = `
-query Home($first: IntType = 3, $tagId: [ItemId], $slug: String, $locale: SiteLocale) {
-    allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: $first, filter: { slugPage: {neq: $slug}, mainTag: {in: $tagId} }) {
-        id
-        mainTitle
-        slugPage
-        mainTag {
-          tag
-          id
-        }
-        timeToRead
-        _createdAt
-        mainImage {
-          url
-        }
-    }
-}`
+// const PAGE_RELATED_CONTENT_QUERY = `
+// query Home($first: IntType = 3, $tagId: [ItemId], $slug: String, $locale: SiteLocale) {
+//
+// }`
 
 export async function generateMetadata({ params }) {
   try {
@@ -112,13 +113,6 @@ export async function generateMetadata({ params }) {
       slug: params.slug,
       locale: params.locale,
     })
-    // const {
-    //   blog: { seoMetaTag },
-    // } = await performRequest({
-    //   query: PAGE_CONTENT_QUERY_SEO,
-    //   revalidate: 0,
-    //   variables: { slug: params.slug, locale: params.locale },
-    // })
 
     return {
       title: seoMetaTag.title,
@@ -130,42 +124,27 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function page({ params }) {
-  const { blog, blogHeroSection } = await getData(PAGE_CONTENT_QUERY, {
-    slug: params.slug,
-    locale: params.locale,
-  })
-  // const { blog, blogHeroSection } = await performRequest({
-  //   query: PAGE_CONTENT_QUERY,
-  //   revalidate: 0,
-  //   variables: {
-  //     slug: params.slug,
-  //     locale: params.locale,
-  //   },
-  // })
+  const { blog, blogHeroSection, allBlogs } = await getData(
+    PAGE_CONTENT_QUERY,
+    {
+      slug: params.slug,
+      locale: params.locale,
+    }
+  )
+
   if (!blog) return notFound()
 
-  const relatedData = await getData(PAGE_RELATED_CONTENT_QUERY, {
-    tagId: blog.mainTag.id,
-    locale: params.locale,
-    slug: params.slug,
-  })
-
-  // const relatedData = await performRequest({
-  //   query: PAGE_RELATED_CONTENT_QUERY,
-  //   revalidate: 0,
-
-  //   variables: {
-  //     tagId: blog.mainTag.id,
-  //     locale: params.locale,
-  //     slug: params.slug,
-  //   },
+  // const relatedData = await getData(PAGE_RELATED_CONTENT_QUERY, {
+  //   tagId: blog.mainTag.id,
+  //   locale: params.locale,
+  //   slug: params.slug,
   // })
 
   return (
     <BlogPage
       blog={blog}
       blogHeroSection={blogHeroSection}
-      relatedData={relatedData}
+      relatedData={allBlogs}
     />
   )
 }

@@ -9,8 +9,6 @@ import {
 import Check from '@/assets/icons/check-green-background.svg'
 import Pick from '@/assets/icons/pick.svg'
 import PickSectionModalWithButton from './components/PickSectionModalWithButton'
-// import { getData } from '@/lib/datocms'
-// import { HOME_B2B_PICK_SECTION_DONT_LOSE } from '@/lib/datocmsQuery'
 
 export default async function PickSection({
   variant,

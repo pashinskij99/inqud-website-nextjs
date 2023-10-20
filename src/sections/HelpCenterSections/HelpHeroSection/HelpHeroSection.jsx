@@ -30,7 +30,7 @@ import HelpHeroSectionSearchForm from '@/sections/HelpCenterSections/HelpHeroSec
 function HelpHeroSection({ page, data }) {
   return (
     <StyledHelpHeroSectionWrapper className={page}>
-      <Link href='/help-centre'>
+      <Link href='/help-center'>
         <button className={clsx('btn-back', page)}>
           <Image src={BackIcon} alt='BackIcon' />
           <StyledTypographyUrbanistBody>

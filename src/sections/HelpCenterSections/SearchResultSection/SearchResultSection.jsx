@@ -15,7 +15,7 @@ import {
   StyledSearchResultSectionWrapper,
 } from './SearchResultSection.styled'
 import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
-import { useFilter } from '@/app/[locale]/help-centre/useFilter'
+import { useFilter } from '@/app/[locale]/help-center/useFilter'
 import { getHighlightedText } from '@/utils/getHighlightedText'
 
 // import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
@@ -91,7 +91,7 @@ function Cart({ id, title, is, description, descriptions }) {
       </div>
 
       <StyledButtonLearnMore className='cart-btn'>
-        <Link href={`/help-centre/${id}`}>
+        <Link href={`/help-center/${id}`}>
           <StyledTypographyUrbanistBody className='cart-btn-text'>
             Learn more
           </StyledTypographyUrbanistBody>

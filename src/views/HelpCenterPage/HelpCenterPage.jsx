@@ -74,14 +74,5 @@ const DynamicSearchResultSection = dynamic(
     ssr: false,
   }
 )
-// const DynamicMainSection = dynamic(
-//   () =>
-//     import('@/sections/HelpCenterSections/MainSection').then(
-//       (res) => res.default
-//     ),
-//   {
-//     ssr: false,
-//   }
-// )
 
 export default HelpCenterPage
