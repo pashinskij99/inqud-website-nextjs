@@ -21,8 +21,17 @@ export default function HomeB2CPage({ data, params }) {
         <ProductLineB2CSection />
         <HowToStartsB2CSection />
         <PassKYCB2CSection />
-        <BlogsSection trans={blogTrans} params={params} />
-        <QuestionsSection nameCMSPage='homeB2c' params={params} />
+        <BlogsSection
+          data={data.homePage}
+          blogs={data.allBlogs}
+          trans={blogTrans}
+          params={params}
+        />
+        <QuestionsSection
+          faq={data.homeB2c}
+          nameCMSPage='homeB2c'
+          params={params}
+        />
       </StyledHomeB2CPageWrapper>
     </PageProvider>
   )

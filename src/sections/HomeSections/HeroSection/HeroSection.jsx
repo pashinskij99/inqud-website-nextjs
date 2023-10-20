@@ -15,8 +15,8 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 import HeroSectionPaymentList from './components/HeroSectionPaymentList'
 import HeroSectionModal from './components/HeroSectionModal'
 import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
-import { getData } from '@/lib/datocms'
-import { HOME_PAGE_QUERY } from '@/lib/datocmsQuery'
+// import { getData } from '@/lib/datocms'
+// import { HOME_PAGE_QUERY } from '@/lib/datocmsQuery'
 import AnimatedMobile from './components/AnimatedMobile'
 
 const DynamicAnimatedFirstScreenVideo = dynamic(
@@ -26,10 +26,12 @@ const DynamicAnimatedFirstScreenVideo = dynamic(
   }
 )
 
-export default async function HeroSection({ params }) {
-  const { homePage: data } = await getData(HOME_PAGE_QUERY, {
-    locale: params.locale,
-  })
+export default async function HeroSection({ dataPage }) {
+  // const { homePage: data } = await getData(HOME_PAGE_QUERY, {
+  //   locale: params.locale,
+  // })
+
+  const data = dataPage.homePage
 
   return (
     <section className={styles.wrapper}>
@@ -72,8 +74,7 @@ export default async function HeroSection({ params }) {
 
             <HeroSectionModal data={data} />
           </div>
-
-          <HeroSectionPaymentList params={params} />
+          <HeroSectionPaymentList data={dataPage.supportedCurrency} />
         </div>
 
         <div className={styles.rightSide}>

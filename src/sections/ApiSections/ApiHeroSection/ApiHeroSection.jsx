@@ -61,7 +61,7 @@ export default function ApiHeroSection({ params, data }) {
             <ApiHeroButtonShowModal data={data} />
           </div>
 
-          <HeroSectionPaymentList params={params} />
+          <HeroSectionPaymentList data={data} params={params} />
         </div>
         <div className='right-side'>
           <Device device={TABLET_OR_DESKTOP}>

@@ -52,7 +52,7 @@ export default function HeroB2CSection({ data, params }) {
             </Link>
           </div>
 
-          <HeroSectionPaymentList params={params} />
+          <HeroSectionPaymentList data={data} params={params} />
         </div>
         <div className='right-side'>
           {/* <Device device={MOBILE}> */}

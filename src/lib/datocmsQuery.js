@@ -116,17 +116,17 @@ export const HOME_B2B_CRYPTO_WIDGET_2 = `
 export const HOME_B2B_PICK_SECTION_DONT_LOSE = `
   query MyQuery($locale: SiteLocale) {
     homePage(locale: $locale) {
-       leadForm1Title
-       leadForm2Title
-       leadForm1List
-       leadForm2List {
-          id 
-          title 
-          image { 
-            url 
-          } 
-       }
-       leadForm1ListTitle
+      leadForm1Title
+      leadForm2Title
+      leadForm1List
+      leadForm2List {
+        id 
+        title 
+        image { 
+          url 
+        } 
+      }
+      leadForm1ListTitle
     }
     pickLeadForm(locale: $locale) {
       pickDescription
@@ -138,23 +138,23 @@ export const HOME_B2B_PICK_SECTION_DONT_LOSE = `
 export const HOME_B2B_REASONS_TEAM_UP = `
  query MyQuery($locale: SiteLocale) {
     homePage(locale: $locale) {
-       screen6Title
-       screen6Description
-       screen6Features {
-          id 
-          description 
-          image { 
-            url 
-          } 
-          title 
-       }
+      screen6Title
+      screen6Description
+      screen6Features {
+        id 
+        description 
+        image { 
+          url 
+        } 
+        title 
+      }
     }
   }
 `
 
 export const HOME_B2B_FEES = `
-    query MyQuery($locale: SiteLocale) {
-      feesYourBusiness(locale: $locale) {
+  query MyQuery($locale: SiteLocale) {
+    feesYourBusiness(locale: $locale) {
       title
       id
       cartButton

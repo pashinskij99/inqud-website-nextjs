@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl'
-import HeroSection from '@/sections/HomeSections/HeroSection'
 import styles from './HomePage.module.scss'
+import HeroSection from '@/sections/HomeSections/HeroSection'
 import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
 import CryptoWidgetSection from '@/sections/HomeSections/CryptoWidgetSection/CryptoWidgetSection'
 import PickSection from '@/sections/HomeSections/PickSection'
@@ -13,7 +13,8 @@ import BlogsSection from '@/sections/HomeSections/BlogsSection/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import { keysForLocale } from '@/config/keysForLocale'
 
-export default function HomePage({ params }) {
+export default function HomePage({ params, data }) {
+  // console.log(data)
   const yourNeedsSectionTrans = {
     t: useTranslations('home_page_your_needs_section'),
     tList: useTranslations('home_page_your_needs_section_list_item_title'),
@@ -44,26 +45,40 @@ export default function HomePage({ params }) {
 
   return (
     <main className={styles.wrapper}>
-      <HeroSection params={params} />
+      <HeroSection dataPage={data} params={params} />
       <YourNeedsSection
+        data={data.homePage}
         trans={yourNeedsSectionTrans}
         transCart={yourNeedsSectionTransCart}
-        params={params}
       />
-      <CryptoWidgetSection trans={cryptoWidgetTrans} params={params} />
-      <SmoothAPISection params={params} />
+      <CryptoWidgetSection trans={cryptoWidgetTrans} data={data.homePage} />
+      <SmoothAPISection data={data.homePage} />
       <PickSection
+        data={data.homePage}
+        leadFormData={data.pickLeadForm}
         className={styles.pickSection}
         variant='dontLose'
+      />
+      <CryptoWidget2Section data={data.homePage} />
+      <ReasonsToTeamUp data={data.homePage} />
+      <FeesBusiness
+        data={data.feesYourBusiness}
+        modelId='2540165'
+        autoId={10}
         params={params}
       />
-      <CryptoWidget2Section params={params} />
-      <ReasonsToTeamUp params={params} />
-      <FeesBusiness modelId='2540165' autoId={10} params={params} />
-      <OurLandscapeSection params={params} />
-      <PickSection className={styles.pickSection2} params={params} />
-      <BlogsSection trans={blogTrans} params={params} />
-      <QuestionsSection params={params} nameCMSPage='homePage' />
+      <OurLandscapeSection data={data.ourLandscape} />
+      <PickSection
+        data={data.homePage}
+        leadFormData={data.pickLeadForm}
+        className={styles.pickSection2}
+      />
+      <BlogsSection
+        data={data.homePage}
+        blogs={data.allBlogs}
+        trans={blogTrans}
+      />
+      <QuestionsSection faq={data.homePage} />
       {/* CryptoWidget2Section, QuestionsSection, ReasonsToTeamUp, FeesBusiness no ssr */}
     </main>
   )

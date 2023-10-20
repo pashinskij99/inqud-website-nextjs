@@ -7,7 +7,7 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 export async function generateMetadata() {
   const response = await performRequest({
     query: PAGE_SEO_QUERY('blogHeroSection'),
-    revalidate: 360,
+    revalidate: 0,
   })
 
   return toNextMetadata([...response.blogHeroSection.seo])

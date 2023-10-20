@@ -21,7 +21,7 @@ export default function Animated2Gif({
   const [gif2Ended, setGif2Ended] = useState(true)
   const element = useRef()
   const element2 = useRef()
-  const pauseFirstGif = useRef()
+  // const pauseFirstGif = useRef()
   const pauseSecondGif = useRef()
   const timer1 = useRef()
   const timer2 = useRef()
@@ -74,9 +74,9 @@ export default function Animated2Gif({
           still={stillFirstVideo || urlFirstVideo}
           width={width}
           height={height}
-          pauseRef={(pause) => {
-            pauseFirstGif.current = pause
-          }}
+          // pauseRef={(pause) => {
+          //   pauseFirstGif.current = pause
+          // }}
         />
       </div>
       <div ref={element2} className='content'>

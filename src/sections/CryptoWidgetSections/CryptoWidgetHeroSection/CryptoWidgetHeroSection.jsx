@@ -41,7 +41,7 @@ export default function CryptoWidgetHeroSection({ data, params }) {
             <CryptoWidgetHeroCalendly data={data} />
           </div>
 
-          <HeroSectionPaymentList params={params} />
+          <HeroSectionPaymentList data={data} params={params} />
         </div>
 
         <div className='right-side'>

@@ -20,12 +20,20 @@ export default function CryptoWidget({ data, params }) {
         <CryptoWidgetFlexibility data={data.cryptoWidgetPage} />
         <CryptoBusinessSection />
         <CryptoWidgetFeatures />
-        <FeesBusiness modelId='2540254' params={params} />
+        <FeesBusiness
+          data={data.feesYourBusiness}
+          modelId='2540254'
+          params={params}
+        />
         <HowIntegrateCryptoSection />
         <SafetyReliability />
-        <OurLandscapeSection params={params} />
+        <OurLandscapeSection data={data.ourLandscape} params={params} />
         <ConnectCryptoSection />
-        <QuestionsSection params={params} nameCMSPage='cryptoWidgetPage' />
+        <QuestionsSection
+          faq={data}
+          params={params}
+          nameCMSPage='cryptoWidgetPage'
+        />
         <SendRequestSection />
       </main>
     </PageProvider>

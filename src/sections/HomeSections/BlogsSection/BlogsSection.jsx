@@ -5,17 +5,17 @@ import { StyledBlogsSection } from './BlogsSection.styled'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import Device, { DESKTOP } from '@/components/Device/Device'
 import HomePageBlogsSectionSwiper from './components/HomePageBlogsSectionSwiper'
-import { getData } from '@/lib/datocms'
-import { HOME_B2B_BLOG } from '@/lib/datocmsQuery'
+// import { getData } from '@/lib/datocms'
+// import { HOME_B2B_BLOG } from '@/lib/datocmsQuery'
 
 const DynamicHomePageBlogsGrid = dynamic(() =>
   import('./components/HomePageBlogsGrid')
 )
 
-export default async function BlogsSection({ params, trans }) {
-  const { homePage: data, allBlogs: blogs } = await getData(HOME_B2B_BLOG, {
-    locale: params.locale,
-  })
+export default async function BlogsSection({ trans, data, blogs }) {
+  // const { homePage: data, allBlogs: blogs } = await getData(HOME_B2B_BLOG, {
+  //   locale: params.locale,
+  // })
 
   return (
     <StyledBlogsSection>

@@ -28,23 +28,23 @@ const DynamicFeeBusinessDescriptionWrapper = dynamic(
 )
 
 // eslint-disable-next-line no-unused-vars
-export default function FeesBusiness({ modelId, autoId, params }) {
-  const [data, setData] = useState({})
+export default function FeesBusiness({ modelId, autoId, params, data }) {
+  // const [data, setData] = useState({})
 
-  useEffect(() => {
-    const response = async () => {
-      const { feesYourBusiness: data } = await getPageData({
-        query: HOME_B2B_FEES,
-        variables: {
-          locale: params.locale,
-        },
-      })
+  // useEffect(() => {
+  //   const response = async () => {
+  //     const { feesYourBusiness: data } = await getPageData({
+  //       query: HOME_B2B_FEES,
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //     })
 
-      setData(data)
-    }
+  //     setData(data)
+  //   }
 
-    response()
-  }, [])
+  //   response()
+  // }, [])
 
   return (
     <div className={clsx(styles.wrapper, 'fees')}>

@@ -9,8 +9,8 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 import Check from '@/assets/icons/check-dark.svg'
 import { ButtonGhostCrypto } from '@/components/UI/Button'
-import { getData } from '@/lib/datocms'
-import { HOME_B2B_CRYPTO_WIDGET_2 } from '@/lib/datocmsQuery'
+// import { getData } from '@/lib/datocms'
+// import { HOME_B2B_CRYPTO_WIDGET_2 } from '@/lib/datocmsQuery'
 import Animated2GifOnView from '@/components/AnimatedVideo/Animated2GifOnView'
 import Device, {
   DESKTOP,
@@ -27,10 +27,10 @@ const DynamicAnimatedVideoOnScroll = dynamic(
   }
 )
 
-export default async function CryptoWidget2Section({ params }) {
-  const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET_2, {
-    locale: params.locale,
-  })
+export default async function CryptoWidget2Section({ data }) {
+  // const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET_2, {
+  //   locale: params.locale,
+  // })
 
   return (
     <section className={styles.wrapper}>
@@ -118,7 +118,7 @@ export default async function CryptoWidget2Section({ params }) {
               </ButtonGhostCrypto>
             </div>
 
-            <CryptoWidget2ModalWithButton data={data} params={params} />
+            <CryptoWidget2ModalWithButton data={data} />
           </div>
         </div>
         <div className='rightSide'>

@@ -110,27 +110,28 @@ export function ModalSubmitEmail({
   handleSubmit,
   onSubmit,
   register,
-  params,
+  data,
+  // params,
 }) {
-  const [data, setData] = useState({})
+  // const [data, setData] = useState({})
   // const {
   //   dataPage: { homePage: data },
   // } = useContext(PageContext)
 
-  useEffect(() => {
-    const getData = async () => {
-      const pageData = await getPageData({
-        variables: {
-          locale: params.locale,
-        },
-        query: MODAL_2,
-      })
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const pageData = await getPageData({
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //       query: MODAL_2,
+  //     })
 
-      setData(pageData.homePage)
-    }
+  //     setData(pageData.homePage)
+  //   }
 
-    getData()
-  }, [])
+  //   getData()
+  // }, [])
 
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>

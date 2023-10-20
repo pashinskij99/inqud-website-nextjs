@@ -39,7 +39,7 @@ export async function performRequest({
   includeDrafts = false,
   excludeInvalid = false,
   visualEditingBaseUrl,
-  revalidate = 360,
+  revalidate = 0,
 }) {
   const { data } = await dedupedFetch(
     JSON.stringify({
@@ -107,7 +107,7 @@ export const getData = async (query, variables) => {
   try {
     return await performRequest({
       query,
-      revalidate: 360,
+      revalidate: 0,
       variables,
     })
   } catch (error) {

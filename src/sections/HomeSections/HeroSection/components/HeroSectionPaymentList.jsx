@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import clsx from 'clsx'
 import styles from '../HeroSection.module.scss'
@@ -8,26 +8,26 @@ import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-import { getPageData } from '@/lib/datocms'
-import { HOME_B2B_HERO_LIST } from '@/lib/datocmsQuery'
+// import { getPageData } from '@/lib/datocms'
+// import { HOME_B2B_HERO_LIST } from '@/lib/datocmsQuery'
 
-export default function HeroSectionPaymentList({ params }) {
-  const [data, setData] = useState({})
+export default function HeroSectionPaymentList({ data }) {
+  // const [data, setData] = useState({})
 
-  useEffect(() => {
-    const getData = async () => {
-      const pageData = await getPageData({
-        variables: {
-          locale: params.locale,
-        },
-        query: HOME_B2B_HERO_LIST,
-      })
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const pageData = await getPageData({
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //       query: HOME_B2B_HERO_LIST,
+  //     })
 
-      setData(pageData.supportedCurrency)
-    }
+  //     setData(pageData.supportedCurrency)
+  //   }
 
-    getData()
-  }, [])
+  //   getData()
+  // }, [])
 
   return (
     <div className={clsx('payment', styles.payment)}>

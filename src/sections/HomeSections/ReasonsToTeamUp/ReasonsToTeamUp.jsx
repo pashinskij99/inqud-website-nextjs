@@ -1,33 +1,33 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
-import { HOME_B2B_REASONS_TEAM_UP } from '@/lib/datocmsQuery'
-import { getPageData } from '@/lib/datocms'
+// import { HOME_B2B_REASONS_TEAM_UP } from '@/lib/datocmsQuery'
+// import { getPageData } from '@/lib/datocms'
 
-export default function ReasonsToTeamUp({ params }) {
-  const [data, setData] = useState({})
+export default function ReasonsToTeamUp({ data }) {
+  // const [data, setData] = useState({})
 
-  useEffect(() => {
-    const response = async () => {
-      const { homePage: data } = await getPageData({
-        query: HOME_B2B_REASONS_TEAM_UP,
-        variables: {
-          locale: params.locale,
-        },
-      })
+  // useEffect(() => {
+  //   const response = async () => {
+  //     const { homePage: data } = await getPageData({
+  //       query: HOME_B2B_REASONS_TEAM_UP,
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //     })
 
-      setData(data)
-    }
+  //     setData(data)
+  //   }
 
-    response()
-  }, [])
+  //   response()
+  // }, [])
   // const { homePage: data } = await getData(HOME_B2B_REASONS_TEAM_UP, {
   //   locale: params.locale,
   // })

@@ -174,7 +174,7 @@ const CRYPTO_WIDGET = `
 export async function generateMetadata() {
   const response = await performRequest({
     query: PAGE_SEO_QUERY('cryptoWidgetPage'),
-    revalidate: 360,
+    revalidate: 0,
   })
 
   return toNextMetadata([...response.cryptoWidgetPage.seo])

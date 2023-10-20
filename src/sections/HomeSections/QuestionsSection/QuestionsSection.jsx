@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
@@ -10,26 +10,26 @@ import { StyledQuestionsSection } from './QuestionsSection.styled'
 import { ButtonLearnMore } from '@/components/UI/Button'
 import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import QuestionsAccordion from './components/QuestionsAccordion'
-import { getPageData } from '@/lib/datocms'
-import { FAQ_QUERY } from '@/lib/datocmsQuery'
+// import { getPageData } from '@/lib/datocms'
+// import { FAQ_QUERY } from '@/lib/datocmsQuery'
 
-export default function QuestionsSection({ params, nameCMSPage }) {
-  const [faq, setFaq] = useState({})
+export default function QuestionsSection({ faq }) {
+  // const [faq, setFaq] = useState({})
 
-  useEffect(() => {
-    const response = async () => {
-      const data = await getPageData({
-        query: FAQ_QUERY({ pageCMSName: nameCMSPage }),
-        variables: {
-          locale: params.locale,
-        },
-      })
+  // useEffect(() => {
+  //   const response = async () => {
+  //     const data = await getPageData({
+  //       query: FAQ_QUERY({ pageCMSName: nameCMSPage }),
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //     })
 
-      setFaq(data[nameCMSPage])
-    }
+  //     setFaq(data[nameCMSPage])
+  //   }
 
-    response()
-  }, [])
+  //   response()
+  // }, [])
 
   // const data = await getData(FAQ_QUERY({ pageCMSName: nameCMSPage }), {
   //   locale: params.locale,

@@ -19,7 +19,7 @@ const PRIVACY_NOTE_PAGE_QUERY = `
 export async function generateMetadata() {
   const response = await performRequest({
     query: PAGE_SEO_QUERY('whoWeAreAndHowToContact'),
-    revalidate: 360,
+    revalidate: 0,
   })
 
   return toNextMetadata([...response.whoWeAreAndHowToContact.seo])

@@ -26,10 +26,10 @@ const DynamicCryptoWidgetSectionAnimationOnScroll = dynamic(
   }
 )
 
-export default async function CryptoWidgetSection({ trans, params }) {
-  const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET, {
-    locale: params.locale,
-  })
+export default async function CryptoWidgetSection({ trans, data }) {
+  // const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET, {
+  //   locale: params.locale,
+  // })
   return (
     <section className={styles.wrapper}>
       <div className={clsx('container', styles.container)}>

@@ -54,10 +54,10 @@ const DynamicYourNeedsSectionDesktopCarts = dynamic(
   }
 )
 
-export default async function YourNeedsSection({ trans, transCart, params }) {
-  const { homePage: data } = await getData(HOME_B2B_NEEDS, {
-    locale: params.locale,
-  })
+export default async function YourNeedsSection({ trans, transCart, data }) {
+  // const { homePage: data } = await getData(HOME_B2B_NEEDS, {
+  //   locale: params.locale,
+  // })
   const list = [
     {
       id: 0,

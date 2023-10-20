@@ -21,9 +21,17 @@ export default function ApiPage({ data, params }) {
         <InstantFree data={data.apiPage} />
         <DevelopGuide data={data.apiPage} />
         <PickApiSection data={data.apiPage} leadFormData={data.pickLeadForm} />
-        <FeesBusiness modelId='2540343' params={params} />
-        <OurLandscapeSection params={params} />
-        <QuestionsSection nameCMSPage='apiPage' params={params} />
+        <FeesBusiness
+          data={data.feesYourBusiness}
+          modelId='2540343'
+          params={params}
+        />
+        <OurLandscapeSection data={data.ourLandscape} params={params} />
+        <QuestionsSection
+          faq={data.apiPage}
+          nameCMSPage='apiPage'
+          params={params}
+        />
         <Contact />
       </StyledApiPageWrapper>
     </PageProvider>

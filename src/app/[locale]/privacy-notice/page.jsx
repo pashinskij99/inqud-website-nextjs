@@ -19,7 +19,7 @@ query MyQuery($locale: SiteLocale) {
 export async function generateMetadata() {
   const response = await performRequest({
     query: PAGE_SEO_QUERY('privacyNotePage'),
-    revalidate: 360,
+    revalidate: 0,
   })
 
   return toNextMetadata([...response.privacyNotePage.seo])

@@ -185,7 +185,7 @@ const API_QUERY = `
 export async function generateMetadata() {
   const response = await performRequest({
     query: PAGE_SEO_QUERY('apiPage'),
-    revalidate: 360,
+    revalidate: 0,
   })
 
   return toNextMetadata([...response.apiPage.seo])
