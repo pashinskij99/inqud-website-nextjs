@@ -81,6 +81,8 @@ export default function AnimatedFirstScreenVideo({
       <StyledAnimatedVideo
         width={width}
         muted
+        controls={false}
+        playsInline
         height={height}
         ref={videoRef2}
         onEnded={handleEnd2}
