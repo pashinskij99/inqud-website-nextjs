@@ -27,7 +27,7 @@ export function SubTitle({ className, children }) {
   )
 }
 
-export default function HeroB2CSection({ data, params }) {
+export default function HeroB2CSection({ paymentListData, data, params }) {
   // const {
   //   params,
   //   dataPage: { homeB2c: data },
@@ -52,7 +52,7 @@ export default function HeroB2CSection({ data, params }) {
             </Link>
           </div>
 
-          <HeroSectionPaymentList data={data} params={params} />
+          <HeroSectionPaymentList data={paymentListData} params={params} />
         </div>
         <div className='right-side'>
           {/* <Device device={MOBILE}> */}
