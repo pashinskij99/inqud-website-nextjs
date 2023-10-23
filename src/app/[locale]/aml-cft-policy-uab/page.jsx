@@ -5,7 +5,7 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const AML_CFT_POLICY_UAB_PAGE_QUERY = `  
 query MyQuery($locale: SiteLocale) {
-    antiMoneyLaundering(locale: $locale) {
+    antiMoneyLaundering(locale: $locale, fallbackLocales: en) {
     content {
       value
     }

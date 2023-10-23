@@ -1,11 +1,11 @@
 import { toNextMetadata } from 'react-datocms'
 import HomePage from '@/views/HomePage'
 import { getData, performRequest } from '@/lib/datocms'
-import { HOME_PAGE_QUERY, PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
+import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const HOMEPAGE_QUERY = `
 query MyQuery($locale: SiteLocale) {
-  homePage(locale: $locale) {
+  homePage(locale: $locale, fallbackLocales: en) {
     lead5Title
     lead5Description
     lead5ButtonText
@@ -104,7 +104,7 @@ query MyQuery($locale: SiteLocale) {
     }
   }
 
-  cryptoLeadForm(locale: $locale) {
+  cryptoLeadForm(locale: $locale, fallbackLocales: en) {
     buttonText
     description
     footerDescription {
@@ -121,12 +121,12 @@ query MyQuery($locale: SiteLocale) {
     whatsappPlaceholder
   }
 
-  pickLeadForm(locale: $locale) {
+  pickLeadForm(locale: $locale, fallbackLocales: en) {
     pickDescription
     buttonText
   }
 
-  feesYourBusiness(locale: $locale) {
+  feesYourBusiness(locale: $locale, fallbackLocales: en) {
     title
     id
     cartButton
@@ -148,7 +148,7 @@ query MyQuery($locale: SiteLocale) {
     }
   }
 
-  supportedCurrency(locale: $locale) {
+  supportedCurrency(locale: $locale, fallbackLocales: en) {
     id
     title
     list {
@@ -160,7 +160,7 @@ query MyQuery($locale: SiteLocale) {
     }
   }
 
-  ourLandscape(locale: $locale) {
+  ourLandscape(locale: $locale, fallbackLocales: en) {
     title
     tabName2
     tabName1
@@ -187,7 +187,7 @@ query MyQuery($locale: SiteLocale) {
     }
   }
 
-  allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: 3) {
+  allBlogs(locale: $locale, fallbackLocales: en, orderBy: _createdAt_DESC, first: 3) {
     id
     mainTitle
     slugPage

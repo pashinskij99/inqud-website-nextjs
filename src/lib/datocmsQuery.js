@@ -1,6 +1,6 @@
 export const HOME_PAGE_QUERY = `
 query MyQuery($locale: SiteLocale) {
-  homePage(locale: $locale) {
+  homePage(locale: $locale, fallbackLocales: en) {
     buttonScreen1ContactSales
     buttonScreen1GetStarted
     description {
@@ -16,7 +16,7 @@ query MyQuery($locale: SiteLocale) {
 `
 export const PAGE_SEO_QUERY = (page) => `
 query MyQuery($locale: SiteLocale) {
-  ${page}(locale: $locale) {
+  ${page}(locale: $locale, fallbackLocales: en) {
     seo: _seoMetaTags {
       attributes
       content
@@ -27,7 +27,7 @@ query MyQuery($locale: SiteLocale) {
 `
 export const HOME_B2B_NEEDS = `
 query MyQuery($locale: SiteLocale) {
-  homePage(locale: $locale) {
+  homePage(locale: $locale, fallbackLocales: en) {
     buttonScreen2
   }
 }
@@ -35,7 +35,7 @@ query MyQuery($locale: SiteLocale) {
 
 export const HOME_B2B_CRYPTO_WIDGET = `
   query MyQuery($locale: SiteLocale) {
-    homePage(locale: $locale) {
+    homePage(locale: $locale, fallbackLocales: en) {
       screen3SubTitle
       screen3Title
       screen3Description
@@ -55,7 +55,7 @@ export const HOME_B2B_CRYPTO_WIDGET = `
 
 export const HOME_B2B_HERO_LIST = `
   query MyQuery($locale: SiteLocale) {
-    supportedCurrency(locale: $locale) {
+    supportedCurrency(locale: $locale, fallbackLocales: en) {
       id
       title
       list {
@@ -71,7 +71,7 @@ export const HOME_B2B_HERO_LIST = `
 
 export const HOME_B2B_SMOOTH_API = `
   query MyQuery($locale: SiteLocale) {
-    homePage(locale: $locale) {
+    homePage(locale: $locale, fallbackLocales: en) {
       screen4SubTitle
       screen4Title
       screen4Description
@@ -91,7 +91,7 @@ export const HOME_B2B_SMOOTH_API = `
 
 export const HOME_B2B_CRYPTO_WIDGET_2 = `
   query MyQuery($locale: SiteLocale) {
-    homePage(locale: $locale) {
+    homePage(locale: $locale, fallbackLocales: en) {
       screen5SubTitle
       screen5Title
       screen5Description
@@ -115,7 +115,7 @@ export const HOME_B2B_CRYPTO_WIDGET_2 = `
 
 export const HOME_B2B_PICK_SECTION_DONT_LOSE = `
   query MyQuery($locale: SiteLocale) {
-    homePage(locale: $locale) {
+    homePage(locale: $locale, fallbackLocales: en) {
       leadForm1Title
       leadForm2Title
       leadForm1List
@@ -128,7 +128,7 @@ export const HOME_B2B_PICK_SECTION_DONT_LOSE = `
       }
       leadForm1ListTitle
     }
-    pickLeadForm(locale: $locale) {
+    pickLeadForm(locale: $locale, fallbackLocales: en) {
       pickDescription
       buttonText
    }
@@ -137,7 +137,7 @@ export const HOME_B2B_PICK_SECTION_DONT_LOSE = `
 
 export const HOME_B2B_REASONS_TEAM_UP = `
  query MyQuery($locale: SiteLocale) {
-    homePage(locale: $locale) {
+    homePage(locale: $locale, fallbackLocales: en) {
       screen6Title
       screen6Description
       screen6Features {
@@ -154,7 +154,7 @@ export const HOME_B2B_REASONS_TEAM_UP = `
 
 export const HOME_B2B_FEES = `
   query MyQuery($locale: SiteLocale) {
-    feesYourBusiness(locale: $locale) {
+    feesYourBusiness(locale: $locale, fallbackLocales: en) {
       title
       id
       cartButton
@@ -180,7 +180,7 @@ export const HOME_B2B_FEES = `
 
 export const HOME_B2B_LANDSCAPE = `
   query MyQuery($locale: SiteLocale) {
-    ourLandscape(locale: $locale) {
+    ourLandscape(locale: $locale, fallbackLocales: en) {
       title
       tabName2
       tabName1
@@ -211,10 +211,10 @@ export const HOME_B2B_LANDSCAPE = `
 
 export const HOME_B2B_BLOG = `
   query MyQuery($locale: SiteLocale) {
-    homePage(locale: $locale) {
+    homePage(locale: $locale, fallbackLocales: en) {
       buttonBlog
     }
-    allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: 3) {
+    allBlogs(locale: $locale, fallbackLocales: en, orderBy: _createdAt_DESC, first: 3) {
       id
       mainTitle
       slugPage
@@ -233,7 +233,7 @@ export const HOME_B2B_BLOG = `
 
 export const FAQ_QUERY = ({ pageCMSName }) => `
   query MyQuery($locale: SiteLocale) {
-    ${pageCMSName}(locale: $locale) {
+    ${pageCMSName}(locale: $locale, fallbackLocales: en) {
       faqMainTitle
       faqMainTitleMobile
       faqDescription
@@ -250,7 +250,7 @@ export const FAQ_QUERY = ({ pageCMSName }) => `
 
 export const MODAL_1 = `
   query MyQuery($locale: SiteLocale) {
-    cryptoLeadForm(locale: $locale) {
+    cryptoLeadForm(locale: $locale, fallbackLocales: en) {
       buttonText
       description
       footerDescription {
@@ -271,7 +271,7 @@ export const MODAL_1 = `
 
 export const MODAL_2 = `
   query MyQuery($locale: SiteLocale) {
-    homePage(locale: $locale) {
+    homePage(locale: $locale, fallbackLocales: en) {
       lead5Title
       lead5Description
       lead5ButtonText

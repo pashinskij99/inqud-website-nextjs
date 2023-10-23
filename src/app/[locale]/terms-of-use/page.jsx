@@ -5,7 +5,7 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const PRIVACY_NOTE_PAGE_QUERY = `  
     query MyQuery($locale: SiteLocale) {
-        whoWeAreAndHowToContact(locale: $locale) {
+        whoWeAreAndHowToContact(locale: $locale, fallbackLocales: en) {
             content {
                 value
             }

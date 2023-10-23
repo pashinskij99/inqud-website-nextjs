@@ -5,10 +5,10 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const PAGE_QUERY = `  
 query MyQuery($locale: SiteLocale) {
-  homePage(locale: $locale) {
+  homePage(locale: $locale, fallbackLocales: en) {
     buttonBlog
   }
-  allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: 3) {
+  allBlogs(locale: $locale, fallbackLocales: en, orderBy: _createdAt_DESC, first: 3) {
     id
     mainTitle
     mainTag {
@@ -22,7 +22,7 @@ query MyQuery($locale: SiteLocale) {
     }
   }
 
-  homeB2c(locale: $locale) {
+  homeB2c(locale: $locale, fallbackLocales: en) {
     faqMainTitle
     faqMainTitleMobile
     faqDescription
@@ -90,7 +90,7 @@ query MyQuery($locale: SiteLocale) {
     buttonScreen1
   }
 
-  supportedCurrency(locale: $locale) {
+  supportedCurrency(locale: $locale, fallbackLocales: en) {
     id
     title
     list {

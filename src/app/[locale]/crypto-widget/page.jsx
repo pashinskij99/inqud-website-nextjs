@@ -6,10 +6,10 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const CRYPTO_WIDGET = `
   query MyQuery($locale: SiteLocale) {
-    homePage(locale: $locale){
+    homePage(locale: $locale, fallbackLocales: en){
       faqButton
     }
-    cryptoWidgetPage(locale: $locale) {
+    cryptoWidgetPage(locale: $locale, fallbackLocales: en) {
       faqMainTitle
       faqMainTitleMobile
       faqDescription
@@ -86,7 +86,7 @@ const CRYPTO_WIDGET = `
       subTitle
       title
     }
-    cryptoLeadForm(locale: $locale) {
+    cryptoLeadForm(locale: $locale, fallbackLocales: en) {
       buttonText
       description
       footerDescription {
@@ -102,11 +102,11 @@ const CRYPTO_WIDGET = `
       title
       whatsappPlaceholder
     }
-    apiPage(locale: $locale) {
+    apiPage(locale: $locale, fallbackLocales: en) {
       screen9Button
       screen9Title
     }
-    supportedCurrency(locale: $locale) {
+    supportedCurrency(locale: $locale, fallbackLocales: en) {
       id
       title
       list {
@@ -117,7 +117,7 @@ const CRYPTO_WIDGET = `
         }
       }
     }
-    ourLandscape(locale: $locale) {
+    ourLandscape(locale: $locale, fallbackLocales: en) {
       title
       tabName2
       tabName1
@@ -147,7 +147,7 @@ const CRYPTO_WIDGET = `
       industry
       id
     }
-    feesYourBusiness(locale: $locale) {
+    feesYourBusiness(locale: $locale, fallbackLocales: en) {
       title
       id
       cartButton

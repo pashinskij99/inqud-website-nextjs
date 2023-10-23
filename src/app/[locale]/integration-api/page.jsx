@@ -5,10 +5,10 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const API_QUERY = `
   query MyQuery($locale: SiteLocale) {
-    homePage(locale: $locale){
+    homePage(locale: $locale, fallbackLocales: en){
       faqButton
     }
-    cryptoLeadForm(locale: $locale) {
+    cryptoLeadForm(locale: $locale, fallbackLocales: en) {
       buttonText
       description
       footerDescription {
@@ -24,7 +24,7 @@ const API_QUERY = `
       title
       whatsappPlaceholder
     }
-    apiPage(locale: $locale) {
+    apiPage(locale: $locale, fallbackLocales: en) {
       faqMainTitle
       faqMainTitleMobile
       faqDescription
@@ -113,7 +113,7 @@ const API_QUERY = `
       screen9Button
       screen9Title
     }
-    supportedCurrency(locale: $locale) {
+    supportedCurrency(locale: $locale, fallbackLocales: en) {
       id
       title
       list {
@@ -124,7 +124,7 @@ const API_QUERY = `
         }
       }
     }
-    feesYourBusiness(locale: $locale) {
+    feesYourBusiness(locale: $locale, fallbackLocales: en) {
       title
       id
       cartButton
@@ -145,7 +145,7 @@ const API_QUERY = `
         title
       }
     }
-    ourLandscape(locale: $locale) {
+    ourLandscape(locale: $locale, fallbackLocales: en) {
       title
       tabName2
       tabName1
@@ -171,7 +171,7 @@ const API_QUERY = `
         url
       }
     }
-    pickLeadForm(locale: $locale) {
+    pickLeadForm(locale: $locale, fallbackLocales: en) {
       buttonText
       pickDescription
     }

@@ -3,7 +3,7 @@ import { getData } from '@/lib/datocms'
 
 const HELP_CENTRE_QUERY = `
   query MyQuery($locale: SiteLocale) {
-    helpCentreHero(locale: $locale) {
+    helpCentreHero(locale: $locale, fallbackLocales: en) {
       title
       placeholder
       id

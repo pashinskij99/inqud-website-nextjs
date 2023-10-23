@@ -53,6 +53,7 @@ export async function POST(req) {
     allBlogs(
       orderBy: _createdAt_DESC,
       locale: $locale,
+      fallbackLocales: en,
       first: $first,
       skip: $skip,
       filter: {

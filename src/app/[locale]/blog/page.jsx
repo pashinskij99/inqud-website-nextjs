@@ -16,11 +16,11 @@ export async function generateMetadata() {
 async function Page({ searchParams, params }) {
   const PAGE_TAG_QUERY = `
   query Blog($locale: SiteLocale) {
-    allTags(locale: $locale) {
+    allTags(locale: $locale, fallbackLocales: en) {
       tag
       id
     }
-    blogHeroSection(locale: $locale) {
+    blogHeroSection(locale: $locale, fallbackLocales: en) {
       title
       inputPlaceholder
       id

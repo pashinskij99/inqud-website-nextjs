@@ -3,7 +3,7 @@ import { getData } from '@/lib/datocms'
 
 const HELP_CENTRE_QUERY = `
   query MyQuery($locale: SiteLocale) {
-    allHelpCentres(locale: $locale) {
+    allHelpCentres(locale: $locale, fallbackLocales: en) {
       slugPage
       content {
         id

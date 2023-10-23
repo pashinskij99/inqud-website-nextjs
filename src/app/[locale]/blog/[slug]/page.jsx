@@ -4,7 +4,7 @@ import BlogPage from '@/views/BlogPage'
 
 const PAGE_CONTENT_QUERY = `
 query Blog($slug: String, $locale: SiteLocale) {
-  blogHeroSection(locale: $locale) {
+  blogHeroSection(locale: $locale, fallbackLocales: en) {
     title
     inputPlaceholder
     id
@@ -15,7 +15,7 @@ query Blog($slug: String, $locale: SiteLocale) {
     button
     buttonLoadMore
   }
-  blog(locale: $locale, filter: {slugPage: {eq: $slug}}) {
+  blog(locale: $locale, fallbackLocales: en, filter: {slugPage: {eq: $slug}}) {
     id
     nameAuthor
     industries {
@@ -78,7 +78,7 @@ query Blog($slug: String, $locale: SiteLocale) {
 
 const PAGE_CONTENT_QUERY_SEO = `
 query Blog($slug: String, $locale: SiteLocale) {
-  blog(locale: $locale, filter: {slugPage: {eq: $slug}}) {
+  blog(locale: $locale, fallbackLocales: en, filter: {slugPage: {eq: $slug}}) {
     seoMetaTag {
       description
       title
@@ -88,7 +88,7 @@ query Blog($slug: String, $locale: SiteLocale) {
 
 const PAGE_RELATED_CONTENT_QUERY = `
 query Home($first: IntType = 3, $tagId: [ItemId], $slug: String, $locale: SiteLocale) {
-    allBlogs(locale: $locale, orderBy: _createdAt_DESC, first: $first, filter: { slugPage: {neq: $slug}, mainTag: {in: $tagId} }) {
+    allBlogs(locale: $locale, fallbackLocales: en, orderBy: _createdAt_DESC, first: $first, filter: { slugPage: {neq: $slug}, mainTag: {in: $tagId} }) {
         id
         mainTitle
         slugPage

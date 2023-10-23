@@ -6,7 +6,7 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const COMPANY_PAGE_QUERY = `  
 query MyQuery($locale: SiteLocale) {
-  aboutUsPage(locale: $locale) {
+  aboutUsPage(locale: $locale, fallbackLocales: en) {
     id
     screen1Description1
     screen1Description2
@@ -53,7 +53,7 @@ query MyQuery($locale: SiteLocale) {
       }
     }
   }
-  allTeams(locale: $locale) {
+  allTeams(locale: $locale, fallbackLocales: en) {
     profession
     social {
       title

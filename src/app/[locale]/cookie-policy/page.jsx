@@ -5,7 +5,7 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const COOKIE_POLICY_PAGE_QUERY = `  
   query MyQuery($locale: SiteLocale) {
-    cookiePolicy(locale: $locale) {
+    cookiePolicy(locale: $locale, fallbackLocales: en) {
       content {
         value
       }
