@@ -15,7 +15,11 @@ export default function ApiPage({ data, params }) {
   return (
     <PageProvider isFaq dataPage={data} nameCMSPage='apiPage'>
       <StyledApiPageWrapper>
-        <ApiHeroSection data={data.apiPage} params={params} />
+        <ApiHeroSection
+          paymentListData={data.supportedCurrency}
+          data={data.apiPage}
+          params={params}
+        />
         <APIFlexibility data={data.apiPage} />
         <HowIntegrate />
         <InstantFree data={data.apiPage} />

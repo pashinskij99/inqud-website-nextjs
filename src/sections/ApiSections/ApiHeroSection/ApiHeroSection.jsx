@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useContext } from 'react'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
@@ -12,17 +11,16 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
-import { PageContext } from '@/contexts/PageContext/PageContext'
 // import Animated2Gif from '@/components/AnimatedVideo/Animated2Gif'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
-import Device, { MOBILE, TABLET_OR_DESKTOP } from '@/components/Device/Device'
+import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import ApiHeroButtonShowModal from './components/ApiHeroButtonShowModal'
 
 const DynamicAnimatedOneVideo = dynamic(() =>
   import('@/components/AnimatedVideo/AnimatedOneVideo')
 )
 
-export default function ApiHeroSection({ params, data }) {
+export default function ApiHeroSection({ paymentListData, params, data }) {
   // const {
   //   params,
   //   dataPage: { apiPage: data },
@@ -61,7 +59,7 @@ export default function ApiHeroSection({ params, data }) {
             <ApiHeroButtonShowModal data={data} />
           </div>
 
-          <HeroSectionPaymentList data={data} params={params} />
+          <HeroSectionPaymentList data={paymentListData} params={params} />
         </div>
         <div className='right-side'>
           <Device device={TABLET_OR_DESKTOP}>
