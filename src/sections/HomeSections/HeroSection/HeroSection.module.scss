@@ -199,6 +199,9 @@
 
     .rightSide {
       position: relative;
+      max-width: 595px;
+      width: 100%;
+      flex-shrink: 0;
       .graphic {
         width: 595px;
         height: 595px;
