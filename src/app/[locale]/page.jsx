@@ -6,6 +6,8 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 const HOMEPAGE_QUERY = `
 query MyQuery($locale: SiteLocale) {
   homePage(locale: $locale, fallbackLocales: en) {
+    buttonLead1Book
+    buttonLead3Book
     lead5Title
     lead5Description
     lead5ButtonText

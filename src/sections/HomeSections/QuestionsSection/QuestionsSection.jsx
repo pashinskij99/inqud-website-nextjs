@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 // import { useEffect, useState } from 'react'
+import clsx from 'clsx'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH5,
@@ -13,7 +14,7 @@ import QuestionsAccordion from './components/QuestionsAccordion'
 // import { getPageData } from '@/lib/datocms'
 // import { FAQ_QUERY } from '@/lib/datocmsQuery'
 
-export default function QuestionsSection({ faq }) {
+export default function QuestionsSection({ faq, className }) {
   // const [faq, setFaq] = useState({})
 
   // useEffect(() => {
@@ -39,7 +40,7 @@ export default function QuestionsSection({ faq }) {
   // if (!faq) return null
 
   return (
-    <StyledQuestionsSection className='faq'>
+    <StyledQuestionsSection className={clsx('faq', className)}>
       <div className='container'>
         <Device device={TABLET_OR_DESKTOP}>
           <StyledTypographyUrbanistH2 className='questionsTitle'>

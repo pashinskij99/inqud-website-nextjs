@@ -58,6 +58,15 @@ query MyQuery($locale: SiteLocale) {
       title
       image {
         url
+        responsiveImage {
+          sizes
+          src
+          width
+          height
+          alt
+          title
+          base64
+        }
       }
       id
       feature {

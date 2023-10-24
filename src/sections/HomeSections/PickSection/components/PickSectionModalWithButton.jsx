@@ -11,7 +11,7 @@ const DynamicModalCalendaly = dynamic(
   }
 )
 
-export default function PickSectionModalWithButton({ leadFormData }) {
+export default function PickSectionModalWithButton({ buttonText }) {
   const [calendlyModal, setCalendlyModal] = useState(false)
 
   const handleOpenCalendlyModal = async () => {
@@ -35,7 +35,7 @@ export default function PickSectionModalWithButton({ leadFormData }) {
         onClick={handleOpenCalendlyModal}
         className='pickPickButton'
       >
-        {leadFormData?.buttonText}
+        {buttonText}
       </StyledButtonSecondaryLight>
       {calendlyModal ? (
         <DynamicModalCalendaly

@@ -11,7 +11,7 @@ import PickSectionModalWithButton from './PickSectionModalWithButton'
 import { StyledPickSectionSection } from '../PickSection.styled'
 // import { PageContext } from '@/contexts/PageContext/PageContext'
 
-export function PickApiSection({ className, data, leadFormData }) {
+export function PickApiSection({ buttonText, className, data, leadFormData }) {
   // const {
   //   dataPage: { apiPage: data, pickLeadForm: leadFormData },
   // } = useContext(PageContext)
@@ -34,7 +34,7 @@ export function PickApiSection({ className, data, leadFormData }) {
             {leadFormData.pickDescription}
           </StyledTypographyUrbanistBody>
 
-          <PickSectionModalWithButton leadFormData={leadFormData} />
+          <PickSectionModalWithButton buttonText={buttonText} />
         </div>
       </div>
     </StyledPickSectionSection>

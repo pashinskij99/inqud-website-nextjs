@@ -25,6 +25,7 @@ const API_QUERY = `
       whatsappPlaceholder
     }
     apiPage(locale: $locale, fallbackLocales: en) {
+      leadForm1Button
       faqMainTitle
       faqMainTitleMobile
       faqDescription

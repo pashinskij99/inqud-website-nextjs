@@ -15,14 +15,8 @@ export default async function PickSection({
   className,
   data,
   leadFormData,
+  buttonText,
 }) {
-  // const { homePage: data, pickLeadForm: leadFormData } = await getData(
-  //   HOME_B2B_PICK_SECTION_DONT_LOSE,
-  //   {
-  //     locale: params.locale,
-  //   }
-  // )
-
   return (
     <section className={clsx(className, 'container', styles.wrapper)}>
       {/* <StyledPickSectionSection > */}
@@ -59,7 +53,7 @@ export default async function PickSection({
             {leadFormData?.pickDescription}
           </StyledTypographyUrbanistBody>
 
-          <PickSectionModalWithButton leadFormData={leadFormData} />
+          <PickSectionModalWithButton buttonText={buttonText} />
         </div>
       </div>
       {/* </StyledPickSectionSection> */}

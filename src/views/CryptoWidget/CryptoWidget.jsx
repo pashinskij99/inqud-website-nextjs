@@ -34,7 +34,8 @@ export default function CryptoWidget({ data, params }) {
         <OurLandscapeSection data={data.ourLandscape} params={params} />
         <ConnectCryptoSection />
         <QuestionsSection
-          faq={data}
+          className='faq'
+          faq={data.cryptoWidgetPage}
           params={params}
           nameCMSPage='cryptoWidgetPage'
         />

@@ -273,6 +273,10 @@ export const StyledTabContentWrapper = styled.div`
     `}
 
     .image-wrapper {
+      img {
+        width: fit-content;
+        height: auto;
+      }
     }
     img {
       ${responsive.xxl`

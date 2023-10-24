@@ -1,5 +1,6 @@
 'use client'
 
+import { Image as DatoImage } from 'react-datocms'
 import { useState, useContext } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -56,7 +57,7 @@ export default function ProductLineB2CSection() {
           title={data.screen3Feature[active].title}
           description={data.screen3Feature[active].description}
           grid={data.screen3Feature[active].feature}
-          picture={data.screen3Feature[active].image.url}
+          picture={data.screen3Feature[active].image}
           button={data.screen3Feature[active].button}
         />
       </div>
@@ -103,12 +104,7 @@ function TabContent({ title, description, grid, picture, button }) {
         </div>
         <div className='right-side'>
           <div className='image-wrapper'>
-            <Image
-              src={picture}
-              width={315}
-              height={363}
-              alt='Personal wallet'
-            />
+            <DatoImage data={picture.responsiveImage} />
           </div>
         </div>
       </div>

@@ -7,8 +7,8 @@ export default function AnimatedMobile() {
     <div className={styles['gif-wrapper']}>
       <Image
         className={clsx(styles.gif, styles.gif_1)}
-        src='/video/b2b_hero_mobile.gif'
-        alt='avif'
+        src='/video/b2b_hero_mobile.webp'
+        alt='video'
         priority
         autoplay
         fetchpriority='high'

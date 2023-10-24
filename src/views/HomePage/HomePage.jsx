@@ -54,6 +54,7 @@ export default function HomePage({ params, data }) {
       <CryptoWidgetSection trans={cryptoWidgetTrans} data={data.homePage} />
       <SmoothAPISection data={data.homePage} />
       <PickSection
+        buttonText={data.homePage.buttonLead1Book}
         data={data.homePage}
         leadFormData={data.pickLeadForm}
         className={styles.pickSection}
@@ -72,6 +73,7 @@ export default function HomePage({ params, data }) {
         data={data.homePage}
         leadFormData={data.pickLeadForm}
         className={styles.pickSection2}
+        buttonText={data.homePage.buttonLead3Book}
       />
       <BlogsSection
         data={data.homePage}

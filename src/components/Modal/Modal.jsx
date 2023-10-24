@@ -431,7 +431,7 @@ export function FeeModal({
                 helperTextBottom={lastError}
                 register={register}
                 classNameWrapper={clsx('tabInput', {
-                  ['hide']: activeTab !== 'Email',
+                  ['hide']: activeTab !== tabs[0],
                 })}
                 onChange={() => clearLastError()}
                 name='email'
@@ -443,7 +443,7 @@ export function FeeModal({
                 helperTextBottom={lastError}
                 register={register}
                 classNameWrapper={clsx('tabInput', {
-                  ['hide']: activeTab !== 'Phone',
+                  ['hide']: activeTab !== tabs[1],
                 })}
                 onChange={() => clearLastError()}
                 name='phone'
@@ -455,7 +455,7 @@ export function FeeModal({
                 helperTextBottom={lastError}
                 register={register}
                 classNameWrapper={clsx('tabInput', {
-                  ['hide']: activeTab !== 'Whatsapp',
+                  ['hide']: activeTab !== tabs[2],
                 })}
                 onChange={() => clearLastError()}
                 name='whatsapp'

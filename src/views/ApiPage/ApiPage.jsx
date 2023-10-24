@@ -24,7 +24,11 @@ export default function ApiPage({ data, params }) {
         <HowIntegrate />
         <InstantFree data={data.apiPage} />
         <DevelopGuide data={data.apiPage} />
-        <PickApiSection data={data.apiPage} leadFormData={data.pickLeadForm} />
+        <PickApiSection
+          buttonText={data.apiPage.leadForm1Button}
+          data={data.apiPage}
+          leadFormData={data.pickLeadForm}
+        />
         <FeesBusiness
           data={data.feesYourBusiness}
           modelId='2540343'
