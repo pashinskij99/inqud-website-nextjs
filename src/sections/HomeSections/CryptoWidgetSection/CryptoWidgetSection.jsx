@@ -13,11 +13,7 @@ import { ButtonGetStartedLight } from '@/components/UI/Button/Button'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import Loading from '@/assets/icons/loading.svg'
-import gifStill from '@/assets/gif/b2b_crypto_widget_mobile.webp'
-import { getData } from '@/lib/datocms'
-import { HOME_B2B_CRYPTO_WIDGET } from '@/lib/datocmsQuery'
 import Device, { DESKTOP, MOBILE, TABLET } from '@/components/Device/Device'
-import Animated2GifOnView from '@/components/AnimatedVideo/Animated2GifOnView'
 
 const DynamicCryptoWidgetSectionAnimationOnScroll = dynamic(
   () => import('@/components/AnimatedVideo/AnimatedVideoOnScroll'),
@@ -53,15 +49,22 @@ export default async function CryptoWidgetSection({ trans, data }) {
               />
             </Device>
             <Device device={MOBILE}>
-              <Animated2GifOnView
+              <Image
                 className={styles.cryptoWidgetMobileSmaller}
                 height={600}
-                timeRepeat={4000}
-                urlSecondVideo='/video/b2b_crypto_widget_mobile.gif'
-                stillSecondVideo={gifStill.src}
-                timeSecondAnimate={5000}
+                src='/video/b2b_crypto_widget_mobile.gif'
+                alt='animation'
                 width={500}
               />
+              {/* <Animated2GifOnView */}
+              {/*   className={styles.cryptoWidgetMobileSmaller} */}
+              {/*   height={600} */}
+              {/*   timeRepeat={0} */}
+              {/*   urlSecondVideo='/video/b2b_crypto_widget_mobile.gif' */}
+              {/*   stillSecondVideo={gifStill.src} */}
+              {/*   timeSecondAnimate={5000} */}
+              {/*   width={500} */}
+              {/* /> */}
             </Device>
           </div>
 
@@ -121,13 +124,25 @@ export default async function CryptoWidgetSection({ trans, data }) {
 
         <div className={styles.rightSide}>
           <Device device={DESKTOP}>
-            <DynamicCryptoWidgetSectionAnimationOnScroll
-              className={styles.graphic}
-              height={600}
-              timeRepeat={3000}
-              urlFirstVideo='/video/b2b_crypto_video_web.webm'
+            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+            <video
+              loop
+              autoPlay
+              muted
+              playsInline
+              controls={false}
               width={500}
+              height={600}
+              className={styles.graphic}
+              src='/video/b2b_crypto_video_web.webm'
             />
+            {/* <DynamicCryptoWidgetSectionAnimationOnScroll */}
+            {/*   className={styles.graphic} */}
+            {/*   height={600} */}
+            {/*   timeRepeat={3000} */}
+            {/*   urlFirstVideo='/video/b2b_crypto_video_web.webm' */}
+            {/*   width={500} */}
+            {/* /> */}
           </Device>
         </div>
       </div>
