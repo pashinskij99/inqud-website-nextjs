@@ -13,31 +13,6 @@ import BlogsSection from '@/sections/HomeSections/BlogsSection/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 
 export default function HomePage({ params, data }) {
-  // console.log(data)
-  // const yourNeedsSectionTrans = {
-  //   t: useTranslations('home_page_your_needs_section'),
-  //   tList: useTranslations('home_page_your_needs_section_list_item_title'),
-  //   tList2: useTranslations(
-  //     'home_page_your_needs_section_list_item_description'
-  //   ),
-  //   cartDescription: useTranslations(
-  //     'home_page_your_needs_section_list_item_description'
-  //   )(keysForLocale.keys3[1]),
-  //   cartTitle: useTranslations(
-  //     'home_page_your_needs_section_list_item_description'
-  //   )(keysForLocale.keys3[0]),
-  // }
-  // const yourNeedsSectionTransCart = {
-  //   cartDescription: useTranslations(
-  //     'home_page_your_needs_section_list_item_description'
-  //   )(keysForLocale.keys3[1]),
-  //   cartTitle: useTranslations(
-  //     'home_page_your_needs_section_list_item_description'
-  //   )(keysForLocale.keys3[0]),
-  // }
-  const cryptoWidgetTrans = {
-    t: useTranslations('home_page_crypto_widget_section'),
-  }
   const blogTrans = {
     t: useTranslations('blog_name_section'),
   }
@@ -46,7 +21,7 @@ export default function HomePage({ params, data }) {
     <main className={styles.wrapper}>
       <HeroSection dataPage={data} params={params} />
       <YourNeedsSection data={data.homePage} />
-      <CryptoWidgetSection trans={cryptoWidgetTrans} data={data.homePage} />
+      <CryptoWidgetSection data={data.homePage} />
       <SmoothAPISection data={data.homePage} />
       <PickSection
         buttonText={data.homePage.buttonLead1Book}
@@ -59,9 +34,9 @@ export default function HomePage({ params, data }) {
       <ReasonsToTeamUp data={data.homePage} />
       <FeesBusiness
         data={data.feesYourBusiness}
+        leadData={data.cryptoLeadForm}
         modelId='2540165'
         autoId={10}
-        params={params}
       />
       <OurLandscapeSection data={data.ourLandscape} />
       <PickSection

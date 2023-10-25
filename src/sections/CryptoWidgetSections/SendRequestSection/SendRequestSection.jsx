@@ -18,6 +18,7 @@ import {
 import { InputSendRequest, TextAreaSendRequest } from '@/components/UI/Input'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import background from '@/assets/images/api/contact/background.webp'
+// import background from '@/assets/images/api/contact/background.webp'
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { userSchema2 } from '@/utils/userSchema'
 
@@ -67,6 +68,12 @@ export default function SendRequestSection() {
 
   return (
     <StyledSendRequestSectionWrapper>
+      {/* <Image
+        className='background'
+        src={background.src}
+        alt='Get a personalized proposal'
+        fill
+      /> */}
       <Image
         className='background'
         src={background.src}

@@ -102,7 +102,6 @@ export default function Contact() {
       ],
     }
 
-    // await toast.promise(
     const submitForFormActiveCampaign = await import(
       '@/lib/activeCampaign'
     ).then((res) => res.submitForFormActiveCampaign)

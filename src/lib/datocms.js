@@ -1,23 +1,6 @@
 import { cache } from 'react'
 import { customFetchDatoCMS } from '@/utils/customeFetch'
 
-export const getPageData = async ({ variables, query }) => {
-  const response = await fetch('/api/get-section-data', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      variables,
-      query,
-    }),
-  })
-
-  const { data } = await response.json()
-
-  return data
-}
-
 const dedupedFetch = cache(async (serializedInit) => {
   const response = await fetch(
     'https://graphql.datocms.com/',
@@ -65,7 +48,6 @@ export async function performRequest({
   return data
 }
 
-// eslint-disable-next-line consistent-return
 export const createBlog = async ({ data: sentData, modelId }) => {
   try {
     const data = {

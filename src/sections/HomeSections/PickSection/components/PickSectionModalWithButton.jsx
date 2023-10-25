@@ -1,15 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
+import { PopupModal } from 'react-calendly'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 
-const DynamicModalCalendaly = dynamic(
-  () => import('@/components/CalendlyForm').then((mod) => mod.default),
-  {
-    ssr: false,
-  }
-)
+// const DynamicModalCalendaly = dynamic(
+//   () => import('@/components/CalendlyForm').then((mod) => mod.default),
+//   {
+//     ssr: false,
+//   }
+// )
 
 export default function PickSectionModalWithButton({ buttonText }) {
   const [calendlyModal, setCalendlyModal] = useState(false)
@@ -38,11 +39,17 @@ export default function PickSectionModalWithButton({ buttonText }) {
         {buttonText}
       </StyledButtonSecondaryLight>
       {calendlyModal ? (
-        <DynamicModalCalendaly
-          handleClose={handleCloseCalendlyModal}
+        <PopupModal
+          url='https://calendly.com/inqud_team/30-minute-free-consultation'
+          onModalClose={handleCloseCalendlyModal}
           open={calendlyModal}
+          rootElement={document.getElementById('calendly-model-wrapper')}
         />
       ) : null}
+      {/* // <DynamicModalCalendaly
+        //   handleClose={handleCloseCalendlyModal}
+        //   open={calendlyModal}
+        // /> */}
     </>
   )
 }

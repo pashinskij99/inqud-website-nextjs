@@ -256,6 +256,7 @@ export const MODAL_1 = `
       footerDescription {
         value
       }
+      industry
       id
       labelCompany
       labelIndustry

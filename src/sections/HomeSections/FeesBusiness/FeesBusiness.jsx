@@ -1,9 +1,7 @@
 'use client'
 
-// import { toast } from 'react-toastify'4
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import styles from './styles.module.scss'
 import {
@@ -13,8 +11,6 @@ import {
   StyledTypographyUrbanistSmallSpaces,
 } from '@/components/UI/Typography/Typography.styled'
 import BackCart from '@/assets/images/fee/cart-back.svg'
-import { getPageData } from '@/lib/datocms'
-import { HOME_B2B_FEES } from '@/lib/datocmsQuery'
 import FeesBusinessShowMore from './components/FeesBusinessShowMore'
 import FeesBusinessModalWithButton from './components/FeesBusinessModalWithButton'
 import Device, { DESKTOP, MOBILE, TABLET } from '@/components/Device/Device'
@@ -27,25 +23,7 @@ const DynamicFeeBusinessDescriptionWrapper = dynamic(
   { ssr: false }
 )
 
-// eslint-disable-next-line no-unused-vars
-export default function FeesBusiness({ modelId, autoId, params, data }) {
-  // const [data, setData] = useState({})
-
-  // useEffect(() => {
-  //   const response = async () => {
-  //     const { feesYourBusiness: data } = await getPageData({
-  //       query: HOME_B2B_FEES,
-  //       variables: {
-  //         locale: params.locale,
-  //       },
-  //     })
-
-  //     setData(data)
-  //   }
-
-  //   response()
-  // }, [])
-
+export default function FeesBusiness({ modelId, autoId, data, leadData }) {
   return (
     <div className={clsx(styles.wrapper, 'fees')}>
       <div className='container'>
@@ -112,9 +90,9 @@ export default function FeesBusiness({ modelId, autoId, params, data }) {
                 {data.cartDescription}
               </StyledTypographyUrbanistBody>
               <FeesBusinessModalWithButton
+                leadData={leadData}
                 data={data}
                 modelId={modelId}
-                params={params}
               />
             </div>
             <Image className='cart-back' src={BackCart} alt='BackCart' />

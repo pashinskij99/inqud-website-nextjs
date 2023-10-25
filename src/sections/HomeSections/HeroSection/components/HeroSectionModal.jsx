@@ -1,12 +1,14 @@
 'use client'
 
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { useState } from 'react'
+import { PopupModal } from 'react-calendly'
 import styles from '../HeroSection.module.scss'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 
 export default function HeroSectionModal({ data }) {
   const [calendlyModal, setCalendlyModal] = useState()
+
   const handleOpenCalendlyModal = async () => {
     setCalendlyModal(true)
     const removeGlobalScrollBar = await import(
@@ -14,6 +16,7 @@ export default function HeroSectionModal({ data }) {
     ).then((res) => res.removeGlobalScrollBar)
     removeGlobalScrollBar()
   }
+
   const handleCloseCalendlyModal = async () => {
     setCalendlyModal(false)
     const addGlobalScrollBar = await import(
@@ -22,6 +25,7 @@ export default function HeroSectionModal({ data }) {
 
     addGlobalScrollBar()
   }
+
   return (
     <>
       <StyledButtonGhost
@@ -31,18 +35,24 @@ export default function HeroSectionModal({ data }) {
         {data.buttonScreen1ContactSales}
       </StyledButtonGhost>
       {calendlyModal ? (
-        <DynamicModalCalendaly
-          handleClose={handleCloseCalendlyModal}
+        <PopupModal
+          url='https://calendly.com/inqud_team/30-minute-free-consultation'
+          onModalClose={handleCloseCalendlyModal}
           open={calendlyModal}
+          rootElement={document.getElementById('calendly-model-wrapper')}
         />
       ) : null}
     </>
+    // <DynamicModalCalendaly
+    //   handleClose={handleCloseCalendlyModal}
+    //   open={calendlyModal}
+    // />
   )
 }
 
-const DynamicModalCalendaly = dynamic(
-  () => import('@/components/CalendlyForm').then((mod) => mod.default),
-  {
-    ssr: false,
-  }
-)
+// const DynamicModalCalendaly = dynamic(
+//   () => import('@/components/CalendlyForm'),
+//   {
+//     ssr: false,
+//   }
+// )

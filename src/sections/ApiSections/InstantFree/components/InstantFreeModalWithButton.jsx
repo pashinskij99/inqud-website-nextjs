@@ -1,19 +1,20 @@
 'use client'
 
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { useState } from 'react'
+import { PopupModal } from 'react-calendly'
 import { StyledButtonGhost } from '@/components/UI/Button/Button.styled'
 import {
   addGlobalScrollBar,
   removeGlobalScrollBar,
 } from '@/utils/addOrRemoveGlobalScrollBar'
 
-const DynamicModalCalendaly = dynamic(
-  () => import('@/components/CalendlyForm').then((mod) => mod.default),
-  {
-    ssr: false,
-  }
-)
+// const DynamicModalCalendaly = dynamic(
+//   () => import('@/components/CalendlyForm').then((mod) => mod.default),
+//   {
+//     ssr: false,
+//   }
+// )
 
 export default function InstantFreeModalWithButton({ data }) {
   const [calendlyModal, setCalendlyModal] = useState(false)
@@ -36,11 +37,17 @@ export default function InstantFreeModalWithButton({ data }) {
         {data.buttonScreen4B}
       </StyledButtonGhost>
       {calendlyModal ? (
-        <DynamicModalCalendaly
-          handleClose={handleCloseCalendlyModal}
+        <PopupModal
+          url='https://calendly.com/inqud_team/30-minute-free-consultation'
+          onModalClose={handleCloseCalendlyModal}
           open={calendlyModal}
+          rootElement={document.getElementById('calendly-model-wrapper')}
         />
       ) : null}
+      {/* <DynamicModalCalendaly
+        handleClose={handleCloseCalendlyModal}
+        open={calendlyModal}
+      /> */}
     </>
   )
 }

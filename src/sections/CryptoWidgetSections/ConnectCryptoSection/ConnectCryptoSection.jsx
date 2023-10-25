@@ -4,7 +4,8 @@ import Image from 'next/image'
 // import { useTranslations } from 'next-intl'
 import { useContext, useState } from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
+import { PopupModal } from 'react-calendly'
 import {
   StyledTypographyUrbanistH2,
   StyledTypographyUrbanistH4,
@@ -20,12 +21,12 @@ import {
 // import { PageContext } from '@/contexts/PageContext/PageContext'
 // import { useContext } from 'react'
 
-const DynamicModalCalendaly = dynamic(
-  () => import('@/components/CalendlyForm').then((mod) => mod.default),
-  {
-    ssr: false,
-  }
-)
+// const DynamicModalCalendaly = dynamic(
+//   () => import('@/components/CalendlyForm').then((mod) => mod.default),
+//   {
+//     ssr: false,
+//   }
+// )
 
 export default function ConnectCryptoSection() {
   // const t = useTranslations('crypto_centre_page.connect_with_crypto_section')
@@ -86,11 +87,17 @@ export default function ConnectCryptoSection() {
           {data.leadForm2Button}
         </ButtonGetStartedLight>
         {calendlyModal ? (
-          <DynamicModalCalendaly
-            handleClose={handleCloseCalendlyModal}
+          <PopupModal
+            url='https://calendly.com/inqud_team/30-minute-free-consultation'
+            onModalClose={handleCloseCalendlyModal}
             open={calendlyModal}
+            rootElement={document.getElementById('calendly-model-wrapper')}
           />
         ) : null}
+        {/* // <DynamicModalCalendaly
+        //   handleClose={handleCloseCalendlyModal}
+        //   open={calendlyModal}
+        // /> */}
       </div>
     </StyledConnectCryptoSectionWrapper>
   )

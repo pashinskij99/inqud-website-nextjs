@@ -8,7 +8,7 @@ export default function FeeModalWrapper({
   handleHideModal,
   showModal,
   modelId,
-  params,
+  leadData,
 }) {
   const [lastError, setLastError] = useState('')
   const clearLastError = () => {
@@ -118,7 +118,7 @@ export default function FeeModalWrapper({
       register={register}
       onSubmit={onSubmit}
       handleSubmit={handleSubmit}
-      params={params}
+      leadData={leadData}
     />
   )
 }

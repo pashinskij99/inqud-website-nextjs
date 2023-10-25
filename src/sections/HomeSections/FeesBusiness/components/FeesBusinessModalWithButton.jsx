@@ -4,12 +4,15 @@ import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { StyledButtonSecondaryLight } from '@/components/UI/Button/Button.styled'
 
-const DynamicFeeModalWrapper = dynamic(
-  () => import('./FeeModalWrapper').then((res) => res.default),
-  { ssr: false }
-)
+const DynamicFeeModalWrapper = dynamic(() => import('./FeeModalWrapper'), {
+  ssr: false,
+})
 
-export default function FeesBusinessModalWithButton({ modelId, data, params }) {
+export default function FeesBusinessModalWithButton({
+  modelId,
+  data,
+  leadData,
+}) {
   const [showModal, setShowModal] = useState(false)
 
   const handleShowModal = () => {
@@ -26,10 +29,10 @@ export default function FeesBusinessModalWithButton({ modelId, data, params }) {
       </StyledButtonSecondaryLight>
       {showModal ? (
         <DynamicFeeModalWrapper
+          leadData={leadData}
           modelId={modelId}
           showModal={showModal}
           handleHideModal={handleHideModal}
-          params={params}
         />
       ) : null}
     </>

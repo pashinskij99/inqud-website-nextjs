@@ -31,8 +31,8 @@ export default function ApiPage({ data, params }) {
         />
         <FeesBusiness
           data={data.feesYourBusiness}
+          leadData={data.cryptoLeadForm}
           modelId='2540343'
-          params={params}
         />
         <OurLandscapeSection data={data.ourLandscape} params={params} />
         <QuestionsSection

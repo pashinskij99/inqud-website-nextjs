@@ -26,8 +26,8 @@ export default function CryptoWidget({ data, params }) {
         <CryptoWidgetFeatures />
         <FeesBusiness
           data={data.feesYourBusiness}
+          leadData={data.cryptoLeadForm}
           modelId='2540254'
-          params={params}
         />
         <HowIntegrateCryptoSection />
         <SafetyReliability />

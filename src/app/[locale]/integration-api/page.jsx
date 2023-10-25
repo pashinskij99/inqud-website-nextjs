@@ -5,6 +5,23 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const API_QUERY = `
   query MyQuery($locale: SiteLocale) {
+    cryptoLeadForm(locale: $locale, fallbackLocales: en) {
+      buttonText
+      description
+      footerDescription {
+        value
+      }
+      industry
+      id
+      labelCompany
+      labelIndustry
+      labelMessage
+      labelWebsite
+      placeholderMessage
+      tabs
+      title
+      whatsappPlaceholder
+    }
     homePage(locale: $locale, fallbackLocales: en){
       faqButton
     }

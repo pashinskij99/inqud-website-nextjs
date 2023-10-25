@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
+import { PopupModal } from 'react-calendly'
 import {
   StyledTypographyUrbanistBody,
   StyledTypographyUrbanistH1,
@@ -9,12 +10,12 @@ import { StyledContactUsHeroSectionWrapper } from './ContactUsHeroSection.styled
 import { PageContext } from '@/contexts/PageContext/PageContext'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 
-const DynamicModalCalendaly = dynamic(
-  () => import('@/components/CalendlyForm').then((mod) => mod.default),
-  {
-    ssr: false,
-  }
-)
+// const DynamicModalCalendaly = dynamic(
+//   () => import('@/components/CalendlyForm').then((mod) => mod.default),
+//   {
+//     ssr: false,
+//   }
+// )
 
 function ContactUsHeroSection() {
   const {
@@ -49,11 +50,17 @@ function ContactUsHeroSection() {
         </StyledButtonSecondary>
 
         {calendlyModal ? (
-          <DynamicModalCalendaly
-            handleClose={handleCloseCalendlyModal}
+          <PopupModal
+            url='https://calendly.com/inqud_team/30-minute-free-consultation'
+            onModalClose={handleCloseCalendlyModal}
             open={calendlyModal}
+            rootElement={document.getElementById('calendly-model-wrapper')}
           />
         ) : null}
+        {/* // <DynamicModalCalendaly
+          //   handleClose={handleCloseCalendlyModal}
+          //   open={calendlyModal}
+          // /> */}
       </div>
     </StyledContactUsHeroSectionWrapper>
   )

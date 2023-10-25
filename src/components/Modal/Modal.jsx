@@ -23,8 +23,6 @@ import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
 import Close from '@/assets/icons/close.svg'
 import { SelectPrimary } from '../UI/Select'
 import { GetPersonalizedForm } from '@/sections/ApiSections/Contact/Contact'
-import { getPageData } from '@/lib/datocms'
-import { MODAL_1, MODAL_2 } from '@/lib/datocmsQuery'
 
 export function ModalSendRequest({
   open,
@@ -198,6 +196,7 @@ const getInput = ({
   errors,
   register,
   control,
+  industries,
 }) => {
   switch (type) {
     case 'text':
@@ -232,7 +231,7 @@ const getInput = ({
           placeholder={placeholder}
           handleChange={handleChange}
           activeItem={industry}
-          listItems={industryList.sort((a, b) => {
+          listItems={industries.sort((a, b) => {
             if (a.toUpperCase() < b.toUpperCase()) {
               return -1
             }
@@ -294,30 +293,24 @@ export function FeeModal({
   onSubmit,
   control,
   setValue,
-  params,
+  leadData,
 }) {
-  const [leadData, setLeadData] = useState({})
+  // const [leadData, setLeadData] = useState({})
 
-  // const {
-  //   dataPage: { cryptoLeadForm: leadData },
-  // } = useContext(PageContext)
-
-  // const { params } = useContext(PageContext)
-
-  useEffect(() => {
-    const getData = async () => {
-      const pageData = await getPageData({
-        variables: {
-          locale: params.locale,
-        },
-        query: MODAL_1,
-      })
-
-      setLeadData(pageData.cryptoLeadForm)
-    }
-
-    getData()
-  }, [])
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const pageData = await getPageData({
+  //       variables: {
+  //         locale: params.locale,
+  //       },
+  //       query: MODAL_1,
+  //     })
+  //
+  //     setLeadData(pageData.cryptoLeadForm)
+  //   }
+  //
+  //   getData()
+  // }, [])
 
   const [industry, setIndustry] = useState('')
   const tabs = useMemo(
@@ -374,6 +367,7 @@ export function FeeModal({
       errors,
       register,
       control,
+      industries: leadData.industry,
     },
     {
       id: 3,

@@ -30,7 +30,7 @@ const DynamicCryptoWidgetVideo = dynamic(
   { ssr: false }
 )
 
-export default async function CryptoWidgetSection({ trans, data }) {
+export default async function CryptoWidgetSection({ data }) {
   // const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET, {
   //   locale: params.locale,
   // })
