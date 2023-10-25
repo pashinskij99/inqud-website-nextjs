@@ -15,8 +15,6 @@ import { ButtonGetStarted } from '@/components/UI/Button'
 import HeroSectionPaymentList from './components/HeroSectionPaymentList'
 import HeroSectionModal from './components/HeroSectionModal'
 import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
-// import { getData } from '@/lib/datocms'
-// import { HOME_PAGE_QUERY } from '@/lib/datocmsQuery'
 import AnimatedMobile from './components/AnimatedMobile'
 
 const DynamicAnimatedFirstScreenVideo = dynamic(

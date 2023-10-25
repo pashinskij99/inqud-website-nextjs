@@ -6,19 +6,13 @@ import {
   StyledTypographyUrbanistH5,
 } from '@/components/UI/Typography/Typography.styled'
 import styles from './YourNeedsSection.module.scss'
-import Image1 from '@/assets/images/your-needs/image1.webp'
-import Image2 from '@/assets/images/your-needs/image2.webp'
-import Image3 from '@/assets/images/your-needs/image3.webp'
 import Coins1 from '@/assets/images/your-needs/Coins1.svg'
 import Coins2 from '@/assets/images/your-needs/Coins2.svg'
 import Coins3 from '@/assets/images/your-needs/Coins3.svg'
 import Coins4 from '@/assets/images/your-needs/Coins4.svg'
 import Coins5 from '@/assets/images/your-needs/Coins5.svg'
-import { keysForLocale } from '@/config/keysForLocale'
 import CoinsList from './components/CoinsList'
 import Device, { DESKTOP } from '@/components/Device/Device'
-import { getData } from '@/lib/datocms'
-import { HOME_B2B_NEEDS } from '@/lib/datocmsQuery'
 import YourNeedsSectionSwiper from './components/YourNeedsSectionSwiper'
 
 const coinsList = [
@@ -54,39 +48,14 @@ const DynamicYourNeedsSectionDesktopCarts = dynamic(
   }
 )
 
-export default async function YourNeedsSection({ trans, transCart, data }) {
-  // const { homePage: data } = await getData(HOME_B2B_NEEDS, {
-  //   locale: params.locale,
-  // })
-  const list = [
-    {
-      id: 0,
-      title: trans.tList(keysForLocale.keys3[0]),
-      description: trans.tList2(keysForLocale.keys3[0]),
-      image: Image1.src,
-    },
-    {
-      id: 1,
-      title: trans.tList(keysForLocale.keys3[1]),
-      description: trans.tList2(keysForLocale.keys3[1]),
-      image: Image2.src,
-      button: data.buttonScreen2,
-    },
-    {
-      id: 2,
-      title: trans.tList(keysForLocale.keys3[2]),
-      description: trans.tList2(keysForLocale.keys3[2]),
-      image: Image3.src,
-    },
-  ]
-
+export default async function YourNeedsSection({ data }) {
   return (
     <section className={styles.wrapper}>
       <div className='container'>
         <StyledTypographyUrbanistH2
           className={clsx(styles.title, styles['title-desktop'])}
         >
-          {trans.t('title')}
+          {data.section2Title}
         </StyledTypographyUrbanistH2>
 
         <CoinsList coinsList={coinsList} />
@@ -95,18 +64,14 @@ export default async function YourNeedsSection({ trans, transCart, data }) {
           component='p'
           className={clsx(styles.subTitle, styles['subTitle-desktop'])}
         >
-          {trans.t('paragraph')}
+          {data.section2SubTitle}
         </StyledTypographyUrbanistH5>
 
         <Device device={DESKTOP}>
-          <DynamicYourNeedsSectionDesktopCarts
-            list={list}
-            transCart={transCart}
-            data={data}
-          />
+          <DynamicYourNeedsSectionDesktopCarts data={data} />
         </Device>
 
-        <YourNeedsSectionSwiper trans={transCart} list={list} data={data} />
+        <YourNeedsSectionSwiper data={data} />
       </div>
     </section>
   )

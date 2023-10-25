@@ -226,12 +226,19 @@
           }
         }
 
+        .cryptoGridTopSide {
+          display: flex;
+          justify-content: space-between;
+          column-gap: 10px;
+        }
+
         .icon-wrapper {
           display: flex;
           justify-content: center;
           align-items: center;
           width: 48px;
           height: 48px;
+          flex-shrink: 0;
 
           border-radius: 16px;
           background: rgba(191, 255, 200, 0.20000000298023224);
@@ -272,21 +279,16 @@
             opacity: 0.6000000238418579;
           }
 
-          &::before {
-            content: attr(data-slug);
-            position: absolute;
-            top: 0;
-            right: 12px;
-
+          .cryptoGridTopSideCommingSoon {
             font-size: 18px;
             font-weight: 400;
-            line-height: 8.673px;
+            line-height: 15.673px;
             letter-spacing: 1.8px;
             text-transform: uppercase;
 
             color: var(--ambitious-green, #077453);
-            height: 25px;
-            padding: 0 10px;
+            padding: 10px 10px 8px;
+            height: fit-content;
 
             border-radius: 30px;
             background: var(--exciting-lime, #bfffc8);
@@ -298,9 +300,10 @@
               right: 0;
             }
             @media (max-width: 1279px) {
+              position: absolute;
               margin-top: 0;
               right: 0;
-              transform: translateY(-100%) translateX(-14px);
+              transform: translateY(-80%) translateX(-14px);
             }
             @media (max-width: 767px) {
               display: none;

@@ -206,10 +206,10 @@
         width: 595px;
         height: 595px;
       }
-
       @media (max-width: 1279px) {
         display: flex;
         justify-content: center;
+        max-width: 100%;
         .graphic {
           max-width: 400px;
           height: 400px;

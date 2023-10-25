@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import { Image as DatoImage } from 'react-datocms'
 import clsx from 'clsx'
 import styles from './styles.module.scss'
 import {
@@ -18,14 +18,7 @@ export default function CartRequirement({
 }) {
   return (
     <div className={clsx('cart-requirements', styles.wrapper)}>
-      {/* <StyledCartRequirement> */}
-      <Image
-        className='cartImage'
-        src={imageSrc}
-        alt={title}
-        width={440}
-        height={300}
-      />
+      <DatoImage className='cartImage' data={imageSrc.responsiveImage} />
       <div className='cartBody'>
         <StyledTypographyUrbanistH4 component='h3' className='cartTitle'>
           {title}
@@ -40,7 +33,6 @@ export default function CartRequirement({
           </ButtonLearnMore>
         ) : null}
       </div>
-      {/* </StyledCartRequirement> */}
     </div>
   )
 }

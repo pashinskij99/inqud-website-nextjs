@@ -5,12 +5,87 @@ import Footer from '../Footer'
 import Portal from '@/HOC/Portal'
 import CookieComponent from '@/components/CookieComponent/CookieComponent'
 import ReduxProvider from '@/store/ReduxProvider'
-// import SnackbarWrapper from '@/components/SnackbarWrapper/SnackbarWrapper'
+import { getData } from '@/lib/datocms'
 
-export default function LayoutComponent({ children }) {
+const query = `
+query MyQuery($locale: SiteLocale = en) {
+  header(fallbackLocales: en, locale: $locale) {
+    buttonText2
+    buttonText1
+    dropdownBusinessLinks {
+      link
+      id
+      name
+    }
+    dropdownBusinessTitle
+    dropdownPersonalLinks {
+      id
+      link
+      name
+    }
+    dropdownPersonalTitle
+    dropdownTitle
+    id
+    languageList {
+      id
+      name
+      value
+    }
+    tabButton1
+    tabButton2
+    mainLogo {
+      url
+    }
+    mainLogoMobile {
+      url
+    }
+    nav {
+      name
+      link
+      id
+    }
+  }
+  footer(fallbackLocales: en, locale: $locale) {
+    allRightsReserved
+    formDescription
+    formTitle
+    id
+    legalTitle
+    mainDescription
+    resourcesTitle
+    submitButtonText
+    socialLinks {
+      id
+      image {
+        url
+      }
+      link
+    }
+    resourcesList {
+      name
+      link
+      id
+    }
+    logo {
+      url
+    }
+    legalList {
+      name
+      link
+      id
+    }
+  }
+}
+`
+
+export default async function LayoutComponent({ children, locale }) {
+  const data = await getData(query, {
+    locale,
+  })
+
   return (
     <ReduxProvider>
-      <Header />
+      <Header data={data.header} />
       <BreadCrumbs />
       <ToastContainer
         position='bottom-right'
@@ -26,7 +101,7 @@ export default function LayoutComponent({ children }) {
       />
       {/* <SnackbarWrapper /> */}
       {children}
-      <Footer />
+      <Footer data={data.footer} />
       <Portal>
         <CookieComponent />
       </Portal>

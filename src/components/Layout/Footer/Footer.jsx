@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import styles from './styles.module.scss'
 import {
@@ -10,102 +9,103 @@ import {
   StyledTypographyUrbanistSmallSpaces,
 } from '@/components/UI/Typography/Typography.styled'
 import Logo from '@/assets/icons/footer-logo.svg'
-import Twitter from '@/assets/icons/twitter.svg'
-import Facebook from '@/assets/icons/facebook.svg'
-import Linkedin from '@/assets/icons/linkedin.svg'
-import { keysForLocale } from '@/config/keysForLocale'
 import FooterForm from './components/FooterForm'
 
-export default function Footer() {
-  const t = useTranslations('footer')
-  const tResources = useTranslations('footer.footer_resources_items')
-  const tLegal = useTranslations('footer.footer_legal_items')
-
+export default function Footer({ data }) {
   const footerData = [
     {
       id: 0,
-      title: t('footer_resources_title'),
+      title: data.legalTitle,
       className: 'Resources',
       items: [
         {
           id: 0,
-          text: tResources(keysForLocale.keys5[0]),
-          href: '/privacy-notice',
+          text: data.legalList[0].name,
+          href: data.legalList[0].link,
         },
         {
           id: 1,
-          text: tResources(keysForLocale.keys5[1]),
-          href: '/cookie-policy',
+          text: data.legalList[1].name,
+          href: data.legalList[1].link,
         },
         {
           id: 2,
-          text: tResources(keysForLocale.keys5[2]),
-          href: '/aml-cft-policy-uab',
+          text: data.legalList[2].name,
+          href: data.legalList[2].link,
         },
         {
           id: 3,
-          text: tResources(keysForLocale.keys5[3]),
-          href: '/modern-slavery-statement',
+          text: data.legalList[3].name,
+          href: data.legalList[3].link,
         },
         {
           id: 4,
-          text: tResources(keysForLocale.keys5[4]),
-          href: '/terms-of-use',
+          text: data.legalList[4].name,
+          href: data.legalList[4].link,
         },
-        // { id: 4, text: tResources(keysForLocale.keys5[5]), href: '#' },
       ],
     },
     {
       id: 1,
-      title: t('footer_legal_title'),
+      title: data.resourcesTitle,
       className: 'Legal',
       items: [
         {
           id: 0,
-          text: tLegal(keysForLocale.keys5[0]),
-          href: 'https://docs.inqud.com/',
+          text: data.resourcesList[0].name,
+          href: data.resourcesList[0].link,
         },
-        { id: 1, text: tLegal(keysForLocale.keys5[1]), href: '/blog' },
-        { id: 2, text: tLegal(keysForLocale.keys5[2]), href: '/help-center' },
-        // { id: 3, text: tLegal(keysForLocale.keys5[3]), href: '/contact-us' },
-        { id: 4, text: tLegal(keysForLocale.keys5[4]), href: '/contact-us' },
+        {
+          id: 1,
+          text: data.resourcesList[1].name,
+          href: data.resourcesList[1].link,
+        },
+        {
+          id: 2,
+          text: data.resourcesList[2].name,
+          href: data.resourcesList[2].link,
+        },
+        {
+          id: 4,
+          text: data.resourcesList[3].name,
+          href: data.resourcesList[3].link,
+        },
       ],
     },
   ]
 
-  const social = [
-    {
-      id: 0,
-      icon: <Image src={Twitter} alt='Twitter' />,
-      href: 'https://twitter.com/inqud',
-    },
-    {
-      id: 1,
-      icon: <Image src={Facebook} alt='Facebook' />,
-      href: 'https://www.facebook.com/Inqud-106842349102120',
-    },
-    {
-      id: 2,
-      icon: <Image src={Linkedin} alt='Linkedin' />,
-      href: 'https://www.linkedin.com/company/inqud/about/?viewAsMember=true',
-    },
-    // { id: 3, icon: <Star />, href: '#' },
-  ]
+  // const social = [
+  //   {
+  //     id: 0,
+  //     icon: <Image src={Twitter} alt='Twitter' />,
+  //     href: 'https://twitter.com/inqud',
+  //   },
+  //   {
+  //     id: 1,
+  //     icon: <Image src={Facebook} alt='Facebook' />,
+  //     href: 'https://www.facebook.com/Inqud-106842349102120',
+  //   },
+  //   {
+  //     id: 2,
+  //     icon: <Image src={Linkedin} alt='Linkedin' />,
+  //     href: 'https://www.linkedin.com/company/inqud/about/?viewAsMember=true',
+  //   },
+  // ]
 
   return (
     <div className={styles.wrapper}>
       <div className='footerSubscribeSectionMobile'>
         <div className='container'>
           <StyledTypographyUrbanistH5 className='footerSubscribeSectionTitle'>
-            {t('footer_email_title')}
+            {data.formTitle}
           </StyledTypographyUrbanistH5>
 
           <div className='footerSubscribeSectionInputWrapper'>
-            <FooterForm t={t('footer_email_button_text')} />
+            <FooterForm t={data.submitButtonText} />
           </div>
 
           <StyledTypographyUrbanistSmallSpaces className='footerSubscribeSectionDescription'>
-            {t('footer_email_description')}
+            {data.formDescription}
           </StyledTypographyUrbanistSmallSpaces>
         </div>
       </div>
@@ -114,9 +114,8 @@ export default function Footer() {
         <div className='container'>
           <div className='footerLogoSection'>
             <Image src={Logo} alt='Logo' />
-            {/* <Logo /> */}
             <StyledTypographyUrbanistBody className='footerLogoSectionText'>
-              {t('footer_description')}
+              {data.mainDescription}
             </StyledTypographyUrbanistBody>
           </div>
           {footerData.map(({ id, items, className, title }) => (
@@ -146,16 +145,14 @@ export default function Footer() {
           ))}
           <div className='footerSubscribeSection'>
             <StyledTypographyUrbanistH5 className='footerSubscribeSectionTitle'>
-              {t('footer_email_title')}
+              {data.formTitle}
             </StyledTypographyUrbanistH5>
 
-            {/* <Device device={DESKTOP}> */}
             <div className='footerSubscribeSectionInputWrapper'>
-              <FooterForm t={t('footer_email_button_text')} />
+              <FooterForm t={data.submitButtonText} />
             </div>
-            {/* </Device> */}
             <StyledTypographyUrbanistSmallSpaces className='footerSubscribeSectionDescription'>
-              {t('footer_email_description')}
+              {data.formDescription}
             </StyledTypographyUrbanistSmallSpaces>
           </div>
         </div>
@@ -164,20 +161,20 @@ export default function Footer() {
       <div className='bottom'>
         <div className='container'>
           <ul className='footerSocialWrapper'>
-            {social.map(({ id, href, icon }) => (
+            {data.socialLinks.map(({ id, link, image }) => (
               <Link
                 target='_blank'
                 className='footerSocialLink'
                 key={id}
-                href={href}
+                href={link}
               >
-                {icon}
+                <Image src={image.url} alt={link} width={32} height={32} />
               </Link>
             ))}
           </ul>
 
           <StyledTypographyUrbanistBody className='footerSocialAllRights'>
-            {t('footer_all_rights_reserved')}
+            {data.allRightsReserved}
           </StyledTypographyUrbanistBody>
         </div>
       </div>

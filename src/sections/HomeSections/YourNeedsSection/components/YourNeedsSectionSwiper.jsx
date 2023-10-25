@@ -14,7 +14,7 @@ const DynamicYourNeedsSectionModalForm = dynamic(
   }
 )
 
-function YourNeedsSectionSwiper({ list, data, trans }) {
+function YourNeedsSectionSwiper({ data }) {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
 
   const handleOpen = () => {
@@ -47,6 +47,7 @@ function YourNeedsSectionSwiper({ list, data, trans }) {
           450: {
             slidesPerView: 'auto',
             initialSlide: '0',
+            spaceBetween: 24,
             loop: false,
             centeredSlides: false,
           },
@@ -56,18 +57,23 @@ function YourNeedsSectionSwiper({ list, data, trans }) {
         }}
         modules={[Scrollbar]}
       >
-        {list.map(({ id, description, image, title, button }) => (
-          <SwiperSlide key={id} className={styles.listRequirementsSwiperItems}>
-            <CartRequirement
-              buttonText={button}
-              handleClick={handleOpen}
-              description={description}
-              href='#'
-              imageSrc={image}
-              title={title}
-            />
-          </SwiperSlide>
-        ))}
+        {data.section2Content.map(
+          ({ id, description, image, title, buttonText }) => (
+            <SwiperSlide
+              key={id}
+              className={styles.listRequirementsSwiperItems}
+            >
+              <CartRequirement
+                buttonText={buttonText}
+                handleClick={handleOpen}
+                description={description}
+                href='#'
+                imageSrc={image}
+                title={title}
+              />
+            </SwiperSlide>
+          )
+        )}
       </Swiper>
       {openModalSendRequest ? (
         <DynamicYourNeedsSectionModalForm

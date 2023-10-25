@@ -1,22 +1,20 @@
 import Link from 'next/link'
 import clsx from 'clsx'
-import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
-import { keysForLocale } from '@/config/keysForLocale'
 import HeaderDropdown from '@/components/Layout/Header/HeaderDropdown'
 
-function HeaderNav() {
-  const navListTranslate = useTranslations('header_items')
+function HeaderNav({ data }) {
+  // const navListTranslate = useTranslations('header_items')
 
-  const navList = [
-    { id: 0, name: navListTranslate(keysForLocale.keys3[0]), href: '/company' },
-    { id: 1, name: navListTranslate(keysForLocale.keys3[1]), href: '/blog' },
-    {
-      id: 2,
-      name: navListTranslate(keysForLocale.keys3[2]),
-      href: '/help-center',
-    },
-  ]
+  // const navList = [
+  //   { id: 0, name: navListTranslate(keysForLocale.keys3[0]), href: '/company' },
+  //   { id: 1, name: navListTranslate(keysForLocale.keys3[1]), href: '/blog' },
+  //   {
+  //     id: 2,
+  //     name: navListTranslate(keysForLocale.keys3[2]),
+  //     href: '/help-center',
+  //   },
+  // ]
 
   const pathname = usePathname()
 
@@ -25,13 +23,13 @@ function HeaderNav() {
       <ul>
         <HeaderDropdown />
 
-        {navList.map(({ id, name, href }) => (
+        {data.nav.map(({ id, name, link }) => (
           <li key={id}>
             <Link
               className={clsx({
-                ['active']: pathname.search(href) !== -1,
+                ['active']: pathname.search(link) !== -1,
               })}
-              href={href}
+              href={link}
             >
               {name}
             </Link>

@@ -2,21 +2,27 @@ import styles from '@/sections/HomeSections/YourNeedsSection/YourNeedsSection.mo
 import CartRequirement from '@/components/CartRequirement'
 import CartRequirementModalWithCart from './YourNeedsSectionModalWithButton'
 
-function YourNeedsSectionDesktopCarts({ list, transCart, data }) {
+function YourNeedsSectionDesktopCarts({ data }) {
   return (
     <div className={styles.listRequirements}>
-      {list.map(({ id, description, image, title }) =>
-        id !== 1 ? (
-          <CartRequirement
-            key={id}
-            description={description}
-            href='#'
-            imageSrc={image}
-            title={title}
-          />
-        ) : (
-          <CartRequirementModalWithCart trans={transCart} data={data} />
-        )
+      {data.section2Content.map(
+        ({ id, description, image, title, buttonText }) =>
+          !buttonText ? (
+            <CartRequirement
+              key={id}
+              description={description}
+              href='#'
+              imageSrc={image}
+              title={title}
+            />
+          ) : (
+            <CartRequirementModalWithCart
+              buttonText={buttonText}
+              description={description}
+              title={title}
+              image={image}
+            />
+          )
       )}
     </div>
   )

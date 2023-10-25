@@ -4,18 +4,14 @@ import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next-intl/client'
-import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import { CSSTransition } from 'react-transition-group'
 import Image from 'next/image'
 import styles from './styles.module.scss'
-import logo from '@/assets/icons/logo.svg'
-import logoMobile from '@/assets/icons/logo-header-mobile-without-text.svg'
 import {
   StyledButtonGhost,
   StyledButtonSecondary,
 } from '@/components/UI/Button/Button.styled'
-import { keysForLocale } from '@/config/keysForLocale'
 import Device, {
   DESKTOP,
   MOBILE_OR_TABLET,
@@ -30,35 +26,30 @@ const DynamicHeaderNav = dynamic(
 )
 
 const DynamicHeaderLanguageSelect = dynamic(
-  () => import('./HeaderLanguageSelect').then((res) => res.default),
+  () => import('./HeaderLanguageSelect'),
   {
     ssr: false,
   }
 )
 
 const DynamicHeader = dynamic(
-  () =>
-    import('./HeaderMobileMenu/HeaderMobileMenu').then((res) => res.default),
+  () => import('./HeaderMobileMenu/HeaderMobileMenu'),
   {
     ssr: false,
   }
 )
 
-export default function Header() {
+export default function Header({ data }) {
   const [active, setActive] = useState(false)
-
-  const signButtonsTranslate = useTranslations('header_buttons_text')
-  const tabsTranslate = useTranslations('header_tabs')
-
   const signButton = [
     {
       id: 0,
-      name: signButtonsTranslate('login'),
+      name: data.buttonText1,
       className: 'signIn',
     },
     {
       id: 1,
-      name: signButtonsTranslate('get_started'),
+      name: data.buttonText2,
       className: 'signUp',
     },
   ]
@@ -96,16 +87,25 @@ export default function Header() {
       }}
       className={styles.header}
     >
-      {/* <StyledHeaderWrapper active={active} isHome={pathname === '/'}> */}
       <div className='containerHeader'>
         <div className='logoSection'>
           <Link href='/'>
             <Device device={TABLET_OR_DESKTOP}>
-              <Image className='logo' src={logo} alt='logo' />
+              <Image
+                width={124.001}
+                height={40}
+                className='logo'
+                src={data.mainLogo.url}
+                alt='logo'
+              />
             </Device>
-            {/* <Device device={MOBILE}> */}
-            <Image className='logo-mobile' src={logoMobile} alt='logo' />
-            {/* </Device> */}
+            <Image
+              className='logo-mobile'
+              src={data.mainLogoMobile.url}
+              alt='logo'
+              width={32}
+              height={32}
+            />
           </Link>
 
           <div
@@ -120,7 +120,7 @@ export default function Header() {
                 ['business-link']: pathname !== '/personal',
               })}
             >
-              {tabsTranslate(keysForLocale.keys3[0])}
+              {data.tabButton1}
             </Link>
             <Link
               className={clsx('button-link personal-link', {
@@ -128,23 +128,25 @@ export default function Header() {
               })}
               href='/personal'
             >
-              {tabsTranslate(keysForLocale.keys3[1])}
+              {data.tabButton2}
             </Link>
           </div>
         </div>
         <Device device={DESKTOP}>
-          <DynamicHeaderNav />
+          <DynamicHeaderNav data={data} />
         </Device>
 
         <div className='userSection'>
           {active ? (
             <DynamicHeaderLanguageSelect
+              data={data}
               activeStyle={active}
               className='languageMenu'
             />
           ) : null}
           <Device device={DESKTOP}>
             <DynamicHeaderLanguageSelect
+              data={data}
               activeStyle={active}
               className='languageMenu'
             />
@@ -190,13 +192,16 @@ export default function Header() {
                 mountOnEnter
                 unmountOnExit
               >
-                <DynamicHeader active={active} handleClose={handleClose} />
+                <DynamicHeader
+                  data={data}
+                  active={active}
+                  handleClose={handleClose}
+                />
               </CSSTransition>
             ) : null}
           </>
         </Device>
       </div>
-      {/* </StyledHeaderWrapper> */}
     </header>
   )
 }

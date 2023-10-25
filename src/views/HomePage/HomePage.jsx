@@ -11,31 +11,30 @@ import YourNeedsSection from '@/sections/HomeSections/YourNeedsSection/YourNeeds
 import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import BlogsSection from '@/sections/HomeSections/BlogsSection/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
-import { keysForLocale } from '@/config/keysForLocale'
 
 export default function HomePage({ params, data }) {
   // console.log(data)
-  const yourNeedsSectionTrans = {
-    t: useTranslations('home_page_your_needs_section'),
-    tList: useTranslations('home_page_your_needs_section_list_item_title'),
-    tList2: useTranslations(
-      'home_page_your_needs_section_list_item_description'
-    ),
-    cartDescription: useTranslations(
-      'home_page_your_needs_section_list_item_description'
-    )(keysForLocale.keys3[1]),
-    cartTitle: useTranslations(
-      'home_page_your_needs_section_list_item_description'
-    )(keysForLocale.keys3[0]),
-  }
-  const yourNeedsSectionTransCart = {
-    cartDescription: useTranslations(
-      'home_page_your_needs_section_list_item_description'
-    )(keysForLocale.keys3[1]),
-    cartTitle: useTranslations(
-      'home_page_your_needs_section_list_item_description'
-    )(keysForLocale.keys3[0]),
-  }
+  // const yourNeedsSectionTrans = {
+  //   t: useTranslations('home_page_your_needs_section'),
+  //   tList: useTranslations('home_page_your_needs_section_list_item_title'),
+  //   tList2: useTranslations(
+  //     'home_page_your_needs_section_list_item_description'
+  //   ),
+  //   cartDescription: useTranslations(
+  //     'home_page_your_needs_section_list_item_description'
+  //   )(keysForLocale.keys3[1]),
+  //   cartTitle: useTranslations(
+  //     'home_page_your_needs_section_list_item_description'
+  //   )(keysForLocale.keys3[0]),
+  // }
+  // const yourNeedsSectionTransCart = {
+  //   cartDescription: useTranslations(
+  //     'home_page_your_needs_section_list_item_description'
+  //   )(keysForLocale.keys3[1]),
+  //   cartTitle: useTranslations(
+  //     'home_page_your_needs_section_list_item_description'
+  //   )(keysForLocale.keys3[0]),
+  // }
   const cryptoWidgetTrans = {
     t: useTranslations('home_page_crypto_widget_section'),
   }
@@ -46,11 +45,7 @@ export default function HomePage({ params, data }) {
   return (
     <main className={styles.wrapper}>
       <HeroSection dataPage={data} params={params} />
-      <YourNeedsSection
-        data={data.homePage}
-        trans={yourNeedsSectionTrans}
-        transCart={yourNeedsSectionTransCart}
-      />
+      <YourNeedsSection data={data.homePage} />
       <CryptoWidgetSection trans={cryptoWidgetTrans} data={data.homePage} />
       <SmoothAPISection data={data.homePage} />
       <PickSection

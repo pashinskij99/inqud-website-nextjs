@@ -6,6 +6,26 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 const HOMEPAGE_QUERY = `
 query MyQuery($locale: SiteLocale) {
   homePage(locale: $locale, fallbackLocales: en) {
+    commingSoon
+    section2Title
+    section2SubTitle
+    section2Content {
+      id
+      buttonText
+      title
+      description
+      image {
+        responsiveImage {
+          sizes
+          src
+          width
+          height
+          alt
+          title
+          base64
+        }
+      }
+    }
     buttonLead1Book
     buttonLead3Book
     lead5Title

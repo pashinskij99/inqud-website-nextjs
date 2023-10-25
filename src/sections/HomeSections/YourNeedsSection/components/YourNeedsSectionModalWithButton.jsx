@@ -2,17 +2,21 @@
 
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
-import Image2 from '@/assets/images/your-needs/image2.webp'
 import CartRequirement from '@/components/CartRequirement'
 
 const DynamicYourNeedsSectionModalForm = dynamic(
-  () => import('./YourNeedsSectionModalForm').then((mod) => mod.default),
+  () => import('./YourNeedsSectionModalForm'),
   {
     ssr: false,
   }
 )
 
-export default function YourNeedsSectionModalWithButton({ data, trans }) {
+export default function YourNeedsSectionModalWithButton({
+  buttonText,
+  description,
+  title,
+  image,
+}) {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
 
   const handleOpen = () => {
@@ -25,12 +29,12 @@ export default function YourNeedsSectionModalWithButton({ data, trans }) {
   return (
     <>
       <CartRequirement
-        buttonText={data.buttonScreen2}
-        description={trans.cartDescription}
+        buttonText={buttonText}
+        description={description}
         href='#'
         handleClick={handleOpen}
-        imageSrc={Image2.src}
-        title={trans.cartTitle}
+        imageSrc={image}
+        title={title}
       />
       {openModalSendRequest ? (
         <DynamicYourNeedsSectionModalForm

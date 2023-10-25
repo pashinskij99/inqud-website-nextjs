@@ -22,10 +22,19 @@ const DynamicCryptoWidgetSectionAnimationOnScroll = dynamic(
   }
 )
 
+const DynamicCryptoWidgetVideo = dynamic(
+  () =>
+    import(
+      '@/sections/HomeSections/CryptoWidgetSection/components/CryptoWidgetVideo'
+    ),
+  { ssr: false }
+)
+
 export default async function CryptoWidgetSection({ trans, data }) {
   // const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET, {
   //   locale: params.locale,
   // })
+
   return (
     <section className={styles.wrapper}>
       <div className={clsx('container', styles.container)}>
@@ -56,15 +65,6 @@ export default async function CryptoWidgetSection({ trans, data }) {
                 alt='animation'
                 width={500}
               />
-              {/* <Animated2GifOnView */}
-              {/*   className={styles.cryptoWidgetMobileSmaller} */}
-              {/*   height={600} */}
-              {/*   timeRepeat={0} */}
-              {/*   urlSecondVideo='/video/b2b_crypto_widget_mobile.gif' */}
-              {/*   stillSecondVideo={gifStill.src} */}
-              {/*   timeSecondAnimate={5000} */}
-              {/*   width={500} */}
-              {/* /> */}
             </Device>
           </div>
 
@@ -77,21 +77,28 @@ export default async function CryptoWidgetSection({ trans, data }) {
               ({ description, id, image: { url }, title }, i) => (
                 <li
                   className={styles.cryptoGridItem}
-                  data-slug={trans.t('comming_soon')}
+                  // data-slug={data.commingSoon}
                   key={id}
                 >
-                  <Image src={Check} alt='Check' className={styles.check} />
-                  {i === 3 ? (
-                    <Image
-                      src={Loading}
-                      alt='loading'
-                      className={styles.loading}
-                    />
-                  ) : null}
-
-                  <div className={styles['icon-wrapper']}>
-                    <Image src={url} alt={title} width={24} height={24} />
+                  <div className={styles.cryptoGridTopSide}>
+                    <Image src={Check} alt='Check' className={styles.check} />
+                    {i === 3 ? (
+                      <Image
+                        src={Loading}
+                        alt='loading'
+                        className={styles.loading}
+                      />
+                    ) : null}
+                    <div className={styles['icon-wrapper']}>
+                      <Image src={url} alt={title} width={24} height={24} />
+                    </div>
+                    {i === 3 && (
+                      <p className={styles.cryptoGridTopSideCommingSoon}>
+                        {data.commingSoon}
+                      </p>
+                    )}
                   </div>
+
                   <StyledTypographyUrbanistH5
                     component='h3'
                     className={styles.cryptoGridItemTitle}
@@ -124,25 +131,7 @@ export default async function CryptoWidgetSection({ trans, data }) {
 
         <div className={styles.rightSide}>
           <Device device={DESKTOP}>
-            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-            <video
-              loop
-              autoPlay
-              muted
-              playsInline
-              controls={false}
-              width={500}
-              height={600}
-              className={styles.graphic}
-              src='/video/b2b_crypto_video_web.webm'
-            />
-            {/* <DynamicCryptoWidgetSectionAnimationOnScroll */}
-            {/*   className={styles.graphic} */}
-            {/*   height={600} */}
-            {/*   timeRepeat={3000} */}
-            {/*   urlFirstVideo='/video/b2b_crypto_video_web.webm' */}
-            {/*   width={500} */}
-            {/* /> */}
+            <DynamicCryptoWidgetVideo />
           </Device>
         </div>
       </div>
