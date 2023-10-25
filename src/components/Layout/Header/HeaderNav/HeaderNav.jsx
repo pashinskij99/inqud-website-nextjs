@@ -21,7 +21,7 @@ function HeaderNav({ data }) {
   return (
     <nav className='navSection'>
       <ul>
-        <HeaderDropdown />
+        <HeaderDropdown data={data} />
 
         {data.nav.map(({ id, name, link }) => (
           <li key={id}>

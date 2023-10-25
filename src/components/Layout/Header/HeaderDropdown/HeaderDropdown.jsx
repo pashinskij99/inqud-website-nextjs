@@ -2,97 +2,34 @@
 
 import { useState } from 'react'
 import clsx from 'clsx'
-import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import styles from './styles.module.scss'
-import { keysForLocale } from '@/config/keysForLocale'
 
-export default function HeaderDropdown() {
-  const dropdownListNameTranslate = useTranslations(
-    'header_nav_dropdown_dropdown_title'
-  )
-  const dropdownListTitleTranslate = useTranslations(
-    'header_nav_dropdown_dropdown_items_title'
-  )
-  const dropdownList1Translate = useTranslations(
-    'header_nav_dropdown_dropdown_items_1_items'
-  )
-
+export default function HeaderDropdown({ data }) {
   const dropdownList = [
     {
       id: 0,
       items: [
         {
           id: 0,
-          name: dropdownListTitleTranslate(keysForLocale.keys6[0]),
+          name: data.dropdownBusinessTitle,
           href: '/',
         },
         {
           id: 1,
-          name: dropdownList1Translate(keysForLocale.keys6[0]),
-          href: '/crypto-widget',
+          name: data.dropdownBusinessLinks[0].name,
+          href: data.dropdownBusinessLinks[0].link,
         },
         {
           id: 2,
-          name: dropdownList1Translate(keysForLocale.keys6[1]),
-          href: '/integration-api',
+          name: data.dropdownBusinessLinks[1].name,
+          href: data.dropdownBusinessLinks[1].link,
         },
-        // {
-        //   id: 3,
-        //   name: dropdownList1Translate(keysForLocale.keys6[2]),
-        //   href: '/',
-        // },
-        // {
-        //   id: 4,
-        //   name: dropdownList1Translate(keysForLocale.keys6[3]),
-        //   href: '/',
-        // },
-        // {
-        //   id: 5,
-        //   name: dropdownList1Translate(keysForLocale.keys6[4]),
-        //   href: '/',
-        // },
-        // {
-        //   id: 6,
-        //   name: dropdownList1Translate(keysForLocale.keys6[5]),
-        //   href: '/',
-        // },
       ],
     },
     {
       id: 1,
-      items: [
-        // {
-        //   id: 0,
-        //   name: dropdownListTitleTranslate(keysForLocale.keys6[1]),
-        //   href: '/',
-        // },
-        // {
-        //   id: 1,
-        //   name: dropdownList2Translate(keysForLocale.keys6[0]),
-        //   href: '/',
-        // },
-        // {
-        //   id: 2,
-        //   name: dropdownList2Translate(keysForLocale.keys6[1]),
-        //   href: '/',
-        // },
-        // {
-        //   id: 3,
-        //   name: dropdownList2Translate(keysForLocale.keys6[2]),
-        //   href: '/',
-        // },
-        // {
-        //   id: 4,
-        //   name: dropdownList2Translate(keysForLocale.keys6[3]),
-        //   href: '/',
-        // },
-        // {
-        //   id: 5,
-        //   name: dropdownList2Translate(keysForLocale.keys6[4]),
-        //   href: '/',
-        // },
-      ],
+      items: [],
     },
   ]
 
@@ -116,7 +53,7 @@ export default function HeaderDropdown() {
           ['active']: active,
         })}
       >
-        {dropdownListNameTranslate('item1')}{' '}
+        {data.dropdownTitle}{' '}
         <svg
           width='14'
           height='8'
