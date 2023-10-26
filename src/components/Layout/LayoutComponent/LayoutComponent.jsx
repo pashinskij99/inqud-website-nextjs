@@ -45,6 +45,9 @@ query MyQuery($locale: SiteLocale = en) {
       id
     }
   }
+  homePage(fallbackLocales: en, locale: $locale) {
+    breadcrumb
+  }
   footer(fallbackLocales: en, locale: $locale) {
     allRightsReserved
     formDescription
@@ -86,7 +89,7 @@ export default async function LayoutComponent({ children, locale }) {
   return (
     <ReduxProvider>
       <Header data={data.header} />
-      <BreadCrumbs />
+      <BreadCrumbs data={data.homePage} />
       <ToastContainer
         position='bottom-right'
         autoClose={2500}

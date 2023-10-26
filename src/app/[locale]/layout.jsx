@@ -68,7 +68,6 @@ https://cdn.jsdelivr.net/npm/react-toastify@9.1.3/dist/ReactToastify.min.css
         </noscript> */}
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LayoutComponent locale={locale}>{children}</LayoutComponent>
-          {/* {children} */}
           <div id='myportal' />
           <div id='calendly-model-wrapper' />
         </NextIntlClientProvider>
