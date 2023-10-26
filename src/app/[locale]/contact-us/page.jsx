@@ -4,8 +4,8 @@ import ContactUsPage from '@/views/ContactUsPage'
 import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const PAGE_QUERY = `
-  query MyQuery {
-    contactUsPage {
+  query MyQuery($locale: SiteLocale) {
+    contactUsPage(locale: $locale, fallbackLocales: en) {
       listTitle
       mainButtonText
       mainSubTitle
@@ -29,7 +29,9 @@ export async function generateMetadata() {
   return toNextMetadata([...response.contactUsPage.seo])
 }
 
-export default async function Page() {
-  const data = await getData(PAGE_QUERY, {})
+export default async function Page({ params }) {
+  const data = await getData(PAGE_QUERY, {
+    locale: params.locale,
+  })
   return <ContactUsPage data={data} />
 }

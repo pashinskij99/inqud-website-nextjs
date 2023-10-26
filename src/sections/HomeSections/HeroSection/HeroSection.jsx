@@ -81,8 +81,8 @@ export default async function HeroSection({ dataPage }) {
               className={styles.graphic}
               height={595}
               timeRepeat={5000}
-              urlFirstVideo='/video/video1-1.mp4'
-              urlSecondVideo='/video/2.mp4'
+              urlFirstVideo='/video/1.webm'
+              urlSecondVideo='/video/2.webm'
               width={595}
             />
           </Device>
