@@ -11,7 +11,8 @@ function CryptoWidgetVideo() {
       width={500}
       height={600}
       className={styles.graphic}
-      src='/video/b2b_crypto_video_web.webm'
+      // src='/video/b2b_crypto_video_web.webm'
+      src='/video/code.webm'
     />
   )
 }
