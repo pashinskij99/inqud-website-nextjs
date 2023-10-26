@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 'use client'
 
 import { useState } from 'react'
@@ -89,106 +87,16 @@ function AccordionComponent({
   handleChange,
   handleClickLink,
 }) {
-  // const dropdownListTitleTranslate = useTranslations(
-  //   'header_nav_dropdown_dropdown_items_title'
-  // )
-  // const dropdownList1Translate = useTranslations(
-  //   'header_nav_dropdown_dropdown_items_1_items'
-  // )
-  // const dropdownList2Translate = useTranslations(
-  //   'header_nav_dropdown_dropdown_items_2_items'
-  // )
-
-  // const dropdownList = [
-  //   {
-  //     id: 0,
-  //     items: [
-  //       {
-  //         id: 0,
-  //         name: dropdownListTitleTranslate(keysForLocale.keys6[0]),
-  //         href: '#',
-  //       },
-  //       {
-  //         id: 1,
-  //         name: dropdownList1Translate(keysForLocale.keys6[0]),
-  //         href: '/crypto-widget',
-  //       },
-  //       {
-  //         id: 2,
-  //         name: dropdownList1Translate(keysForLocale.keys6[1]),
-  //         href: '/integration-api',
-  //       },
-  //       // {
-  //       //   id: 3,
-  //       //   name: dropdownList1Translate(keysForLocale.keys6[2]),
-  //       //   href: '/',
-  //       // },
-  //       // {
-  //       //   id: 4,
-  //       //   name: dropdownList1Translate(keysForLocale.keys6[3]),
-  //       //   href: '/',
-  //       // },
-  //       // {
-  //       //   id: 5,
-  //       //   name: dropdownList1Translate(keysForLocale.keys6[4]),
-  //       //   href: '/',
-  //       // },
-  //       // {
-  //       //   id: 6,
-  //       //   name: dropdownList1Translate(keysForLocale.keys6[5]),
-  //       //   href: '/',
-  //       // },
-  //     ],
-  //   },
-  //   // {
-  //   //   id: 1,
-  //   //   items: [
-  //   //     {
-  //   //       id: 0,
-  //   //       name: dropdownListTitleTranslate(keysForLocale.keys6[1]),
-  //   //       href: '#',
-  //   //     },
-  //   //     {
-  //   //       id: 1,
-  //   //       name: dropdownList2Translate(keysForLocale.keys6[0]),
-  //   //       href: '/',
-  //   //     },
-  //   //     {
-  //   //       id: 2,
-  //   //       name: dropdownList2Translate(keysForLocale.keys6[1]),
-  //   //       href: '/',
-  //   //     },
-  //   //     {
-  //   //       id: 3,
-  //   //       name: dropdownList2Translate(keysForLocale.keys6[2]),
-  //   //       href: '/',
-  //   //     },
-  //   //     {
-  //   //       id: 4,
-  //   //       name: dropdownList2Translate(keysForLocale.keys6[3]),
-  //   //       href: '/',
-  //   //     },
-  //   //     {
-  //   //       id: 5,
-  //   //       name: dropdownList2Translate(keysForLocale.keys6[4]),
-  //   //       href: '/',
-  //   //     },
-  //   //   ],
-  //   // },
-  // ]
-
-  const newData1 = data.dropdownPersonalLinks.map(({ id, link, name }) => ({
-    id,
-    name,
-    href: link,
-  }))
+  // const newData1 = data.dropdownPersonalLinks.map(({ id, link, name }) => ({
+  //   id,
+  //   name,
+  //   href: link,
+  // }))
   const newData2 = data.dropdownBusinessLinks.map(({ id, link, name }) => ({
     id,
     name,
     href: link,
   }))
-
-  console.log(newData1, newData2)
 
   const listData = [
     {
@@ -199,52 +107,50 @@ function AccordionComponent({
           name: data.dropdownBusinessTitle,
           href: '/',
         },
-        ...newData1,
-      ],
-    },
-    {
-      id: 2,
-      items: [
-        {
-          id: 5,
-          name: data.dropdownPersonalTitle,
-          href: '/',
-        },
         ...newData2,
       ],
     },
+    // {
+    //   id: 2,
+    //   items: [
+    //     {
+    //       id: 5,
+    //       name: data.dropdownPersonalTitle,
+    //       href: '/',
+    //     },
+    //     ...newData2,
+    //   ],
+    // },
   ]
 
   return (
-    <div>
-      <StyledHeaderMobileMenuAccordion
+    <StyledHeaderMobileMenuAccordion
+      expanded={expanded === title}
+      onChange={handleChange(title)}
+    >
+      <StyledHeaderMobileMenuAccordionSummary
         expanded={expanded === title}
-        onChange={handleChange(title)}
+        expandIcon={<Image src={Arrow} alt='Arrow' />}
       >
-        <StyledHeaderMobileMenuAccordionSummary
-          expanded={expanded === title}
-          expandIcon={<Image src={Arrow} alt='Arrow' />}
-        >
-          <StyledTypographyUrbanistH5 className='headerMobileMenuAccordionTitle'>
-            {title}
-          </StyledTypographyUrbanistH5>
-        </StyledHeaderMobileMenuAccordionSummary>
-        <StyledHeaderMobileMenuAccordionDetails expanded={expanded === title}>
-          {listData.map(({ id, items }) => (
-            <ul className='headerMobileMenuAccordionBodyList' key={id}>
-              {items.map(({ id: itemId, name, href }) => (
-                <StyledTypographyUrbanistBody
-                  key={itemId}
-                  onClick={() => handleClickLink(href)}
-                  className='headerMobileMenuAccordionBodyText'
-                >
-                  {name}
-                </StyledTypographyUrbanistBody>
-              ))}
-            </ul>
-          ))}
-        </StyledHeaderMobileMenuAccordionDetails>
-      </StyledHeaderMobileMenuAccordion>
-    </div>
+        <StyledTypographyUrbanistH5 className='headerMobileMenuAccordionTitle'>
+          {title}
+        </StyledTypographyUrbanistH5>
+      </StyledHeaderMobileMenuAccordionSummary>
+      <StyledHeaderMobileMenuAccordionDetails expanded={expanded === title}>
+        {listData.map(({ id, items }) => (
+          <ul className='headerMobileMenuAccordionBodyList' key={id}>
+            {items.map(({ id: itemId, name, href }) => (
+              <StyledTypographyUrbanistBody
+                key={itemId}
+                onClick={() => handleClickLink(href)}
+                className='headerMobileMenuAccordionBodyText'
+              >
+                {name}
+              </StyledTypographyUrbanistBody>
+            ))}
+          </ul>
+        ))}
+      </StyledHeaderMobileMenuAccordionDetails>
+    </StyledHeaderMobileMenuAccordion>
   )
 }

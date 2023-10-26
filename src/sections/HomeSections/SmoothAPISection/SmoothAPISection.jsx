@@ -20,8 +20,6 @@ import Device, {
   TABLET,
   TABLET_OR_DESKTOP,
 } from '@/components/Device/Device'
-// import { getData } from '@/lib/datocms'
-// import { HOME_B2B_SMOOTH_API } from '@/lib/datocmsQuery'
 
 const DynamicAnimatedVideoOnScroll = dynamic(
   () => import('@/components/AnimatedVideo/AnimatedVideoOnScroll'),
@@ -31,10 +29,6 @@ const DynamicAnimatedVideoOnScroll = dynamic(
 )
 
 export default async function SmoothAPISection({ data }) {
-  // const { homePage: data } = await getData(HOME_B2B_SMOOTH_API, {
-  //   locale: params.locale,
-  // })
-
   return (
     <section className={styles.wrapper}>
       <div className={clsx('container', styles.container)}>
@@ -84,38 +78,38 @@ export default async function SmoothAPISection({ data }) {
           </StyledTypographyUrbanistBody>
 
           <ul className={styles.smoothAPIGrid}>
-            {data.screen4Features?.map(
-              ({ description, id, image: { url }, title }) => (
-                <li
-                  className={styles.smoothAPIGridItem}
-                  data-slug='comming soon'
-                  key={id}
-                >
-                  <Image src={Check} alt='check' className={styles.check} />
+            {data.screen4Features?.map(({ description, id, image, title }) => (
+              <li
+                className={styles.smoothAPIGridItem}
+                data-slug='comming soon'
+                key={id}
+              >
+                <Image src={Check} alt='check' className={styles.check} />
+                {Boolean(image?.url) && (
                   <Device device={TABLET_OR_DESKTOP}>
                     <Image
                       className='icon'
-                      src={url}
+                      src={image.url}
                       alt={title}
                       width={48}
                       height={48}
                     />
                   </Device>
+                )}
 
-                  <StyledTypographyUrbanistH5
-                    component='h3'
-                    className={styles.smoothAPIGridItemTitle}
-                  >
-                    {title}
-                  </StyledTypographyUrbanistH5>
-                  <StyledTypographyUrbanistBody
-                    className={styles.smoothAPIGridItemDescription}
-                  >
-                    {description}
-                  </StyledTypographyUrbanistBody>
-                </li>
-              )
-            )}
+                <StyledTypographyUrbanistH5
+                  component='h3'
+                  className={styles.smoothAPIGridItemTitle}
+                >
+                  {title}
+                </StyledTypographyUrbanistH5>
+                <StyledTypographyUrbanistBody
+                  className={styles.smoothAPIGridItemDescription}
+                >
+                  {description}
+                </StyledTypographyUrbanistBody>
+              </li>
+            ))}
           </ul>
 
           <div className={styles.smoothAPIButtonWrapper}>

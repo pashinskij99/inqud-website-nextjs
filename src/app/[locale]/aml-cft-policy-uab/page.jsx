@@ -4,16 +4,17 @@ import AmlCftPolicyUabPage from '@/views/AmlCftPolicyUabPage/AmlCftPolicyUabPage
 import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const AML_CFT_POLICY_UAB_PAGE_QUERY = `  
-query MyQuery($locale: SiteLocale) {
+  query MyQuery($locale: SiteLocale) {
     antiMoneyLaundering(locale: $locale, fallbackLocales: en) {
-    content {
-      value
+      breadcrumb
+      content {
+        value
+      }
+      title
+      id
+      _updatedAt
     }
-    title
-    id
-    _updatedAt
-}
-}
+  }
 `
 
 export async function generateMetadata() {

@@ -8,6 +8,7 @@ import BlogsPageMainSection from '@/sections/BlogsSections/BlogsPageMainSection'
 import { BlogContext, BlogProvider } from '@/contexts/BlogContext/BlogContext'
 import { setTags } from '@/store/features/blog/blogSlice'
 import { fetchBlogs } from '@/store/features/blog/blogAsyncThunk'
+import SetterBreadcrumbComponent from '@/components/SetterBreadcrumbComponent'
 
 function BlogsWrapper() {
   const { pagination, activeTags, searchValue } = useSelector(
@@ -47,6 +48,14 @@ function BlogsPage({ tags = [], params, heroSectionData }) {
 
   return (
     <BlogProvider params={params} heroSectionData={heroSectionData}>
+      <SetterBreadcrumbComponent
+        data={[
+          {
+            name: heroSectionData.breadcrumb,
+            href: '',
+          },
+        ]}
+      />
       <StyledBlogsPageWrapper>
         <BlogsWrapper />
       </StyledBlogsPageWrapper>

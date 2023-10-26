@@ -25,10 +25,6 @@ const DynamicAnimatedFirstScreenVideo = dynamic(
 )
 
 export default async function HeroSection({ dataPage }) {
-  // const { homePage: data } = await getData(HOME_PAGE_QUERY, {
-  //   locale: params.locale,
-  // })
-
   const data = dataPage.homePage
 
   return (

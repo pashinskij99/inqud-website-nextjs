@@ -10,10 +10,19 @@ import OurLandscapeSection from '@/sections/HomeSections/OurLandscapeSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import Contact from '@/sections/ApiSections/Contact'
 import PageProvider from '@/contexts/PageContext/PageContext'
+import SetterBreadcrumbComponent from '@/components/SetterBreadcrumbComponent'
 
 export default function ApiPage({ data, params }) {
   return (
     <PageProvider isFaq dataPage={data} nameCMSPage='apiPage'>
+      <SetterBreadcrumbComponent
+        data={[
+          {
+            name: data.apiPage.breadcrumb,
+            href: '',
+          },
+        ]}
+      />
       <StyledApiPageWrapper>
         <ApiHeroSection
           paymentListData={data.supportedCurrency}

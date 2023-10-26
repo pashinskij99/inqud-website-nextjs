@@ -5,6 +5,7 @@ import BlogPage from '@/views/BlogPage'
 const PAGE_CONTENT_QUERY = `
 query Blog($slug: String, $locale: SiteLocale) {
   blogHeroSection(locale: $locale, fallbackLocales: en) {
+    breadcrumb
     title
     inputPlaceholder
     id

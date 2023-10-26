@@ -42,6 +42,7 @@ const API_QUERY = `
       whatsappPlaceholder
     }
     apiPage(locale: $locale, fallbackLocales: en) {
+      breadcrumb
       leadForm1Button
       faqMainTitle
       faqMainTitleMobile

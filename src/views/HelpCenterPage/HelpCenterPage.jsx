@@ -11,12 +11,21 @@ import HelpHeroSection from '@/sections/HelpCenterSections/HelpHeroSection'
 import { HelpCentreProvider } from '@/contexts/HelpCentreContext/HelpCentreContext'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 import { FullScreenLoader } from '@/components/Loader'
+import SetterBreadcrumbComponent from '@/components/SetterBreadcrumbComponent'
 
 function HelpCenterPage({ children, data }) {
   const path = usePathname()
 
   return (
     <StyledHelpCenterPageWrapper>
+      <SetterBreadcrumbComponent
+        data={[
+          {
+            name: data.helpCentreHero.breadcrumb,
+            href: '',
+          },
+        ]}
+      />
       <HelpHeroSection
         data={data}
         page={path.split('/').length === 2 ? 'main' : 'detail'}

@@ -9,23 +9,6 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 
 export default function HeroSectionPaymentList({ data }) {
-  // const [data, setData] = useState({})
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const pageData = await getPageData({
-  //       variables: {
-  //         locale: params.locale,
-  //       },
-  //       query: HOME_B2B_HERO_LIST,
-  //     })
-
-  //     setData(pageData.supportedCurrency)
-  //   }
-
-  //   getData()
-  // }, [])
-
   return (
     <div className={clsx('payment', styles.payment)}>
       <StyledTypographyUrbanistBody className='payment-descr'>
@@ -38,12 +21,14 @@ export default function HeroSectionPaymentList({ data }) {
             ({ supportedCurrenciesImage, supportedCurrenciesName, id }) => (
               <li key={id}>
                 <div className='icon-wrapper'>
-                  <Image
-                    width={32.00000762939453}
-                    height={32.00000762939453}
-                    src={supportedCurrenciesImage.url}
-                    alt={supportedCurrenciesName}
-                  />
+                  {supportedCurrenciesImage?.url ? (
+                    <Image
+                      width={32.00000762939453}
+                      height={32.00000762939453}
+                      src={supportedCurrenciesImage.url}
+                      alt={supportedCurrenciesName}
+                    />
+                  ) : null}
                 </div>
                 <StyledTypographyUrbanistH5>
                   {supportedCurrenciesName}

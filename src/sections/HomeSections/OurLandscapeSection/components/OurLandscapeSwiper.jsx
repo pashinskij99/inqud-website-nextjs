@@ -2,7 +2,6 @@
 
 import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-// eslint-disable-next-line import/no-cycle
 import Accordion from '../OurLandscapeSectionAccordion/Accordion'
 
 export default function OurLandscapeSwiper({ accordionData, data }) {
@@ -12,7 +11,7 @@ export default function OurLandscapeSwiper({ accordionData, data }) {
       slidesPerView={1}
       centeredSlides
       spaceBetween={8}
-      initialSlide='1'
+      initialSlide='0'
       loop
       height={500}
       scrollbar={{

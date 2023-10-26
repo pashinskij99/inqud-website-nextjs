@@ -13,18 +13,9 @@ export default function HeaderDropdown({ data }) {
         {
           id: 0,
           name: data.dropdownBusinessTitle,
-          href: '/',
+          link: '/',
         },
-        {
-          id: 1,
-          name: data.dropdownBusinessLinks[0].name,
-          href: data.dropdownBusinessLinks[0].link,
-        },
-        {
-          id: 2,
-          name: data.dropdownBusinessLinks[1].name,
-          href: data.dropdownBusinessLinks[1].link,
-        },
+        ...data.dropdownBusinessLinks,
       ],
     },
     {

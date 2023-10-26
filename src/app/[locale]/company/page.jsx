@@ -7,6 +7,7 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 const COMPANY_PAGE_QUERY = `  
 query MyQuery($locale: SiteLocale) {
   aboutUsPage(locale: $locale, fallbackLocales: en) {
+    breadcrumb
     id
     screen1Description1
     screen1Description2
@@ -84,5 +85,4 @@ export default async function Page({ params }) {
   const data = await getData(COMPANY_PAGE_QUERY, { locale: params.locale })
 
   return <CompanyPage data={data} />
-  // return <>1</>
 }

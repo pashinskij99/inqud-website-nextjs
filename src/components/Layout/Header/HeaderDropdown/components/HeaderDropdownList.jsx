@@ -15,9 +15,9 @@ export default function HeaderDropdownList({
     >
       {dropdownList.map(({ id, items }) => (
         <ul key={id}>
-          {items.map(({ id: itemId, name, href }) => (
+          {items.map(({ id: itemId, name, link }) => (
             <li key={itemId}>
-              <Link onClick={handleClose} href={href}>
+              <Link onClick={handleClose} href={link}>
                 {name}
               </Link>
             </li>

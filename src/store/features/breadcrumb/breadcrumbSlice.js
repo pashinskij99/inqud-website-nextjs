@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   blog: '',
+  breadcrumb: [],
 }
 
 const breadcrumbSlice = createSlice({
@@ -11,8 +12,11 @@ const breadcrumbSlice = createSlice({
     setBlogBreadcrumbs: (state, action) => {
       state.blog = action.payload
     },
+    setBreadCrumb: (state, action) => {
+      state.breadcrumb = action.payload
+    },
   },
 })
 
-export const { setBlogBreadcrumbs } = breadcrumbSlice.actions
+export const { setBlogBreadcrumbs, setBreadCrumb } = breadcrumbSlice.actions
 export default breadcrumbSlice.reducer

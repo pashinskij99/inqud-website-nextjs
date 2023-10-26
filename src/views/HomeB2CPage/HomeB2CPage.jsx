@@ -8,6 +8,7 @@ import HowToStartsB2CSection from '@/sections/HomeB2CSections/HowToStartsB2CSect
 import PassKYCB2CSection from '@/sections/HomeB2CSections/PassKYCB2CSection'
 import BlogsSection from '@/sections/HomeSections/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
+import SetterBreadcrumbComponent from '@/components/SetterBreadcrumbComponent'
 
 export default function HomeB2CPage({ data, params }) {
   const blogTrans = {
@@ -15,6 +16,14 @@ export default function HomeB2CPage({ data, params }) {
   }
   return (
     <PageProvider isFaq dataPage={data} nameCMSPage='homeB2c'>
+      <SetterBreadcrumbComponent
+        data={[
+          {
+            name: data.homeB2c.breadcrumb,
+            href: '',
+          },
+        ]}
+      />
       <StyledHomeB2CPageWrapper>
         <HeroB2CSection
           paymentListData={data.supportedCurrency}

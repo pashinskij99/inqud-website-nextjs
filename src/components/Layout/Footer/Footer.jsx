@@ -12,86 +12,6 @@ import Logo from '@/assets/icons/footer-logo.svg'
 import FooterForm from './components/FooterForm'
 
 export default function Footer({ data }) {
-  const footerData = [
-    {
-      id: 0,
-      title: data.legalTitle,
-      className: 'Resources',
-      items: [
-        {
-          id: 0,
-          text: data.legalList[0].name,
-          href: data.legalList[0].link,
-        },
-        {
-          id: 1,
-          text: data.legalList[1].name,
-          href: data.legalList[1].link,
-        },
-        {
-          id: 2,
-          text: data.legalList[2].name,
-          href: data.legalList[2].link,
-        },
-        {
-          id: 3,
-          text: data.legalList[3].name,
-          href: data.legalList[3].link,
-        },
-        {
-          id: 4,
-          text: data.legalList[4].name,
-          href: data.legalList[4].link,
-        },
-      ],
-    },
-    {
-      id: 1,
-      title: data.resourcesTitle,
-      className: 'Legal',
-      items: [
-        {
-          id: 0,
-          text: data.resourcesList[0].name,
-          href: data.resourcesList[0].link,
-        },
-        {
-          id: 1,
-          text: data.resourcesList[1].name,
-          href: data.resourcesList[1].link,
-        },
-        {
-          id: 2,
-          text: data.resourcesList[2].name,
-          href: data.resourcesList[2].link,
-        },
-        {
-          id: 4,
-          text: data.resourcesList[3].name,
-          href: data.resourcesList[3].link,
-        },
-      ],
-    },
-  ]
-
-  // const social = [
-  //   {
-  //     id: 0,
-  //     icon: <Image src={Twitter} alt='Twitter' />,
-  //     href: 'https://twitter.com/inqud',
-  //   },
-  //   {
-  //     id: 1,
-  //     icon: <Image src={Facebook} alt='Facebook' />,
-  //     href: 'https://www.facebook.com/Inqud-106842349102120',
-  //   },
-  //   {
-  //     id: 2,
-  //     icon: <Image src={Linkedin} alt='Linkedin' />,
-  //     href: 'https://www.linkedin.com/company/inqud/about/?viewAsMember=true',
-  //   },
-  // ]
-
   return (
     <div className={styles.wrapper}>
       <div className='footerSubscribeSectionMobile'>
@@ -118,31 +38,39 @@ export default function Footer({ data }) {
               {data.mainDescription}
             </StyledTypographyUrbanistBody>
           </div>
-          {footerData.map(({ id, items, className, title }) => (
-            <div key={id} className={`footer${className}Section`}>
-              <StyledTypographyUrbanistH5
-                className={`footer${className}SectionTitle`}
-              >
-                {title}
-              </StyledTypographyUrbanistH5>
-              <ul className={`footer${className}SectionList`}>
-                {items.map(({ id: itemId, href, text }) => (
-                  <li
-                    className={`footer${className}SectionListItem`}
-                    key={itemId}
-                  >
-                    <Link href={href}>
-                      <StyledTypographyUrbanistBody
-                        className={`footer${className}SectionListItemText`}
-                      >
-                        {text}
-                      </StyledTypographyUrbanistBody>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className='footerResourcesSection'>
+            <StyledTypographyUrbanistH5 className='footerResourcesSectionTitle'>
+              {data.resourcesTitle}
+            </StyledTypographyUrbanistH5>
+            <ul className='footerResourcesSectionList'>
+              {data.legalList.map(({ id, link, name }) => (
+                <li className='footerResourcesSectionListItem' key={id}>
+                  <Link href={link}>
+                    <StyledTypographyUrbanistBody className='footerResourcesSectionListItemText'>
+                      {name}
+                    </StyledTypographyUrbanistBody>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className='footerLegalSection'>
+            <StyledTypographyUrbanistH5 className='footerLegalSectionTitle'>
+              {data.legalTitle}
+            </StyledTypographyUrbanistH5>
+            <ul className='footerLegalSectionList'>
+              {data.resourcesList.map(({ id, link, name }) => (
+                <li className='footerLegalSectionListItem' key={id}>
+                  <Link href={link}>
+                    <StyledTypographyUrbanistBody className='footerLegalSectionListItemText'>
+                      {name}
+                    </StyledTypographyUrbanistBody>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           <div className='footerSubscribeSection'>
             <StyledTypographyUrbanistH5 className='footerSubscribeSectionTitle'>
               {data.formTitle}

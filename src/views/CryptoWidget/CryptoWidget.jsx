@@ -11,10 +11,19 @@ import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 import SendRequestSection from '@/sections/CryptoWidgetSections/SendRequestSection'
 import ConnectCryptoSection from '@/sections/CryptoWidgetSections/ConnectCryptoSection'
 import PageProvider from '@/contexts/PageContext/PageContext'
+import SetterBreadcrumbComponent from '@/components/SetterBreadcrumbComponent'
 
 export default function CryptoWidget({ data, params }) {
   return (
     <PageProvider dataPage={data} isFaq nameCMSPage='cryptoWidgetPage'>
+      <SetterBreadcrumbComponent
+        data={[
+          {
+            name: data.cryptoWidgetPage.breadcrumb,
+            href: '',
+          },
+        ]}
+      />
       <main className={styles.wrapper}>
         <CryptoWidgetHeroSection
           paymentListData={data.supportedCurrency}

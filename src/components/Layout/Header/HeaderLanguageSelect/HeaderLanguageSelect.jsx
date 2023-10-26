@@ -7,13 +7,6 @@ import dynamic from 'next/dynamic'
 import Planet from '@/assets/icons/planet.svg'
 import styles from './styles.module.scss'
 
-// const languages = [
-//   { id: 0, name: 'English (US)', value: 'EN', locale: 'en' },
-//   // { id: 1, name: 'Ukrainian', value: 'UK', locale: 'uk' },
-//   // { id: 3, name: 'Español', value: 'ES', locale: 'es' },
-//   { id: 2, name: 'Russian', value: 'RU', locale: 'ru' },
-// ]
-
 export default function HeaderLanguageSelect({ activeStyle, className, data }) {
   const [active, setActive] = useState(false)
   const locale = useLocale()

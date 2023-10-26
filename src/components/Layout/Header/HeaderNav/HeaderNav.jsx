@@ -4,18 +4,6 @@ import { usePathname } from 'next/navigation'
 import HeaderDropdown from '@/components/Layout/Header/HeaderDropdown'
 
 function HeaderNav({ data }) {
-  // const navListTranslate = useTranslations('header_items')
-
-  // const navList = [
-  //   { id: 0, name: navListTranslate(keysForLocale.keys3[0]), href: '/company' },
-  //   { id: 1, name: navListTranslate(keysForLocale.keys3[1]), href: '/blog' },
-  //   {
-  //     id: 2,
-  //     name: navListTranslate(keysForLocale.keys3[2]),
-  //     href: '/help-center',
-  //   },
-  // ]
-
   const pathname = usePathname()
 
   return (

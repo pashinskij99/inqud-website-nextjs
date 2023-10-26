@@ -6,6 +6,7 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 const PRIVACY_NOTE_PAGE_QUERY = `  
 query MyQuery($locale: SiteLocale) {
   privacyNotePage(locale: $locale, fallbackLocales: en) {
+    breadcrumb
     content {
       value
     }

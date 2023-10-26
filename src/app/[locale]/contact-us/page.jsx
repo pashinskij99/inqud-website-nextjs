@@ -6,6 +6,7 @@ import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 const PAGE_QUERY = `
   query MyQuery($locale: SiteLocale) {
     contactUsPage(locale: $locale, fallbackLocales: en) {
+      breadcrumb
       listTitle
       mainButtonText
       mainSubTitle

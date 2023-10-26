@@ -21,6 +21,7 @@ async function Page({ searchParams, params }) {
       id
     }
     blogHeroSection(locale: $locale, fallbackLocales: en) {
+      breadcrumb
       title
       inputPlaceholder
       id
@@ -36,13 +37,6 @@ async function Page({ searchParams, params }) {
   const { allTags, blogHeroSection } = await getData(PAGE_TAG_QUERY, {
     locale: params.locale,
   })
-  // const { allTags, blogHeroSection } = await performRequest({
-  //   query: PAGE_TAG_QUERY,
-  //   revalidate: 0,
-  //   variables: {
-  //     locale: params.locale,
-  //   },
-  // })
 
   return (
     <>

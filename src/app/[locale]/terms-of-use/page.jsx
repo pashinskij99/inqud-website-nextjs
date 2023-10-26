@@ -4,16 +4,17 @@ import WhoWeAreAndHowToContactUsPage from '@/views/WhoWeAreAndHowToContactUsPage
 import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const PRIVACY_NOTE_PAGE_QUERY = `  
-    query MyQuery($locale: SiteLocale) {
-        whoWeAreAndHowToContact(locale: $locale, fallbackLocales: en) {
-            content {
-                value
-            }
-            title
-            id
-            _updatedAt
-        }
+  query MyQuery($locale: SiteLocale) {
+    whoWeAreAndHowToContact(locale: $locale, fallbackLocales: en) {
+      breadcrumb
+      content {
+        value
+      }
+      title
+      id
+      _updatedAt
     }
+  }
 `
 
 export async function generateMetadata() {

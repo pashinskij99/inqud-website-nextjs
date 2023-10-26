@@ -74,13 +74,9 @@ export const StyledQuestionsSection = styled.section`
     padding: ${rem(24)} ${rem(32)} ${rem(22)};
     border-radius: ${rem(16)};
     background: var(--confident-light-grey, #f4f5fa);
-    ${responsive.xl`
-      // justify-content: flex-start;
-      // font-weight: 700;
-    `};
+
     ${responsive.sm`
       position: relative;
-      // flex-direction: column;
       align-items: start;
       font-weight: 400;
       line-height: 26px;
@@ -106,7 +102,6 @@ export const StyledQuestionsSection = styled.section`
           font-style: normal;
           line-height: 26px;
           font-weight: 700;
-          // color: rgba(45, 52, 57, 1);
         `}
       }
 
@@ -116,21 +111,8 @@ export const StyledQuestionsSection = styled.section`
         height: ${rem(24)};
         ${responsive.sm`
           position: static;
-          // top: 0;
-          // bottom: 0;
-          // margin: auto 0;
-          // right: ${rem(16)};
+       
         `};
-        /* circle {
-          ${responsive.sm`
-            fill: #517185;
-          `};
-        }
-        path {
-          ${responsive.sm`
-            fill: white;
-          `};
-        } */
       }
     }
   }

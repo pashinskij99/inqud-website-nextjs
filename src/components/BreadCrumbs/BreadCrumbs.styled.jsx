@@ -5,8 +5,8 @@ import { nunito } from '@/utils/font'
 
 export const StyledBreadcrumbs = styled(Breadcrumbs)`
   padding: ${rem(10)} 0;
-  ${nunito.style}
-
+  visibility: ${({ visible }) => (visible ? 'visible' : 'hidden')};
+  ${nunito.style};
   .containerHeader {
   }
 
@@ -45,10 +45,6 @@ export const StyledBreadcrumbs = styled(Breadcrumbs)`
           color: rgba(81, 113, 133, 0.6000000238418579);
         }
       }
-
-      /* &:nth-last-child(2) {
-        color: rgba(81, 113, 133, 1);
-      } */
     }
   }
 `

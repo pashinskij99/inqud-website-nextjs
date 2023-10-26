@@ -27,6 +27,7 @@ const CRYPTO_WIDGET = `
       faqButton
     }
     cryptoWidgetPage(locale: $locale, fallbackLocales: en) {
+      breadcrumb
       faqMainTitle
       faqMainTitleMobile
       faqDescription
@@ -36,6 +37,7 @@ const CRYPTO_WIDGET = `
         title
       }
       faqButtonTextMobile
+      faqButtonText
       buttonScreen10
       buttonScreen1A
       buttonScreen1B

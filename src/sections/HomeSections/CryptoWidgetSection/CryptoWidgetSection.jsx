@@ -31,10 +31,6 @@ const DynamicCryptoWidgetVideo = dynamic(
 )
 
 export default async function CryptoWidgetSection({ data }) {
-  // const { homePage: data } = await getData(HOME_B2B_CRYPTO_WIDGET, {
-  //   locale: params.locale,
-  // })
-
   return (
     <section className={styles.wrapper}>
       <div className={clsx('container', styles.container)}>
@@ -73,46 +69,51 @@ export default async function CryptoWidgetSection({ data }) {
           </StyledTypographyUrbanistBody>
 
           <ul className={styles.cryptoGrid}>
-            {data.feature?.map(
-              ({ description, id, image: { url }, title }, i) => (
-                <li
-                  className={styles.cryptoGridItem}
-                  // data-slug={data.commingSoon}
-                  key={id}
-                >
-                  <div className={styles.cryptoGridTopSide}>
-                    <Image src={Check} alt='Check' className={styles.check} />
-                    {i === 3 ? (
+            {data.feature?.map(({ description, id, image, title }, i) => (
+              <li
+                className={styles.cryptoGridItem}
+                // data-slug={data.commingSoon}
+                key={id}
+              >
+                <div className={styles.cryptoGridTopSide}>
+                  <Image src={Check} alt='Check' className={styles.check} />
+                  {i === 3 ? (
+                    <Image
+                      src={Loading}
+                      alt='loading'
+                      className={styles.loading}
+                    />
+                  ) : null}
+                  <div className={styles['icon-wrapper']}>
+                    {Boolean(image?.url) && (
                       <Image
-                        src={Loading}
-                        alt='loading'
-                        className={styles.loading}
+                        src={image.url}
+                        alt={title}
+                        width={24}
+                        height={24}
                       />
-                    ) : null}
-                    <div className={styles['icon-wrapper']}>
-                      <Image src={url} alt={title} width={24} height={24} />
-                    </div>
-                    {i === 3 && (
-                      <p className={styles.cryptoGridTopSideCommingSoon}>
-                        {data.commingSoon}
-                      </p>
                     )}
                   </div>
+                  {i === 3 && (
+                    <p className={styles.cryptoGridTopSideCommingSoon}>
+                      {data.commingSoon}
+                    </p>
+                  )}
+                </div>
 
-                  <StyledTypographyUrbanistH5
-                    component='h3'
-                    className={styles.cryptoGridItemTitle}
-                  >
-                    {title}
-                  </StyledTypographyUrbanistH5>
-                  <StyledTypographyUrbanistBody
-                    className={styles.cryptoGridItemDescription}
-                  >
-                    {description}
-                  </StyledTypographyUrbanistBody>
-                </li>
-              )
-            )}
+                <StyledTypographyUrbanistH5
+                  component='h3'
+                  className={styles.cryptoGridItemTitle}
+                >
+                  {title}
+                </StyledTypographyUrbanistH5>
+                <StyledTypographyUrbanistBody
+                  className={styles.cryptoGridItemDescription}
+                >
+                  {description}
+                </StyledTypographyUrbanistBody>
+              </li>
+            ))}
           </ul>
 
           <div className={styles.cryptoButtonWrapper}>
