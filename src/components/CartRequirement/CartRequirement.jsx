@@ -18,7 +18,10 @@ export default function CartRequirement({
 }) {
   return (
     <div className={clsx('cart-requirements', styles.wrapper)}>
-      <DatoImage className='cartImage' data={imageSrc.responsiveImage} />
+      {imageSrc?.responsiveImage ? (
+        <DatoImage className='cartImage' data={imageSrc.responsiveImage} />
+      ) : null}
+
       <div className='cartBody'>
         <StyledTypographyUrbanistH4 component='h3' className='cartTitle'>
           {title}
