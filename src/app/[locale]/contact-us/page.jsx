@@ -31,6 +31,5 @@ export async function generateMetadata() {
 
 export default async function Page() {
   const data = await getData(PAGE_QUERY, {})
-  console.log(data)
   return <ContactUsPage data={data} />
 }
