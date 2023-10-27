@@ -89,7 +89,8 @@ export const StyledApiHeroSectionWrapper = styled.section`
       `}
       ${responsive.sm`
         grid-template-columns: repeat(1, auto);
-        margin-bottom: 32px;
+        width: 80%;
+        margin: 0 auto 32px;
       `}
       li {
         display: flex;
@@ -101,6 +102,7 @@ export const StyledApiHeroSectionWrapper = styled.section`
         }
 
         p {
+          text-align: start;
           font-weight: 500;
           line-height: 22px;
           letter-spacing: 0em;

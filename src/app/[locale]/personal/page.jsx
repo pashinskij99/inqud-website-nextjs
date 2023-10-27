@@ -22,6 +22,11 @@ query MyQuery($locale: SiteLocale) {
     }
   }
 
+  blogSection(locale: $locale, fallbackLocales: en) {
+    title
+    buttonText
+  }
+
   homeB2c(locale: $locale, fallbackLocales: en) {
     faqMainTitle
     faqMainTitleMobile

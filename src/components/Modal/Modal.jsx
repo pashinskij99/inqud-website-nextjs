@@ -3,7 +3,6 @@
 import { Fragment, useEffect, useMemo, useState } from 'react'
 import clsx from 'clsx'
 import { DialogContent } from '@mui/material'
-import { useTranslations } from 'next-intl'
 import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
 import {
@@ -31,21 +30,20 @@ export function ModalSendRequest({
   onSubmit,
   errors,
   register,
+  data,
 }) {
-  const t = useTranslations('home_page_your_needs_section_modal')
-
   const inputs = [
     {
       id: 0,
-      label: t('label_email'),
+      label: data.formLable1,
       placeholder: 'example@mail.com',
       name: 'email',
       type: 'email',
     },
     {
       id: 1,
-      label: t('label_message'),
-      placeholder: t('placeholder_message'),
+      label: data.formLable2,
+      placeholder: data.formMessagePlaceholder,
       name: 'message',
       type: 'textarea',
     },
@@ -59,10 +57,11 @@ export function ModalSendRequest({
         </button>
         <div className='header'>
           <Image src={Message} alt='Message' />
-          {/* <Message /> */}
-          <StyledTypographyUrbanistH3>{t('title')}</StyledTypographyUrbanistH3>
+          <StyledTypographyUrbanistH3>
+            {data.formTitle}
+          </StyledTypographyUrbanistH3>
           <StyledTypographyUrbanistBody>
-            {t('description')}
+            {data.formDescription}
           </StyledTypographyUrbanistBody>
         </div>
         <div className='body'>
@@ -90,10 +89,10 @@ export function ModalSendRequest({
         </div>
         <div className='footer'>
           <StyledButtonSecondary type='submit'>
-            {t('button_text')}
+            {data.formButtonText}
           </StyledButtonSecondary>
           <StyledTypographyUrbanistSmallSpaces>
-            {t('footer_description')}
+            {data.formFooterDescription}
           </StyledTypographyUrbanistSmallSpaces>
         </div>
       </form>
@@ -109,28 +108,7 @@ export function ModalSubmitEmail({
   onSubmit,
   register,
   data,
-  // params,
 }) {
-  // const [data, setData] = useState({})
-  // const {
-  //   dataPage: { homePage: data },
-  // } = useContext(PageContext)
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const pageData = await getPageData({
-  //       variables: {
-  //         locale: params.locale,
-  //       },
-  //       query: MODAL_2,
-  //     })
-
-  //     setData(pageData.homePage)
-  //   }
-
-  //   getData()
-  // }, [])
-
   return (
     <StyledModalSendRequestWrapper open={open} onClose={handleClose}>
       <form onSubmit={handleSubmit(onSubmit)} className='modalContainer'>
@@ -168,23 +146,6 @@ export function ModalSubmitEmail({
     </StyledModalSendRequestWrapper>
   )
 }
-
-const industryList = [
-  'iGaming',
-  'Betting',
-  'Adult',
-  'Crypto',
-  'NFT',
-  'Farmacy',
-  'Fintech',
-  'Medicine',
-  'E-commerce',
-  'Gaming',
-  'Travel',
-  'Horeca',
-  'Education',
-  'Blogging',
-]
 
 const getInput = ({
   name,

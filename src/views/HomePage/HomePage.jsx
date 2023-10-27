@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl'
 import styles from './HomePage.module.scss'
 import HeroSection from '@/sections/HomeSections/HeroSection'
 import SmoothAPISection from '@/sections/HomeSections/SmoothAPISection'
@@ -13,10 +12,6 @@ import BlogsSection from '@/sections/HomeSections/BlogsSection/BlogsSection'
 import QuestionsSection from '@/sections/HomeSections/QuestionsSection'
 
 export default function HomePage({ params, data }) {
-  const blogTrans = {
-    t: useTranslations('blog_name_section'),
-  }
-
   return (
     <main className={styles.wrapper}>
       <HeroSection dataPage={data} params={params} />
@@ -45,11 +40,7 @@ export default function HomePage({ params, data }) {
         className={styles.pickSection2}
         buttonText={data.homePage.buttonLead3Book}
       />
-      <BlogsSection
-        data={data.homePage}
-        blogs={data.allBlogs}
-        trans={blogTrans}
-      />
+      <BlogsSection data={data.blogSection} blogs={data.allBlogs} />
       <QuestionsSection faq={data.homePage} />
       {/* CryptoWidget2Section, QuestionsSection, ReasonsToTeamUp, FeesBusiness no ssr */}
     </main>

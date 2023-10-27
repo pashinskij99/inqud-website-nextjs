@@ -10,8 +10,6 @@ export const StyledPickSectionSection = styled.section`
   padding-left: ${rem(63.5)};
 
   overflow: hidden;
-  /* max-width: 1216px; */
-  /* width: 100%; */
   display: flex;
   justify-content: space-between;
 
@@ -201,9 +199,9 @@ export const StyledPickSectionSection = styled.section`
               order: 3;
             `}
           }
-          p {
+          /* p {
             white-space: nowrap;
-          }
+          } */
         }
       }
     }

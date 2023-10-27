@@ -19,7 +19,7 @@ import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
 import { ArticleContext } from '@/contexts/ArticleContext/ArticleContext'
 import { HelpCentreDetailsContext } from '@/contexts/HelpCentreDetailsContext/HelpCentreDetailsContext'
 
-export function DetailsSectionInner() {
+export function DetailsSectionInner({ formData }) {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
   const searchParams = useSearchParams()
 
@@ -129,6 +129,7 @@ export function DetailsSectionInner() {
                 <DynamicDetailsSectionModalForm
                   handleClose={handleClose}
                   openModal={openModalSendRequest}
+                  data={formData}
                 />
               ) : null}
             </div>
@@ -150,7 +151,7 @@ const DynamicDetailsSectionModalFormContent = dynamic(
 )
 
 const DynamicDetailsSectionModalForm = dynamic(
-  () => import('./DetailsSectionModalForm').then((res) => res.default),
+  () => import('./DetailsSectionModalForm'),
   {
     ssr: false,
   }

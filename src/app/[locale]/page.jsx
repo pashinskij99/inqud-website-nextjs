@@ -226,6 +226,21 @@ query MyQuery($locale: SiteLocale) {
     }
   }
 
+  formSendResponse(locale: $locale, fallbackLocales: en) {
+    formTitle
+    formMessagePlaceholder
+    formLable2
+    formLable1
+    formFooterDescription
+    formDescription
+    formButtonText
+  }
+
+  blogSection(locale: $locale, fallbackLocales: en) {
+    title
+    buttonText
+  }
+
   allBlogs(locale: $locale, fallbackLocales: en, orderBy: _createdAt_DESC, first: 3) {
     id
     mainTitle

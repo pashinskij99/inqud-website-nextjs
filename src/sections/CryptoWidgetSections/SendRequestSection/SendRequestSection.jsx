@@ -43,17 +43,10 @@ export default function SendRequestSection() {
       ],
     }
 
-    // await toast.promise(
     const submitForFormActiveCampaign = await import(
       '@/lib/activeCampaign'
     ).then((res) => res.submitForFormActiveCampaign)
     await submitForFormActiveCampaign(newData, '/api/create-contact', 6)
-    //     ,
-    //   {
-    //     pending: 'Sending data',
-    //     success: 'Data sent',
-    //   }
-    // )
 
     const toast = await import('react-toastify').then((res) => res.toast)
     const createBlog = await import('@/lib/datocms').then(
@@ -68,12 +61,6 @@ export default function SendRequestSection() {
 
   return (
     <StyledSendRequestSectionWrapper>
-      {/* <Image
-        className='background'
-        src={background.src}
-        alt='Get a personalized proposal'
-        fill
-      /> */}
       <Image
         className='background'
         src={background.src}

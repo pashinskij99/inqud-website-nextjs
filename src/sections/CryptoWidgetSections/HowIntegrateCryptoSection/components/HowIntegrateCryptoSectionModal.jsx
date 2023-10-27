@@ -3,7 +3,11 @@ import { useForm } from 'react-hook-form'
 import { userSchema2 } from '@/utils/userSchema'
 import { ModalSendRequest } from '@/components/Modal'
 
-export default function HowIntegrateCryptoSectionModal({ handleClose, open }) {
+export default function HowIntegrateCryptoSectionModal({
+  handleClose,
+  open,
+  data,
+}) {
   const {
     register,
     formState: { errors },
@@ -27,17 +31,11 @@ export default function HowIntegrateCryptoSectionModal({ handleClose, open }) {
       ],
     }
 
-    // await toast.promise(
     const submitForFormActiveCampaign = await import(
       '@/lib/activeCampaign'
     ).then((res) => res.submitForFormActiveCampaign)
     await submitForFormActiveCampaign(newData, '/api/create-contact', 11)
-    // ,
-    // {
-    //   pending: 'Sending data',
-    //   success: 'Data sent',
-    // }
-    // )
+
     const toast = await import('react-toastify').then((res) => res.toast)
     const createBlog = await import('@/lib/datocms').then(
       (res) => res.createBlog
@@ -58,6 +56,7 @@ export default function HowIntegrateCryptoSectionModal({ handleClose, open }) {
       handleClose={handleClose}
       errors={errors}
       open={open}
+      data={data}
     />
   )
 }

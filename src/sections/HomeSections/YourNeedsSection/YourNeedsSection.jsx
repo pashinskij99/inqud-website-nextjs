@@ -39,10 +39,7 @@ const coinsList = [
 ]
 
 const DynamicYourNeedsSectionDesktopCarts = dynamic(
-  () =>
-    import('./components/YourNeedsSectionDesktopCarts').then(
-      (res) => res.default
-    ),
+  () => import('./components/YourNeedsSectionDesktopCarts'),
   {
     ssr: false,
   }

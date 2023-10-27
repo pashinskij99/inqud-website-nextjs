@@ -1,10 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getData } from '@/lib/datocms'
 
-// filter: {mainTitle: {matches: {pattern: "${helpCentreLinkTransformToNormal(
-//   decodeURIComponent(params.slug)
-// )}"}}}
-
 export async function POST(req) {
   const { params } = await req.json()
 
@@ -13,6 +9,15 @@ export async function POST(req) {
       $slug: String = "${params.slug}",
       $locale: SiteLocale
     ) {
+    formSendResponse(locale: $locale, fallbackLocales: en) {
+      formTitle
+      formMessagePlaceholder
+      formLable2
+      formLable1
+      formFooterDescription
+      formDescription
+      formButtonText
+    }  
     helpCentre(
         locale: $locale,
         filter: {

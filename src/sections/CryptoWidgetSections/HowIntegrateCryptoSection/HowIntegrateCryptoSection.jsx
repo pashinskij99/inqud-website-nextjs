@@ -1,7 +1,6 @@
 'use client'
 
 import { useContext, useState } from 'react'
-// import { toast } from 'react-toastify'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { StyledHowIntegrateCryptoSectionWrapper } from './HowIntegrateCryptoSection.styled'
@@ -15,18 +14,15 @@ import Icon4 from '@/assets/images/api/how-integrate/num4-min.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import { StepContent } from '@/sections/ApiSections/HowIntegrate/HowIntegrate'
 import { PageContext } from '@/contexts/PageContext/PageContext'
-// import { createBlog } from '@/lib/datocms'
 
 const DynamicHowIntegrateCryptoSectionModal = dynamic(() =>
-  import('./components/HowIntegrateCryptoSectionModal').then(
-    (res) => res.default
-  )
+  import('./components/HowIntegrateCryptoSectionModal')
 )
 
 export default function HowIntegrateCryptoSection() {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
   const {
-    dataPage: { cryptoWidgetPage: data },
+    dataPage: { cryptoWidgetPage: data, formSendResponse: formData },
   } = useContext(PageContext)
 
   const handleOpen = () => {
@@ -129,6 +125,7 @@ export default function HowIntegrateCryptoSection() {
           <DynamicHowIntegrateCryptoSectionModal
             handleClose={handleClose}
             open={openModalSendRequest}
+            data={formData}
           />
         ) : null}
       </div>

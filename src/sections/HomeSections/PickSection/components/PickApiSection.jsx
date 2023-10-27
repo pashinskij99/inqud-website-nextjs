@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { StructuredText } from 'react-datocms/structured-text'
 import clsx from 'clsx'
-// import { useContext } from 'react'
 import Pick from '@/assets/icons/pick.svg'
 import {
   StyledTypographyUrbanistBody,
@@ -9,13 +8,8 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 import PickSectionModalWithButton from './PickSectionModalWithButton'
 import { StyledPickSectionSection } from '../PickSection.styled'
-// import { PageContext } from '@/contexts/PageContext/PageContext'
 
 export function PickApiSection({ buttonText, className, data, leadFormData }) {
-  // const {
-  //   dataPage: { apiPage: data, pickLeadForm: leadFormData },
-  // } = useContext(PageContext)
-
   return (
     <StyledPickSectionSection className={clsx(className, 'container')}>
       <div className='container'>

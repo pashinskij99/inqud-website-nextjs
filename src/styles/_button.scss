@@ -3,7 +3,7 @@
   background: var(--ambitious-green, #077453);
   padding-right: 4px;
   padding-left: 24px;
-  height: 56px;
+  min-height: 56px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -46,7 +46,12 @@
     display: flex;
     justify-content: center;
     position: relative;
+    min-height: 48px;
+    height: auto !important;
+
     svg {
+      width: 40px;
+      height: 40px;
       position: absolute;
       right: 4px;
     }
@@ -70,6 +75,9 @@
     display: flex;
     justify-content: center;
     position: relative;
+    min-height: 48px;
+    height: auto !important;
+
     svg {
       position: absolute;
       right: 4px;
@@ -95,7 +103,7 @@
 .button-load-more-large {
   border-radius: 16px;
   background: #f6f7f8;
-  height: 80px;
+  min-height: 80px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -125,7 +133,7 @@
 }
 
 .button-ghost {
-  height: 56px;
+  min-height: 56px;
   border-radius: 100px;
   border: 1px solid var(--ambitious-green-20, rgba(7, 116, 83, 0.2));
 
@@ -140,6 +148,10 @@
   &:hover {
     background-color: #ccffd3;
     border-color: #ccffd3;
+  }
+  @media (max-width: 767px) {
+    min-height: 48px;
+    height: auto !important;
   }
 }
 
@@ -176,7 +188,7 @@
 .button-secondary {
   border-radius: 54px;
   background: var(--ambitious-green, #077453);
-  height: 56px;
+  min-height: 56px;
 
   color: var(--clarity-white, #fff);
   font-size: 18px;
@@ -187,6 +199,10 @@
 
   &:hover {
     background: #1f8264;
+  }
+  @media (max-width: 767px) {
+    min-height: 48px;
+    height: auto !important;
   }
 }
 
@@ -202,4 +218,3 @@
     background: #b7ffc1;
   }
 }
-

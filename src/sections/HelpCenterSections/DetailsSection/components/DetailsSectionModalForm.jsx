@@ -1,12 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
-// import { toast } from 'react-toastify'
 import { ModalSendRequest } from '@/components/Modal'
 import { submitForFormActiveCampaign } from '@/lib/activeCampaign'
-// import { createBlog } from '@/lib/datocms'
 import { userSchema2 } from '@/utils/userSchema'
 
-export default function DetailsSectionModalForm({ handleClose, openModal }) {
+export default function DetailsSectionModalForm({
+  handleClose,
+  openModal,
+  data,
+}) {
   const {
     register,
     formState: { errors },
@@ -30,14 +32,7 @@ export default function DetailsSectionModalForm({ handleClose, openModal }) {
       ],
     }
 
-    // await toast.promise(
     await submitForFormActiveCampaign(newData, '/api/create-contact', 12)
-    // ,
-    //   {
-    //     pending: 'Sending data',
-    //     success: 'Data sent',
-    //   }
-    // )
     const toast = await import('react-toastify').then((res) => res.toast)
     const createBlog = await import('@/lib/datocms').then(
       (res) => res.createBlog
@@ -58,6 +53,7 @@ export default function DetailsSectionModalForm({ handleClose, openModal }) {
       handleClose={handleClose}
       errors={errors}
       open={openModal}
+      data={data}
     />
   )
 }

@@ -10,7 +10,6 @@ export default function AnimatedMobile() {
         src='/video/b2b_hero_mobile.webp'
         alt='video'
         priority
-        autoplay
         fetchpriority='high'
         loading='eager'
         width={375}

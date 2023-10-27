@@ -11,7 +11,7 @@ import { FullScreenLoader } from '@/components/Loader'
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 import { DetailsSectionInner } from '@/sections/HelpCenterSections/DetailsSection/components/DetailsSectionInner'
 
-function DetailsSection({ params }) {
+function DetailsSection({ params, formData }) {
   const { tab } = useSelector((state) => state.activeTab)
   const dispatch = useDispatch()
   const { loading, helpCentreDetailsData, isSearch } = useSelector(
@@ -48,7 +48,7 @@ function DetailsSection({ params }) {
         {isSearch ? (
           <DynamicSearchResultDetailsSection />
         ) : (
-          <DetailsSectionInner />
+          <DetailsSectionInner formData={formData} />
         )}
       </ArticleProvider>
     </HelpCentreDetailsProvider>

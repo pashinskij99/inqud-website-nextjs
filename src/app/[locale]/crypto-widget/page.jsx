@@ -125,6 +125,15 @@ const CRYPTO_WIDGET = `
       screen9Button
       screen9Title
     }
+    formSendResponse(locale: $locale, fallbackLocales: en) {
+      formTitle
+      formMessagePlaceholder
+      formLable2
+      formLable1
+      formFooterDescription
+      formDescription
+      formButtonText
+    }
     supportedCurrency(locale: $locale, fallbackLocales: en) {
       id
       title
@@ -193,7 +202,6 @@ const CRYPTO_WIDGET = `
 export async function generateMetadata() {
   const response = await performRequest({
     query: PAGE_SEO_QUERY('cryptoWidgetPage'),
-    revalidate: 0,
   })
 
   return toNextMetadata([...response.cryptoWidgetPage.seo])
