@@ -4,7 +4,7 @@ import { render } from 'datocms-structured-text-to-html-string'
 
 export const HelpCentreContext = createContext()
 
-export function HelpCentreProvider({ children, data }) {
+export function HelpCentreProvider({ children, data, pageData }) {
   const { tab } = useSelector((state) => state.activeTab)
   const [browseByProductData, setBrowseByProductData] = useState([])
   const [exploreByCategoryData, setExploreByCategoryData] = useState([])
@@ -15,7 +15,7 @@ export function HelpCentreProvider({ children, data }) {
           .filter(
             ({ category, typeContent }) =>
               typeContent.name === 'Business' &&
-              category.name === 'Browse by product'
+              category.name === pageData.titleByProduct
           )
           .map(({ mainTitle, id, icon, content, slugPage }) => ({
             slugPage,
@@ -39,7 +39,7 @@ export function HelpCentreProvider({ children, data }) {
           .filter(
             ({ category, typeContent }) =>
               typeContent.name === 'Business' &&
-              category.name === 'Explore by category'
+              category.name === pageData.titleByCategory
           )
           .map(({ mainTitle, id, icon, content, slugPage }) => ({
             slugPage,
@@ -64,7 +64,7 @@ export function HelpCentreProvider({ children, data }) {
           .filter(
             ({ category, typeContent }) =>
               typeContent.name === 'Personal' &&
-              category.name === 'Browse by product'
+              category.name === pageData.titleByProduct
           )
           .map(({ mainTitle, id, icon, content, slugPage }) => ({
             slugPage,
@@ -88,7 +88,7 @@ export function HelpCentreProvider({ children, data }) {
           .filter(
             ({ category, typeContent }) =>
               typeContent.name === 'Personal' &&
-              category.name === 'Explore by category'
+              category.name === pageData.titleByCategory
           )
           .map(({ mainTitle, id, icon, content, slugPage }) => ({
             slugPage,
@@ -114,9 +114,10 @@ export function HelpCentreProvider({ children, data }) {
     () => ({
       browseByProductData,
       exploreByCategoryData,
+      pageData,
       data,
     }),
-    [browseByProductData, exploreByCategoryData, data]
+    [browseByProductData, exploreByCategoryData, data, pageData]
   )
 
   return (

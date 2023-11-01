@@ -6,12 +6,6 @@ export async function POST(req) {
 
   const data = await getData(query, variables)
 
-  // const data = await performRequest({
-  //   query,
-  //   revalidate: 0,
-  //   variables,
-  // })
-
   return NextResponse.json({
     data,
   })

@@ -2,7 +2,7 @@ import styles from '@/sections/HomeSections/YourNeedsSection/YourNeedsSection.mo
 import CartRequirement from '@/components/CartRequirement'
 import CartRequirementModalWithCart from './YourNeedsSectionModalWithButton'
 
-function YourNeedsSectionDesktopCarts({ data }) {
+function YourNeedsSectionDesktopCarts({ data, formData }) {
   return (
     <div className={styles.listRequirements}>
       {data.section2Content.map(
@@ -21,6 +21,7 @@ function YourNeedsSectionDesktopCarts({ data }) {
               description={description}
               title={title}
               image={image}
+              data={formData}
             />
           )
       )}

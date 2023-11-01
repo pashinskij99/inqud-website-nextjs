@@ -16,6 +16,7 @@ export default function YourNeedsSectionModalWithButton({
   description,
   title,
   image,
+  data,
 }) {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
 
@@ -40,6 +41,7 @@ export default function YourNeedsSectionModalWithButton({
         <DynamicYourNeedsSectionModalForm
           openModalSendRequest={openModalSendRequest}
           handleClose={handleClose}
+          data={data}
         />
       ) : null}
     </>

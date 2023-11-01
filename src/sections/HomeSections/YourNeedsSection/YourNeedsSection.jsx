@@ -45,7 +45,7 @@ const DynamicYourNeedsSectionDesktopCarts = dynamic(
   }
 )
 
-export default async function YourNeedsSection({ data }) {
+export default async function YourNeedsSection({ data, formData }) {
   return (
     <section className={styles.wrapper}>
       <div className='container'>
@@ -65,10 +65,13 @@ export default async function YourNeedsSection({ data }) {
         </StyledTypographyUrbanistH5>
 
         <Device device={DESKTOP}>
-          <DynamicYourNeedsSectionDesktopCarts data={data} />
+          <DynamicYourNeedsSectionDesktopCarts
+            data={data}
+            formData={formData}
+          />
         </Device>
 
-        <YourNeedsSectionSwiper data={data} />
+        <YourNeedsSectionSwiper data={data} formData={formData} />
       </div>
     </section>
   )

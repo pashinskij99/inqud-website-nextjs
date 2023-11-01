@@ -36,8 +36,7 @@ function HelpCenterPage({ children, data }) {
   )
 }
 
-export function HelpCenterPageContent({ params }) {
-  // eslint-disable-next-line no-unused-vars
+export function HelpCenterPageContent({ params, pageData }) {
   const { helpCentreData, isSearch, loading } = useSelector(
     (state) => state.helpCentre
   )
@@ -60,7 +59,7 @@ export function HelpCenterPageContent({ params }) {
   }, [])
 
   return (
-    <HelpCentreProvider data={helpCentreData}>
+    <HelpCentreProvider data={helpCentreData} pageData={pageData}>
       <CSSTransition
         in={loading}
         timeout={350}

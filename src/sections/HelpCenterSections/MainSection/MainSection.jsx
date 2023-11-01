@@ -15,19 +15,25 @@ import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
 import { HelpCentreContext } from '@/contexts/HelpCentreContext/HelpCentreContext'
 
 function MainSection() {
-  const { browseByProductData, exploreByCategoryData } =
+  const { browseByProductData, exploreByCategoryData, pageData } =
     useContext(HelpCentreContext)
 
   return (
     <StyledBusinessSectionWrapper>
       <div className='container'>
-        <SubSection title='Browse by product' grid={browseByProductData} />
-        <SubSection title='Explore by category' grid={exploreByCategoryData} />
+        <SubSection
+          title={pageData.titleByProduct}
+          grid={browseByProductData}
+        />
+        <SubSection
+          title={pageData.titleByCategory}
+          grid={exploreByCategoryData}
+        />
         <StyledOtherDocumentationSectionWrapper
-          title='Other documentation'
-          titleCart='Knowlage base'
-          btnText='Go to knowlage base'
-          descriptionCart='A knowledge base is a self-serve online library of information about a product, service, department, or topic. The data in your knowledge base can come from anywhere.'
+          title={pageData.documentationTitle}
+          titleCart={pageData.documentationTitleCart}
+          btnText={pageData.documentationButtonText}
+          descriptionCart={pageData.documentationDescriptionCart}
         />
       </div>
     </StyledBusinessSectionWrapper>

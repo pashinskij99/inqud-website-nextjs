@@ -15,7 +15,7 @@ export default function HomePage({ params, data }) {
   return (
     <main className={styles.wrapper}>
       <HeroSection dataPage={data} params={params} />
-      <YourNeedsSection data={data.homePage} />
+      <YourNeedsSection data={data.homePage} formData={data.formSendResponse} />
       <CryptoWidgetSection data={data.homePage} />
       <SmoothAPISection data={data.homePage} />
       <PickSection
@@ -42,7 +42,6 @@ export default function HomePage({ params, data }) {
       />
       <BlogsSection data={data.blogSection} blogs={data.allBlogs} />
       <QuestionsSection faq={data.homePage} />
-      {/* CryptoWidget2Section, QuestionsSection, ReasonsToTeamUp, FeesBusiness no ssr */}
     </main>
   )
 }

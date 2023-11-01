@@ -20,7 +20,6 @@ const AML_CFT_POLICY_UAB_PAGE_QUERY = `
 export async function generateMetadata() {
   const response = await performRequest({
     query: PAGE_SEO_QUERY('antiMoneyLaundering'),
-    revalidate: 0,
   })
 
   return toNextMetadata([...response.antiMoneyLaundering.seo])

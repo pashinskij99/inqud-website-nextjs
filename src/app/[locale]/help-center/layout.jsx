@@ -10,6 +10,8 @@ const HELP_CENTRE_QUERY = `
       id
       button
       backButton
+      titleByCategory
+      titleByCategory
     }
   }
 `

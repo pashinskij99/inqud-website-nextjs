@@ -8,13 +8,13 @@ import CartRequirement from '@/components/CartRequirement'
 import styles from '../YourNeedsSection.module.scss'
 
 const DynamicYourNeedsSectionModalForm = dynamic(
-  () => import('./YourNeedsSectionModalForm').then((mod) => mod.default),
+  () => import('./YourNeedsSectionModalForm'),
   {
     ssr: false,
   }
 )
 
-function YourNeedsSectionSwiper({ data }) {
+function YourNeedsSectionSwiper({ data, formData }) {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
 
   const handleOpen = () => {
@@ -79,26 +79,10 @@ function YourNeedsSectionSwiper({ data }) {
         <DynamicYourNeedsSectionModalForm
           openModalSendRequest={openModalSendRequest}
           handleClose={handleClose}
+          data={formData}
         />
       ) : null}
     </>
-
-    //   i !== 1 ? (
-    //     <SwiperSlide key={id} className={styles.listRequirementsSwiperItems}>
-    //       <CartRequirement
-    //         buttonText=''
-    //         description={description}
-    //         href='#'
-    //         imageSrc={image}
-    //         title={title}
-    //       />
-    //     </SwiperSlide>
-    //   ) : (
-    //     <SwiperSlide key={id} className={styles.listRequirementsSwiperItems}>
-    //       <YourNeedsSectionModalWithButton data={data} trans={trans} />
-    //     </SwiperSlide>
-    //   )
-    // )}
   )
 }
 

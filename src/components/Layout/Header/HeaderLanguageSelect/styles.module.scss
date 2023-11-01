@@ -130,22 +130,25 @@
         }
 
         li {
-          padding: 8px 20px 8px 28px;
+          position: relative;
           white-space: nowrap;
           z-index: 1;
 
           button {
+            padding: 8px 20px 8px 28px;
             color: var(--directness-black, #2d3439);
             font-size: 18px;
             font-weight: 400;
             line-height: normal;
             position: relative;
+            width: 100%;
+            text-align: start;
 
             img {
               position: absolute;
-              left: -21.53px;
+              left: 0;
               top: 50%;
-              transform: translateY(-50%);
+              transform: translateY(-50%) translateX(50%);
             }
           }
 
@@ -188,6 +191,4 @@
       }
     }
   }
-
-
 }

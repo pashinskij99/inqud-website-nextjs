@@ -15,6 +15,7 @@ const DynamicModalSendRequest = dynamic(
 export default function YourNeedsSectionModalForm({
   handleClose,
   openModalSendRequest,
+  data,
 }) {
   const {
     register,
@@ -65,6 +66,7 @@ export default function YourNeedsSectionModalForm({
       handleClose={handleClose}
       errors={errors}
       open={openModalSendRequest}
+      data={data}
     />
   )
 }

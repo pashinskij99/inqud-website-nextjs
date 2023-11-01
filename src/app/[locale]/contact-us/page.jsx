@@ -24,7 +24,6 @@ const PAGE_QUERY = `
 export async function generateMetadata() {
   const response = await performRequest({
     query: PAGE_SEO_QUERY('contactUsPage'),
-    revalidate: 0,
   })
 
   return toNextMetadata([...response.contactUsPage.seo])

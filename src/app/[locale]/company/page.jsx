@@ -75,7 +75,6 @@ query MyQuery($locale: SiteLocale) {
 export async function generateMetadata() {
   const response = await performRequest({
     query: PAGE_SEO_QUERY('aboutUsPage'),
-    revalidate: 0,
   })
 
   return toNextMetadata([...response.aboutUsPage.seo])

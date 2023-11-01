@@ -14,7 +14,6 @@ const query = `
 export async function generateMetadata() {
   const response = await performRequest({
     query: PAGE_SEO_QUERY('modernSlaveryStatement'),
-    revalidate: 0,
   })
 
   return toNextMetadata([...response.modernSlaveryStatement.seo])

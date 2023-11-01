@@ -20,7 +20,6 @@ const COOKIE_POLICY_PAGE_QUERY = `
 export async function generateMetadata() {
   const response = await performRequest({
     query: PAGE_SEO_QUERY('cookiePolicy'),
-    revalidate: 0,
   })
 
   return toNextMetadata([...response.cookiePolicy.seo])
