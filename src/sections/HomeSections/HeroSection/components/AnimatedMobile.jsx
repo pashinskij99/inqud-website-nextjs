@@ -9,6 +9,7 @@ export default function AnimatedMobile() {
         className={clsx(styles.gif, styles.gif_1)}
         src='/video/b2b_hero_mobile.webp'
         alt='video'
+        key={1}
         priority
         fetchpriority='high'
         loading='eager'
