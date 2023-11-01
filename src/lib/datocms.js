@@ -90,8 +90,8 @@ export const getData = async (query, variables) => {
   try {
     return await performRequest({
       query,
-      // revalidate: 1000000000,
       revalidate: 0,
+      // revalidate: 1000000000,
       variables,
     })
   } catch (error) {

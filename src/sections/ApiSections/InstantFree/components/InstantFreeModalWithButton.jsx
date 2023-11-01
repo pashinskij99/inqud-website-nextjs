@@ -36,10 +36,6 @@ export default function InstantFreeModalWithButton({ data }) {
           rootElement={document.getElementById('calendly-model-wrapper')}
         />
       ) : null}
-      {/* <DynamicModalCalendaly
-        handleClose={handleCloseCalendlyModal}
-        open={calendlyModal}
-      /> */}
     </>
   )
 }
