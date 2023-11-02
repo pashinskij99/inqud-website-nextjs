@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation'
-import { getData } from '@/lib/datocms'
+import { toNextMetadata } from 'react-datocms/seo'
+import { getData, performRequest } from '@/lib/datocms'
 import BlogPage from '@/views/BlogPage'
+import { PAGE_DYNAMIC_SEO_QUERY } from '@/lib/datocmsQuery'
 
 const PAGE_CONTENT_QUERY = `
 query Blog($slug: String, $locale: SiteLocale) {
@@ -111,21 +113,15 @@ query Home($first: IntType = 3, $tagId: [ItemId], $slug: String, $locale: SiteLo
 // }`
 
 export async function generateMetadata({ params }) {
-  try {
-    const {
-      blog: { seoMetaTag },
-    } = await getData(PAGE_CONTENT_QUERY_SEO, {
+  const response = await performRequest({
+    query: PAGE_DYNAMIC_SEO_QUERY('blog'),
+    variables: {
       slug: params.slug,
       locale: params.locale,
-    })
+    },
+  })
 
-    return {
-      title: seoMetaTag.title,
-      description: seoMetaTag.description,
-    }
-  } catch (e) {
-    return {}
-  }
+  return toNextMetadata([...response.blog.seo])
 }
 
 export default async function page({ params }) {

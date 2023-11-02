@@ -25,6 +25,19 @@ query MyQuery($locale: SiteLocale) {
   }
 }
 `
+export const PAGE_DYNAMIC_SEO_QUERY = (page) => `
+query MyQuery($locale: SiteLocale, $slug: String) {
+  ${page}(locale: $locale, fallbackLocales: en, filter: {
+    slugPage: {eq: $slug}
+  }) {
+    seo: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+}
+`
 export const HOME_B2B_NEEDS = `
 query MyQuery($locale: SiteLocale) {
   homePage(locale: $locale, fallbackLocales: en) {
@@ -279,6 +292,19 @@ export const MODAL_2 = `
       lead5FooterDescription {
         value
       }
+    }
+  }
+`
+
+export const SITEMAP_DYNAMIC_DATA_QUERY = `
+  query MyQuery {
+    allBlogs(first: 100) {
+      slugPage
+      _createdAt
+    }
+    allHelpCentres(first: 100) {
+      slugPage
+      _createdAt
     }
   }
 `

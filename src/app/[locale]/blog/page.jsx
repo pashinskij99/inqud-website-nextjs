@@ -1,5 +1,6 @@
 // import Script from 'next/script'
 import { toNextMetadata } from 'react-datocms'
+import Script from 'next/script'
 import { getData, performRequest } from '@/lib/datocms'
 import BlogsPage from '@/views/BlogsPage'
 import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
@@ -39,14 +40,14 @@ async function Page({ searchParams, params }) {
 
   return (
     <>
-      {/* <Script strategy='afterInteractive' id='use-credentials'>
+      <Script strategy='afterInteractive' id='use-credentials'>
         {`
            (function(m, o, n, t, e, r, _){ 
              m['__GetResponseAnalyticsObject'] = e;m[e] = m[e]  function() {(m[e].q = m[e].q  []).push(arguments)}; 
              r = o.createElement(n);_ = o.getElementsByTagName(n)[0];r.async = 1;r.src = t;r.setAttribute('crossorigin', 'use-credentials');_.parentNode .insertBefore(r, _); 
            })(window, document, 'script', 'https://ga.getresponse.com/script/522a2f6d-21bd-4727-8289-745ec04ad008/ga.js', 'GrTracking'); 
          `}
-      </Script> */}
+      </Script>
 
       <BlogsPage
         searchParams={searchParams}

@@ -1,4 +1,6 @@
-import { getData } from '@/lib/datocms'
+import { toNextMetadata } from 'react-datocms/seo'
+import { getData, performRequest } from '@/lib/datocms'
+import { PAGE_SEO_QUERY } from '@/lib/datocmsQuery'
 import { HelpCenterPageContent } from '@/views/HelpCenterPage/HelpCenterPage'
 
 const HELP_CENTRE_QUERY = `
@@ -13,6 +15,14 @@ const HELP_CENTRE_QUERY = `
     }
   }
 `
+
+export async function generateMetadata() {
+  const response = await performRequest({
+    query: PAGE_SEO_QUERY('helpCentreHero'),
+  })
+
+  return toNextMetadata([...response.helpCentreHero.seo])
+}
 
 async function Page({ params }) {
   const data = await getData(HELP_CENTRE_QUERY, {
