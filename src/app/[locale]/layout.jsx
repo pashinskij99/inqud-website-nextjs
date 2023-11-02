@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 export const metadata = {
   title: 'Inqud',
-  // robots: 'noindex,nofollow',
+  robots: 'noindex,nofollow',
   other: {
     'trustpilot-one-time-domain-verification-id':
       '5c9328f8-1c30-4679-8f8a-0b7b3c2853d0',
