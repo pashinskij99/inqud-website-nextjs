@@ -1,8 +1,10 @@
 'use client'
 
-import React from 'react'
 import { StructuredText } from 'react-datocms/structured-text'
-import { StyledTypographyUrbanistH1 } from '@/components/UI/Typography/Typography.styled'
+import {
+  StyledTypographyUrbanistBody,
+  StyledTypographyUrbanistH1,
+} from '@/components/UI/Typography/Typography.styled'
 import { StyledAmlCftPolicyUabSectionWrapper } from './MainSection.styled'
 
 function MainSection({ data }) {
@@ -12,6 +14,9 @@ function MainSection({ data }) {
         <StyledTypographyUrbanistH1>
           {data.antiMoneyLaundering.title}
         </StyledTypographyUrbanistH1>
+        <StyledTypographyUrbanistBody>
+          {data.antiMoneyLaundering.lastUpdated}
+        </StyledTypographyUrbanistBody>
         <StructuredText data={data.antiMoneyLaundering.content} />
       </div>
     </StyledAmlCftPolicyUabSectionWrapper>

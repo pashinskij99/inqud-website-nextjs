@@ -12,7 +12,7 @@ function ModernSlaveryStatementPage({ data }) {
           },
         ]}
       />
-      <MainSection />
+      <MainSection data={data} />
     </div>
   )
 }

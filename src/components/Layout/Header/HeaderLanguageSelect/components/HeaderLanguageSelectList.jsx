@@ -15,22 +15,20 @@ export default function HeaderLanguageSelectList({
         ['hide']: !active,
       })}
     >
-      {languages.map(
-        ({ id, name, value }, i) =>
-          i === 0 && (
-            <li key={id}>
-              <button
-                onTouchStart={() => handleLangClick(value, value.toLowerCase())}
-                onClick={() => handleLangClick(value, value.toLowerCase())}
-              >
-                {language.toLowerCase() === value.toLowerCase() && (
-                  <Image src={Check} alt='check' />
-                )}{' '}
-                {name}
-              </button>
-            </li>
-          )
-      )}
+      {languages.map(({ id, name, value }, i) => (
+        // i === 0 && (
+        <li key={id}>
+          <button
+            onTouchStart={() => handleLangClick(value, value.toLowerCase())}
+            onClick={() => handleLangClick(value, value.toLowerCase())}
+          >
+            {language.toLowerCase() === value.toLowerCase() && (
+              <Image src={Check} alt='check' />
+            )}{' '}
+            {name}
+          </button>
+        </li>
+      ))}
     </ul>
   )
 }

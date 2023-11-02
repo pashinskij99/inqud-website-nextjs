@@ -34,7 +34,7 @@ export default async function BlogsSection({ data, blogs }) {
 
         <Link href='/blog'>
           <StyledButtonGhost className='blogsHeaderButtonMobile'>
-            Go to blog
+            {data.buttonText}
           </StyledButtonGhost>
         </Link>
       </div>

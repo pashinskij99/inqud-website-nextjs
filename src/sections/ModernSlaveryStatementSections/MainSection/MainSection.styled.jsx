@@ -1,6 +1,9 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
+import { StyledAmlCftPolicyUabSectionWrapper } from '@/sections/AmlCftPolicyUabSections/MainSection.styled'
 
-export const StyledModernSlaverySectionWrapper = styled.section`
+export const StyledModernSlaverySectionWrapper = styled(
+  StyledAmlCftPolicyUabSectionWrapper
+)`
   .container {
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -12,7 +15,7 @@ export const StyledModernSlaverySectionWrapper = styled.section`
       display: inline;
       text-decoration-line: underline;
       color: #077453;
-      margin-bottom: 1rem
+      margin-bottom: 1rem;
     }
   }
-`;
+`

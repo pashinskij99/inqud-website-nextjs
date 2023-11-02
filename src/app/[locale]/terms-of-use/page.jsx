@@ -7,6 +7,7 @@ const PRIVACY_NOTE_PAGE_QUERY = `
   query MyQuery($locale: SiteLocale) {
     whoWeAreAndHowToContact(locale: $locale, fallbackLocales: en) {
       breadcrumb
+      lastUpdated
       content {
         value
       }

@@ -7,6 +7,7 @@ const AML_CFT_POLICY_UAB_PAGE_QUERY = `
   query MyQuery($locale: SiteLocale) {
     antiMoneyLaundering(locale: $locale, fallbackLocales: en) {
       breadcrumb
+      lastUpdated
       content {
         value
       }

@@ -13,7 +13,7 @@ function MainSection({ data }) {
       <div className='container'>
         <StyledTypographyUrbanistH1>{data.title}</StyledTypographyUrbanistH1>
         <StyledTypographyUrbanistBody>
-          Last Updated: 21 July 2023
+          {data.lastUpdated}
         </StyledTypographyUrbanistBody>
         <StructuredText data={data.content} />
       </div>

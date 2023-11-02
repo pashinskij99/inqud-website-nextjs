@@ -7,6 +7,9 @@ const query = `
   query MyQuery($locale: SiteLocale) {
     modernSlaveryStatement(locale: $locale, fallbackLocales: en) {
       breadcrumb
+      content {
+        value
+      }
     }
   }
 `
