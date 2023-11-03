@@ -6,8 +6,6 @@ const apiKey = process.env.NEXT_PUBLIC_ACTIVECAMPAIGN_API_KEY
 export async function POST(req) {
   const { email, automationId } = await req.json()
 
-  // console.log(email)
-
   const response = await fetch(`${apiUrl}/api/3/contacts?email=${email}`, {
     headers: {
       'Api-Token': apiKey,
