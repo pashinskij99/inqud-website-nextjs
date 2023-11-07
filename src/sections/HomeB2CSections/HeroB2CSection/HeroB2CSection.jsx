@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import { StructuredText } from 'react-datocms/structured-text'
 import dynamic from 'next/dynamic'
 import clsx from 'clsx'

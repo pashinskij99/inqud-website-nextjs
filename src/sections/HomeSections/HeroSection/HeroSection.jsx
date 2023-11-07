@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import { StructuredText } from 'react-datocms/structured-text'
 import Image from 'next/image'
 import clsx from 'clsx'

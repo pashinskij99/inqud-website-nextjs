@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import { usePathname } from 'next-intl/client'
 import { useSelector } from 'react-redux'
 import { StyledBreadcrumbs } from '@/components/BreadCrumbs/BreadCrumbs.styled'

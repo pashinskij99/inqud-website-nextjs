@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import Image from 'next/image'
 import { StyledBlogHeroSectionWrapper } from './BlogHeroSection.styled'
 import Dot from '@/assets/icons/dot.svg'

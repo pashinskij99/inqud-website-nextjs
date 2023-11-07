@@ -19,6 +19,10 @@ export const metadata = {
   },
 }
 
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'de' }]
+}
+
 export default async function RootLayout({ children, params: { locale } }) {
   let messages
   try {

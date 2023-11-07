@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import clsx from 'clsx'
 import {
   StyledTypographyUrbanistH2,

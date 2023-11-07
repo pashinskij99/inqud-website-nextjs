@@ -16,7 +16,6 @@ export default function HeaderLanguageSelectList({
       })}
     >
       {languages.map(({ id, name, value }, i) => (
-        // i === 0 && (
         <li key={id}>
           <button
             onTouchStart={() => handleLangClick(value, value.toLowerCase())}

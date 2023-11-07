@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import dynamic from 'next/dynamic'
 import clsx from 'clsx'
 import styles from './styles.module.scss'

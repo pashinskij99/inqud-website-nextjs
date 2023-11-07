@@ -1,7 +1,7 @@
 'use client'
 
 import { Fragment, useMemo } from 'react'
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import { render } from 'datocms-structured-text-to-html-string'
 import { useSelector } from 'react-redux'
 import {

@@ -2,7 +2,7 @@
 
 import { Image as DatoImage } from 'react-datocms'
 import { useState, useContext } from 'react'
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import Image from 'next/image'
 import {
   StyledTypographyUrbanistBody,

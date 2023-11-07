@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import clsx from 'clsx'
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Arrow from '@/assets/icons/arrow-down.svg'

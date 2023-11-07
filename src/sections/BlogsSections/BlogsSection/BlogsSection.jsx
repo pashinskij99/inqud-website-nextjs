@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import { useSelector } from 'react-redux'
 import { Element } from 'react-scroll'
 import { CSSTransition } from 'react-transition-group'

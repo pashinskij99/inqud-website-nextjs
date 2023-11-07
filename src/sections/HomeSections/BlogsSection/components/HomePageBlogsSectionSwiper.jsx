@@ -2,7 +2,7 @@
 
 import { Scrollbar } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import { BlogCart2 } from '@/components/BlogCart'
 
 export default function HomePageBlogsSectionSwiper({ blogs }) {

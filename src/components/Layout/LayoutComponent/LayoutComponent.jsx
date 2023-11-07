@@ -102,7 +102,6 @@ export default async function LayoutComponent({ children, locale }) {
         pauseOnHover
         theme='light'
       />
-      {/* <SnackbarWrapper /> */}
       {children}
       <Footer data={data.footer} />
       <Portal>

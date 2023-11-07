@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from 'react'
-// import Link from 'next/link'
+// import Link from 'next-intl/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { StyledBlogCategoryNavigationWrapper } from '@/sections/BlogsSections/BlogsSection/BlogCategoryNavigation/BlogCategoryNavigation.styled'
 import { StyledTypographyIBMH5 } from '@/components/UI/Typography/Typography.styled'

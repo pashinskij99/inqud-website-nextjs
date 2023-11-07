@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import Image from 'next/image'
 import clsx from 'clsx'
 import dynamic from 'next/dynamic'

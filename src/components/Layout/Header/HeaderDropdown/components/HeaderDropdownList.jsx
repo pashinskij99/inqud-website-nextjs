@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import Link from 'next/link'
+import Link from 'next-intl/link'
 
 export default function HeaderDropdownList({
   active,

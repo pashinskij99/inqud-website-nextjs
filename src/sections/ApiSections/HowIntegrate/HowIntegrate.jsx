@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useContext } from 'react'
-import Link from 'next/link'
+import Link from 'next-intl/link'
 import {
   StyledHowIntegrateWrapper,
   StyledStepCartHowIntegrateWrapper,

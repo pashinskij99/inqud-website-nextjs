@@ -1,3 +1,5 @@
+'use client'
+
 import styled from '@emotion/styled'
 import { Breadcrumbs } from '@mui/material'
 import { rem } from '@/utils/rem'
