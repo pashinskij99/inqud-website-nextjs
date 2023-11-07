@@ -6,7 +6,6 @@ const siteUrl = 'https://inqud.com'
 export default async function sitemap() {
   const dynamicData = await performRequest({
     query: SITEMAP_DYNAMIC_DATA_QUERY,
-    revalidate: 0,
   })
   const blogs = dynamicData.allBlogs.map(({ slugPage, _createdAt }) => ({
     url: `${siteUrl}/blog/${slugPage}`,

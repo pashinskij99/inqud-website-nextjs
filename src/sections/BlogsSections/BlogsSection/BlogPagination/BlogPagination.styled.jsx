@@ -67,17 +67,7 @@ export const StyledBlogPagination = styled.div`
     @media (max-width: 576px) {
       margin-left: 0;
     }
-    /* 
-    circle {
-      fill: rgba(191, 255, 200, 1);
-    }
-
-    path {
-      fill: rgba(7, 116, 83, 1);
-      opacity: 1;
-    } */
   }
-
   .active {
     circle {
       fill: rgba(191, 255, 200, 1);

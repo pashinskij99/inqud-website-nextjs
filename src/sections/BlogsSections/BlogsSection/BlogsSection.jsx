@@ -7,22 +7,10 @@ import { StyledBlogsSectionWrapper } from '@/sections/BlogsSections/BlogsSection
 import { BlogCart } from '@/components/BlogCart'
 import { StyledTypographyUrbanistH4 } from '@/components/UI/Typography/Typography.styled'
 import { FullScreenLoader } from '@/components/Loader'
-
-const DynamicBlogPagination = dynamic(
-  () =>
-    import('@/sections/BlogsSections/BlogsSection/BlogPagination').then(
-      (res) => res.default
-    ),
-  {
-    ssr: false,
-  }
-)
+import BlogPagination from '@/sections/BlogsSections/BlogsSection/BlogPagination'
 
 const DynamicBlogCategoryNavigation = dynamic(
-  () =>
-    import('@/sections/BlogsSections/BlogsSection/BlogCategoryNavigation').then(
-      (res) => res.default
-    ),
+  () => import('@/sections/BlogsSections/BlogsSection/BlogCategoryNavigation'),
   {
     ssr: false,
   }
@@ -30,6 +18,7 @@ const DynamicBlogCategoryNavigation = dynamic(
 
 function BlogsSection() {
   const { blogs, pagination, loading } = useSelector((state) => state.blog)
+  const { activeTags, searchValue } = useSelector((state) => state.blog)
 
   return (
     <StyledBlogsSectionWrapper>
@@ -70,10 +59,13 @@ function BlogsSection() {
             )
           )}
 
-          <DynamicBlogPagination
+          <BlogPagination
             page={Math.floor(pagination.skip / pagination.first + 1 || 1)}
             pageSize={pagination.first}
             total={pagination.count}
+            pagination={pagination}
+            activeTags={activeTags}
+            searchValue={searchValue}
           />
 
           <CSSTransition

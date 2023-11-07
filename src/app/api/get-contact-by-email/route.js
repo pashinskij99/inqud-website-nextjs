@@ -14,7 +14,6 @@ export async function POST(req) {
 
   const dataRes = await response.json()
 
-  // console.log(dataRes)
   const contactAutomation = {
     contact: dataRes.contacts[0].id,
     automation: automationId,

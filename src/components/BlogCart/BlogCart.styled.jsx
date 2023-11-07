@@ -118,6 +118,7 @@ export const StyledBlogCartWrapper = styled.div`
     display: none;
     padding: 0;
     height: fit-content;
+    min-height: auto;
     ${responsive.sm`
       margin: 0 auto;
     `}

@@ -79,16 +79,6 @@ query Blog($slug: String, $locale: SiteLocale) {
   }
 }`
 
-const PAGE_CONTENT_QUERY_SEO = `
-query Blog($slug: String, $locale: SiteLocale) {
-  blog(locale: $locale, fallbackLocales: en, filter: {slugPage: {eq: $slug}}) {
-    seoMetaTag {
-      description
-      title
-    }
-  }
-}`
-
 const PAGE_RELATED_CONTENT_QUERY = `
 query Home($first: IntType = 3, $tagId: [ItemId], $slug: String, $locale: SiteLocale) {
     allBlogs(locale: $locale, fallbackLocales: en, orderBy: _createdAt_DESC, first: $first, filter: { slugPage: {neq: $slug}, mainTag: {in: $tagId} }) {
@@ -106,11 +96,6 @@ query Home($first: IntType = 3, $tagId: [ItemId], $slug: String, $locale: SiteLo
         }
     }
 }`
-
-// const PAGE_RELATED_CONTENT_QUERY = `
-// query Home($first: IntType = 3, $tagId: [ItemId], $slug: String, $locale: SiteLocale) {
-//
-// }`
 
 export async function generateMetadata({ params }) {
   const response = await performRequest({
@@ -137,12 +122,6 @@ export default async function page({ params }) {
     locale: params.locale,
     slug: params.slug,
   })
-
-  // const relatedData = await getData(PAGE_RELATED_CONTENT_QUERY, {
-  //   tagId: blog.mainTag.id,
-  //   locale: params.locale,
-  //   slug: params.slug,
-  // })
 
   return (
     <BlogPage

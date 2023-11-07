@@ -16,13 +16,16 @@ import { fetchBlogs } from '@/store/features/blog/blogAsyncThunk'
 import { setIsLoadingRule, setPage } from '@/store/features/blog/blogSlice'
 import { Loader } from '@/components/Loader'
 
-function BlogPagination({ total, pageSize }) {
+function BlogPagination({
+  page,
+  total,
+  pageSize,
+  pagination,
+  activeTags,
+  searchValue,
+}) {
   const dispatch = useDispatch()
-  const { page, pagination, activeTags, searchValue } = useSelector(
-    (state) => state.blog
-  )
   const { params } = useContext(BlogContext)
-
   const paginationRange = usePagination({
     currentPage: page,
     totalCount: total,
@@ -108,18 +111,7 @@ function BlogPagination({ total, pageSize }) {
               )
             })}
           </div>
-          {/* <LinkAnchor
-            to='blog'
-            onClick={() =>
-              handlePage({
-                page: page + 1,
-                skip: pagination.skip + pagination.first,
-              })
-            }
-            // spy
-            smooth
-            // duration={500}
-          > */}
+
           <button
             onClick={() =>
               handlePage({
@@ -132,7 +124,6 @@ function BlogPagination({ total, pageSize }) {
           >
             <Image src={ArrowNext} className='next' alt='Arrow next' />
           </button>
-          {/* </LinkAnchor> */}
         </StyledBlogPagination>
       )}
     </>
