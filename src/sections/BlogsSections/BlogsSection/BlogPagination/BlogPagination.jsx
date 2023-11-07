@@ -83,7 +83,7 @@ function BlogPagination({
             {paginationRange.map((pageNumber) => {
               if (pageNumber === DOTS) {
                 return (
-                  <li className='dots number' key={Math.random()}>
+                  <li className='dots number' key={pageNumber}>
                     <StyledTypographyUrbanistBody>
                       ...
                     </StyledTypographyUrbanistBody>
@@ -99,6 +99,7 @@ function BlogPagination({
                       skip: pagination.first * pageNumber - pagination.first,
                     })
                   }
+                  key={pageNumber}
                   className={clsx('number', {
                     ['active']: pageNumber === page,
                   })}

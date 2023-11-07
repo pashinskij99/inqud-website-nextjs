@@ -1,15 +1,14 @@
+import { forwardRef } from 'react'
 import { StyledFullScreenLoader, StyledLoader } from './Loader.styled'
 
 function Loader({ className }) {
   return <StyledLoader className={className} />
 }
 
-function FullScreenLoader({ className }) {
-  return (
-    <StyledFullScreenLoader className={className}>
-      <Loader />
-    </StyledFullScreenLoader>
-  )
-}
+const FullScreenLoader = forwardRef(({ className, ...otherProps }, ref) => (
+  <StyledFullScreenLoader {...otherProps} ref={ref} className={className}>
+    <Loader />
+  </StyledFullScreenLoader>
+))
 
 export { Loader, FullScreenLoader }

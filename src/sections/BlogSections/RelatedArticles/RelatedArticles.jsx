@@ -37,14 +37,13 @@ export default function RelatedArticles() {
                 mainTag,
                 mainTitle,
               }) => (
-                <Link href={`/blog/${slugPage}`}>
+                <Link href={`/blog/${slugPage}`} key={id}>
                   <BlogCart
                     time={timeToRead}
                     title={mainTitle}
                     date={_createdAt}
                     imageSrc={mainImage?.url || ''}
                     subTitle={mainTag?.tag}
-                    key={id}
                   />
                 </Link>
               )

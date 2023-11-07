@@ -12,7 +12,7 @@ export default function AnimatedMobile() {
         alt='video'
         key={1}
         priority
-        fetchpriority='high'
+        fetchPriority='high'
         loading='eager'
         width={375}
         height={152}

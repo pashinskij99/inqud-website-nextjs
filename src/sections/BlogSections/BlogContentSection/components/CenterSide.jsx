@@ -28,7 +28,7 @@ export function CenterSide() {
       {bodyContent?.map(
         ({ descriptions, descriptions2, id, selectedText, title, image }) =>
           title ? (
-            <Element className='content-section' name={title.trim()}>
+            <Element className='content-section' name={title.trim()} key={id}>
               <InView
                 options={{
                   threshold: 0,
@@ -41,7 +41,6 @@ export function CenterSide() {
                 }
               >
                 <Content
-                  key={id}
                   title={title}
                   descriptions={descriptions}
                   image={image}

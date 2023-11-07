@@ -58,7 +58,6 @@ function SubSection({ title, grid }) {
           }) => (
             <Cart
               key={id}
-              id={id}
               icon={icon}
               titleCart={titleCart}
               answers={answers}
@@ -72,8 +71,7 @@ function SubSection({ title, grid }) {
   )
 }
 
-// eslint-disable-next-line no-unused-vars
-function Cart({ id, icon, titleCart, listQuestions, answers, slugPage }) {
+function Cart({ icon, titleCart, listQuestions, answers, slugPage }) {
   return (
     <li className='cart'>
       <div>
@@ -87,10 +85,7 @@ function Cart({ id, icon, titleCart, listQuestions, answers, slugPage }) {
           {listQuestions.map(
             ({ id: key, title }, i) =>
               i <= 2 && (
-                <Link
-                  // href={`/help-center/${helpCentreLinkTransform(titleCart)}`}
-                  href={`/help-center/${slugPage}?anchor=${title}`}
-                >
+                <Link href={`/help-center/${slugPage}?anchor=${title}`}>
                   <StyledTypographyUrbanistBody
                     key={key}
                     className='cart-question'

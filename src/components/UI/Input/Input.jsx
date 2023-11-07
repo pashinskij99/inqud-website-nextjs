@@ -38,15 +38,12 @@ export function InputText(props) {
         {helperTextBottom}
       </StyledTypographyUrbanistSmallSpaces>
     </div>
-    // <StyledInputTextWrapper {...props}>
-    // </StyledInputTextWrapper>
   )
 }
 
 export function InputSearch(props) {
   const {
     classNameWrapper,
-    // classNameWrapperIcon,
     classNameIcon,
     className,
     value,
@@ -61,7 +58,11 @@ export function InputSearch(props) {
         src={Search}
         alt='Search'
       />
-      <input className={clsx('input', className)} {...props} />
+      <input
+        value={value}
+        className={clsx('input', className)}
+        {...otherProps}
+      />
       <Image
         className={clsx('close', {
           ['active']: value,

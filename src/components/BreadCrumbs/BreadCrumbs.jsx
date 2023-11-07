@@ -12,7 +12,7 @@ function BreadCrumbs({ data }) {
 
   return pathname !== '/' && pathname !== '/personal' ? (
     <div className='containerHeader'>
-      <StyledBreadcrumbs visible={Boolean(breadcrumb.length)}>
+      <StyledBreadcrumbs visible={breadcrumb.length}>
         <Link href='/' className='breadCrumbLink'>
           <StyledTypographyUrbanistSmallSpaces className='breadCrumbText'>
             {data.breadcrumb}

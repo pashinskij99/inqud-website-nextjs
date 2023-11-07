@@ -95,7 +95,8 @@ export const StyledLeftSide = styled.div`
         font-weight: 400;
         line-height: 26px;
         transform: translateX(0px);
-        transition: 0.2s ease;
+
+        transition: all 0.2s ease;
 
         &.active {
           color: var(--ambitious-green, #077453);

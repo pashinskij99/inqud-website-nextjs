@@ -9,10 +9,7 @@ import { ArticleProvider } from '@/contexts/ArticleContext/ArticleContext'
 import SetterBreadcrumbComponent from '@/components/SetterBreadcrumbComponent'
 
 const DynamicRelatedArticles = dynamic(
-  () =>
-    import('@/sections/BlogSections/RelatedArticles').then(
-      (res) => res.default
-    ),
+  () => import('@/sections/BlogSections/RelatedArticles'),
   {
     ssr: false,
   }

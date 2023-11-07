@@ -64,6 +64,7 @@ function LeftSide() {
             className={clsx('list-item', {
               ['active']: activeHeader === title.trim(),
             })}
+            key={title}
           >
             <StyledTypographyUrbanistBody
               onClick={() => handleClick(title.trim())}

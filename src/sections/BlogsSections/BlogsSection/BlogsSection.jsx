@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { Element } from 'react-scroll'
 import { CSSTransition } from 'react-transition-group'
 import dynamic from 'next/dynamic'
+import { useRef } from 'react'
 import { StyledBlogsSectionWrapper } from '@/sections/BlogsSections/BlogsSection/BlogsSection.styled'
 import { BlogCart } from '@/components/BlogCart'
 import { StyledTypographyUrbanistH4 } from '@/components/UI/Typography/Typography.styled'
@@ -17,6 +18,7 @@ const DynamicBlogCategoryNavigation = dynamic(
 )
 
 function BlogsSection() {
+  const screenLoaderRef = useRef(null)
   const { blogs, pagination, loading } = useSelector((state) => state.blog)
   const { activeTags, searchValue } = useSelector((state) => state.blog)
 
@@ -73,8 +75,9 @@ function BlogsSection() {
             timeout={350}
             unmountOnExit
             classNames='display'
+            nodeRef={screenLoaderRef}
           >
-            <FullScreenLoader />
+            <FullScreenLoader ref={screenLoaderRef} />
           </CSSTransition>
         </div>
       </Element>

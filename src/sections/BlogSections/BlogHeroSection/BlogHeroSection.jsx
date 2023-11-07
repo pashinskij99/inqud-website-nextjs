@@ -33,8 +33,6 @@ export default function BlogHeroSection() {
         className='arrowRightBackground'
         alt='ArrowRightBackground'
       />
-      {/* <ArrowLeftBackground className='arrowLeftBackground' />
-      <ArrowRightBackground className='arrowRightBackground' /> */}
 
       <div className='container'>
         <StyledTypographyUrbanistH1 className='title'>
