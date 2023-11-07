@@ -19,9 +19,9 @@ export const metadata = {
   },
 }
 
-export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'ru' }]
-}
+// export function generateStaticParams() {
+//   return [{ locale: 'en' }, { locale: 'ru' }]
+// }
 
 export default async function RootLayout({ children, params: { locale } }) {
   let messages
