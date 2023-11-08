@@ -119,6 +119,7 @@ export const StyledHelpHeroSectionWrapper = styled.section`
     `}
     ${responsive.sm`
       padding: 0 16px;
+      width: 100%;
       flex-direction: column;
       row-gap: 8px;
       margin: 0 auto 25px;
@@ -126,9 +127,11 @@ export const StyledHelpHeroSectionWrapper = styled.section`
     .input-wrapper {
       width: 100%;
       max-width: 343px;
+      ${responsive.sm`
+        max-width: 100%;
+      `}
       input {
-        width: 343px;
-        max-width: 343px;
+        width: 100%;
       }
 
       &.input-wrapper-1 {

@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import { useContext, useEffect, useState } from 'react'
-// import { Link } from 'react-scroll'
 import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
@@ -18,11 +17,11 @@ import MessageIcon from '@/assets/images/help-center/message.svg'
 import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
 import { ArticleContext } from '@/contexts/ArticleContext/ArticleContext'
 import { HelpCentreDetailsContext } from '@/contexts/HelpCentreDetailsContext/HelpCentreDetailsContext'
+import { DetailsSectionModalFormContent } from '@/sections/HelpCenterSections/DetailsSection/components/DetailsSectionModalFormContent'
 
 export function DetailsSectionInner({ formData }) {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
   const searchParams = useSearchParams()
-
   const [expanded, setExpanded] = useState('')
   const { activeHeader, setActiveHeader } = useContext(ArticleContext)
   const { data } = useContext(HelpCentreDetailsContext)
@@ -34,6 +33,7 @@ export function DetailsSectionInner({ formData }) {
     const useEffectFunc = async () => {
       if (data.content) {
         setActiveHeader(data.content[0].title)
+        setExpanded(searchParams.get('anchor'))
         const scroller = await import('react-scroll').then(
           (res) => res.scroller
         )
@@ -82,7 +82,6 @@ export function DetailsSectionInner({ formData }) {
                   ['active']: activeHeader === title,
                 })}
               >
-                {/* <Link to={title} offset={-100} spy smooth duration={500}> */}
                 <StyledTypographyUrbanistBody
                   onClick={() => handleClick(title)}
                   className={clsx('list-item-text', {
@@ -91,14 +90,13 @@ export function DetailsSectionInner({ formData }) {
                 >
                   {title}
                 </StyledTypographyUrbanistBody>
-                {/* </Link> */}
               </li>
             ))}
           </ul>
         </StyledLeftSideWrapper>
         <StyledCenterSideWrapper>
           {data?.content?.map(({ id, descriptions, title }) => (
-            <DynamicDetailsSectionModalFormContent
+            <DetailsSectionModalFormContent
               key={id}
               title={title}
               description={descriptions}
@@ -139,16 +137,6 @@ export function DetailsSectionInner({ formData }) {
     </StyledPersonalSectionWrapper>
   )
 }
-
-const DynamicDetailsSectionModalFormContent = dynamic(
-  () =>
-    import('./DetailsSectionModalFormContent').then(
-      (res) => res.DetailsSectionModalFormContent
-    ),
-  {
-    ssr: false,
-  }
-)
 
 const DynamicDetailsSectionModalForm = dynamic(
   () => import('./DetailsSectionModalForm'),

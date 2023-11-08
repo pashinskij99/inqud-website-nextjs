@@ -48,7 +48,6 @@ export const StyledLeftSideWrapper = styled.div`
     .list-item {
       cursor: pointer;
       border-left: 0px solid transparent;
-      /* transition: border-left 0.3s ease-in-out; */
 
       &.active {
         border-left: 2px solid rgba(7, 116, 83, 1);
@@ -82,7 +81,6 @@ export const StyledCenterSideWrapper = styled.div`
     ${responsive.sm`
       margin-bottom: 34px;
     `}
-      /* &:nth-last-child(2), */
     &:nth-last-child(1) {
       margin-bottom: 0;
       ${responsive.xl`
@@ -104,11 +102,21 @@ export const StyledCenterSideWrapper = styled.div`
       `}
     }
 
-    .content-title {
-      color: var(--directness-black, #2d3439);
-      font-weight: 700;
-      line-height: 42px;
+    .content-title-wrappper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       margin-bottom: 16px;
+      column-gap: 20px;
+      .content-title {
+        color: var(--directness-black, #2d3439);
+        font-weight: 700;
+        line-height: 42px;
+      }
+      .icon-copy-tooltip {
+        margin-right: 10px;
+        cursor: pointer;
+      }
     }
 
     .content-description-wrapper {
@@ -228,9 +236,15 @@ export const StyledContentItemAccordionSummary = styled((props) => (
   lineHeight: 1,
   minHeight: 'auto',
   height: 'fit-content',
+  justifyContent: 'space-between',
   '& .css-1betqn-MuiAccordionSummary-content, & .MuiAccordionSummary-content.css-1n11r91':
     {
       margin: 0,
+      columnGap: '10px',
+      display: 'flex',
+      '@media (max-width: 767px)': {
+        maxWidth: '265px',
+      },
     },
   '& .questionsAccordionTitle': {
     fontWeight: '700',
@@ -238,28 +252,25 @@ export const StyledContentItemAccordionSummary = styled((props) => (
       fontSize: '18px',
     },
   },
-  // '@media (max-width: 767px)': {
-  //   padding: `${rem(16)}`,
-  // },
-  img: {
+  '& .questionsAccordionCopy': {
+    position: 'relative',
+    zIndex: 100,
+  },
+  '& .MuiAccordionSummary-expandIconWrapper': {
     '@media (max-width: 767px)': {
-      // width: '16px',
-      // height: '16px',
       width: '22px',
-      height: '22px',
+      marginLeft: '10px',
     },
   },
   transition: 'padding 0.3s ease',
 }))
 export const StyledContentItemAccordionDetails = styled(AccordionDetails)(
   () => ({
-    // background: '#FFA3A3',
     padding: '0 0 0 0',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',
     rowGap: 0,
-    // overflow: 'visible!important',
     '@media (max-width: 767px)': {
       padding: '0',
     },
@@ -272,9 +283,6 @@ export const StyledContentItemAccordionDetails = styled(AccordionDetails)(
       '@media (max-width: 767px)': {
         maxWidth: '100%',
       },
-      // transform: `${
-      //   props.expanded ? `translateY(-${rem(26)})` : 'translateY(0)'
-      // }`,
       transition: '0.3s ease',
     },
   })
