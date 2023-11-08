@@ -20,7 +20,6 @@ import Minus from '@/assets/icons/minus.svg'
 import { ArticleContext } from '@/contexts/ArticleContext/ArticleContext'
 import copyIcon from '@/assets/icons/copy.png'
 import { copyTextToClipboard } from '@/utils/copyTextToClipboard'
-import Device, { MOBILE_OR_TABLET } from '@/components/Device/Device'
 
 export function DetailsSectionModalFormContent({
   title,
@@ -43,7 +42,7 @@ export function DetailsSectionModalFormContent({
 
   return (
     <>
-      <Element className='content content-1' name={title}>
+      <Element name={title}>
         <InView
           options={{
             threshold: 0,
@@ -53,7 +52,7 @@ export function DetailsSectionModalFormContent({
           id={title}
           onView={(inView) => (inView ? setActiveHeader(title) : null)}
         >
-          <div>
+          <div className='content content-1'>
             <div className='content-title-wrappper'>
               <StyledTypographyUrbanistH4 className='content-title'>
                 {title}
@@ -83,19 +82,20 @@ export function DetailsSectionModalFormContent({
               ))}
             </div>
           </div>
+          <div className='content content-2'>
+            <ContentAccordionItem
+              onCopy={onCopy}
+              title={title}
+              description={description}
+              expanded={expanded}
+              handleChange={handleChange}
+            />
+          </div>
         </InView>
       </Element>
-      <Device device={MOBILE_OR_TABLET}>
-        <div className='content content-2'>
-          <ContentAccordionItem
-            onCopy={onCopy}
-            title={title}
-            description={description}
-            expanded={expanded}
-            handleChange={handleChange}
-          />
-        </div>
-      </Device>
+      {/* <Device device={MOBILE_OR_TABLET}> */}
+
+      {/* </Device> */}
     </>
   )
 }
