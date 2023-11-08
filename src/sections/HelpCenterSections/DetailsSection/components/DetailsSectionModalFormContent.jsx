@@ -20,6 +20,7 @@ import Minus from '@/assets/icons/minus.svg'
 import { ArticleContext } from '@/contexts/ArticleContext/ArticleContext'
 import copyIcon from '@/assets/icons/copy.png'
 import { copyTextToClipboard } from '@/utils/copyTextToClipboard'
+import Device, { MOBILE_OR_TABLET } from '@/components/Device/Device'
 
 export function DetailsSectionModalFormContent({
   title,
@@ -84,15 +85,17 @@ export function DetailsSectionModalFormContent({
           </div>
         </InView>
       </Element>
-      <div className='content content-2'>
-        <ContentAccordionItem
-          onCopy={onCopy}
-          title={title}
-          description={description}
-          expanded={expanded}
-          handleChange={handleChange}
-        />
-      </div>
+      <Device device={MOBILE_OR_TABLET}>
+        <div className='content content-2'>
+          <ContentAccordionItem
+            onCopy={onCopy}
+            title={title}
+            description={description}
+            expanded={expanded}
+            handleChange={handleChange}
+          />
+        </div>
+      </Device>
     </>
   )
 }
