@@ -19,7 +19,7 @@ import { ArticleContext } from '@/contexts/ArticleContext/ArticleContext'
 import { HelpCentreDetailsContext } from '@/contexts/HelpCentreDetailsContext/HelpCentreDetailsContext'
 import { DetailsSectionModalFormContent } from '@/sections/HelpCenterSections/DetailsSection/components/DetailsSectionModalFormContent'
 
-export function DetailsSectionInner({ formData }) {
+export function DetailsSectionInner({ formData, contactUsData }) {
   const [openModalSendRequest, setOpenModalSendRequest] = useState(false)
   const searchParams = useSearchParams()
   const [expanded, setExpanded] = useState('')
@@ -112,7 +112,7 @@ export function DetailsSectionInner({ formData }) {
             </div>
             <div className='cart-right-side'>
               <StyledTypographyUrbanistBody className='cart-title'>
-                Didn’t get an answers?
+                {contactUsData.contactText}
               </StyledTypographyUrbanistBody>
 
               <StyledButtonLearnMore
@@ -120,7 +120,7 @@ export function DetailsSectionInner({ formData }) {
                 className='cart-button'
               >
                 <StyledTypographyUrbanistBody className='cart-button-text'>
-                  Contact us
+                  {contactUsData.contactButton}
                 </StyledTypographyUrbanistBody>
               </StyledButtonLearnMore>
               {openModalSendRequest ? (

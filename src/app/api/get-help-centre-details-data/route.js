@@ -7,7 +7,7 @@ export async function POST(req) {
   const HELP_CENTRE_PAGE = `
   query MyQuery(
       $slug: String = "${params.slug}",
-      $locale: SiteLocale
+      $locale: SiteLocale = ${params.locale}
     ) {
     formSendResponse(locale: $locale, fallbackLocales: en) {
       formTitle

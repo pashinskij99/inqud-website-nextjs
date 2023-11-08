@@ -14,6 +14,10 @@ const QUERY = `
       formDescription
       formButtonText
     }
+    helpCentreHero(locale: $locale, fallbackLocales: en) {
+      contactText
+      contactButton
+    }
   }
 `
 
@@ -34,7 +38,13 @@ async function Page({ params }) {
     locale: params.locale,
   })
 
-  return <DetailsSection formData={data.formSendResponse} params={params} />
+  return (
+    <DetailsSection
+      contactUsData={data.helpCentreHero}
+      formData={data.formSendResponse}
+      params={params}
+    />
+  )
 }
 
 export default Page
