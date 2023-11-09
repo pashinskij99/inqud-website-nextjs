@@ -64,12 +64,12 @@ export default function HeaderMobileMenu({ active, handleClose, data }) {
         </div>
 
         <div className='headerMobileMenuButtons'>
-          <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
+          <Link target='_blank' href='https://cabinet.inqud.com/#/login'>
             <ButtonGetStarted onClick={handleClose}>
               {data.buttonText1}
             </ButtonGetStarted>
           </Link>
-          <Link target='_blank' href='https://cabinet.inqud.com/#/login'>
+          <Link target='_blank' href='https://cabinet.inqud.com/#/signup'>
             <StyledButtonGhost onClick={handleClose}>
               {data.buttonText2}
             </StyledButtonGhost>

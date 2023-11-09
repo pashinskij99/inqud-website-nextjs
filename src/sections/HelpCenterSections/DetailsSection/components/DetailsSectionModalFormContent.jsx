@@ -93,9 +93,6 @@ export function DetailsSectionModalFormContent({
           </div>
         </InView>
       </Element>
-      {/* <Device device={MOBILE_OR_TABLET}> */}
-
-      {/* </Device> */}
     </>
   )
 }
