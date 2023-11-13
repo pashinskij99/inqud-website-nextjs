@@ -17,6 +17,8 @@ query Blog($slug: String, $locale: SiteLocale) {
     buttonBack
     button
     buttonLoadMore
+    relatedTitle
+    relatedButtonText
   }
   blog(locale: $locale, fallbackLocales: en, filter: {slugPage: {eq: $slug}}) {
     id

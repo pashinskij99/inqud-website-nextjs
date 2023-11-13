@@ -10,18 +10,17 @@ import { BlogContext } from '@/contexts/BlogContext/BlogContext'
 import Device, { DESKTOP, MOBILE_OR_TABLET } from '@/components/Device/Device'
 
 export default function RelatedArticles() {
-  const { relatedData } = useContext(BlogContext)
-
+  const { relatedData, heroSectionData } = useContext(BlogContext)
   return (
     <StyledRelatedArticlesSection>
       <div className='container'>
         <div className='relatedBlogsHeader blogsHeader'>
           <StyledTypographyUrbanistH2 className='relatedBlogsHeaderTitle blogsHeaderTitle'>
-            Related articles
+            {heroSectionData.relatedTitle}
           </StyledTypographyUrbanistH2>
           <Link href='/blog'>
             <StyledButtonGhost className='relatedBlogsHeaderButton blogsHeaderButton'>
-              Go to blog
+              {heroSectionData.relatedButtonText}
             </StyledButtonGhost>
           </Link>
         </div>
@@ -111,7 +110,7 @@ export default function RelatedArticles() {
 
         <Link href='/blog'>
           <StyledButtonGhost className='relatedBlogsHeaderButtonMobile blogsHeaderButtonMobile'>
-            Go to blog
+            {heroSectionData.relatedButtonText}
           </StyledButtonGhost>
         </Link>
       </div>
