@@ -118,6 +118,8 @@ export const StyledSubSectionWrapper = styled.div`
       color: rgba(7, 116, 83, 1);
       height: auto;
       padding: 0;
+      height: fit-content;
+      min-height: fit-content;
     }
 
     .cart-answers-text {

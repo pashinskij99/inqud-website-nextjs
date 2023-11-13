@@ -203,6 +203,7 @@ export function StyledTypographyUrbanistH5({
 export function StyledTypographyUrbanistBody({
   children,
   component = 'p',
+  style,
   className,
   ...props
 }) {
@@ -214,11 +215,20 @@ export function StyledTypographyUrbanistBody({
   //   font-weight: 400;
   //   line-height: 26px;
   // `
-  return (
-    <p {...props} className={clsx('paragraph', className)}>
-      {children}
-    </p>
+  return createElement(
+    component,
+    {
+      className: clsx('paragraph', className),
+      style,
+      ...props,
+    },
+    children
   )
+  // return (
+  //   <p {...props} className={clsx('paragraph', className)}>
+  //     {children}
+  //   </p>
+  // )
   // return createElement(
   //   component,
   //   {

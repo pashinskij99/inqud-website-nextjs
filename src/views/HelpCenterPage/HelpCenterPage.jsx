@@ -12,6 +12,7 @@ import { HelpCentreProvider } from '@/contexts/HelpCentreContext/HelpCentreConte
 import { setIsSearch } from '@/store/features/helpCentre/helpCentreSlice'
 import { FullScreenLoader } from '@/components/Loader'
 import SetterBreadcrumbComponent from '@/components/SetterBreadcrumbComponent'
+import { BUSSINESS_ID, PERSONAL_ID } from '@/app/api/get-help-centre-data/route'
 
 function HelpCenterPage({ children, data }) {
   const path = usePathname()
@@ -40,6 +41,7 @@ export function HelpCenterPageContent({ params, pageData }) {
   const { helpCentreData, isSearch, loading } = useSelector(
     (state) => state.helpCentre
   )
+  const { tab } = useSelector((state) => state.activeTab)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -48,7 +50,12 @@ export function HelpCenterPageContent({ params, pageData }) {
         '@/store/features/helpCentre/helpCentreAsyncThunk'
       ).then((res) => res.fetchHelpCentreData)
       dispatch(setIsSearch(false))
-      dispatch(fetchHelpCentreData({ params }))
+      dispatch(
+        fetchHelpCentreData({
+          params,
+          categoryId: tab ? PERSONAL_ID : BUSSINESS_ID,
+        })
+      )
     }
 
     fetchData()
@@ -56,7 +63,7 @@ export function HelpCenterPageContent({ params, pageData }) {
     return () => {
       dispatch(setIsSearch(false))
     }
-  }, [])
+  }, [tab])
 
   return (
     <HelpCentreProvider data={helpCentreData} pageData={pageData}>

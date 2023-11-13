@@ -2,6 +2,7 @@
 
 import Link from 'next-intl/link'
 import Image from 'next/image'
+import { StructuredText } from 'react-datocms/structured-text'
 import styles from './styles.module.scss'
 import {
   StyledTypographyUrbanistBody,
@@ -34,8 +35,11 @@ export default function Footer({ data }) {
         <div className='container'>
           <div className='footerLogoSection'>
             <Image src={Logo} alt='Logo' />
-            <StyledTypographyUrbanistBody className='footerLogoSectionText'>
-              {data.mainDescription}
+            <StyledTypographyUrbanistBody
+              className='footerLogoSectionText'
+              component='span'
+            >
+              <StructuredText data={data.mainDescriptionStructured} />
             </StyledTypographyUrbanistBody>
           </div>
           <div className='footerResourcesSection'>

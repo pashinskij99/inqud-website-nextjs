@@ -6,6 +6,8 @@ import {
 
 const initialState = {
   helpCentreData: [],
+  helpCentreExploreProducts: [],
+  helpCentreExploreCategories: [],
   helpCentreDetailsData: {},
   loading: true,
   error: '',
@@ -31,7 +33,12 @@ export const helpCentreSlice = createSlice({
     })
     builder.addCase(fetchHelpCentreData.fulfilled, (state, action) => {
       state.loading = false
-      state.helpCentreData = action.payload.data.allHelpCentres
+      state.helpCentreData = [
+        ...action.payload.data.products,
+        ...action.payload.data.categories,
+      ]
+      state.helpCentreExploreCategories = action.payload.data.categories
+      state.helpCentreExploreProducts = action.payload.data.products
     })
     builder.addCase(fetchHelpCentreData.rejected, (state) => {
       state.loading = false

@@ -54,7 +54,9 @@ query MyQuery($locale: SiteLocale = en) {
     formTitle
     id
     legalTitle
-    mainDescription
+    mainDescriptionStructured {
+      value
+    }
     resourcesTitle
     submitButtonText
     socialLinks {

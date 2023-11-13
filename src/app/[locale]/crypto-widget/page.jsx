@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { toNextMetadata } from 'react-datocms'
 import { getData, performRequest } from '@/lib/datocms'
 import CryptoWidget from '@/views/CryptoWidget'

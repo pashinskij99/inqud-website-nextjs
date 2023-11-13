@@ -25,6 +25,9 @@ export const StyledHeaderMobileMenu = styled.div`
   ${responsive.sm`
     height: calc(100dvh - ${rem(54)});
     top: ${rem(54)};
+    .title-5 {
+      font-size: 24px;
+    }
   `};
 
   &.show {
@@ -149,7 +152,7 @@ export const StyledHeaderMobileMenuAccordion = styled((props) => (
       margin: 'auto 0',
       height: 'fit-content',
       '@media(max-width: 767px)': {
-        right: '-8px',
+        right: '-20px',
       },
       svg: {
         width: '14px',

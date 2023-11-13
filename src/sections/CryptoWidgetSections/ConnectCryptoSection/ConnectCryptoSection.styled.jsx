@@ -25,10 +25,12 @@ export const StyledConnectCryptoSectionWrapper = styled.section`
     left: auto;
     right: auto;
     margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     ${responsive.xl`
       display: none;
     `}
-    /* width: 100%; */
 
     &.background-1 {
       /* ${responsive.xxl`

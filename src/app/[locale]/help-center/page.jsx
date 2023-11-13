@@ -12,6 +12,8 @@ const HELP_CENTRE_QUERY = `
       documentationTitleCart
       documentationButtonText
       documentationDescriptionCart
+      cartButtonView
+      cartAnswers
     }
   }
 `

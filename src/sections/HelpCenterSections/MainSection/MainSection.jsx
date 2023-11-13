@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next-intl/link'
 import { useContext } from 'react'
+import { useSelector } from 'react-redux'
 import {
   StyledBusinessSectionWrapper,
   StyledOtherDocumentationSectionWrapper,
@@ -15,19 +16,21 @@ import { StyledButtonLearnMore } from '@/components/UI/Button/Button.styled'
 import { HelpCentreContext } from '@/contexts/HelpCentreContext/HelpCentreContext'
 
 function MainSection() {
-  const { browseByProductData, exploreByCategoryData, pageData } =
-    useContext(HelpCentreContext)
+  const { pageData } = useContext(HelpCentreContext)
+
+  const { helpCentreExploreProducts, helpCentreExploreCategories } =
+    useSelector((state) => state.helpCentre)
 
   return (
     <StyledBusinessSectionWrapper>
       <div className='container'>
         <SubSection
           title={pageData.titleByProduct}
-          grid={browseByProductData}
+          grid={helpCentreExploreProducts}
         />
         <SubSection
           title={pageData.titleByCategory}
-          grid={exploreByCategoryData}
+          grid={helpCentreExploreCategories}
         />
         <StyledOtherDocumentationSectionWrapper
           title={pageData.documentationTitle}
@@ -47,31 +50,24 @@ function SubSection({ title, grid }) {
         {title}
       </StyledTypographyUrbanistH3>
       <div className='grid'>
-        {grid.map(
-          ({
-            id,
-            icon,
-            title: titleCart,
-            answers,
-            listQuestions,
-            slugPage,
-          }) => (
-            <Cart
-              key={id}
-              icon={icon}
-              titleCart={titleCart}
-              answers={answers}
-              listQuestions={listQuestions}
-              slugPage={slugPage}
-            />
-          )
-        )}
+        {grid.map(({ id, icon, mainTitle: titleCart, content, slugPage }) => (
+          <Cart
+            key={id}
+            icon={icon.url}
+            titleCart={titleCart}
+            answers={content.length}
+            listQuestions={content}
+            slugPage={slugPage}
+          />
+        ))}
       </div>
     </StyledSubSectionWrapper>
   )
 }
 
 function Cart({ icon, titleCart, listQuestions, answers, slugPage }) {
+  const { pageData } = useContext(HelpCentreContext)
+
   return (
     <li className='cart'>
       <div>
@@ -101,12 +97,12 @@ function Cart({ icon, titleCart, listQuestions, answers, slugPage }) {
       <div className='cart-footer'>
         <Link href={`/help-center/${slugPage}`}>
           <StyledButtonLearnMore className='cart-btn-view'>
-            View all
+            {pageData.cartButtonView}
           </StyledButtonLearnMore>
         </Link>
 
         <StyledTypographyUrbanistBody className='cart-answers-text'>
-          {answers} answers
+          {answers} {pageData.cartAnswers}
         </StyledTypographyUrbanistBody>
       </div>
     </li>
