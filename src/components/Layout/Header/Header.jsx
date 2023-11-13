@@ -99,13 +99,14 @@ export default function Header({ data }) {
                 alt='logo'
               />
             </Device>
-            <Image
+            <LogoMobile className='logo-mobile' />
+            {/* <Image
               className='logo-mobile'
               src={data.mainLogoMobile.url}
               alt='logo'
               width={32}
               height={32}
-            />
+            /> */}
           </Link>
 
           <div
@@ -203,5 +204,74 @@ export default function Header({ data }) {
         </Device>
       </div>
     </header>
+  )
+}
+
+function LogoMobile({ className }) {
+  return (
+    <svg
+      className={className}
+      width='32'
+      height='33'
+      viewBox='0 0 32 33'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <g id='Group 1091'>
+        <g id='Group 1070'>
+          <mask
+            id='mask0_2001_16935'
+            // eslint-disable-next-line react/style-prop-object
+            // style='mask-type:alpha'
+            maskUnits='userSpaceOnUse'
+            x='0'
+            y='0'
+            width='32'
+            height='33'
+          >
+            <ellipse
+              id='Ellipse 157'
+              cx='16'
+              cy='16.5'
+              rx='16'
+              ry='16'
+              fill='#D9D9D9'
+            />
+          </mask>
+          <g mask='url(#mask0_2001_16935)'>
+            <ellipse
+              id='Ellipse 158'
+              cx='16'
+              cy='16.5'
+              rx='16'
+              ry='16'
+              fill='white'
+            />
+            <g id='Group 1069'>
+              <path
+                id='Rectangle 542'
+                d='M-0.638672 32.4998H17.9213V18.4198C17.9213 16.299 16.2021 14.5798 14.0813 14.5798H-0.638672V32.4998Z'
+                fill='#077453'
+              />
+              <path
+                id='Rectangle 545'
+                d='M19.2012 32.4998H37.7612V14.5798H23.0412C20.9204 14.5798 19.2012 16.299 19.2012 18.4198V32.4998Z'
+                fill='#077453'
+              />
+              <path
+                id='Rectangle 543'
+                d='M-0.638672 13.2998H14.0813C16.2021 13.2998 17.9213 11.5806 17.9213 9.45981V-4.62017H-0.638672V13.2998Z'
+                fill='#077453'
+              />
+              <path
+                id='Rectangle 544'
+                d='M19.2012 9.45981C19.2012 11.5806 20.9204 13.2998 23.0412 13.2998H37.7612V-4.62017H19.2012V9.45981Z'
+                fill='#077453'
+              />
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
   )
 }
