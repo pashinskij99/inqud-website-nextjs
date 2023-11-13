@@ -108,7 +108,10 @@ export async function generateMetadata({ params }) {
     },
   })
 
-  return toNextMetadata([...response.blog.seo])
+  console.log(response.blog)
+
+  if (response.blog) return toNextMetadata([...response.blog.seo])
+  return notFound()
 }
 
 export default async function page({ params }) {

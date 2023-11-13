@@ -88,8 +88,10 @@
   "blog_name_section": {
     "title": "Insights"
   },
-  "404_page_sub_title": "Page not found",
-  "404_page_button_text": "Back to home",
+  "404_page": {
+    "sub_title": "Page not found",
+    "button_text": "Back to home"
+  },
   "modern_slavery_statement": {
     "paragraph1": "At Inqud, our values drive us to set high ethical standards in the cryptocurrency sector. Upholding fairness, ethics, and transparency is fundamental to our mission.",
     "paragraph2": "We're dedicated to eradicating modern slavery and human trafficking risks in our supply chains and business activities. We fully endorse the Modern Slavery Act 2015 and believe that organizations, especially in finance, must proactively address these issues.",

@@ -1,27 +1,17 @@
 'use client'
 
 import Image from 'next/image'
-import { useContext, useEffect } from 'react'
+// import { useContext, useEffect } from 'react'
 import Link from 'next-intl/link'
 import { useTranslations } from 'next-intl'
 import { StyledNotFoundPageWrapper } from './NotFoundPage.styled'
 import picture from '@/assets/images/404/picture.png'
 import image404 from '@/assets/images/404/404.png'
 import { StyledButtonSecondary } from '@/components/UI/Button/Button.styled'
-import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
+// import { NotFoundContext } from '@/contexts/NotFoundContext/NotFoundContext'
 
 export default function NotFoundPage() {
   const t = useTranslations('404_page')
-
-  const { setIsNotFound } = useContext(NotFoundContext)
-
-  useEffect(() => {
-    setIsNotFound(true)
-
-    return () => {
-      setIsNotFound(false)
-    }
-  }, [])
 
   return (
     <StyledNotFoundPageWrapper>
