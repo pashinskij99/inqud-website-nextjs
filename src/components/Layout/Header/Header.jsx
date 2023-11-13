@@ -222,7 +222,7 @@ function LogoMobile({ className }) {
           <mask
             id='mask0_2001_16935'
             // eslint-disable-next-line react/style-prop-object
-            // style='mask-type:alpha'
+            style={{ 'mask-type': 'alpha' }}
             maskUnits='userSpaceOnUse'
             x='0'
             y='0'
