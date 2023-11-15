@@ -1,7 +1,7 @@
 // 'use client'
 
 import Link from 'next-intl/link'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
 import { StyledApiHeroSectionWrapper } from './ApiHeroSection.styled'
@@ -75,7 +75,8 @@ export default function ApiHeroSection({ paymentListData, params, data }) {
             width={500}
             height={488}
             // src='/video/api_page_hero.avif'
-            src='/video/api_page_hero_2.avif'
+            // src='/video/api_page_hero_2.avif'
+            src='/video/api_page_hero_3.webp'
             alt='animations'
           />
         </div>
