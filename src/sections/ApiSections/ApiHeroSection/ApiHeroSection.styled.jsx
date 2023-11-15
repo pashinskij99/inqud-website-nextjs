@@ -151,8 +151,11 @@ export const StyledApiHeroSectionWrapper = styled.section`
       order: 1;
     `}
     .cart {
-      height: 650px;
+      /* height: 650px; */
       display: block;
+      width: 500px;
+      height: auto;
+      object-fit: contain;
       ${responsive.xl`
         height: 464px;
         max-width: 400px;
@@ -162,12 +165,6 @@ export const StyledApiHeroSectionWrapper = styled.section`
       ${responsive.sm`
         height: 398.125px;
       `}
-      &.cart-2 {
-        display: none;
-        ${responsive.sm`
-          display: block;
-        `}
-      }
     }
     /* .cart {
       background: conic-gradient(

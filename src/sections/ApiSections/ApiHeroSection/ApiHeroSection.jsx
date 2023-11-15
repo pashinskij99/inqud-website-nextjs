@@ -11,7 +11,6 @@ import {
 } from '@/components/UI/Typography/Typography.styled'
 import Check from '@/assets/icons/check-green-background.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
-// import Animated2Gif from '@/components/AnimatedVideo/Animated2Gif'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
 import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import ApiHeroButtonShowModal from './components/ApiHeroButtonShowModal'
@@ -21,11 +20,6 @@ const DynamicAnimatedOneVideo = dynamic(() =>
 )
 
 export default function ApiHeroSection({ paymentListData, params, data }) {
-  // const {
-  //   params,
-  //   dataPage: { apiPage: data },
-  // } = useContext(PageContext)
-
   return (
     <StyledApiHeroSectionWrapper>
       <div className='container'>
@@ -62,38 +56,28 @@ export default function ApiHeroSection({ paymentListData, params, data }) {
           <HeroSectionPaymentList data={paymentListData} params={params} />
         </div>
         <div className='right-side'>
-          <Device device={TABLET_OR_DESKTOP}>
-            <DynamicAnimatedOneVideo
+          {/* <Device device={TABLET_OR_DESKTOP}>
+            <Image
+              priority
+              loading='eager'
               className='cart'
               width={500}
               height={488}
-              timeRepeat={0}
-              urlFirstVideo='/video/code 2.mp4'
+              // src='/video/api_page_hero.avif'
+              src='/video/api_page_hero_2.avif'
+              alt='animations'
             />
-          </Device>
-          {/* <Device device={MOBILE}> */}
+          </Device> */}
           <Image
             priority
             loading='eager'
             className='cart cart-2'
             width={500}
             height={488}
-            src='/video/api_page_hero.avif'
+            // src='/video/api_page_hero.avif'
+            src='/video/api_page_hero_2.avif'
             alt='animations'
           />
-          {/* <Animated2Gif
-              className='cart'
-              width={500}
-              height={488}
-              timeRepeat={0}
-              timeFirstAnimate={10000}
-              urlFirstVideo='/video/api_page_hero.avif'
-              stillFirstVideo='/video/api_page_hero.webp'
-              urlSecondVideo='/video/api_page_hero.avif'
-              stillSecondVideo='/video/api_page_hero.webp'
-              timeSecondAnimate={10000}
-            /> */}
-          {/* </Device> */}
         </div>
       </div>
     </StyledApiHeroSectionWrapper>
