@@ -75,8 +75,8 @@ export default function ApiHeroSection({ paymentListData, params, data }) {
             width={500}
             height={488}
             // src='/video/api_page_hero.avif'
-            // src='/video/api_page_hero_2.avif'
-            src='/video/api_page_hero_3.webp'
+            src='/video/api_page_hero_2.avif'
+            // src='/video/api_page_hero_3.webp'
             alt='animations'
           />
         </div>
