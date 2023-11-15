@@ -1,5 +1,5 @@
 import {
-  StyledTypographyIBMH5,
+  // StyledTypographyIBMH5,
   StyledTypographyUrbanistBody,
 } from '@/components/UI/Typography/Typography.styled'
 
@@ -25,10 +25,10 @@ export default function Accordion({
 }) {
   return (
     <div className='ourLandscapeAccordion'>
-      <div className='ourLandscapeAccordionTitle'>
+      {/* <div className='ourLandscapeAccordionTitle'>
         {icon}
         <StyledTypographyIBMH5>{title}</StyledTypographyIBMH5>
-      </div>
+      </div> */}
       {items.map((accordionTitle, i) => (
         <div
           style={{
