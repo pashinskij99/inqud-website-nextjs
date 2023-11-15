@@ -102,7 +102,7 @@ function Cart({ icon, titleCart, listQuestions, answers, slugPage }) {
         </Link>
 
         <StyledTypographyUrbanistBody className='cart-answers-text'>
-          {answers} {pageData.cartAnswers}
+          {pageData.cartAnswers}: {answers}
         </StyledTypographyUrbanistBody>
       </div>
     </li>

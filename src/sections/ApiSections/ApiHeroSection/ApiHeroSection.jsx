@@ -1,7 +1,4 @@
-// 'use client'
-
 import Link from 'next-intl/link'
-// import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import { SubTitle } from '@/sections/HomeB2CSections/HeroB2CSection/HeroB2CSection'
 import { StyledApiHeroSectionWrapper } from './ApiHeroSection.styled'
@@ -12,12 +9,7 @@ import {
 import Check from '@/assets/icons/check-green-background.svg'
 import { ButtonGetStarted } from '@/components/UI/Button'
 import HeroSectionPaymentList from '@/sections/HomeSections/HeroSection/components/HeroSectionPaymentList'
-// import Device, { TABLET_OR_DESKTOP } from '@/components/Device/Device'
 import ApiHeroButtonShowModal from './components/ApiHeroButtonShowModal'
-
-// const DynamicAnimatedOneVideo = dynamic(() =>
-//   import('@/components/AnimatedVideo/AnimatedOneVideo')
-// )
 
 export default function ApiHeroSection({ paymentListData, params, data }) {
   return (
