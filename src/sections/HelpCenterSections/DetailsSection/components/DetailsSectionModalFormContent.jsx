@@ -32,7 +32,8 @@ export function DetailsSectionModalFormContent({
   const pathName = usePathname()
 
   const onCopy = async (event, text) => {
-    event.isPropagationStopped()
+    event.stopPropagation()
+
     const toast = await import('react-toastify').then((res) => res.toast)
     copyTextToClipboard(
       `${window.location.origin}${pathName}?anchor=${encodeURI(text)}`
@@ -114,9 +115,19 @@ function ContentAccordionItem({
           expanded={expanded === title}
           expandIcon={
             expanded === title ? (
-              <Image src={Minus} alt='minus' height={2} />
+              <Image
+                className='accordion-image'
+                src={Minus}
+                alt='minus'
+                height={2}
+              />
             ) : (
-              <Image src={Plus} alt='plus' height={22} />
+              <Image
+                className='accordion-image'
+                src={Plus}
+                alt='plus'
+                height={22}
+              />
             )
           }
         >

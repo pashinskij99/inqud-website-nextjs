@@ -26,6 +26,7 @@ export function DetailsSectionInner({ formData, contactUsData }) {
   const { activeHeader, setActiveHeader } = useContext(ArticleContext)
   const { data } = useContext(HelpCentreDetailsContext)
   const handleChange = (panel) => (event, newExpanded) => {
+    event.stopPropagation()
     setExpanded(newExpanded ? panel : false)
   }
 

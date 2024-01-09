@@ -240,11 +240,12 @@ export const StyledContentItemAccordionSummary = styled((props) => (
   '& .css-1betqn-MuiAccordionSummary-content, & .MuiAccordionSummary-content.css-1n11r91':
     {
       margin: 0,
-      columnGap: '10px',
+      columnGap: '16px',
       display: 'flex',
-      '@media (max-width: 767px)': {
-        maxWidth: '265px',
-      },
+      justifyContent: 'space-between',
+      // '@media (max-width: 767px)': {
+      //   maxWidth: '265px',
+      // },
     },
   '& .questionsAccordionTitle': {
     fontWeight: '700',
@@ -257,10 +258,10 @@ export const StyledContentItemAccordionSummary = styled((props) => (
     zIndex: 100,
   },
   '& .MuiAccordionSummary-expandIconWrapper': {
-    '@media (max-width: 767px)': {
-      width: '22px',
-      marginLeft: '10px',
-    },
+    width: '22px',
+    marginLeft: '10px',
+
+    // '@media (max-width: 767px)': {},
   },
   transition: 'padding 0.3s ease',
 }))

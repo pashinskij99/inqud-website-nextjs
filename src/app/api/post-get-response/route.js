@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 
 export async function POST(req) {
   const { email } = await req.json()
-  const apiKey = 'oae4bopyjs55kaqlc027u6c6fajgu5f9'
+  const apiKey = 'zi8wpbbu3p6lsecc71zx7sceuayk5k9l'
   const listToken = '5dBh5'
 
   const response = await fetch('https://api.getresponse.com/v3/contacts', {

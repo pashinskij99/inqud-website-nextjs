@@ -11,6 +11,7 @@ export async function POST(req) {
     {
       headers: {
         'Api-Token': apiKey,
+        'Content-Type': 'application/json',
       },
     }
   )
